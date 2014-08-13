@@ -1,18 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>OpenGL API Documentation</title>
+<title>{$title} - OpenGL API Documentation</title>
 <link href="../reset.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+
 <link href="../style.css" rel="stylesheet" type="text/css" />
+
+<script>
+$(function() {
+	$( "#versions_dropdown" ).selectmenu();
+});
+</script>
+
 </head>
 <body>
 
 <div id="everything">
 <div id="toc">
+<div id="versions_container"><span id="api">API:</span><select id="versions_dropdown">{$versions_options}</select></div>
 TABLE OF CONTENTS
 
 </div>
 
 <div id="khronos">
+<div id="command_versions">{$command_versions}</div>

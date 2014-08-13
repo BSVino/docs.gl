@@ -37,13 +37,49 @@ print "Done."
 for version in opengl.version_commands:
   written = 0
  
-  print "Version " + version + " ..."
-
+  print "Compiling GL" + version[0] + " ..."
+  
+  header_for_version = header;
+  
+  all_versions = opengl.version_commands.keys()
+  all_versions.sort()
+    
+  toc_versions_options = ""
+  for version_option in all_versions:
+    selected = ""
+    if version_option[0] == version[0]:
+      selected = " selected='selected'"
+    toc_versions_options = toc_versions_options + "<option" + selected + ">GL" + version_option[0] + "</option>"
+  header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
+    
   for command in opengl.commands_version:
     if not version in opengl.commands_version[command]:
       continue
-   
-    create_directory(output_dir + version)
+      
+    header_for_command = header_for_version
+
+    versions_available = opengl.commands_version[command]
+    versions_available.sort()
+    
+    major_versions = []
+    for v in versions_available:
+      major_version = v[0] + ".x"
+      if not major_version in major_versions:
+        major_versions.append(major_version)
+    
+    command_versions = "<strong>OpenGL " + version[0] + "</strong>"
+    for version_option in major_versions:
+      if version_option[0] == version[0]:
+        continue
+        
+      command_versions = command_versions + " | <a href='../" + version_option[0] + "/" + command + "'>GL" + version_option[0] + "</a>"
+      
+    header_for_command = header_for_command.replace("{$command_versions}", command_versions)
+    header_for_command = header_for_command.replace("{$title}", command)
+
+    version_dir = version[0]
+    
+    create_directory(output_dir + version_dir)
     
     gldir = "gl" + version[0]
     
@@ -51,15 +87,15 @@ for version in opengl.version_commands:
     command_html = fp.read().decode('utf8')
     fp.close()
     
-    output_html = header + command_html + footer
+    output_html = header_for_command + command_html + footer
 
-    output = open(output_dir + version + "/" + command, "w")
+    output = open(output_dir + version_dir + "/" + command, "w")
     output.write(output_html.encode('ascii', 'xmlcharrefreplace'))
     output.close()
     
     written += 1
   
-  print "Wrote " + str(written) + " commands for version " + version
+  print "Wrote " + str(written) + " commands for GL" + version[0]
 
 f = []
 for (dirpath, dirnames, filenames) in os.walk("html/copy"):
