@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glScissorIndexed - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glScissorIndexed">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glScissorIndexed — define the scissor box for a specific viewport</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glScissorIndexed</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">left</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">bottom</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glScissorIndexedv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLint *<var class="pdparam">v</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specifies the index of the viewport whose scissor box to modify.
+            </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>left</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>bottom</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specify the coordinate of the bottom left corner of the scissor box, in pixels.
+            </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>width</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specify ths dimensions of the scissor box, in pixels.
+            </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>v</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                For <code class="function">glScissorIndexedv</code>, specifies the address of an array containing the left, bottom, width and height of each
+                scissor box, in that order.
+            </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glScissorIndexed</code> defines the scissor box for a specified viewport.
+            <em class="parameter"><code>index</code></em> specifies the index of scissor box to modify.
+            <em class="parameter"><code>index</code></em> must be less than the value of <code class="constant">GL_MAX_VIEWPORTS</code>.
+            For <code class="function">glScissorIndexed</code>, <em class="parameter"><code>left</code></em>, <em class="parameter"><code>bottom</code></em>,
+            <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> specify the left, bottom, width
+            and height of the scissor box, in pixels, respectively.
+            For <code class="function">glScissorIndexedv</code>, <em class="parameter"><code>v</code></em> specifies the address of an
+            array containing integers specifying the lower left corner of the scissor box, and the width and
+            height of the scissor box, in that order.
+        </p>
+        <p>
+            To enable and disable the scissor test, call
+            <a class="citerefentry" href="glEnable.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
+            <code class="constant">GL_SCISSOR_TEST</code>. The test is initially disabled for all viewports.
+            While the test is enabled, only pixels that lie within the scissor box
+            can be modified by drawing commands.
+            Window coordinates have integer values at the shared corners of
+            frame buffer pixels.
+            <code class="code">glScissor(0,0,1,1)</code> allows modification of only the lower left
+            pixel in the window, and <code class="code">glScissor(0,0,0,0)</code> doesn't allow
+            modification of any pixels in the window.
+        </p>
+        <p>
+            When the scissor test is disabled,
+            it is as though the scissor box includes the entire window.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater than or equal to
+            the value of <code class="constant">GL_MAX_VIEWPORTS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if any width or height specified in the array <em class="parameter"><code>v</code></em> is negative.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SCISSOR_BOX</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_SCISSOR_TEST</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glScissorIndexed</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glScissorIndexedv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glEnable.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glScissor.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glScissorArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissorArray</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

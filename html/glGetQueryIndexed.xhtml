@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetQueryIndexediv - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetQueryIndexed">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetQueryIndexediv — return parameters of an indexed query object target</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetQueryIndexediv</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a query object target.
+                    Must be <code class="constant">GL_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>
+                    <code class="constant">GL_PRIMITIVES_GENERATED</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>,
+                    <code class="constant">GL_TIME_ELAPSED</code>, or <code class="constant">GL_TIMESTAMP</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the index of the query object target.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the symbolic name of a query object target parameter.
+                    Accepted values are <code class="constant">GL_CURRENT_QUERY</code> or <code class="constant">GL_QUERY_COUNTER_BITS</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>params</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Returns the requested data.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetQueryIndexediv</code> returns in <em class="parameter"><code>params</code></em> a selected parameter of the indexed query object target
+            specified by <em class="parameter"><code>target</code></em> and <em class="parameter"><code>index</code></em>. <em class="parameter"><code>index</code></em> specifies the index of the
+            query object target and must be between zero and a target-specific maxiumum.
+        </p>
+        <p>
+            <em class="parameter"><code>pname</code></em> names a specific query object target parameter.  When <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_CURRENT_QUERY</code>, the name of the currently active query for the specified <em class="parameter"><code>index</code></em> of <em class="parameter"><code>target</code></em>,
+            or zero if no query is active, will be placed in <em class="parameter"><code>params</code></em>.
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_QUERY_COUNTER_BITS</code>, the implementation-dependent number
+            of bits used to hold the result of queries for <em class="parameter"><code>target</code></em> is returned in <em class="parameter"><code>params</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            The target <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code> is available only if the GL version is 4.3 or greater.
+        </p>
+        <p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            Calling <a class="citerefentry" href="glGetQueryiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a> is equivalent to calling
+            <code class="function">glGetQueryIndexediv</code> with <em class="parameter"><code>index</code></em> set to zero.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not an
+            accepted value.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater than or equal to the
+            <em class="parameter"><code>target</code></em>-specific maximum.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetQueryIndexediv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGetQueryObject.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
+            <a class="citerefentry" href="glIsQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

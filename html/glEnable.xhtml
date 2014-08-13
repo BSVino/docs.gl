@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glEnable - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glEnable">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glEnable — enable or disable server-side GL capabilities</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glEnable</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">cap</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glDisable</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">cap</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glEnablei</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">cap</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glDisablei</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">cap</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>cap</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a symbolic constant indicating a GL capability.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the index of the switch to disable (for
+                    <code class="function">glEnablei</code> and
+                    <code class="function">glDisablei</code> only).
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glEnable</code> and <code class="function">glDisable</code>
+            enable and disable various capabilities. Use
+            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+            or
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            to determine the current setting of any capability. The initial
+            value for each capability with the exception of
+            <code class="constant">GL_DITHER</code> and
+            <code class="constant">GL_MULTISAMPLE</code> is
+            <code class="constant">GL_FALSE</code>. The initial value for
+            <code class="constant">GL_DITHER</code> and
+            <code class="constant">GL_MULTISAMPLE</code> is
+            <code class="constant">GL_TRUE</code>.
+        </p>
+        <p>
+            Both <code class="function">glEnable</code> and <code class="function">glDisable</code> take a single argument, <em class="parameter"><code>cap</code></em>,
+            which can assume one of the following values:
+        </p>
+        <p>
+            Some of the GL's capabilities are indexed. <code class="function">glEnablei</code> and <code class="function">glDisablei</code> enable and disable
+            indexed capabilities.
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BLEND</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        blend the computed fragment color values with the values in the color
+                        buffers. See <a class="citerefentry" href="glBlendFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_CLIP_DISTANCE</code>
+                <span class="emphasis">
+                  <em>i</em>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, clip geometry against user-defined half space <span class="emphasis"><em>i</em></span>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_COLOR_LOGIC_OP</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        apply the currently selected logical operation to the computed fragment
+                        color and color buffer values. See <a class="citerefentry" href="glLogicOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_CULL_FACE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        cull polygons based on their winding in window coordinates.
+                        See <a class="citerefentry" href="glCullFace.xhtml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEBUG_OUTPUT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, debug messages are produced by a debug context. When disabled,
+                        the debug message log is silenced. Note that in a non-debug context, very
+                        few, if any messages might be produced, even when <code class="constant">GL_DEBUG_OUTPUT</code>
+                        is enabled.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEBUG_OUTPUT_SYNCHRONOUS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, debug messages are produced synchronously by a debug context. If disabled,
+                        debug messages may be produced asynchronously. In particular, they may be delayed relative
+                        to the execution of GL commands, and the debug callback function may be called from
+                        a thread other than that in which the commands are executed.
+                        See <a class="citerefentry" href="glDebugMessageCallback.xhtml"><span class="citerefentry"><span class="refentrytitle">glDebugMessageCallback</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEPTH_CLAMP</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        the
+                        
+                        <math overflow="scroll">
+                            <mo>-</mo><msub><mi>w</mi><mi>c</mi></msub><mo>≤</mo><msub><mi>z</mi><mi>c</mi></msub><mo>≤</mo><msub><mi>w</mi><mi>c</mi></msub>
+                        </math>
+                        plane equation is ignored by view volume clipping (effectively, there is no near or
+                        far plane clipping).
+                        See <a class="citerefentry" href="glDepthRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEPTH_TEST</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        do depth comparisons and update the depth buffer. Note that even if
+                        the depth buffer exists and the depth mask is non-zero, the
+                        depth buffer is not updated if the depth test is disabled. See
+                        <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a> and
+                        <a class="citerefentry" href="glDepthRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_DITHER</code>    </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        dither color components or indices before they are written to the
+                        color buffer.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_FRAMEBUFFER_SRGB</code>    </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled
+                        and the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING</code> for the
+                        framebuffer attachment corresponding to the destination buffer is <code class="constant">GL_SRGB</code>,
+                        the R, G, and B destination color values (after conversion from fixed-point to floating-point)
+                        are considered to be encoded for the sRGB color space and hence are linearized prior to
+                        their use in blending.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_LINE_SMOOTH</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        draw lines with correct filtering.
+                        Otherwise,
+                        draw aliased lines.
+                        See <a class="citerefentry" href="glLineWidth.xhtml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_MULTISAMPLE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        use multiple fragment samples in computing the final color of a pixel.
+                        See <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_POLYGON_OFFSET_FILL</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, and if the polygon is rendered in
+                        <code class="constant">GL_FILL</code> mode, an offset is added to depth values of a polygon's
+                        fragments before the depth comparison is performed.
+                        See <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_POLYGON_OFFSET_LINE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, and if the polygon is rendered in
+                        <code class="constant">GL_LINE</code> mode, an offset is added to depth values of a polygon's
+                        fragments before the depth comparison is performed.
+                        See <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_POLYGON_OFFSET_POINT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, an offset is added to depth values of a polygon's fragments
+                        before the depth comparison is performed, if the polygon is rendered in
+                        <code class="constant">GL_POINT</code> mode. See <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_POLYGON_SMOOTH</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, draw polygons with proper filtering.
+                        Otherwise, draw aliased polygons. For correct antialiased polygons,
+                        an alpha buffer is needed and the polygons must be sorted front to
+                        back.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PRIMITIVE_RESTART</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        Enables primitive restarting.  If enabled, any one of the draw commands
+                        which transfers a set of generic attribute array elements to the GL will restart
+                        the primitive when the index of the vertex is equal to the primitive restart index.
+                        See <a class="citerefentry" href="glPrimitiveRestartIndex.xhtml"><span class="citerefentry"><span class="refentrytitle">glPrimitiveRestartIndex</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        Enables primitive restarting with a fixed index. If enabled, any one of the
+                        draw commands which transfers a set of generic attribute array elements to the GL will
+                        restart the primitive when the index of the vertex is equal to the fixed primitive
+                        index for the specified index type. The fixed index is equal to
+                        <math overflow="scroll"><msup><mn>2</mn><mi>n</mi></msup><mo>−</mo><mn>1</mn></math>
+                        where <span class="emphasis"><em>n</em></span> is equal to 8 for <code class="constant">GL_UNSIGNED_BYTE</code>,
+                        16 for <code class="constant">GL_UNSIGNED_SHORT</code> and 32 for <code class="constant">GL_UNSIGNED_INT</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_RASTERIZER_DISCARD</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        primitives are discarded after the optional transform feedback stage,
+                        but before rasterization. Furthermore, when enabled, <a class="citerefentry" href="glClear.xhtml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+                        <a class="citerefentry" href="glClearBufferData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferData</span></span></a>,
+                        <a class="citerefentry" href="glClearBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferSubData</span></span></a>,
+                        <a class="citerefentry" href="glClearTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearTexImage</span></span></a>, and
+                        <a class="citerefentry" href="glClearTexSubImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearTexSubImage</span></span></a> are ignored.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        compute a temporary coverage value where each bit is determined by the
+                        alpha value at the corresponding sample location.  The temporary coverage
+                        value is then ANDed with the fragment coverage value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        each sample alpha value is replaced by the maximum representable alpha value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SAMPLE_COVERAGE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        the fragment's coverage is ANDed with the temporary coverage value.  If
+                        <code class="constant">GL_SAMPLE_COVERAGE_INVERT</code> is set to <code class="constant">GL_TRUE</code>, invert the coverage
+                        value.
+                        See <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SAMPLE_SHADING</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, the active fragment shader is run once for each covered sample, or at
+                        fraction of this rate as determined by the current value of <code class="constant">GL_MIN_SAMPLE_SHADING_VALUE</code>.
+                        See <a class="citerefentry" href="glMinSampleShading.xhtml"><span class="citerefentry"><span class="refentrytitle">glMinSampleShading</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SAMPLE_MASK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, the sample coverage mask generated for a fragment during rasterization
+                        will be ANDed with the value of <code class="constant">GL_SAMPLE_MASK_VALUE</code> before
+                        shading occurs.
+                        See <a class="citerefentry" href="glSampleMaski.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleMaski</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SCISSOR_TEST</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        discard fragments that are outside the scissor rectangle.
+                        See <a class="citerefentry" href="glScissor.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_STENCIL_TEST</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled,
+                        do stencil testing and update the stencil buffer.
+                        See <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled, cubemap textures are sampled such that when linearly sampling from the border
+                        between two adjacent faces, texels from both faces are used to generate the final sample
+                        value. When disabled, texels from only a single face are used to construct the final
+                        sample value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_POINT_SIZE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p>
+                        If enabled
+                        and a vertex or geometry shader is active, then the derived point size is taken from the (potentially clipped) shader builtin
+                        <code class="constant">gl_PointSize</code> and clamped to the implementation-dependent point size range.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>cap</code></em> is not one of the values
+            listed previously.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated by <code class="function">glEnablei</code> and <code class="function">glDisablei</code>
+            if <em class="parameter"><code>index</code></em> is greater than or equal to the number of indexed capabilities for <em class="parameter"><code>cap</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <code class="constant">GL_PRIMITIVE_RESTART</code> is available only if the GL version is 3.1 or greater.
+        </p>
+        <p>
+            <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code> is available only if the GL version is 3.2 or greater.
+        </p>
+        <p>
+            <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code> is available only if the GL version is 4.3 or greater.
+        </p>
+        <p>
+            <code class="constant">GL_DEBUG_OUTPUT</code> and <code class="constant">GL_DEBUG_OUTPUT_SYNCHRONOUS</code> are available only if the GL version is 4.3 or greater.
+        </p>
+        <p>
+            Any token accepted by <code class="function">glEnable</code> or <code class="function">glDisable</code> is also accepted by
+            <code class="function">glEnablei</code> and <code class="function">glDisablei</code>, but if the capability is not indexed,
+            the maximum value that <em class="parameter"><code>index</code></em> may take is zero.
+        </p>
+        <p>
+            In general, passing an indexed capability to <code class="function">glEnable</code> or <code class="function">glDisable</code>
+            will enable or disable that capability for all indices, resepectively.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glDisable</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glDisablei</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glEnable</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glEnablei</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glBlendFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glCullFace.xhtml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>,
+            <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glDepthRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>,
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>,
+            <a class="citerefentry" href="glLineWidth.xhtml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
+            <a class="citerefentry" href="glLogicOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glPointSize.xhtml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>,
+            <a class="citerefentry" href="glPolygonMode.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>,
+            <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>,
+            <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>,
+            <a class="citerefentry" href="glScissor.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glTextureView - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glTextureView">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glTextureView — initialize a texture as a data alias of another texture's data store</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glTextureView</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">origtexture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">minlevel</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">numlevels</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">minlayer</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">numlayers</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture object to be initialized as a view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target to be used for the newly initialized texture.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>origtexture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of a texture object of which to make a view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalFormat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the internal format for the newly created view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>minlevel</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies lowest level of detail of the view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>numlevels</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the number of levels of detail to include in the view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>minlayer</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the index of the first layer to include in the view.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>numlayers</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the number of layers to include in the view.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glTextureView</code> initializes a texture object as an
+            alias, or view of another texture object, sharing some or all of the
+            parent texture's data store with the initialized texture. <em class="parameter"><code>texture</code></em>
+            specifies a name previously reserved by a successful call to <a class="citerefentry" href="glGenTextures.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>
+            but that has not yet been bound or given a target. <em class="parameter"><code>target</code></em>
+            specifies the target for the newly initialized texture and must be compatible
+            with the target of the parent texture, given in <em class="parameter"><code>origtexture</code></em>
+            as specified in the following table:
+        </p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; " class="col1"/>
+              <col style="text-align: left; " class="col2"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Original Target</th>
+                <th style="text-align: left; border-bottom: 2px solid ; ">Compatible New Targets</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_1D</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_2D</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_3D</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_3D</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_CUBE_MAP</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_CUBE_MAP</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTUER_CUBE_MAP_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_RECTANGLE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_RECTANGLE</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_BUFFER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <span class="emphasis">
+                    <em>none</em>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_1D_ARRAY</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_2D_ARRAY</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_CUBE_MAP</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTUER_CUBE_MAP_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <code class="constant">GL_TEXTURE_MULTISAMPLE_ARRAY</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>
+                </td>
+                <td style="text-align: left; "><code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <code class="constant">GL_TEXTURE_MULTISAMPLE_ARRAY</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+            The value of <code class="constant">GL_TEXTURE_IMMUTABLE_FORMAT</code> for <em class="parameter"><code>origtexture</code></em>
+            must be <code class="constant">GL_TRUE</code>.
+            After initialization, <em class="parameter"><code>texture</code></em> inherits the data store of
+            the parent texture, <em class="parameter"><code>origtexture</code></em> and is usable as a normal
+            texture object with target <em class="parameter"><code>target</code></em>. Data in the shared store
+            is reinterpreted with the new internal format specified by <em class="parameter"><code>internalformat</code></em>.
+            <em class="parameter"><code>internalformat</code></em> must be compatible with the internal format
+            of the parent texture as specified in the following table:
+        </p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; " class="col1"/>
+              <col style="text-align: left; " class="col2"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Class</th>
+                <th style="text-align: left; border-bottom: 2px solid ; ">Internal Formats</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">128-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RGBA32F</code>, <code class="constant">GL_RGBA32UI</code>, <code class="constant">GL_RGBA32I</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">96-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RGB32F</code>, <code class="constant">GL_RGB32UI</code>, <code class="constant">GL_RGB32I</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">64-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RGBA16F</code>, <code class="constant">GL_RG32F</code>, <code class="constant">GL_RGBA16UI</code>,
+                        <code class="constant">GL_RG32UI</code>, <code class="constant">GL_RGBA16I</code>, <code class="constant">GL_RG32I</code>, <code class="constant">GL_RGBA16</code>, <code class="constant">GL_RGBA16_SNORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">48-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RGB16</code>, <code class="constant">GL_RGB16_SNORM</code>, <code class="constant">GL_RGB16F</code>, <code class="constant">GL_RGB16UI</code>, <code class="constant">GL_RGB16I</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">32-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RG16F</code>, <code class="constant">GL_R11F_G11F_B10F</code>, <code class="constant">GL_R32F</code>, <code class="constant">GL_RGB10_A2UI</code>,
+                                            <code class="constant">GL_RGBA8UI</code>, <code class="constant">GL_RG16UI</code>, <code class="constant">GL_R32UI</code>, <code class="constant">GL_RGBA8I</code>,
+                                            <code class="constant">GL_RG16I</code>, <code class="constant">GL_R32I</code>, <code class="constant">GL_RGB10_A2</code>, <code class="constant">GL_RGBA8</code>,
+                                            <code class="constant">GL_RG16</code>, <code class="constant">GL_RGBA8_SNORM</code>, <code class="constant">GL_RG16_SNORM</code>, <code class="constant">GL_SRGB8_ALPHA8</code>,
+                                            <code class="constant">GL_RGB9_E5</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">24-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_RGB8</code>, <code class="constant">GL_RGB8_SNORM</code>, <code class="constant">GL_SRGB8</code>,
+                                            <code class="constant">GL_RGB8UI</code>, <code class="constant">GL_RGB8I</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">16-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_R16F</code>, <code class="constant">GL_RG8UI</code>, <code class="constant">GL_R16UI</code>, <code class="constant">GL_RG8I</code>,
+                                            <code class="constant">GL_R16I</code>, <code class="constant">GL_RG8</code>, <code class="constant">GL_R16</code>, <code class="constant">GL_RG8_SNORM</code>, <code class="constant">GL_R16_SNORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8-bit</td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_R8UI</code>, <code class="constant">GL_R8I</code>, <code class="constant">GL_R8</code>, <code class="constant">GL_R8_SNORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_RGTC1_RED</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_COMPRESSED_RED_RGTC1</code>, <code class="constant">GL_COMPRESSED_SIGNED_RED_RGTC1</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_RGTC2_RG</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_COMPRESSED_RG_RGTC2</code>, <code class="constant">GL_COMPRESSED_SIGNED_RG_RGTC2</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BPTC_UNORM</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_COMPRESSED_RGBA_BPTC_UNORM</code>, <code class="constant">GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="constant">GL_BPTC_FLOAT</code>
+                </td>
+                <td style="text-align: left; "><code class="constant">GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT</code>, <code class="constant">GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+            If the original texture is an array or has multiple mipmap levels,
+            the parameters <em class="parameter"><code>minlayer</code></em>, <em class="parameter"><code>numlayers</code></em>, <em class="parameter"><code>minlevel</code></em>, and <em class="parameter"><code>numlevels</code></em>
+            control which of those slices and levels are considered part of the texture.
+            The <em class="parameter"><code>minlevel</code></em> and <em class="parameter"><code>minlayer</code></em> parameters are relative to the view of the
+            original texture. If <em class="parameter"><code>numlayers</code></em> or <em class="parameter"><code>numlevels</code></em> extend beyond the original
+            texture, they are clamped to the max extent of the original texture.
+        </p>
+        <p>
+            If the new texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP</code>, the clamped <em class="parameter"><code>numlayers</code></em>
+            must be equal to 6. If the new texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>,
+            then <em class="parameter"><code>numlayers</code></em> counts layer-faces rather than layers, and the clamped
+            <em class="parameter"><code>numlayers</code></em> must be a multiple of 6. If the new texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP</code> or
+            <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>, the width and height of the original texture's
+            levels must be equal.
+        </p>
+        <p>
+            When the original texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP</code>, the layer
+            parameters are interpreted in the same order as if it were a
+            <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code> with 6 layer-faces.
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>, or
+            <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <em class="parameter"><code>numlayers</code></em> must equal 1.
+        </p>
+        <p>
+            The dimensions of the original texture must be less than or equal to the maximum
+            supported dimensions of the new target. For example, if the original texture has a <code class="constant">GL_TEXTURE_2D_ARRAY</code>
+            target and its width is greater than <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code>, an error
+            will be generated if <code class="function">glTextureView</code> is called to create a <code class="constant">GL_TEXTURE_CUBE_MAP</code>
+            view.
+        </p>
+        <p>
+            Texture commands that take a <em class="parameter"><code>level</code></em> or <em class="parameter"><code>layer</code></em> parameter, such as
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, interpret that parameter to be relative to the view of the
+            texture. i.e. the mipmap level of the data store that would be updated via
+            <a class="citerefentry" href="TexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">TexSubImage2D</span></span></a> would be the sum of <em class="parameter"><code>level</code></em> and the value of
+            <code class="constant">GL_TEXTURE_VIEW_MIN_LEVEL</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>minlayer</code></em> or <em class="parameter"><code>minlevel</code></em>
+            are larger than the greatest layer or level of <em class="parameter"><code>origtexture</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>target</code></em> is not compatible
+            with the target of <em class="parameter"><code>origtexture</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the dimensions of <em class="parameter"><code>origtexture</code></em>
+            are greater than the maximum supported dimensions for <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>internalformat</code></em> is not compatible
+            with the internal format of <em class="parameter"><code>origtexture</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> has already been bound
+            or otherwise given a target.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <code class="constant">GL_TEXTURE_IMMUTABLE_FORMAT</code>
+            for <em class="parameter"><code>origtexture</code></em> is not <code class="constant">GL_TRUE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>origtexture</code></em> is not the name of an
+            existing texture object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generaged if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_CUBE_MAP</code>
+            and <em class="parameter"><code>numlayers</code></em> is not 6, or if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>
+            and <em class="parameter"><code>numlayers</code></em> is not an integer multiple of 6.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D</code>,
+            <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>, or
+            <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> and <em class="parameter"><code>numlayers</code></em> does not equal 1.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>texture</code></em> zero or is not the name of a texture previously
+            returned from a successful call to <a class="citerefentry" href="glGenTextures.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a> with arguments <code class="constant">GL_TEXTURE_VIEW_MIN_LEVEL</code>,
+            <code class="constant">GL_TEXTURE_VIEW_NUM_LEVELS</code>, <code class="constant">GL_TEXTURE_VIEW_MIN_LAYER</code>,
+            <code class="constant">GL_TEXTURE_VIEW_NUM_LAYERS</code>, or <code class="constant">GL_TEXTURE_IMMUTABLE_LEVELS</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glTextureView</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glTexStorage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage1D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

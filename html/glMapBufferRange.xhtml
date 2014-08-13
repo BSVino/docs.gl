@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glMapBufferRange - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glMapBufferRange">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glMapBufferRange, glMapNamedBufferRange — map all or part of a buffer object's data store into the client's address space</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void *<strong class="fsfunc">glMapBufferRange</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLintptr <var class="pdparam">offset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizeiptr <var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLbitfield <var class="pdparam">access</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void *<strong class="fsfunc">glMapNamedBufferRange</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">buffer</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLintptr <var class="pdparam">offset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLbitfield <var class="pdparam">access</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target to which the buffer object is bound
+                    for <code class="function">glMapBufferRange</code>, which must be
+                    one of the buffer binding targets in the following
+                    table:
+                </p>
+              <div class="informaltable">
+                <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+                  <colgroup>
+                    <col style="text-align: left; " class="col1"/>
+                    <col style="text-align: left; " class="col2"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <span class="bold">
+                          <strong>Buffer Binding Target</strong>
+                        </span>
+                      </th>
+                      <th style="text-align: left; border-bottom: 2px solid ; ">
+                        <span class="bold">
+                          <strong>Purpose</strong>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_ARRAY_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Vertex attributes</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Atomic counter storage</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_COPY_READ_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Buffer copy source</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_COPY_WRITE_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Buffer copy destination</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Indirect compute dispatch commands</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Indirect command arguments</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Vertex array indices</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_PIXEL_PACK_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Pixel read target</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Texture data source</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_QUERY_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Query result buffer</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_SHADER_STORAGE_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Read-write storage for shaders</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_TEXTURE_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Texture data buffer</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">Transform feedback buffer</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; ">
+                        <code class="constant">GL_UNIFORM_BUFFER</code>
+                      </td>
+                      <td style="text-align: left; ">Uniform block storage</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>buffer</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of the buffer object for
+                    <code class="function">glMapNamedBufferRange</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>offset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the starting offset within the buffer of the
+                    range to be mapped.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>length</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the length of the range to be mapped.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>access</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a combination of access flags indicating the
+                    desired access to the mapped range.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glMapBufferRange</code> and
+            <code class="function">glMapNamedBufferRange</code> map all or part of
+            the data store of a specified buffer object into the client's
+            address space. <em class="parameter"><code>offset</code></em> and
+            <em class="parameter"><code>length</code></em> indicate the range of data in the
+            buffer object that is to be mapped, in terms of basic machine
+            units. <em class="parameter"><code>access</code></em> is a bitfield containing
+            flags which describe the requested mapping. These flags are
+            described below.
+        </p>
+        <p>
+            A pointer to the beginning of the mapped range is returned once
+            all pending operations on the buffer object have completed, and
+            may be used to modify and/or query the corresponding range of
+            the data store according to the following flag bits set in
+            <em class="parameter"><code>access</code></em>:
+
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_READ_BIT</code> indicates that
+                        the returned pointer may be used to read buffer
+                        object data. No GL error is generated if the pointer
+                        is used to query a mapping which excludes this flag,
+                        but the result is undefined and system errors
+                        (possibly including program termination) may occur.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_WRITE_BIT</code> indicates that
+                        the returned pointer may be used to modify buffer
+                        object data. No GL error is generated if the pointer
+                        is used to modify a mapping which excludes this
+                        flag, but the result is undefined and system errors
+                        (possibly including program termination) may occur.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_PERSISTENT_BIT</code> indicates
+                        that the mapping is to be made in a persistent
+                        fassion and that the client intends to hold and use
+                        the returned pointer during subsequent GL operation.
+                        It is not an error to call drawing commands (render)
+                        while buffers are mapped using this flag. It is an
+                        error to specify this flag if the buffer's data
+                        store was not allocated through a call to the
+                        <a class="citerefentry" href="glBufferStorage.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferStorage</span></span></a>
+                        command in which the
+                        <code class="constant">GL_MAP_PERSISTENT_BIT</code> was also
+                        set.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_COHERENT_BIT</code> indicates
+                        that a persistent mapping is also to be coherent.
+                        Coherent maps guarantee that the effect of writes to
+                        a buffer's data store by either the client or server
+                        will eventually become visible to the other without
+                        further intervention from the application. In the
+                        absence of this bit, persistent mappings are not
+                        coherent and modified ranges of the buffer store
+                        must be explicitly communicated to the GL, either by
+                        unmapping the buffer, or through a call to
+                        <a class="citerefentry" href="glFlushMappedBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glFlushMappedBufferRange</span></span></a>
+                        or
+                        <a class="citerefentry" href="glMemoryBarrier.xhtml"><span class="citerefentry"><span class="refentrytitle">glMemoryBarrier</span></span></a>.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            The following <span class="emphasis"><em>optional</em></span> flag bits in
+            <em class="parameter"><code>access</code></em> may be used to modify the mapping:
+
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_INVALIDATE_RANGE_BIT</code>
+                        indicates that the previous contents of the
+                        specified range may be discarded. Data within this
+                        range are undefined with the exception of
+                        subsequently written data. No GL error is generated
+                        if subsequent GL operations access unwritten data,
+                        but the result is undefined and system errors
+                        (possibly including program termination) may occur.
+                        This flag may not be used in combination with
+                        <code class="constant">GL_MAP_READ_BIT</code>.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_INVALIDATE_BUFFER_BIT</code>
+                        indicates that the previous contents of the entire
+                        buffer may be discarded. Data within the entire
+                        buffer are undefined with the exception of
+                        subsequently written data. No GL error is generated
+                        if subsequent GL operations access unwritten data,
+                        but the result is undefined and system errors
+                        (possibly including program termination) may occur.
+                        This flag may not be used in combination with
+                        <code class="constant">GL_MAP_READ_BIT</code>.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_FLUSH_EXPLICIT_BIT</code>
+                        indicates that one or more discrete subranges of the
+                        mapping may be modified. When this flag is set,
+                        modifications to each subrange must be explicitly
+                        flushed by calling
+                        <a class="citerefentry" href="glFlushMappedBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glFlushMappedBufferRange</span></span></a>.
+                        No GL error is set if a subrange of the mapping is
+                        modified and not flushed, but data within the
+                        corresponding subrange of the buffer are undefined.
+                        This flag may only be used in conjunction with
+                        <code class="constant">GL_MAP_WRITE_BIT</code>. When this
+                        option is selected, flushing is strictly limited to
+                        regions that are explicitly indicated with calls to
+                        <a class="citerefentry" href="glFlushMappedBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glFlushMappedBufferRange</span></span></a>
+                        prior to unmap; if this option is not selected
+                        <a class="citerefentry" href="glUnmapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
+                        will automatically flush the entire mapped range
+                        when called.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_UNSYNCHRONIZED_BIT</code>
+                        indicates that the GL should not attempt to
+                        synchronize pending operations on the buffer prior
+                        to returning from
+                        <code class="function">glMapBufferRange</code> or
+                        <code class="function">glMapNamedBufferRange</code>. No GL
+                        error is generated if pending operations which
+                        source or modify the buffer overlap the mapped
+                        region, but the result of such previous and any
+                        subsequent operations is undefined.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            If an error occurs, a <code class="code">NULL</code> pointer is returned.
+        </p>
+        <p>
+            If no error occurs, the returned pointer will reflect an
+            allocation aligned to the value of
+            <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code> basic machine
+            units. Subtracting <em class="parameter"><code>offset</code></em> from this
+            returned pointer will always produce a multiple of the value of
+            <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code>.
+        </p>
+        <p>
+            The returned pointer values may not be passed as parameter
+            values to GL commands. For example, they may not be used to
+            specify array pointers, or to specify or query pixel or texture
+            image data; such actions produce undefined results, although
+            implementations may not check for such behavior for performance
+            reasons.
+        </p>
+        <p>
+            Mappings to the data stores of buffer objects may have
+            nonstandard performance characteristics. For example, such
+            mappings may be marked as uncacheable regions of memory, and in
+            such cases reading from them may be very slow. To ensure optimal
+            performance, the client should use the mapping in a fashion
+            consistent with the values of
+            <code class="constant">GL_BUFFER_USAGE</code> for the buffer object and
+            of <em class="parameter"><code>access</code></em>. Using a mapping in a fashion
+            inconsistent with these values is liable to be multiple orders
+            of magnitude slower than using normal memory.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            Alignment of the returned pointer is guaranteed only if the
+            version of the GL version is 4.2 or greater. Also, the
+            <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> target is accepted
+            only if the GL version is 4.2 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> and
+            <code class="constant">GL_SHADER_STORAGE_BUFFER</code> targets are
+            accepted only if the GL version is 4.3 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_QUERY_BUFFER</code> target is available
+            only if the GL version is 4.4 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_MAP_PERSISTENT_BIT</code> and
+            <code class="constant">GL_MAP_COHERENT_BIT</code> flags are available
+            only if the GL version is 4.4 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated by
+            <code class="function">glMapBufferRange</code> if
+            <em class="parameter"><code>target</code></em> is not one of the buffer binding
+            targets listed above.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by
+            <code class="function">glMapBufferRange</code> if zero is bound to
+            <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by
+            <code class="function">glMapNamedBufferRange</code> if
+            <em class="parameter"><code>buffer</code></em> is not the name of an existing
+            buffer object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <em class="parameter"><code>offset</code></em> or <em class="parameter"><code>length</code></em>
+            is negative, if $offset + length$ is greater than the value of
+            <code class="constant">GL_BUFFER_SIZE</code> for the buffer object, or if
+            <em class="parameter"><code>access</code></em> has any bits set other than those
+            defined above.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated for any
+            of the following conditions:
+
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        <em class="parameter"><code>length</code></em> is zero.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        The buffer object is already in a mapped state.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Neither <code class="constant">GL_MAP_READ_BIT</code> nor
+                        <code class="constant">GL_MAP_WRITE_BIT</code> is set.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_READ_BIT</code> is set and any
+                        of <code class="constant">GL_MAP_INVALIDATE_RANGE_BIT</code>,
+                        <code class="constant">GL_MAP_INVALIDATE_BUFFER_BIT</code>
+                        or <code class="constant">GL_MAP_UNSYNCHRONIZED_BIT</code> is
+                        set.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_MAP_FLUSH_EXPLICIT_BIT</code> is
+                        set and <code class="constant">GL_MAP_WRITE_BIT</code> is not
+                        set.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Any of <code class="constant">GL_MAP_READ_BIT</code>,
+                        <code class="constant">GL_MAP_WRITE_BIT</code>,
+                        <code class="constant">GL_MAP_PERSISTENT_BIT</code>, or
+                        <code class="constant">GL_MAP_COHERENT_BIT</code> are set,
+                        but the same bit is not included in the buffer's
+                        storage flags.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            No error is generated if memory outside the mapped range is
+            modified or queried, but the result is undefined and system
+            errors (possibly including program termination) may occur.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            with <em class="parameter"><code>pname</code></em>
+            <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code>. The value must
+            be a power of two that is at least 64.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glMapBufferRange</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glMapNamedBufferRange</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glMapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
+            <a class="citerefentry" href="glFlushMappedBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glFlushMappedBufferRange</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBufferStorage.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferStorage</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

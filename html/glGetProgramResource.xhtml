@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetProgramResource - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetProgramResource">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetProgramResource — retrieve values for multiple properties of a single active resource within a program object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetProgramResourceiv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">programInterface</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">propCount</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const Glenum * <var class="pdparam">props</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei * <var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of a program object whose resources to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>programInterface</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    A token identifying the interface within <em class="parameter"><code>program</code></em> containing the resource named <em class="parameter"><code>name</code></em>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetProgramResourceiv</code> returns values for multiple properties of a single active resource with an
+            index of <em class="parameter"><code>index</code></em> in the interface <em class="parameter"><code>programInterface</code></em> of program object
+            <em class="parameter"><code>program</code></em>.  For each resource, values for <em class="parameter"><code>propCount</code></em> properties specified
+            by the array <em class="parameter"><code>props</code></em> are returned.  <em class="parameter"><code>propCount</code></em> may not be zero.
+            An error is generated if any value
+            in <em class="parameter"><code>props</code></em> is not one of the properties described immediately belowor if any value in <em class="parameter"><code>props</code></em> is not
+            allowed for <em class="parameter"><code>programInterface</code></em>.  The set of allowed <em class="parameter"><code>programInterface</code></em>
+            values for each property can be found in the following table:
+        </p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; " class="col1"/>
+              <col style="text-align: left; " class="col2"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Property</th>
+                <th style="text-align: left; border-bottom: 2px solid ; ">Supported Interfaces</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_NAME_LENGTH</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">Any except <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> and <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TYPE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code>, <code class="constant">GL_BUFFER_VARIABLE</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_ARRAY_SIZE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code>, <code class="constant">GL_PROGRAM_INPUT</code>,
+                                            <code class="constant">GL_PROGRAM_OUTPUT, VERTEX_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_OFFSET</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BLOCK_INDEX</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_ARRAY_STRIDE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_MATRIX_STRIDE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_IS_ROW_MAJOR</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_BUFFER_VARIABLE</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_ATOMIC_COUNTER_BUFFER_INDEX</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_UNIFORM</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TEXTURE_BUFFER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <span class="emphasis">
+                    <em>none</em>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BUFFER_BINDING</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BUFFER_DATA_SIZE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_NUM_ACTIVE_VARIABLES</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_ACTIVE_VARIABLES</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_VERTEX_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_TESS_CONTROL_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_TESS_EVALUATION_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_GEOMETRY_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_FRAGMENT_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_REFERENCED_BY_COMPUTE_SHADER</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_SHADER</code>,
+                                            <code class="constant">GL_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_BUFFER_VARIABLE</code>,
+                                            <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_NUM_COMPATIBLE_SUBROUTINES</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_VERTEX_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_COMPATIBLE_SUBROUTINES</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_VERTEX_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TOP_LEVEL_ARRAY_SIZE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BUFFER_VARIABLE</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TOP_LEVEL_ARRAY_STRIDE</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_BUFFER_VARIABLE</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_LOCATION</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_UNIFORM</code>, <code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code>,
+                                            <code class="constant">GL_VERTEX_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>,
+                                            <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_LOCATION_INDEX</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_PROGRAM_OUTPUT</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_IS_PER_PATCH</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_LOCATION_COMPONENT</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; "><code class="constant">GL_PROGRAM_INPUT</code>, <code class="constant">GL_PROGRAM_OUTPUT</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_INDEX</code>
+                </td>
+                <td style="text-align: left; border-bottom: 2px solid ; ">
+                  <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE</code>
+                </td>
+                <td style="text-align: left; ">
+                  <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+            For the property <code class="constant">GL_NAME_LENGTH</code>, a single integer identifying the length of
+            the name string associated with an active variable, interface block, or
+            subroutine is written to <em class="parameter"><code>params</code></em>.  The name length includes a terminating
+            null character.
+        </p>
+        <p>
+            For the property <code class="constant">GL_TYPE</code>, a single integer identifying the type of an active
+            variable is written to <em class="parameter"><code>params</code></em>.  The integer returned is one of the
+            values found in table 2.16.
+        </p>
+        <p>
+            For the property <code class="constant">GL_ARRAY_SIZE</code>, a single integer identifying the number of
+            active array elements of an active variable is written to <em class="parameter"><code>params</code></em>.  The
+            array size returned is in units of the type associated with the property
+            <code class="constant">GL_TYPE</code>.  For active variables not corresponding to an array of basic types,
+            the value zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_BLOCK_INDEX</code>, a single integer identifying the index of
+            the active interface block containing an active variable is written to
+            <em class="parameter"><code>params</code></em>.  If the variable is not the member of an interface block, the
+            value -1 is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_OFFSET</code>, a single integer identifying the offset of an
+            active variable is written to <em class="parameter"><code>params</code></em>.  For variables in the <code class="constant">GL_UNIFORM</code> and
+            <code class="constant">GL_BUFFER_VARIABLE</code> interfaces that are backed by a buffer object, the value
+            written is the offset of that variable relative to the base of the buffer
+            range holding its value.  For variables in the <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code>
+            interface, the value written is the offset in the transform feedback
+            buffer storage assigned to each vertex captured in transform feedback mode
+            where the value of the variable will be stored.  Such offsets are
+            specified via the <code class="code">xfb_offset</code> layout qualifier or assigned according to
+            the variables position in the list of strings passed to
+            <a class="citerefentry" href="glTransformFeedbackVaryings.xhtml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>.  Offsets are expressed in basic machine units.
+            For all variables not recorded in transform feedback mode, including the
+            special names <code class="code">"gl_NextBuffer"</code>, <code class="code">"gl_SkipComponents1"</code>, <code class="code">"gl_SkipComponents2"</code>,
+            <code class="code">"gl_SkipComponents3"</code>, and <code class="code">"gl_SkipComponents4"</code>, -1 is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_ARRAY_STRIDE</code>, a single integer identifying the stride
+            between array elements in an active variable is written to <em class="parameter"><code>params</code></em>.  For
+            active variables declared as an array of basic types, the value written is
+            the difference, in basic machine units, between the offsets of consecutive
+            elements in an array.  For active variables not declared as an array of
+            basic types, zero is written to <em class="parameter"><code>params</code></em>.  For active variables not backed
+            by a buffer object, -1 is written to <em class="parameter"><code>params</code></em>, regardless of the variable
+            type.
+        </p>
+        <p>
+            For the property <code class="constant">GL_MATRIX_STRIDE</code>, a single integer identifying the stride
+            between columns of a column-major matrix or rows of a row-major matrix is
+            written to <em class="parameter"><code>params</code></em>.  For active variables declared a single matrix or
+            array of matrices, the value written is the difference, in basic machine
+            units, between the offsets of consecutive columns or rows in each matrix.
+            For active variables not declared as a matrix or array of matrices, zero
+            is written to <em class="parameter"><code>params</code></em>.  For active variables not backed by a buffer
+            object, -1 is written to <em class="parameter"><code>params</code></em>, regardless of the variable type.
+        </p>
+        <p>
+            For the property <code class="constant">GL_IS_ROW_MAJOR</code>, a single integer identifying whether an
+            active variable is a row-major matrix is written to <em class="parameter"><code>params</code></em>.  For active
+            variables backed by a buffer object, declared as a single matrix or array
+            of matrices, and stored in row-major order, one is written to <em class="parameter"><code>params</code></em>.
+            For all other active variables, zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_ATOMIC_COUNTER_BUFFER_INDEX</code>, a single integer identifying
+            the index of the active atomic counter buffer containing an active
+            variable is written to <em class="parameter"><code>params</code></em>.  If the variable is not an atomic counter
+            uniform, the value -1 is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_BUFFER_BINDING</code>, to index of the buffer binding point
+            associated with the active uniform block, shader storage block, atomic
+            counter buffer or transform feedback buffer is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_BUFFER_DATA_SIZE</code>, then the implementation-dependent
+            minimum total buffer object size, in basic machine units, required to hold
+            all active variables associated with an active uniform block, shader
+            storage block, or atomic counter buffer is written to <em class="parameter"><code>params</code></em>.  If the
+            final member of an active shader storage block is array with no declared
+            size, the minimum buffer size is computed assuming the array was declared
+            as an array with one element.
+        </p>
+        <p>
+            For the property <code class="constant">GL_NUM_ACTIVE_VARIABLES</code>, the number of active variables
+            associated with an active uniform block, shader storage block, atomic
+            counter buffer or transform feedback buffer is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_ACTIVE_VARIABLES</code>, an array of active variable indices
+            associated with an active uniform block, shader storage block, atomic
+            counter buffer or transform feedback buffer is written to <em class="parameter"><code>params</code></em>.  The number of values written to
+            <em class="parameter"><code>params</code></em> for an active resource is given by the value of the property
+            <code class="constant">GL_NUM_ACTIVE_VARIABLES</code> for the resource.
+        </p>
+        <p>
+            For the properties <code class="constant">GL_REFERENCED_BY_VERTEX_SHADER</code>,
+            <code class="constant">GL_REFERENCED_BY_TESS_CONTROL_SHADER</code>, <code class="constant">GL_REFERENCED_BY_TESS_EVALUATION_SHADER</code>,
+            <code class="constant">GL_REFERENCED_BY_GEOMETRY_SHADER</code>, <code class="constant">GL_REFERENCED_BY_FRAGMENT_SHADER</code>, and
+            <code class="constant">GL_REFERENCED_BY_COMPUTE_SHADER</code>, a single integer is written to <em class="parameter"><code>params</code></em>,
+            identifying whether the active resource is referenced by the vertex,
+            tessellation control, tessellation evaluation, geometry, or fragment
+            shaders, respectively, in the program object.  The value one is written to
+            <em class="parameter"><code>params</code></em> if an active variable is referenced by the corresponding shader,
+            or if an active uniform block, shader storage block, or atomic counter
+            buffer contains at least one variable referenced by the corresponding
+            shader.  Otherwise, the value zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_TOP_LEVEL_ARRAY_SIZE</code>, a single integer identifying the
+            number of active array elements of the top-level shader storage block
+            member containing to the active variable is written to <em class="parameter"><code>params</code></em>.  If the
+            top-level block member is not declared as an array, the value one is
+            written to <em class="parameter"><code>params</code></em>.  If the top-level block member is an array with no
+            declared size, the value zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_TOP_LEVEL_ARRAY_STRIDE</code>, a single integer identifying the
+            stride between array elements of the top-level shader storage block member
+            containing the active variable is written to <em class="parameter"><code>params</code></em>.  For top-level
+            block members declared as arrays, the value written is the difference, in
+            basic machine units, between the offsets of the active variable for
+            consecutive elements in the top-level array.  For top-level block members
+            not declared as an array, zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_LOCATION</code>, a single integer identifying the assigned
+            location for an active uniform, input, output, or subroutine uniform
+            variable is written to <em class="parameter"><code>params</code></em>.  For input, output, or uniform variables
+            with locations specified by a layout qualifier, the specified location is
+            used.  For vertex shader input or fragment shader output variables without
+            a layout qualifier, the location assigned when a program is linked is
+            written to <em class="parameter"><code>params</code></em>.  For all other input and output variables, the value
+            -1 is written to <em class="parameter"><code>params</code></em>.  For uniforms in uniform blocks, the value -1
+            is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_LOCATION_INDEX</code>, a single integer identifying the fragment
+            color index of an active fragment shader output variable is written to
+            <em class="parameter"><code>params</code></em>.  If the active variable is an output for a non-fragment shader,
+            the value -1 will be written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_IS_PER_PATCH</code>, a single integer identifying whether the
+            input or output is a per-patch attribute.  If the active variable is a
+            per-patch attribute (declared with the <code class="code">patch</code> qualifier), the value one
+            is written to <em class="parameter"><code>params</code></em>; otherwise, the value zero is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_LOCATION_COMPONENT</code>, a single integer indicating the first
+            component of the location assigned to an active input or output variable
+            is written to <em class="parameter"><code>params</code></em>.  For input and output variables with a component
+            specified by a <code class="code">layout</code> qualifier, the specified component is written.
+            For all other input and output variables, the value zero is written.
+        </p>
+        <p>
+            For the property <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_INDEX</code>, a single integer
+            identifying the index of the active transform feedback buffer associated
+            with an active variable is written to <em class="parameter"><code>params</code></em>.  For variables
+            corresponding to the special names <code class="code">"gl_NextBuffer"</code>, <code class="code">"gl_SkipComponents1"</code>,
+            <code class="code">"gl_SkipComponents2"</code>, <code class="code">"gl_SkipComponents3"</code>, and <code class="code">"gl_SkipComponents4"</code>, -1
+            is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            For the property <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE</code>, a single integer
+            identifying the stride, in basic machine units, between consecutive
+            vertices written to the transform feedback buffer is written to <em class="parameter"><code>params</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>program</code></em> is
+            not the name of an existing program object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>propCount</code></em> is
+            zero.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>programInterface</code></em>
+            is not one of the accepted interface types.
+        </p>
+        <p>
+            <code class="constant">GL_INVLALID_ENUM</code> is generated if any value in <em class="parameter"><code>props</code></em>
+            is not one of the accepted tokens for the interface <em class="parameter"><code>programInterface</code></em>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetProgramResourceiv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGetProgramResourceName.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceName</span></span></a>,
+            <a class="citerefentry" href="glGetGetProgramResourceIndex.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetGetProgramResourceIndex</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocation</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocationIndex.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocationIndex</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

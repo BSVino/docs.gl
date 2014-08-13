@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glCompressedTexImage1D - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glCompressedTexImage1D">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glCompressedTexImage1D — specify a one-dimensional texture image in a compressed format</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glCompressedTexImage1D</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">border</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">imageSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target texture.
+                    Must be <code class="constant">GL_TEXTURE_1D</code> or <code class="constant">GL_PROXY_TEXTURE_1D</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level-of-detail number.
+                    Level 0 is the base image level.
+                    Level <span class="emphasis"><em>n</em></span> is the <span class="emphasis"><em>n</em></span>th mipmap reduction image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the format of the compressed image data stored at address <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>width</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the width of the texture image.
+                    All implementations support texture images that are at least 64 texels wide. The height of the 1D texture image is 1.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>border</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This value must be 0.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>imageSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the number of unsigned bytes of image data starting at the address specified by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a pointer to the compressed image data in memory.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            Texturing allows elements of an image array to be read by shaders.
+        </p>
+        <p>
+            <code class="function">glCompressedTexImage1D</code> loads a previously defined, and retrieved, compressed
+            one-dimensional texture image if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D</code>
+            (see <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>).
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_TEXTURE_1D</code>, no data is read from <em class="parameter"><code>data</code></em>, but
+            all of the texture image state is recalculated, checked for consistency, and checked against the implementation's capabilities.  If the implementation cannot handle a texture of the requested texture size, it sets all of the image state to 0, but does not generate an error (see <a class="citerefentry" href="glGetError.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>). To query for an entire mipmap array, use an image array level greater than or equal to 1.
+        </p>
+        <p>
+            <em class="parameter"><code>internalformat</code></em> must be an extension-specified compressed-texture format.
+            When a texture is loaded with
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> using a generic compressed  texture format
+            (e.g., <code class="constant">GL_COMPRESSED_RGB</code>) the GL selects from one of
+            its extensions supporting compressed textures.  In order to load the
+            compressed texture image using <code class="function">glCompressedTexImage1D</code>, query the compressed texture image's size and
+            format using <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
+        </p>
+        <p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
+            (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
+        </p>
+        <p>
+            If the compressed data are arranged into fixed-size blocks of texels, the pixel
+            storage modes can be used to select a sub-rectangle from a larger containing rectangle.
+            These pixel storage modes operate in the same way as they do for <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>.
+            In the following description, denote by
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>, and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:math>
+            the values of pixel storage modes <code class="constant">GL_UNPACK_COMPRESSED_BLOCK_SIZE</code>,
+            <code class="constant">GL_UNPACK_COMPRESSED_BLOCK_WIDTH</code>, <code class="constant">GL_UNPACK_COMPRESSED_BLOCK_HEIGHT</code>,
+            and <code class="constant">GL_UNPACK_COMPRESSED_BLOCK_DEPTH</code>, respectively.
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>
+            is the compressed block size in bytes;
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>, and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:math>
+            are the compressed block width, height, and depth in pixels.
+        </p>
+        <p>
+            By default the pixel storage modes <code class="constant">GL_UNPACK_ROW_LENGTH</code>,
+            <code class="constant">GL_UNPACK_SKIP_ROWS</code>, <code class="constant">GL_UNPACK_SKIP_PIXELS</code>,
+            <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> and <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
+            are ignored for compressed images. To enable <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
+            and <code class="constant">GL_UNPACK_ROW_LENGTH</code>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>
+            must both be non-zero.
+            To also enable <code class="constant">GL_UNPACK_SKIP_ROWS</code> and <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>
+            must be non-zero.
+            To also enable <code class="constant">GL_UNPACK_SKIP_IMAGES</code>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:math>
+            must be non-zero. All parameters must be consistent with the compressed format to produce the desired results.
+        </p>
+        <p>
+            When selecting a sub-rectangle from a compressed image,
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        the value of <code class="constant">GL_UNPACK_SKIP_PIXELS</code> must be a multiple of
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            <em class="parameter"><code>imageSize</code></em> must be equal to:
+        </p>
+        <p>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll">
+                  <mml:mrow>
+                    <mml:msub>
+                      <mml:mi>b</mml:mi>
+                      <mml:mi>s</mml:mi>
+                    </mml:msub>
+                    <mml:mo lspace="2px" rspace="2px">×</mml:mo>
+                    <mml:mfenced open="⌈" close="⌉">
+                      <mml:mfrac>
+                        <mml:mi>width</mml:mi>
+                        <mml:msub>
+                          <mml:mi>b</mml:mi>
+                          <mml:mi>w</mml:mi>
+                        </mml:msub>
+                      </mml:mfrac>
+                    </mml:mfenced>
+                  </mml:mrow>
+                </mml:math>
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+          <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not
+          a supported specific compressed internal formats, or is one of the generic
+          compressed internal formats:
+          <code class="constant">GL_COMPRESSED_RED</code>,
+          <code class="constant">GL_COMPRESSED_RG</code>,
+          <code class="constant">GL_COMPRESSED_RGB</code>,
+          <code class="constant">GL_COMPRESSED_RGBA</code>.
+          <code class="constant">GL_COMPRESSED_SRGB</code>, or
+          <code class="constant">GL_COMPRESSED_SRGB_ALPHA</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>imageSize</code></em> is not consistent with
+            the format, dimensions, and contents of the specified compressed image data.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if parameter combinations are not
+            supported by the specific compressed internal format as specified in the
+            specific texture compression extension.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
+            object such that the memory reads required would exceed the data store size.
+        </p>
+        <p>
+            Undefined results, including abnormal program termination, are generated if
+            <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension
+            specification defining the internal compression format.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetCompressedTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with arguments <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+            and <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glCompressedTexImage1D</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

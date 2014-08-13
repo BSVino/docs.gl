@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glDrawBuffer - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glDrawBuffer">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glDrawBuffer, glNamedFramebufferDrawBuffer — specify which color buffers are to be drawn into</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glDrawBuffer</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">buf</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glNamedFramebufferDrawBuffer</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">framebuffer</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">buf</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>framebuffer</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the name of the framebuffer object for
+          <code class="function">glNamedFramebufferDrawBuffer</code> function. Must be
+          zero or the name of a framebuffer object.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>buf</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>For default framebuffer, the argument specifies up to four
+          color buffers to be drawn into. Symbolic constants
+          <code class="constant">GL_NONE</code>, <code class="constant">GL_FRONT_LEFT</code>,
+          <code class="constant">GL_FRONT_RIGHT</code>,
+          <code class="constant">GL_BACK_LEFT</code>,
+          <code class="constant">GL_BACK_RIGHT</code>, <code class="constant">GL_FRONT</code>,
+          <code class="constant">GL_BACK</code>, <code class="constant">GL_LEFT</code>,
+          <code class="constant">GL_RIGHT</code>, and
+          <code class="constant">GL_FRONT_AND_BACK</code> are accepted. The initial
+          value is <code class="constant">GL_FRONT</code> for single-buffered contexts,
+          and <code class="constant">GL_BACK</code> for double-buffered contexts. For
+          framebuffer objects, <code class="constant">GL_COLOR_ATTACHMENT$m$</code> and
+          <code class="constant">GL_NONE</code> enums are accepted, where
+          <code class="constant">$m$</code> is a value between 0 and
+          <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>When colors are written to the frame buffer, they are written into
+    the color buffers specified by <code class="function">glDrawBuffer</code>. One of
+    the following values can be used for default framebuffer:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_NONE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>No color buffers are written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRONT_LEFT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the front left color buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRONT_RIGHT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the front right color buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BACK_LEFT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the back left color buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BACK_RIGHT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the back right color buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRONT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the front left and front right color buffers are written.
+          If there is no front right color buffer, only the front left color
+          buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BACK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the back left and back right color buffers are written.
+          If there is no back right color buffer, only the back left color
+          buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_LEFT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the front left and back left color buffers are written.
+          If there is no back left color buffer, only the front left color
+          buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_RIGHT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>Only the front right and back right color buffers are written.
+          If there is no back right color buffer, only the front right color
+          buffer is written.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRONT_AND_BACK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>All the front and back color buffers (front left, front right,
+          back left, back right) are written. If there are no back color
+          buffers, only the front left and front right color buffers are
+          written. If there are no right color buffers, only the front left
+          and back left color buffers are written. If there are no right or
+          back color buffers, only the front left color buffer is
+          written.</p>
+            </dd>
+          </dl>
+        </div>
+        <p>If more than one color buffer is selected for drawing, then blending
+    or logical operations are computed and applied independently for each
+    color buffer and can produce different results in each buffer.</p>
+        <p>Monoscopic contexts include only <span class="emphasis"><em>left</em></span> buffers,
+    and stereoscopic contexts include both <span class="emphasis"><em>left</em></span> and
+    <span class="emphasis"><em>right</em></span> buffers. Likewise, single-buffered contexts
+    include only <span class="emphasis"><em>front</em></span> buffers, and double-buffered
+    contexts include both <span class="emphasis"><em>front</em></span> and
+    <span class="emphasis"><em>back</em></span> buffers. The context is selected at GL
+    initialization.</p>
+        <p>For framebuffer objects, <code class="constant">GL_COLOR_ATTACHMENT$m$</code>
+    and <code class="constant">GL_NONE</code> enums are accepted, where
+    <code class="constant">$m$</code> is a value between 0 and
+    <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>. glDrawBuffer will set the
+    draw buffer for fragment colors other than zero to
+    <code class="constant">GL_NONE</code>.</p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_OPERATION</code> error is generated by
+    <code class="function">glNamedFramebufferDrawBuffer</code> if
+    <em class="parameter"><code>framebuffer</code></em> is not zero or the name of an existing
+    framebuffer object.</p>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
+    <em class="parameter"><code>buf</code></em> is not an accepted value.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if the
+    default framebuffer is affected and none of the buffers indicated by
+    <em class="parameter"><code>buf</code></em> exists.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a
+    framebuffer object is affected and <em class="parameter"><code>buf</code></em> is not equal
+    to <code class="constant">GL_NONE</code> or
+    <code class="constant">GL_COLOR_ATTACHMENT$m$</code>, where
+    <code class="constant">$m$</code> is a value between 0 and
+    <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.</p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DRAW_BUFFER</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glDrawBuffer</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glNamedFramebufferDrawBuffer</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBlendFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glColorMask.xhtml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>,
+            <a class="citerefentry" href="glDrawBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>,
+            <a class="citerefentry" href="glLogicOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>gl_Layer - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="gl_Layer">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>gl_Layer — contains the selected layer of a multi-layer framebuffer attachment</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <p>
+            </p>
+        <pre class="programlisting">// Geometry stage</pre>
+        <p>
+            <code class="fieldsynopsis"><span class="modifier">out </span><span class="type">int </span><span class="varname">gl_Layer </span>;</code>
+        </p>
+        <p>
+            </p>
+        <pre class="programlisting">// Fragment stage</pre>
+        <p>
+            <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">int </span><span class="varname">gl_Layer </span>;</code>
+        </p>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            In the geometry language, <code class="varname">gl_Layer</code> is used to select a specific
+            layer (or face and layer of cube map) in a multi-layer framebuffer attachment. The actual
+            layer used will come from one of the vertices in the primitive being shaded. Which vertex
+            the layer comes from is undefined and as such it is recommended to write the same value
+            to <code class="varname">gl_Layer</code> for all vertices in the primitive. If a shader statically
+            assigns a value to <code class="varname">gl_Layer</code>, layered rendering mode is enabled.
+            If a shader statically assigns a value to <code class="varname">gl_Layer</code>, and there is an execution path through
+            the shader that does not set <code class="varname">gl_Layer</code>, then the value of <code class="varname">gl_Layer</code>
+            is undefined for invocations of the shader that take that path.
+        </p>
+        <p>
+            When used with an array of cube map textures, the <code class="varname">gl_Layer</code> output variable
+            takes on a special value. Instead of referring to only the layer, it is used to select a cube map
+            face and a layer. Setting <code class="varname">gl_Layer</code> to the value
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>layer</mml:mi><mml:mo>*</mml:mo><mml:mn>6</mml:mn><mml:mo>+</mml:mo><mml:mi>face</mml:mi></mml:math>
+            will render to <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>face</mml:mi></mml:math>
+            of the cube defined in <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>layer</mml:mi></mml:math>.
+            The face values are as follows:
+        </p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; "/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Face Value </strong></span>
+                        </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Resulting Target </strong></span>
+                        </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            0
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_X</code>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            1
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_X</code>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            2
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_Y</code>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            3
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_Y</code>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            4
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_Z</code>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                            5
+                        </td>
+                <td style="text-align: center; ">
+                            <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_Z</code>
+                        </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+        </p>
+        <p>
+            For example, to render to the positive y cube map face located in the 5<sup>th</sup> layer of the
+            cube map array, <code class="varname">gl_Layer</code> should be set to
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mn>5</mml:mn><mml:mo>*</mml:mo><mml:mn>6</mml:mn><mml:mo>+</mml:mo><mml:mn>2</mml:mn></mml:math>.
+        </p>
+        <p>
+            The input variable <code class="varname">gl_Layer</code> in the fragment language will have the same value that was written to the
+            output variable <code class="varname">gl_Layer</code> in the geometry language. If the geometry stage does not dynamically assign a
+            value to <code class="varname">gl_Layer</code>, the value of <code class="varname">gl_Layer</code> in the fragment stage will be undefined.  If the geometry stage
+            makes no static assignment to <code class="varname">gl_Layer</code>, the input <code class="varname">gl_Layer</code> in the fragment stage will be zero.  Otherwise,
+            the fragment stage will read the same value written by the geometry stage, even if that value is out of
+            range.  If a fragment shader contains a static access to <code class="varname">gl_Layer</code>, it will count against the implementation
+            defined limit for the maximum number of inputs to the fragment stage.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.40</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.50</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">gl_Layer (geometry stage)</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">gl_Layer (fragment stage)</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="gl_ViewportIndex.xhtml"><span class="citerefentry"><span class="refentrytitle">gl_ViewportIndex</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>gl_HelperInvocation - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="gl_HelperInvocation">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>gl_HelperInvocation — indicates whether a fragment shader invocation is a helper invocation</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">bool </span><span class="varname">gl_HelperInvocation </span>;</code>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            The value <code class="varname">gl_HelperInvocation</code> is true if the
+            fragment shader invocation is considered a helper invocation and
+            is false otherwise. A helper invocation is a fragment-shader
+            invocation that is created solely for the purposes of evaluating
+            derivatives for use in non-helper fragment-shader invocations.
+            Such derivatives are computed implicitly in the built-in
+            function
+            <a class="citerefentry" href="texture.xhtml"><span class="citerefentry"><span class="refentrytitle">texture</span></span></a>(),
+            and explicitly in the derivative functions
+            <a class="citerefentry" href="dFdx.xhtml"><span class="citerefentry"><span class="refentrytitle">dFdx</span></span></a>()
+            and <code class="function">dFdy</code>.
+        </p>
+        <p> 
+            Fragment shader helper invocations execute the same shader code
+            as non-helper invocations, but will not have side effects that
+            modify the framebuffer or other shader-accessible memory. In
+            particular:
+        
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        Fragments corresponding to helper invocations are
+                        discarded when shader execution is complete, without
+                        updating the framebuffer.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Stores to image and buffer variables performed by
+                        helper invocations have no effect on the underlying
+                        image or buffer memory.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Atomic operations to image, buffer, or atomic
+                        counter variables performed by helper invocations
+                        have no effect on the underlying image or buffer
+                        memory. The values returned by such atomic
+                        operations are undefined.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            Helper invocations may be generated for pixels not covered by a
+            primitive being rendered. While fragment shader inputs qualified
+            with centroid are normally required to be sampled in the
+            intersection of the pixel and the primitive, the requirement is
+            ignored for such pixels since there is no intersection between
+            the pixel and primitive.
+        </p>
+        <p>
+            Helper invocations may also be generated for fragments that are
+            covered by a primitive being rendered when the fragment is
+            killed by early fragment tests (using the early_fragment_tests
+            qualifier) or where the implementation is able to determine that
+            executing the fragment shader would have no effect other than
+            assisting in computing derivatives for other fragment shader
+            invocations.
+        </p>
+        <p>
+            The set of helper invocations generated when processing any set
+            of primitives is implementation dependent.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Variable Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.40</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.50</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">gl_HelperInvocation</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="dFdx.xhtml"><span class="citerefentry"><span class="refentrytitle">dFdx</span></span></a>,
+            <a class="citerefentry" href="texture.xhtml"><span class="citerefentry"><span class="refentrytitle">texture</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

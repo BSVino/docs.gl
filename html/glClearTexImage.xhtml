@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glClearTexImage - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glClearTexImage">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glClearTexImage — fills all a texture image with a constant value</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glClearTexImage</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const void * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of an existing texture object containing the image to be cleared.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The level of <em class="parameter"><code>texture</code></em> containing the region to be cleared.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>format</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The format of the data whose address in memory is given by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>type</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The type of the data whose address in memory is given by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address in memory of the data to be used to clear the specified region.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glClearTexImage</code> fills all an image contained in a
+            texture with an application supplied value. <em class="parameter"><code>texture</code></em> must be
+            the name of an existing texture. Further, <em class="parameter"><code>texture</code></em> may not be
+            the name of a buffer texture, nor may its internal format be compressed.
+        </p>
+        <p>
+            <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> specify the format and type of the
+            source data and are interpreted as they are for <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>.
+            Textures with a base internal format of <code class="constant">GL_DEPTH_COMPONENT</code>, <code class="constant">GL_STENCIL_INDEX</code>, or <code class="constant">GL_DEPTH_STENCIL</code>
+            require depth component, stencil, or depth-stencil component data respectively.
+            Textures with other base internal formats require RGBA formats. Textures with integer
+            internal formats require integer data.
+        </p>
+        <p>
+            <em class="parameter"><code>data</code></em> is a pointer to an array of between one and four components of texel
+            data that will be used as the source for the constant fill value. The elements of
+            data are converted by the GL into the internal format of the texture image (that
+            was specified when the level was defined by any of the <code class="function">glTexImage*</code>, <code class="function">glTexStorage*</code>
+            or <code class="function">glCopyTexImage*</code> commands), and then
+            used to fill the specified range of the destination texture level. If <em class="parameter"><code>data</code></em> is <code class="constant">NULL</code>, then
+            the pointer is ignored and the sub-range of the texture image is filled with zeros. If
+            texture is a multisample texture, all the samples in a texel are cleared to the value
+            specified by data.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <code class="function">glClearTexImage</code> is available only if the GL version is 4.4 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is zero or not the
+            name of an existing texture object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is a buffer texture.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> has a compressed
+            internal format.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_DEPTH_COMPONENT</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_DEPTH_COMPONENT</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_DEPTH_STENCIL</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_DEPTH_STENCIL</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_STENCIL_INDEX</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_STENCIL_INDEX</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_RGBA</code> and <em class="parameter"><code>format</code></em> is <code class="constant">GL_DEPTH_COMPONENT</code>, <code class="constant">GL_STENCIL_INDEX</code>, or <code class="constant">GL_DEPTH_STENCIL</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the internal format is integer and <em class="parameter"><code>format</code></em> does not specify integer data.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the internal format is not
+            integer and <em class="parameter"><code>format</code></em> specifies integer data.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the image array identified by <em class="parameter"><code>level</code></em>
+            has not previously been defined by a call to <code class="function">glTexImage*</code> or <code class="function">glTexStorage*</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, <a class="citerefentry" href="glGetInternalformat.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetInternalformat</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glClearTexImage</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glClearTexSubImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearTexSubImage</span></span></a>,
+            <a class="citerefentry" href="glTexStorage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage1D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glViewportIndexed - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glViewportIndexed">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glViewportIndexed — set a specified viewport</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glViewportIndexedf</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat <var class="pdparam">w</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat <var class="pdparam">h</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glViewportIndexedfv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLfloat *<var class="pdparam">v</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                   Specify the first viewport to set.
+                </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>x</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>y</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For <code class="function">glViewportIndexedf</code>, specifies the lower left corner of
+                    the viewport rectangle, in pixels. The initial value is (0,0).
+                </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>width</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For <code class="function">glViewportIndexedf</code>, specifies the width and height
+                    of the viewport.
+                    When a GL context is first attached to a window,
+                    <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> are set to the dimensions of that
+                    window.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>v</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                   For <code class="function">glViewportIndexedfv</code>, specifies the address of an array containing the viewport parameters.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glViewportIndexedf</code> and <code class="function">glViewportIndexedfv</code>
+            specify the parameters for a single viewport.
+            <em class="parameter"><code>index</code></em> specifies the index of the viewport
+            to modify.
+            <em class="parameter"><code>index</code></em> must be less than the value of <code class="constant">GL_MAX_VIEWPORTS</code>.
+            For <code class="function">glViewportIndexedf</code>, <em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>,
+            <em class="parameter"><code>w</code></em>, and <em class="parameter"><code>h</code></em> specify the left, bottom, width and height
+            of the viewport in pixels, respectively.
+            For <code class="function">glViewportIndexedfv</code>, <em class="parameter"><code>v</code></em> contains the address of an array of floating
+            point values specifying the
+            left (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>),
+            bottom (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>),
+            width (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>),
+            and height (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>)
+            of each viewport, in that order. <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math> give
+            the location of the viewport's lower left corner, and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            give the width and height of the viewport, respectively.
+            The viewport specifies the affine transformation of
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            from
+            normalized device coordinates to window coordinates.
+            Let
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">nd</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">nd</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            be normalized device coordinates.
+            Then the window coordinates
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            are computed as follows:
+        </p>
+        <p>
+            </p>
+        <div class="informalequation">
+          <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">nd</mml:mi>
+                                </mml:msub>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mo>⁢</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">width</mml:mi>
+                                <mml:mn>2</mml:mn>
+                            </mml:mfrac>
+                        </mml:mfenced>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">x</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>
+        </div>
+        <p>
+        </p>
+        <p>
+            </p>
+        <div class="informalequation">
+          <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                <mml:mi mathvariant="italic">nd</mml:mi>
+                                </mml:msub>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mo>⁢</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">height</mml:mi>
+                                <mml:mn>2</mml:mn>
+                            </mml:mfrac>
+                        </mml:mfenced>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">y</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>
+        </div>
+        <p>
+        </p>
+        <p>
+            The location of the viewport's bottom left corner, given by
+            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>, <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>)
+            is clamped to be within the implementaiton-dependent viewport bounds range.
+            The viewport bounds range [<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">min</mml:mi></mml:math>, <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>]
+            can be determined by calling <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_VIEWPORT_BOUNDS_RANGE</code>.
+            Viewport width and height are silently clamped
+            to a range that depends on the implementation.
+            To query this range, call <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_MAX_VIEWPORT_DIMS</code>.
+        </p>
+        <p>
+            The precision with which the GL interprets the floating point viewport bounds is implementation-dependent
+            and may be determined by querying the impementation-defined constant <code class="constant">GL_VIEWPORT_SUBPIXEL_BITS</code>.
+        </p>
+        <p>
+            Calling <code class="function">glViewportIndexedfv</code> is equivalent to calling <a class="citerefentry" href="glViewportArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glViewportArray</span></span></a>
+            with <em class="parameter"><code>first</code></em> set to <em class="parameter"><code>index</code></em>, <em class="parameter"><code>count</code></em> set to
+            1 and <em class="parameter"><code>v</code></em> passsed directly. <code class="function">glViewportIndexedf</code> is equivalent
+            to:
+        </p>
+        <pre class="programlisting">    void glViewportIndexedf(GLuint index, GLfloat x, GLfloat y, GLfloat w, GLfloat h) {
+        const float v[4]  = { x, y, w, h };
+        glViewportArrayv(index, 1, v);
+    }</pre>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater than or equal to
+            the value of <code class="constant">GL_MAX_VIEWPORTS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if either <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is negative.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_VIEWPORT</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_VIEWPORT_DIMS</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_VIEWPORT_BOUNDS_RANGE</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_VIEWPORT_SUBPIXEL_BITS</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glViewportIndexedf</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glViewportIndexedfv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDepthRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>,
+            <a class="citerefentry" href="glViewport.xhtml"><span class="citerefentry"><span class="refentrytitle">glViewport</span></span></a>,
+            <a class="citerefentry" href="glViewportArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glViewportArray</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

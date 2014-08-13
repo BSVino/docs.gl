@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>textureGatherOffsets - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="textureGatherOffsets">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>textureGatherOffsets — gathers four texels from a texture with an array of offsets</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>[int <var class="pdparam">comp]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2DArray <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>[int <var class="pdparam">comp]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2DRect <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>[int <var class="pdparam">comp]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">vec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2DShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">refZ</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">vec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2DArrayShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">refZ</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">vec4 <strong class="fsfunc">textureGatherOffsets</strong>(</code>
+              </td>
+              <td>gsampler2DRectShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">refZ</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>ivec2 <var class="pdparam">offsets[4]</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>sampler</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the sampler to which the texture from which texels will be retrieved is bound.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>P</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture coordinates at which texture will be sampled.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>comp</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the component of the source texture that will be used to generate the resulting vector.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>refZ</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the reference Z value used in the comparison for shadow forms.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>offsets</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies an array of offsets from the specified texture coordinate <em class="parameter"><code>P</code></em> from which the texels will be gathered.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">textureGatherOffsets</code> operates identically to <a class="citerefentry" href="textureGatherOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGatherOffset</span></span></a>,
+            except that <em class="parameter"><code>offsets</code></em> is used to determine the location of the four texels to sample. Each of the four texels is obtained
+            by applying the offset in <em class="parameter"><code>offsets</code></em> as a (u, v) coordinate offset to <em class="parameter"><code>P</code></em>, identifying the four-texel
+            <code class="constant">GL_LINEAR</code> footprint, and then selecting the texel
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msub><mml:mi>i</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:msub><mml:mi>i</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:math>
+            of that footprint. The specified values in <em class="parameter"><code>offsets</code></em> must be set with constant integral expressions.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.40</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.50</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">textureGatherOffsets</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="texelFetch.xhtml"><span class="citerefentry"><span class="refentrytitle">texelFetch</span></span></a>,
+            <a class="citerefentry" href="texelFetchOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">texelFetchOffset</span></span></a>,
+            <a class="citerefentry" href="texture.xhtml"><span class="citerefentry"><span class="refentrytitle">texture</span></span></a>,
+            <a class="citerefentry" href="textureGather.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGather</span></span></a>,
+            <a class="citerefentry" href="textureGatherOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGatherOffset</span></span></a>,
+            <a class="citerefentry" href="textureGrad.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGrad</span></span></a>,
+            <a class="citerefentry" href="textureGradOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGradOffset</span></span></a>,
+            <a class="citerefentry" href="textureLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureLod</span></span></a>,
+            <a class="citerefentry" href="textureLodOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureLodOffset</span></span></a>,
+            <a class="citerefentry" href="textureOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureOffset</span></span></a>,
+            <a class="citerefentry" href="textureProj.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProj</span></span></a>,
+            <a class="citerefentry" href="textureProjGrad.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjGrad</span></span></a>,
+            <a class="citerefentry" href="textureProjGradOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjGradOffset</span></span></a>,
+            <a class="citerefentry" href="textureProjLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjLod</span></span></a>,
+            <a class="citerefentry" href="textureProjLodOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjLodOffset</span></span></a>,
+            <a class="citerefentry" href="textureProjOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjOffset</span></span></a>,
+            <a class="citerefentry" href="textureQueryLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureQueryLod</span></span></a>,
+            <a class="citerefentry" href="textureSize.xhtml"><span class="citerefentry"><span class="refentrytitle">textureSize</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

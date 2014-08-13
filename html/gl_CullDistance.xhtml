@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>gl_CullDistance - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="gl_CullDistance">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>gl_CullDistance — provides a mechanism for controlling user culling</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <p>
+            <code class="varname">gl_CullDistance</code> is a member of the
+            <code class="varname">gl_PerVertex</code> named block:
+        </p>
+        <pre class="programlisting">    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+        float gl_CullDistance[];
+    };</pre>
+        <p>
+        </p>
+        <p>
+            In fragment shaders, it is intrinsically declared as:
+            <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">float </span><span class="varname">gl_CullDistance[] </span>;</code>
+        </p>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            The <code class="varname">gl_CullDistance</code> variable provides a
+            mechanism for controlling user culling. The element
+            <em class="parameter"><code>gl_CullDistance</code></em>[<span class="emphasis"><em>i</em></span>]
+            specifies a cull distance for each plane <span class="emphasis"><em>i</em></span>.
+            A distance of 0.0 means that the vertex is on the plane, a
+            positive distance means that the vertex is insider the cull
+            volume, and a negative distance means that the point is outside
+            the cull volume. Primitives whose vertices all have a negative
+            clip distance for plane <span class="emphasis"><em>i</em></span> will be
+            discarded.
+        </p>
+        <p>
+            The <code class="varname">gl_CullDistance</code> array is predeclared as
+            unsized and must be sized by the shader either by redeclaring it
+            with an size or by indexing it only with integral constant
+            expressions. The size determines the number and set of enabled
+            cull distances and can be at most
+            <code class="varname">gl_MaxCullDistances</code>. The number of varying
+            components consumed by <code class="varname">gl_CullDistance</code> will
+            match the size of the array. Shaders writing
+            <code class="varname">gl_CullDistance</code> must write all enabled
+            distances, or culling results are undefined.
+        </p>
+        <p>
+            As an output variable, 
+            <code class="varname">gl_CullDistance</code> provides the place for the
+            shader to write these distances. As an input in all but the
+            fragment language, it reads the values written in the previous
+            shader stage. In the fragment language, the
+            <code class="varname">gl_CullDistance</code> array contains linearly
+            interpolated values for the vertex values written by a shader to
+            the <code class="varname">gl_CullDistance</code> vertex output variable.
+        </p>
+        <p>
+            It is a compile-time or link-time error for the set of shaders
+            forming a program to have the sum of the sizes of the
+            <code class="varname">gl_ClipDistance</code> and
+            <code class="varname">gl_CullDistance</code> arrays to be larger than
+            <code class="varname">gl_MaxCombinedClipAndCullDistances</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Variable Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.40</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.50</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">gl_CullDistance</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="gl_ClipDistance.xhtml"><span class="citerefentry"><span class="refentrytitle">gl_ClipDistance</span></span></a>,
+            <a class="citerefentry" href="gl_PointSize.xhtml"><span class="citerefentry"><span class="refentrytitle">gl_PointSize</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

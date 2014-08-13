@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glCopyTexSubImage3D - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glCopyTexSubImage3D">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glCopyTexSubImage3D, glCopyTextureSubImage3D — copy a three-dimensional texture subimage</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glCopyTexSubImage3D</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">xoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">yoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">zoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glCopyTextureSubImage3D</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">xoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">yoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">zoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the target to which the texture object is bound for
+          <code class="function">glCopyTexSubImage3D</code> function. Must be
+          <code class="constant">GL_TEXTURE_3D</code> or
+          <code class="constant">GL_TEXTURE_2D_ARRAY</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the texture object name for
+          <code class="function">glCopyTextureSubImage3D</code> function.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the level-of-detail number. Level 0 is the base
+          image level. Level <span class="emphasis"><em>n</em></span> is the
+          <span class="emphasis"><em>n</em></span>th mipmap reduction image.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>xoffset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies a texel offset in the x direction within the texture
+          array.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>yoffset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies a texel offset in the y direction within the texture
+          array.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>zoffset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies a texel offset in the z direction within the texture
+          array.</p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>x</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>y</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specify the window coordinates of the lower left corner of the
+          rectangular region of pixels to be copied.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>width</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the width of the texture subimage.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the height of the texture subimage.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p><code class="function">glCopyTexSubImage3D</code> and
+    <code class="function">glCopyTextureSubImage3D</code> functions replace a rectangular portion of a three-dimensional
+            or two-dimensional array texture image with pixels from the current <code class="constant">GL_READ_BUFFER</code> (rather
+            than from main memory, as is the case for <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
+        </p>
+        <p>
+            The screen-aligned pixel rectangle with lower left corner at
+            (<em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>) and with
+            width <em class="parameter"><code>width</code></em> and height <em class="parameter"><code>height</code></em> replaces the portion of the
+            texture array with x indices <em class="parameter"><code>xoffset</code></em> through
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">xoffset</mml:mi>
+                    <mml:mo>+</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>-</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            inclusive, and y indices <em class="parameter"><code>yoffset</code></em> through
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">yoffset</mml:mi>
+                    <mml:mo>+</mml:mo>
+                    <mml:mi mathvariant="italic">height</mml:mi>
+                    <mml:mo>-</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            inclusive, at z index <em class="parameter"><code>zoffset</code></em> and at the mipmap level specified by <em class="parameter"><code>level</code></em>.
+        </p>
+        <p>
+            The pixels in the rectangle are processed exactly as if
+            <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops just before
+            final conversion.
+            At this point, all pixel component values are clamped to the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>
+            and then converted to the texture's internal format for storage in the texel
+            array.
+        </p>
+        <p>
+            The destination rectangle in the texture array may not include any texels
+            outside the texture array as it was originally specified.
+            It is not an error to specify a subtexture with zero width or height, but
+            such a specification has no effect.
+        </p>
+        <p>
+            If any of the pixels within the specified rectangle of the current
+            <code class="constant">GL_READ_BUFFER</code> are outside the read window associated with the current
+            rendering context, then the values obtained for those pixels are undefined.
+        </p>
+        <p>
+            No change is made to the <span class="emphasis"><em>internalformat</em></span>, <span class="emphasis"><em>width</em></span>,
+            <span class="emphasis"><em>height</em></span>, <span class="emphasis"><em>depth</em></span>, or <span class="emphasis"><em>border</em></span> parameters of the specified texture
+            array or to texel values outside the specified subregion.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> modes affect texture images.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated by
+    <code class="function">glCopyTexSubImage3D</code> if <em class="parameter"><code>target</code></em>
+    is not <code class="constant">GL_TEXTURE_3D</code>,
+    <code class="constant">GL_TEXTURE_2D_ARRAY</code> or
+    <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated by
+    <code class="function">glCopyTextureSubImage3D</code> if the effective target is
+    not <code class="constant">GL_TEXTURE_3D</code>,
+    <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+    <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code> or
+    <code class="constant">GL_TEXTURE_CUBE_MAP</code>.</p>
+        <p><code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated
+    if the object bound to <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code> is
+    not framebuffer complete.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if the
+    texture array has not been defined by a previous <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> or <a class="citerefentry" href="glTexStorage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a> operation.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated by
+    <code class="function">glCopyTextureSubImage3D</code> if
+    <em class="parameter"><code>texture</code></em> is not the name of an existing texture
+    object.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>level</code></em> is less than 0.</p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">level</mml:mi>
+                    <mml:mo>&gt;</mml:mo>
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                        <mml:mn>2</mml:mn>
+                        </mml:msub>
+                        <mml:mo>⁡</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mi mathvariant="italic">max</mml:mi>
+                        </mml:mfenced>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>,
+            where
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+            is the returned value of <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code> if <em class="parameter"><code>target</code></em>
+            is <code class="constant">GL_TEXTURE_3D</code> or the returned value of <code class="constant">GL_MAX_ARRAY_TEXTURE_LAYERS</code>
+            if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D_ARRAY</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">xoffset</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mn>0</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">xoffset</mml:mi>
+                            <mml:mo>+</mml:mo>
+                            <mml:mi mathvariant="italic">width</mml:mi>
+                        </mml:mrow>
+                    </mml:mfenced>
+                    <mml:mo>&gt;</mml:mo>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">yoffset</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mn>0</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">yoffset</mml:mi>
+                            <mml:mo>+</mml:mo>
+                            <mml:mi mathvariant="italic">height</mml:mi>
+                        </mml:mrow>
+                    </mml:mfenced>
+                    <mml:mo>&gt;</mml:mo>
+                    <mml:mi mathvariant="italic">h</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">zoffset</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mn>0</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            or
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                     <mml:mfenced open="(" close=")">
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">zoffset</mml:mi>
+                            <mml:mo>+</mml:mo>
+                            <mml:mn>1</mml:mn>
+                        </mml:mrow>
+                    </mml:mfenced>
+                    <mml:mo>&gt;</mml:mo>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            where
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+            is the <code class="constant">GL_TEXTURE_WIDTH</code>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            is the <code class="constant">GL_TEXTURE_HEIGHT</code>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">d</mml:mi></mml:math>
+            is the <code class="constant">GL_TEXTURE_DEPTH</code> and
+            of the texture image being modified.
+            Note that
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>,
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">d</mml:mi></mml:math>
+            include twice the border width.
+        </p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated
+    if:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>the read buffer is <code class="constant">GL_NONE</code>, or</p>
+            </li>
+            <li class="listitem">
+              <p>the value of <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code>
+          is non-zero, and:</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist" style="list-style-type: circle; ">
+                  <li class="listitem">
+                    <p>the read buffer selects an attachment that has no image
+                attached, or</p>
+                  </li>
+                  <li class="listitem">
+                    <p>the effective value of
+                <code class="constant">GL_SAMPLE_BUFFERS</code> for the read
+                framebuffer is one.</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glCopyTexSubImage3D</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glCopyTextureSubImage3D</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glCopyTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006
+            Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2012-2014 Khronos Group.
+            This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

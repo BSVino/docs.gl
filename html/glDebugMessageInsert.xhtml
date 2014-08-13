@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glDebugMessageInsert - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glDebugMessageInsert">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glDebugMessageInsert — inject an application-supplied message into the debug message queue</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glDebugMessageInsert</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">source</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">id</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">severity</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const char *<var class="pdparam">message</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>source</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The source of the debug message to insert.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>type</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The type of the debug message insert.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>id</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The user-supplied identifier of the message to insert.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>severity</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The severity of the debug messages to insert.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>length</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The length string contained in the character array whose address is given by <em class="parameter"><code>message</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>message</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address of a character array containing the message to insert.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glDebugMessageInsert</code> inserts a user-supplied message into the
+            debug output queue. <em class="parameter"><code>source</code></em> specifies the source that will be
+            used to classify the message and must be <code class="constant">GL_DEBUG_SOURCE_APPLICATION</code>
+            or <code class="constant">GL_DEBUG_SOURCE_THIRD_PARTY</code>. All other sources are reserved for
+            use by the GL implementation. <em class="parameter"><code>type</code></em> indicates the type of the message
+            to be inserted and may be one of <code class="constant">GL_DEBUG_TYPE_ERROR</code>, <code class="constant">GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR</code>,
+            <code class="constant">GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR</code>, <code class="constant">GL_DEBUG_TYPE_PORTABILITY</code>,
+            <code class="constant">GL_DEBUG_TYPE_PERFORMANCE</code>, <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>, <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, or <code class="constant">GL_DEBUG_TYPE_OTHER</code>.
+            <em class="parameter"><code>severity</code></em> indicates the severity of the message and may be <code class="constant">GL_DEBUG_SEVERITY_LOW</code>,
+            <code class="constant">GL_DEBUG_SEVERITY_MEDIUM</code>, <code class="constant">GL_DEBUG_SEVERITY_HIGH</code> or <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>.
+            <em class="parameter"><code>id</code></em> is available for application defined use and may be any value. This value
+            will be recorded and used to identify the message.
+        </p>
+        <p>
+            <em class="parameter"><code>length</code></em> contains a count of the characters in the character array
+            whose address is given in <em class="parameter"><code>message</code></em>. If <em class="parameter"><code>length</code></em>
+            is negative then <em class="parameter"><code>message</code></em> is treated as a null-terminated string.
+            The length of the message, whether specified explicitly or implicitly, must be less than
+            or equal to the implementation defined constant <code class="constant">GL_MAX_DEBUG_MESSAGE_LENGTH</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>, <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, and <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>
+            are available only if the GL version is 4.3 or higher.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if any of <em class="parameter"><code>source</code></em>, <em class="parameter"><code>type</code></em>
+            or <em class="parameter"><code>severity</code></em> is not one of the accepted interface types.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if the length of the message is greater than the
+            value of <code class="constant">GL_MAX_DEBUG_MESSAGE_LENGTH</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glDebugMessageInsert</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDebugMessageControl.xhtml"><span class="citerefentry"><span class="refentrytitle">glDebugMessageControl</span></span></a>,
+            <a class="citerefentry" href="glDebugMessageCallback.xhtml"><span class="citerefentry"><span class="refentrytitle">glDebugMessageCallback</span></span></a>,
+            <a class="citerefentry" href="glGetDebugMessageLog.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetDebugMessageLog</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

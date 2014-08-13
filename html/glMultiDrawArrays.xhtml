@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glMultiDrawArrays - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glMultiDrawArrays">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glMultiDrawArrays — render multiple sets of primitives from array data</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glMultiDrawArrays</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">mode</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLint * <var class="pdparam">first</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLsizei * <var class="pdparam">count</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">drawcount</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>mode</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies what kind of primitives to render.
+                    Symbolic constants
+                    <code class="constant">GL_POINTS</code>,
+                    <code class="constant">GL_LINE_STRIP</code>,
+                    <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_LINES</code>,
+                    <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+                    <code class="constant">GL_LINES_ADJACENCY</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP</code>,
+                    <code class="constant">GL_TRIANGLE_FAN</code>,
+                    <code class="constant">GL_TRIANGLES</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code>,
+                    <code class="constant">GL_TRIANGLES_ADJACENCY</code> and <code class="constant">GL_PATCHES</code>
+                    are accepted.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>first</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Points to an array of starting indices in the enabled arrays.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>count</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Points to an array of the number of indices to be rendered.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>drawcount</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the size of the first and count
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glMultiDrawArrays</code> specifies multiple sets of geometric primitives
+            with very few subroutine calls. Instead of calling a GL procedure
+            to pass each individual vertex, normal, texture coordinate, edge
+            flag, or color, you can prespecify
+            separate arrays of vertices, normals, and colors and use them to
+            construct a sequence of primitives with a single
+            call to <code class="function">glMultiDrawArrays</code>.
+        </p>
+        <p>
+            <code class="function">glMultiDrawArrays</code> behaves identically to <a class="citerefentry" href="glDrawArrays.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a> except that <em class="parameter"><code>drawcount</code></em>
+            separate ranges of elements are specified instead.
+        </p>
+        <p>
+            When <code class="function">glMultiDrawArrays</code> is called, it uses <em class="parameter"><code>count</code></em> sequential elements from each
+            enabled array to construct a sequence of geometric primitives,
+            beginning with element <em class="parameter"><code>first</code></em>. <em class="parameter"><code>mode</code></em> specifies what kind of
+            primitives are constructed, and how the array elements
+            construct those primitives.
+        </p>
+        <p>
+            Vertex attributes that are modified by <code class="function">glMultiDrawArrays</code> have an
+            unspecified value after <code class="function">glMultiDrawArrays</code> returns. Attributes that aren't
+            modified remain well defined.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+            <code class="constant">GL_LINES_ADJACENCY</code>,
+            <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
+            <code class="constant">GL_TRIANGLES_ADJACENCY</code>
+            are available only if the GL version is 3.2 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>drawcount</code></em> is negative.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
+            enabled array and the buffer object's data store is currently mapped.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glMultiDrawArrays</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDrawElements.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006
+            Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014
+            Khronos Group.
+            This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

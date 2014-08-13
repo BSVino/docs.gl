@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetInternalformat - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetInternalformat">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetInternalformat — retrieve information about implementation-dependent support for internal formats</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetInternalformativ</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint *<var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetInternalformati64v</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint64 *<var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Indicates the usage of the internal format. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_3D</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+                    <code class="constant">GL_TEXTURE_BUFFER</code>,
+                    <code class="constant">GL_RENDERBUFFER</code>, <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> or <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the internal format about which to retrieve information.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the type of information to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the maximum number of basic machine units that may be written to <em class="parameter"><code>params</code></em> by the function.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>params</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the address of a variable into which to write the retrieved information.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetInternalformativ</code> and <code class="function">glGetInternalformati64v</code> retrieve information about implementation-dependent support for
+            internal formats. <em class="parameter"><code>target</code></em> indicates the target with which the internal format will
+            be used and must be one of <code class="constant">GL_RENDERBUFFER</code>, <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+            or <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>, corresponding to usage as a renderbuffer, two-dimensional
+            multisample texture or two-dimensional multisample array texture, respectively.
+        </p>
+        <p>
+            <em class="parameter"><code>internalformat</code></em> specifies the internal format about which to retrieve information and
+            must be a color-renderable, depth-renderable or stencil-renderable format.
+        </p>
+        <p>
+            The information retrieved will be written to memory addressed by the pointer specified in <em class="parameter"><code>params</code></em>. No
+            more than <em class="parameter"><code>bufSize</code></em> basic machine units will be written to this memory.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_NUM_SAMPLE_COUNTS</code>, the number of sample counts that would be
+            returned by querying <code class="constant">GL_SAMPLES</code> will be returned in <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SAMPLES</code>, the sample counts supported for <em class="parameter"><code>internalformat</code></em>
+            and <em class="parameter"><code>target</code></em> are written into <em class="parameter"><code>params</code></em> in descending numeric order. Only positive values are returned.
+            Querying <code class="constant">GL_SAMPLES</code> with <em class="parameter"><code>bufSize</code></em> of one will return just the maximum supported number of
+            samples for this format. The maximum value in <code class="constant">GL_SAMPLES</code> is guaranteed to be at least the lowest of the following:
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        The value of
+                        <code class="constant">GL_MAX_INTEGER_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a signed or
+                        unsigned integer format.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        The value of
+                        <code class="constant">GL_MAX_DEPTH_TEXTURE_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a depth- or
+                        stencil-renderable format and
+                        <em class="parameter"><code>target</code></em> is
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        The value of
+                        <code class="constant">GL_MAX_COLOR_TEXTURE_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a
+                        color-renderable format and
+                        <em class="parameter"><code>target</code></em> is
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> or
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>The value of <code class="constant">GL_MAX_SAMPLES</code>.</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_INTERNALFORMAT_SUPPORTED</code>, <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_TRUE</code> if <em class="parameter"><code>internalFormat</code></em>
+            is a supported internal format for <em class="parameter"><code>target</code></em> and to <code class="constant">GL_FALSE</code> otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_INTERNALFORMAT_PREFERRED</code>, <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_TRUE</code> if <em class="parameter"><code>internalFormat</code></em>
+            is an format for <em class="parameter"><code>target</code></em> that is preferred by the implementation and to <code class="constant">GL_FALSE</code> otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_INTERNALFORMAT_RED_SIZE</code>, <code class="constant">GL_INTERNALFORMAT_GREEN_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_BLUE_SIZE</code>, <code class="constant">GL_INTERNALFORMAT_ALPHA_SIZE</code>, <code class="constant">GL_INTERNALFORMAT_DEPTH_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_STENCIL_SIZE</code>, or <code class="constant">GL_INTERNALFORMAT_SHARED_SIZE</code> then
+            <em class="parameter"><code>params</code></em> is set to the actual resolutions that would be used for storing image array components
+            for the resource for the red, green, blue, alpha, depth, stencil and shared channels respectively. If <em class="parameter"><code>internalFormat</code></em>
+            is a compressed internal format, then <em class="parameter"><code>params</code></em> is set to the component resolution of an uncompressed internal format that produces
+            an image of roughly the same quality as the compressed algorithm. If the internal format is unsupported, or if a particular component is
+            not present in the format, 0 is written to <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_INTERNALFORMAT_RED_TYPE</code>, <code class="constant">GL_INTERNALFORMAT_GREEN_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_BLUE_TYPE</code>, <code class="constant">GL_INTERNALFORMAT_ALPHA_TYPE</code>, <code class="constant">GL_INTERNALFORMAT_DEPTH_TYPE</code>,
+            or <code class="constant">GL_INTERNALFORMAT_STENCIL_TYPE</code> then <em class="parameter"><code>params</code></em> is set to a token identifying the data type used
+            to store the respective component. If the <em class="parameter"><code>internalFormat</code></em> represents a compressed internal format then
+            the types returned specify how components are interpreted after decompression.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_WIDTH</code>, <code class="constant">GL_MAX_HEIGHT</code>, <code class="constant">GL_MAX_DEPTH</code>,
+            or <code class="constant">GL_MAX_LAYERS</code> then <em class="parameter"><code>pname</code></em> is filled with the maximum width, height, depth or layer count
+            for textures with internal format <em class="parameter"><code>internalFormat</code></em>, respectively. If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_COMBINED_DIMENSIONS</code>
+            then <em class="parameter"><code>pname</code></em> is filled with the maximum combined dimensions of a texture of the specified internal format.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_COLOR_COMPONENTS</code> then <em class="parameter"><code>params</code></em> is set to the value <code class="constant">GL_TRUE</code>
+            if the internal format contains any color component (i.e., red, green, blue or alpha) and to <code class="constant">GL_FALSE</code> otherwise. If
+            <em class="parameter"><code>pname</code></em> is <code class="constant">GL_DEPTH_COMPONENTS</code> or <code class="constant">GL_STENCIL_COMPONENTS</code> then <em class="parameter"><code>params</code></em>
+            is set to <code class="constant">GL_TRUE</code> if the internal format contains a depth or stencil component, respectively, and to <code class="constant">GL_FALSE</code>
+            otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_COLOR_RENDERABLE</code>, <code class="constant">GL_DEPTH_RENDERABLE</code> or <code class="constant">GL_STENCIL_RENDERABLE</code>
+            then <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_TRUE</code> if the specified internal format is color, depth or stencil renderable, respectively,
+            and to <code class="constant">GL_FALSE</code> otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_RENDERABLE</code> or <code class="constant">GL_FRAMEBUFFER_RENDERABLE_LAYERED</code>
+            then <em class="parameter"><code>params</code></em> is set to one of <code class="constant">GL_FULL_SUPPORT</code>,
+            <code class="constant">GL_CAVEAT_SUPPORT</code> or <code class="constant">GL_NONE</code> to indicate that framebuffer attachments (layered attachments in the
+            case of <code class="constant">GL_FRAMEBUFFER_RENDERABLE_LAYERED</code>) with that internal format are either
+            renderable with no restrictions, renderable with some restrictions or not renderable at all.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_BLEND</code>, <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_TRUE</code>
+            to indicate that the internal format is supported for blending operations when attached to a framebuffer, and to <code class="constant">GL_FALSE</code> otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_READ_PIXELS</code> then <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_FULL_SUPPORT</code>,
+            <code class="constant">GL_CAVEAT_SUPPORT</code> or <code class="constant">GL_NONE</code> to that either full support, limited support or no support at all is supplied
+            for reading pixels from framebuffer attachments in the specified internal format.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_READ_PIXELS_FORMAT</code> or <code class="constant">GL_READ_PIXELS_TYPE</code> then <em class="parameter"><code>params</code></em>
+            is filled with the format or type, respectively, most recommended to obtain the highest image quality and performance. For
+            <code class="constant">GL_READ_PIXELS_FORMAT</code>, the value returned in <em class="parameter"><code>params</code></em> is a token that is accepted for
+            the <em class="parameter"><code>format</code></em> argument to <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>. For
+            <code class="constant">GL_READ_PIXELS_TYPE</code>, the value returned in <em class="parameter"><code>params</code></em> is a token that is accepted for
+            the <em class="parameter"><code>type</code></em> argument to <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_TEXTURE_IMAGE_FORMAT</code> or <code class="constant">GL_TEXTURE_IMAGE_TYPE</code> then
+            <em class="parameter"><code>params</code></em> is filled with the implementation-recommended format or type to be used in calls to
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> and other similar functions. For <code class="constant">GL_TEXTURE_IMAGE_FORMAT</code>,
+            <em class="parameter"><code>params</code></em> is filled with a token suitable for use as the <em class="parameter"><code>format</code></em> argument to
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>. For <code class="constant">GL_TEXTURE_IMAGE_TYPE</code>,
+            <em class="parameter"><code>params</code></em> is filled with a token suitable for use as the <em class="parameter"><code>type</code></em> argument to
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_GET_TEXTURE_IMAGE_FORMAT</code> or <code class="constant">GL_GET_TEXTURE_IMAGE_TYPE</code> then
+            <em class="parameter"><code>params</code></em> is filled with the implementation-recommended format or type to be used in calls to
+            <a class="citerefentry" href="glGetTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage2D</span></span></a> and other similar functions. For <code class="constant">GL_GET_TEXTURE_IMAGE_FORMAT</code>,
+            <em class="parameter"><code>params</code></em> is filled with a token suitable for use as the <em class="parameter"><code>format</code></em> argument to
+            <a class="citerefentry" href="glGetTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage2D</span></span></a>. For <code class="constant">GL_GET_TEXTURE_IMAGE_TYPE</code>,
+            <em class="parameter"><code>params</code></em> is filled with a token suitable for use as the <em class="parameter"><code>type</code></em> argument to
+            <a class="citerefentry" href="glGetTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage2D</span></span></a>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MIPMAP</code> then <em class="parameter"><code>pname</code></em> is set to <code class="constant">GL_TRUE</code>
+            to indicate that the specified internal format supports mipmaps and to <code class="constant">GL_FALSE</code> otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_GENERATE_MIPMAP</code> or <code class="constant">GL_AUTO_GENERATE_MIPMAP</code> then <em class="parameter"><code>params</code></em>
+            is indicates the level of support for manual or automatic mipmap generation for the specified internal format, respectively. Returned values
+            may be one of <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code> and <code class="constant">GL_NONE</code> to indicate
+            either full support, limited support or no support at all.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_COLOR_ENCODING</code> then the color encoding for the resource is returned in
+            <em class="parameter"><code>params</code></em>. Possible values for color buffers are <code class="constant">GL_LINEAR</code> or <code class="constant">GL_SRGB</code>,
+            for linear or sRGB-encoded color components, respectively. For non-color
+            formats (such as depth or stencil), or for unsupported resources,
+            the value <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SRGB_READ</code>, or <code class="constant">GL_SRGB_WRITE</code> then <em class="parameter"><code>params</code></em>
+            indicates the level of support for reading and writing to sRGB encoded images, respectively. For <code class="constant">GL_SRGB_READ</code>,
+            support for converting from sRGB colorspace on read operations is returned in <em class="parameter"><code>params</code></em> and for <code class="constant">GL_SRGB_WRITE</code>,
+            support for converting to sRGB colorspace on write operations to the resource is returned in <em class="parameter"><code>params</code></em>. <em class="parameter"><code>params</code></em> may be
+            set to <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all, respecitively.
+        </p>
+        <p>
+             If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FILTER</code> the <em class="parameter"><code>params</code></em> is set to either <code class="constant">GL_TRUE</code>
+             or <code class="constant">GL_FALSE</code> to indicate support or lack thereof for filter modes other than <code class="constant">GL_NEAREST</code> or <code class="constant">GL_NEAREST_MIPMAP</code>
+             for the specified internal format.
+         </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_VERTEX_TEXTURE</code>, <code class="constant">GL_TESS_CONTROL_TEXTURE</code>, <code class="constant">GL_TESS_EVALUATION_TEXTURE</code>,
+            <code class="constant">GL_GEOMETRY_TEXTURE</code>, <code class="constant">GL_FRAGMENT_TEXTURE</code>, or <code class="constant">GL_COMPUTE_TEXTURE</code>, then the value
+            written to <em class="parameter"><code>params</code></em> indicates support for use of the resource as a source of texturing in the vertex, tessellation control,
+            tessellation evaluation, geometry, fragment and compute shader stages, respectively. <em class="parameter"><code>params</code></em> may be set to
+            <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code> or <code class="constant">GL_NONE</code> to indicate full support,
+            limited support or no support at all, respectively.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_TEXTURE_SHADOW</code>, <code class="constant">GL_TEXTURE_GATHER</code> or <code class="constant">GL_TEXTURE_GATHER_SHADOW</code> then the value written to
+            <em class="parameter"><code>params</code></em> indicates the level of support for using the resource with a shadow sampler, in gather operations or as a shadow sampler in gather operations, respectively. Returned values
+            may be <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code> or <code class="constant">GL_NONE</code> to indicate full support,
+            limited support or no support at all, respectively.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SHADER_IMAGE_LOAD</code>, <code class="constant">GL_SHADER_IMAGE_STORE</code> or <code class="constant">GL_SHADER_IMAGE_ATOMIC</code>
+            then the value returned in <em class="parameter"><code>params</code></em> indicates the level of support for image loads, stores and atomics for resources of the specified internal
+            format. Returned values
+            may be <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code> or <code class="constant">GL_NONE</code> to indicate full support,
+            limited support or no support at all, respectively.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_IMAGE_TEXEL_SIZE</code> then the size of a texel when the resource when used as
+            an image texture is returned in <em class="parameter"><code>params</code></em>. If the resource is not supported for image
+            textures zero is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_IMAGE_COMPATIBILITY_CLASS</code> then the compatibility class of the resource when
+            used as an image texture is returned in <em class="parameter"><code>params</code></em>. The possible values
+            returned are <code class="constant">GL_IMAGE_CLASS_4_X_32</code>, <code class="constant">GL_IMAGE_CLASS_2_X_32</code>, <code class="constant">GL_IMAGE_CLASS_1_X_32</code>,
+            <code class="constant">GL_IMAGE_CLASS_4_X_16</code>, <code class="constant">GL_IMAGE_CLASS_2_X_16</code>, <code class="constant">GL_IMAGE_CLASS_1_X_16</code>,
+            <code class="constant">GL_IMAGE_CLASS_4_X_8</code>, <code class="constant">GL_IMAGE_CLASS_2_X_8</code>, <code class="constant">GL_IMAGE_CLASS_1_X_8</code>,
+            <code class="constant">GL_IMAGE_CLASS_11_11_10</code>, and <code class="constant">GL_IMAGE_CLASS_10_10_10_2</code>, which correspond to
+            the 4x32, 2x32, 1x32, 4x16, 2x16, 1x16, 4x8, 2x8, 1x8, the class
+            (a) 11/11/10 packed floating-point format, and the class (b)
+            10/10/10/2 packed formats, respectively.
+            If the resource is not supported for image textures, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_IMAGE_PIXEL_FORMAT</code> or <code class="constant">GL_IMAGE_PIXEL_TYPE</code> then
+            the pixel format or type of the resource when used as an image texture is returned in <em class="parameter"><code>params</code></em>, respectively.
+            In either case, the resource is not supported for image textures <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_TYPE</code>, the matching criteria use for the
+            resource when used as an image textures is returned in <em class="parameter"><code>params</code></em>. Possible values returned in <em class="parameter"><code>params</code></em> are
+            <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE</code> or <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS</code>.
+            If the resource is not supported for image textures, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST</code> or <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST</code>,
+            support for using the resource both as a source for texture sampling while it is bound as a buffer for depth or stencil test, respectively, is written to <em class="parameter"><code>params</code></em>.
+            Possible values returned are <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all. If the resource or operation is not supported, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE</code> or <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE</code>,
+            support for using the resource both as a source for texture sampling while performing depth or stencil writes to the resources, respectively, is written to <em class="parameter"><code>params</code></em>.
+            Possible values returned are <code class="constant">GL_FULL_SUPPORT</code>, <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all. If the resource or operation is not supported, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_TEXTURE_COMPRESSED</code> then <code class="constant">GL_TRUE</code> is returned in <em class="parameter"><code>params</code></em>
+            if <em class="parameter"><code>internalformat</code></em> is a compressed internal format. <code class="constant">GL_FALSE</code> is returned in <em class="parameter"><code>params</code></em>
+            otherwise.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_WIDTH</code>, <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT</code> or
+            <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_SIZE</code> then the width, height or total size, respectively of a block (in basic machine units) is returned in
+            <em class="parameter"><code>params</code></em>. If the internal format is not compressed, or the resource is not supported, 0 is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_CLEAR_BUFFER</code>, the level of support for using the resource with <a class="citerefentry" href="glClearBufferData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferData</span></span></a>
+            and <a class="citerefentry" href="glClearBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferSubData</span></span></a> is returned in <em class="parameter"><code>params</code></em>. Possible values returned are <code class="constant">GL_FULL_SUPPORT</code>,
+            <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all, respectively. If the resource or operation is not supported, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_TEXTURE_VIEW</code>, the level of support for using the resource with the <a class="citerefentry" href="glTextureView.xhtml"><span class="citerefentry"><span class="refentrytitle">glTextureView</span></span></a>
+            command is returned in <em class="parameter"><code>params</code></em>. Possible values returned are <code class="constant">GL_FULL_SUPPORT</code>,
+            <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all, respectively. If the resource or operation is not supported, <code class="constant">GL_NONE</code> is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_VIEW_COMPATIBILITY_CLASS</code> then the compatibility class of the resource when
+            used as a texture view is returned in <em class="parameter"><code>params</code></em>. The possible values
+            returned are <code class="constant">GL_VIEW_CLASS_128_BITS</code>, <code class="constant">GL_VIEW_CLASS_96_BITS</code>,
+            <code class="constant">GL_VIEW_CLASS_64_BITS</code>, <code class="constant">GL_VIEW_CLASS_48_BITS</code>, <code class="constant">GL_VIEW_CLASS_32_BITS</code>,
+            <code class="constant">GL_VIEW_CLASS_24_BITS</code>, <code class="constant">GL_VIEW_CLASS_16_BITS</code>, <code class="constant">GL_VIEW_CLASS_8_BITS</code>,
+            <code class="constant">GL_VIEW_CLASS_S3TC_DXT1_RGB</code>, <code class="constant">GL_VIEW_CLASS_S3TC_DXT1_RGBA</code>,
+            <code class="constant">GL_VIEW_CLASS_S3TC_DXT3_RGBA</code>, <code class="constant">GL_VIEW_CLASS_S3TC_DXT5_RGBA</code>,
+            <code class="constant">GL_VIEW_CLASS_RGTC1_RED</code>, <code class="constant">GL_VIEW_CLASS_RGTC2_RG</code>, <code class="constant">GL_VIEW_CLASS_BPTC_UNORM</code>, and
+            <code class="constant">GL_VIEW_CLASS_BPTC_FLOAT</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_CLEAR_TEXTURE</code> then the presence of support for using the
+            <a class="citerefentry" href="glClearTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearTexImage</span></span></a> and <a class="citerefentry" href="glClearTexSubImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearTexSubImage</span></span></a>
+            commands with the resource is written to <em class="parameter"><code>params</code></em>. Possible values written are  <code class="constant">GL_FULL_SUPPORT</code>,
+            <code class="constant">GL_CAVEAT_SUPPORT</code>, or <code class="constant">GL_NONE</code> to indicate
+            full support, limited support or no support at all, respectively. If the resource or operation is not supported, <code class="constant">GL_NONE</code> is returned.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            <code class="function">glGetInternalformativ</code> is available only if the
+            GL version is 4.2 or higher.
+        </p>
+        <p>
+            The tokens
+            <code class="constant">GL_INTERNALFORMAT_SUPPORTED</code>,
+            <code class="constant">GL_INTERNALFORMAT_PREFERRED</code>,
+            <code class="constant">GL_INTERNALFORMAT_RED_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_GREEN_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_BLUE_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_ALPHA_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_DEPTH_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_STENCIL_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_SHARED_SIZE</code>,
+            <code class="constant">GL_INTERNALFORMAT_RED_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_GREEN_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_BLUE_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_ALPHA_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_DEPTH_TYPE</code>,
+            <code class="constant">GL_INTERNALFORMAT_STENCIL_TYPE</code>,
+            <code class="constant">GL_MAX_WIDTH</code>,
+            <code class="constant">GL_MAX_HEIGHT</code>,
+            <code class="constant">GL_MAX_DEPTH</code>,
+            <code class="constant">GL_MAX_LAYERS</code>,
+            <code class="constant">GL_MAX_COMBINED_DIMENSIONS</code>,
+            <code class="constant">GL_COLOR_COMPONENTS</code>,
+            <code class="constant">GL_DEPTH_COMPONENTS</code>,
+            <code class="constant">GL_STENCIL_COMPONENTS</code>,
+            <code class="constant">GL_COLOR_RENDERABLE</code>,
+            <code class="constant">GL_DEPTH_RENDERABLE</code>,
+            <code class="constant">GL_STENCIL_RENDERABLE</code>,
+            <code class="constant">GL_FRAMEBUFFER_RENDERABLE</code>,
+            <code class="constant">GL_FRAMEBUFFER_RENDERABLE_LAYERED</code>,
+            <code class="constant">GL_FRAMEBUFFER_BLEND</code>,
+            <code class="constant">GL_READ_PIXELS</code>,
+            <code class="constant">GL_READ_PIXELS_FORMAT</code>,
+            <code class="constant">GL_READ_PIXELS_TYPE</code>,
+            <code class="constant">GL_TEXTURE_IMAGE_FORMAT</code>,
+            <code class="constant">GL_TEXTURE_IMAGE_TYPE</code>,
+            <code class="constant">GL_GET_TEXTURE_IMAGE_FORMAT</code>,
+            <code class="constant">GL_GET_TEXTURE_IMAGE_TYPE</code>,
+            <code class="constant">GL_MIPMAP</code>,
+            <code class="constant">GL_GENERATE_MIPMAP</code>,
+            <code class="constant">GL_AUTO_GENERATE_MIPMAP</code>,
+            <code class="constant">GL_COLOR_ENCODING</code>,
+            <code class="constant">GL_SRGB_READ</code>,
+            <code class="constant">GL_SRGB_WRITE</code>,
+            <code class="constant">GL_SRGB_DECODE_ARB</code>,
+            <code class="constant">GL_FILTER</code>,
+            <code class="constant">GL_VERTEX_TEXTURE</code>,
+            <code class="constant">GL_TESS_CONTROL_TEXTURE</code>,
+            <code class="constant">GL_TESS_EVALUATION_TEXTURE</code>,
+            <code class="constant">GL_GEOMETRY_TEXTURE</code>,
+            <code class="constant">GL_FRAGMENT_TEXTURE</code>,
+            <code class="constant">GL_COMPUTE_TEXTURE</code>,
+            <code class="constant">GL_TEXTURE_SHADOW</code>,
+            <code class="constant">GL_TEXTURE_GATHER</code>,
+            <code class="constant">GL_TEXTURE_GATHER_SHADOW</code>,
+            <code class="constant">GL_SHADER_IMAGE_LOAD</code>,
+            <code class="constant">GL_SHADER_IMAGE_STORE</code>,
+            <code class="constant">GL_SHADER_IMAGE_ATOMIC</code>,
+            <code class="constant">GL_IMAGE_TEXEL_SIZE</code>,
+            <code class="constant">GL_IMAGE_COMPATIBILITY_CLASS</code>,
+            <code class="constant">GL_IMAGE_PIXEL_FORMAT</code>,
+            <code class="constant">GL_IMAGE_PIXEL_TYPE</code>,
+            <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_TYPE</code>,
+            <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST</code>,
+            <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST</code>,
+            <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE</code>,
+            <code class="constant">GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE</code>,
+            <code class="constant">GL_TEXTURE_COMPRESSED</code>,
+            <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_WIDTH</code>,
+            <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT</code>,
+            <code class="constant">GL_TEXTURE_COMPRESSED_BLOCK_SIZE</code>,
+            <code class="constant">GL_CLEAR_BUFFER</code>,
+            <code class="constant">GL_TEXTURE_VIEW</code>, and
+            <code class="constant">GL_VIEW_COMPATIBILITY_CLASS</code> are supported only if the GL
+            version is 4.3 or higher.
+        </p>
+        <p>
+            The <code class="constant">GL_CLEAR_TEXTURE</code> token is accepted for <em class="parameter"><code>pname</code></em> only
+            if the GL version is 4.4 or higher.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is negative.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not <code class="constant">GL_SAMPLES</code> or <code class="constant">GL_NUM_SAMPLE_COUNTS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not color-, depth-, or stencil-renderable.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+            <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code> or <code class="constant">GL_RENDERBUFFER</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glGetInternalformati64v</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetInternalformativ</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

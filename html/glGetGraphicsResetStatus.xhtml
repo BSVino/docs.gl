@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetGraphicsResetStatus - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetGraphicsResetStatus">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetGraphicsResetStatus — check if the rendering context has not been lost due to software or hardware issues</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">GLenum <strong class="fsfunc">glGetGraphicsResetStatus</strong>(</code>
+              </td>
+              <td><var class="pdparam">void</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            Certain events can result in a reset of the GL context. Such a reset causes
+            all context state to be lost and requires the application to recreate all
+            objects in the affected context.
+        </p>
+        <p>
+            <code class="function">glGetGraphicsResetStatus</code> can return one of the following
+            constants:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_NO_ERROR</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Indicates that the GL context has not been in a reset state since
+                        the last call.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_GUILTY_CONTEXT_RESET</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Indicates that a reset has been detected that is attributable to
+                        the current GL context.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INNOCENT_CONTEXT_RESET</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Indicates a reset has been detected that is not attributable to
+                        the current GL context.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_UNKNOWN_CONTEXT_RESET</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Indicates a detected graphics reset whose cause is unknown.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            If a reset status other than <code class="constant">GL_NO_ERROR</code> is returned
+            and subsequent calls return <code class="constant">GL_NO_ERROR</code>, the context
+            reset was encountered and completed. If a reset status is repeatedly
+            returned, the context may be in the process of resetting.
+        </p>
+        <p>
+            Reset notification behavior is determined at context creation time, and
+            may be queried by calling <code class="function">GetIntegerv</code> with the
+            symbolic constant <code class="constant">GL_RESET_NOTIFICATION_STRATEGY</code>.
+        </p>
+        <p>
+            If the reset notification behavior is
+            <code class="constant">GL_NO_RESET_NOTIFICATION</code>, then the
+            implementation will never deliver notification of reset events,
+            and <code class="function">glGetGraphicsResetStatus</code> will always
+            return <code class="constant">GL_NO_ERROR</code>.
+        </p>
+        <p>
+            If the behavior is <code class="constant">GL_LOSE_CONTEXT_ON_RESET</code>, a graphics reset
+            will result in the loss of all context state, requiring the recreation of all
+            associated objects. In this case <code class="function">glGetGraphicsResetStatus</code>
+            may return any of the values described above.
+        </p>
+        <p>
+            If a graphics reset notification occurs in a context, a notification must also occur
+            in all other contexts which share objects with that context.
+        </p>
+        <p>
+            After a graphics reset has occurred on a context, subsequent GL commands on that
+            context (or any context which shares with that context) will generate a
+            <code class="constant">GL_CONTEXT_LOST</code> error. Such commands will not have
+            side effects (in particular, they will not modify memory passed by pointer
+            for query results), and will not block indefinitely or cause termination
+            of the application. There are two important exceptions to this behavior:
+        </p>
+        <p>
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        <code class="function">glGetError</code> and <code class="function">glGetGraphicsResetStatus</code>
+                        behave normally following a graphics reset, so that the application can
+                        determine a reset has occurred, and when it is safe to destroy and re-create
+                        the context.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Any commands which might cause a polling application to block indefinitely
+                        will generate a <code class="constant">GL_CONTEXT_LOST</code> error, but will also return
+                        a value indicating completion to the application. Such commands include:
+                        </p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist" style="list-style-type: circle; ">
+                  <li class="listitem">
+                    <p>
+                                    <code class="function">glGetSynciv</code> with pname <code class="constant">GL_SYNC_STATUS</code>
+                                    ignores the other parameters and returns <code class="constant">GL_SIGNALED</code> in
+                                    <em class="parameter"><code>values</code></em>.
+                                </p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                                    <code class="function">glGetQueryObjectuiv</code> with pname <code class="constant">GL_QUERY_RESULT_AVAILABLE</code>
+                                    ignores the other parameters and returns <code class="constant">TRUE</code> in <em class="parameter"><code>params</code></em>.
+                                </p>
+                  </li>
+                </ul>
+              </div>
+              <p>
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetGraphicsResetStatus</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGetError.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>
+            <a class="citerefentry" href="glGetIntegerv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a>, 
+            <a class="citerefentry" href="glGetQueryObjectuiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>
+            <a class="citerefentry" href="glGetSynciv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetSynciv</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

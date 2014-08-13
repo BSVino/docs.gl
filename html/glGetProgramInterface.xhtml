@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetProgramInterface - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetProgramInterface">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetProgramInterface — query a property of an interface in a program</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetProgramInterfaceiv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">programInterface</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of a program object whose interface to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>programInterface</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    A token identifying the interface within <em class="parameter"><code>program</code></em> to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the parameter within <em class="parameter"><code>programInterface</code></em> to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>params</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address of a variable to retrieve the value of <em class="parameter"><code>pname</code></em> for the program interface.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetProgramInterfaceiv</code> queries the property of the interface identifed
+            by <em class="parameter"><code>programInterface</code></em> in <em class="parameter"><code>program</code></em>, the property name of
+            which is given by <em class="parameter"><code>pname</code></em>.
+        </p>
+        <p>
+            <em class="parameter"><code>program</code></em> must be the name of an existing program object. <em class="parameter"><code>programInterface</code></em>
+            is the name of the interface within <em class="parameter"><code>program</code></em> to query and must be one of the following
+            values:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_UNIFORM</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active uniforms within <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_UNIFORM_BLOCK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active uniform blocks within <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active atomic counter buffer binding points within <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_INPUT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active input variables used by the first shader stage of <em class="parameter"><code>program</code></em>.
+                        If <em class="parameter"><code>program</code></em> contains multiple shader stages then input variables from any stage other than the first
+                        will not be enumerated.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_OUTPUT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active output variables produced by the last shader stage of <em class="parameter"><code>program</code></em>.
+                        If <em class="parameter"><code>program</code></em> contains multiple shader stages then output variables from any stage other than the last
+                        will not be enumerated.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_VERTEX_SUBROUTINE</code>, </span>
+              <span class="term"><code class="constant">GL_TESS_CONTROL_SUBROUTINE</code>, </span>
+              <span class="term"><code class="constant">GL_TESS_EVALUATION_SUBROUTINE</code>, </span>
+              <span class="term"><code class="constant">GL_GEOMETRY_SUBROUTINE</code>, </span>
+              <span class="term"><code class="constant">GL_FRAGMENT_SUBROUTINE</code>, </span>
+              <span class="term">
+                <code class="constant">GL_COMPUTE_SUBROUTINE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active subroutines for the vertex, tessellation control, tessellation evaluation,
+                        geometry, fragment and compute shader stages of <em class="parameter"><code>program</code></em>, respectively.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_VERTEX_SUBROUTINE_UNIFORM</code>, </span>
+              <span class="term"><code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>, </span>
+              <span class="term"><code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>, </span>
+              <span class="term"><code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>, </span>
+              <span class="term"><code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, </span>
+              <span class="term">
+                <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active subroutine uniform variables used by the vertex, tessellation control, tessellation evaluation,
+                        geometry, fragment and compute shader stages of <em class="parameter"><code>program</code></em>, respectively.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of output variables from the last non-fragment stage of <em class="parameter"><code>program</code></em> that would be
+                        captured if transform feedback were active.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BUFFER_VARIABLE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active buffer variables used by <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SHADER_STORAGE_BLOCK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active shader storage blocks used by <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active buffer binding points to which output variables in the
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code> interface are written.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            <em class="parameter"><code>pname</code></em> identifies the property of <em class="parameter"><code>programInterface</code></em>
+            to return in <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_ACTIVE_RESOURCES</code>, the value returned is the number of
+            resources in the active resource list for <em class="parameter"><code>programInterface</code></em>.  If the list
+            of active resources for <em class="parameter"><code>programInterface</code></em> is empty, zero is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NAME_LENGTH</code>, the value returned is the length of the
+            longest active name string for an active resource in <em class="parameter"><code>programInterface</code></em>.
+            This length includes an extra character for the null terminator.  If the
+            list of active resources for <em class="parameter"><code>programInterface</code></em> is empty, zero is
+            returned.  It is an error to specify <code class="constant">GL_MAX_NAME_LENGTH</code> when <em class="parameter"><code>programInterface</code></em>
+            is <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, as active atomic counter buffer resources are
+            not assigned name strings.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NUM_ACTIVE_VARIABLES</code>, the value returned is the number
+            of active variables belonging to the interface block or atomic counter
+            buffer resource in <em class="parameter"><code>programInterface</code></em> with the most active variables.  If
+            the list of active resources for <em class="parameter"><code>programInterface</code></em> is empty, zero is
+            returned.  When <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NUM_ACTIVE_VARIABLES</code>, <em class="parameter"><code>programInterface</code></em>
+            must be <code class="constant">GL_UNIFORM_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, or <code class="constant">GL_SHADER_STORAGE_BLOCK</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NUM_COMPATIBLE_SUBROUTINES</code>, the value returned is the
+            number of compatible subroutines belonging to the active subroutine
+            uniform in <em class="parameter"><code>programInterface</code></em> with the most compatible subroutines.  If
+            the list of active resources for <em class="parameter"><code>programInterface</code></em> is empty, zero is
+            returned. When <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NUM_COMPATIBLE_SUBROUTINES</code>,
+            <em class="parameter"><code>programInterface</code></em> must be one of <code class="constant">GL_VERTEX_SUBROUTINE_UNIFORM</code>,
+            <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>,
+            <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, or
+            <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>identifier</code></em>
+            is not one of the accepted object types.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>program</code></em>
+            is not the name of an existing sync object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is
+            zero.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NAME_LENGTH</code> and
+            <em class="parameter"><code>programInterface</code></em> is <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> or <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>,
+            since active atomic counter and transform feedback buffer resources are not assigned name strings.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> error is generated if <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_MAX_NUM_ACTIVE_VARIABLES</code> and <em class="parameter"><code>programInterface</code></em> is not <code class="constant">GL_UNIFORM_BLOCK</code>,
+            <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, or
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>.
+        </p>
+        <p>
+            If not NULL, <em class="parameter"><code>length</code></em> and <em class="parameter"><code>label</code></em> should be addresses
+            to which the client has write access, otherwise undefined behavior, including process termination
+            may occur.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_LABEL_LENGTH</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetProgramInterfaceiv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glPushDebugGroup.xhtml"><span class="citerefentry"><span class="refentrytitle">glPushDebugGroup</span></span></a>,
+            <a class="citerefentry" href="glPopDebugGroup.xhtml"><span class="citerefentry"><span class="refentrytitle">glPopDebugGroup</span></span></a>,
+            <a class="citerefentry" href="glObjectLabel.xhtml"><span class="citerefentry"><span class="refentrytitle">glObjectLabel</span></span></a>,
+            <a class="citerefentry" href="glGetObjectLabel.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetObjectLabel</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

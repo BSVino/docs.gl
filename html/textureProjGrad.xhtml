@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>textureProjGrad - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="textureProjGrad">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>textureProjGrad — perform a texture lookup with projection and explicit gradients</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler1D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler1D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler2D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler2D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler3D <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">float <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>sampler1DShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>float <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">float <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>sampler2DShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler2DRect <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec3 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">gvec4 <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler2DRect <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">float <strong class="fsfunc">textureProjGrad</strong>(</code>
+              </td>
+              <td>gsampler2DRectShadow <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec4 <var class="pdparam">P</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDx</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>vec2 <var class="pdparam">pDy</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>sampler</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the sampler to which the texture from which texels will be retrieved is bound.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>P</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture coordinates at which texture will be sampled.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>dPdx</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the partial derivative of <em class="parameter"><code>P</code></em> with respect to window x.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>dPdy</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the partial derivative of <em class="parameter"><code>P</code></em> with respect to window y.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">textureProjGrad</code> performs a texture lookup with projection and explicit gradients. The texture coordinates
+            consumed from <em class="parameter"><code>P</code></em>, not including the last component of <em class="parameter"><code>P</code></em>,
+            are divided by the last component of <em class="parameter"><code>P</code></em>. The resulting <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msup><mml:mn>3</mml:mn><mml:mi>rd</mml:mi></mml:msup></mml:math>
+            component of <em class="parameter"><code>P</code></em> in the shadow forms is used as
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msub><mml:mi>D</mml:mi><mml:mi>ref</mml:mi></mml:msub></mml:math>.
+            After these values are computed, the texture lookup proceeds as in <a class="citerefentry" href="textureGrad.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGrad</span></span></a>,
+            passing <em class="parameter"><code>dPdx</code></em> and <em class="parameter"><code>dPdy</code></em> as gradients.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.40</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.50</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.10</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.20</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">textureProjGrad</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">textureProjGrad (gsampler2DRect{Shadow})</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="texelFetch.xhtml"><span class="citerefentry"><span class="refentrytitle">texelFetch</span></span></a>,
+            <a class="citerefentry" href="texelFetchOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">texelFetchOffset</span></span></a>,
+            <a class="citerefentry" href="texture.xhtml"><span class="citerefentry"><span class="refentrytitle">texture</span></span></a>,
+            <a class="citerefentry" href="textureGather.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGather</span></span></a>,
+            <a class="citerefentry" href="textureGatherOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGatherOffset</span></span></a>,
+            <a class="citerefentry" href="textureGatherOffsets.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGatherOffsets</span></span></a>,
+            <a class="citerefentry" href="textureGrad.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGrad</span></span></a>,
+            <a class="citerefentry" href="textureGradOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureGradOffset</span></span></a>,
+            <a class="citerefentry" href="textureLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureLod</span></span></a>,
+            <a class="citerefentry" href="textureLodOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureLodOffset</span></span></a>,
+            <a class="citerefentry" href="textureOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureOffset</span></span></a>,
+            <a class="citerefentry" href="textureProj.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProj</span></span></a>,
+            <a class="citerefentry" href="textureProjGradOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjGradOffset</span></span></a>,
+            <a class="citerefentry" href="textureProjLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjLod</span></span></a>,
+            <a class="citerefentry" href="textureProjLodOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjLodOffset</span></span></a>,
+            <a class="citerefentry" href="textureProjOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">textureProjOffset</span></span></a>,
+            <a class="citerefentry" href="textureQueryLod.xhtml"><span class="citerefentry"><span class="refentrytitle">textureQueryLod</span></span></a>,
+            <a class="citerefentry" href="textureSize.xhtml"><span class="citerefentry"><span class="refentrytitle">textureSize</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

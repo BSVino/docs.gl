@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glReadPixels - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glReadPixels">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glReadPixels, glReadnPixels — read a block of pixels from the frame buffer</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glReadPixels</strong>(</code>
+              </td>
+              <td>GLint <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLvoid * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glReadnPixels</strong>(</code>
+              </td>
+              <td>GLint <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>void *<var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class="parameter"><code>x</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>y</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specify the window coordinates of the first pixel that is read
+          from the frame buffer. This location is the lower left corner of a
+          rectangular block of pixels.</p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>width</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specify the dimensions of the pixel rectangle.
+          <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> of
+          one correspond to a single pixel.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>format</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the format of the pixel data. The following symbolic
+          values are accepted: <code class="constant">GL_STENCIL_INDEX</code>,
+          <code class="constant">GL_DEPTH_COMPONENT</code>,
+          <code class="constant">GL_DEPTH_STENCIL</code>, <code class="constant">GL_RED</code>,
+          <code class="constant">GL_GREEN</code>, <code class="constant">GL_BLUE</code>,
+          <code class="constant">GL_RGB</code>, <code class="constant">GL_BGR</code>,
+          <code class="constant">GL_RGBA</code>, and
+          <code class="constant">GL_BGRA</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>type</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the data type of the pixel data. Must be one of
+          <code class="constant">GL_UNSIGNED_BYTE</code>, <code class="constant">GL_BYTE</code>,
+          <code class="constant">GL_UNSIGNED_SHORT</code>,
+          <code class="constant">GL_SHORT</code>, <code class="constant">GL_UNSIGNED_INT</code>,
+          <code class="constant">GL_INT</code>, <code class="constant">GL_HALF_FLOAT</code>,
+          <code class="constant">GL_FLOAT</code>,
+          <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+          <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+          <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>,
+          <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_24_8</code>,
+          <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code>, or
+          <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the size of the buffer <em class="parameter"><code>data</code></em>
+          for <code class="function">glReadnPixels</code> function.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Returns the pixel data.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p><code class="function">glReadPixels</code> and
+    <code class="function">glReadnPixels</code> return pixel data from the frame
+    buffer, starting with the pixel whose lower left corner is at location
+    (<em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>), into client memory
+    starting at location <em class="parameter"><code>data</code></em>. Several parameters
+    control the processing of the pixel data before it is placed into client
+    memory. These parameters are set with <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>. This reference page describes the effects on
+    <code class="function">glReadPixels</code> and <code class="function">glReadnPixels</code>
+    of most, but not all of the parameters specified by these three
+    commands.</p>
+        <p>If a non-zero named buffer object is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is requested,
+    <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer
+    object's data store rather than a pointer to client memory.</p>
+        <p><code class="function">glReadPixels</code> and
+    <code class="function">glReadnPixels</code> return values from each pixel with
+    lower left corner at <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">x</mml:mi>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                    </mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">y</mml:mi>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                    </mml:mrow>
+                </mml:mfenced>
+            </mml:math>
+            for
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>0</mml:mn>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>0</mml:mn>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mi mathvariant="italic">height</mml:mi>
+                </mml:mrow>
+            </mml:math>.
+            This pixel is said to be the
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
+            pixel in the
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            row.
+            Pixels are returned in row order from the lowest to the highest row,
+            left to right in each row.
+        </p>
+        <p>
+            <em class="parameter"><code>format</code></em> specifies the format for the returned pixel values;
+            accepted values are:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_STENCIL_INDEX</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Stencil values are read from the stencil buffer.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEPTH_COMPONENT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Depth values are read from the depth buffer.
+                        Each component is converted to floating point such that the minimum depth
+                        value maps to 0 and the maximum value maps to 1.
+                        Each component is clamped to the range
+                        <math overflow="scroll">
+                            
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DEPTH_STENCIL</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Values are taken from both the depth and stencil buffers. The <em class="parameter"><code>type</code></em> parameter
+                        must be <code class="constant">GL_UNSIGNED_INT_24_8</code> or <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_RED</code>,
+                      <code class="constant">GL_GREEN</code>,
+                      <code class="constant">GL_BLUE</code>,
+                      <code class="constant">GL_RGB</code>,
+                      <code class="constant">GL_BGR</code>,
+                      <code class="constant">GL_RGBA</code>,
+                      <code class="constant">GL_BGRA</code></span>
+            </dt>
+            <dd>
+              <p>Color values are taken from the color buffer.</p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            Finally, the indices or components
+            are converted to the proper format,
+            as specified by <em class="parameter"><code>type</code></em>.
+            If <em class="parameter"><code>format</code></em> is <code class="constant">GL_STENCIL_INDEX</code>
+            and <em class="parameter"><code>type</code></em> is not <code class="constant">GL_FLOAT</code>,
+            each index is masked with the mask value given in the following table.
+            If <em class="parameter"><code>type</code></em> is <code class="constant">GL_FLOAT</code>, then each integer index is converted to
+            single-precision floating-point format.
+        </p>
+        <p>
+            If <em class="parameter"><code>format</code></em> is
+            <code class="constant">GL_RED</code>,
+            <code class="constant">GL_GREEN</code>,
+            <code class="constant">GL_BLUE</code>,
+            <code class="constant">GL_RGB</code>,
+            <code class="constant">GL_BGR</code>,
+            <code class="constant">GL_RGBA</code>, or
+            <code class="constant">GL_BGRA</code> and <em class="parameter"><code>type</code></em> is not <code class="constant">GL_FLOAT</code>,
+            each component is multiplied by the multiplier shown in the following table.
+            If type is <code class="constant">GL_FLOAT</code>, then each component is passed as is
+            (or converted to the client's single-precision floating-point format if
+            it is different from the one used by the GL).
+        </p>
+        <p>
+        </p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> 
+                            <em class="parameter"><code>type</code></em> 
+                        </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Index Mask </strong></span>
+                        </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Component Conversion </strong></span>
+                        </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_BYTE</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>8</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>8</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_BYTE</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>7</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>8</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>16</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>16</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_SHORT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>15</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>16</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>32</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>32</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_INT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>31</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>32</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_HALF_FLOAT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        none
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_FLOAT</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        none
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_24_8</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        --
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        Special
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        <code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                        --
+                        </td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">
+                        Special
+                        </td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                        <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>
+                        </td>
+                <td style="text-align: center; border-right: 2px solid ; ">
+                        none
+                        </td>
+                <td style="text-align: center; ">
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math> (Depth Only)
+                        </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+            Return values are placed in memory as follows.
+            If <em class="parameter"><code>format</code></em> is
+            <code class="constant">GL_STENCIL_INDEX</code>,
+            <code class="constant">GL_DEPTH_COMPONENT</code>,
+            <code class="constant">GL_RED</code>,
+            <code class="constant">GL_GREEN</code>, or
+            <code class="constant">GL_BLUE</code>,
+            a single value is returned and the data for the
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
+            pixel in the
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            row
+            is placed in location
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                    </mml:mfenced>
+                    <mml:mo>⁢</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>+</mml:mo>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                </mml:mrow>
+            </mml:math>. <code class="constant">GL_RGB</code> and
+    <code class="constant">GL_BGR</code> return three values,
+    <code class="constant">GL_RGBA</code> and <code class="constant">GL_BGRA</code> return four
+    values for each pixel, with all values corresponding to a single pixel
+    occupying contiguous space in <em class="parameter"><code>data</code></em>. Storage
+    parameters set by <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>, such as <code class="constant">GL_PACK_LSB_FIRST</code> and
+    <code class="constant">GL_PACK_SWAP_BYTES</code>, affect the way that data is
+    written into memory. See <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> for a description.</p>
+        <p><code class="function">glReadnPixels</code> function will only handle the
+    call if <em class="parameter"><code>bufSize</code></em> is at least of the size required to
+    store the requested data. Otherwise, it will generate a
+    <code class="constant">GL_INVALID_OPERATION</code> error.</p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>Values for pixels that lie outside the window connected to the
+    current GL context are undefined.</p>
+        <p>If an error is generated, no change is made to the contents of
+    <em class="parameter"><code>data</code></em>.</p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
+    <em class="parameter"><code>format</code></em> or <em class="parameter"><code>type</code></em> is not an
+    accepted value.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> is generated if either
+    <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is
+    negative.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>format</code></em> is <code class="constant">GL_STENCIL_INDEX</code> and
+    there is no stencil buffer.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>format</code></em> is <code class="constant">GL_DEPTH_COMPONENT</code>
+    and there is no depth buffer.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>format</code></em> is <code class="constant">GL_DEPTH_STENCIL</code> and
+    there is no depth buffer or if there is no stencil buffer.</p>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
+    <em class="parameter"><code>format</code></em> is <code class="constant">GL_DEPTH_STENCIL</code> and
+    <em class="parameter"><code>type</code></em> is not
+    <code class="constant">GL_UNSIGNED_INT_24_8</code> or
+    <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>type</code></em> is one of
+    <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+    <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>, or
+    <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code> and
+    <em class="parameter"><code>format</code></em> is not <code class="constant">GL_RGB</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>type</code></em> is one of
+    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+    <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+    <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+    <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, or
+    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code> and
+    <em class="parameter"><code>format</code></em> is neither <code class="constant">GL_RGBA</code> nor
+    <code class="constant">GL_BGRA</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's
+    data store is currently mapped.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be
+    packed to the buffer object such that the memory writes required would
+    exceed the data store size.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and
+    <em class="parameter"><code>data</code></em> is not evenly divisible into the number of
+    bytes needed to store in memory a datum indicated by
+    <em class="parameter"><code>type</code></em>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code> is non-zero, the read
+    framebuffer is complete, and the value of
+    <code class="constant">GL_SAMPLE_BUFFERS</code> for the read framebuffer is greater
+    than zero.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated by
+    <code class="function">glReadnPixels</code> if the buffer size required to store
+    the requested data is greater than <em class="parameter"><code>bufSize</code></em>.</p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+    <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code></p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glReadPixels</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glReadnPixels</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

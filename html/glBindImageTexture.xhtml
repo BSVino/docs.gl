@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glBindImageTexture - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glBindImageTexture">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glBindImageTexture — bind a level of a texture to an image unit</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glBindImageTexture</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">unit</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLboolean <var class="pdparam">layered</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">layer</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">access</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>unit</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the index of the image unit to which to bind the texture
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of the texture to bind to the image unit.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level of the texture that is to be bound.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>layered</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies whether a layered texture binding is to be established.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>layer</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    If <em class="parameter"><code>layered</code></em> is <code class="constant">GL_FALSE</code>, specifies the layer of <em class="parameter"><code>texture</code></em> to be bound to the image unit. Ignored otherwise.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>access</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a token indicating the type of access that will be performed on the image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>format</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the format that the elements of the image will be treated as for the purposes of formatted stores.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glBindImageTexture</code> binds a single level of a texture to an image unit for the purpose of
+            reading and writing it from shaders. <em class="parameter"><code>unit</code></em> specifies the zero-based index of the image
+            unit to which to bind the texture level. <em class="parameter"><code>texture</code></em> specifies the name of an existing texture
+            object to bind to the image unit. If <em class="parameter"><code>texture</code></em> is zero, then any existing binding to
+            the image unit is broken. <em class="parameter"><code>level</code></em> specifies the level of the texture to bind to the image
+            unit.
+        </p>
+        <p>
+            If <em class="parameter"><code>texture</code></em> is the name of a one-, two-, or three-dimensional array texture, a cube map
+            or cube map array texture, or a two-dimensional multisample array texture, then it is possible to bind either
+            the entire array, or only a single layer of the array to the image unit. In such cases, if <em class="parameter"><code>layered</code></em>
+            is <code class="constant">GL_TRUE</code>, the entire array is attached to the image unit and <em class="parameter"><code>layer</code></em>
+            is ignored. However, if <em class="parameter"><code>layered</code></em> is <code class="constant">GL_FALSE</code> then <em class="parameter"><code>layer</code></em>
+            specifies the layer of the array to attach to the image unit.
+        </p>
+        <p>
+            <em class="parameter"><code>access</code></em> specifies the access types to be performed by shaders and may be set to
+            <code class="constant">GL_READ_ONLY</code>, <code class="constant">GL_WRITE_ONLY</code>, or <code class="constant">GL_READ_WRITE</code>
+            to indicate read-only, write-only or read-write access, respectively. Violation of the access type specified in <em class="parameter"><code>access</code></em>
+            (for example, if a shader writes to an image bound with <em class="parameter"><code>access</code></em> set to <code class="constant">GL_READ_ONLY</code>)
+            will lead to undefined results, possibly including program termination.
+        </p>
+        <p>
+            <em class="parameter"><code>format</code></em> specifies the format that is to be used when performing formatted stores into the
+            image from shaders. <em class="parameter"><code>format</code></em> must be compatible with the texture's internal format and must
+            be one of the formats listed in the following table.
+        </p>
+        <p>
+            </p>
+        <div class="table" id="idp92944">
+          <div class="table-title">Table 1. Internal Image Formats</div>
+          <div class="table-contents">
+            <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+              <colgroup>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Image Unit Format </strong></span>
+                        </th>
+                  <th style="text-align: left; border-bottom: 2px solid ; ">
+                            <span class="bold"><strong> Format Qualifier </strong></span>
+                        </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA32F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba32f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba16f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg32f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg16f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R11F_G11F_B10F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r11f_g11f_b10f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r32f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16F</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r16f</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA32UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba32ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba16ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB10_A2UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgb10_a2ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba8ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg32ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg16ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg8ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r32ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r16ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8UI</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r8ui</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA32I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba32i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba16i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba8i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg32i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg16i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg8i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r32i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r16i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8I</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r8i</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba16</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB10_A2</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgb10_a2</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba8</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg16</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg8</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r16</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r8</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba16_snorm</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rgba8_snorm</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg16_snorm</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">rg8_snorm</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">
+                    <code class="code">r16_snorm</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_R8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; ">
+                    <code class="code">r8_snorm</code>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p><br class="table-break"/>
+        </p>
+        <p>
+            When a texture is bound to an image unit, the <em class="parameter"><code>format</code></em> parameter for the image
+            unit need not exactly match the texture internal format as long as the formats are
+            considered compatible as defined in the OpenGL Specification. The matching criterion used
+            for a given texture may be determined by calling <a class="citerefentry" href="glGetTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>
+            with <em class="parameter"><code>value</code></em>
+            set to <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_TYPE</code>, with return values of <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE</code>
+            and <code class="constant">GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS</code>, specifying matches by size and class, respectively.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            The <code class="function">glBindImageTexture</code> is available only if the GL version is 4.2 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>unit</code></em> greater than or equal to the
+            value of <code class="constant">GL_MAX_IMAGE_UNITS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>texture</code></em> is not the name of
+            an existing texture object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> or <em class="parameter"><code>layer</code></em>
+            is less than zero.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>access</code></em> or <em class="parameter"><code>format</code></em>
+            is not one of the supported tokens.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_NAME</code>.
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_LEVEL</code>.
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_LAYERED</code>.
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_LAYER</code>.
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_ACCESS</code>.
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_IMAGE_BINDING_FORMAT</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glBindImageTexture</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenTextures.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage1D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+            <a class="citerefentry" href="glBindTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

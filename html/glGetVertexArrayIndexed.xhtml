@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetVertexArrayIndexed - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetVertexArrayIndexed">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetVertexArrayIndexed — retrieve parameters of an attribute of a vertex array
+    object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetVertexArrayIndexed64iv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">vaobj</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint64 *<var class="pdparam">param</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetVertexArrayIndexediv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">vaobj</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint *<var class="pdparam">param</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>vaobj</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the name of a vertex array object.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the index of the vertex array object attribute. Must
+          be a number between 0 and
+          (<code class="constant">GL_MAX_VERTEX_ATTRIBS</code> - 1).</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the property to be used for the query. For
+          <code class="function">glGetVertexArrayIndexediv</code>, it must be one of
+          the following values:
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_LONG</code>,
+          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>, or
+          <code class="constant">GL_VERTEX_ATTRIB_RELATIVE_OFFSET</code>. For
+          <code class="function">glGetVertexArrayIndexed64v</code>, it must be equal to
+          <code class="constant">GL_VERTEX_BINDING_OFFSET</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>param</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Returns the requested value.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p><code class="function">glGetVertexArrayIndexediv</code> and
+    <code class="function">glGetVertexArrayIndexed64iv</code> provide a way of querying
+    parameters of an attribute at an user-specified index of a vertex array
+    object. The vertex array object does not have to be bound to the rendering
+    context at the time of the call, but must have been bound at least once
+    prior to this call.</p>
+        <p>The following parameter values can be retrieved with
+    <code class="function">glGetVertexArrayIndexediv</code> for each of the attributes
+    defined for a vertex array object:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>:
+          <em class="parameter"><code>param</code></em> returns a value that is non-zero (true)
+          if the vertex attribute array for index is enabled and 0 (false) if
+          it is disabled. The initial value is
+          <code class="constant">GL_FALSE</code>.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>:
+          <em class="parameter"><code>param</code></em> returns a single value, the size of the
+          vertex attribute array for index. The size is the number of values
+          for each element of the vertex attribute array, and it will be 1, 2,
+          3 or 4. The initial value is 4.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>:
+          <em class="parameter"><code>param</code></em> returns a single value, the array
+          stride for (number of bytes between successive elements in) the
+          vertex attribute array for index. A value of 0 indicates the array
+          elements are stored sequentially in memory. The initial value is
+          0.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>:
+          <em class="parameter"><code>param</code></em> returns a single value, a symbolic
+          constant indicating the array type for the vertex attribute array
+          for index. Possible values are <code class="constant">GL_BYTE</code>,
+          <code class="constant">GL_DOUBLE</code>, <code class="constant">GL_FIXED</code>,
+          <code class="constant">GL_FLOAT</code>, <code class="constant">GL_HALF_FLOAT</code>,
+          <code class="constant">GL_INT</code>,
+          <code class="constant">GL_INT_2_10_10_10_REV</code>,
+          <code class="constant">GL_SHORT</code>,
+          <code class="constant">GL_UNSIGNED_BYTE</code>,
+          <code class="constant">GL_UNSIGNED_SHORT</code>,
+          <code class="constant">GL_UNSIGNED_INT</code>,
+          <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>, and
+          <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code> . The initial
+          value is <code class="constant">GL_FLOAT</code>.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>:
+          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+          (true) if fixed-point data types for the vertex attribute array
+          indicated by index are normalized when they are converted to
+          floating-point, and 0 (false) otherwise. The initial value is
+          <code class="constant">GL_FALSE</code>.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>:
+          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+          (true) if fixed-point data types for the vertex attribute array
+          indicated by index have integer data type, and 0 (false) otherwise.
+          The initial value is 0 (<code class="constant">GL_FALSE</code>).</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_LONG</code>:
+          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+          (true) if a vertex attribute is stored as an unconverted double, and
+          0 (false) otherwise. The initial value is 0
+          (<code class="constant">GL_FALSE</code>).</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>:
+          <em class="parameter"><code>param</code></em> returns a single value that is the
+          frequency divisor used for instanced rendering. See
+          glVertexAttribDivisor. The initial value is 0.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_VERTEX_ATTRIB_RELATIVE_OFFSET</code>:
+          <em class="parameter"><code>param</code></em> returns a single value that is the byte
+          offset of the first element relative to the start of the vertex
+          buffer binding specified attribute fetches from. The initial value
+          is 0.</p>
+            </li>
+          </ul>
+        </div>
+        <p><code class="function">glGetVertexArrayIndexed64iv</code> can be
+    used to retrieve <code class="constant">GL_VERTEX_BINDING_OFFSET</code> parameter
+    value for any of the attributes defined for a vertex array object. When
+    <em class="parameter"><code>pname</code></em> is set to
+    <code class="constant">GL_VERTEX_BINDING_OFFSET</code>,
+    <em class="parameter"><code>param</code></em> returns a single value that is the byte
+    offset of the first element in the bound buffer's data store. The initial
+    value for this parameter is 0.</p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_OPERATION</code> error is generated if
+    <em class="parameter"><code>vaobj</code></em> is not the name of an existing vertex array
+    object.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> error is generated if index is
+    greater than or equal to the value of
+    <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p>
+        <p><code class="constant">GL_INVALID_ENUM</code> error is generated if
+    <em class="parameter"><code>pname</code></em> is not one of the valid values. For more
+    details, please see above.</p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glGetVertexArrayIndexed64iv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetVertexArrayIndexediv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p><a class="citerefentry" href="glGetVertexAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>, <a class="citerefentry" href="glVertexAttribBinding.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>, <a class="citerefentry" href="glVertexAttribIPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribIPointer</span></span></a>, <a class="citerefentry" href="glVertexAttribLPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribLPointer</span></span></a>, <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

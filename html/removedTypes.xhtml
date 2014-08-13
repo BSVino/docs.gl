@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>removedTypes - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="removedTypes">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>removedTypes — Describes types removed and replaced in the OpenGL API in OpenGL 4.2</p>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            In the May, 2012 update of the OpenGL 4.2 Specification, all
+            APIs using the types GLclampf and GLclampd were modified to
+            use GLfloat and GLdouble, respectively, instead. Language
+            was added to the Specification requiring that these
+            parameters be clamped, when required, at use time rather
+            than at specification time.
+        </p>
+        <p>
+            This change allows specifying parameters in ranges
+            appropriate for non-fixed-point framebuffers (integer and
+            floating-point formats). The change does not require any
+            changes to user code calling these functions, because the
+            actual underlying types are identical, the behavior is
+            externally unchanged, and the header files continue to
+            define the old types for compatibility with older code.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBlendColor.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a>,
+            <a class="citerefentry" href="glClearColor.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>,
+            <a class="citerefentry" href="glClearDepth.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearDepth</span></span></a>,
+            <a class="citerefentry" href="glDepthRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>,
+            <a class="citerefentry" href="glDepthRangeArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRangeArray</span></span></a>,
+            <a class="citerefentry" href="glDepthRangeIndexed.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRangeIndexed</span></span></a>,
+            <a class="citerefentry" href="glMinSampleShading.xhtml"><span class="citerefentry"><span class="refentrytitle">glMinSampleShading</span></span></a>,
+            <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

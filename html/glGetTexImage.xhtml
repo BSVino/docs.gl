@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetTexImage - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetTexImage">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetTexImage — return a texture image</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetTexImage</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLvoid * <var class="pdparam">pixels</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetnTexImage</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>void *<var class="pdparam">pixels</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetTextureImage</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>void *<var class="pdparam">pixels</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the target to which the texture is bound for
+          <code class="function">glGetTexImage</code> and
+          <code class="function">glGetnTexImage</code> functions.
+          <code class="constant">GL_TEXTURE_1D</code>,
+          <code class="constant">GL_TEXTURE_2D</code>,
+          <code class="constant">GL_TEXTURE_3D</code>,
+          <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>, and
+          <code class="code">GL_TEXTURE_CUBE_MAP_ARRAY</code> are acceptable.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture object name.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level-of-detail number of the desired image.
+                    Level 0 is the base image level.
+                    Level
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                    is the
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>th
+                    mipmap reduction image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>format</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies a pixel format for the returned data. The supported
+          formats are <code class="constant">GL_STENCIL_INDEX</code>,
+          <code class="constant">GL_DEPTH_COMPONENT</code>,
+          <code class="constant">GL_DEPTH_STENCIL</code>, <code class="constant">GL_RED</code>,
+          <code class="constant">GL_GREEN</code>, <code class="constant">GL_BLUE</code>,
+          <code class="constant">GL_RG</code>, <code class="constant">GL_RGB</code>,
+          <code class="constant">GL_RGBA</code>, <code class="constant">GL_BGR</code>,
+          <code class="constant">GL_BGRA</code>, <code class="constant">GL_RED_INTEGER</code>,
+          <code class="constant">GL_GREEN_INTEGER</code>,
+          <code class="constant">GL_BLUE_INTEGER</code>,
+          <code class="constant">GL_RG_INTEGER</code>,
+          <code class="constant">GL_RGB_INTEGER</code>,
+          <code class="constant">GL_RGBA_INTEGER</code>,
+          <code class="constant">GL_BGR_INTEGER</code>,
+          <code class="constant">GL_BGRA_INTEGER</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>type</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies a pixel type for the returned data. The supported
+          types are <code class="constant">GL_UNSIGNED_BYTE</code>,
+          <code class="constant">GL_BYTE</code>,
+          <code class="constant">GL_UNSIGNED_SHORT</code>,
+          <code class="constant">GL_SHORT</code>, <code class="constant">GL_UNSIGNED_INT</code>,
+          <code class="constant">GL_INT</code>, <code class="constant">GL_HALF_FLOAT</code>,
+          <code class="constant">GL_FLOAT</code>,
+          <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+          <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+          <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+          <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>,
+          <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_24_8</code>,
+          <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>,
+          <code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code>, and
+          <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the size of the buffer <em class="parameter"><code>pixels</code></em>
+          for <code class="function">glGetnTexImage</code> and
+          <code class="function">glGetTextureImage</code> functions.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pixels</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Returns the texture image. Should be a pointer to an array of
+          the type specified by <em class="parameter"><code>type</code></em>.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p><code class="function">glGetTexImage</code>,
+    <code class="function">glGetnTexImage</code> and
+    <code class="function">glGetTextureImage</code> functions return a texture image
+    into <em class="parameter"><code>pixels</code></em>. For <code class="function">glGetTexImage</code>
+    and <code class="function">glGetnTexImage</code>, <em class="parameter"><code>target</code></em>
+    specifies whether the desired texture image is one specified by
+    <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> (<code class="constant">GL_TEXTURE_1D</code>), <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> (<code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+    <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+    <code class="constant">GL_TEXTURE_2D</code> or any of
+    <code class="constant">GL_TEXTURE_CUBE_MAP_*</code>), or <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> (<code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+    <code class="constant">GL_TEXTURE_3D</code>,
+    <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>). For
+    <code class="function">glGetTextureImage</code>, <em class="parameter"><code>texture</code></em>
+    specifies the texture object name. In addition to types of textures
+    accepted by <code class="function">glGetTexImage</code> and
+    <code class="function">glGetnTexImage</code>, the function also accepts cube map
+    texture objects (with effective target
+    <code class="constant">GL_TEXTURE_CUBE_MAP</code>). <em class="parameter"><code>level</code></em>
+    specifies the level-of-detail number of the desired image.
+    <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> specify the
+    format and type of the desired image array. See the reference page for
+    <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> for a description of the acceptable values for the
+    <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> parameters,
+    respectively. For glGetnTexImage and glGetTextureImage functions, bufSize
+    tells the size of the buffer to receive the retrieved pixel data.
+    <code class="function">glGetnTexImage</code> and
+    <code class="function">glGetTextureImage</code> do not write more than
+    <em class="parameter"><code>bufSize</code></em> bytes into
+    <em class="parameter"><code>pixels</code></em>.</p>
+        <p>If a non-zero named buffer object is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is requested,
+    <em class="parameter"><code>pixels</code></em> is treated as a byte offset into the buffer
+    object's data store.</p>
+        <p>To understand the operation of <code class="function">glGetTexImage</code>,
+    consider the selected internal four-component texture image to be an RGBA
+    color buffer the size of the image. The semantics of
+    <code class="function">glGetTexImage</code> are then identical to those of
+    <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>, with the exception that no pixel transfer operations
+    are performed, when called with the same <em class="parameter"><code>format</code></em> and
+    <em class="parameter"><code>type</code></em>, with <span class="emphasis"><em>x</em></span> and
+    <span class="emphasis"><em>y</em></span> set to 0, <span class="emphasis"><em>width</em></span> set to the
+    width of the texture image and <span class="emphasis"><em>height</em></span> set to 1 for 1D
+    images, or to the height of the texture image for 2D images.</p>
+        <p>If the selected texture image does not contain four components, the
+    following mappings are applied. Single-component textures are treated as
+    RGBA buffers with red set to the single-component value, green set to 0,
+    blue set to 0, and alpha set to 1. Two-component textures are treated as
+    RGBA buffers with red set to the value of component zero, alpha set to the
+    value of component one, and green and blue set to 0. Finally,
+    three-component textures are treated as RGBA buffers with red set to
+    component zero, green set to component one, blue set to component two, and
+    alpha set to 1.</p>
+        <p>To determine the required size of <em class="parameter"><code>pixels</code></em>, use
+    <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> to determine the dimensions of the internal texture
+    image, then scale the required number of pixels by the storage required
+    for each pixel, based on <em class="parameter"><code>format</code></em> and
+    <em class="parameter"><code>type</code></em>. Be sure to take the pixel storage parameters
+    into account, especially <code class="constant">GL_PACK_ALIGNMENT</code>.</p>
+        <p>If <code class="function">glGetTextureImage</code> is used against a cube map
+    texture object, the texture is treated as a three-dimensional image of a
+    depth of 6, where the cube map faces are ordered as image layers, in an
+    order presented in the table below:</p>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col/>
+              <col/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">Layer number</th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">Cube Map Face</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border-right: 2px solid ; border-bottom: 2px solid ; ">0</td>
+                <td style="border-bottom: 2px solid ; ">GL_TEXTURE_CUBE_MAP_POSITIVE_X</td>
+              </tr>
+              <tr>
+                <td style="border-right: 2px solid ; border-bottom: 2px solid ; ">1</td>
+                <td style="border-bottom: 2px solid ; ">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</td>
+              </tr>
+              <tr>
+                <td style="border-right: 2px solid ; border-bottom: 2px solid ; ">2</td>
+                <td style="border-bottom: 2px solid ; ">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</td>
+              </tr>
+              <tr>
+                <td style="border-right: 2px solid ; border-bottom: 2px solid ; ">3</td>
+                <td style="border-bottom: 2px solid ; ">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</td>
+              </tr>
+              <tr>
+                <td style="border-right: 2px solid ; border-bottom: 2px solid ; ">4</td>
+                <td style="border-bottom: 2px solid ; ">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</td>
+              </tr>
+              <tr>
+                <td style="border-right: 2px solid ; ">5</td>
+                <td>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>If an error is generated, no change is made to the contents of
+    <em class="parameter"><code>pixels</code></em>.</p>
+        <p><code class="function">glGetTexImage</code> and
+    <code class="function">glGetnTexImage</code> return the texture image for the
+    active texture unit.</p>
+        <p><code class="constant">GL_STENCIL_INDEX</code> is accepted for
+    <em class="parameter"><code>format</code></em> only if the GL version is 4.4 or
+    greater.</p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated by
+    <code class="function">glGetTexImage</code> and <code class="function">glGetnTexImage</code>
+    functions if <em class="parameter"><code>target</code></em> is not an accepted value. These
+    include:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p><code class="constant">GL_TEXTURE_1D</code>,
+          <code class="constant">GL_TEXTURE_2D</code>,
+          <code class="constant">GL_TEXTURE_3D</code>,
+          <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, and
+          <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code> for
+          <code class="function">glGetTexImage</code> and
+          <code class="function">glGetnTexImage</code> functions.</p>
+            </li>
+            <li class="listitem">
+              <p><code class="constant">GL_TEXTURE_1D</code>,
+          <code class="constant">GL_TEXTURE_2D</code>,
+          <code class="constant">GL_TEXTURE_3D</code>,
+          <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>,
+          <code class="constant">GL_TEXTURE_RECTANGLE</code>, and
+          <code class="constant">GL_TEXTURE_CUBE_MAP</code> for
+          <code class="function">glGetTextureImage</code> function.</p>
+            </li>
+          </ul>
+        </div>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated by
+    <code class="function">glGetTextureImage</code> if <em class="parameter"><code>texture</code></em>
+    is not the name of an existing texture object.</p>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
+    <em class="parameter"><code>format</code></em>, or <em class="parameter"><code>type</code></em> is not an
+    accepted value.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>level</code></em> is less than 0.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> may be generated if
+    <em class="parameter"><code>level</code></em> is greater than <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                    <mml:mn>2</mml:mn>
+                    </mml:msub>
+                    <mml:mo>⁡</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">max</mml:mi>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>,
+ where
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+is the returned value of
+    <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>level</code></em> is non-zero and the effective target is
+    <code class="constant">GL_TEXTURE_RECTANGLE</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>type</code></em> is one of
+    <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+    <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>, or
+    <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code> and
+    <em class="parameter"><code>format</code></em> is not <code class="constant">GL_RGB</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>type</code></em> is one of
+    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+    <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+    <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+    <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+    <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>,
+    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>, or
+    <code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code> and
+    <em class="parameter"><code>format</code></em> is neither <code class="constant">GL_RGBA</code> or
+    <code class="constant">GL_BGRA</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>format</code></em> is <code class="constant">GL_STENCIL_INDEX</code> and
+    the base internal format is not <code class="constant">GL_STENCIL_INDEX</code> or
+    <code class="constant">GL_DEPTH_STENCIL</code>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's
+    data store is currently mapped.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be
+    packed to the buffer object such that the memory writes required would
+    exceed the data store size.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero
+    buffer object name is bound to the
+    <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and
+    <em class="parameter"><code>pixels</code></em> is not evenly divisible into the number of
+    bytes needed to store in memory a datum indicated by
+    <em class="parameter"><code>type</code></em>.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated by
+    <code class="function">glGetTextureImage</code> and
+    <code class="function">glGetnTexImage</code> if the buffer size required to store
+    the requested data is greater than <em class="parameter"><code>bufSize</code></em>.</p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_WIDTH</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_HEIGHT</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_PACK_ALIGNMENT</code> and others
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glGetTexImage</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glGetTextureImage</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetnTexImage</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>
