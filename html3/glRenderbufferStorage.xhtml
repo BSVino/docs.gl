@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glRenderbufferStorage - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glRenderbufferStorage"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glRenderbufferStorage — establish data storage, format and dimensions of a renderbuffer object's image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glRenderbufferStorage</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies a binding to which the target of the allocation and must be <code class="constant">GL_RENDERBUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    Specifies the internal format to use for the renderbuffer object's image.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    Specifies the width of the renderbuffer, in pixels.
+                </p></dd><dt><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
+                    Specifies the height of the renderbuffer, in pixels.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glRenderbufferStorage</code> is equivalent to calling
+            <a class="citerefentry" href="glRenderbufferStorageMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorageMultisample</span></span></a> with the
+            <em class="parameter"><code>samples</code></em> set to zero.
+        </p><p>
+            The target of the operation, specified by <em class="parameter"><code>target</code></em> must be <code class="constant">GL_RENDERBUFFER</code>.
+            <em class="parameter"><code>internalformat</code></em> specifies the internal format to be used for the renderbuffer object's storage and
+            must be a color-renderable, depth-renderable, or stencil-renderable format.
+            <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> are the dimensions, in pixels, of the renderbuffer.
+            Both <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> must be less than or equal to the value of
+            <code class="constant">GL_MAX_RENDERBUFFER_SIZE</code>.
+        </p><p>
+            Upon success, <code class="function">glRenderbufferStorage</code> deletes any existing data store for the renderbuffer
+            image and the contents of the data store after calling <code class="function">glRenderbufferStorage</code> are undefined.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_RENDERBUFFER</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if either of <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is negative,
+            or greater than the value of <code class="constant">GL_MAX_RENDERBUFFER_SIZE</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not a color-renderable, depth-renderable,
+            or stencil-renderable format.
+        </p><p>
+            <code class="constant">GL_OUT_OF_MEMORY</code> is generated if the GL is unable to create a data store of the requested size.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorageMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorageMultisample</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glDeleteRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteRenderbuffers</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

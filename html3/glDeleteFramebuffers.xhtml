@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDeleteFramebuffers - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glDeleteFramebuffers"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDeleteFramebuffers — delete framebuffer objects</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDeleteFramebuffers</strong>(</code></td><td>GLsizei <var class="pdparam">n</var>, </td></tr><tr><td> </td><td>GLuint *<var class="pdparam">framebuffers</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of framebuffer objects to be deleted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>framebuffers</code></em></span></dt><dd><p>
+                    A pointer to an array containing <em class="parameter"><code>n</code></em> framebuffer objects to be deleted.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDeleteFramebuffers</code> deletes the <em class="parameter"><code>n</code></em> framebuffer objects whose names are stored in
+            the array addressed by <em class="parameter"><code>framebuffers</code></em>. The name zero is reserved by the GL and is silently ignored, should it
+            occur in <em class="parameter"><code>framebuffers</code></em>, as are other unused names. Once a framebuffer object is deleted, its name is again
+            unused and it has no attachments. If a framebuffer that is currently bound to one or more of the targets <code class="constant">GL_DRAW_FRAMEBUFFER</code>
+            or <code class="constant">GL_READ_FRAMEBUFFER</code> is deleted, it is as though <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+            had been executed with the corresponding <em class="parameter"><code>target</code></em> and <em class="parameter"><code>framebuffer</code></em> zero.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
+            <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

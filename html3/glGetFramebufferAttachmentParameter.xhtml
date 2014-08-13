@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetFramebufferAttachmentParameteriv - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetFramebufferAttachmentParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetFramebufferAttachmentParameteriv — retrieve information about attachments of a bound framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetFramebufferAttachmentParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">attachment</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target of the query operation.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attachment</code></em></span></dt><dd><p>
+                    Specifies the attachment within <em class="parameter"><code>target</code></em>
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the parameter of <em class="parameter"><code>attachment</code></em> to query.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Specifies the address of a variable receive the value of <em class="parameter"><code>pname</code></em> for <em class="parameter"><code>attachment</code></em>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetFramebufferAttachmentParameteriv</code> returns information about attachments of a bound framebuffer
+            object. <em class="parameter"><code>target</code></em> specifies the framebuffer binding point and must be <code class="constant">GL_DRAW_FRAMEBUFFER</code>,
+            <code class="constant">GL_READ_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>. <code class="constant">GL_FRAMEBUFFER</code> is equivalent
+            to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+        </p><p>
+            If the default framebuffer is bound to <em class="parameter"><code>target</code></em> then <em class="parameter"><code>attachment</code></em> must be one of
+            <code class="constant">GL_FRONT_LEFT</code>, <code class="constant">GL_FRONT_RIGHT</code>, <code class="constant">GL_BACK_LEFT</code>, or
+            <code class="constant">GL_BACK_RIGHT</code>, identifying a color buffer, <code class="constant">GL_DEPTH</code>, identifying the depth buffer,
+            or <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
+        </p><p>
+            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>,
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> must be in the range zero to the value of
+            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1.
+        </p><p>
+            If <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> and different objects are bound
+            to the depth and stencil attachment points of <em class="parameter"><code>target</code></em> the query will fail. If the same object
+            is bound to both attachment points, information about that object will be returned.
+        </p><p>
+            Upon successful return from <code class="function">glGetFramebufferAttachmentParameteriv</code>,  if <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code>, then <em class="parameter"><code>params</code></em> will contain one of <code class="constant">GL_NONE</code>,
+            <code class="constant">GL_FRAMEBUFFER_DEFAULT</code>, <code class="constant">GL_TEXTURE</code>, or <code class="constant">GL_RENDERBUFFER</code>, identifying the type of
+            object which contains the attached image.  Other values accepted for <em class="parameter"><code>pname</code></em> depend on the type of object, as described below.
+        </p><p>
+            If the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is <code class="constant">GL_NONE</code>, no framebuffer is bound to
+            <em class="parameter"><code>target</code></em>. In this case querying <em class="parameter"><code>pname</code></em> <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>
+            will return zero, and all other queries will generate an error.
+        </p><p>
+            If the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is not <code class="constant">GL_NONE</code>, these queries apply to all other
+            framebuffer types:
+        </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE</code>,
+                    <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE</code>, <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE</code>,
+                    <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE</code>, <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE</code>,
+                    or <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE</code>, then <em class="parameter"><code>params</code></em> will contain the number
+                    of bits in the corresponding red, green, blue, alpha, depth, or stencil component of the specified attachment. Zero is returned
+                    if the requested component is not present in <em class="parameter"><code>attachment</code></em>.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE</code>, <em class="parameter"><code>params</code></em> will
+                    contain the format of components of the specified attachment, one of <code class="constant">GL_FLOAT</code>, <em class="parameter"><code>GL_INT</code></em>,
+                    <em class="parameter"><code>GL_UNSIGNED_INT</code></em>, <em class="parameter"><code>GL_SIGNED_NORMALIZED</code></em>, or <em class="parameter"><code>GL_UNSIGNED_NORMALIZED</code></em>
+                    for floating-point, signed integer, unsigned integer, signed normalized fixed-point, or unsigned normalized fixed-point components
+                    respectively. Only color buffers may have  integer components.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING</code>, <em class="parameter"><code>param</code></em> will
+                    contain the encoding of components of the specified attachment, one of <code class="constant">GL_LINEAR</code> or <code class="constant">GL_SRGB</code>
+                    for linear or sRGB-encoded components, respectively. Only color buffer components may be sRGB-encoded;  such components
+                    are treated as described in sections 4.1.7 and 4.1.8.  For the default framebuffer, color encoding is determined by the implementation.
+                    For framebuffer objects, components are sRGB-encoded if the internal format of a color attachment is one of the color-renderable SRGB
+                    formats.
+                </p></li></ul></div><p>
+            If the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is <code class="constant">GL_RENDERBUFFER</code>, then:
+        </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>, <em class="parameter"><code>params</code></em> will contain
+                    the name of the renderbuffer object which contains the attached image.
+                </p></li></ul></div><p>
+            If the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is <code class="constant">GL_TEXTURE</code>, then:
+        </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>, then <em class="parameter"><code>params</code></em> will
+                    contain the name of the texture object which contains the attached image.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL</code>, then <em class="parameter"><code>params</code></em>
+                    will contain the mipmap level of the texture object which contains the attached image.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE</code> and the texture object named
+                    <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code> is a cube map texture, then <em class="parameter"><code>params</code></em> will contain the cube map
+                    face of the cubemap texture object which contains the attached image.  Otherwise <em class="parameter"><code>params</code></em> will contain the value
+                    zero.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER</code> and the texture object named
+                    <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code> is a layer of a three-dimensional texture or a one-or two-dimensional
+                    array texture, then <em class="parameter"><code>params</code></em> will contain the number of the texture layer which contains the attached image.
+                    Otherwise <em class="parameter"><code>params</code></em> will contain the value zero.
+                </p></li><li class="listitem"><p>
+                    If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_LAYERED</code>, then <em class="parameter"><code>params</code></em> will
+                    contain <code class="constant">GL_TRUE</code> if an entire level of a three-dimesional texture, cube map texture, or one-or two-dimensional
+                    array texture is attached. Otherwise, <em class="parameter"><code>params</code></em> will contain <code class="constant">GL_FALSE</code>.
+                </p></li></ul></div><p>
+            Any combinations of framebuffer type and <em class="parameter"><code>pname</code></em> not described above will generate an error.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the accepted tokens.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not valid for the value of
+            <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>attachment</code></em> is not the accepted values
+            for <em class="parameter"><code>target</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>
+            and different objects are bound to the depth and stencil attachment points of <em class="parameter"><code>target</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is
+            <code class="constant">GL_NONE</code> and <em class="parameter"><code>pname</code></em> is not <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

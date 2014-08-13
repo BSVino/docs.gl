@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetMultisamplefv - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetMultisample"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetMultisamplefv — retrieve the location of a sample</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetMultisamplefv</strong>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLfloat *<var class="pdparam">val</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the sample parameter name. <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_SAMPLE_POSITION</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>
+                    Specifies the index of the sample whose position to query.
+                </p></dd><dt><span class="term"><em class="parameter"><code>val</code></em></span></dt><dd><p>
+                    Specifies the address of an array to receive the position of the sample.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetMultisamplefv</code> queries the location of a given sample. <em class="parameter"><code>pname</code></em>
+            specifies the sample parameter to retrieve and must be <code class="constant">GL_SAMPLE_POSITION</code>. <em class="parameter"><code>index</code></em>
+            corresponds to the sample for which the location should be returned. The sample location is returned as two floating-point
+            values in <em class="parameter"><code>val[0]</code></em> and <em class="parameter"><code>val[1]</code></em>, each between 0 and 1, corresponding to the <em class="parameter"><code>x</code></em>
+            and <em class="parameter"><code>y</code></em> locations respectively in the GL pixel space of that sample. (0.5, 0.5) this corresponds to the
+            pixel center. <em class="parameter"><code>index</code></em> must be between zero and the value of <code class="constant">GL_SAMPLES</code> - 1.
+        </p><p>
+            If the multisample mode does not have fixed sample locations, the returned values may only reflect the locations of samples
+            within some pixels.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not one <code class="constant">GL_SAMPLE_POSITION</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater than or equal to the value of
+            <code class="constant">GL_SAMPLES</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

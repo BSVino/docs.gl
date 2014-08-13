@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBindBufferBase - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBindBufferBase"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBufferBase — bind a buffer object to an indexed buffer target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBufferBase</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specify the target of the bind operation. <em class="parameter"><code>target</code></em> must be
+                    either <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>
+                    Specify the index of the binding point within the array specified by <em class="parameter"><code>target</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>buffer</code></em></span></dt><dd><p>
+                    The name of a buffer object to bind to the specified binding point.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBindBufferBase</code> binds the buffer object <em class="parameter"><code>buffer</code></em>
+            to the binding point at index <em class="parameter"><code>index</code></em> of the array of targets specified
+            by <em class="parameter"><code>target</code></em>. Each <em class="parameter"><code>target</code></em> represents an indexed
+            array of buffer binding points, as well as a single general binding point that can be used by
+            other buffer manipulation functions such as <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>
+            or <a class="citerefentry" href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>. In addition to binding
+            <em class="parameter"><code>buffer</code></em> to the indexed buffer binding target, <code class="function">glBindBufferBase</code>
+            also binds <em class="parameter"><code>buffer</code></em> to the generic buffer binding point specified by <em class="parameter"><code>target</code></em>.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            Calling <code class="function">glBindBufferBase</code> is equivalent to calling
+            <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a> with <em class="parameter"><code>offset</code></em>
+            zero and <em class="parameter"><code>size</code></em> equal to the size of the buffer.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater
+            than or equal to the number of <em class="parameter"><code>target</code></em>-specific indexed binding points.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>buffer</code></em> does
+            not have an associated data store, or if the size of that store is zero.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
+            <a class="citerefentry" href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>,
+            <a class="citerefentry" href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

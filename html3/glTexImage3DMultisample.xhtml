@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexImage3DMultisample - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glTexImage3DMultisample"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage3DMultisample — establish the data storage, format, dimensions, and number of samples of a multisample texture's image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage3DMultisample</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">samples</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">depth</var>, </td></tr><tr><td> </td><td>GLboolean <var class="pdparam">fixedsamplelocations</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target of the operation. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code> or <code class="constant">GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>samples</code></em></span></dt><dd><p>
+                    The number of samples in the multisample texture's image.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    The internal format to be used to store the multisample texture's image. <em class="parameter"><code>internalformat</code></em> must specify a color-renderable, depth-renderable, or stencil-renderable format.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    The width of the multisample texture's image, in texels.
+                </p></dd><dt><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
+                    The height of the multisample texture's image, in texels.
+                </p></dd><dt><span class="term"><em class="parameter"><code>fixedsamplelocations</code></em></span></dt><dd><p>
+                    Specifies whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+                    depend on the internal format or size of the image.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glTexImage3DMultisample</code> establishes the data storage, format, dimensions and number of samples of a multisample texture's image.
+        </p><p>
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code> or <code class="constant">GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+            <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em>are the dimensions in texels of the texture, and must
+            be in the range zero to <code class="constant">GL_MAX_TEXTURE_SIZE</code> - 1. <em class="parameter"><code>depth</code></em> is the number of array slices in the array texture's image.
+            <em class="parameter"><code>samples</code></em> specifies the number of samples in the image and must be in the range zero to <code class="constant">GL_MAX_SAMPLES</code> - 1.
+        </p><p>
+            <em class="parameter"><code>internalformat</code></em> must be a color-renderable, depth-renderable, or stencil-renderable format.
+        </p><p>
+            If <em class="parameter"><code>fixedsamplelocations</code></em> is <code class="constant">GL_TRUE</code>, the image will use identical sample locations and the same
+            number of samples for all texels in the image, and the sample locations will not depend on the internal format or size of the image.
+        </p><p>
+            When a multisample texture is accessed in a shader, the access takes one vector of integers describing which texel to fetch and an integer
+            corresponding to the sample numbers describing which sample within the texel to fetch. No standard sampling instructions are allowed on the
+            multisample texture targets.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glTexImage2DMultisample</code> is available only if the GL version is 3.2 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>internalformat</code></em> is a depth- or stencil-renderable format and <em class="parameter"><code>samples</code></em>
+            is greater than the value of <code class="constant">GL_MAX_DEPTH_TEXTURE_SAMPLES</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>internalformat</code></em> is a color-renderable format and <em class="parameter"><code>samples</code></em> is
+            greater than the value of <code class="constant">GL_MAX_COLOR_TEXTURE_SAMPLES</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>internalformat</code></em> is a signed or unsigned integer format and <em class="parameter"><code>samples</code></em>
+            is greater than the value of <code class="constant">GL_MAX_INTEGER_SAMPLES</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if either <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> negative or is greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>depth</code></em> is negative or is greater than <code class="constant">GL_MAX_ARRAY_TEXTURE_LAYERS</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>samples</code></em> is greater than <code class="constant">GL_MAX_SAMPLES</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2DMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2DMultisample</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

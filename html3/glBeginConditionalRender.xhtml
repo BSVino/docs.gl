@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBeginConditionalRender - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBeginConditionalRender"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBeginConditionalRender — start conditional rendering</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBeginConditionalRender</strong>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">mode</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>id</code></em></span></dt><dd><p>
+                    Specifies the name of an occlusion query object whose results are used to determine if the rendering commands are discarded.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies how <code class="function">glBeginConditionalRender</code> interprets the results of the occlusion query.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glEndConditionalRender</strong>(</code></td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            Conditional rendering is started using <code class="function">glBeginConditionalRender</code> and ended using <code class="function">glEndConditionalRender</code>.
+            During conditional rendering, all vertex array commands, as well as <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
+            <a class="citerefentry" href="glClearBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a> have no effect if the (<code class="constant">GL_SAMPLES_PASSED</code>) result
+            of the query object <em class="parameter"><code>id</code></em> is zero, or if the (<code class="constant">GL_ANY_SAMPLES_PASSED</code>) result is <code class="constant">GL_FALSE</code>.
+            The results of commands setting the current vertex state, such as <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a> are
+            undefined. If the (<code class="constant">GL_SAMPLES_PASSED</code>) result is non-zero or if the (<code class="constant">GL_ANY_SAMPLES_PASSED</code>) result is
+            <code class="constant">GL_TRUE</code>, such commands are not discarded. The <em class="parameter"><code>id</code></em> parameter to <code class="function">glBeginConditionalRender</code>
+            must be the name of a query object previously returned from a call to <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
+            <em class="parameter"><code>mode</code></em> specifies how the results of the query object are to be interpreted. If <em class="parameter"><code>mode</code></em> is
+            <code class="constant">GL_QUERY_WAIT</code>, the GL waits for the results of the query to be available and then uses the results to determine if subsequent
+            rendering commands are discarded. If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_QUERY_NO_WAIT</code>, the GL may choose to unconditionally
+            execute the subsequent rendering commands without waiting for the query to complete.
+        </p><p>
+            If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_QUERY_BY_REGION_WAIT</code>, the GL will also wait for occlusion query results and discard
+            rendering commands if the result of the occlusion query is zero. If the query result is non-zero, subsequent rendering commands are executed,
+            but the GL may discard the results of the commands for any region of the framebuffer that did not contribute to the sample count in the specified
+            occlusion query. Any such discarding is done in an implementation-dependent manner, but the rendering command results may not be discarded for
+            any samples that contributed to the occlusion query sample count. If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_QUERY_BY_REGION_NO_WAIT</code>,
+            the GL operates as in <code class="constant">GL_QUERY_BY_REGION_WAIT</code>, but may choose to unconditionally execute the subsequent rendering commands
+            without waiting for the query to complete.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glBeginConditionalRender</code> and <code class="function">glEndConditionalRender</code> are available only if the GL version is 3.0 or greater.
+        </p><p>
+            The <code class="constant">GL_ANY_SAMPLES_PASSED</code> query result is available only if the GL version is 3.3 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>id</code></em> is not the name of an existing query object.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not one of the accepted tokens.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBeginConditionalRender</code> is called while conditional rendering is active,
+            or if <code class="function">glEndConditionalRender</code> is called while conditional rendering is inactive.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a query object with a target other than
+            <code class="constant">GL_SAMPLES_PASSED</code> or <code class="constant">GL_ANY_SAMPLES_PASSED</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a query currently in progress.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2009 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

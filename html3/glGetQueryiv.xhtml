@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetQueryiv</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetQueryiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetQueryiv — return parameters of a query object target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetQueryiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies a query object target.
+                    Must be <code class="constant">GL_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED</code>,
+                    <code class="constant">GL_PRIMITIVES_GENERATED</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>,
+                    <code class="constant">GL_TIME_ELAPSED</code>, or <code class="constant">GL_TIMESTAMP</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a query object target parameter.
+                    Accepted values are <code class="constant">GL_CURRENT_QUERY</code> or <code class="constant">GL_QUERY_COUNTER_BITS</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the requested data.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetQueryiv</code> returns in <em class="parameter"><code>params</code></em> a selected parameter of the query object target
+            specified by <em class="parameter"><code>target</code></em>.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> names a specific query object target parameter.  When <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_CURRENT_QUERY</code>, the name of the currently active query for <em class="parameter"><code>target</code></em>,
+            or zero if no query is active, will be placed in <em class="parameter"><code>params</code></em>.
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_QUERY_COUNTER_BITS</code>, the implementation-dependent number
+            of bits used to hold the result of queries for <em class="parameter"><code>target</code></em> is returned in <em class="parameter"><code>params</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not an
+            accepted value.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
+            <a href="glIsQuery.xml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

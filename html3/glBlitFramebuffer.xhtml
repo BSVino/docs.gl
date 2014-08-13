@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBlitFramebuffer - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBindVertexArray"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlitFramebuffer — copy a block of pixels from the read framebuffer to the draw framebuffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBlitFramebuffer</strong>(</code></td><td>GLint <var class="pdparam">srcX0</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcY0</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcX1</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcY1</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstX0</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstY0</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstX1</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstY1</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">mask</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">filter</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>srcX0</code></em>, </span><span class="term"><em class="parameter"><code>srcY0</code></em>, </span><span class="term"><em class="parameter"><code>srcX1</code></em>, </span><span class="term"><em class="parameter"><code>srcY1</code></em></span></dt><dd><p>
+                    Specify the bounds of the source rectangle within the read buffer of the read framebuffer.
+                </p></dd><dt><span class="term"><em class="parameter"><code>dstX0</code></em>, </span><span class="term"><em class="parameter"><code>dstY0</code></em>, </span><span class="term"><em class="parameter"><code>dstX1</code></em>, </span><span class="term"><em class="parameter"><code>dstY1</code></em></span></dt><dd><p>
+                    Specify the bounds of the destination rectangle within the write buffer of the write framebuffer.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+                    The bitwise OR of the flags indicating which buffers are to be copied. The allowed flags are
+                    <code class="constant">GL_COLOR_BUFFER_BIT</code>, <code class="constant">GL_DEPTH_BUFFER_BIT</code> and <code class="constant">GL_STENCIL_BUFFER_BIT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>filter</code></em></span></dt><dd><p>
+                    Specifies the interpolation to be applied if the image is stretched. Must be <code class="constant">GL_NEAREST</code> or <code class="constant">GL_LINEAR</code>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBlitFramebuffer</code> transfers a rectangle of pixel values from one region of the read framebuffer to another region in
+            the draw framebuffer. <em class="parameter"><code>mask</code></em> is the bitwise OR of a number of values indicating which buffers are
+            to be copied. The values are <code class="constant">GL_COLOR_BUFFER_BIT</code>, <code class="constant">GL_DEPTH_BUFFER_BIT</code>, and
+            <code class="constant">GL_STENCIL_BUFFER_BIT</code>. The pixels corresponding to these buffers are copied from the source rectangle bounded by the
+            locations (<em class="parameter"><code>srcX0</code></em>; <em class="parameter"><code>srcY0</code></em>) and (<em class="parameter"><code>srcX1</code></em>; <em class="parameter"><code>srcY1</code></em>)
+            to the destination rectangle bounded by the locations (<em class="parameter"><code>dstX0</code></em>; <em class="parameter"><code>dstY0</code></em>) and
+            (<em class="parameter"><code>dstX1</code></em>; <em class="parameter"><code>dstY1</code></em>). The lower bounds of the rectangle are inclusive, while the upper
+            bounds are exclusive.
+        </p><p>
+            The actual region taken from the read framebuffer is limited to the intersection of the source buffers being transferred, which may
+            include the color buffer selected by the read buffer, the depth buffer, and/or the stencil buffer depending on mask. The actual region
+            written to the draw framebuffer is limited to the intersection of the destination buffers being written, which may include multiple draw
+            buffers, the depth buffer, and/or the stencil buffer depending on mask. Whether or not the source or destination regions are altered due
+            to these limits, the scaling and offset applied to pixels being transferred is performed as though no such limits were present.
+        </p><p>
+            If the sizes of the source and destination rectangles are not equal, <em class="parameter"><code>filter</code></em> specifies the interpolation method that
+            will be applied to resize the source image , and must be <code class="constant">GL_NEAREST</code> or <code class="constant">GL_LINEAR</code>.
+            <code class="constant">GL_LINEAR</code> is only a valid interpolation method for the color buffer. If <em class="parameter"><code>filter</code></em> is not
+            <code class="constant">GL_NEAREST</code> and <em class="parameter"><code>mask</code></em> includes <code class="constant">GL_DEPTH_BUFFER_BIT</code> or
+            <code class="constant">GL_STENCIL_BUFFER_BIT</code>, no data is transferred and a <code class="constant">GL_INVALID_OPERATION</code> error is generated.
+        </p><p>
+            If <em class="parameter"><code>filter</code></em> is <code class="constant">GL_LINEAR</code> and the source rectangle would require sampling outside the bounds of
+            the source framebuffer, values are read as if the <code class="constant">GL_CLAMP_TO_EDGE</code> texture wrapping mode were applied.
+        </p><p>
+            When the color buffer is transferred, values are taken from the read buffer of the read framebuffer and written to each of the draw
+            buffers of the draw framebuffer.
+        </p><p>
+            If the source and destination rectangles overlap or are the same, and the read and draw buffers are the same, the result of the operation
+            is undefined.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains any of the <code class="constant">GL_DEPTH_BUFFER_BIT</code>
+            or <code class="constant">GL_STENCIL_BUFFER_BIT</code> and <em class="parameter"><code>filter</code></em> is not <code class="constant">GL_NEAREST</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains <code class="constant">GL_COLOR_BUFFER_BIT</code>
+            and any of the following conditions hold:
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The read buffer contains fixed-point or floating-point values and any draw buffer contains
+                neither fixed-point nor floating-point values.</p></li><li class="listitem"><p>The read buffer contains unsigned integer values and any draw buffer does not contain unsigned
+                integer values.</p></li><li class="listitem"><p>The read buffer contains signed integer values and any draw buffer does not contain signed integer values.</p></li></ul></div><p>
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains <code class="constant">GL_DEPTH_BUFFER_BIT</code> or
+            <code class="constant">GL_STENCIL_BUFFER_BIT</code> and the source and destination depth and stencil formats do not match.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>filter</code></em> is <code class="constant">GL_LINEAR</code> and the read buffer
+            contains integer data.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <em class="parameter"><code>GL_SAMPLES</code></em> for the read and draw buffers is
+            not identical.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for both read and draw buffers greater than
+            zero and the dimensions of the source and destination rectangles is not identical.
+        </p><p>
+            <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the objects bound to <code class="constant">GL_DRAW_FRAMEBUFFER_BINDING</code>
+            or <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code> are not framebuffer complete.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>
+            <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>
+            <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+            <a class="citerefentry" href="glDeleteFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

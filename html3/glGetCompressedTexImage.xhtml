@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetCompressedTexImage</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetCompressedTexImage"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetCompressedTexImage — return a compressed texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetCompressedTexImage</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">lod</var>, </td></tr><tr><td> </td><td>GLvoid *  </td><td><var class="pdparam">img</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies which texture is to be obtained.
+                    <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, and
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>lod</code></em></span></dt><dd><p>
+                    Specifies the level-of-detail number of the desired image.
+                    Level 0 is the base image level.
+                    Level 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                    is the 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                    mipmap reduction image.
+                </p></dd><dt><span class="term"><em class="parameter"><code>img</code></em></span></dt><dd><p>
+                    Returns the compressed texture image.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetCompressedTexImage</code> returns the compressed texture image associated with <em class="parameter"><code>target</code></em> and <em class="parameter"><code>lod</code></em>
+            into <em class="parameter"><code>img</code></em>.  <em class="parameter"><code>img</code></em> should be an array of
+            <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code> bytes.
+            <em class="parameter"><code>target</code></em> specifies whether the desired texture image was one specified by
+            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> (<code class="constant">GL_TEXTURE_1D</code>),
+            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> (<code class="constant">GL_TEXTURE_2D</code> or any of <code class="constant">GL_TEXTURE_CUBE_MAP_*</code>), or
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> (<code class="constant">GL_TEXTURE_3D</code>).
+            <em class="parameter"><code>lod</code></em> specifies the level-of-detail number of the desired image.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
+            (see <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            requested, <em class="parameter"><code>img</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            To minimize errors, first verify that the texture is compressed by calling
+            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED</code>.  If
+            the texture is compressed, then determine the amount of memory required to
+            store the compressed texture by calling <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with
+            argument <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code>.  Finally, retrieve the
+            internal format of the texture by calling <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with
+            argument <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>.
+            To store the texture for later use, associate the internal format and size
+            with the retrieved texture image.  These data can be used by the respective
+            texture or subtexture loading routine used for loading <em class="parameter"><code>target</code></em> textures.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>lod</code></em> is less than zero or greater
+            than the maximum number of LODs permitted by the implementation.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glGetCompressedTexImage</code> is used to retrieve a
+            texture that is in an uncompressed internal format.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer 
+            object such that the memory writes required would exceed the data store size.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED</code>
+        </p><p>
+            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code>
+        </p><p>
+            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+        </p><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a href="glCompressedTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
+            <a href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a href="glCompressedTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a href="glCompressedTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a href="glCompressedTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a href="glCompressedTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+            <a href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

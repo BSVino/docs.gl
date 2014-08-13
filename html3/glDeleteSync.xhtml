@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDeleteSync - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glDeleteSync"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDeleteSync — delete a sync object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDeleteSync</strong>(</code></td><td>GLsync <var class="pdparam">sync</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sync</code></em></span></dt><dd><p>
+                    The sync object to be deleted.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDeleteSync</code> deletes the sync object specified by <em class="parameter"><code>sync</code></em>. If the fence command
+            corresponding to the specified sync object has completed, or if no <a class="citerefentry" href="glWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>
+            or <a class="citerefentry" href="glClientWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a> commands are blocking on <em class="parameter"><code>sync</code></em>,
+            the object is deleted immediately. Otherwise, <em class="parameter"><code>sync</code></em> is flagged for deletion and will be deleted when
+            it is no longer associated with any fence command and is no longer blocking any <a class="citerefentry" href="glWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>
+            or <a class="citerefentry" href="glClientWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a> command. In either case, after
+            <code class="function">glDeleteSync</code> returns, the name <em class="parameter"><code>sync</code></em> is invalid and can no longer be used to
+            refer to the sync object.
+        </p><p>
+            <code class="function">glDeleteSync</code> will silently ignore a <em class="parameter"><code>sync</code></em> value of zero.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glSync</code> is only supported if the GL version is 3.2 or greater, or if
+            the <code class="code">ARB_sync</code> extension is supported.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>sync</code></em> is neither zero or the name of a sync object.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFenceSync.xml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a>,
+            <a class="citerefentry" href="glWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>,
+            <a class="citerefentry" href="glClientWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

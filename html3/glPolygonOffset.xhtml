@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glPolygonOffset</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPolygonOffset"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonOffset — set the scale and units used to calculate depth values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonOffset</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">units</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
+                    Specifies a scale factor that is used to create a variable
+                    depth offset for each polygon. The initial value is 0.
+                </p></dd><dt><span class="term"><em class="parameter"><code>units</code></em></span></dt><dd><p>
+                    Is multiplied by an implementation-specific value to
+                    create a constant depth offset. The initial value is 0.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            When <code class="constant">GL_POLYGON_OFFSET_FILL</code>, <code class="constant">GL_POLYGON_OFFSET_LINE</code>, or
+            <code class="constant">GL_POLYGON_OFFSET_POINT</code> is enabled, each
+            fragment's <span class="emphasis"><em>depth</em></span> value will be offset after it is interpolated
+            from the <span class="emphasis"><em>depth</em></span> values of the appropriate vertices.
+            The value of the offset is 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">factor</mml:mi>
+                        <mml:mo>×</mml:mo>
+                        <mml:mi mathvariant="italic">DZ</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">r</mml:mi>
+                        <mml:mo>×</mml:mo>
+                        <mml:mi mathvariant="italic">units</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>,
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mi mathvariant="italic">DZ</mml:mi>
+            </mml:math>
+            is a measurement of the change in depth relative to the screen
+            area of the polygon, and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+            is the smallest value that is guaranteed to
+            produce a resolvable offset for a given implementation.
+            The offset is added before the depth test is performed and before
+            the value is written into the depth buffer.
+        </p><p>
+            <code class="function">glPolygonOffset</code> is useful for rendering hidden-line images, for applying decals
+            to surfaces, and for rendering solids with highlighted edges.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument
+            <code class="constant">GL_POLYGON_OFFSET_FILL</code>,
+            <code class="constant">GL_POLYGON_OFFSET_LINE</code>,
+            or <code class="constant">GL_POLYGON_OFFSET_POINT</code>.
+        </p><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POLYGON_OFFSET_FACTOR</code> or
+            <code class="constant">GL_POLYGON_OFFSET_UNITS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

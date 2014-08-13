@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glIsShader</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glIsShader"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glIsShader — Determines if a name corresponds to a shader object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">GLboolean <b class="fsfunc">glIsShader</b>(</code>GLuint <var class="pdparam">shader</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>shader</code></em></span></dt><dd><p>Specifies a potential shader object.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glIsShader</code> returns
+    <code class="constant">GL_TRUE</code> if <em class="parameter"><code>shader</code></em> is
+    the name of a shader object previously created with 
+        <a href="glCreateShader.xml"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a> 
+        and not yet deleted with <a href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>. 
+        If <em class="parameter"><code>shader</code></em> is
+    zero or a non-zero value that is not the name of a shader
+    object, or if an error occurs, <code class="function">glIsShader </code> returns
+    <code class="constant">GL_FALSE</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>No error is generated if <em class="parameter"><code>shader</code></em> is
+    not a valid shader object name.</p><p>A shader object marked for deletion with <a href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>
+        but still attached to a program object is still considered 
+        a shader object and <code class="function">glIsShader</code> will return <code class="constant">GL_TRUE</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a href="glGetAttachedShaders.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
+    with a valid program object</p><p><a href="glGetShader.xml"><span class="citerefentry"><span class="refentrytitle">glGetShader</span></span></a>
+    with arguments <em class="parameter"><code>shader</code></em> and a parameter to
+    be queried</p><p><a href="glGetShaderInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
+    with argument <em class="parameter"><code>object</code></em></p><p><a href="glGetShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>
+    with argument <em class="parameter"><code>object</code></em></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a href="glAttachShader.xml"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+    <a href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+    <a href="glCreateShader.xml"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a>,
+    <a href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+    <a href="glDetachShader.xml"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
+    <a href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+    <a href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

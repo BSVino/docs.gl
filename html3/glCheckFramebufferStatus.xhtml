@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCheckFramebufferStatus - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glCheckFramebufferStatus"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCheckFramebufferStatus — check the completeness status of a framebuffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLenum <strong class="fsfunc">glCheckFramebufferStatus</strong>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specify the target of the framebuffer completeness check.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCheckFramebufferStatus</code> queries the completeness status of the framebuffer object currently bound to <em class="parameter"><code>target</code></em>.
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_DRAW_FRAMEBUFFER</code>, <code class="constant">GL_READ_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>.
+            <code class="constant">GL_FRAMEBUFFER</code> is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+        </p><p>
+            The return value is <code class="constant">GL_FRAMEBUFFER_COMPLETE</code> if the framebuffer bound to <em class="parameter"><code>target</code></em> is complete. Otherwise,
+            the return value is determined as follows:
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_UNDEFINED</code> is returned if <em class="parameter"><code>target</code></em> is the default framebuffer, but the default framebuffer does not exist.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT</code> is returned if any of the framebuffer attachment points are framebuffer incomplete.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT</code> is returned if the framebuffer does not have at least one image attached to it.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER</code> is returned if the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code>
+                         is <code class="constant">GL_NONE</code> for any color attachment point(s) named by <code class="constant">GL_DRAW_BUFFERi</code>.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER</code> is returned if <code class="constant">GL_READ_BUFFER</code> is not <code class="constant">GL_NONE</code>
+                        and the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is <code class="constant">GL_NONE</code> for the color attachment point named
+                        by <code class="constant">GL_READ_BUFFER</code>.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code> is returned if the combination of internal formats of the attached images violates
+                        an implementation-dependent set of restrictions.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE</code> is returned if the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code> is not the same
+                        for all attached renderbuffers; if the value of <code class="constant">GL_TEXTURE_SAMPLES</code> is the not same for all attached textures; or, if the attached
+                        images are a mix of renderbuffers and textures, the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code> does not match the value of
+                        <code class="constant">GL_TEXTURE_SAMPLES</code>.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE</code> is also returned if the value of <code class="constant">GL_TEXTURE_FIXED_SAMPLE_LOCATIONS</code> is
+                        not the same for all attached textures; or, if the attached images are a mix of renderbuffers and textures, the value of <code class="constant">GL_TEXTURE_FIXED_SAMPLE_LOCATIONS</code>
+                        is not <code class="constant">GL_TRUE</code> for all attached textures.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS</code> is returned if any framebuffer attachment is layered, and any populated attachment is not layered,
+                        or if all populated color attachments are not from textures of the same target.
+                    </p></li></ul></div><p>
+        </p><p>
+            Additionally, if an error occurs, zero is returned.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_DRAW_FRAMEBUFFER</code>,
+            <code class="constant">GL_READ_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glDeleteFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>
+            <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+            </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBeginTransformFeedback - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBeginTransformFeedback"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBeginTransformFeedback — start transform feedback operation</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBeginTransformFeedback</strong>(</code></td><td>GLenum <var class="pdparam">primitiveMode</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>primitiveMode</code></em></span></dt><dd><p>
+                    Specify the output type of the primitives that will be recorded into the
+                    buffer objects that are bound for transform feedback.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glEndTransformFeedback</strong>(</code></td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            Transform feedback mode captures the values of varying variables written by the vertex shader (or, if active, the geometry shader).
+            Transform feedback is said to be active after a call to <code class="function">glBeginTransformFeedback</code>
+            until a subsequent call to <a class="citerefentry" href="glEndTransformFeedback.xml"><span class="citerefentry"><span class="refentrytitle">glEndTransformFeedback</span></span></a>.
+            Transform feedback commands must be paired.
+        </p><p>
+            If no geometry shader is present, while transform feedback is active the <em class="parameter"><code>mode</code></em> parameter to
+            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a> must match those specified
+            in the following table:
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Transform Feedback <em class="parameter"><code>primitiveMode</code></em>
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Allowed Render Primitive <em class="parameter"><code>modes</code></em>
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_POINTS</code>
+                        </td><td align="left">
+                        <code class="constant">GL_POINTS</code>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LINES</code>
+                        </td><td align="left">
+                        <code class="constant">GL_LINES</code>, <code class="constant">GL_LINE_LOOP</code>, <code class="constant">GL_LINE_STRIP</code>,
+                        <code class="constant">GL_LINES_ADJACENCY</code>, <code class="constant">GL_LINE_STRIP_ADJACENCY</code>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_TRIANGLES</code>
+                        </td><td align="left">
+                        <code class="constant">GL_TRIANGLES</code>, <code class="constant">GL_TRIANGLE_STRIP</code>, <code class="constant">GL_TRIANGLE_FAN</code>,
+                        <code class="constant">GL_TRIANGLES_ADJACENCY</code>, <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code>
+                        </td></tr></tbody></table></div><p>
+            If a geometry shader is present, the output primitive type from the geometry shader must match those
+            provided in the following table:
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Transform Feedback <em class="parameter"><code>primitiveMode</code></em>
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Allowed Geometry Shader Output Primitive Type
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_POINTS</code>
+                        </td><td align="left">
+                        <code class="constant">points</code>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LINES</code>
+                        </td><td align="left">
+                        <code class="constant">line_strip</code>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_TRIANGLES</code>
+                        </td><td align="left">
+                        <code class="constant">triangle_strip</code>
+                        </td></tr></tbody></table></div><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            Geometry shaders, and the <code class="constant">GL_TRIANGLES_ADJACENCY</code>, <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code>,
+            <code class="constant">GL_LINES_ADJACENCY</code> and <code class="constant">GL_LINE_STRIP_ADJACENCY</code> primtive modes are available
+            only if the GL version is 3.2 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBeginTransformFeedback</code> is executed
+            while transform feedback is active.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glEndTransformFeedback</code> is executed
+            while transform feedback is not active.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>
+            if no geometry shader is present, transform feedback is active and <em class="parameter"><code>mode</code></em> is not one of the allowed modes.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>
+            if a geometry shader is present, transform feedback is active and the output primitive type of the geometry shader does not
+            match the transform feedback <em class="parameter"><code>primitiveMode</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by <code class="function">glEndTransformFeedback</code> if any binding
+            point used in transform feedback mode does not have a buffer object bound.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by <code class="function">glEndTransformFeedback</code> if no binding
+            points would be used, either because no program object is active of because the active program object has specified
+            no varying variables to record.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

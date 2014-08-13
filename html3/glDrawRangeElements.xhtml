@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawRangeElements</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawRangeElements"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawRangeElements — render primitives from array data</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawRangeElements</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">start</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">end</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">indices</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies what kind of primitives to render.
+                    Symbolic constants
+                    <code class="constant">GL_POINTS</code>,
+                    <code class="constant">GL_LINE_STRIP</code>,
+                    <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_LINES</code>,
+                    <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+                    <code class="constant">GL_LINES_ADJACENCY</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP</code>,
+                    <code class="constant">GL_TRIANGLE_FAN</code>,
+                    <code class="constant">GL_TRIANGLES</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
+                    <code class="constant">GL_TRIANGLES_ADJACENCY</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>start</code></em></span></dt><dd><p>
+                    Specifies the minimum array index contained in <em class="parameter"><code>indices</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>end</code></em></span></dt><dd><p>
+                    Specifies the maximum array index contained in <em class="parameter"><code>indices</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>count</code></em></span></dt><dd><p>
+                    Specifies the number of elements to be rendered.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the type of the values in <em class="parameter"><code>indices</code></em>. Must be one of
+                    <code class="constant">GL_UNSIGNED_BYTE</code>, <code class="constant">GL_UNSIGNED_SHORT</code>, or
+                    <code class="constant">GL_UNSIGNED_INT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>indices</code></em></span></dt><dd><p>
+                    Specifies a pointer to the location where the indices are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawRangeElements</code> is a restricted form of <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>. <em class="parameter"><code>mode</code></em>, <em class="parameter"><code>start</code></em>, <em class="parameter"><code>end</code></em>,
+            and <em class="parameter"><code>count</code></em> match the corresponding arguments to <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, with
+            the additional constraint that all values in the arrays <em class="parameter"><code>count</code></em> must lie
+            between <em class="parameter"><code>start</code></em> and <em class="parameter"><code>end</code></em>, inclusive.
+        </p><p>
+            Implementations denote recommended maximum amounts of vertex and
+            index data,
+            which may be queried by calling <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_MAX_ELEMENTS_VERTICES</code> and <code class="constant">GL_MAX_ELEMENTS_INDICES</code>.
+            If 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">end</mml:mi>
+                    <mml:mo>-</mml:mo>
+                    <mml:mi mathvariant="italic">start</mml:mi>
+                    <mml:mo>+</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            is greater than the value of
+            <code class="constant">GL_MAX_ELEMENTS_VERTICES</code>, or if <em class="parameter"><code>count</code></em> is greater than the value of
+            <code class="constant">GL_MAX_ELEMENTS_INDICES</code>, then the call may operate at reduced
+            performance.  There is no requirement that all vertices in the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mi mathvariant="italic">start</mml:mi>
+                    <mml:mi mathvariant="italic">end</mml:mi>
+                </mml:mfenced>
+            </mml:math>
+            be referenced.  However, the implementation may
+            partially process unused vertices, reducing performance from what could
+            be achieved with an optimal index set.
+        </p><p>
+            When <code class="function">glDrawRangeElements</code> is called, it uses <em class="parameter"><code>count</code></em> sequential elements from an
+            enabled array, starting at <em class="parameter"><code>start</code></em> to construct a sequence of
+            geometric primitives. <em class="parameter"><code>mode</code></em> specifies what kind of primitives are
+            constructed, and how the array elements construct these primitives. If
+            more than one array is enabled, each is used. 
+        </p><p>
+            Vertex attributes that are modified by <code class="function">glDrawRangeElements</code> have an
+            unspecified value after <code class="function">glDrawRangeElements</code> returns. Attributes that aren't
+            modified maintain their previous values.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+            <code class="constant">GL_LINES_ADJACENCY</code>,
+            <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
+            <code class="constant">GL_TRIANGLES_ADJACENCY</code>
+            are available only if the GL version is 3.2 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            It is an error for indices to lie outside the range 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mi mathvariant="italic">start</mml:mi>
+                    <mml:mi mathvariant="italic">end</mml:mi>
+                </mml:mfenced>
+            </mml:math>,
+            but implementations may not check for this situation. Such indices
+            cause implementation-dependent behavior.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">end</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mi mathvariant="italic">start</mml:mi>
+                </mml:mrow>
+            </mml:math>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a geometry shader is active and <em class="parameter"><code>mode</code></em>
+            is incompatible with the input primitive type of the geometry shader in the currently installed program object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
+            enabled array or the element array and the buffer object's data store is currently mapped.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_ELEMENTS_VERTICES</code>
+        </p><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_ELEMENTS_INDICES</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a href="glDrawElementsBaseVertex.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

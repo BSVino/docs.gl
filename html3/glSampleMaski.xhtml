@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glSampleMaski - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glSampleMaski"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSampleMaski — set the value of a sub-word of the sample mask</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSampleMaski</strong>(</code></td><td>GLuint <var class="pdparam">maskNumber</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">mask</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>maskNumber</code></em></span></dt><dd><p>
+                    Specifies which 32-bit sub-word of the sample mask to update.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+                    Specifies the new value of the mask sub-word.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glSampleMaski</code> sets one 32-bit sub-word of the multi-word sample mask, <code class="constant">GL_SAMPLE_MASK_VALUE</code>.
+        </p><p>
+            <em class="parameter"><code>maskIndex</code></em> specifies which 32-bit sub-word of the sample mask to update, and <em class="parameter"><code>mask</code></em> specifies
+            the new value to use for that sub-word. <em class="parameter"><code>maskIndex</code></em> must be less than the value of
+            <code class="constant">GL_MAX_SAMPLE_MASK_WORDS</code>. Bit <span class="emphasis"><em>B</em></span> of mask word <span class="emphasis"><em>M</em></span> corresponds to sample
+            32 x <span class="emphasis"><em>M</em></span> + <span class="emphasis"><em>B</em></span>.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glSampleMaski</code> is available only if the GL version is 3.2 or greater, or if the <code class="code">ARB_texture_multisample</code>
+            extension is supported.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>maskIndex</code></em> is greater than or equal to the value
+            of <code class="constant">GL_MAX_SAMPLE_MASK_WORDS</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorageMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorageMultisample</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glDeleteRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteRenderbuffers</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

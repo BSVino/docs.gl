@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGenBuffers</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGenBuffers"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGenBuffers — generate buffer object names</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGenBuffers</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">buffers</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of buffer object names to be generated.
+                </p></dd><dt><span class="term"><em class="parameter"><code>buffers</code></em></span></dt><dd><p>
+                    Specifies an array in which the generated buffer object names are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGenBuffers</code> returns <em class="parameter"><code>n</code></em> buffer object names in <em class="parameter"><code>buffers</code></em>.
+            There is no guarantee that the names form a contiguous set of integers;
+            however, it is guaranteed that none of the returned names was in use
+            immediately before the call to <code class="function">glGenBuffers</code>.
+        </p><p>
+            Buffer object names returned by a call to <code class="function">glGenBuffers</code> are not returned by
+            subsequent calls, unless they are first deleted with
+            <a href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>.
+        </p><p>
+            No buffer objects are associated with the returned buffer object names until they are first bound by calling
+            <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glIsBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

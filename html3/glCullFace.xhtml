@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCullFace</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glCullFace"><a id="glCullFace"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCullFace — specify whether front- or back-facing facets can be culled</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glCullFace</b>(</code></td><td>GLenum <var class="pdparam">mode</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies whether front- or back-facing facets are candidates for culling.
+                    Symbolic constants
+                    <code class="constant">GL_FRONT</code>, <code class="constant">GL_BACK</code>, and <code class="constant">GL_FRONT_AND_BACK</code> are accepted.
+                    The initial value is <code class="constant">GL_BACK</code>.
+                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCullFace</code> specifies whether front- or back-facing facets are culled
+            (as specified by <span class="emphasis"><em>mode</em></span>) when facet culling is enabled. Facet
+            culling is initially disabled.
+            To enable and disable facet culling, call the
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> commands
+            with the argument <code class="constant">GL_CULL_FACE</code>.
+            Facets include triangles,
+            quadrilaterals,
+            polygons, and
+            rectangles.
+        </p><p>
+            <a class="citerefentry" href="glFrontFace.xml"><span class="citerefentry"><span class="refentrytitle">glFrontFace</span></span></a> specifies which of the clockwise and counterclockwise facets
+            are front-facing and back-facing.
+            See <a class="citerefentry" href="glFrontFace.xml"><span class="citerefentry"><span class="refentrytitle">glFrontFace</span></span></a>.
+        </p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+            If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_FRONT_AND_BACK</code>, no facets are drawn, but other
+            primitives such as points and lines are drawn.
+        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_CULL_FACE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CULL_FACE_MODE</code>
+        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glFrontFace.xml"><span class="citerefentry"><span class="refentrytitle">glFrontFace</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

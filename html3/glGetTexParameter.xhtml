@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetTexParameter - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetTexParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexParameter — return texture parameter values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameterfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameterIiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameterIuiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of the target texture.
+                    <code class="constant">GL_TEXTURE_1D</code>,
+                    <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_3D</code>,
+                    <code class="constant">GL_TEXTURE_RECTANGLE</code>, and
+                    <code class="constant">GL_TEXTURE_CUBE_MAP</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a texture parameter.
+                    <code class="constant">GL_TEXTURE_BASE_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_BORDER_COLOR</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>,
+                    <code class="constant">GL_TEXTURE_LOD_BIAS</code>,
+                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_R</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_G</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_B</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_A</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_T</code>, and
+                    <code class="constant">GL_TEXTURE_WRAP_R</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the texture parameters.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetTexParameter</code> returns in <em class="parameter"><code>params</code></em> the value or values of the texture parameter
+            specified as <em class="parameter"><code>pname</code></em>.
+            <em class="parameter"><code>target</code></em> defines the target texture.
+            <code class="constant">GL_TEXTURE_1D</code>,
+            <code class="constant">GL_TEXTURE_2D</code>,
+            <code class="constant">GL_TEXTURE_3D</code>,
+            <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+            <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+            <code class="constant">GL_TEXTURE_RECTANGLE</code>, and
+            <code class="constant">GL_TEXTURE_CUBE_MAP</code>
+            specify one-, two-, or three-dimensional, one-dimensional array, two-dimensional array, rectangle or cube-mapped texturing, respectively.
+            <em class="parameter"><code>pname</code></em> accepts the same symbols as <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+            with the same interpretations:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_MAG_FILTER</code></span></dt><dd><p>
+                        Returns the single-valued texture magnification filter,
+                        a symbolic constant. The initial value is <code class="constant">GL_LINEAR</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_FILTER</code></span></dt><dd><p>
+                        Returns the single-valued texture minification filter,
+                        a symbolic constant. The initial value is <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_LOD</code></span></dt><dd><p>
+                        Returns the single-valued texture minimum level-of-detail value.  The
+                        initial value is 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1000</mml:mn>
+                        </mml:math>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MAX_LOD</code></span></dt><dd><p>
+                        Returns the single-valued texture maximum level-of-detail value. The
+                        initial value is 1000.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BASE_LEVEL</code></span></dt><dd><p>
+                        Returns the single-valued base texture mipmap level.  The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MAX_LEVEL</code></span></dt><dd><p>
+                        Returns the single-valued maximum texture mipmap array level.  The initial
+                        value is 1000.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_R</code></span></dt><dd><p>
+                        Returns the red component swizzle. The initial value is <code class="constant">GL_RED</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_G</code></span></dt><dd><p>
+                        Returns the green component swizzle. The initial value is <code class="constant">GL_GREEN</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_B</code></span></dt><dd><p>
+                        Returns the blue component swizzle. The initial value is <code class="constant">GL_BLUE</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_A</code></span></dt><dd><p>
+                        Returns the alpha component swizzle. The initial value is <code class="constant">GL_ALPHA</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code></span></dt><dd><p>
+                        Returns the component swizzle for all channels in a single query.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
+                        Returns the single-valued wrapping function for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>,
+                        a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
+                        Returns the single-valued wrapping function for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>,
+                        a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_R</code></span></dt><dd><p>
+                        Returns the single-valued wrapping function for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>,
+                        a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BORDER_COLOR</code></span></dt><dd><p>
+                        Returns four integer or floating-point numbers that comprise the RGBA color
+                        of the texture border.
+                        Floating-point values are returned in the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                        Integer values are returned as a linear mapping of the internal floating-point
+                        representation such that 1.0 maps to the most positive representable
+                        integer and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>
+                        maps to the most negative representable
+                        integer. The initial value is (0, 0, 0, 0).
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPARE_MODE</code></span></dt><dd><p>
+                        Returns a single-valued texture comparison mode, a symbolic constant.  The
+                        initial value is <code class="constant">GL_NONE</code>. See <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPARE_FUNC</code></span></dt><dd><p>
+                        Returns a single-valued texture comparison function, a symbolic constant.  The
+                        initial value is <code class="constant">GL_LEQUAL</code>. See <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not an
+            accepted value.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010
+            Khronos Group. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

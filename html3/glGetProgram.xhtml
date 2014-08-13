@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetProgram</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glGetProgram"><a id="glGetProgram"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetProgramiv — Returns a parameter from a program object</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetProgramiv</b>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be
+            queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the object parameter. Accepted
+            symbolic names are
+            <code class="constant">GL_DELETE_STATUS</code>,
+            <code class="constant">GL_LINK_STATUS</code>,
+            <code class="constant">GL_VALIDATE_STATUS</code>,
+            <code class="constant">GL_INFO_LOG_LENGTH</code>,
+            <code class="constant">GL_ATTACHED_SHADERS</code>,
+            <code class="constant">GL_ACTIVE_ATTRIBUTES</code>,
+            <code class="constant">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</code>,
+            <code class="constant">GL_ACTIVE_UNIFORMS</code>,
+            <code class="constant">GL_ACTIVE_UNIFORM_BLOCKS</code>,
+            <code class="constant">GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH</code>,
+            <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>,
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code>,
+            <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code>,
+            <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</code>,
+            <code class="constant">GL_GEOMETRY_VERTICES_OUT</code>,
+            <code class="constant">GL_GEOMETRY_INPUT_TYPE</code>, and
+            <code class="constant">GL_GEOMETRY_OUTPUT_TYPE</code>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Returns the requested object parameter.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glGetProgram</code>
+    returns in <em class="parameter"><code>params</code></em>
+    the value of a parameter for a specific program object. The following parameters are defined:</p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_DELETE_STATUS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns
+            <code class="constant">GL_TRUE</code> if
+            <em class="parameter"><code>program</code></em> is currently flagged
+            for deletion, and <code class="constant">GL_FALSE</code>
+            otherwise.</p></dd><dt><span class="term"><code class="constant">GL_LINK_STATUS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns
+            <code class="constant">GL_TRUE</code> if the last link
+            operation on <em class="parameter"><code>program</code></em> was
+            successful, and <code class="constant">GL_FALSE</code>
+            otherwise.</p></dd><dt><span class="term"><code class="constant">GL_VALIDATE_STATUS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns
+            <code class="constant">GL_TRUE</code> or if the last
+            validation operation on
+            <em class="parameter"><code>program</code></em> was successful, and
+            <code class="constant">GL_FALSE</code>
+            otherwise.</p></dd><dt><span class="term"><code class="constant">GL_INFO_LOG_LENGTH</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            number of characters in the information log for
+            <em class="parameter"><code>program</code></em> including the null
+            termination character (i.e., the size of the
+            character buffer required to store the information
+            log). If <em class="parameter"><code>program</code></em> has no
+            information log, a value of 0 is
+            returned.</p></dd><dt><span class="term"><code class="constant">GL_ATTACHED_SHADERS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            number of shader objects attached to
+            <em class="parameter"><code>program</code></em>.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_ATTRIBUTES</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            number of active attribute variables for
+            <em class="parameter"><code>program</code></em>.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            length of the longest active attribute name for
+            <em class="parameter"><code>program</code></em>, including the null
+            termination character (i.e., the size of the
+            character buffer required to store the longest
+            attribute name). If no active attributes exist, 0 is
+            returned.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_UNIFORMS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            number of active uniform variables for
+            <em class="parameter"><code>program</code></em>.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the
+            length of the longest active uniform variable name
+            for <em class="parameter"><code>program</code></em>, including the
+            null termination character (i.e., the size of the
+            character buffer required to store the longest
+            uniform variable name). If no active uniform
+            variables exist, 0 is returned.</p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns a symbolic constant
+            indicating the buffer mode used when transform feedback is active.
+            This may be <code class="constant">GL_SEPARATE_ATTRIBS</code> or
+            <code class="constant">GL_INTERLEAVED_ATTRIBS</code>.</p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the number of varying
+            variables to capture in transform feedback mode for the program.</p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the length of the longest
+            variable name to be used for transform feedback, including the null-terminator.</p></dd><dt><span class="term"><code class="constant">GL_GEOMETRY_VERTICES_OUT</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns the maximum number of vertices
+            that the geometry shader in <em class="parameter"><code>program</code></em> will output.</p></dd><dt><span class="term"><code class="constant">GL_GEOMETRY_INPUT_TYPE</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns a symbolic constant indicating
+            the primitive type accepted as input to the geometry shader contained in
+            <em class="parameter"><code>program</code></em>.</p></dd><dt><span class="term"><code class="constant">GL_GEOMETRY_OUTPUT_TYPE</code></span></dt><dd><p>
+            </p><p> <em class="parameter"><code>params</code></em> returns a symbolic constant indicating
+            the primitive type that will be output by the geometry shader contained
+            in <em class="parameter"><code>program</code></em>.</p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_ACTIVE_UNIFORM_BLOCKS</code> and
+            <code class="constant">GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH</code>
+            are available only if the GL version 3.1 or greater.
+        </p><p>
+        <code class="constant">GL_GEOMETRY_VERTICES_OUT</code>, <code class="constant">GL_GEOMETRY_INPUT_TYPE</code>
+        and <code class="constant">GL_GEOMETRY_OUTPUT_TYPE</code> are accepted only if the GL
+        version is 3.2 or greater.
+    </p><p>If an error is generated, no change is made to the
+    contents of <em class="parameter"><code>params</code></em>.</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code>
+    is generated if <em class="parameter"><code>program</code></em>
+    is not a value generated by OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code>
+    is generated if <em class="parameter"><code>program</code></em>
+    does not refer to a program object.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>pname</code></em> is <code class="constant">GL_GEOMETRY_VERTICES_OUT</code>,
+    <code class="constant">GL_GEOMETRY_INPUT_TYPE</code>, or <code class="constant">GL_GEOMETRY_OUTPUT_TYPE</code>,
+    and <em class="parameter"><code>program</code></em> does not contain a geometry shader.</p><p><code class="constant">GL_INVALID_ENUM</code>
+    is generated if <em class="parameter"><code>pname</code></em>
+    is not an accepted value.</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a class="citerefentry" href="glGetAttachedShaders.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a class="citerefentry" href="glGetProgramInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a class="citerefentry" href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a>
+    <em class="parameter"><code></code></em></p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glAttachShader.xml"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+    <a class="citerefentry" href="glCreateProgram.xml"><span class="citerefentry"><span class="refentrytitle">glCreateProgram</span></span></a>,
+    <a class="citerefentry" href="glDeleteProgram.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteProgram</span></span></a>,
+    <a class="citerefentry" href="glGetShader.xml"><span class="citerefentry"><span class="refentrytitle">glGetShader</span></span></a>,
+    <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+    <a class="citerefentry" href="glValidateProgram.xml"><span class="citerefentry"><span class="refentrytitle">glValidateProgram</span></span></a></p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            Copyright <span class="trademark"></span>© 2010 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

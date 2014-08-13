@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glReadBuffer - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glReadBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glReadBuffer — select a color buffer source for pixels</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">void <b class="fsfunc">glReadBuffer</b>(</code>GLenum <var class="pdparam">mode</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies a color buffer.
+                    Accepted values are
+                    <code class="constant">GL_FRONT_LEFT</code>,
+                    <code class="constant">GL_FRONT_RIGHT</code>,
+                    <code class="constant">GL_BACK_LEFT</code>,
+                    <code class="constant">GL_BACK_RIGHT</code>,
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>,
+                    <code class="constant">GL_LEFT</code>, and the constants
+                    <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glReadBuffer</code> specifies a color buffer as the source for subsequent
+            <a href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>, <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>, <a href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>, and
+            <a href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a> commands.
+            <em class="parameter"><code>mode</code></em> accepts one of twelve or more predefined values.
+            In a fully configured system,
+            <code class="constant">GL_FRONT</code>,
+            <code class="constant">GL_LEFT</code>, and
+            <code class="constant">GL_FRONT_LEFT</code> all name the front left buffer,
+            <code class="constant">GL_FRONT_RIGHT</code> and
+            <code class="constant">GL_RIGHT</code> name the front right buffer, and
+            <code class="constant">GL_BACK_LEFT</code> and
+            <code class="constant">GL_BACK</code> name the back left buffer.
+            Furthermore, the constants <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> may be used to indicate the
+            <span class="emphasis"><em>i</em></span><sup>th</sup> color attachment where <span class="emphasis"><em>i</em></span> ranges from zero to the
+            value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.
+        </p><p>
+            Nonstereo double-buffered configurations have only a front left and a
+            back left buffer.
+            Single-buffered configurations have a front left and a front right
+            buffer if stereo, and only a front left buffer if nonstereo.
+            It is an error to specify a nonexistent buffer to <code class="function">glReadBuffer</code>.
+        </p><p>
+            <em class="parameter"><code>mode</code></em> is initially <code class="constant">GL_FRONT</code> in single-buffered configurations
+            and <code class="constant">GL_BACK</code> in double-buffered configurations.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not one of the twelve
+            (or more) accepted values.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mode</code></em> specifies a buffer
+            that does not exist.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_READ_BUFFER</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
+            <a href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

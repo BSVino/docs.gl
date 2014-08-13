@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glClientWaitSync - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glClientWaitSync"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glClientWaitSync — block and wait for a sync object to become signaled</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLenum <strong class="fsfunc">glClientWaitSync</strong>(</code></td><td>GLsync <var class="pdparam">sync</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">flags</var>, </td></tr><tr><td> </td><td>GLuint64 <var class="pdparam">timeout</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sync</code></em></span></dt><dd><p>
+                    The sync object whose status to wait on.
+                </p></dd><dt><span class="term"><em class="parameter"><code>flags</code></em></span></dt><dd><p>
+                    A bitfield controlling the command flushing behavior. <em class="parameter"><code>flags</code></em> may be <code class="constant">GL_SYNC_FLUSH_COMMANDS_BIT</code>.
+                </p></dd></dl></div><dt><span class="term"><em class="parameter"><code>timeout</code></em></span></dt><dd><p>
+                    The timeout, specified in nanoseconds, for which the implementation should wait for <em class="parameter"><code>sync</code></em> to become signaled.
+                </p></dd></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glClientWaitSync</code> causes the client to block and wait for the sync object specified by <em class="parameter"><code>sync</code></em> to become signaled. If
+            <em class="parameter"><code>sync</code></em> is signaled when <code class="function">glClientWaitSync</code> is called, <code class="function">glClientWaitSync</code> returns immediately, otherwise
+            it will block and wait for up to <em class="parameter"><code>timeout</code></em> nanoseconds for <em class="parameter"><code>sync</code></em> to become signaled.
+        </p><p>
+            The return value is one of four status values:
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                        <code class="constant">GL_ALREADY_SIGNALED</code> indicates that <em class="parameter"><code>sync</code></em> was signaled at the time that <code class="function">glClientWaitSync</code>
+                        was called.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_TIMEOUT_EXPIRED</code> indicates that at least <em class="parameter"><code>timeout</code></em> nanoseconds passed and <em class="parameter"><code>sync</code></em> did not
+                        become signaled.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_CONDITION_SATISFIED</code> indicates that <em class="parameter"><code>sync</code></em> was signaled before the timeout expired.
+                    </p></li><li class="listitem"><p>
+                        <code class="constant">GL_WAIT_FAILED</code> indicates that an error occurred. Additionally, an OpenGL error will be generated.
+                    </p></li></ul></div><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glClientWaitSync</code> is available only if the GL version is 3.2 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>sync</code></em> is not the name of an existing sync object.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>flags</code></em> contains any unsupported flag.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFenceSync.xml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a>,
+            <a class="citerefentry" href="glIsSync.xml"><span class="citerefentry"><span class="refentrytitle">glIsSync</span></span></a>
+            <a class="citerefentry" href="glWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>
+            </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

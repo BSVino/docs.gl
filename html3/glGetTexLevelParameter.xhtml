@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetTexLevelParameter - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetTexLevelParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of the target texture,
+                    one of
+                    <code class="constant">GL_TEXTURE_1D</code>,
+                    <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_3D</code>,
+                    <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+                    <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+                    <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_1D</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_2D</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_3D</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_2D_ARRAY</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_RECTANGLE</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_2D_MULTISAMPLE</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</code>,
+                    <code class="constant">GL_PROXY_TEXTURE_CUBE_MAP</code>, or
+                    <code class="constant">GL_TEXTURE_BUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
+                    Specifies the level-of-detail number of the desired image.
+                    Level 0 is the base image level.
+                    Level 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                    is the 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                    mipmap reduction image.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a texture parameter.
+                    <code class="constant">GL_TEXTURE_WIDTH</code>,
+                    <code class="constant">GL_TEXTURE_HEIGHT</code>,
+                    <code class="constant">GL_TEXTURE_DEPTH</code>,
+                    <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>,
+                    <code class="constant">GL_TEXTURE_RED_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_GREEN_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_BLUE_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_DEPTH_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_COMPRESSED</code>, and
+                    <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code>
+                     are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the requested data.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetTexLevelParameter</code> returns in <em class="parameter"><code>params</code></em> texture parameter values for a specific
+            level-of-detail value,
+            specified as <em class="parameter"><code>level</code></em>.
+            <em class="parameter"><code>target</code></em> defines the target texture,
+            either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>,
+            <code class="constant">GL_PROXY_TEXTURE_1D</code>,
+            <code class="constant">GL_PROXY_TEXTURE_2D</code>,
+            <code class="constant">GL_PROXY_TEXTURE_3D</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>, or
+            <code class="constant">GL_PROXY_TEXTURE_CUBE_MAP</code>.
+        </p><p>
+            <code class="constant">GL_MAX_TEXTURE_SIZE</code>, and <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code> are not really
+            descriptive enough.
+            It has to report the largest square texture image that can be
+            accommodated with mipmaps
+            but a long skinny texture, or a texture without mipmaps may
+            easily fit in texture memory.
+            The proxy targets allow the user to more accurately query
+            whether the GL can accommodate a texture of a given configuration.
+            If the texture cannot be accommodated, the texture state variables, which
+            may be queried with <code class="function">glGetTexLevelParameter</code>, are set to 0.  If the texture can be accommodated,
+            the texture state values will be set as they would be set for a
+            non-proxy target.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> specifies the texture parameter whose value or values
+            will be returned.
+        </p><p>
+            The accepted parameter names are as follows:
+        </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WIDTH</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the width of the texture image.
+                        The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_HEIGHT</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the height of the texture image.
+                        The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the depth of the texture image.
+                        The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the internal format of the texture image.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_GREEN_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BLUE_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_ALPHA_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH_TYPE</code></span></dt><dd><p>
+                    </p><p>
+                        The data type used to store the component.
+                        The types <code class="constant">GL_NONE</code>, <code class="constant">GL_SIGNED_NORMALIZED</code>,
+                        <code class="constant">GL_UNSIGNED_NORMALIZED</code>, <code class="constant">GL_FLOAT</code>,
+                        <code class="constant">GL_INT</code>, and <code class="constant">GL_UNSIGNED_INT</code> may be returned
+                        to indicate signed normalized fixed-point, unsigned normalized fixed-point, floating-point, integer unnormalized, and
+                        unsigned integer unnormalized components, respectively.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_GREEN_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BLUE_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        The internal storage resolution of an individual component.
+                        The resolution chosen by the GL will be a close match for the resolution
+                        requested by the user with the component argument of <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+                        <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>, <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, and
+                        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>. The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPRESSED</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the texture image is
+                        stored in a compressed internal format.  The initiali value is <code class="constant">GL_FALSE</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single integer value, the number of unsigned bytes of the
+                        compressed texture image that would be returned from
+                        <a class="citerefentry" href="glGetCompressedTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>.
+                    </p></dd></dl></div></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p><p>
+            <code class="function">glGetTexLevelParameter</code> returns the texture level parameters for the active texture unit.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not an
+            accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
+            than 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            <span class="emphasis"><em>max</em></span>,
+            where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_BUFFER</code>
+            and <em class="parameter"><code>level</code></em> is not zero.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if
+            <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code> is queried on texture images with an
+            uncompressed internal format or on proxy targets.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2013
+            Khronos Group. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetActiveUniformName - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetActiveUniformName"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveUniformName — query the name of an active uniform</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetActiveUniformName</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">uniformIndex</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLsizei *<var class="pdparam">length</var>, </td></tr><tr><td> </td><td>GLchar *<var class="pdparam">uniformName</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
+                    Specifies the program containing the active uniform index <em class="parameter"><code>uniformIndex</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>uniformIndex</code></em></span></dt><dd><p>
+                    Specifies the index of the active uniform whose name to query.
+                </p></dd><dt><span class="term"><em class="parameter"><code>bufSize</code></em></span></dt><dd><p>
+                    Specifies the size of the buffer, in units of <code class="code">GLchar</code>, of the buffer whose address is specified in <em class="parameter"><code>uniformName</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>length</code></em></span></dt><dd><p>
+                    Specifies the address of a variable that will receive the number of characters that were or would have been written to the buffer addressed by <em class="parameter"><code>uniformName</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>uniformName</code></em></span></dt><dd><p>
+                    Specifies the address of a buffer into which the GL will place the name of the active uniform at <em class="parameter"><code>uniformIndex</code></em> within <em class="parameter"><code>program</code></em>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetActiveUniformName</code> returns the name of the active uniform at <em class="parameter"><code>uniformIndex</code></em> within <em class="parameter"><code>program</code></em>.
+            If <em class="parameter"><code>uniformName</code></em> is not <code class="code">NULL</code>, up to <em class="parameter"><code>bufSize</code></em> characters (including a nul-terminator) will be written into
+            the array whose address is specified by <em class="parameter"><code>uniformName</code></em>. If <em class="parameter"><code>length</code></em> is not <code class="code">NULL</code>, the number of characters
+            that were (or would have been) written into <em class="parameter"><code>uniformName</code></em> (not including the nul-terminator) will be placed in the variable whose address
+            is specified in <em class="parameter"><code>length</code></em>. If <em class="parameter"><code>length</code></em> is <code class="code">NULL</code>, no length is returned. The length of the longest uniform
+            name in <em class="parameter"><code>program</code></em> is given by the value of <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>, which can be queried with
+            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
+        </p><p>
+            If <code class="function">glGetActiveUniformName</code> is not successful, nothing is written to <em class="parameter"><code>length</code></em> or <em class="parameter"><code>uniformName</code></em>.
+        </p><p>
+            <em class="parameter"><code>program</code></em> must be the name of a program for which the command <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+            has been issued in the past. It is not necessary for <em class="parameter"><code>program</code></em> to have been linked successfully. The link could have failed because
+            the number of active uniforms exceeded the limit.
+        </p><p>
+            <em class="parameter"><code>uniformIndex</code></em> must be an active uniform index of the program <em class="parameter"><code>program</code></em>, in the range zero to
+            <code class="constant">GL_ACTIVE_UNIFORMS</code> - 1. The value of <code class="constant">GL_ACTIVE_UNIFORMS</code> can be queried with
+            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>uniformIndex</code></em> is greater than or equal to the value
+            of <code class="constant">GL_ACTIVE_UNIFORMS</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>program</code></em> is not the name of a program object for which
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> has been issued.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
+            <a class="citerefentry" href="glGetUniformIndices.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformIndices</span></span></a>,
+            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>,
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

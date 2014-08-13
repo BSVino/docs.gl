@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glWaitSync - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glWaitSync"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glWaitSync — instruct the GL server to block until the specified sync object becomes signaled</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glWaitSync</strong>(</code></td><td>GLsync <var class="pdparam">sync</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">flags</var>, </td></tr><tr><td> </td><td>GLuint64 <var class="pdparam">timeout</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sync</code></em></span></dt><dd><p>
+                    Specifies the sync object whose status to wait on.
+                </p></dd><dt><span class="term"><em class="parameter"><code>flags</code></em></span></dt><dd><p>
+                    A bitfield controlling the command flushing behavior. <em class="parameter"><code>flags</code></em> may be zero.
+                </p></dd><dt><span class="term"><em class="parameter"><code>timeout</code></em></span></dt><dd><p>
+                    Specifies the timeout that the server should wait before continuing. <em class="parameter"><code>timeout</code></em> must be <code class="constant">GL_TIMEOUT_IGNORED</code>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glWaitSync</code> causes the GL server to block and wait until <em class="parameter"><code>sync</code></em> becomes signaled. <em class="parameter"><code>sync</code></em>
+            is the name of an existing sync object upon which to wait. <em class="parameter"><code>flags</code></em> and <em class="parameter"><code>timeout</code></em> are currently not used and
+            must be set to zero and the special value <code class="constant">GL_TIMEOUT_IGNORED</code>, respectively<a href="#ftn.idp26641520" class="footnote" id="idp26641520"><sup class="footnote">[1]</sup></a>. <code class="function">glWaitSync</code> will always wait no longer than an implementation-dependent timeout. The
+            duration of this timeout in nanoseconds may be queried by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with the
+            parameter <code class="constant">GL_MAX_SERVER_WAIT_TIMEOUT</code>. There is currently no way to determine whether <code class="function">glWaitSync</code> unblocked
+            because the timeout expired or because the sync object being waited on was signaled.
+        </p><p>
+            If an error occurs, <code class="function">glWaitSync</code> does not cause the GL server to block.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glWaitSync</code> is available only if the GL version is 3.2 or higher.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>sync</code></em> is not the name of a sync object.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>flags</code></em> is not zero.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>timeout</code></em> is not <code class="constant">GL_TIMEOUT_IGNORED</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFenceSync.xml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a>,
+            <a class="citerefentry" href="glClientWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div><div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.idp26641520" class="footnote"><p><a href="#idp26641520" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> and
+            <em class="parameter"><code>timeout</code></em> are placeholders for anticipated future extensions of sync object capabilities. They must have these reserved values in
+            order that existing code calling <code class="function">glWaitSync</code> operate properly in the presence of such extensions.</p></div></div></div></body></html>

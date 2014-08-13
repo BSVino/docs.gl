@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetVertexAttribPointerv</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetVertexAttribPointerv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetVertexAttribPointerv — return the address of the specified generic vertex attribute pointer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetVertexAttribPointerv</b>(</code></td><td>GLuint  </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLvoid ** </td><td><var class="pdparam">pointer</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the generic vertex attribute
+            parameter to be returned.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the symbolic name of the generic
+            vertex attribute parameter to be returned. Must be
+            <code class="constant">GL_VERTEX_ATTRIB_ARRAY_POINTER</code>.</p></dd><dt><span class="term"><em class="parameter"><code>pointer</code></em></span></dt><dd><p>Returns the pointer value.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glGetVertexAttribPointerv</code> returns
+    pointer information. <em class="parameter"><code>index</code></em> is the generic
+    vertex attribute to be queried, <em class="parameter"><code>pname</code></em> is
+    a symbolic constant indicating the pointer to be returned, and
+    <em class="parameter"><code>params</code></em> is a pointer to a location in
+    which to place the returned data.</p><p>The <em class="parameter"><code>pointer</code></em> returned is a byte offset into the data store of the buffer object
+    that was bound to the <code class="constant">GL_ARRAY_BUFFER</code> target
+    (see <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) when the desired pointer was previously specified.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>The state returned is retrieved from the currently bound vertex array object.</p><p>The initial value for each pointer is 0.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_OPERATION</code> is generated if no vertex array object is currently bound.</p><p><code class="constant">GL_INVALID_VALUE</code>
+    is generated if <em class="parameter"><code>index</code></em>
+    is greater than or equal to <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p><p><code class="constant">GL_INVALID_ENUM</code>
+    is generated if <em class="parameter"><code>pname</code></em>
+    is not an accepted value.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a href="glGetVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>,
+    <a href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

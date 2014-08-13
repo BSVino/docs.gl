@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glQueryCounter - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glQueryCounter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glQueryCounter — record the GL time into a query object after all previous commands have reached the GL server but have not yet necessarily executed.</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glQueryCounter</strong>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>id</code></em></span></dt><dd><p>
+                    Specify the name of a query object into which to record the GL time.
+                </p></dd><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specify the counter to query. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TIMESTAMP</code>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glQueryCounter</code> causes the GL to record the current time into the query object named <em class="parameter"><code>id</code></em>.
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TIMESTAMP</code>. The time is recorded after all previous commands on the
+            GL client and server state and the framebuffer have been fully realized. When the time is recorded, the query result for that object
+            is marked available. <code class="function">glQueryCounter</code> timer queries can be used within a <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
+            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block where the target is <code class="constant">GL_TIME_ELAPSED</code> and it does
+            not affect the result of that query object.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glQueryCounter</code> is available only if the GL version is 3.3 or higher.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name
+            of a query object that is already in use within a <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
+            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>id</code></em> is not the name of a query object returned
+            from a previous call to <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TIMESTAMP</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
+            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
+            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a class="citerefentry" href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
+            <a class="citerefentry" href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

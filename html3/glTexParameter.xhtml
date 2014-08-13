@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexParameter</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glTexParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexParameter — set texture parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameterf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameteri</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target texture,
+                    which must be either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+                    or <code class="constant">GL_TEXTURE_CUBE_MAP</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a single-valued texture parameter.
+                    <em class="parameter"><code>pname</code></em> can be one of the following:
+                    <code class="constant">GL_TEXTURE_BASE_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>,
+                    <code class="constant">GL_TEXTURE_LOD_BIAS</code>,
+                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_R</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_G</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_B</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_A</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_T</code>, or
+                    <code class="constant">GL_TEXTURE_WRAP_R</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
+                    Specifies the value of <em class="parameter"><code>pname</code></em>.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameterfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameterIiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexParameterIuiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target texture,
+                    which must be either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+                    or <code class="constant">GL_TEXTURE_CUBE_MAP</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a texture parameter.
+                    <em class="parameter"><code>pname</code></em> can be one of the following:
+                    <code class="constant">GL_TEXTURE_BASE_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_BORDER_COLOR</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>,
+                    <code class="constant">GL_TEXTURE_LOD_BIAS</code>,
+                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LEVEL</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_R</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_G</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_B</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_A</code>,
+                    <code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_T</code>, or
+                    <code class="constant">GL_TEXTURE_WRAP_R</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Specifies a pointer to an array where the value or values of <em class="parameter"><code>pname</code></em>
+                    are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glTexParameter</code> assigns the value or values in <em class="parameter"><code>params</code></em> to the texture parameter
+            specified as <em class="parameter"><code>pname</code></em>.
+            <em class="parameter"><code>target</code></em> defines the target texture,
+            either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
+            <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>, or <code class="constant">GL_TEXTURE_3D</code>.
+            The following symbols are accepted in <em class="parameter"><code>pname</code></em>:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_BASE_LEVEL</code></span></dt><dd><p>
+                        Specifies the index of the lowest defined mipmap level. This is an
+                        integer value. The initial value is 0.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_BORDER_COLOR</code></span></dt><dd><p>
+                        The data in <em class="parameter"><code>params</code></em> specifies four values that define the border values that
+                        should be used for border texels. If a texel is sampled from the border of the texture, the
+                        values of <code class="constant">GL_TEXTURE_BORDER_COLOR</code> are interpreted as an RGBA color to match the
+                        texture's internal format and substituted for the non-existent texel data. If the texture contains depth
+                        components, the first component of <code class="constant">GL_TEXTURE_BORDER_COLOR</code> is interpreted as a depth value.
+                        The initial value is
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        0.0, 0.0, 0.0, 0.0
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>.
+                    </p><p>
+                        If the values for <code class="constant">GL_TEXTURE_BORDER_COLOR</code> are specified with <code class="function">glTexParameterIiv</code>
+                        or <code class="function">glTexParameterIuiv</code>, the values are stored unmodified with an internal data type of
+                        integer. If specified with <code class="function">glTexParameteriv</code>, they are converted to floating point with the following
+                        equation:
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">f</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mfrac>
+                                    <mml:mrow>
+                                        <mml:msub><mml:mn>2</mml:mn>
+                                        <mml:mi mathvariant="italic">c</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mi mathvariant="italic">b</mml:mi>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfrac>
+                            </mml:mrow>
+                        </mml:math>.
+                        If specified with <code class="function">glTexParameterfv</code>, they are stored unmodified as floating-point values.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPARE_FUNC</code></span></dt><dd><p>
+                        Specifies the comparison operator used when <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is
+                        set to <code class="constant">GL_COMPARE_REF_TO_TEXTURE</code>.  Permissible values are:
+                        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                                        Texture Comparison Function
+                                        </strong></span></th><th align="left"><span class="bold"><strong>
+                                        Computed result 
+                                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                                        <code class="constant">GL_LEQUAL</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&lt;=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&gt;</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_GEQUAL</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&gt;=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&lt;</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_LESS</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&lt;</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&gt;=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_GREATER</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&gt;</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>&lt;=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_EQUAL</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>≠</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_NOTEQUAL</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mfenced open="{" close="">
+                                                        <mml:mrow>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>1.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mn>0.0</mml:mn>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                            <mml:mo>⁢  </mml:mo>
+                                                            <mml:mtable>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>≠</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                                <mml:mtr><mml:mtd>
+                                                                    <mml:mrow>
+                                                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                                                        <mml:mo>=</mml:mo>
+                                                                        <mml:mfenced open="" close="">
+                                                                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                                                                            <mml:mi mathvariant="italic">t</mml:mi>
+                                                                            </mml:msub>
+                                                                        </mml:mfenced>
+                                                                    </mml:mrow>
+                                                                </mml:mtd></mml:mtr>
+                                                            </mml:mtable>
+                                                        </mml:mrow>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_ALWAYS</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mi>1.0</mml:mi>
+                                                </mml:mrow>
+                                                </mml:math></div>
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_NEVER</code>
+                                        </td><td align="left">
+                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">result</mml:mi>
+                                                    <mml:mo>=</mml:mo>
+                                                    <mml:mi>0.0</mml:mi>
+                                                </mml:mrow>
+                                                </mml:math></div>
+                                        </td></tr></tbody></table></div><p>
+                        where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+                        is the current interpolated texture coordinate, and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
+                            <mml:mi mathvariant="italic">t</mml:mi>
+                            </mml:msub>
+                        </mml:math>
+                        is the depth texture value sampled from the currently bound depth texture.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">result</mml:mi></mml:math>
+                        is assigned to the the red channel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPARE_MODE</code></span></dt><dd><p>
+                        Specifies the texture comparison mode for currently bound depth textures.
+                        That is, a texture whose internal format is <code class="constant">GL_DEPTH_COMPONENT_*</code>; see
+                        <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
+                        Permissible values are:
+                        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COMPARE_REF_TO_TEXTURE</code></span></dt><dd><p>
+                                        Specifies that the interpolated and clamped 
+                                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+                                        texture coordinate should
+                                        be compared to the value in the currently bound depth texture.  See the
+                                        discussion of <code class="constant">GL_TEXTURE_COMPARE_FUNC</code> for details of how the comparison
+                                        is evaluated.  The result of the comparison is assigned to the red channel.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_NONE</code></span></dt><dd><p>
+                                        Specifies that the red channel should be assigned the
+                                        appropriate value from the currently bound depth texture.
+                                    </p></dd></dl></div><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_LOD_BIAS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> specifies a fixed bias value that is to be added to the level-of-detail
+                        parameter for the texture before texture sampling. The specified value is added to the shader-supplied
+                        bias value (if any) and subsequently clamped into the implementation-defined range
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:mfenced open="[" close="]">
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        -
+                                        <mml:msub><mml:mi mathvariant="italic">bias</mml:mi>
+                                        <mml:mi mathvariant="italic">max</mml:mi>
+                                        </mml:msub>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mrow>
+                                    <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:msub><mml:mi mathvariant="italic">bias</mml:mi>
+                                        <mml:mi mathvariant="italic">max</mml:mi>
+                                        </mml:msub>
+                                    </mml:mrow>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:math>,
+                        where
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">bias</mml:mi>
+                                <mml:mi mathvariant="italic">max</mml:mi>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:math>
+                        is the value of the implementation defined constant <code class="constant">GL_MAX_TEXTURE_LOD_BIAS</code>. The initial value is 0.0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_FILTER</code></span></dt><dd><p>
+                        The texture minifying function is used whenever the level-of-detail function
+                        used when sampling from the texture determines that the texture should be minified.
+                        There are six defined minifying functions.
+                        Two of them use either the nearest texture elements or a weighted average of multiple texture elements
+                        to compute the texture value.
+                        The other four use mipmaps.
+                    </p><p>
+                        A mipmap is an ordered set of arrays representing the same image
+                        at progressively lower resolutions.
+                        If the texture has dimensions 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>×</mml:mo>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">m</mml:mi>
+                                </mml:msup>
+                            </mml:mrow>
+                        </mml:math>,
+                        there are
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">max</mml:mi>
+                                    <mml:mo>⁡</mml:mo>
+                                    <mml:mfenced open="(" close=")">
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mi mathvariant="italic">m</mml:mi>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        mipmaps.
+                        The first mipmap is the original texture,
+                        with dimensions 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>×</mml:mo>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">m</mml:mi>
+                                </mml:msup>
+                            </mml:mrow>
+                        </mml:math>.
+                        Each subsequent mipmap has dimensions 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                </mml:msup>
+                                <mml:mo>×</mml:mo>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">l</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                </mml:msup>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                </mml:msup>
+                                <mml:mo>×</mml:mo>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">l</mml:mi>
+                                </mml:msup>
+                            </mml:mrow>
+                        </mml:math>
+                        are the dimensions of the previous mipmap,
+                        until either 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mn>0</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        or 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">l</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mn>0</mml:mn>
+                            </mml:mrow>
+                        </mml:math>.
+                        At that point,
+                        subsequent mipmaps have dimension 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>×</mml:mo>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">l</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                </mml:msup>
+                            </mml:mrow>
+                        </mml:math>
+                        or 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                </mml:msup>
+                                <mml:mo>×</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        until the final mipmap,
+                        which has dimension 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>×</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>.
+                        To define the mipmaps, call <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                        <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+                        <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, or <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>
+                        with the <span class="emphasis"><em>level</em></span> argument indicating the order of the mipmaps.
+                        Level 0 is the original texture;
+                        level 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">max</mml:mi>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    <mml:mi mathvariant="italic">m</mml:mi>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        is the final 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>×</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        mipmap.
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> supplies a function for minifying the texture as one of the
+                        following:
+                        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_NEAREST</code></span></dt><dd><p>
+                                        Returns the value of the texture element that is nearest
+                                        (in Manhattan distance)
+                                        to the specified texture coordinates.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_LINEAR</code></span></dt><dd><p>
+                                        Returns the weighted average of the four texture elements
+                                        that are closest to the specified texture coordinates.
+                                        These can include items wrapped or repeated from other parts of a texture,
+                                        depending on the values of <code class="constant">GL_TEXTURE_WRAP_S</code> and <code class="constant">GL_TEXTURE_WRAP_T</code>,
+                                        and on the exact mapping.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_NEAREST_MIPMAP_NEAREST</code></span></dt><dd><p>
+                                        Chooses the mipmap that most closely matches the size of the pixel
+                                        being textured and uses the <code class="constant">GL_NEAREST</code> criterion
+                                        (the texture element closest to the specified texture coordinates)
+                                        to produce a texture value.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_LINEAR_MIPMAP_NEAREST</code></span></dt><dd><p>
+                                        Chooses the mipmap that most closely matches the size of the pixel
+                                        being textured and uses the <code class="constant">GL_LINEAR</code> criterion
+                                        (a weighted average of the four texture elements that are closest to the specified texture coordinates)
+                                        to produce a texture value.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_NEAREST_MIPMAP_LINEAR</code></span></dt><dd><p>
+                                        Chooses the two mipmaps that most closely match the size of the pixel
+                                        being textured and uses the <code class="constant">GL_NEAREST</code> criterion
+                                        (the texture element closest to the specified texture coordinates )
+                                        to produce a texture value from each mipmap.
+                                        The final texture value is a weighted average of those two values.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_LINEAR_MIPMAP_LINEAR</code></span></dt><dd><p>
+                                        Chooses the two mipmaps that most closely match the size of the pixel
+                                        being textured and uses the <code class="constant">GL_LINEAR</code> criterion
+                                        (a weighted average of the texture elements that are closest to the specified texture coordinates)
+                                        to produce a texture value from each mipmap.
+                                        The final texture value is a weighted average of those two values.
+                                    </p></dd></dl></div><p>
+                    </p><p>
+                        As more texture elements are sampled in the minification process,
+                        fewer aliasing artifacts will be apparent.
+                        While the <code class="constant">GL_NEAREST</code> and <code class="constant">GL_LINEAR</code> minification functions can be
+                        faster than the other four,
+                        they sample only one or multiple texture elements to determine the texture value
+                        of the pixel being rendered and can produce moire patterns
+                        or ragged transitions.
+                        The initial value of <code class="constant">GL_TEXTURE_MIN_FILTER</code> is
+                        <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_MAG_FILTER</code></span></dt><dd><p>
+                        The texture magnification function is used whenever the level-of-detail function
+                        used when sampling from the texture determines that the texture should be magified.
+                        It sets the texture magnification function to either <code class="constant">GL_NEAREST</code>
+                        or <code class="constant">GL_LINEAR</code> (see below). <code class="constant">GL_NEAREST</code> is generally faster
+                        than <code class="constant">GL_LINEAR</code>,
+                        but it can produce textured images with sharper edges
+                        because the transition between texture elements is not as smooth.
+                        The initial value of <code class="constant">GL_TEXTURE_MAG_FILTER</code> is <code class="constant">GL_LINEAR</code>.
+                        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_NEAREST</code></span></dt><dd><p>
+                                        Returns the value of the texture element that is nearest
+                                        (in Manhattan distance)
+                                        to the specified texture coordinates.
+                                    </p></dd><dt><span class="term"><code class="constant">GL_LINEAR</code></span></dt><dd><p>
+                                        Returns the weighted average of the texture elements
+                                        that are closest to the specified texture coordinates.
+                                        These can include items wrapped or repeated from other parts of a texture,
+                                        depending on the values of <code class="constant">GL_TEXTURE_WRAP_S</code> and <code class="constant">GL_TEXTURE_WRAP_T</code>,
+                                        and on the exact mapping.
+                                    </p></dd></dl></div><p>
+                        </p><p>
+                        </p><p>
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_LOD</code></span></dt><dd><p>
+                        Sets the minimum level-of-detail parameter.  This floating-point value
+                        limits the selection of highest resolution mipmap (lowest mipmap
+                        level). The initial value is -1000.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_MAX_LOD</code></span></dt><dd><p>
+                        Sets the maximum level-of-detail parameter.  This floating-point value
+                        limits the selection of the lowest resolution mipmap (highest mipmap
+                        level). The initial value is 1000.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_MAX_LEVEL</code></span></dt><dd><p>
+                        Sets the index of the highest defined mipmap level. This is an integer
+                        value. The initial value is 1000.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_R</code></span></dt><dd><p>
+                        Sets the swizzle that will be applied to the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+                        component of a texel before it is returned to the shader. Valid values for <em class="parameter"><code>param</code></em> are <code class="constant">GL_RED</code>,
+                        <code class="constant">GL_GREEN</code>, <code class="constant">GL_BLUE</code>, <code class="constant">GL_ALPHA</code>, <code class="constant">GL_ZERO</code> and
+                        <code class="constant">GL_ONE</code>.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_RED</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be taken from the first
+                        channel of the fetched texel.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_GREEN</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be taken from the second
+                        channel of the fetched texel.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_BLUE</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be taken from the third
+                        channel of the fetched texel.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_ALPHA</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be taken from the fourth
+                        channel of the fetched texel.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_ZERO</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be subtituted with
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mn>0.0</mml:mn></mml:math>.
+                        If <code class="constant">GL_TEXTURE_SWIZZLE_R</code> is <code class="constant">GL_ONE</code>, the value for
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math> will be subtituted with
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mn>1.0</mml:mn></mml:math>.
+                        The initial value is <code class="constant">GL_RED</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_G</code></span></dt><dd><p>
+                        Sets the swizzle that will be applied to the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">g</mml:mi></mml:math>
+                        component of a texel before it is returned to the shader. Valid values for <em class="parameter"><code>param</code></em> and their effects are similar to
+                        those of <code class="constant">GL_TEXTURE_SWIZZLE_R</code>.
+                        The initial value is <code class="constant">GL_GREEN</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_B</code></span></dt><dd><p>
+                        Sets the swizzle that will be applied to the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
+                        component of a texel before it is returned to the shader. Valid values for <em class="parameter"><code>param</code></em> and their effects are similar to
+                        those of <code class="constant">GL_TEXTURE_SWIZZLE_R</code>.
+                        The initial value is <code class="constant">GL_BLUE</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_A</code></span></dt><dd><p>
+                        Sets the swizzle that will be applied to the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        component of a texel before it is returned to the shader. Valid values for <em class="parameter"><code>param</code></em> and their effects are similar to
+                        those of <code class="constant">GL_TEXTURE_SWIZZLE_R</code>.
+                        The initial value is <code class="constant">GL_ALPHA</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code></span></dt><dd><p>
+                        Sets the swizzles that will be applied to the
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">g</mml:mi></mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>, and
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        components of a texel before they are returned to the shader. Valid values for <em class="parameter"><code>params</code></em> and their effects are similar to
+                        those of <code class="constant">GL_TEXTURE_SWIZZLE_R</code>, except that all channels are specified simultaneously.
+                        Setting the value of <code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code> is equivalent (assuming no errors are generated) to
+                        setting the parameters of each of <code class="constant">GL_TEXTURE_SWIZZLE_R</code>,
+                        <code class="constant">GL_TEXTURE_SWIZZLE_G</code>,
+                        <code class="constant">GL_TEXTURE_SWIZZLE_B</code>, and
+                        <code class="constant">GL_TEXTURE_SWIZZLE_A</code> successively.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
+                        Sets the wrap parameter for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
+                        <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        coordinates to be clamped to the
+                        range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mfrac>
+                                            <mml:mn>1</mml:mn>
+                                            <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                        </mml:mfrac>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mrow>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mfenced open="" close="">
+                                        <mml:mrow>
+                                            <mml:mfrac>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                            </mml:mfrac>
+                                        </mml:mrow>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        is the size
+                        of the texture in the direction of clamping.
+                        <code class="constant">GL_CLAMP_TO_BORDER</code> evaluates <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math> coordinates in a similar manner to <code class="constant">GL_CLAMP_TO_EDGE</code>.
+                        However, in cases where clamping would have occurred in <code class="constant">GL_CLAMP_TO_EDGE</code> mode, the fetched texel data
+                        is substituted with the values specified by <code class="constant">GL_TEXTURE_BORDER_COLOR</code>.
+                        <code class="constant">GL_REPEAT</code> causes the
+                        integer part of the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        coordinate to be ignored; the GL uses only the
+                        fractional part, thereby creating a repeating pattern.
+                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        coordinate to be set to the
+                        fractional part of the texture coordinate if the integer part of 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is
+                        even; if the integer part of 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is odd, then the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        texture coordinate is
+                        set to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">frac</mml:mi>
+                                    <mml:mo>⁡</mml:mo>
+                                    <mml:mfenced open="(" close=")">
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">frac</mml:mi>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        represents the fractional part of
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_S</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
+                        Sets the wrap parameter for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
+                        <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_T</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p></dd></dl></div><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_R</code></span></dt><dd><p>
+                        Sets the wrap parameter for texture coordinate 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
+                        <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_R</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            Suppose that a program attempts to sample from a texture and
+            has set <code class="constant">GL_TEXTURE_MIN_FILTER</code> to one of the functions that requires a
+            mipmap.  If either the dimensions of the texture images currently defined
+            (with previous calls to <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>, <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, or <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>) do not
+            follow the proper sequence for mipmaps (described above), or there are
+            fewer texture images defined than are needed, or the set of texture images
+            have differing numbers of texture components, then the texture is considered <span class="emphasis"><em>incomplete</em></span>.
+        </p><p>
+            Linear filtering accesses the four nearest texture elements only in 2D
+            textures.  In 1D textures, linear filtering accesses the two nearest
+            texture elements.  In 3D textures, linear filtering accesses the eight nearest
+            texture elements.
+        </p><p>
+            <code class="function">glTexParameter</code> specifies the texture parameters for the active texture unit, specified
+            by calling <a href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not
+            one of the accepted defined values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>params</code></em> should have a defined
+            constant value (based on the value of <em class="parameter"><code>pname</code></em>) and does not.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>
+        </p><p>
+            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a href="glSamplerParameter.xml"><span class="citerefentry"><span class="refentrytitle">glSamplerParameter</span></span></a>,
+            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

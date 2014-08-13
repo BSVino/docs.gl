@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawElementsInstancedBaseVertex - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glDrawElementsBaseVertex"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawElementsInstancedBaseVertex — render multiple instances of a set of primitives from array data with a per-element offset</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDrawElementsInstancedBaseVertex</strong>(</code></td><td>GLenum <var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid *<var class="pdparam">indices</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">primcount</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">basevertex</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies what kind of primitives to render.
+                    Symbolic constants
+                    <code class="constant">GL_POINTS</code>, <code class="constant">GL_LINE_STRIP</code>, <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_LINES</code>, <code class="constant">GL_TRIANGLE_STRIP</code>, <code class="constant">GL_TRIANGLE_FAN</code>,
+                    and <code class="constant">GL_TRIANGLES</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>count</code></em></span></dt><dd><p>
+                    Specifies the number of elements to be rendered.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the type of the values in indices. Must be one of <code class="constant">GL_UNSIGNED_BYTE</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT</code>, or <code class="constant">GL_UNSIGNED_INT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>indices</code></em></span></dt><dd><p>
+                    Specifies a pointer to the location where the indices are stored.
+                </p></dd><dt><span class="term"><em class="parameter"><code>primcount</code></em></span></dt><dd><p>
+                    Specifies the number of instances of the indexed geometry that should be drawn.
+                </p></dd><dt><span class="term"><em class="parameter"><code>basevertex</code></em></span></dt><dd><p>
+                    Specifies a constant that should be added to each element of <em class="parameter"><code>indices</code></em>
+                    when chosing elements from the enabled vertex arrays.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawElementsInstancedBaseVertex</code> behaves identically to
+            <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a> except that the <span class="emphasis"><em>i</em></span>th element
+            transferred by the corresponding draw call will be taken from element <em class="parameter"><code>indices</code></em>[i] + <em class="parameter"><code>basevertex</code></em>
+            of each enabled array. If the resulting value is larger than the maximum value representable by <em class="parameter"><code>type</code></em>,
+            it is as if the calculation were upconverted to 32-bit unsigned integers (with wrapping on overflow conditions).
+            The operation is undefined if the sum would be negative.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><code class="function">glDrawElementsInstancedBaseVertex</code> is only supported if the GL version is 3.2 or greater.
+    </div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> or <em class="parameter"><code>primcount</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a geometry shader is active and <em class="parameter"><code>mode</code></em>
+            is incompatible with the input primitive type of the geometry shader in the currently installed program object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
+            enabled array or the element array and the buffer object's data store is currently mapped.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElementsBaseVertex.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElementsBaseVertex</span></span></a>,
+            <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
+            <a class="citerefentry" href="glDrawElementsInstancedBaseVertex.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstancedBaseVertex</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

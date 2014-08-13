@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetShader</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glGetShader"><a id="glGetShader"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetShaderiv — Returns a parameter from a shader object</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetShaderiv</b>(</code></td><td>GLuint <var class="pdparam">shader</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>shader</code></em></span></dt><dd><p>Specifies the shader object to be
+		    queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the object parameter. Accepted
+		    symbolic names are
+		    <code class="constant">GL_SHADER_TYPE</code>,
+		    <code class="constant">GL_DELETE_STATUS</code>,
+		    <code class="constant">GL_COMPILE_STATUS</code>,
+		    <code class="constant">GL_INFO_LOG_LENGTH</code>,
+		    <code class="constant">GL_SHADER_SOURCE_LENGTH</code>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Returns the requested object parameter.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glGetShader</code>
+	returns in <em class="parameter"><code>params</code></em>
+	the value of a parameter for a specific shader object. The
+	following parameters are defined:</p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_SHADER_TYPE</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns
+		    <code class="constant">GL_VERTEX_SHADER</code> if
+		    <em class="parameter"><code>shader</code></em> is a vertex shader
+		    object, <code class="constant">GL_GEOMETRY_SHADER</code> if <em class="parameter"><code>shader</code></em>
+		    is a geometry shader object, and <code class="constant">GL_FRAGMENT_SHADER</code>
+		    if <em class="parameter"><code>shader</code></em> is a fragment
+		    shader object.</p></dd><dt><span class="term"><code class="constant">GL_DELETE_STATUS</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns
+		    <code class="constant">GL_TRUE</code> if
+		    <em class="parameter"><code>shader</code></em> is currently flagged
+		    for deletion, and <code class="constant">GL_FALSE</code>
+		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_COMPILE_STATUS</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns
+		    <code class="constant">GL_TRUE</code> if the last compile
+		    operation on <em class="parameter"><code>shader</code></em> was
+		    successful, and <code class="constant">GL_FALSE</code>
+		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_INFO_LOG_LENGTH</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns the
+		    number of characters in the information log for
+		    <em class="parameter"><code>shader</code></em> including the null
+		    termination character (i.e., the size of the
+		    character buffer required to store the information
+		    log). If <em class="parameter"><code>shader</code></em> has no
+		    information log, a value of 0 is returned.</p></dd><dt><span class="term"><code class="constant">GL_SHADER_SOURCE_LENGTH</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns the
+		    length of the concatenation of the source strings
+		    that make up the shader source for the
+		    <em class="parameter"><code>shader</code></em>, including the null
+		    termination character. (i.e., the size of the
+		    character buffer required to store the shader
+		    source). If no source code exists, 0 is
+		    returned.</p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>If an error is generated, no change is made to the
+	contents of <em class="parameter"><code>params</code></em>.</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>shader</code></em> is not a value generated by
+	OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>shader</code></em> does not refer to a shader
+	object.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>pname</code></em> is not an accepted value.</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGetShaderInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
+	with argument <em class="parameter"><code>shader</code></em></p><p><a class="citerefentry" href="glGetShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>
+	with argument <em class="parameter"><code>shader</code></em></p><p><a class="citerefentry" href="glIsShader.xml"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a></p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+	<a class="citerefentry" href="glCreateShader.xml"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a>,
+	<a class="citerefentry" href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+	<a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>,
+	<a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a></p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

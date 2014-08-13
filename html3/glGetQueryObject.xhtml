@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetQueryObject</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glGetQueryObject"><a id="glGetQueryObject"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetQueryObject — return parameters of a query object</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetQueryObjectiv</b>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetQueryObjectuiv</b>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLuint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetQueryObjecti64v</b>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint64 * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetQueryObjectui64v</b>(</code></td><td>GLuint <var class="pdparam">id</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLuint64 * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>id</code></em></span></dt><dd><p>
+                    Specifies the name of a query object.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a query object parameter.
+                    Accepted values are <code class="constant">GL_QUERY_RESULT</code> or <code class="constant">GL_QUERY_RESULT_AVAILABLE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the requested data.
+                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetQueryObject</code> returns in <em class="parameter"><code>params</code></em> a selected parameter of the query object
+            specified by <em class="parameter"><code>id</code></em>.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> names a specific query object parameter.  <em class="parameter"><code>pname</code></em> can be as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_QUERY_RESULT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns the value of the query object's passed samples counter.  
+                        The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_QUERY_RESULT_AVAILABLE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns whether the passed samples counter is immediately available.
+                        If a delay would occur waiting for the query result, <code class="constant">GL_FALSE</code> is returned.  
+                        Otherwise, <code class="constant">GL_TRUE</code> is returned, which also indicates that the results of all
+                        previous queries are available as well.
+                    </p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p><p>
+            <code class="function">glGetQueryObject</code> implicitly flushes the GL pipeline so that any incomplete rendering
+            delimited by the occlusion query completes in finite time.
+        </p><p>
+            If multiple queries are issued using the same query object <em class="parameter"><code>id</code></em> before calling 
+            <code class="function">glGetQueryObject</code>, the results of the most recent query will be returned.  In this case,
+            when issuing a new query, the results of the previous query are discarded.
+        </p><p>
+            <code class="function">glGetQueryObjecti64v</code> and <code class="function">glGetQueryObjectui64v</code> are available only 
+            if the GL version is 3.3 or greater.
+        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is not the name of a query object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a currently active 
+            query object.
+        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
+            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
+            <a class="citerefentry" href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
+            <a class="citerefentry" href="glIsQuery.xml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>,
+            <a class="citerefentry" href="glQueryCounter.xml"><span class="citerefentry"><span class="refentrytitle">glQueryCounter</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

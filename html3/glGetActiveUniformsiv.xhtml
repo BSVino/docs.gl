@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetActiveUniformsiv - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetActiveUniformsiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveUniformsiv — Returns information about several active uniform variables for the specified program object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetActiveUniformsiv</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">uniformCount</var>, </td></tr><tr><td> </td><td>const GLuint *<var class="pdparam">uniformIndices</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>uniformCount</code></em></span></dt><dd><p>Specifies both the number of elements in the array of
+            indices <em class="parameter"><code>uniformIndices</code></em> and the number of
+            parameters written to <em class="parameter"><code>params</code></em> upon
+            successful return.</p></dd><dt><span class="term"><em class="parameter"><code>uniformIndices</code></em></span></dt><dd><p>Specifies the address of an array of
+            <em class="parameter"><code>uniformCount</code></em> integers containing the
+            indices of uniforms within <em class="parameter"><code>program</code></em> whose
+            parameter <em class="parameter"><code>pname</code></em> should be queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the property of each uniform in
+            <em class="parameter"><code>uniformIndices</code></em> that should be written
+            into the corresponding element of
+            <em class="parameter"><code>params</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Specifies the address of an array of
+            <em class="parameter"><code>uniformCount</code></em> integers which are to
+            receive the value of <em class="parameter"><code>pname</code></em> for each
+            uniform in <em class="parameter"><code>uniformIndices</code></em>.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetActiveUniformsiv</code> queries the value of
+            the parameter named <em class="parameter"><code>pname</code></em> for each of the
+            uniforms within <em class="parameter"><code>program</code></em> whose indices are
+            specified in the array of <em class="parameter"><code>uniformCount</code></em>
+            unsigned integers <em class="parameter"><code>uniformIndices</code></em>. Upon
+            success, the value of the parameter for each uniform is written
+            into the corresponding entry in the array whose address is given
+            in <em class="parameter"><code>params</code></em>. If an error is generated,
+            nothing is written into <em class="parameter"><code>params</code></em>.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_UNIFORM_TYPE</code>, then an array identifying
+            the types of uniforms specified by the corresponding array of
+            <em class="parameter"><code>uniformIndices</code></em> is returned. The returned
+            types can be any of the values from the following table:
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Returned Symbolic Contant
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Shader Uniform Type
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                            <code class="constant">GL_FLOAT</code>
+                        </td><td align="left">
+                            <code class="constant">float</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_VEC2</code>
+                        </td><td align="left">
+                            <code class="constant">vec2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_VEC3</code>
+                        </td><td align="left">
+                            <code class="constant">vec3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_VEC4</code>
+                        </td><td align="left">
+                            <code class="constant">vec4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT</code>
+                        </td><td align="left">
+                            <code class="constant">int</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_VEC2</code>
+                        </td><td align="left">
+                            <code class="constant">ivec2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_VEC3</code>
+                        </td><td align="left">
+                            <code class="constant">ivec3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_VEC4</code>
+                        </td><td align="left">
+                            <code class="constant">ivec4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT</code>
+                        </td><td align="left">
+                            <code class="constant">unsigned int</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_VEC2</code>
+                        </td><td align="left">
+                            <code class="constant">uvec2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_VEC3</code>
+                        </td><td align="left">
+                            <code class="constant">uvec3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_VEC4</code>
+                        </td><td align="left">
+                            <code class="constant">uvec4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_BOOL</code>
+                        </td><td align="left">
+                            <code class="constant">bool</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_BOOL_VEC2</code>
+                        </td><td align="left">
+                            <code class="constant">bvec2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_BOOL_VEC3</code>
+                        </td><td align="left">
+                            <code class="constant">bvec3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_BOOL_VEC4</code>
+                        </td><td align="left">
+                            <code class="constant">bvec4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT2</code>
+                        </td><td align="left">
+                            <code class="constant">mat2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT3</code>
+                        </td><td align="left">
+                            <code class="constant">mat3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT4</code>
+                        </td><td align="left">
+                            <code class="constant">mat4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT2x3</code>
+                        </td><td align="left">
+                            <code class="constant">mat2x3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT2x4</code>
+                        </td><td align="left">
+                            <code class="constant">mat2x4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT3x2</code>
+                        </td><td align="left">
+                            <code class="constant">mat3x2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT3x4</code>
+                        </td><td align="left">
+                            <code class="constant">mat3x4</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT4x2</code>
+                        </td><td align="left">
+                            <code class="constant">mat4x2</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_FLOAT_MAT4x3</code>
+                        </td><td align="left">
+                            <code class="constant">mat4x3</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_1D</code>
+                        </td><td align="left">
+                            <code class="constant">sampler1D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_3D</code>
+                        </td><td align="left">
+                            <code class="constant">sampler3D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_CUBE</code>
+                        </td><td align="left">
+                            <code class="constant">samplerCube</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_1D_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">sampler1DShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_1D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">sampler1DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_1D_ARRAY_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">sampler1DArrayShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_ARRAY_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DArrayShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_MULTISAMPLE</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DMS</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_MULTISAMPLE_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DMSArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_CUBE_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">samplerCubeShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_BUFFER</code>
+                        </td><td align="left">
+                            <code class="constant">samplerBuffer</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_RECT</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DRect</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_SAMPLER_2D_RECT_SHADOW</code>
+                        </td><td align="left">
+                            <code class="constant">sampler2DRectShadow</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_1D</code>
+                        </td><td align="left">
+                            <code class="constant">isampler1D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_2D</code>
+                        </td><td align="left">
+                            <code class="constant">isampler2D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_3D</code>
+                        </td><td align="left">
+                            <code class="constant">isampler3D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_CUBE</code>
+                        </td><td align="left">
+                            <code class="constant">isamplerCube</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_1D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">isampler1DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_2D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">isampler2DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_2D_MULTISAMPLE</code>
+                        </td><td align="left">
+                            <code class="constant">isampler2DMS</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">isampler2DMSArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_BUFFER</code>
+                        </td><td align="left">
+                            <code class="constant">isamplerBuffer</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_INT_SAMPLER_2D_RECT</code>
+                        </td><td align="left">
+                            <code class="constant">isampler2DRect</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_1D</code>
+                        </td><td align="left">
+                            <code class="constant">usampler1D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_2D</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_3D</code>
+                        </td><td align="left">
+                            <code class="constant">usampler3D</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_CUBE</code>
+                        </td><td align="left">
+                            <code class="constant">usamplerCube</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_1D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_2D_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2DArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2DMS</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2DMSArray</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_BUFFER</code>
+                        </td><td align="left">
+                            <code class="constant">usamplerBuffer</code>
+                        </td></tr><tr><td align="left">
+                            <code class="constant">GL_UNSIGNED_INT_SAMPLER_2D_RECT</code>
+                        </td><td align="left">
+                            <code class="constant">usampler2DRect</code>
+                        </td></tr></tbody></table></div><p>
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_SIZE</code>, then an array identifying the
+            size of the uniforms specified by the corresponding array of <em class="parameter"><code>uniformIndices</code></em> is
+            returned. The sizes returned are in units of the type returned by a query of <code class="constant">GL_UNIFORM_TYPE</code>.
+            For active uniforms that are arrays, the size is the number of active elements in the array;
+            for all other uniforms, the size is one.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_NAME_LENGTH</code>, then an array identifying the
+            length, including the terminating null character, of the uniform name strings specified by the corresponding
+            array of <em class="parameter"><code>uniformIndices</code></em> is returned.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_BLOCK_INDEX</code>, then an array identifying the
+            the uniform block index of each of the uniforms specified by the corresponding array of <em class="parameter"><code>uniformIndices</code></em>
+            is returned. The uniform block index of a uniform associated with the default uniform block is -1.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_OFFSET</code>, then an array of uniform buffer
+            offsets is returned. For uniforms in a named uniform block, the returned value will be its offset, in basic
+            machine units, relative to the beginning of the uniform block in the buffer object data store. For uniforms
+            in the default uniform block, -1 will be returned.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_ARRAY_STRIDE</code>, then an array identifying the
+            stride between elements, in basic machine units, of each of the uniforms specified by the corresponding array of
+            <em class="parameter"><code>uniformIndices</code></em> is returned.  The stride of a uniform associated with the default uniform
+            block is -1.  Note that this information only makes sense for uniforms that are arrays. For uniforms that are
+            not arrays, but are declared in a named uniform block, an array stride of zero is returned.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_MATRIX_STRIDE</code>, then an array identifying the stride
+            between columns of a column-major matrix or rows of a row-major matrix, in basic machine units, of each of the uniforms
+            specified by the corresponding array of <em class="parameter"><code>uniformIndices</code></em> is returned. The matrix stride of a
+            uniform associated with the default uniform block is -1. Note that this information only makes sense for uniforms
+            that are matrices. For uniforms that are not matrices, but are declared in a named uniform block, a matrix stride of
+            zero is returned.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_IS_ROW_MAJOR</code>, then an array identifying whether each
+            of the uniforms specified by the corresponding array of <em class="parameter"><code>uniformIndices</code></em> is a row-major matrix or not is returned. A
+            value of one indicates a row-major matrix, and a value of zero indicates a column-major matrix, a matrix in the default
+            uniform block, or a non-matrix.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>program</code></em> is not a value generated by
+    OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+    <em class="parameter"><code>program</code></em> is not a program object.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>uniformCount</code></em> is greater than or equal to the
+    value of <code class="constant">GL_ACTIVE_UNIFORMS</code> for
+    <em class="parameter"><code>program</code></em>.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em>
+    is not an accepted token.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with argument <code class="constant">GL_MAX_VERTEX_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_GEOMETRY_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_FRAGMENT_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS</code>.</p><p><a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+    with argument <code class="constant">GL_ACTIVE_UNIFORMS</code> or
+    <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>.</p><p><a class="citerefentry" href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
+    <a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
+    <a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,
+    <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+    <a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
+    <a class="citerefentry" href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a></p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011 Khronos Group
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGenTextures</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGenTextures"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGenTextures — generate texture names</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGenTextures</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">textures</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of texture names to be generated.
+                </p></dd><dt><span class="term"><em class="parameter"><code>textures</code></em></span></dt><dd><p>
+                    Specifies an array in which the generated texture names are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGenTextures</code> returns <em class="parameter"><code>n</code></em> texture names in <em class="parameter"><code>textures</code></em>.
+            There is no guarantee that the names form a contiguous set of integers;
+            however, it is guaranteed that none of the returned names was in use
+            immediately before the call to <code class="function">glGenTextures</code>.
+        </p><p>
+            The generated textures have no dimensionality; they assume the dimensionality
+            of the texture target to which they are first bound
+            (see <a href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>).
+        </p><p>
+            Texture names returned by a call to <code class="function">glGenTextures</code> are not returned by
+            subsequent calls, unless they are first deleted with
+            <a href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glIsTexture.xml"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

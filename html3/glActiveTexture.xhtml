@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glActiveTexture</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glActiveTexture"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glActiveTexture — select active texture unit</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">void <b class="fsfunc">glActiveTexture</b>(</code>GLenum <var class="pdparam">texture</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>texture</code></em></span></dt><dd><p>
+                    Specifies which texture unit to make active. The number
+                    of texture units is implementation dependent, but must be at least
+                    48. <em class="parameter"><code>texture</code></em> must be one of 
+                    <code class="constant">GL_TEXTURE<span class="emphasis"><em>i</em></span></code>,
+                    where
+                    <span class="emphasis"><em>i</em></span> ranges from 0 (<code class="constant">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</code> - 1). 
+                    The initial value is <code class="constant">GL_TEXTURE0</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glActiveTexture</code> selects which texture unit subsequent texture state calls will
+            affect.  The number of texture units an implementation supports is
+            implementation dependent, but must be at least 48.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>texture</code></em> is not one of
+            <code class="constant">GL_TEXTURE<span class="emphasis"><em>i</em></span></code>,
+            where <span class="emphasis"><em>i</em></span> ranges from 0 to (<code class="constant">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</code> - 1).
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACTIVE_TEXTURE</code>, or <code class="constant">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>,
+            <a href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a href="glCompressedTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
+            <a href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a href="glCompressedTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a href="glCompressedTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a href="glCompressedTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a href="glCompressedTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>
+            <a href="glIsTexture.xml"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>,
+            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage2DMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2DMultisample</span></span></a>,
+            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a href="glTexImage3DMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3DMultisample</span></span></a>,
+            <a href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

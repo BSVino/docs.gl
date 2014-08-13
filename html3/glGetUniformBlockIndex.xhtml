@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetUniformBlockIndex - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetUniformBlockIndex"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetUniformBlockIndex — retrieve the index of a named uniform block</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLuint <strong class="fsfunc">glGetUniformBlockIndex</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>const GLchar *<var class="pdparam">uniformBlockName</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
+                    Specifies the name of a program containing the uniform block.
+                </p></dd><dt><span class="term"><em class="parameter"><code>uniformBlockName</code></em></span></dt><dd><p>
+                    Specifies the address an array of characters to containing the name of the uniform block whose index to retrieve.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetUniformBlockIndex</code> retrieves the index of a uniform block within <em class="parameter"><code>program</code></em>.
+        </p><p>
+            <em class="parameter"><code>program</code></em> must be the name of a program object for which the command
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> must have been called in the past, although it is not required that
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> must have succeeded. The link could have failed because the number
+            of active uniforms exceeded the limit.
+        </p><p>
+            <em class="parameter"><code>uniformBlockName</code></em> must contain a nul-terminated string specifying the name of the uniform block.
+        </p><p>
+            <code class="function">glGetUniformBlockIndex</code> returns the uniform block index for the uniform block named <em class="parameter"><code>uniformBlockName</code></em>
+            of <em class="parameter"><code>program</code></em>. If <em class="parameter"><code>uniformBlockName</code></em> does not identify an active uniform block of <em class="parameter"><code>program</code></em>,
+            <code class="function">glGetUniformBlockIndex</code> returns the special identifier, <code class="constant">GL_INVALID_INDEX</code>. Indices of the active uniform
+            blocks of a program are assigned in consecutive order, beginning with zero.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>program</code></em> is not the name of a program object for which
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> has been called in the past.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glGetUniformBlockIndex</code> is available only if the GL version is 3.1 or greater.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetActiveUniformBlockName.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniformBlockName</span></span></a>,
+            <a class="citerefentry" href="glGetActiveUniformBlock.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniformBlock</span></span></a>,
+            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

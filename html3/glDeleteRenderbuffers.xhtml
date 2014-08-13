@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDeleteRenderbuffers - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glDeleteFramebuffers"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDeleteRenderbuffers — delete renderbuffer objects</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDeleteRenderbuffers</strong>(</code></td><td>GLsizei <var class="pdparam">n</var>, </td></tr><tr><td> </td><td>GLuint *<var class="pdparam">renderbuffers</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of renderbuffer objects to be deleted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>renderbuffers</code></em></span></dt><dd><p>
+                    A pointer to an array containing <em class="parameter"><code>n</code></em> renderbuffer objects to be deleted.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDeleteRenderbuffers</code> deletes the <em class="parameter"><code>n</code></em> renderbuffer objects whose names are stored in
+            the array addressed by <em class="parameter"><code>renderbuffers</code></em>. The name zero is reserved by the GL and is silently ignored, should it
+            occur in <em class="parameter"><code>renderbuffers</code></em>, as are other unused names. Once a renderbuffer object is deleted, its name is again
+            unused and it has no contents. If a renderbuffer that is currently bound to the target <code class="constant">GL_RENDERBUFFER</code>
+            is deleted, it is as though <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>
+            had been executed with a <em class="parameter"><code>target</code></em> of <code class="constant">GL_RENDERBUFFER</code> and a <em class="parameter"><code>name</code></em> of zero.
+        </p><p>
+            If a renderbuffer object is attached to one or more attachment points in the currently bound framebuffer, then it as if
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a> had been called, with a <em class="parameter"><code>renderbuffer</code></em>
+            of zero for each attachment point to which this image was attached in the currently bound framebuffer. In other words,
+            this renderbuffer object is first detached from all attachment ponits in the currently bound framebuffer. Note that the renderbuffer
+            image is specifically <span class="emphasis"><em>not</em></span> detached from any non-bound framebuffers.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorage.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorage</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorageMultisample.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorageMultisample</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

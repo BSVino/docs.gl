@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCopyBufferSubData - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glCopyBufferSubData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyBufferSubData — copy part of the data store of a buffer object to the data store of another buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glCopyBufferSubData</strong>(</code></td><td>GLenum <var class="pdparam">readtarget</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">writetarget</var>, </td></tr><tr><td> </td><td>GLintptr <var class="pdparam">readoffset</var>, </td></tr><tr><td> </td><td>GLintptr <var class="pdparam">writeoffset</var>, </td></tr><tr><td> </td><td>GLsizeiptr <var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>readtarget</code></em></span></dt><dd><p>
+                    Specifies the target from whose data store data should be read.
+                </p></dd><dt><span class="term"><em class="parameter"><code>writetarget</code></em></span></dt><dd><p>
+                    Specifies the target to whose data store data should be written.
+                </p></dd><dt><span class="term"><em class="parameter"><code>readoffset</code></em></span></dt><dd><p>
+                    Specifies the offset, in basic machine units, within the data store of <em class="parameter"><code>readtarget</code></em> from which data should be read.
+                </p></dd><dt><span class="term"><em class="parameter"><code>writeoffset</code></em></span></dt><dd><p>
+                    Specifies the offset, in basic machine units, within the data store of <em class="parameter"><code>writetarget</code></em> to which data should be written.
+                </p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+                    Specifies the size, in basic machine units, of the data to be copied from <em class="parameter"><code>readtarget</code></em> to <em class="parameter"><code>writetarget</code></em>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCopyBufferSubData</code> copies part of the data store attached to <em class="parameter"><code>readtarget</code></em> to the
+            data store attached to <em class="parameter"><code>writetarget</code></em>. The number of basic machine units indicated by <em class="parameter"><code>size</code></em>
+            is copied from the source, at offset <em class="parameter"><code>readoffset</code></em> to the destination at <em class="parameter"><code>writeoffset</code></em>,
+            also in basic machine units.
+        </p><p>
+            <em class="parameter"><code>readtarget</code></em> and <em class="parameter"><code>writetarget</code></em> must be <code class="constant">GL_ARRAY_BUFFER</code>,
+            <code class="constant">GL_COPY_READ_BUFFER</code>, <code class="constant">GL_COPY_WRITE_BUFFER</code>, <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code>, <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>, <code class="constant">GL_TEXTURE_BUFFER</code>,
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>. Any of these targets may be used,
+            although the targets <code class="constant">GL_COPY_READ_BUFFER</code> and <code class="constant">GL_COPY_WRITE_BUFFER</code> are provided
+            specifically to allow copies between buffers without disturbing other GL state.
+        </p><p>
+            <em class="parameter"><code>readoffset</code></em>, <em class="parameter"><code>writeoffset</code></em> and <em class="parameter"><code>size</code></em> must all be greater than or equal to
+            zero. Furthermore, <em class="parameter"><code>readoffset</code></em> + <em class="parameter"><code>size</code></em> must not exceeed the size of the buffer
+            object bound to <em class="parameter"><code>readtarget</code></em>, and <em class="parameter"><code>readoffset</code></em> + <em class="parameter"><code>size</code></em> must not exceeed the
+            size of the buffer bound to <em class="parameter"><code>writetarget</code></em>. If the same buffer object is bound to both <em class="parameter"><code>readtarget</code></em>
+            and <em class="parameter"><code>writetarget</code></em>, then the ranges specified by <em class="parameter"><code>readoffset</code></em>, <em class="parameter"><code>writeoffset</code></em>
+            and <em class="parameter"><code>size</code></em> must not overlap.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+           <code class="function">glCopyBufferSubData</code> is available only if the GL version is 3.1 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if any of <em class="parameter"><code>readoffset</code></em>, <em class="parameter"><code>writeoffset</code></em>
+            or <em class="parameter"><code>size</code></em> is negative, if <em class="parameter"><code>readoffset</code></em> + <em class="parameter"><code>size</code></em> exceeds the
+            size of the buffer object bound to <em class="parameter"><code>readtarget</code></em> or if <em class="parameter"><code>writeoffset</code></em> + <em class="parameter"><code>size</code></em>
+            exceeds the size of the buffer object bound to <em class="parameter"><code>writetarget</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if the same buffer object is bound to both <em class="parameter"><code>readtarget</code></em>
+            and <em class="parameter"><code>writetarget</code></em> and the ranges [<em class="parameter"><code>readoffset</code></em>, <em class="parameter"><code>readoffset</code></em> +
+            <em class="parameter"><code>size</code></em>) and [<em class="parameter"><code>writeoffset</code></em>, <em class="parameter"><code>writeoffset</code></em> + <em class="parameter"><code>size</code></em>)
+            overlap.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if zero is bound to <em class="parameter"><code>readtarget</code></em> or <em class="parameter"><code>writetarget</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the buffer object bound to either <em class="parameter"><code>readtarget</code></em> or <em class="parameter"><code>writetarget</code></em>
+            is mapped.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glBufferData</span></span></a>,
+            <a class="citerefentry" href="glBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
+            <a class="citerefentry" href="glGetBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferSubData</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

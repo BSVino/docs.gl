@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glPolygonMode</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glPolygonMode"><a id="glPolygonMode"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonMode — select a polygon rasterization mode</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonMode</b>(</code></td><td>GLenum <var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">mode</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>face</code></em></span></dt><dd><p>
+                    Specifies the polygons that <em class="parameter"><code>mode</code></em> applies to.
+                    Must be <code class="constant">GL_FRONT_AND_BACK</code> for front- and back-facing polygons.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies how polygons will be rasterized.
+                    Accepted values are
+                    <code class="constant">GL_POINT</code>,
+                    <code class="constant">GL_LINE</code>, and
+                    <code class="constant">GL_FILL</code>.
+                    The initial value is <code class="constant">GL_FILL</code> for both front- and back-facing polygons.
+                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glPolygonMode</code> controls the interpretation of polygons for rasterization.
+            <em class="parameter"><code>face</code></em> describes which polygons <em class="parameter"><code>mode</code></em> applies to:
+            both front and back-facing polygons (<code class="constant">GL_FRONT_AND_BACK</code>).
+            The polygon mode affects only the final rasterization of polygons.
+            In particular,
+            a polygon's vertices are lit and
+            the polygon is clipped and possibly culled before these modes are applied.
+        </p><p>
+            Three modes are defined and can be specified in <em class="parameter"><code>mode</code></em>:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_POINT</code></span></dt><dd><p>
+                        Polygon vertices that are marked as the start of a boundary edge
+                        are drawn as points.
+                        Point attributes such as
+                        <code class="constant">GL_POINT_SIZE</code> and
+                        <code class="constant">GL_POINT_SMOOTH</code> control
+                        the rasterization of the points.
+                        Polygon rasterization attributes other than <code class="constant">GL_POLYGON_MODE</code> have no effect.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINE</code></span></dt><dd><p>
+                        Boundary edges of the polygon are drawn as line segments.
+                        Line attributes such as
+                        <code class="constant">GL_LINE_WIDTH</code> and
+                        <code class="constant">GL_LINE_SMOOTH</code> control
+                        the rasterization of the lines.
+                        Polygon rasterization attributes other than <code class="constant">GL_POLYGON_MODE</code> have no effect.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FILL</code></span></dt><dd><p>
+                        The interior of the polygon is filled.
+                        Polygon attributes such as <code class="constant">GL_POLYGON_SMOOTH</code> control the rasterization of the polygon.
+                    </p></dd></dl></div></div><div class="refsect1" title="Examples"><a id="examples"></a><h2>Examples</h2><p>
+            To draw a surface with outlined polygons,
+            call
+            </p><pre class="programlisting">
+glPolygonMode(<code class="constant">GL_FRONT_AND_BACK</code>, <code class="constant">GL_LINE</code>);
+            </pre><p>
+        </p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+            Vertices are marked as boundary or nonboundary with an edge flag.
+            Edge flags are generated internally by the GL when it decomposes
+            triangle stips and fans.
+        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>face</code></em> or <em class="parameter"><code>mode</code></em> is not
+            an accepted value.
+        </p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POLYGON_MODE</code>
+        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
+            <a class="citerefentry" href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBufferSubData</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBufferSubData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBufferSubData — updates a subset of a buffer object's data store</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBufferSubData</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLintptr  </td><td><var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLsizeiptr  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target buffer object.
+                    The symbolic constant must be <code class="constant">GL_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_COPY_READ_BUFFER</code>,
+                    <code class="constant">GL_COPY_WRITE_BUFFER</code>,
+                    <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_PACK_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>,
+                    <code class="constant">GL_TEXTURE_BUFFER</code>,
+                    <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, or
+                    <code class="constant">GL_UNIFORM_BUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>offset</code></em></span></dt><dd><p>
+                    Specifies the offset into the buffer object's data store where data replacement will begin,
+                    measured in bytes.
+                </p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+                    Specifies the size in bytes of the data store region being replaced.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    Specifies a pointer to the new data that will be copied into the data store.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBufferSubData</code> redefines some or all of the data store for the buffer object currently 
+            bound to <em class="parameter"><code>target</code></em>. Data starting at byte offset <em class="parameter"><code>offset</code></em> and
+            extending for <em class="parameter"><code>size</code></em> bytes is copied to the data store from the memory pointed to by
+            <em class="parameter"><code>data</code></em>.  An error is thrown if <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>size</code></em>
+            together define a range beyond the bounds of the buffer object's data store.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            When replacing the entire data store, consider using <code class="function">glBufferSubData</code> rather
+            than completely recreating the data store with <code class="function">glBufferData</code>.  This avoids the cost of
+            reallocating the data store.
+        </p><p>
+            Consider using multiple buffer objects to avoid stalling the rendering pipeline during data store updates.
+            If any rendering in the pipeline makes reference to data in the buffer object being updated by 
+            <code class="function">glBufferSubData</code>, especially from the specific region being updated, that rendering must 
+            drain from the pipeline before the data store can be updated.
+        </p><p>
+            Clients must align data elements consistent with the requirements of the client
+            platform, with an additional base-level requirement that an offset within a buffer to
+            a datum comprising <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi> bytes be a 
+            multiple of <mml:mi mathvariant="italic">N</mml:mi></mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not 
+            one of the accepted buffer targets.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or 
+            <em class="parameter"><code>size</code></em> is negative, or if together they define a region of memory
+            that extends beyond the buffer object's allocated data store.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the reserved buffer object name 0 is bound to <em class="parameter"><code>target</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the buffer object being updated is mapped.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGetBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferSubData</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a href="glBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glBufferData</span></span></a>,
+            <a href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

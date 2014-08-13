@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glIsEnabled - OpenGL 3.3 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glIsEnabled"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glIsEnabled, glIsEnabledi — test whether a capability is enabled</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">GLboolean <b class="fsfunc">glIsEnabled</b>(</code>GLenum <var class="pdparam">cap</var><code>)</code>;</p></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLboolean <b class="fsfunc">glIsEnabledi</b>(</code></td><td>GLenum  </td><td><var class="pdparam">cap</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">index</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>cap</code></em></span></dt><dd><p>
+                    Specifies a symbolic constant indicating a GL capability.
+                </p></dd><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>
+                    Specifies the index of the capability.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glIsEnabled</code> returns <code class="constant">GL_TRUE</code> if <em class="parameter"><code>cap</code></em> is an enabled capability
+            and returns <code class="constant">GL_FALSE</code> otherwise. Boolean states that are indexed may be tested with <code class="function">glIsEnabledi</code>.
+            For <code class="function">glIsEnabledi</code>, <em class="parameter"><code>index</code></em> specifies the index of the capability to test. <em class="parameter"><code>index</code></em>
+            must be between zero and the count of indexed capabilities for <em class="parameter"><code>cap</code></em>.
+            Initially all capabilities except <code class="constant">GL_DITHER</code> are disabled;
+            <code class="constant">GL_DITHER</code> is initially enabled.
+        </p><p>
+            The following capabilities are accepted for <em class="parameter"><code>cap</code></em>:
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Constant
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        See
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_BLEND</code>
+                        </td><td align="left">
+                        <a href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>, <a href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_CLIP_DISTANCE</code><span class="emphasis"><em>i</em></span>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_COLOR_LOGIC_OP</code>
+                        </td><td align="left">
+                        <a href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_CULL_FACE</code>
+                        </td><td align="left">
+                        <a href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DEPTH_CLAMP</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DEPTH_TEST</code>
+                        </td><td align="left">
+                        <a href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>, <a href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DITHER</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_FRAMEBUFFER_SRGB</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LINE_SMOOTH</code>
+                        </td><td align="left">
+                        <a href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_MULTISAMPLE</code>
+                        </td><td align="left">
+                        <a href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POLYGON_SMOOTH</code>
+                        </td><td align="left">
+                        <a href="glPolygonMode.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POLYGON_OFFSET_FILL</code> 
+                        </td><td align="left">
+                        <a href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POLYGON_OFFSET_LINE</code> 
+                        </td><td align="left">
+                        <a href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POLYGON_OFFSET_POINT</code> 
+                        </td><td align="left">
+                        <a href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PROGRAM_POINT_SIZE</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PRIMITIVE_RESTART</code> 
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>, <a href="glPrimitiveRestartIndex.xml"><span class="citerefentry"><span class="refentrytitle">glPrimitiveRestartIndex</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
+                        </td><td align="left">
+                        <a href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
+                        </td><td align="left">
+                        <a href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SAMPLE_COVERAGE</code>
+                        </td><td align="left">
+                        <a href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SAMPLE_MASK</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SCISSOR_TEST</code>
+                        </td><td align="left">
+                        <a href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_STENCIL_TEST</code>
+                        </td><td align="left">
+                        <a href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>, <a href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code>
+                        </td><td align="left">
+                        <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr></tbody></table></div><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            <code class="function">glIsEnabled</code> and <code class="function">glIsEnabledi</code> return <code class="constant">GL_FALSE</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>cap</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated by <code class="function">glIsEnabledi</code> if <em class="parameter"><code>index</code></em> is outside the
+            valid range for the indexed state <em class="parameter"><code>cap</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>,
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2011
+            Khronos Group. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

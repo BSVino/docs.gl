@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glStencilMaskSeparate</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glStencilMaskSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glStencilMaskSeparate — control the front and/or back writing of individual bits in the stencil planes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glStencilMaskSeparate</b>(</code></td><td>GLenum  </td><td><var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>face</code></em></span></dt><dd><p>
+                    Specifies whether the front and/or back stencil writemask is updated.
+                    Three symbolic constants are valid:
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>, and
+                    <code class="constant">GL_FRONT_AND_BACK</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+                    Specifies a bit mask to enable and disable writing of individual bits
+                    in the stencil planes.
+                    Initially, the mask is all 1's.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glStencilMaskSeparate</code> controls the writing of individual bits in the stencil planes.
+            The least significant 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            bits of <em class="parameter"><code>mask</code></em>,
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            is the number of bits in the stencil buffer,
+            specify a mask.
+            Where a 1 appears in the mask,
+            it's possible to write to the corresponding bit in the stencil buffer.
+            Where a 0 appears,
+            the corresponding bit is write-protected.
+            Initially, all bits are enabled for writing.
+        </p><p>
+            There can be two separate <em class="parameter"><code>mask</code></em> writemasks; one affects back-facing polygons, and the other
+            affects front-facing polygons as well as other non-polygon primitives. 
+            <a href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a> sets both front
+            and back stencil writemasks to the same values, as if
+            <a href="glStencilMaskSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a> were called
+            with <em class="parameter"><code>face</code></em> set to <code class="constant">GL_FRONT_AND_BACK</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>face</code></em> is not one of the accepted tokens.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
+            <code class="constant">GL_STENCIL_WRITEMASK</code>, <code class="constant">GL_STENCIL_BACK_WRITEMASK</code>, 
+            or <code class="constant">GL_STENCIL_BITS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glColorMask.xml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>,
+            <a href="glDepthMask.xml"><span class="citerefentry"><span class="refentrytitle">glDepthMask</span></span></a>,
+            <a href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>,
+            <a href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>,
+            <a href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
+            <a href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2006 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

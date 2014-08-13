@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawElements</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawElements"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawElements — render primitives from array data</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawElements</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">indices</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies what kind of primitives to render.
+                    Symbolic constants
+                    <code class="constant">GL_POINTS</code>,
+                    <code class="constant">GL_LINE_STRIP</code>,
+                    <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_LINES</code>,
+                    <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+                    <code class="constant">GL_LINES_ADJACENCY</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP</code>,
+                    <code class="constant">GL_TRIANGLE_FAN</code>,
+                    <code class="constant">GL_TRIANGLES</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
+                    <code class="constant">GL_TRIANGLES_ADJACENCY</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>count</code></em></span></dt><dd><p>
+                    Specifies the number of elements to be rendered.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the type of the values in <em class="parameter"><code>indices</code></em>. Must be one of
+                    <code class="constant">GL_UNSIGNED_BYTE</code>, <code class="constant">GL_UNSIGNED_SHORT</code>, or
+                    <code class="constant">GL_UNSIGNED_INT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>indices</code></em></span></dt><dd><p>
+                    Specifies a pointer to the location where the indices are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawElements</code> specifies multiple geometric primitives
+            with very few subroutine calls. Instead of calling a GL function
+            to pass each individual vertex, normal, texture coordinate, edge
+            flag, or color, you can prespecify
+            separate arrays of vertices, normals, and so on, and use them to
+            construct a sequence of primitives with a single
+            call to <code class="function">glDrawElements</code>.
+        </p><p>
+            When <code class="function">glDrawElements</code> is called, it uses <em class="parameter"><code>count</code></em> sequential elements from an
+            enabled array, starting at <em class="parameter"><code>indices</code></em> to construct a sequence of
+            geometric primitives. <em class="parameter"><code>mode</code></em> specifies what kind of primitives are
+            constructed and how the array elements construct these primitives. If
+            more than one array is enabled, each is used.
+        </p><p>
+            Vertex attributes that are modified by <code class="function">glDrawElements</code> have an
+            unspecified value after <code class="function">glDrawElements</code> returns.  Attributes that aren't
+            modified maintain their previous values.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
+            <code class="constant">GL_LINES_ADJACENCY</code>,
+            <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
+            <code class="constant">GL_TRIANGLES_ADJACENCY</code>
+            are available only if the GL version is 3.2 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a geometry shader is active and <em class="parameter"><code>mode</code></em>
+            is incompatible with the input primitive type of the geometry shader in the currently installed program object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
+            enabled array or the element array and the buffer object's data store is currently mapped.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
+            <a href="glDrawElementsBaseVertex.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>,
+            <a href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>
