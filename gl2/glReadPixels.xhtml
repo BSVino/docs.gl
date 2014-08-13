@@ -54,14 +54,14 @@
             Several parameters control the processing of the pixel data before
             it is placed into client memory.
             These parameters are set with three commands:
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>, and
-            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>, and
+            <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
             This reference page describes the effects on <code class="function">glReadPixels</code> of most,
             but not all of the parameters specified by these three commands.
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
-            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
             requested, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store
             rather than a pointer to client memory.
         </p><p>
@@ -120,7 +120,7 @@
             accepted values are:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COLOR_INDEX</code></span></dt><dd><p>
                         Color indices are read from the color buffer
-                        selected by <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
+                        selected by <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
                         Each index is converted to fixed point,
                         shifted left or right depending on the value and sign of <code class="constant">GL_INDEX_SHIFT</code>,
                         and added to <code class="constant">GL_INDEX_OFFSET</code>.
@@ -151,7 +151,7 @@
                         Processing differs depending on whether color buffers store color indices
                         or RGBA color components.
                         If color indices are stored,
-                        they are read from the color buffer selected by <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
+                        they are read from the color buffer selected by <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
                         Each index is converted to fixed point,
                         shifted left or right depending on the value and sign of <code class="constant">GL_INDEX_SHIFT</code>,
                         and added to <code class="constant">GL_INDEX_OFFSET</code>.
@@ -195,7 +195,7 @@
                         </mml:math>.
                     </p><p>
                         If RGBA color components are stored in the color buffers,
-                        they are read from the color buffer selected by <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
+                        they are read from the color buffer selected by <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
                         Each color component is converted to floating point such that zero intensity
                         maps to 0.0 and full intensity maps to 1.0.
                         Each component is then multiplied by <code class="constant">GL_c_SCALE</code> and
@@ -239,8 +239,8 @@
             scale,
             bias,
             and lookup factors just described are all specified by
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
-            The lookup table contents themselves are specified by <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
+            The lookup table contents themselves are specified by <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
         </p><p>
             Finally, the indices or components
             are converted to the proper format,
@@ -526,10 +526,10 @@
             and <code class="constant">GL_LUMINANCE_ALPHA</code> returns two values for each pixel,
             with all values corresponding to a single pixel occupying contiguous space
             in <em class="parameter"><code>data</code></em>.
-            Storage parameters set by <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            Storage parameters set by <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
             such as <code class="constant">GL_PACK_LSB_FIRST</code> and <code class="constant">GL_PACK_SWAP_BYTES</code>,
             affect the way that data is written into memory.
-            See <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> for a description.
+            See <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> for a description.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             Values for pixels that lie outside the window
             connected to the current GL context are undefined.
@@ -599,19 +599,19 @@
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glReadPixels</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_MODE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_MODE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
-            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
-            <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+            <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

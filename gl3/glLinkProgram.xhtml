@@ -16,14 +16,14 @@
     without errors and is ready for use, and
     <code class="constant">GL_FALSE</code> otherwise. It can be queried by
     calling
-    <a href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+    <a href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
     with arguments <em class="parameter"><code>program</code></em> and
     <code class="constant">GL_LINK_STATUS</code>.</p><p>As a result of a successful link operation, all active
     user-defined uniform variables belonging to
     <em class="parameter"><code>program</code></em> will be initialized to 0, and
     each of the program object's active uniform variables will be
     assigned a location that can be queried by calling
-    <a href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
+    <a href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
     Also, any active user-defined attribute variables that have not
     been bound to a generic vertex attribute index will be bound to
     one at this time.</p><p>Linking of a program object can fail for a number of
@@ -54,24 +54,24 @@
         than or equal to the value of <code class="constant">GL_MAX_DUAL_SOURCE_DRAW_BUFFERS</code>
         and has an active output assigned an index greater than or equal to one.</p></li><li><p>More than one varying out variable is bound to the same number and index.</p></li><li><p>The explicit binding assigments do not leave enough space for the linker
         to automatically assign a location for a varying out array, which requires
-        multiple contiguous locations.</p></li><li><p>The <em class="parameter"><code>count</code></em> specified by <a href="glTransformFeedbackVaryings.xml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
-        is non-zero, but the program object has no vertex or geometry shader.</p></li><li><p>Any variable name specified to <a href="glTransformFeedbackVaryings.xml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+        multiple contiguous locations.</p></li><li><p>The <em class="parameter"><code>count</code></em> specified by <a href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+        is non-zero, but the program object has no vertex or geometry shader.</p></li><li><p>Any variable name specified to <a href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         in the <em class="parameter"><code>varyings</code></em> array is not declared as an output in the vertex shader (or the geometry shader, if active).</p></li><li><p>Any two entries in the <em class="parameter"><code>varyings</code></em> array given
-        <a href="glTransformFeedbackVaryings.xml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+        <a href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         specify the same varying variable.</p></li><li><p>The total number of components to capture in any transform feedback varying variable
         is  greater  than  the  constant <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS</code>
         and the buffer mode is <code class="constant">GL_SEPARATE_ATTRIBS</code>.</p></li></ul></div><p>When a program object has been successfully linked, the
     program object can be made part of current state by calling
-    <a href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
+    <a href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
     Whether or not the link operation was successful, the program
     object's information log will be overwritten. The information
     log can be retrieved by calling
-    <a href="glGetProgramInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>.</p><p><code class="function">glLinkProgram</code> will also install the
+    <a href="glGetProgramInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>.</p><p><code class="function">glLinkProgram</code> will also install the
     generated executables as part of the current rendering state if
     the link operation was successful and the specified program
     object is already currently in use as a result of a previous
     call to
-    <a href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
+    <a href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
     If the program object currently in use is relinked
     unsuccessfully, its link status will be set to
     <code class="constant">GL_FALSE</code> , but the executables and
@@ -94,37 +94,37 @@
     the program that is part of the program object.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>If the link operation is unsuccessful, any information about a previous link operation on <em class="parameter"><code>program</code></em>
     is lost (i.e., a failed link does not restore the old state of <em class="parameter"><code>program</code></em>
     ). Certain information can still be retrieved from <em class="parameter"><code>program</code></em>
-    even after an unsuccessful link operation. See for instance <a href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
-    and <a href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code>
+    even after an unsuccessful link operation. See for instance <a href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+    and <a href="glGetActiveUniform"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code>
     is generated if <em class="parameter"><code>program</code></em>
     is not a value generated by OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code>
     is generated if <em class="parameter"><code>program</code></em>
     is not a program object.</p><p><code class="constant">GL_INVALID_OPERATION</code>
     is generated if <em class="parameter"><code>program</code></em> is the currently active program
-    object and transform feedback mode is active.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-    with the argument <code class="constant">GL_CURRENT_PROGRAM</code></p><p><a href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+    object and transform feedback mode is active.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with the argument <code class="constant">GL_CURRENT_PROGRAM</code></p><p><a href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
-    and the index of an active attribute variable</p><p><a href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>
+    and the index of an active attribute variable</p><p><a href="glGetActiveUniform"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
-    and the index of an active uniform variable<em class="parameter"><code></code></em></p><p><a href="glGetAttachedShaders.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
-    with argument <em class="parameter"><code>program</code></em></p><p><a href="glGetAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
+    and the index of an active uniform variable<em class="parameter"><code></code></em></p><p><a href="glGetAttachedShaders"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
-    and an attribute variable name</p><p><a href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+    and an attribute variable name</p><p><a href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
     with arguments <em class="parameter"><code>program</code></em>
-    and <code class="constant">GL_LINK_STATUS</code></p><p><a href="glGetProgramInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>
-    with argument <em class="parameter"><code>program</code></em></p><p><a href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>
+    and <code class="constant">GL_LINK_STATUS</code></p><p><a href="glGetProgramInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>
+    with argument <em class="parameter"><code>program</code></em></p><p><a href="glGetUniform"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
-    and a uniform variable location</p><p><a href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>
+    and a uniform variable location</p><p><a href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
-    and a uniform variable name</p><p><a href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a href="glAttachShader.xml"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
-    <a href="glBindAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
-    <a href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
-    <a href="glCreateProgram.xml"><span class="citerefentry"><span class="refentrytitle">glCreateProgram</span></span></a>,
-    <a href="glDeleteProgram.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteProgram</span></span></a>,
-    <a href="glDetachShader.xml"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
-    <a href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
-    <a href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
-    <a href="glValidateProgram.xml"><span class="citerefentry"><span class="refentrytitle">glValidateProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+    and a uniform variable name</p><p><a href="glIsProgram"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a href="glAttachShader"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+    <a href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+    <a href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+    <a href="glCreateProgram"><span class="citerefentry"><span class="refentrytitle">glCreateProgram</span></span></a>,
+    <a href="glDeleteProgram"><span class="citerefentry"><span class="refentrytitle">glDeleteProgram</span></span></a>,
+    <a href="glDetachShader"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
+    <a href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
+    <a href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
+    <a href="glValidateProgram"><span class="citerefentry"><span class="refentrytitle">glValidateProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
             Copyright <span class="trademark"></span>© 2010 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 

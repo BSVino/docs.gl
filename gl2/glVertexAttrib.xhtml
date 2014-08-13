@@ -55,7 +55,7 @@
 	attribute slots in column major order, with one column of the
 	matrix in each generic attribute slot.</p><p>A user-defined attribute variable declared in a vertex
 	shader can be bound to a generic attribute index by calling
-	<a class="citerefentry" href="glBindAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>.
+	<a class="citerefentry" href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>.
 	This allows an application to use more descriptive variable
 	names in a vertex shader. A subsequent change to the specified
 	generic vertex attribute will be immediately reflected as a
@@ -75,10 +75,10 @@
 	shader will repeatedly use the current value for the generic
 	vertex attribute.</p><p>The generic vertex attribute with index 0 is the same as
 	the vertex position attribute previously defined by OpenGL. A
-	<a class="citerefentry" href="glVertex2.xml"><span class="citerefentry"><span class="refentrytitle">glVertex2</span></span></a>,
-	<a class="citerefentry" href="glVertex3.xml"><span class="citerefentry"><span class="refentrytitle">glVertex3</span></span></a>,
+	<a class="citerefentry" href="glVertex2"><span class="citerefentry"><span class="refentrytitle">glVertex2</span></span></a>,
+	<a class="citerefentry" href="glVertex3"><span class="citerefentry"><span class="refentrytitle">glVertex3</span></span></a>,
 	or
-	<a class="citerefentry" href="glVertex4.xml"><span class="citerefentry"><span class="refentrytitle">glVertex4</span></span></a>
+	<a class="citerefentry" href="glVertex4"><span class="citerefentry"><span class="refentrytitle">glVertex4</span></span></a>
 	command is completely equivalent to the corresponding
 	<code class="function">glVertexAttrib</code> command with an index
 	argument of 0. A vertex shader can access generic vertex
@@ -91,9 +91,9 @@
 	the GL version is 2.0 or greater.</p><p>Generic vertex attributes can be updated at any time. In
 	particular, <code class="function">glVertexAttrib</code> can be called
 	between a call to
-	<a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+	<a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
 	and the corresponding call to
-	<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.</p><p>It is possible for an application to bind more than one
+	<a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.</p><p>It is possible for an application to bind more than one
 	attribute name to the same generic vertex attribute index. This
 	is referred to as aliasing, and it is allowed only if just one
 	of the aliased attribute variables is active in the vertex
@@ -106,16 +106,16 @@
 	attributes; therefore, it is not possible to alias generic
 	attributes with standard attributes.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
 	<em class="parameter"><code>index</code></em> is greater than or equal to
-	<code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-	with the argument <code class="constant">GL_CURRENT_PROGRAM</code></p><p><a class="citerefentry" href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+	<code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with the argument <code class="constant">GL_CURRENT_PROGRAM</code></p><p><a class="citerefentry" href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
 	with argument <em class="parameter"><code>program</code></em> and the index of an active
-	attribute variable</p><p><a class="citerefentry" href="glGetAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
+	attribute variable</p><p><a class="citerefentry" href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
 	with argument <em class="parameter"><code>program</code></em> and an attribute
-	variable name</p><p><a class="citerefentry" href="glGetVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
+	variable name</p><p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
 	with arguments <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code> and
-	<em class="parameter"><code>index</code></em></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glBindAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
-	<a class="citerefentry" href="glVertex.xml"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
-	<a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+	<em class="parameter"><code>index</code></em></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+	<a class="citerefentry" href="glVertex"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
+	<a class="citerefentry" href="glVertexAttribPointer"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.

@@ -25,7 +25,7 @@
             red, green, blue, and alpha values.
             The number of bits per component in the accumulation buffer
             depends on the implementation. You can examine this number
-            by calling <a class="citerefentry" href="glGetIntegerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> four times,
+            by calling <a class="citerefentry" href="glGetIntegerv"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> four times,
             with arguments <code class="constant">GL_ACCUM_RED_BITS</code>,
             <code class="constant">GL_ACCUM_GREEN_BITS</code>,
             <code class="constant">GL_ACCUM_BLUE_BITS</code>,
@@ -66,7 +66,7 @@
             The operations are as follows:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_ACCUM</code></span></dt><dd><p>
                         Obtains R, G, B, and A values
-                        from the buffer currently selected for reading (see <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>).
+                        from the buffer currently selected for reading (see <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>).
                         Each component value is divided by 
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
@@ -156,8 +156,8 @@
                         dithering,
                         and color writemasks.
                     </p></dd></dl></div><p>
-            To clear the accumulation buffer, call <a class="citerefentry" href="glClearAccum.xml"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a> with R, G, B,
-            and A values to set it to, then call <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> with the
+            To clear the accumulation buffer, call <a class="citerefentry" href="glClearAccum"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a> with R, G, B,
+            and A values to set it to, then call <a class="citerefentry" href="glClear"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> with the
             accumulation buffer enabled.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             Only pixels within the current scissor box are updated by a
@@ -169,25 +169,25 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glAccum</code>
             is executed between the execution of
-            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_RED_BITS</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_RED_BITS</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_GREEN_BITS</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_GREEN_BITS</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_BLUE_BITS</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_BLUE_BITS</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_ALPHA_BITS</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_ALPHA_BITS</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
-            <a class="citerefentry" href="glClearAccum.xml"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a>,
-            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>,
-            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
-            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
-            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+            <a class="citerefentry" href="glClear"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+            <a class="citerefentry" href="glClearAccum"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDrawBuffer"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>,
+            <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glScissor"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

@@ -1,13 +1,13 @@
 <div class="refentry" lang="en" xml:lang="en"><a id="gluBeginTrim"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginTrim — delimit a NURBS trimming loop definition</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginTrim</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluEndTrim</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
-                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
+                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             Use <code class="function">gluBeginTrim</code> to mark the beginning of a
-            trimming loop and <a class="citerefentry" href="gluEndTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> to mark the end 
+            trimming loop and <a class="citerefentry" href="gluEndTrim"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> to mark the end 
             of a trimming loop. A trimming loop is 
             a set of oriented curve segments (forming a closed curve) that
             define boundaries of a NURBS surface. You include these
             trimming loops in the definition of a NURBS 
-            surface, between calls to <a class="citerefentry" href="gluBeginSurface.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a> and <a class="citerefentry" href="gluEndSurface.xml"><span class="citerefentry"><span class="refentrytitle">gluEndSurface</span></span></a>.
+            surface, between calls to <a class="citerefentry" href="gluBeginSurface"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a> and <a class="citerefentry" href="gluEndSurface"><span class="citerefentry"><span class="refentrytitle">gluEndSurface</span></span></a>.
         </p><p>
             The definition for a NURBS surface can contain many
             trimming loops. For example, if you wrote a definition
@@ -17,16 +17,16 @@
             of the rectangle; the other would define
             the hole punched out of the rectangle. The definitions
             of each of these trimming loops would be bracketed by a
-            <code class="function">gluBeginTrim</code>/<a class="citerefentry" href="gluEndTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> pair.
+            <code class="function">gluBeginTrim</code>/<a class="citerefentry" href="gluEndTrim"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> pair.
         </p><p>
             The definition of a single closed trimming loop can consist
             of multiple curve segments, each described as a piecewise
-            linear curve (see <a class="citerefentry" href="gluPwlCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>) or as a single NURBS
-            curve (see <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>), or as a combination of 
+            linear curve (see <a class="citerefentry" href="gluPwlCurve"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>) or as a single NURBS
+            curve (see <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>), or as a combination of 
             both in any order. The only library calls that can 
             appear in a trimming loop definition (between the calls
-            to <code class="function">gluBeginTrim</code> and <a class="citerefentry" href="gluEndTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a>) are 
-            <a class="citerefentry" href="gluPwlCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a> and <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>.
+            to <code class="function">gluBeginTrim</code> and <a class="citerefentry" href="gluEndTrim"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a>) are 
+            <a class="citerefentry" href="gluPwlCurve"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a> and <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>.
         </p><p>
             The area of the NURBS surface that is displayed is the
             region in the domain to the left of the trimming curve
@@ -46,7 +46,7 @@
             endpoints of the curve are sufficiently close together
             but not exactly coincident, they will be coerced to match.
             If the endpoints are not sufficiently close, an error results
-            (see <a class="citerefentry" href="gluNurbsCallback.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCallback</span></span></a>).
+            (see <a class="citerefentry" href="gluNurbsCallback"><span class="citerefentry"><span class="refentrytitle">gluNurbsCallback</span></span></a>).
         </p><p>
             If a trimming loop definition contains multiple curves,
             the direction of the curves must be consistent (that is, the
@@ -69,11 +69,11 @@ gluBeginTrim(nobj);
 gluEndTrim(nobj);
             </pre><p>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="gluBeginSurface.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a>,
-            <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
-            <a class="citerefentry" href="gluNurbsCallback.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCallback</span></span></a>, 
-            <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>,
-            <a class="citerefentry" href="gluPwlCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>
+            <a class="citerefentry" href="gluBeginSurface"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a>,
+            <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
+            <a class="citerefentry" href="gluNurbsCallback"><span class="citerefentry"><span class="refentrytitle">gluNurbsCallback</span></span></a>, 
+            <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>,
+            <a class="citerefentry" href="gluPwlCurve"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

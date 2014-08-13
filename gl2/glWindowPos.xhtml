@@ -14,8 +14,8 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             The GL maintains a 3D position in window coordinates.  This position,
             called the raster position, is used to position pixel and bitmap write
-            operations. It is maintained with subpixel accuracy.  See <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
-            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>, and <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>.
+            operations. It is maintained with subpixel accuracy.  See <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>, and <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>.
         </p><p>
             <code class="function">glWindowPos2</code> specifies the 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
@@ -116,7 +116,7 @@
             is <code class="constant">GL_DEPTH_RANGE</code>'s near value, and 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">f</mml:mi></mml:math>
             is
-            <code class="constant">GL_DEPTH_RANGE</code>'s far value.  See <a class="citerefentry" href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.
+            <code class="constant">GL_DEPTH_RANGE</code>'s far value.  See <a class="citerefentry" href="glDepthRange"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.
         </p><p>
             The specified coordinates are not clip-tested, causing the raster position
             to always be valid.
@@ -125,7 +125,7 @@
             texture coordinates.  If lighting is enabled, then
             <code class="constant">GL_CURRENT_RASTER_COLOR</code> (in RGBA mode) or <code class="constant">GL_CURRENT_RASTER_INDEX</code>
             (in color index mode) is set to the color produced by the lighting
-            calculation (see <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>, <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>, and <a class="citerefentry" href="glShadeModel.xml"><span class="citerefentry"><span class="refentrytitle">glShadeModel</span></span></a>).
+            calculation (see <a class="citerefentry" href="glLight"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>, <a class="citerefentry" href="glLightModel"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>, and <a class="citerefentry" href="glShadeModel"><span class="citerefentry"><span class="refentrytitle">glShadeModel</span></span></a>).
             If lighting is disabled, current color (in RGBA mode, state variable
             <code class="constant">GL_CURRENT_COLOR</code>) or color index (in color index mode, state variable
             <code class="constant">GL_CURRENT_INDEX</code>) is used to update the current raster color.
@@ -133,16 +133,16 @@
         </p><p>
             Likewise, <code class="constant">GL_CURRENT_RASTER_TEXTURE_COORDS</code> is updated as a function of
             <code class="constant">GL_CURRENT_TEXTURE_COORDS</code>, based on the texture matrix and the texture
-            generation functions (see <a class="citerefentry" href="glTexGen.xml"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>).  The
+            generation functions (see <a class="citerefentry" href="glTexGen"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>).  The
             <code class="constant">GL_CURRENT_RASTER_DISTANCE</code> is set to the <code class="constant">GL_CURRENT_FOG_COORD</code>.
         </p><p>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glWindowPos</code> is available only if the GL version is 1.4 or greater.
         </p><p>
-            The raster position is modified by <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>, <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>, and
+            The raster position is modified by <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>, <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>, and
             <code class="function">glWindowPos</code>.
         </p><p>
-            Calling <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, or <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a> may leave the
+            Calling <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, or <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a> may leave the
             current color or index indeterminate.
             If <code class="function">glWindowPos</code> is executed while the current color or index is indeterminate, the
             current raster color or current raster index remains indeterminate.
@@ -151,34 +151,34 @@
             texture unit's current raster texture coordinates are updated by <code class="function">glWindowPos</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glWindowPos</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_DISTANCE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_DISTANCE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_COLOR</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_COLOR</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_SECONDARY_COLOR</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_SECONDARY_COLOR</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_INDEX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_INDEX</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_TEXTURE_COORDS</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_TEXTURE_COORDS</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
-            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
-            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
-            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
-            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
-            <a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
-            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
-            <a class="citerefentry" href="glTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
-            <a class="citerefentry" href="glTexGen.xml"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>,
-            <a class="citerefentry" href="glVertex.xml"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>
+            <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDrawArrays"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glMultiTexCoord"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
+            <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
+            <a class="citerefentry" href="glTexCoord"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
+            <a class="citerefentry" href="glTexGen"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>,
+            <a class="citerefentry" href="glVertex"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

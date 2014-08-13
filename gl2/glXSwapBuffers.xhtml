@@ -10,7 +10,7 @@
             the monitor,
             rather than immediately after <code class="function">glXSwapBuffers</code> is called.
         </p><p>
-            <code class="function">glXSwapBuffers</code> performs an implicit <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a> before it returns.
+            <code class="function">glXSwapBuffers</code> performs an implicit <a class="citerefentry" href="glFlush"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a> before it returns.
             Subsequent OpenGL commands may be issued immediately after calling <code class="function">glXSwapBuffers</code>,
             but are not executed until the buffer exchange is completed.
         </p><p>
@@ -28,7 +28,7 @@
             all of them should finish rendering before one of them issues the command
             to swap buffers.
             The clients are responsible for implementing this synchronization.
-            Typically this is accomplished by executing <a class="citerefentry" href="glFinish.xml"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a> and then
+            Typically this is accomplished by executing <a class="citerefentry" href="glFinish"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a> and then
             using a semaphore in shared memory to rendezvous before swapping.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GLXBadDrawable</code> is generated if <em class="parameter"><code>drawable</code></em> is not a valid GLX drawable.
@@ -38,7 +38,7 @@
             context of the calling thread, and <em class="parameter"><code>drawable</code></em> identifies a window that
             is no longer valid.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a>
+            <a class="citerefentry" href="glFlush"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

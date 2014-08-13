@@ -7,10 +7,10 @@
             each of the three axes.
         </p><p>
             The current matrix
-            (see <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>)
+            (see <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>)
             is multiplied by this scale matrix,
             and the product replaces the current matrix
-            as if <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a> were called with the following matrix
+            as if <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a> were called with the following matrix
             as its argument:
         </p><p>
             </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -80,35 +80,35 @@
             If the matrix mode is either <code class="constant">GL_MODELVIEW</code> or <code class="constant">GL_PROJECTION</code>,
             all objects drawn after <code class="function">glScale</code> is called are scaled.
         </p><p>
-            Use <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a> and <a class="citerefentry" href="glPopMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to save and restore
+            Use <a class="citerefentry" href="glPushMatrix"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a> and <a class="citerefentry" href="glPopMatrix"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to save and restore
             the unscaled coordinate
             system.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             If scale factors other than 1 are applied to the modelview matrix
             and lighting is enabled, lighting often appears wrong.
             In that case, enable automatic normalization of normals by
-            calling <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> with the argument <code class="constant">GL_NORMALIZE</code>.
+            calling <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> with the argument <code class="constant">GL_NORMALIZE</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glScale</code>
             is executed between the execution of
-            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MATRIX_MODE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MATRIX_MODE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_MATRIX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_MATRIX</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MODELVIEW_MATRIX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MODELVIEW_MATRIX</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROJECTION_MATRIX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROJECTION_MATRIX</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_MATRIX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_MATRIX</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
-            <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
-            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
-            <a class="citerefentry" href="glRotate.xml"><span class="citerefentry"><span class="refentrytitle">glRotate</span></span></a>,
-            <a class="citerefentry" href="glTranslate.xml"><span class="citerefentry"><span class="refentrytitle">glTranslate</span></span></a>
+            <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+            <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
+            <a class="citerefentry" href="glRotate"><span class="citerefentry"><span class="refentrytitle">glRotate</span></span></a>,
+            <a class="citerefentry" href="glTranslate"><span class="citerefentry"><span class="refentrytitle">glTranslate</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

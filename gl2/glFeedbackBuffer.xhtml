@@ -14,7 +14,7 @@
             The <code class="function">glFeedbackBuffer</code> function controls feedback.
             Feedback, like selection, is a GL mode.
             The mode is selected by calling
-            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with <code class="constant">GL_FEEDBACK</code>.
+            <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with <code class="constant">GL_FEEDBACK</code>.
             When the GL is in feedback mode,
             no pixels are produced by rasterization.
             Instead, information about primitives that would have been
@@ -27,18 +27,18 @@
             <em class="parameter"><code>type</code></em> is a symbolic constant describing the information
             that is fed back for each vertex.
             <code class="function">glFeedbackBuffer</code> must be issued before feedback mode is enabled
-            (by calling <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with argument <code class="constant">GL_FEEDBACK</code>).
+            (by calling <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with argument <code class="constant">GL_FEEDBACK</code>).
             Setting <code class="constant">GL_FEEDBACK</code> without establishing the feedback buffer,
             or calling <code class="function">glFeedbackBuffer</code> while the GL is in feedback mode,
             is an error.
         </p><p>
-            When <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called while in feedback mode, it returns the number of entries
+            When <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called while in feedback mode, it returns the number of entries
             placed in the feedback array and resets the feedback array pointer to the base
             of the feedback buffer. The returned value never exceeds <em class="parameter"><code>size</code></em>. If the feedback
             data required more room than was available in <em class="parameter"><code>buffer</code></em>,
-            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> returns a negative value.
+            <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> returns a negative value.
             To take the GL out of feedback mode, call
-            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with a parameter value other than <code class="constant">GL_FEEDBACK</code>.
+            <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with a parameter value other than <code class="constant">GL_FEEDBACK</code>.
         </p><p>
             While in feedback mode,
             each primitive, bitmap, or pixel rectangle that would be rasterized
@@ -51,16 +51,16 @@
             followed by values that describe the primitive's vertices and
             associated data.
             Entries are also written for bitmaps and pixel rectangles.
-            Feedback occurs after polygon culling and <a class="citerefentry" href="glPolygonMode.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a> interpretation
+            Feedback occurs after polygon culling and <a class="citerefentry" href="glPolygonMode"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a> interpretation
             of polygons has taken place,
             so polygons that are culled are not returned in the feedback buffer.
             It can also occur after polygons with more than three edges are broken up
             into triangles,
             if the GL implementation renders polygons by performing this decomposition.
         </p><p>
-            The <a class="citerefentry" href="glPassThrough.xml"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a> command can be used to insert a marker
+            The <a class="citerefentry" href="glPassThrough"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a> command can be used to insert a marker
             into the feedback buffer.
-            See <a class="citerefentry" href="glPassThrough.xml"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a>.
+            See <a class="citerefentry" href="glPassThrough"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a>.
         </p><p>
             Following is the grammar for the blocks of values written
             into the feedback buffer.
@@ -249,27 +249,27 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glFeedbackBuffer</code> is called while the
             render mode is <code class="constant">GL_FEEDBACK</code>,
-            or if <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called with argument <code class="constant">GL_FEEDBACK</code> before
+            or if <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called with argument <code class="constant">GL_FEEDBACK</code> before
             <code class="function">glFeedbackBuffer</code> is called at least once.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glFeedbackBuffer</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RENDER_MODE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RENDER_MODE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_POINTER</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_POINTER</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_SIZE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_SIZE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_TYPE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FEEDBACK_BUFFER_TYPE</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>,
-            <a class="citerefentry" href="glLineStipple.xml"><span class="citerefentry"><span class="refentrytitle">glLineStipple</span></span></a>,
-            <a class="citerefentry" href="glPassThrough.xml"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a>,
-            <a class="citerefentry" href="glPolygonMode.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>,
-            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>,
-            <a class="citerefentry" href="glSelectBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glSelectBuffer</span></span></a>
+            <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>,
+            <a class="citerefentry" href="glLineStipple"><span class="citerefentry"><span class="refentrytitle">glLineStipple</span></span></a>,
+            <a class="citerefentry" href="glPassThrough"><span class="citerefentry"><span class="refentrytitle">glPassThrough</span></span></a>,
+            <a class="citerefentry" href="glPolygonMode"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>,
+            <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>,
+            <a class="citerefentry" href="glSelectBuffer"><span class="citerefentry"><span class="refentrytitle">glSelectBuffer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

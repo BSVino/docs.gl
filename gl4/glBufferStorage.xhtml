@@ -256,13 +256,13 @@
             </dt>
             <dd>
               <p>The contents of the data store may be updated after creation
-            through calls to <a class="citerefentry" href="glBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>. If this bit is not set, the buffer content may
+            through calls to <a class="citerefentry" href="glBufferSubData"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>. If this bit is not set, the buffer content may
             not be directly updated by the client. The data argument may be
             used to specify the initial content of the buffer's data store
             regardless of the presence of the
             <code class="constant">GL_DYNAMIC_STORAGE_BIT</code>. Regardless of the
             presence of this bit, buffers may always be updated with
-            server-side calls such as <a class="citerefentry" href="glCopyBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a> and <a class="citerefentry" href="glClearBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferSubData</span></span></a>.</p>
+            server-side calls such as <a class="citerefentry" href="glCopyBufferSubData"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a> and <a class="citerefentry" href="glClearBufferSubData"><span class="citerefentry"><span class="refentrytitle">glClearBufferSubData</span></span></a>.</p>
             </dd>
             <dt>
               <span class="term">
@@ -303,7 +303,7 @@
             <dd>
               <p>Shared access to buffers that are simultaneously mapped for
             client access and are used by the server will be coherent, so long
-            as that mapping is performed using <a class="citerefentry" href="glMapBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a>. That is, data written to the store by either
+            as that mapping is performed using <a class="citerefentry" href="glMapBufferRange"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a>. That is, data written to the store by either
             the client or server will be immediately visible to the other with
             no further action taken by the application. In particular,</p>
               <div class="itemizedlist">
@@ -311,7 +311,7 @@
                   <li class="listitem">
                     <p>If <code class="constant">GL_MAP_COHERENT_BIT</code> is not set
                 and the client performs a write followed by a call to the
-                <a class="citerefentry" href="glMemoryBarrier.xhtml"><span class="citerefentry"><span class="refentrytitle">glMemoryBarrier</span></span></a> command with the
+                <a class="citerefentry" href="glMemoryBarrier"><span class="citerefentry"><span class="refentrytitle">glMemoryBarrier</span></span></a> command with the
                 <code class="constant">GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT</code> set,
                 then in subsequent commands the server will see the
                 writes.</p>
@@ -324,9 +324,9 @@
                   <li class="listitem">
                     <p>If <code class="constant">GL_MAP_COHERENT_BIT</code> is not set
                 and the server performs a write, the application must call
-                <a class="citerefentry" href="glMemoryBarrier.xhtml"><span class="citerefentry"><span class="refentrytitle">glMemoryBarrier</span></span></a> with the
+                <a class="citerefentry" href="glMemoryBarrier"><span class="citerefentry"><span class="refentrytitle">glMemoryBarrier</span></span></a> with the
                 <code class="constant">GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT</code> set
-                and then call <a class="citerefentry" href="glFenceSync.xhtml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a> with
+                and then call <a class="citerefentry" href="glFenceSync"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a> with
                 <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code> (or
                 <code class="function">glFinish</code>). Then the CPU will see the
                 writes after the sync is complete.</p>
@@ -335,7 +335,7 @@
                     <p>If <code class="constant">GL_MAP_COHERENT_BIT</code> is set and
                 the server does a write, the app must call FenceSync with
                 <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code> (or
-                <a class="citerefentry" href="glFinish.xhtml"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a>). Then the CPU will see the writes after the
+                <a class="citerefentry" href="glFinish"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a>). Then the CPU will see the writes after the
                 sync is complete.</p>
                   </li>
                 </ul>
@@ -418,13 +418,13 @@
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-          <a class="citerefentry" href="glGetBufferSubData.xhtml">
+          <a class="citerefentry" href="glGetBufferSubData">
             <span class="citerefentry">
               <span class="refentrytitle">glGetBufferSubData</span>
             </span>
           </a>
         </p>
-        <p><a class="citerefentry" href="glGetBufferParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameter</span></span></a> with argument <code class="constant">GL_BUFFER_SIZE</code> or
+        <p><a class="citerefentry" href="glGetBufferParameter"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameter</span></span></a> with argument <code class="constant">GL_BUFFER_SIZE</code> or
     <code class="constant">GL_BUFFER_USAGE</code></p>
       </div>
       <div class="refsect1" id="versions">
@@ -538,7 +538,7 @@
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
-        <p><a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>, <a class="citerefentry" href="glBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>, <a class="citerefentry" href="glMapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>, <a class="citerefentry" href="glUnmapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a></p>
+        <p><a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>, <a class="citerefentry" href="glBufferSubData"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>, <a class="citerefentry" href="glMapBuffer"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>, <a class="citerefentry" href="glUnmapBuffer"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a></p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>

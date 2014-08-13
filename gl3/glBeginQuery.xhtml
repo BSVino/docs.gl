@@ -1,6 +1,6 @@
 <div class="refentry" lang="en" xml:lang="en"><a id="glBeginQuery"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBeginQuery — delimit the boundaries of a query object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">void <b class="fsfunc">glBeginQuery</b>(</code>GLenum <var class="pdparam">target</var>, GLuint <var class="pdparam">id</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target type of query object established between
-                    <code class="function">glBeginQuery</code> and the subsequent <a href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>.
+                    <code class="function">glBeginQuery</code> and the subsequent <a href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>.
                     The symbolic constant must be one of <code class="constant">GL_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED</code>,
                     <code class="constant">GL_PRIMITIVES_GENERATED</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, or
                     <code class="constant">GL_TIME_ELAPSED</code>.
@@ -12,9 +12,9 @@
                     <code class="constant">GL_PRIMITIVES_GENERATED</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, or
                     <code class="constant">GL_TIME_ELAPSED</code>.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glBeginQuery</code> and <a href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> delimit the
+            <code class="function">glBeginQuery</code> and <a href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> delimit the
             boundaries of a query object.  <em class="parameter"><code>query</code></em> must be a name previously returned from a call to
-            <a href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>. If a query object with name <em class="parameter"><code>id</code></em>
+            <a href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>. If a query object with name <em class="parameter"><code>id</code></em>
             does not yet exist it is created with the type determined by <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must
             be one of <code class="constant">GL_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <code class="constant">GL_PRIMITIVES_GENERATED</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, or <code class="constant">GL_TIME_ELAPSED</code>. The behavior of the query
@@ -29,7 +29,7 @@
             discression may instead increase the samples-passed count by the value of <code class="constant">GL_SAMPLES</code> if any sample in the fragment
             is covered. When <code class="function">glEndQuery</code>
             is executed, the samples-passed counter is assigned to the query object's result value.  This value can be queried by
-            calling <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
+            calling <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <em class="parameter"><code>id</code></em> must be an unused name,
@@ -37,7 +37,7 @@
             When <code class="function">glBeginQuery</code> is executed, the query object's samples-passed flag is reset to <code class="constant">GL_FALSE</code>.
             Subsequent rendering causes the flag to be set to <code class="constant">GL_TRUE</code> if any sample passes the depth test.  When
             <code class="function">glEndQuery</code> is executed, the samples-passed flag is assigned to the query object's result value.  This value can
-            be queried by calling <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
+            be queried by calling <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PRIMITIVES_GENERATED</code>, <em class="parameter"><code>id</code></em> must be an unused
@@ -45,7 +45,7 @@
             When <code class="function">glBeginQuery</code> is executed, the query object's primitives-generated counter is reset to 0.  Subsequent
             rendering will increment the counter once for every vertex that is emitted from the geometry shader, or from the vertex shader if
             no geometry shader is present.  When <code class="function">glEndQuery</code> is executed, the primitives-generated counter is assigned to
-            the query object's result value.  This value can be queried by calling <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
+            the query object's result value.  This value can be queried by calling <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, <em class="parameter"><code>id</code></em> must be
@@ -54,14 +54,14 @@
             rendering will increment the counter once for every vertex that is written into the bound transform feedback buffer(s).  If transform feedback
             mode is not activated between the call to <code class="function">glBeginQuery</code> and <code class="function">glEndQuery</code>, the counter will not be
             incremented.  When <code class="function">glEndQuery</code> is executed, the primitives-written counter is assigned to
-            the query object's result value.  This value can be queried by calling <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
+            the query object's result value.  This value can be queried by calling <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TIME_ELAPSED</code>, <em class="parameter"><code>id</code></em> must be
             an unused name, or the name of an existing timer query object previously bound to the <code class="constant">GL_TIME_ELAPSED</code>
             query binding. When <code class="function">glBeginQuery</code> is executed, the query object's time counter is reset to 0.  When <code class="function">glEndQuery</code>
             is executed, the elapsed server time that has passed since the call to <code class="function">glBeginQuery</code> is written into the query object's
-            time counter.  This value can be queried by calling <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
+            time counter.  This value can be queried by calling <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a> with <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             Querying the <code class="constant">GL_QUERY_RESULT</code> implicitly flushes the GL pipeline until the rendering delimited by the
@@ -69,7 +69,7 @@
             determine if the result is immediately available or if the rendering is not yet complete.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             If the query target's count exceeds the maximum value representable in the number of available bits, as reported by
-            <a href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a> with <em class="parameter"><code>target</code></em> set to the
+            <a href="glGetQueryiv"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a> with <em class="parameter"><code>target</code></em> set to the
             appropriate query target and <em class="parameter"><code>pname</code></em>
             <code class="constant">GL_QUERY_COUNTER_BITS</code>, the count becomes undefined.
         </p><p>
@@ -89,7 +89,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBeginQuery</code> is executed while
             a query object of the same <em class="parameter"><code>target</code></em> is already active.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <a href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <a href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>
             is executed when a query object of the same <em class="parameter"><code>target</code></em> is not active.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is 0.
@@ -99,11 +99,11 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> refers to an existing query object whose type
             does not does not match <em class="parameter"><code>target</code></em>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
-            <a href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
-            <a href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
-            <a href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
-            <a href="glIsQuery.xml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
+            <a href="glDeleteQueries"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a href="glGetQueryiv"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
+            <a href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
+            <a href="glIsQuery"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
             This material may be distributed subject to the terms and conditions set forth in 

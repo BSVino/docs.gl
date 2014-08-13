@@ -56,7 +56,7 @@
     without errors and is ready for use, and
     <code class="constant">GL_FALSE</code> otherwise. It can be queried by
     calling
-    <a class="citerefentry" href="glGetProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+    <a class="citerefentry" href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
     with arguments <em class="parameter"><code>program</code></em> and
     <code class="constant">GL_LINK_STATUS</code>.</p>
         <p>As a result of a successful link operation, all active
@@ -64,7 +64,7 @@
     <em class="parameter"><code>program</code></em> will be initialized to 0, and
     each of the program object's active uniform variables will be
     assigned a location that can be queried by calling
-    <a class="citerefentry" href="glGetUniformLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
+    <a class="citerefentry" href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
     Also, any active user-defined attribute variables that have not
     been bound to a generic vertex attribute index will be bound to
     one at this time.</p>
@@ -154,16 +154,16 @@
         multiple contiguous locations.</p>
             </li>
             <li class="listitem">
-              <p>The <em class="parameter"><code>count</code></em> specified by <a class="citerefentry" href="glTransformFeedbackVaryings.xhtml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+              <p>The <em class="parameter"><code>count</code></em> specified by <a class="citerefentry" href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         is non-zero, but the program object has no vertex or geometry shader.</p>
             </li>
             <li class="listitem">
-              <p>Any variable name specified to <a class="citerefentry" href="glTransformFeedbackVaryings.xhtml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+              <p>Any variable name specified to <a class="citerefentry" href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         in the <em class="parameter"><code>varyings</code></em> array is not declared as an output in the vertex shader (or the geometry shader, if active).</p>
             </li>
             <li class="listitem">
               <p>Any two entries in the <em class="parameter"><code>varyings</code></em> array given
-        <a class="citerefentry" href="glTransformFeedbackVaryings.xhtml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
+        <a class="citerefentry" href="glTransformFeedbackVaryings"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         specify the same varying variable.</p>
             </li>
             <li class="listitem">
@@ -175,17 +175,17 @@
         </div>
         <p>When a program object has been successfully linked, the
     program object can be made part of current state by calling
-    <a class="citerefentry" href="glUseProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
+    <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
     Whether or not the link operation was successful, the program
     object's information log will be overwritten. The information
     log can be retrieved by calling
-    <a class="citerefentry" href="glGetProgramInfoLog.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>.</p>
+    <a class="citerefentry" href="glGetProgramInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>.</p>
         <p><code class="function">glLinkProgram</code> will also install the
     generated executables as part of the current rendering state if
     the link operation was successful and the specified program
     object is already currently in use as a result of a previous
     call to
-    <a class="citerefentry" href="glUseProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
+    <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
     If the program object currently in use is relinked
     unsuccessfully, its link status will be set to
     <code class="constant">GL_FALSE</code> , but the executables and
@@ -214,8 +214,8 @@
         <p>If the link operation is unsuccessful, any information about a previous link operation on <em class="parameter"><code>program</code></em>
     is lost (i.e., a failed link does not restore the old state of <em class="parameter"><code>program</code></em>
     ). Certain information can still be retrieved from <em class="parameter"><code>program</code></em>
-    even after an unsuccessful link operation. See for instance <a class="citerefentry" href="glGetActiveAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
-    and <a class="citerefentry" href="glGetActiveUniform.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>.</p>
+    even after an unsuccessful link operation. See for instance <a class="citerefentry" href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+    and <a class="citerefentry" href="glGetActiveUniform"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>.</p>
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
@@ -231,32 +231,32 @@
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
-        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        <p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
     with the argument <code class="constant">GL_CURRENT_PROGRAM</code></p>
-        <p><a class="citerefentry" href="glGetActiveAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+        <p><a class="citerefentry" href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
     and the index of an active attribute variable</p>
-        <p><a class="citerefentry" href="glGetActiveUniform.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>
+        <p><a class="citerefentry" href="glGetActiveUniform"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
     and the index of an active uniform variable<em class="parameter"><code/></em></p>
-        <p><a class="citerefentry" href="glGetAttachedShaders.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
+        <p><a class="citerefentry" href="glGetAttachedShaders"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>
     with argument <em class="parameter"><code>program</code></em></p>
-        <p><a class="citerefentry" href="glGetAttribLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
+        <p><a class="citerefentry" href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
     and an attribute variable name</p>
-        <p><a class="citerefentry" href="glGetProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+        <p><a class="citerefentry" href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
     with arguments <em class="parameter"><code>program</code></em>
     and <code class="constant">GL_LINK_STATUS</code></p>
-        <p><a class="citerefentry" href="glGetProgramInfoLog.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>
+        <p><a class="citerefentry" href="glGetProgramInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>
     with argument <em class="parameter"><code>program</code></em></p>
-        <p><a class="citerefentry" href="glGetUniform.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>
+        <p><a class="citerefentry" href="glGetUniform"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
     and a uniform variable location</p>
-        <p><a class="citerefentry" href="glGetUniformLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>
+        <p><a class="citerefentry" href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>
     with argument <em class="parameter"><code>program</code></em>
     and a uniform variable name</p>
         <p>
-          <a class="citerefentry" href="glIsProgram.xhtml">
+          <a class="citerefentry" href="glIsProgram">
             <span class="citerefentry">
               <span class="refentrytitle">glIsProgram</span>
             </span>
@@ -357,15 +357,15 @@
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
-        <p><a class="citerefentry" href="glAttachShader.xhtml"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
-    <a class="citerefentry" href="glBindAttribLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
-    <a class="citerefentry" href="glCompileShader.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
-    <a class="citerefentry" href="glCreateProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glCreateProgram</span></span></a>,
-    <a class="citerefentry" href="glDeleteProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteProgram</span></span></a>,
-    <a class="citerefentry" href="glDetachShader.xhtml"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
-    <a class="citerefentry" href="glUniform.xhtml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
-    <a class="citerefentry" href="glUseProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
-    <a class="citerefentry" href="glValidateProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glValidateProgram</span></span></a></p>
+        <p><a class="citerefentry" href="glAttachShader"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+    <a class="citerefentry" href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+    <a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+    <a class="citerefentry" href="glCreateProgram"><span class="citerefentry"><span class="refentrytitle">glCreateProgram</span></span></a>,
+    <a class="citerefentry" href="glDeleteProgram"><span class="citerefentry"><span class="refentrytitle">glDeleteProgram</span></span></a>,
+    <a class="citerefentry" href="glDetachShader"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
+    <a class="citerefentry" href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
+    <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
+    <a class="citerefentry" href="glValidateProgram"><span class="citerefentry"><span class="refentrytitle">glValidateProgram</span></span></a></p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>

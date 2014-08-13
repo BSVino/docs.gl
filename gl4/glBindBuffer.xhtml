@@ -183,7 +183,7 @@
             explicitly enable sharing between contexts through the appropriate GL windows interfaces functions.
         </p>
         <p>
-            <a class="citerefentry" href="glGenBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> must be used to generate a set of unused buffer object names.
+            <a class="citerefentry" href="glGenBuffers"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> must be used to generate a set of unused buffer object names.
         </p>
         <p>
             The state of a buffer object immediately after it is first bound is an unmapped zero-sized memory buffer with
@@ -203,80 +203,80 @@
         </p>
         <p>
             When a non-zero buffer object is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> target,
-            parameters for draws issued through <a class="citerefentry" href="glDrawArraysIndirect.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>
-            and <a class="citerefentry" href="glDrawElementsIndirect.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsIndirect</span></span></a> are sourced
+            parameters for draws issued through <a class="citerefentry" href="glDrawArraysIndirect"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>
+            and <a class="citerefentry" href="glDrawElementsIndirect"><span class="citerefentry"><span class="refentrytitle">glDrawElementsIndirect</span></span></a> are sourced
             from the specified offset in that buffer object's data store.
         </p>
         <p>
             When a non-zero buffer object is bound to the <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> target,
-            the parameters for compute dispatches issued through <a class="citerefentry" href="glDispatchComputeIndirect.xhtml"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>
+            the parameters for compute dispatches issued through <a class="citerefentry" href="glDispatchComputeIndirect"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>
             are sourced from the specified offset in that buffer object's data store.
         </p>
         <p>
             While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target,
-            the indices parameter of <a class="citerefentry" href="glDrawElements.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
-            <a class="citerefentry" href="glDrawElementsInstanced.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
-            <a class="citerefentry" href="glDrawElementsBaseVertex.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>,
-            <a class="citerefentry" href="glDrawRangeElements.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
-            <a class="citerefentry" href="glDrawRangeElementsBaseVertex.xhtml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElementsBaseVertex</span></span></a>,
-            <a class="citerefentry" href="glMultiDrawElements.xhtml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>, or
-            <a class="citerefentry" href="glMultiDrawElementsBaseVertex.xhtml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsBaseVertex</span></span></a> is interpreted as an
+            the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawElementsInstanced"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
+            <a class="citerefentry" href="glDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElementsBaseVertex</span></span></a>,
+            <a class="citerefentry" href="glMultiDrawElements"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>, or
+            <a class="citerefentry" href="glMultiDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsBaseVertex</span></span></a> is interpreted as an
             offset within the buffer object measured in basic machine units.
         </p>
         <p>
             While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target,
-            the following commands are affected: <a class="citerefentry" href="glGetCompressedTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>,
-            <a class="citerefentry" href="glGetTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, and
-            <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>. The pointer parameter is
+            the following commands are affected: <a class="citerefentry" href="glGetCompressedTexImage"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>,
+            <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, and
+            <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>. The pointer parameter is
             interpreted as an offset within the buffer object measured in basic machine units.
         </p>
         <p>
             While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target,
             the following commands are affected:
-            <a class="citerefentry" href="glCompressedTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and
-            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is
+            <a class="citerefentry" href="glCompressedTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is
             interpreted as an offset within the buffer object measured in basic machine units.
         </p>
         <p>
             The buffer targets <code class="constant">GL_COPY_READ_BUFFER</code> and <code class="constant">GL_COPY_WRITE_BUFFER</code>
-            are provided to allow <a class="citerefentry" href="glCopyBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a>
-            to be used without disturbing the state of other bindings. However, <a class="citerefentry" href="glCopyBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a>
+            are provided to allow <a class="citerefentry" href="glCopyBufferSubData"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a>
+            to be used without disturbing the state of other bindings. However, <a class="citerefentry" href="glCopyBufferSubData"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a>
             may be used with any pair of buffer binding points.
         </p>
         <p>
             The <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> buffer binding point may be passed to <code class="function">glBindBuffer</code>,
             but will not directly affect transform feedback state. Instead, the indexed <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
-            bindings must be used through a call to <a class="citerefentry" href="glBindBufferBase.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
-            or <a class="citerefentry" href="glBindBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>. This will affect the generic
+            bindings must be used through a call to <a class="citerefentry" href="glBindBufferBase"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
+            or <a class="citerefentry" href="glBindBufferRange"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>. This will affect the generic
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> binding.
         </p>
         <p>
             Likewise, the <code class="constant">GL_UNIFORM_BUFFER</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code>
             buffer binding points may
             be used, but do not directly affect uniform buffer, atomic counter buffer or shader storage buffer state, respectively.
-            <a class="citerefentry" href="glBindBufferBase.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
-            or <a class="citerefentry" href="glBindBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a> must be used to bind a buffer to
+            <a class="citerefentry" href="glBindBufferBase"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
+            or <a class="citerefentry" href="glBindBufferRange"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a> must be used to bind a buffer to
             an indexed uniform buffer, atomic counter buffer or shader storage buffer binding point.
         </p>
         <p>
             The <code class="constant">GL_QUERY_BUFFER</code> binding point is used to specify a buffer object that is to
-            receive the results of query objects through calls to the <a class="citerefentry" href="glGetQueryObject.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>
+            receive the results of query objects through calls to the <a class="citerefentry" href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>
             family of commands.
         </p>
         <p>
             A buffer object binding created with <code class="function">glBindBuffer</code> remains active until a different
             buffer object name is bound to the same target, or until the bound buffer object is
-            deleted with <a class="citerefentry" href="glDeleteBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>.
+            deleted with <a class="citerefentry" href="glDeleteBuffers"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>.
         </p>
         <p>
             Once created, a named buffer object may be re-bound to any target as often as needed. However,
@@ -308,46 +308,46 @@
         </p>
         <p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>buffer</code></em> is not a name previously returned
-            from a call to <a class="citerefentry" href="glGenBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>.
+            from a call to <a class="citerefentry" href="glGenBuffers"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>.
         </p>
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ATOMIC_COUNTER_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ATOMIC_COUNTER_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_READ_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_READ_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_WRITE_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_WRITE_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DRAW_INDIRECT_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DRAW_INDIRECT_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DISPATCH_INDIRECT_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DISPATCH_INDIRECT_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SHADER_STORAGE_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SHADER_STORAGE_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNIFORM_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNIFORM_BUFFER_BINDING</code>
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -445,14 +445,14 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="glGenBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
-            <a class="citerefentry" href="glBindBufferBase.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>,
-            <a class="citerefentry" href="glBindBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>,
-            <a class="citerefentry" href="glMapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
-            <a class="citerefentry" href="glUnmapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
-            <a class="citerefentry" href="glDeleteBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glIsBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
+            <a class="citerefentry" href="glGenBuffers"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
+            <a class="citerefentry" href="glBindBufferBase"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>,
+            <a class="citerefentry" href="glBindBufferRange"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>,
+            <a class="citerefentry" href="glMapBuffer"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
+            <a class="citerefentry" href="glDeleteBuffers"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glIsBuffer"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

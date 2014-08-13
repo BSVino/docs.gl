@@ -76,26 +76,26 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetTexImage</code> returns a texture image into <em class="parameter"><code>img</code></em>.
             <em class="parameter"><code>target</code></em> specifies whether the desired texture image is one specified by
-            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> (<code class="constant">GL_TEXTURE_1D</code>),
-            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> (<code class="constant">GL_TEXTURE_1D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
+            <a href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> (<code class="constant">GL_TEXTURE_1D</code>),
+            <a href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> (<code class="constant">GL_TEXTURE_1D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
             <code class="constant">GL_TEXTURE_2D</code> or any of
             <code class="constant">GL_TEXTURE_CUBE_MAP_*</code>),
             or
-            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> (<code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+            <a href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> (<code class="constant">GL_TEXTURE_2D_ARRAY</code>,
             <code class="constant">GL_TEXTURE_3D</code>).
             <em class="parameter"><code>level</code></em> specifies the level-of-detail number of the desired image.
             <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> specify the format and type of the desired image array.
-            See the reference page for <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>
+            See the reference page for <a href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>
             for a description of the acceptable values for the <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em>
             parameters, respectively.
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
-            (see <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            (see <a href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             requested, <em class="parameter"><code>img</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             To understand the operation of <code class="function">glGetTexImage</code>, consider the selected internal
             four-component texture image to be an RGBA color buffer the size of the image.
-            The semantics of <code class="function">glGetTexImage</code> are then identical to those of <a href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            The semantics of <code class="function">glGetTexImage</code> are then identical to those of <a href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
             with the exception that no pixel transfer operations are performed,
             when called with the same <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em>,
             with <span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span> set to 0,
@@ -121,7 +121,7 @@
             and alpha set to 1.
         </p><p>
             To determine the required size of <em class="parameter"><code>img</code></em>,
-            use <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> to determine the dimensions of the
+            use <a href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> to determine the dimensions of the
             internal texture image,
             then scale the required number of pixels by the storage required for
             each pixel,
@@ -187,25 +187,25 @@
             <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>img</code></em> is not evenly divisible 
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_WIDTH</code>
+            <a href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_WIDTH</code>
         </p><p>
-            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_HEIGHT</code>
+            <a href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_HEIGHT</code>
         </p><p>
-            <a href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+            <a href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
         </p><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_PACK_ALIGNMENT</code> and others
+            <a href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_PACK_ALIGNMENT</code> and others
         </p><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+            <a href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-            <a href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
-            <a href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
-            <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
-            <a href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
-            <a href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
-            <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010

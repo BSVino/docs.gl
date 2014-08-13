@@ -98,7 +98,7 @@
             and the other targets for the second case.
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
-            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a color table is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a color table is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_COLOR_TABLE</code>,
@@ -108,7 +108,7 @@
             <code class="function">glColorTable</code> builds a color lookup table from an array of pixels.
             The pixel array specified by <em class="parameter"><code>width</code></em>, <em class="parameter"><code>format</code></em>, <em class="parameter"><code>type</code></em>, and <em class="parameter"><code>data</code></em>
             is extracted from memory and
-            processed just as if <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> were called, but processing
+            processed just as if <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> were called, but processing
             stops after the final expansion to RGBA is completed.
         </p><p>
             The four scale parameters and the four bias parameters that are defined
@@ -245,7 +245,7 @@
             and the proxy state variables are set as if that target were being defined.
         </p><p>
             The proxy state variables can be retrieved by calling
-            <a class="citerefentry" href="glGetColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a> with a target of
+            <a class="citerefentry" href="glGetColorTableParameter"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a> with a target of
             <code class="constant">GL_PROXY_*</code>.
             This allows the application to decide if a particular <code class="function">glColorTable</code>
             command would succeed, and to determine what the resulting color table
@@ -404,7 +404,7 @@
             used by the histogram operation.
         </p><p>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
-            <code class="function">glColorTable</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            <code class="function">glColorTable</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
             is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is set to <code class="constant">GL_COLOR_TABLE</code>,
@@ -444,18 +444,18 @@
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glColorTable</code> is executed
-            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
-            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGetColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a>
+            <a class="citerefentry" href="glGetColorTableParameter"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
             <code class="function">glColorTableParameter</code>,
-            <a class="citerefentry" href="glCopyColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glCopyColorTable</span></span></a>,
-            <a class="citerefentry" href="glCopyColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glCopyColorSubTable</span></span></a>,
-            <a class="citerefentry" href="glGetColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTable</span></span></a>
+            <a class="citerefentry" href="glCopyColorTable"><span class="citerefentry"><span class="refentrytitle">glCopyColorTable</span></span></a>,
+            <a class="citerefentry" href="glCopyColorSubTable"><span class="citerefentry"><span class="refentrytitle">glCopyColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glGetColorTable"><span class="citerefentry"><span class="refentrytitle">glGetColorTable</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

@@ -172,7 +172,7 @@
             <code class="function">glCompressedTexImage2D</code> loads a previously defined, and retrieved, compressed two-dimensional
             texture image if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D</code>, or one of the
             cube map faces such as <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>.
-            (see <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>).
+            (see <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>).
         </p>
         <p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D_ARRAY</code>, <em class="parameter"><code>data</code></em>
@@ -185,27 +185,27 @@
             and checked against the implementation's capabilities.  If the
             implementation cannot handle a texture of the requested texture size, it
             sets all of the image state to 0, but does not generate an error (see
-            <a class="citerefentry" href="glGetError.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>). To query for an entire mipmap array,
+            <a class="citerefentry" href="glGetError"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>). To query for an entire mipmap array,
             use an image array level greater than or equal to 1.
         </p>
         <p>
             <em class="parameter"><code>internalformat</code></em> must be a known compressed image format (such as <code class="constant">GL_RGTC</code>)
             or an extension-specified compressed-texture format.
-            When a texture is loaded with <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> using a generic compressed
+            When a texture is loaded with <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> using a generic compressed
             texture format (e.g., <code class="constant">GL_COMPRESSED_RGB</code>), the GL selects from one of
             its extensions supporting compressed textures.  In order to load the
             compressed texture image using <code class="function">glCompressedTexImage2D</code>, query the compressed texture image's
-            size and format using <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
+            size and format using <a class="citerefentry" href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
         </p>
         <p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
-            (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p>
         <p>
             If the compressed data are arranged into fixed-size blocks of texels, the pixel
             storage modes can be used to select a sub-rectangle from a larger containing rectangle.
-            These pixel storage modes operate in the same way as they do for <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
+            These pixel storage modes operate in the same way as they do for <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
             In the following description, denote by
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>,
@@ -366,16 +366,16 @@
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-            <a class="citerefentry" href="glGetCompressedTexImage.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>
+            <a class="citerefentry" href="glGetCompressedTexImage"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COMPRESSED</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p>
         <p>
-            <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with arguments <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+            <a class="citerefentry" href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with arguments <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
             and <code class="constant">GL_TEXTURE_COMPRESSED_IMAGE_SIZE</code>
         </p>
       </div>
@@ -474,23 +474,23 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

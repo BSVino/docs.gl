@@ -6,28 +6,28 @@
             <code class="function">glQueryCounter</code> causes the GL to record the current time into the query object named <em class="parameter"><code>id</code></em>.
             <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TIMESTAMP</code>. The time is recorded after all previous commands on the
             GL client and server state and the framebuffer have been fully realized. When the time is recorded, the query result for that object
-            is marked available. <code class="function">glQueryCounter</code> timer queries can be used within a <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
-            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block where the target is <code class="constant">GL_TIME_ELAPSED</code> and it does
+            is marked available. <code class="function">glQueryCounter</code> timer queries can be used within a <a class="citerefentry" href="glBeginQuery"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
+            <a class="citerefentry" href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block where the target is <code class="constant">GL_TIME_ELAPSED</code> and it does
             not affect the result of that query object.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glQueryCounter</code> is available only if the GL version is 3.3 or higher.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name
-            of a query object that is already in use within a <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
-            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block.
+            of a query object that is already in use within a <a class="citerefentry" href="glBeginQuery"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
+            <a class="citerefentry" href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>id</code></em> is not the name of a query object returned
-            from a previous call to <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
+            from a previous call to <a class="citerefentry" href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
         </p><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TIMESTAMP</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
-            <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
-            <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
-            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
-            <a class="citerefentry" href="glGetQueryObject.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
-            <a class="citerefentry" href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            <a class="citerefentry" href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a class="citerefentry" href="glBeginQuery"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
+            <a class="citerefentry" href="glEndQuery"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
+            <a class="citerefentry" href="glDeleteQueries"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a class="citerefentry" href="glGetQueryObject"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
+            <a class="citerefentry" href="glGetQueryiv"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2010 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 

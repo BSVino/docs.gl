@@ -91,17 +91,17 @@
         </p><p>
             The pixel array specified by <em class="parameter"><code>width</code></em>, <em class="parameter"><code>height</code></em>, <em class="parameter"><code>format</code></em>, <em class="parameter"><code>type</code></em>, and
             <em class="parameter"><code>data</code></em> is extracted from memory and processed just as if
-            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> were called, but processing stops after the final
+            <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> were called, but processing stops after the final
             expansion to RGBA is completed.
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
-            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a convolution filter is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a convolution filter is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             The R, G, B, and A components of each pixel are next scaled by the four
             2D <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> parameters and biased by the
             four 2D <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code> parameters.
-            (The scale and bias parameters are set by <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>
+            (The scale and bias parameters are set by <a class="citerefentry" href="glConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>
             using the <code class="constant">GL_CONVOLUTION_2D</code> target and the names
             <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> and <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>.
             The parameters themselves are vectors of four values that are applied to red,
@@ -210,9 +210,9 @@
             corresponding <code class="constant">GL_POST_CONVOLUTION_c_BIAS</code> parameters (where
             <span class="emphasis"><em>c</em></span> takes on the values <span class="bold"><strong>RED</strong></span>, <span class="bold"><strong>GREEN</strong></span>, <span class="bold"><strong>BLUE</strong></span>, and
             <span class="bold"><strong>ALPHA</strong></span>).
-            These parameters are set by <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
+            These parameters are set by <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
-            <code class="function">glConvolutionFilter2D</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            <code class="function">glConvolutionFilter2D</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
             is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
@@ -229,13 +229,13 @@
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than zero or greater
             than the maximum supported value.
-            This value may be queried with <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
+            This value may be queried with <a class="citerefentry" href="glGetConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
             using target <code class="constant">GL_CONVOLUTION_2D</code> and name
             <code class="constant">GL_MAX_CONVOLUTION_WIDTH</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>height</code></em> is less than zero or greater
             than the maximum supported value.
-            This value may be queried with <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
+            This value may be queried with <a class="citerefentry" href="glGetConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
             using target <code class="constant">GL_CONVOLUTION_2D</code> and name
             <code class="constant">GL_MAX_CONVOLUTION_HEIGHT</code>.
         </p><p>
@@ -269,15 +269,15 @@
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glConvolutionFilter2D</code> is executed
-            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
-            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>, <a class="citerefentry" href="glGetConvolutionFilter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionFilter</span></span></a>
+            <a class="citerefentry" href="glGetConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>, <a class="citerefentry" href="glGetConvolutionFilter"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionFilter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
-            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
-            <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+            <a class="citerefentry" href="glConvolutionFilter1D"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glSeparableFilter2D"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

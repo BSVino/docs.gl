@@ -5,7 +5,7 @@
             <code class="function">glPointSize</code> specifies the rasterized diameter of both aliased and antialiased
             points.  Using a point size other than 1 has different effects, depending
             on whether point antialiasing is enabled.  To enable and disable point
-            antialiasing, call <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
+            antialiasing, call <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
             <code class="constant">GL_POINT_SMOOTH</code>. Point antialiasing is initially disabled.
         </p><p>
             The specified point size is multiplied with a distance attenuation factor
@@ -69,14 +69,14 @@
             and 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
             are the distance attenuation coefficients (see
-            <a class="citerefentry" href="glPointParameter.xml"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>).
+            <a class="citerefentry" href="glPointParameter"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>).
         </p><p>
             If multisampling is disabled, the computed point size is used as the
             point's width.
         </p><p>
             If multisampling is enabled, the point may be faded by modifying the point
-            alpha value (see <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>) instead of allowing the point width
-            to go below a given threshold (see <a class="citerefentry" href="glPointParameter.xml"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>).  In this case,
+            alpha value (see <a class="citerefentry" href="glSampleCoverage"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>) instead of allowing the point width
+            to go below a given threshold (see <a class="citerefentry" href="glPointParameter"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>).  In this case,
             the width is further modified in the following manner:
         </p><p>
             </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -269,10 +269,10 @@
             unsupported size is requested, the nearest supported size is used.  Only
             size 1 is guaranteed to be supported; others depend on the implementation.
             To query the range of supported sizes and the size difference between
-            supported sizes within the range, call <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments
+            supported sizes within the range, call <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments
             <code class="constant">GL_SMOOTH_POINT_SIZE_RANGE</code> and <code class="constant">GL_SMOOTH_POINT_SIZE_GRANULARITY</code>.
             For aliased points, query the supported ranges and granularity with
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_ALIASED_POINT_SIZE_RANGE</code>.
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_ALIASED_POINT_SIZE_RANGE</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             The point size specified by <code class="function">glPointSize</code> is always returned when
             <code class="constant">GL_POINT_SIZE</code> is queried.  Clamping and rounding for aliased and
@@ -291,29 +291,29 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>size</code></em> is less than or equal to 0.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPointSize</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALIASED_POINT_SIZE_RANGE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALIASED_POINT_SIZE_RANGE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE_MIN</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE_MIN</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE_MAX</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_SIZE_MAX</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_FADE_THRESHOLD_SIZE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_FADE_THRESHOLD_SIZE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_DISTANCE_ATTENUATION</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POINT_DISTANCE_ATTENUATION</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SMOOTH_POINT_SIZE_RANGE</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SMOOTH_POINT_SIZE_RANGE</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SMOOTH_POINT_SIZE_GRANULARITY</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SMOOTH_POINT_SIZE_GRANULARITY</code>
         </p><p>
-            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_POINT_SMOOTH</code>
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_POINT_SMOOTH</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
-            <a class="citerefentry" href="glPointParameter.xml"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>
+            <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glPointParameter"><span class="citerefentry"><span class="refentrytitle">glPointParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

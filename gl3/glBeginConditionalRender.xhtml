@@ -4,13 +4,13 @@
                     Specifies how <code class="function">glBeginConditionalRender</code> interprets the results of the occlusion query.
                 </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glEndConditionalRender</strong>(</code></td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             Conditional rendering is started using <code class="function">glBeginConditionalRender</code> and ended using <code class="function">glEndConditionalRender</code>.
-            During conditional rendering, all vertex array commands, as well as <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
-            <a class="citerefentry" href="glClearBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a> have no effect if the (<code class="constant">GL_SAMPLES_PASSED</code>) result
+            During conditional rendering, all vertex array commands, as well as <a class="citerefentry" href="glClear"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
+            <a class="citerefentry" href="glClearBuffer"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a> have no effect if the (<code class="constant">GL_SAMPLES_PASSED</code>) result
             of the query object <em class="parameter"><code>id</code></em> is zero, or if the (<code class="constant">GL_ANY_SAMPLES_PASSED</code>) result is <code class="constant">GL_FALSE</code>.
-            The results of commands setting the current vertex state, such as <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a> are
+            The results of commands setting the current vertex state, such as <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a> are
             undefined. If the (<code class="constant">GL_SAMPLES_PASSED</code>) result is non-zero or if the (<code class="constant">GL_ANY_SAMPLES_PASSED</code>) result is
             <code class="constant">GL_TRUE</code>, such commands are not discarded. The <em class="parameter"><code>id</code></em> parameter to <code class="function">glBeginConditionalRender</code>
-            must be the name of a query object previously returned from a call to <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
+            must be the name of a query object previously returned from a call to <a class="citerefentry" href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>.
             <em class="parameter"><code>mode</code></em> specifies how the results of the query object are to be interpreted. If <em class="parameter"><code>mode</code></em> is
             <code class="constant">GL_QUERY_WAIT</code>, the GL waits for the results of the query to be available and then uses the results to determine if subsequent
             rendering commands are discarded. If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_QUERY_NO_WAIT</code>, the GL may choose to unconditionally
@@ -40,9 +40,9 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a query currently in progress.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
-            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
-            <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>
+            <a class="citerefentry" href="glGenQueries"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a class="citerefentry" href="glDeleteQueries"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a class="citerefentry" href="glBeginQuery"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2009 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 

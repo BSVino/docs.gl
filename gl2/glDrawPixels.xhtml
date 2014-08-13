@@ -47,19 +47,19 @@
             <code class="function">glDrawPixels</code> reads pixel data from memory and writes it into the frame buffer
             relative to the current raster position, provided that the raster
             position is valid.  Use
-            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a> or <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a> to set the current raster position; use
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+            <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a> or <a class="citerefentry" href="glWindowPos"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a> to set the current raster position; use
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
             to determine if the specified raster position is valid, and
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
             to query the raster position.
         </p><p>
             Several parameters define the encoding of pixel data in memory
             and control the processing of the pixel data
             before it is placed in the frame buffer.
             These parameters are set with four commands:
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
-            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>, and <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>.
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>, and <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>.
             This reference page describes the effects on <code class="function">glDrawPixels</code> of many,
             but not all, of the parameters specified by these four commands.
         </p><p>
@@ -89,7 +89,7 @@
             If <em class="parameter"><code>type</code></em> is <code class="constant">GL_BITMAP</code>, the data must be unsigned bytes, and
             <em class="parameter"><code>format</code></em> must be either <code class="constant">GL_COLOR_INDEX</code> or <code class="constant">GL_STENCIL_INDEX</code>.
             Each unsigned byte is treated as eight 1-bit pixels, with bit ordering
-            determined by <code class="constant">GL_UNPACK_LSB_FIRST</code> (see <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
+            determined by <code class="constant">GL_UNPACK_LSB_FIRST</code> (see <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
         </p><p>
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
@@ -104,16 +104,16 @@
             By default, these pixels are taken from adjacent memory locations,
             except that after all <em class="parameter"><code>width</code></em> pixels are read,
             the read pointer is advanced to the next four-byte boundary.
-            The four-byte row alignment is specified by <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> with
+            The four-byte row alignment is specified by <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> with
             argument <code class="constant">GL_UNPACK_ALIGNMENT</code>,
             and it can be set to one, two, four, or eight bytes.
             Other pixel store parameters specify different read pointer advancements,
             both before the first pixel is read
             and after all <em class="parameter"><code>width</code></em> pixels are read.
-            See the <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> reference page for details on these options.
+            See the <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> reference page for details on these options.
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
-            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             The 
@@ -127,8 +127,8 @@
             </mml:math>
             pixels that are read from memory are
             each operated on in the same way,
-            based on the values of several parameters specified by <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
-            and <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+            based on the values of several parameters specified by <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+            and <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
             The details of these operations,
             as well as the target buffer into which the pixels are drawn,
             are specific to the format of the pixels,
@@ -716,7 +716,7 @@
                     </p><p>
             The rasterization described so far assumes pixel zoom factors of 1.
             If
-            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a> is used to change the 
+            <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a> is used to change the 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
             and 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
@@ -913,29 +913,29 @@
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glDrawPixels</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glAlphaFunc.xml"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>,
-            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
-            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
-            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
-            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
-            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>,
-            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
-            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
-            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
-            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
-            <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a>
+            <a class="citerefentry" href="glAlphaFunc"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>,
+            <a class="citerefentry" href="glBlendFunc"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDepthFunc"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glLogicOp"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>,
+            <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
+            <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glScissor"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glWindowPos"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

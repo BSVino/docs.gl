@@ -19,12 +19,12 @@
             Texture names are unsigned integers. The value zero is reserved to
             represent the default texture for each texture target.
             Texture names and the corresponding texture contents are local to
-            the shared display-list space (see <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>) of the current
+            the shared display-list space (see <a class="citerefentry" href="glXCreateContext"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>) of the current
             GL rendering context;
             two rendering contexts share texture names only if they
             also share display lists.
         </p><p>
-            You may use <a class="citerefentry" href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a> to generate a set of new texture names.
+            You may use <a class="citerefentry" href="glGenTextures"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a> to generate a set of new texture names.
         </p><p>
             When a texture is first bound, it assumes the specified target:
             A texture first bound to <code class="constant">GL_TEXTURE_1D</code> becomes one-dimensional texture, a
@@ -46,14 +46,14 @@
         </p><p>
             A texture binding created with <code class="function">glBindTexture</code> remains active until a different
             texture is bound to the same target, or until the bound texture is
-            deleted with <a class="citerefentry" href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>.
+            deleted with <a class="citerefentry" href="glDeleteTextures"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>.
         </p><p>
             Once created, a named texture may be re-bound to its same original target as often as needed.
             It is usually much faster to use <code class="function">glBindTexture</code> to bind an existing named
             texture to one of the texture targets than it is to reload the texture image
-            using <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, or <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>.
+            using <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, or <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>.
             For additional control over performance, use
-            <a class="citerefentry" href="glPrioritizeTextures.xml"><span class="citerefentry"><span class="refentrytitle">glPrioritizeTextures</span></span></a>.
+            <a class="citerefentry" href="glPrioritizeTextures"><span class="citerefentry"><span class="refentrytitle">glPrioritizeTextures</span></span></a>.
         </p><p>
             <code class="function">glBindTexture</code> is included in display lists.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
@@ -68,25 +68,25 @@
             that doesn't match that of <em class="parameter"><code>target</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBindTexture</code> is executed
-            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
-            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_1D</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_1D</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_2D</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_2D</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_3D</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_3D</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glAreTexturesResident.xml"><span class="citerefentry"><span class="refentrytitle">glAreTexturesResident</span></span></a>,
-            <a class="citerefentry" href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,
-            <a class="citerefentry" href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>,
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
-            <a class="citerefentry" href="glIsTexture.xml"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>,
-            <a class="citerefentry" href="glPrioritizeTextures.xml"><span class="citerefentry"><span class="refentrytitle">glPrioritizeTextures</span></span></a>,
-            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glAreTexturesResident"><span class="citerefentry"><span class="refentrytitle">glAreTexturesResident</span></span></a>,
+            <a class="citerefentry" href="glDeleteTextures"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,
+            <a class="citerefentry" href="glGenTextures"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a class="citerefentry" href="glIsTexture"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>,
+            <a class="citerefentry" href="glPrioritizeTextures"><span class="citerefentry"><span class="refentrytitle">glPrioritizeTextures</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

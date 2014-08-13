@@ -12,7 +12,7 @@
             <code class="function">glXCreatePbuffer</code> creates an off-screen rendering area and returns its XID.
             Any GLX rendering context that was created with respect to <em class="parameter"><code>config</code></em>
             can be used to render into this window.
-            Use <a class="citerefentry" href="glXMakeContextCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a> to associate the rendering area with a GLX
+            Use <a class="citerefentry" href="glXMakeContextCurrent"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a> to associate the rendering area with a GLX
             rendering context.
         </p><p>
             The accepted attributes for a GLXPbuffer are:
@@ -26,7 +26,7 @@
                         Specify to obtain the largest available pixel buffer, if the requested
                         allocation would have failed. The width and height of the allocated
                         pixel buffer will never exceed the specified <code class="constant">GLX_PBUFFER_WIDTH</code> or
-                        <code class="constant">GLX_PBUFFER_HEIGHT</code>, respectively.  Use <a class="citerefentry" href="glXQueryDrawable.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryDrawable</span></span></a> to
+                        <code class="constant">GLX_PBUFFER_HEIGHT</code>, respectively.  Use <a class="citerefentry" href="glXQueryDrawable"><span class="citerefentry"><span class="refentrytitle">glXQueryDrawable</span></span></a> to
                         retrieve the dimensions of the allocated pixel buffer. The default value is
                         <code class="constant">False</code>.
                     </p></dd><dt><span class="term"><code class="constant">GLX_PRESERVED_CONTENTS</code></span></dt><dd><p>
@@ -36,13 +36,13 @@
                         specified in <em class="parameter"><code>attrib_list</code></em>, then the contents of the pixel buffer will be preserved 
                         (most likely by copying the contents into main system memory from the
                         frame buffer).  In either case, the client can register (using
-                        <a class="citerefentry" href="glXSelectEvent.xml"><span class="citerefentry"><span class="refentrytitle">glXSelectEvent</span></span></a>, to receive
+                        <a class="citerefentry" href="glXSelectEvent"><span class="citerefentry"><span class="refentrytitle">glXSelectEvent</span></span></a>, to receive
                         pixel buffer clobber events that are generated when the pbuffer contents have
                         been preserved or damaged.
                     </p></dd></dl></div><p>
             GLXPbuffers contain the color and ancillary buffers specified by
             <em class="parameter"><code>config</code></em>.  It is possible to create a pixel buffer with back buffers and
-            to swap those buffers using <a class="citerefentry" href="glXSwapBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glXSwapBuffers</span></span></a>.
+            to swap those buffers using <a class="citerefentry" href="glXSwapBuffers"><span class="citerefentry"><span class="refentrytitle">glXSwapBuffers</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glXCreatePbuffer</code> is available only if the GLX version is 1.3 or greater.
         </p><p>
@@ -63,10 +63,10 @@
             pixel buffers (e.g., <code class="constant">GLX_DRAWABLE_TYPE</code> does not contain
             <code class="constant">GLX_PBUFFER_BIT</code>).
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glXChooseFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>,
+            <a class="citerefentry" href="glXChooseFBConfig"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>,
             <code class="function">glXCreatePbuffer</code>,
-            <a class="citerefentry" href="glXMakeContextCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a>,
-            <a class="citerefentry" href="glXSelectEvent.xml"><span class="citerefentry"><span class="refentrytitle">glXSelectEvent</span></span></a>
+            <a class="citerefentry" href="glXMakeContextCurrent"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a>,
+            <a class="citerefentry" href="glXSelectEvent"><span class="citerefentry"><span class="refentrytitle">glXSelectEvent</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

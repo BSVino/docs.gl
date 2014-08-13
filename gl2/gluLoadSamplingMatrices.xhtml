@@ -1,11 +1,11 @@
 <div class="refentry" lang="en" xml:lang="en"><a id="gluLoadSamplingMatrices"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluLoadSamplingMatrices — load NURBS sampling and culling matrices</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluLoadSamplingMatrices</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">model</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">perspective</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">view</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
-                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
+                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
                 </p></dd><dt><span class="term"><em class="parameter"><code>model</code></em></span></dt><dd><p>
-                    Specifies a modelview matrix (as from a <a class="citerefentry" href="glGetFloatv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFloatv</span></span></a> call).
+                    Specifies a modelview matrix (as from a <a class="citerefentry" href="glGetFloatv"><span class="citerefentry"><span class="refentrytitle">glGetFloatv</span></span></a> call).
                 </p></dd><dt><span class="term"><em class="parameter"><code>perspective</code></em></span></dt><dd><p>
-                    Specifies a projection matrix (as from a <a class="citerefentry" href="glGetFloatv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFloatv</span></span></a> call).
+                    Specifies a projection matrix (as from a <a class="citerefentry" href="glGetFloatv"><span class="citerefentry"><span class="refentrytitle">glGetFloatv</span></span></a> call).
                 </p></dd><dt><span class="term"><em class="parameter"><code>view</code></em></span></dt><dd><p>
-                    Specifies a viewport (as from a <a class="citerefentry" href="glGetIntegerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> call).
+                    Specifies a viewport (as from a <a class="citerefentry" href="glGetIntegerv"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> call).
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluLoadSamplingMatrices</code> uses <em class="parameter"><code>model</code></em>, <em class="parameter"><code>perspective</code></em>, and <em class="parameter"><code>view</code></em> to recompute the sampling and culling 
             matrices stored in <em class="parameter"><code>nurb</code></em>.
@@ -17,15 +17,15 @@
             rendering (when the <code class="constant">GLU_CULLING</code> property is turned on).
         </p><p>
             <code class="function">gluLoadSamplingMatrices</code> is necessary only if the <code class="constant">GLU_AUTO_LOAD_MATRIX</code> property is turned
-            off (see <a class="citerefentry" href="gluNurbsProperty.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsProperty</span></span></a>).
+            off (see <a class="citerefentry" href="gluNurbsProperty"><span class="citerefentry"><span class="refentrytitle">gluNurbsProperty</span></span></a>).
             Although it can be convenient to leave the <code class="constant">GLU_AUTO_LOAD_MATRIX</code>
             property turned on, there can be a performance penalty for doing so.
             (A round trip to the GL server is needed to fetch the current values
             of the modelview matrix, projection matrix, and viewport.)
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="gluGetNurbsProperty.xml"><span class="citerefentry"><span class="refentrytitle">gluGetNurbsProperty</span></span></a>,
-            <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
-            <a class="citerefentry" href="gluNurbsProperty.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsProperty</span></span></a>
+            <a class="citerefentry" href="gluGetNurbsProperty"><span class="citerefentry"><span class="refentrytitle">gluGetNurbsProperty</span></span></a>,
+            <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
+            <a class="citerefentry" href="gluNurbsProperty"><span class="citerefentry"><span class="refentrytitle">gluNurbsProperty</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

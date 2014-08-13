@@ -184,8 +184,8 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             Texturing maps a portion of a specified texture image
             onto each graphical primitive for which texturing is enabled.
-            To enable and disable three-dimensional texturing, call <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-            and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument <code class="constant">GL_TEXTURE_3D</code>.
+            To enable and disable three-dimensional texturing, call <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+            and <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument <code class="constant">GL_TEXTURE_3D</code>.
         </p><p>
             To define texture images, call <code class="function">glTexImage3D</code>.
             The arguments describe the parameters of the texture image,
@@ -193,10 +193,10 @@
             width, depth,
             width of the border,
             level-of-detail number
-            (see <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
+            (see <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
             and number of color components provided.
             The last three arguments describe how the image is represented in memory;
-            they are identical to the pixel formats used for <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>.
+            they are identical to the pixel formats used for <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_TEXTURE_3D</code>, no data is read from <em class="parameter"><code>data</code></em>, but
             all of the texture image state is recalculated, checked for
@@ -204,7 +204,7 @@
             against the implementation's capabilities. If the implementation cannot
             handle a texture of the requested texture size, it sets
             all of the image state to 0,
-            but does not generate an error (see <a class="citerefentry" href="glGetError.xml"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>). To query for an
+            but does not generate an error (see <a class="citerefentry" href="glGetError"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>). To query for an
             entire mipmap array, use an image array level greater than or equal to
             1.
         </p><p>
@@ -225,10 +225,10 @@
             <em class="parameter"><code>format</code></em> must be <code class="constant">GL_COLOR_INDEX</code>).
             Each data byte is treated as eight 1-bit elements,
             with bit ordering determined by <code class="constant">GL_UNPACK_LSB_FIRST</code>
-            (see <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
+            (see <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
         </p><p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
-            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             The first element corresponds to the lower left corner of the texture
@@ -248,7 +248,7 @@
                         (with an unspecified number of zero bits to the right of the binary point),
                         shifted left or right depending on the value and sign of <code class="constant">GL_INDEX_SHIFT</code>,
                         and added to <code class="constant">GL_INDEX_OFFSET</code>
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                         The resulting index is converted to a set of color components
                         using the
                         <code class="constant">GL_PIXEL_MAP_I_TO_R</code>,
@@ -263,7 +263,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_GREEN</code></span></dt><dd><p>
                         Each element is a single green component.
                         The GL converts it to floating point and assembles it into an RGBA element
@@ -271,7 +271,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_BLUE</code></span></dt><dd><p>
                         Each element is a single blue component.
                         The GL converts it to floating point and assembles it into an RGBA element
@@ -279,7 +279,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_ALPHA</code></span></dt><dd><p>
                         Each element is a single alpha component.
                         The GL converts it to floating point and assembles it into an RGBA element
@@ -287,7 +287,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_INTENSITY</code></span></dt><dd><p>
                         Each element is a single intensity value.
                         The GL converts it to floating point,
@@ -296,7 +296,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_RGB</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGR</code></span></dt><dd><p>
                         Each element is an RGB triple.
                         The GL converts it to floating point and assembles it into an RGBA element
@@ -304,13 +304,13 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_RGBA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGRA</code></span></dt><dd><p>
                         Each element contains all four components.
                         Each component is multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE</code></span></dt><dd><p>
                         Each element is a single luminance value.
                         The GL converts it to floating point,
@@ -319,7 +319,7 @@
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
                         and clamped to the range [0,1]
-                        (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE_ALPHA</code></span></dt><dd><p>
                         Each element is a luminance/alpha pair.
                         The GL converts it to floating point,
@@ -327,9 +327,9 @@
                         three times for red, green, and blue.
                         Each component is then multiplied by the signed scale factor <code class="constant">GL_c_SCALE</code>,
                         added to the signed bias <code class="constant">GL_c_BIAS</code>,
-                        and clamped to the range [0,1] (see <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
+                        and clamped to the range [0,1] (see <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>).
                     </p></dd></dl></div><p>
-            Refer to the <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> reference page for a description of
+            Refer to the <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> reference page for a description of
             the acceptable values for the <em class="parameter"><code>type</code></em> parameter.
         </p><p>
             If an application wants to store the texture at a certain
@@ -458,7 +458,7 @@
             Use the <code class="constant">GL_PROXY_TEXTURE_3D</code> target to try out a resolution and
             format. The implementation will
             update and recompute its best match for the requested storage resolution
-            and format. To then query this state, call <a class="citerefentry" href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
+            and format. To then query this state, call <a class="citerefentry" href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
             If the texture cannot be accommodated, texture state is set to 0.
         </p><p>
             A one-component texture image uses only the red component of the RGBA
@@ -470,11 +470,11 @@
             Texturing has no effect in color index mode.
         </p><p>
             The texture image can be represented by the same data formats
-            as the pixels in a <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> command,
+            as the pixels in a <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> command,
             except that <code class="constant">GL_STENCIL_INDEX</code> and <code class="constant">GL_DEPTH_COMPONENT</code>
             cannot be used.
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> and <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a> modes affect texture images
-            in exactly the way they affect <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>.
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> and <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a> modes affect texture images
+            in exactly the way they affect <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>.
         </p><p>
             <code class="function">glTexImage3D</code> is available only if the GL version is 1.2 or greater.
         </p><p>
@@ -507,7 +507,7 @@
         </p><p>
             For OpenGL versions 1.3 and greater, or when the <code class="code">ARB_multitexture</code> extension is supported, <code class="function">glTexImage3D</code>
             specifies the three-dimensional texture for the current texture unit,
-            specified with <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+            specified with <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p><p>
             If the <code class="code">ARB_imaging</code> extension is supported, RGBA elements may
             also be processed by the imaging pipeline.  The following stages may be
@@ -520,15 +520,15 @@
                 </mml:mfenced>
             </mml:math>:
         </p><div class="variablelist"><dl><dt><span class="term">1. Color component replacement by the color table specified for</span></dt><dd><p>
-                        <code class="constant">GL_COLOR_TABLE</code>, if enabled. See <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
+                        <code class="constant">GL_COLOR_TABLE</code>, if enabled. See <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
                     </p></dd><dt><span class="term">2. Color component replacement by the color table specified for</span></dt><dd><p>
-                        <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>, if enabled.  See <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
-                    </p></dd><dt><span class="term">3. Transformation by the color matrix.  See <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>.</span></dt><dd></dd><dt><span class="term">4. RGBA components may be multiplied by <code class="constant">GL_POST_COLOR_MATRIX_c_SCALE</code>,</span></dt><dd><p>
+                        <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>, if enabled.  See <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
+                    </p></dd><dt><span class="term">3. Transformation by the color matrix.  See <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>.</span></dt><dd></dd><dt><span class="term">4. RGBA components may be multiplied by <code class="constant">GL_POST_COLOR_MATRIX_c_SCALE</code>,</span></dt><dd><p>
                         and added to <code class="constant">GL_POST_COLOR_MATRIX_c_BIAS</code>, if enabled.  See
-                        <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
+                        <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
                     </p></dd><dt><span class="term">5. Color component replacement by the color table specified for</span></dt><dd><p>
                         <code class="constant">GL_POST_COLOR_MATRIX_COLOR_TABLE</code>, if enabled.  See
-                        <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
+                        <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
                     </p></dd></dl></div><p>
 			Non-power-of-two textures are supported if the GL version is 2.0 or greater, or if the implementation exports the <code class="constant">GL_ARB_texture_non_power_of_two</code> extension.
         </p><p>
@@ -633,42 +633,42 @@
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glTexImage3D</code>
-            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
-            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGetTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>
+            <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>
         </p><p>
-            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_TEXTURE_3D</code>
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_TEXTURE_3D</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCompressedTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
-            <a class="citerefentry" href="glGetCompressedTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>,
-            <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
-            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
-            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
-            <a class="citerefentry" href="glTexEnv.xml"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
-            <a class="citerefentry" href="glTexGen.xml"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>,
-            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glGetCompressedTexImage"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>,
+            <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+            <a class="citerefentry" href="glPixelStore"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glTexEnv"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
+            <a class="citerefentry" href="glTexGen"><span class="citerefentry"><span class="refentrytitle">glTexGen</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

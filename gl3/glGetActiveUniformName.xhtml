@@ -15,17 +15,17 @@
             that were (or would have been) written into <em class="parameter"><code>uniformName</code></em> (not including the nul-terminator) will be placed in the variable whose address
             is specified in <em class="parameter"><code>length</code></em>. If <em class="parameter"><code>length</code></em> is <code class="code">NULL</code>, no length is returned. The length of the longest uniform
             name in <em class="parameter"><code>program</code></em> is given by the value of <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>, which can be queried with
-            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
+            <a class="citerefentry" href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
         </p><p>
             If <code class="function">glGetActiveUniformName</code> is not successful, nothing is written to <em class="parameter"><code>length</code></em> or <em class="parameter"><code>uniformName</code></em>.
         </p><p>
-            <em class="parameter"><code>program</code></em> must be the name of a program for which the command <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+            <em class="parameter"><code>program</code></em> must be the name of a program for which the command <a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
             has been issued in the past. It is not necessary for <em class="parameter"><code>program</code></em> to have been linked successfully. The link could have failed because
             the number of active uniforms exceeded the limit.
         </p><p>
             <em class="parameter"><code>uniformIndex</code></em> must be an active uniform index of the program <em class="parameter"><code>program</code></em>, in the range zero to
             <code class="constant">GL_ACTIVE_UNIFORMS</code> - 1. The value of <code class="constant">GL_ACTIVE_UNIFORMS</code> can be queried with
-            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
+            <a class="citerefentry" href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>uniformIndex</code></em> is greater than or equal to the value
             of <code class="constant">GL_ACTIVE_UNIFORMS</code>.
@@ -33,12 +33,12 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is negative.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>program</code></em> is not the name of a program object for which
-            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> has been issued.
+            <a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> has been issued.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
-            <a class="citerefentry" href="glGetUniformIndices.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformIndices</span></span></a>,
-            <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>,
-            <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+            <a class="citerefentry" href="glGetActiveUniform"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
+            <a class="citerefentry" href="glGetUniformIndices"><span class="citerefentry"><span class="refentrytitle">glGetUniformIndices</span></span></a>,
+            <a class="citerefentry" href="glGetProgram"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>,
+            <a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2010 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
