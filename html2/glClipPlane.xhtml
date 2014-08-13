@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glClipPlane</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glClipPlane"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glClipPlane — specify a plane against which all geometry is clipped</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glClipPlane</b>(</code></td><td>GLenum  </td><td><var class="pdparam">plane</var>, </td></tr><tr><td> </td><td>const GLdouble *  </td><td><var class="pdparam">equation</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>plane</code></em></span></dt><dd><p>
+                    Specifies which clipping plane is being positioned.
+                    Symbolic names of the form <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span>,
+                    where <span class="emphasis"><em>i</em></span> is an integer between 0 and <code class="constant">GL_MAX_CLIP_PLANES</code>
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mn>-1</mml:mn>
+                    </mml:math>,
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>equation</code></em></span></dt><dd><p>
+                    Specifies the address of an array of four double-precision floating-point values.
+                    These values are interpreted as a plane equation.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Geometry is always clipped against the boundaries of a six-plane frustum
+            in <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, and <span class="emphasis"><em>z</em></span>.
+            <code class="function">glClipPlane</code> allows the specification of additional planes,
+            not necessarily perpendicular to the <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, or <span class="emphasis"><em>z</em></span> axis,
+            against which all geometry is clipped.
+            To determine the maximum number of additional clipping planes, call
+            <a class="citerefentry" href="glGetIntegerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> with argument <code class="constant">GL_MAX_CLIP_PLANES</code>. All
+            implementations support at least six such clipping planes.
+            Because the resulting clipping region is the intersection
+            of the defined half-spaces,
+            it is always convex.
+        </p><p>
+            <code class="function">glClipPlane</code> specifies a half-space using a four-component plane equation.
+            When <code class="function">glClipPlane</code> is called,
+            <em class="parameter"><code>equation</code></em> is transformed by the inverse of the modelview matrix
+            and stored in the resulting eye coordinates.
+            Subsequent changes to the modelview matrix have no effect on the
+            stored plane-equation components.
+            If the dot product of the eye coordinates of a vertex with the
+            stored plane equation components is positive or zero,
+            the vertex is <span class="emphasis"><em>in</em></span> with respect to that clipping plane.
+            Otherwise, it is <span class="emphasis"><em>out</em></span>.
+        </p><p>
+            To enable and disable clipping planes, call
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with the argument
+            <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span>,
+            where <span class="emphasis"><em>i</em></span> is the plane number.
+        </p><p>
+            All clipping planes are initially defined as (0, 0, 0, 0) in eye coordinates
+            and are
+            disabled.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            It is always the case that <code class="constant">GL_CLIP_PLANE</code>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            = <code class="constant">GL_CLIP_PLANE0</code> + 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>plane</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glClipPlane</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetClipPlane.xml"><span class="citerefentry"><span class="refentrytitle">glGetClipPlane</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

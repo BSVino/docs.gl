@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetConvolutionParameter</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetConvolutionParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetConvolutionParameter — get convolution parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetConvolutionParameterfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetConvolutionParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The filter whose parameters are to be retrieved.
+                    Must be one of
+                    <code class="constant">GL_CONVOLUTION_1D</code>,
+                    <code class="constant">GL_CONVOLUTION_2D</code>, or
+                    <code class="constant">GL_SEPARABLE_2D</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    The parameter to be retrieved.
+                    Must be one of
+                    <code class="constant">GL_CONVOLUTION_BORDER_MODE</code>,
+                    <code class="constant">GL_CONVOLUTION_BORDER_COLOR</code>,
+                    <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code>,
+                    <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>,
+                    <code class="constant">GL_CONVOLUTION_FORMAT</code>,
+                    <code class="constant">GL_CONVOLUTION_WIDTH</code>,
+                    <code class="constant">GL_CONVOLUTION_HEIGHT</code>,
+                    <code class="constant">GL_MAX_CONVOLUTION_WIDTH</code>, or
+                    <code class="constant">GL_MAX_CONVOLUTION_HEIGHT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Pointer to storage for the parameters to be retrieved.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetConvolutionParameter</code> retrieves convolution parameters.
+            <em class="parameter"><code>target</code></em> determines which convolution filter is queried.
+            <em class="parameter"><code>pname</code></em> determines which parameter is returned:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_CONVOLUTION_BORDER_MODE</code></span></dt><dd><p>
+			  </p><p>
+                        The convolution border mode.
+                        See <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a> for a list of border modes.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_BORDER_COLOR</code></span></dt><dd><p>
+			  </p><p>
+                        The current convolution border color.
+                        <em class="parameter"><code>params</code></em> must be a pointer to an array of four elements,
+                        which will receive the red, green, blue, and alpha border colors.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_FILTER_SCALE</code></span></dt><dd><p>
+			  </p><p>
+                        The current filter scale factors.
+                        <em class="parameter"><code>params</code></em> must be a pointer to an array of four elements,
+                        which will receive the red, green, blue, and alpha filter scale
+                        factors in that order.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_FILTER_BIAS</code></span></dt><dd><p>
+			  </p><p>
+                        The current filter bias factors.
+                        <em class="parameter"><code>params</code></em> must be a pointer to an array of four elements,
+                        which will receive the red, green, blue, and alpha filter bias
+                        terms in that order.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_FORMAT</code></span></dt><dd><p>
+			  </p><p>
+                        The current internal format.
+                        See <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>, <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+                        and <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a> for lists of allowable
+                        formats.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_WIDTH</code></span></dt><dd><p>
+			  </p><p>
+                        The current filter image width.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_HEIGHT</code></span></dt><dd><p>
+			  </p><p>
+                        The current filter image height.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_CONVOLUTION_WIDTH</code></span></dt><dd><p>
+			  </p><p>
+                        The maximum acceptable filter image width.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_CONVOLUTION_HEIGHT</code></span></dt><dd><p>
+			  </p><p>
+                        The maximum acceptable filter image height.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_CONVOLUTION_1D</code>
+            and <em class="parameter"><code>pname</code></em> is <code class="constant">GL_CONVOLUTION_HEIGHT</code> or
+            <code class="constant">GL_MAX_CONVOLUTION_HEIGHT</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glGetConvolutionParameter</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetConvolutionFilter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionFilter</span></span></a>,
+            <a class="citerefentry" href="glGetSeparableFilter.xml"><span class="citerefentry"><span class="refentrytitle">glGetSeparableFilter</span></span></a>,
+            <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

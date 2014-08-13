@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetVertexAttrib</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetVertexAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetVertexAttrib — Return a generic vertex attribute parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em"><tr><td><code class="funcdef">void <b class="fsfunc">glGetVertexAttribdv</b>(</code></td><td>GLuint  </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLdouble * </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em"><tr><td><code class="funcdef">void <b class="fsfunc">glGetVertexAttribfv</b>(</code></td><td>GLuint  </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetVertexAttribiv</b>(</code></td><td>GLuint  </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the generic vertex attribute
+		    parameter to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the symbolic name of the vertex
+		    attribute parameter to be queried. Accepted values are
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>,
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>,
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>,
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>,
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>,
+		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>, or
+		    <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Returns the requested data.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glGetVertexAttrib</code> returns in
+	<em class="parameter"><code>params</code></em> the value of a generic vertex
+	attribute parameter. The generic vertex attribute to be queried
+	is specified by <em class="parameter"><code>index</code></em>, and the parameter
+	to be queried is specified by <em class="parameter"><code>pname</code></em>.</p><p>The accepted parameter names are as follows:</p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value, the name of the buffer object currently bound to
+                    the binding point corresponding to generic vertex attribute array 
+                    <em class="parameter"><code>index</code></em>. If no buffer object is bound, 
+                    0 is returned. The initial value is 0.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value that is non-zero (true) if the vertex
+		    attribute array for <em class="parameter"><code>index</code></em> is
+		    enabled and 0 (false) if it is disabled. The initial
+		    value is <code class="constant">GL_FALSE</code>.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value, the size of the vertex attribute array
+		    for <em class="parameter"><code>index</code></em>. The size is the
+		    number of values for each element of the vertex
+		    attribute array, and it will be 1, 2, 3, or 4. The
+		    initial value is 4.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value, the array stride for (number of bytes
+		    between successive elements in) the vertex attribute
+		    array for <em class="parameter"><code>index</code></em>. A value of 0
+		    indicates that the array elements are stored
+		    sequentially in memory. The initial value is 0.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value, a symbolic constant indicating the
+		    array type for the vertex attribute array for
+		    <em class="parameter"><code>index</code></em>. Possible values are
+		    <code class="constant">GL_BYTE</code>,
+		    <code class="constant">GL_UNSIGNED_BYTE</code>,
+		    <code class="constant">GL_SHORT</code>,
+		    <code class="constant">GL_UNSIGNED_SHORT</code>,
+		    <code class="constant">GL_INT</code>,
+		    <code class="constant">GL_UNSIGNED_INT</code>,
+		    <code class="constant">GL_FLOAT</code>, and
+		    <code class="constant">GL_DOUBLE</code>. The initial value is
+		    <code class="constant">GL_FLOAT</code>.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns a
+		    single value that is non-zero (true) if fixed-point
+		    data types for the vertex attribute array indicated
+		    by <em class="parameter"><code>index</code></em> are normalized when
+		    they are converted to floating point, and 0 (false)
+		    otherwise. The initial value is
+		    <code class="constant">GL_FALSE</code>.</p></dd><dt><span class="term"><code class="constant">GL_CURRENT_VERTEX_ATTRIB</code></span></dt><dd><p>
+                </p><p> <em class="parameter"><code>params</code></em> returns four
+		    values that represent the current value for the
+		    generic vertex attribute specified by index. Generic
+		    vertex attribute 0 is unique in that it has no
+		    current state, so an error will be generated if
+		    <em class="parameter"><code>index</code></em> is 0. The initial value
+		    for all other generic vertex attributes is
+		    (0,0,0,1).</p></dd></dl></div><p>All of the parameters except <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>
+	represent client-side state.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p><code class="function">glGetVertexAttrib</code> is available only
+	if the GL version is 2.0 or greater.</p><p>If an error is generated, no change is made to the
+	contents of <em class="parameter"><code>params</code></em>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>index</code></em> is greater than or equal to
+	<code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>pname</code></em> is not an accepted value.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>index</code></em> is 0 and
+	<em class="parameter"><code>pname</code></em> is
+	<code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code></p><p><a class="citerefentry" href="glGetVertexAttribPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttribPointerv</span></span></a>
+	with arguments <em class="parameter"><code>index</code></em> and
+	<code class="constant">GL_VERTEX_ATTRIB_ARRAY_POINTER</code></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glBindAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+	<a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+	<a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
+	<a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
+	<a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
+	<a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

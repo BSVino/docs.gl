@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glDrawPixels</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawPixels — write a block of pixels to the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawPixels</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>width</code></em>, </span><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
+                    Specify the dimensions of the pixel rectangle to be written
+                    into the frame buffer.
+                </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
+                    Specifies the format of the pixel data.
+                    Symbolic constants
+                    <code class="constant">GL_COLOR_INDEX</code>,
+                    <code class="constant">GL_STENCIL_INDEX</code>,
+                    <code class="constant">GL_DEPTH_COMPONENT</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_BGR</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_BGRA</code>,
+                    <code class="constant">GL_RED</code>,
+                    <code class="constant">GL_GREEN</code>,
+                    <code class="constant">GL_BLUE</code>,
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE</code>, and
+                    <code class="constant">GL_LUMINANCE_ALPHA</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the data type for <em class="parameter"><code>data</code></em>.
+                    Symbolic constants
+                    <code class="constant">GL_UNSIGNED_BYTE</code>,
+                    <code class="constant">GL_BYTE</code>,
+                    <code class="constant">GL_BITMAP</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT</code>,
+                    <code class="constant">GL_SHORT</code>,
+                    <code class="constant">GL_UNSIGNED_INT</code>,
+                    <code class="constant">GL_INT</code>,
+                    <code class="constant">GL_FLOAT</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, and
+                    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    Specifies a pointer to the pixel data.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawPixels</code> reads pixel data from memory and writes it into the frame buffer
+            relative to the current raster position, provided that the raster
+            position is valid.  Use
+            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a> or <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a> to set the current raster position; use
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+            to determine if the specified raster position is valid, and
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+            to query the raster position.
+        </p><p>
+            Several parameters define the encoding of pixel data in memory
+            and control the processing of the pixel data
+            before it is placed in the frame buffer.
+            These parameters are set with four commands:
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>, and <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>.
+            This reference page describes the effects on <code class="function">glDrawPixels</code> of many,
+            but not all, of the parameters specified by these four commands.
+        </p><p>
+            Data is read from <em class="parameter"><code>data</code></em> as a sequence of signed or unsigned bytes,
+            signed or unsigned shorts, signed or unsigned integers, or
+            single-precision floating-point values, depending on <em class="parameter"><code>type</code></em>.
+            When <em class="parameter"><code>type</code></em> is one of <code class="constant">GL_UNSIGNED_BYTE</code>, <code class="constant">GL_BYTE</code>,
+            <code class="constant">GL_UNSIGNED_SHORT</code>, <code class="constant">GL_SHORT</code>, <code class="constant">GL_UNSIGNED_INT</code>,
+            <code class="constant">GL_INT</code>, or <code class="constant">GL_FLOAT</code> each of these bytes, shorts, integers, or
+            floating-point values is interpreted as one color or depth component, or
+            one index, depending on <em class="parameter"><code>format</code></em>.
+            When <em class="parameter"><code>type</code></em> is one of <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>, <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>, <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>, or
+            <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, each unsigned value is interpreted as
+            containing all the components for a single pixel, with the color
+            components arranged according to <em class="parameter"><code>format</code></em>.
+            When <em class="parameter"><code>type</code></em> is one of <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>, <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>, <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>, or
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>, each unsigned value is interpreted
+            as containing all color components, specified by <em class="parameter"><code>format</code></em>, for a single
+            pixel in a reversed order. Indices are always treated individually.
+            Color components are treated as groups of one, two, three, or four
+            values, again based on <em class="parameter"><code>format</code></em>. Both individual indices and groups of
+            components are referred to as pixels.
+            If <em class="parameter"><code>type</code></em> is <code class="constant">GL_BITMAP</code>, the data must be unsigned bytes, and
+            <em class="parameter"><code>format</code></em> must be either <code class="constant">GL_COLOR_INDEX</code> or <code class="constant">GL_STENCIL_INDEX</code>.
+            Each unsigned byte is treated as eight 1-bit pixels, with bit ordering
+            determined by <code class="constant">GL_UNPACK_LSB_FIRST</code> (see <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
+        </p><p>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>×</mml:mo>
+                    <mml:mi mathvariant="italic">height</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            pixels are read from memory,
+            starting at location <em class="parameter"><code>data</code></em>.
+            By default, these pixels are taken from adjacent memory locations,
+            except that after all <em class="parameter"><code>width</code></em> pixels are read,
+            the read pointer is advanced to the next four-byte boundary.
+            The four-byte row alignment is specified by <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> with
+            argument <code class="constant">GL_UNPACK_ALIGNMENT</code>,
+            and it can be set to one, two, four, or eight bytes.
+            Other pixel store parameters specify different read pointer advancements,
+            both before the first pixel is read
+            and after all <em class="parameter"><code>width</code></em> pixels are read.
+            See the <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> reference page for details on these options.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
+            specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            The 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>×</mml:mo>
+                    <mml:mi mathvariant="italic">height</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            pixels that are read from memory are
+            each operated on in the same way,
+            based on the values of several parameters specified by <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+            and <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+            The details of these operations,
+            as well as the target buffer into which the pixels are drawn,
+            are specific to the format of the pixels,
+            as specified by <em class="parameter"><code>format</code></em>.
+            <em class="parameter"><code>format</code></em> can assume one of 13 symbolic values:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COLOR_INDEX</code></span></dt><dd><p>
+                        Each pixel is a single value,
+                        a color index.
+                        It is converted to fixed-point format,
+                        with an unspecified number of bits to the right of the binary point,
+                        regardless of the memory data type.
+                        Floating-point values convert to true fixed-point values.
+                        Signed and unsigned integer data is converted with all fraction bits
+                        set to 0.
+                        Bitmap data convert to either 0 or 1.
+                    </p><p>
+                        Each fixed-point index is then shifted left by <code class="constant">GL_INDEX_SHIFT</code> bits
+                        and added to <code class="constant">GL_INDEX_OFFSET</code>.
+                        If <code class="constant">GL_INDEX_SHIFT</code> is negative,
+                        the shift is to the right.
+                        In either case, zero bits fill otherwise unspecified bit locations in the
+                        result.
+                    </p><p>
+                        If the GL is in RGBA mode,
+                        the resulting index is converted to an RGBA pixel
+                        with the help of the <code class="constant">GL_PIXEL_MAP_I_TO_R</code>,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_G</code>,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_B</code>,
+                        and <code class="constant">GL_PIXEL_MAP_I_TO_A</code> tables.
+                        If the GL is in color index mode,
+                        and if <code class="constant">GL_MAP_COLOR</code> is true,
+                        the index is replaced with the value that it references in lookup table
+                        <code class="constant">GL_PIXEL_MAP_I_TO_I</code>.
+                        Whether the lookup replacement of the index is done or not,
+                        the integer part of the index is then ANDed with 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">b</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
+                        is the number of bits in a color index buffer.
+                    </p><p>
+                        The GL then converts the resulting indices or RGBA colors to fragments
+                        by attaching the current raster position <span class="emphasis"><em>z</em></span> coordinate and
+                        texture coordinates to each pixel,
+                        then assigning 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates to the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                        fragment such that
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msub>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mi mathvariant="italic">r</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mo>%</mml:mo>
+                                        <mml:mi mathvariant="italic">width</mml:mi>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                        </p><p>
+                            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>=</mml:mo>
+                                    <mml:mrow>
+                                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mfenced open="&#x230A;" close="&#x230B;">
+                                            <mml:mfrac>
+                                                <mml:mi mathvariant="italic">n</mml:mi>
+                                                <mml:mi mathvariant="italic">width</mml:mi>
+                                            </mml:mfrac>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:math></div><p>
+                        </p><p>
+                        </p><p>
+                        </p><p>
+                    </p><p>
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        is the current raster position.
+                        These pixel fragments are then treated just like the fragments generated by
+                        rasterizing points, lines, or polygons.
+                        Texture mapping,
+                        fog,
+                        and all the fragment operations are applied before the fragments are written
+                        to the frame buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_INDEX</code></span></dt><dd><p>
+                        Each pixel is a single value,
+                        a stencil index.
+                        It is converted to fixed-point format,
+                        with an unspecified number of bits to the right of the binary point,
+                        regardless of the memory data type.
+                        Floating-point values convert to true fixed-point values.
+                        Signed and unsigned integer data is converted with all fraction bits
+                        set to 0.
+                        Bitmap data convert to either 0 or 1.
+                    </p><p>
+                        Each fixed-point index is then shifted left by <code class="constant">GL_INDEX_SHIFT</code> bits,
+                        and added to <code class="constant">GL_INDEX_OFFSET</code>.
+                        If <code class="constant">GL_INDEX_SHIFT</code> is negative,
+                        the shift is to the right.
+                        In either case, zero bits fill otherwise unspecified bit locations in the
+                        result.
+                        If <code class="constant">GL_MAP_STENCIL</code> is true,
+                        the index is replaced with the value that it references in lookup table
+                        <code class="constant">GL_PIXEL_MAP_S_TO_S</code>.
+                        Whether the lookup replacement of the index is done or not,
+                        the integer part of the index is then ANDed with 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">b</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
+                        is the number of bits in the stencil buffer.
+                        The resulting stencil indices are then written to the stencil buffer
+                        such that the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                        index is written to location
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msub>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mi mathvariant="italic">r</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mo>%</mml:mo>
+                                        <mml:mi mathvariant="italic">width</mml:mi>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                        </p><p>
+                            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>=</mml:mo>
+                                    <mml:mrow>
+                                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mfenced open="&#x230A;" close="&#x230B;">
+                                            <mml:mfrac>
+                                                <mml:mi mathvariant="italic">n</mml:mi>
+                                                <mml:mi mathvariant="italic">width</mml:mi>
+                                            </mml:mfrac>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:math></div><p>
+                        </p><p>
+                    </p><p>
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        is the current raster position.
+                        Only the pixel ownership test,
+                        the scissor test,
+                        and the stencil writemask affect these write operations.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_COMPONENT</code></span></dt><dd><p>
+                        Each pixel is a single-depth component.
+                        Floating-point data is converted directly to an internal floating-point
+                        format with unspecified precision.
+                        Signed integer data is mapped linearly to the internal floating-point
+                        format such that the most positive representable integer value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Unsigned integer data is mapped similarly:
+                        the largest integer value maps to 1.0,
+                        and 0 maps to 0.0.
+                        The resulting floating-point depth value is then multiplied
+                        by <code class="constant">GL_DEPTH_SCALE</code> and added to <code class="constant">GL_DEPTH_BIAS</code>.
+                        The result is clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                    </p><p>
+                        The GL then converts the resulting depth components to fragments
+                        by attaching the current raster position color or color index and
+                        texture coordinates to each pixel,
+                        then assigning 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates to the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                        fragment such that
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msub>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mi mathvariant="italic">r</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mo>%</mml:mo>
+                                        <mml:mi mathvariant="italic">width</mml:mi>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                        </p><p>
+                            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>=</mml:mo>
+                                    <mml:mrow>
+                                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mfenced open="&#x230A;" close="&#x230B;">
+                                            <mml:mfrac>
+                                                <mml:mi mathvariant="italic">n</mml:mi>
+                                                <mml:mi mathvariant="italic">width</mml:mi>
+                                            </mml:mfrac>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:math></div><p>
+                        </p><p>
+                    </p><p>
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        is the current raster position.
+                        These pixel fragments are then treated just like the fragments generated by
+                        rasterizing points, lines, or polygons.
+                        Texture mapping,
+                        fog,
+                        and all the fragment operations are applied before the fragments are written
+                        to the frame buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RGBA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGRA</code></span></dt><dd><p>
+                        Each pixel is a four-component group: For <code class="constant">GL_RGBA</code>, the red
+                        component is first, followed by green, followed by blue, followed by
+                        alpha; for <code class="constant">GL_BGRA</code> the order is blue, green, red and then alpha.
+                        Floating-point values are converted directly to an internal floating-point
+                        format with unspecified precision.
+                        Signed integer values are mapped linearly to the internal floating-point
+                        format such that the most positive representable integer value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        (Note that
+                        this mapping does not convert 0 precisely to 0.0.)
+                        Unsigned integer data is mapped similarly:
+                        The largest integer value maps to 1.0,
+                        and 0 maps to 0.0.
+                        The resulting floating-point color values are then multiplied
+                        by <code class="constant">GL_c_SCALE</code> and added to <code class="constant">GL_c_BIAS</code>,
+                        where <span class="emphasis"><em>c</em></span> is RED, GREEN, BLUE, and ALPHA
+                        for the respective color components.
+                        The results are clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                    </p><p>
+                        If <code class="constant">GL_MAP_COLOR</code> is true,
+                        each color component is scaled by the size of lookup table
+                        <code class="constant">GL_PIXEL_MAP_c_TO_c</code>,
+                        then replaced by the value that it references in that table.
+                        <span class="emphasis"><em>c</em></span> is R, G, B, or A respectively.
+                    </p><p>
+                        The GL then converts the resulting RGBA colors to fragments
+                        by attaching the current raster position <span class="emphasis"><em>z</em></span> coordinate and
+                        texture coordinates to each pixel,
+                        then assigning 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates to the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                        fragment such that
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msub>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mi mathvariant="italic">r</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mo>%</mml:mo>
+                                        <mml:mi mathvariant="italic">width</mml:mi>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                        </p><p>
+                            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>=</mml:mo>
+                                    <mml:mrow>
+                                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mi mathvariant="italic">r</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mfenced open="&#x230A;" close="&#x230B;">
+                                            <mml:mfrac>
+                                                <mml:mi mathvariant="italic">n</mml:mi>
+                                                <mml:mi mathvariant="italic">width</mml:mi>
+                                            </mml:mfrac>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mrow>
+                            </mml:math></div><p>
+                        </p><p>
+                    </p><p>
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                                <mml:mi mathvariant="italic">r</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        is the current raster position.
+                        These pixel fragments are then treated just like the fragments generated by
+                        rasterizing points, lines, or polygons.
+                        Texture mapping,
+                        fog,
+                        and all the fragment operations are applied before the fragments are written
+                        to the frame buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RED</code></span></dt><dd><p>
+                        Each pixel is a single red component.
+                        This component is converted to the internal floating-point format in
+                        the same way the red component of an RGBA pixel is. It is
+                        then converted to an RGBA pixel with green and blue set to 0,
+                        and alpha set to 1.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_GREEN</code></span></dt><dd><p>
+                        Each pixel is a single green component.
+                        This component is converted to the internal floating-point format in
+                        the same way the green component of an RGBA pixel is.
+                        It is then converted to an RGBA pixel with red and blue set to 0,
+                        and alpha set to 1.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLUE</code></span></dt><dd><p>
+                        Each pixel is a single blue component.
+                        This component is converted to the internal floating-point format in
+                        the same way the blue component of an RGBA pixel is.
+                        It is then converted to an RGBA pixel with red and green set to 0,
+                        and alpha set to 1.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ALPHA</code></span></dt><dd><p>
+                        Each pixel is a single alpha component.
+                        This component is converted to the internal floating-point format in
+                        the same way the alpha component of an RGBA pixel is.
+                        It is then converted to an RGBA pixel with red, green, and blue set to 0.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RGB</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGR</code></span></dt><dd><p>
+                        Each pixel is a three-component group:
+                        red first, followed by green, followed by blue; for <code class="constant">GL_BGR</code>, the
+                        first component is blue, followed by green and then red.
+                        Each component is converted to the internal floating-point format in
+                        the same way the red, green, and blue components of an RGBA pixel are.
+                        The color triple is converted to an RGBA pixel with alpha set to 1.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE</code></span></dt><dd><p>
+                        Each pixel is a single luminance component.
+                        This component is converted to the internal floating-point format in
+                        the same way the red component of an RGBA pixel is.
+                        It is then converted to an RGBA pixel with red, green, and blue set to the
+                        converted luminance value,
+                        and alpha set to 1.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE_ALPHA</code></span></dt><dd><p>
+                        Each pixel is a two-component group:
+                        luminance first, followed by alpha.
+                        The two components are converted to the internal floating-point format in
+                        the same way the red component of an RGBA pixel is.
+                        They are then converted to an RGBA pixel with red, green, and blue set to the
+                        converted luminance value,
+                        and alpha set to the converted alpha value.
+                        After this conversion, the pixel is treated as if it had been read
+                        as an RGBA pixel.
+
+                    </p></dd></dl></div><p>
+                        The following table summarizes the meaning of the valid constants for the
+                        <span class="emphasis"><em>type</em></span> parameter:
+			  </p><p>
+                        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                                        Type
+                                        </strong></span></th><th align="left"><span class="bold"><strong>
+                                        Corresponding Type
+                                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_BYTE</code>
+                                        </td><td align="left">
+                                        unsigned 8-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_BYTE</code>
+                                        </td><td align="left">
+                                        signed 8-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_BITMAP</code>
+                                        </td><td align="left">
+                                        single bits in unsigned 8-bit integers
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_SHORT</code>
+                                        </td><td align="left">
+                                        signed 16-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_INT</code>
+                                        </td><td align="left">
+                                        unsigned 32-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_INT</code>
+                                        </td><td align="left">
+                                        32-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_FLOAT</code>
+                                        </td><td align="left">
+                                        single-precision floating-point
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>
+                                        </td><td align="left">
+                                        unsigned 8-bit integer 
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>
+                                        </td><td align="left">
+                                        unsigned 8-bit integer with reversed component ordering
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer with reversed component ordering
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer with reversed component ordering
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>
+                                        </td><td align="left">
+                                        unsigned 16-bit integer with reversed component ordering
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>
+                                        </td><td align="left">
+                                        unsigned 32-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>
+                                        </td><td align="left">
+                                        unsigned 32-bit integer with reversed component ordering
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>
+                                        </td><td align="left">
+                                        unsigned 32-bit integer
+                                        </td></tr><tr><td align="left">
+                                        <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                                        </td><td align="left">
+                                        unsigned 32-bit integer with reversed component ordering
+                                        </td></tr></tbody></table></div><p>
+                    </p><p>
+                    </p><p>
+            The rasterization described so far assumes pixel zoom factors of 1.
+            If
+            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a> is used to change the 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            pixel zoom factors,
+            pixels are converted to fragments as follows.
+            If 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">r</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">r</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            is the current raster position,
+            and a given pixel is in the 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+            column and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>th
+            row
+            of the pixel rectangle,
+            then fragments are generated for pixels whose centers are in the rectangle
+            with corners at
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                        <mml:mi mathvariant="italic">r</mml:mi>
+                        </mml:msub>
+                        <mml:mo>+</mml:mo>
+                        <mml:mfenced open="" close="">
+                            <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                            <mml:mi mathvariant="italic">x</mml:mi>
+                            </mml:msub>
+                        </mml:mfenced>
+                        <mml:mo>⁢</mml:mo>
+                        <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:mrow>
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                        <mml:mi mathvariant="italic">r</mml:mi>
+                        </mml:msub>
+                        <mml:mo>+</mml:mo>
+                        <mml:mfenced open="" close="">
+                            <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                            <mml:mi mathvariant="italic">y</mml:mi>
+                            </mml:msub>
+                        </mml:mfenced>
+                        <mml:mo>⁢</mml:mo>
+                        <mml:mi mathvariant="italic">m</mml:mi>
+                    </mml:mrow>
+                </mml:mfenced>
+            </mml:math></div><p>
+            </p><p>
+                </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mfenced open="(" close=")">
+                        <mml:mrow>
+                            <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                            <mml:mi mathvariant="italic">r</mml:mi>
+                            </mml:msub>
+                            <mml:mo>+</mml:mo>
+                            <mml:mrow>
+                                <mml:mfenced open="" close="">
+                                    <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    </mml:msub>
+                                </mml:mfenced>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">n</mml:mi>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:mrow>
+                        <mml:mrow>
+                            <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                            <mml:mi mathvariant="italic">r</mml:mi>
+                            </mml:msub>
+                            <mml:mo>+</mml:mo>
+                            <mml:mrow>
+                                <mml:mfenced open="" close="">
+                                    <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    </mml:msub>
+                                </mml:mfenced>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">m</mml:mi>
+                                        <mml:mo>+</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:math></div><p>
+            </p><p>
+        </p><p>
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                <mml:mi mathvariant="italic">x</mml:mi>
+                </mml:msub>
+            </mml:math>
+            is the value of <code class="constant">GL_ZOOM_X</code> and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
+                <mml:mi mathvariant="italic">y</mml:mi>
+                </mml:msub>
+            </mml:math>
+            is the value of <code class="constant">GL_ZOOM_Y</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_BGR</code> and <code class="constant">GL_BGRA</code> are only valid for <em class="parameter"><code>format</code></em> if the GL
+            version is 1.2 or greater.
+        </p><p>
+            <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, and
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code> are only valid for <em class="parameter"><code>type</code></em> if the
+            GL version is 1.2 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>format</code></em> or <em class="parameter"><code>type</code></em> is not one of
+            the accepted values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is <code class="constant">GL_BITMAP</code> and
+            <em class="parameter"><code>format</code></em> is not either <code class="constant">GL_COLOR_INDEX</code> or <code class="constant">GL_STENCIL_INDEX</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if either <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is <code class="constant">GL_STENCIL_INDEX</code>
+            and there is no stencil buffer.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is
+            <code class="constant">GL_RED</code>,
+            <code class="constant">GL_GREEN</code>,
+            <code class="constant">GL_BLUE</code>,
+            <code class="constant">GL_ALPHA</code>,
+            <code class="constant">GL_RGB</code>,
+            <code class="constant">GL_RGBA</code>,
+            <code class="constant">GL_BGR</code>,
+            <code class="constant">GL_BGRA</code>,
+            <code class="constant">GL_LUMINANCE</code>,
+            or
+            <code class="constant">GL_LUMINANCE_ALPHA</code>,
+            and the GL is in color index mode.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is one of
+            <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>, or
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
+            and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_RGB</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is one of
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, or
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GL_RGBA</code> nor <code class="constant">GL_BGRA</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            object such that the memory reads required would exceed the data store size.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glDrawPixels</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glAlphaFunc.xml"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>,
+            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>,
+            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

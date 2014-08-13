@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glSelectBuffer</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glSelectBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSelectBuffer — establish a buffer for selection mode values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glSelectBuffer</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">buffer</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+                    Specifies the size of <em class="parameter"><code>buffer</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>buffer</code></em></span></dt><dd><p>
+                    Returns the selection data.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glSelectBuffer</code> has two arguments:
+            <em class="parameter"><code>buffer</code></em> is a pointer to an array of unsigned integers,
+            and <em class="parameter"><code>size</code></em> indicates the size of the array.
+            <em class="parameter"><code>buffer</code></em> returns values from the name stack
+            (see <a class="citerefentry" href="glInitNames.xml"><span class="citerefentry"><span class="refentrytitle">glInitNames</span></span></a>, <a class="citerefentry" href="glLoadName.xml"><span class="citerefentry"><span class="refentrytitle">glLoadName</span></span></a>, <a class="citerefentry" href="glPushName.xml"><span class="citerefentry"><span class="refentrytitle">glPushName</span></span></a>)
+            when the rendering mode is <code class="constant">GL_SELECT</code> (see <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>).
+            <code class="function">glSelectBuffer</code> must be issued before selection mode is enabled,
+            and it must not be issued while the rendering mode is <code class="constant">GL_SELECT</code>.
+        </p><p>
+            A programmer can use selection to determine which primitives
+            are drawn into some region of a window.
+            The region is defined by the current modelview and perspective matrices.
+        </p><p>
+            In selection mode, no pixel fragments are produced from rasterization.
+            Instead,
+            if a primitive or a raster position intersects the clipping
+            volume defined by the viewing frustum
+            and the user-defined clipping planes,
+            this primitive causes a selection hit.
+            (With polygons, no hit occurs if the polygon is culled.)
+            When a change is made to the name stack,
+            or when <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called,
+            a hit record is copied to <em class="parameter"><code>buffer</code></em> if any hits have occurred since the
+            last such event
+            (name stack change or
+            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> call).
+            The hit record consists of the number of names in the name stack at the
+            time of the event, followed by the minimum and maximum depth values
+            of all vertices that hit since the previous event,
+            followed by the name stack contents,
+            bottom name first.
+        </p><p>
+            Depth values (which are in the range [0,1]) are multiplied by 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msup><mml:mn>2</mml:mn>
+                    <mml:mn>32</mml:mn>
+                    </mml:msup>
+                    <mml:mo>-</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            before being placed in the hit record.
+        </p><p>
+            An internal index into <em class="parameter"><code>buffer</code></em> is reset to 0 whenever selection mode
+            is entered.
+            Each time a hit record is copied into <em class="parameter"><code>buffer</code></em>,
+            the index is incremented to point to the cell just past the end
+            of the block of names\(emthat is, to the next available cell
+            If the hit record is larger than the number of remaining locations in <em class="parameter"><code>buffer</code></em>,
+            as much data as can fit is copied,
+            and the overflow flag is set.
+            If the name stack is empty when a hit record is copied,
+            that record consists of 0 followed by the minimum and maximum depth values.
+        </p><p>
+            To exit selection mode, call <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with an argument
+            other than <code class="constant">GL_SELECT</code>.
+            Whenever <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called while the render mode is <code class="constant">GL_SELECT</code>,
+            it returns the number of hit records copied to <em class="parameter"><code>buffer</code></em>,
+            resets the overflow flag and the selection buffer pointer,
+            and initializes the name stack to be empty.
+            If the overflow bit was set when <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> was called,
+            a negative hit record count is returned.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The contents of <em class="parameter"><code>buffer</code></em> is undefined until <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called
+            with an argument other than <code class="constant">GL_SELECT</code>.
+        </p><p>
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>/<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a> primitives and calls to <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>
+            can result in hits.  <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a> will always generate a selection hit.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>size</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glSelectBuffer</code> is called while the
+            render mode is <code class="constant">GL_SELECT</code>,
+            or if <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> is called with argument <code class="constant">GL_SELECT</code> before
+            <code class="function">glSelectBuffer</code> is called at least once.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glSelectBuffer</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_NAME_STACK_DEPTH</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SELECTION_BUFFER_SIZE</code>
+        </p><p>
+            <a class="citerefentry" href="glGetPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetPointerv</span></span></a> with argument <code class="constant">GL_SELECTION_BUFFER_POINTER</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFeedbackBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a>,
+            <a class="citerefentry" href="glInitNames.xml"><span class="citerefentry"><span class="refentrytitle">glInitNames</span></span></a>,
+            <a class="citerefentry" href="glLoadName.xml"><span class="citerefentry"><span class="refentrytitle">glLoadName</span></span></a>,
+            <a class="citerefentry" href="glPushName.xml"><span class="citerefentry"><span class="refentrytitle">glPushName</span></span></a>,
+            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

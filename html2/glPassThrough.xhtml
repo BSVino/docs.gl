@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPassThrough</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPassThrough"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPassThrough — place a marker in the feedback buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPassThrough</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">token</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>token</code></em></span></dt><dd><p>
+                    Specifies a marker value to be placed in the feedback buffer
+                    following a <code class="constant">GL_PASS_THROUGH_TOKEN</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+        </p><p>
+            Feedback is a GL render mode.
+            The mode is selected by calling
+            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a> with <code class="constant">GL_FEEDBACK</code>.
+            When the GL is in feedback mode,
+            no pixels are produced by rasterization.
+            Instead,
+            information about primitives that would have been rasterized
+            is fed back to the application using the GL.
+            See the <a class="citerefentry" href="glFeedbackBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a> reference page for a description of the
+            feedback buffer and the values in it.
+        </p><p>
+            <code class="function">glPassThrough</code> inserts a user-defined marker in the feedback buffer
+            when it is executed in feedback mode.
+            <em class="parameter"><code>token</code></em> is returned as if it were a primitive;
+            it is indicated with its own unique identifying value:
+            <code class="constant">GL_PASS_THROUGH_TOKEN</code>.
+            The order of <code class="function">glPassThrough</code> commands with respect to the specification
+            of graphics primitives is maintained.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glPassThrough</code> is ignored if the GL is not in feedback mode.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPassThrough</code> is executed between
+            the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RENDER_MODE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFeedbackBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a>,
+            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

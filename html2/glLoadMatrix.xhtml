@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glLoadMatrix</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glLoadMatrix"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLoadMatrix — replace the current matrix with the specified matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLoadMatrixd</b>(</code></td><td>const GLdouble *  </td><td><var class="pdparam">m</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLoadMatrixf</b>(</code></td><td>const GLfloat *  </td><td><var class="pdparam">m</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>m</code></em></span></dt><dd><p>
+                    Specifies a pointer to 16 consecutive values, which are used as the
+                    elements of a 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mn>4</mml:mn>
+                            <mml:mo>×</mml:mo>
+                            <mml:mn>4</mml:mn>
+                        </mml:mrow>
+                    </mml:math>
+                    column-major matrix.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glLoadMatrix</code> replaces the current matrix with the one whose elements are specified by
+            <em class="parameter"><code>m</code></em>.
+            The current matrix is the projection matrix,
+            modelview matrix,
+            or texture matrix,
+            depending on the current matrix mode
+            (see <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>).
+        </p><p>
+            The current matrix, M, defines a transformation of coordinates.
+            For instance, assume M refers to the modelview matrix.
+            If  
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">v</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>2</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>3</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>
+            is the set of object coordinates
+            of a vertex,
+            and <em class="parameter"><code>m</code></em> points to an array of 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mn>16</mml:mn>
+            </mml:math>
+            single- or double-precision
+            floating-point values 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">m</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="{" close="}">
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">m</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">m</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                        <mml:mi mathvariant="italic">...</mml:mi>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">m</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>15</mml:mn>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>,
+            then the modelview transformation 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">M</mml:mi>
+                    <mml:mo>⁡</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">v</mml:mi>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>
+            does the following:
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">M</mml:mi>
+                        <mml:mo>⁡</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                        </mml:mfenced>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mtable>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>0</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>4</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>8</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>12</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>1</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>5</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>9</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>13</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>2</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>6</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>10</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>14</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>3</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>7</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>11</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">m</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>15</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                            </mml:mtable>
+                        </mml:mfenced>
+                        <mml:mo>×</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mtable>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">v</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>0</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">v</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>1</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">v</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>2</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                                <mml:mtr>
+                                    <mml:mtd>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">v</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>3</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mtd>
+                                </mml:mtr>
+                            </mml:mtable>
+                        </mml:mfenced>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+        </p><p>
+            Projection and texture transformations are similarly defined.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            While the elements of the matrix may be specified with
+            single or double precision, the GL implementation may
+            store or operate on these values in less than single
+            precision.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glLoadMatrix</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MATRIX_MODE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MODELVIEW_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROJECTION_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_MATRIX</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glLoadIdentity.xml"><span class="citerefentry"><span class="refentrytitle">glLoadIdentity</span></span></a>,
+            <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+            <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
+            <a class="citerefentry" href="glMultTransposeMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultTransposeMatrix</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBlendFuncSeparate</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBlendFuncSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlendFuncSeparate — specify pixel arithmetic for RGB and alpha components separately</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBlendFuncSeparate</b>(</code></td><td>GLenum  </td><td><var class="pdparam">srcRGB</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">dstRGB</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">srcAlpha</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">dstAlpha</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>srcRGB</code></em></span></dt><dd><p>
+                    Specifies how the red, green, and blue blending factors are computed.
+                    The following symbolic constants are accepted:
+                    <code class="constant">GL_ZERO</code>,
+                    <code class="constant">GL_ONE</code>,
+                    <code class="constant">GL_SRC_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_SRC_COLOR</code>,
+                    <code class="constant">GL_DST_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_DST_COLOR</code>,
+                    <code class="constant">GL_SRC_ALPHA</code>,
+                    <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>,
+                    <code class="constant">GL_DST_ALPHA</code>,
+                    <code class="constant">GL_ONE_MINUS_DST_ALPHA</code>,
+                    <code class="constant">GL_CONSTANT_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code>,
+                    <code class="constant">GL_CONSTANT_ALPHA</code>,
+                    <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code>, and
+                    <code class="constant">GL_SRC_ALPHA_SATURATE</code>.
+                    The initial value is <code class="constant">GL_ONE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>dstRGB</code></em></span></dt><dd><p>
+                    Specifies how the red, green, and blue destination blending factors are
+                    computed. The following symbolic constants are accepted:
+                    <code class="constant">GL_ZERO</code>,
+                    <code class="constant">GL_ONE</code>,
+                    <code class="constant">GL_SRC_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_SRC_COLOR</code>,
+                    <code class="constant">GL_DST_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_DST_COLOR</code>,
+                    <code class="constant">GL_SRC_ALPHA</code>,
+                    <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>,
+                    <code class="constant">GL_DST_ALPHA</code>,
+                    <code class="constant">GL_ONE_MINUS_DST_ALPHA</code>.
+                    <code class="constant">GL_CONSTANT_COLOR</code>,
+                    <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code>,
+                    <code class="constant">GL_CONSTANT_ALPHA</code>, and
+                    <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code>.
+                    The initial value is <code class="constant">GL_ZERO</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>srcAlpha</code></em></span></dt><dd><p>
+                    Specified how the alpha source blending factor is computed.  The same
+                    symbolic constants are accepted as for <em class="parameter"><code>srcRGB</code></em>.
+                    The initial value is <code class="constant">GL_ONE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>dstAlpha</code></em></span></dt><dd><p>
+                    Specified how the alpha destination blending factor is computed.  The same
+                    symbolic constants are accepted as for <em class="parameter"><code>dstRGB</code></em>.
+                    The initial value is <code class="constant">GL_ZERO</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            In RGBA mode, pixels can be drawn using a function that blends
+            the incoming (source) RGBA values with the RGBA values
+            that are already in the frame buffer (the destination values).
+            Blending is initially disabled.
+            Use <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument <code class="constant">GL_BLEND</code>
+            to enable and disable blending.
+        </p><p>
+            <code class="function">glBlendFuncSeparate</code> defines the operation of blending when it is enabled.
+            <em class="parameter"><code>srcRGB</code></em> specifies which method is used to scale the
+            source RGB-color components.
+            <em class="parameter"><code>dstRGB</code></em> specifies which method is used to scale the
+            destination RGB-color components.
+            Likewise, <em class="parameter"><code>srcAlpha</code></em> specifies which method is used to scale the source alpha
+            color component, and <em class="parameter"><code>dstAlpha</code></em> specifies which method is used to scale the
+            destination alpha component.
+            The possible methods are described in the following table.
+            Each method defines four scale factors,
+            one each for red, green, blue, and alpha.
+        </p><p>
+            In the table and in subsequent equations, source and destination
+            color components are referred to as
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>.
+            The color specified by <a class="citerefentry" href="glBlendColor.xml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a> is referred to as
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                    <mml:mi mathvariant="italic">c</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                    <mml:mi mathvariant="italic">c</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                    <mml:mi mathvariant="italic">c</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                    <mml:mi mathvariant="italic">c</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>.
+            They are understood to have integer values between 0 and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                    <mml:mi mathvariant="italic">R</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                    <mml:mi mathvariant="italic">G</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                    <mml:mi mathvariant="italic">B</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                    <mml:mi mathvariant="italic">A</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>,
+            where
+        </p><p>
+            </p><p>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                        <mml:mi mathvariant="italic">c</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:msup><mml:mn>2</mml:mn>
+                            <mml:mfenced open="" close="">
+                                <mml:msub><mml:mi mathvariant="italic">m</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                            </mml:msup>
+                            <mml:mo>-</mml:mo>
+                            <mml:mn>1</mml:mn>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+            </p><p>
+        </p><p>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">m</mml:mi>
+                    <mml:mi mathvariant="italic">R</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">m</mml:mi>
+                    <mml:mi mathvariant="italic">G</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">m</mml:mi>
+                    <mml:mi mathvariant="italic">B</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">m</mml:mi>
+                    <mml:mi mathvariant="italic">A</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            is the number of red,
+            green,
+            blue,
+            and alpha bitplanes.
+        </p><p>
+            Source and destination scale factors are referred to as
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mi mathvariant="italic">R</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mi mathvariant="italic">G</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mi mathvariant="italic">B</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mi mathvariant="italic">A</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                    <mml:mi mathvariant="italic">R</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                    <mml:mi mathvariant="italic">G</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                    <mml:mi mathvariant="italic">B</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                    <mml:mi mathvariant="italic">A</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>.
+            All scale factors have range 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>.
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Parameter
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        RGB Factor
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Alpha Factor
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_ZERO</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>0</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>0</mml:mn>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mn>1</mml:mn>
+                                <mml:mn>1</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>1</mml:mn>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SRC_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">A</mml:mi>
+                                </mml:msub>
+                            </mml:mfrac>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_SRC_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">R</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">G</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">B</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DST_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">d</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">A</mml:mi>
+                                </mml:msub>
+                            </mml:mfrac>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_DST_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">R</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">G</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">B</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SRC_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">A</mml:mi>
+                                </mml:msub>
+                            </mml:mfrac>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DST_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">d</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">A</mml:mi>
+                                </mml:msub>
+                            </mml:mfrac>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_DST_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                    <mml:mfrac>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfrac>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfrac>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mfrac>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_CONSTANT_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                            <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:msub>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_CONSTANT_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                            <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:msub>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mfenced>
+                                <mml:mo>-</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                    </mml:msub>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>1</mml:mn>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_SRC_ALPHA_SATURATE</code>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td><td align="left">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>1</mml:mn>
+                        </mml:math>
+                        </td></tr></tbody></table></div><p>
+            In the table,
+        </p><p>
+            </p><p>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">min</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:msub>
+                                <mml:mrow>
+                                    <mml:mn>1</mml:mn>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mfenced open="" close="">
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+            </p><p>
+        </p><p>
+            To determine the blended RGBA values of a pixel when drawing in RGBA mode,
+            the system uses the following equations:
+        </p><p>
+            </p><p>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">min</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">R</mml:mi>
+                                </mml:msub>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">min</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">G</mml:mi>
+                                </mml:msub>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">min</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">B</mml:mi>
+                                </mml:msub>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">min</mml:mi>
+                            <mml:mo>⁡</mml:mo>
+                            <mml:mfenced open="(" close=")">
+                                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mi mathvariant="italic">A</mml:mi>
+                                </mml:msub>
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:mrow>
+                    </mml:mrow>
+                </mml:math>
+            </p><p>
+        </p><p>
+            Despite the apparent precision of the above equations, blending arithmetic
+            is not exactly specified, because blending operates with imprecise integer
+            color values.  However, a blend factor that should be equal to 1 is
+            guaranteed not to modify its multiplicand, and a blend factor equal to 0
+            reduces its multiplicand to 0.  For example, when <em class="parameter"><code>srcRGB</code></em> is
+            <code class="constant">GL_SRC_ALPHA</code>, <em class="parameter"><code>dstRGB</code></em> is <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>, and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                <mml:mi mathvariant="italic">s</mml:mi>
+                </mml:msub>
+            </mml:math>
+            is
+            equal to 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">k</mml:mi>
+                <mml:mi mathvariant="italic">A</mml:mi>
+                </mml:msub>
+            </mml:math>,
+            the equations reduce to simple replacement:
+        </p><p>
+            </p><p>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                        <mml:mi mathvariant="italic">s</mml:mi>
+                        </mml:msub>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                        <mml:mi mathvariant="italic">s</mml:mi>
+                        </mml:msub>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                        <mml:mi mathvariant="italic">s</mml:mi>
+                        </mml:msub>
+                    </mml:mrow>
+                </mml:math>
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                        <mml:mi mathvariant="italic">d</mml:mi>
+                        </mml:msub>
+                        <mml:mo>=</mml:mo>
+                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                        <mml:mi mathvariant="italic">s</mml:mi>
+                        </mml:msub>
+                    </mml:mrow>
+                </mml:math>
+            </p><p>
+        </p><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glBlendFuncSeparate</code> is available only if the GL version is 1.4 or greater.
+        </p><p>
+            Incoming (source) alpha is correctly thought of as a material opacity,
+            ranging from 1.0 
+            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">K</mml:mi>
+                <mml:mi mathvariant="italic">A</mml:mi>
+                </mml:msub>
+            </mml:math>),
+            representing complete opacity,
+            to 0.0 (0), representing complete
+            transparency.
+        </p><p>
+            When more than one color buffer is enabled for drawing,
+            the GL performs blending separately for each enabled buffer,
+            using the contents of that buffer for destination color.
+            (See <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>.)
+        </p><p>
+            Blending affects only RGBA rendering.
+            It is ignored by color index renderers.
+        </p><p>
+            <code class="constant">GL_CONSTANT_COLOR</code>, <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code>,
+            <code class="constant">GL_CONSTANT_ALPHA</code>, <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code> are available only
+            if the GL version is 1.4 or greater or if the <code class="code">ARB_imaging</code> is
+            supported by your implementation.
+        </p><p>
+            <code class="constant">GL_SRC_COLOR</code> and <code class="constant">GL_ONE_MINUS_SRC_COLOR</code> are valid only for
+            <em class="parameter"><code>srcRGB</code></em> if the GL version is 1.4 or greater.
+        </p><p>
+            <code class="constant">GL_DST_COLOR</code> and <code class="constant">GL_ONE_MINUS_DST_COLOR</code> are valid only for
+            <em class="parameter"><code>dstRGB</code></em> if the GL version is 1.4 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>srcRGB</code></em> or <em class="parameter"><code>dstRGB</code></em> is not an
+            accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBlendFuncSeparate</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_SRC_RGB</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_SRC_ALPHA</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_DST_RGB</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_DST_ALPHA</code>
+        </p><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_BLEND</code>
+        </p><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glAlphaFunc.xml"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>,
+            <a class="citerefentry" href="glBlendColor.xml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a>,
+            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glBlendEquation.xml"><span class="citerefentry"><span class="refentrytitle">glBlendEquation</span></span></a>,
+            <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+            <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

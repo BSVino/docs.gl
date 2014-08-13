@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glEvalMesh</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glEvalMesh"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glEvalMesh — compute a one- or two-dimensional grid of points or lines</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEvalMesh1</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">i1</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">i2</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    In <code class="function">glEvalMesh1</code>, specifies whether to compute a one-dimensional mesh of points or lines.
+                    Symbolic constants
+                    <code class="constant">GL_POINT</code> and
+                    <code class="constant">GL_LINE</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>i1</code></em>, </span><span class="term"><em class="parameter"><code>i2</code></em></span></dt><dd><p>
+                    Specify the first and last integer values for grid domain variable 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEvalMesh2</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">i1</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">i2</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">j1</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">j2</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    In <code class="function">glEvalMesh2</code>, specifies whether to compute a two-dimensional mesh of points, lines,
+                    or polygons.
+                    Symbolic constants
+                    <code class="constant">GL_POINT</code>,
+                    <code class="constant">GL_LINE</code>, and
+                    <code class="constant">GL_FILL</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>i1</code></em>, </span><span class="term"><em class="parameter"><code>i2</code></em></span></dt><dd><p>
+                    Specify the first and last integer values for grid domain variable 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>j1</code></em>, </span><span class="term"><em class="parameter"><code>j2</code></em></span></dt><dd><p>
+                    Specify the first and last integer values for grid domain variable 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <a class="citerefentry" href="glMapGrid.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a> and <code class="function">glEvalMesh</code> are used in tandem to efficiently
+            generate and evaluate a series of evenly-spaced map domain values.
+            <code class="function">glEvalMesh</code> steps through the integer domain of a one- or two-dimensional grid,
+            whose range is the domain of the evaluation maps specified by
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a> and <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>.
+            <em class="parameter"><code>mode</code></em> determines whether the resulting vertices are connected as
+            points,
+            lines,
+            or filled polygons.
+        </p><p>
+            In the one-dimensional case,
+            <code class="function">glEvalMesh1</code>,
+            the mesh is generated as if the following code fragment were executed:
+        </p><p>
+            </p><pre class="programlisting">
+glBegin( <em class="parameter"><code>type</code></em> );
+for ( i = <em class="parameter"><code>i1</code></em>; i &lt;= <em class="parameter"><code>i2</code></em>; i += 1 )
+   glEvalCoord1( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+   		      
+		      <mml:mrow>
+		          <mml:mrow>
+		              <mml:mn>i</mml:mn>
+			      <mml:mo>·</mml:mo>
+			      <mml:mo>Δ</mml:mo>
+		              <mml:mi mathvariant="italic">u</mml:mi>
+		          </mml:mrow>
+		          <mml:mo>+</mml:mo>
+		          <mml:msub>
+		              <mml:mi mathvariant="italic">u</mml:mi>
+		              <mml:mn>1</mml:mn>
+		          </mml:msub>
+		      </mml:mrow>
+		  </mml:math> );
+glEnd();
+            </pre><p>
+            where
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mo>Δ</mml:mo>
+                        <mml:mi mathvariant="italic">u</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub>
+				    <mml:mi mathvariant="italic">u</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                </mml:msub>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub>
+				    <mml:mi mathvariant="italic">u</mml:mi>
+                                    <mml:mn>1</mml:mn>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            are the arguments to the most recent
+            <a class="citerefentry" href="glMapGrid1.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid1</span></span></a> command.
+            <span class="emphasis"><em>type</em></span> is <code class="constant">GL_POINTS</code> if <em class="parameter"><code>mode</code></em> is <code class="constant">GL_POINT</code>,
+            or <code class="constant">GL_LINES</code> if <em class="parameter"><code>mode</code></em> is <code class="constant">GL_LINE</code>.
+        </p><p>
+            The one absolute numeric requirement is that if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">n</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the
+            value computed from 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">u</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>.
+        </p><p>
+            In the two-dimensional case, <code class="function">glEvalMesh2</code>, let
+            .cp
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mo>Δ</mml:mo>
+                        <mml:mi mathvariant="italic">u</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>2</mml:mn>
+                                </mml:msub>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>1</mml:mn>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mo>Δ</mml:mo>
+                        <mml:mi mathvariant="italic">v</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                                <mml:mn>2</mml:mn>
+                                </mml:msub>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                                <mml:mn>1</mml:mn>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mi mathvariant="italic">m</mml:mi>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            are the
+            arguments to the most recent <a class="citerefentry" href="glMapGrid2.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid2</span></span></a> command.  Then, if
+            <em class="parameter"><code>mode</code></em> is <code class="constant">GL_FILL</code>, the <code class="function">glEvalMesh2</code> command is equivalent
+            to:
+        </p><p>
+            </p><pre class="programlisting">
+for ( j = <em class="parameter"><code>j1</code></em>; j &lt; <em class="parameter"><code>j2</code></em>; j += 1 ) {
+   glBegin( GL_QUAD_STRIP );
+   for ( i = <em class="parameter"><code>i1</code></em>; i &lt;= <em class="parameter"><code>i2</code></em>; i += 1 ) {
+      glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mn>j</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+      glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mrow>
+				    <mml:mfenced open="(" close=")">
+				        <mml:mrow>
+			                    <mml:mn>j</mml:mn>
+				            <mml:mo>+</mml:mo>
+			                    <mml:mn>1</mml:mn>
+				        </mml:mrow>
+				    </mml:mfenced>
+				</mml:mrow>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+   }
+   glEnd();
+}
+            </pre><p>
+        </p><p>
+            If <em class="parameter"><code>mode</code></em> is <code class="constant">GL_LINE</code>, then a call to <code class="function">glEvalMesh2</code> is equivalent to:
+        </p><p>
+            </p><pre class="programlisting">
+for ( j = <em class="parameter"><code>j1</code></em>; j &lt;= <em class="parameter"><code>j2</code></em>; j += 1 ) {
+   glBegin( GL_LINE_STRIP );
+   for ( i = <em class="parameter"><code>i1</code></em>; i &lt;= <em class="parameter"><code>i2</code></em>; i += 1 )
+      glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mn>j</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+   glEnd();
+}
+
+for ( i = <em class="parameter"><code>i1</code></em>;  i &lt;= <em class="parameter"><code>i2</code></em>; i += 1 ) {
+   glBegin( GL_LINE_STRIP );
+   for ( j = <em class="parameter"><code>j1</code></em>; j &lt;= <em class="parameter"><code>j1</code></em>; j += 1 )
+      glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mn>j</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+   glEnd();
+}
+            </pre><p>
+        </p><p>
+            And finally, if <em class="parameter"><code>mode</code></em> is <code class="constant">GL_POINT</code>, then a call to
+            <code class="function">glEvalMesh2</code> is equivalent to:
+        </p><p>
+            </p><pre class="programlisting">
+glBegin( GL_POINTS );
+for ( j = <em class="parameter"><code>j1</code></em>; j &lt;= <em class="parameter"><code>j2</code></em>; j += 1 )
+   for ( i = <em class="parameter"><code>i1</code></em>; i &lt;= <em class="parameter"><code>i2</code></em>; i += 1 )
+      glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mn>j</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+glEnd();
+            </pre><p>
+        </p><p>
+            In all three cases, the only absolute numeric requirements are that if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">n</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the value computed from 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">u</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">m</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the value computed from
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glEvalMesh</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_SEGMENTS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_SEGMENTS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>,
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>,
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a>,
+            <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>,
+            <a class="citerefentry" href="glMapGrid.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

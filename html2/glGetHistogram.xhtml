@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetHistogram</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetHistogram"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetHistogram — get histogram table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetHistogram</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLboolean  </td><td><var class="pdparam">reset</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Must be
+                    <code class="constant">GL_HISTOGRAM</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>reset</code></em></span></dt><dd><p>
+                    If <code class="constant">GL_TRUE</code>, each component counter that is actually returned
+                    is reset to zero.  (Other counters are unaffected.)
+                    If <code class="constant">GL_FALSE</code>, none of the counters in the histogram table is modified.
+                </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
+                    The format of values to be returned in <em class="parameter"><code>values</code></em>.
+                    Must be one of
+                    <code class="constant">GL_RED</code>,
+                    <code class="constant">GL_GREEN</code>,
+                    <code class="constant">GL_BLUE</code>,
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_BGR</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_BGRA</code>,
+                    <code class="constant">GL_LUMINANCE</code>, or
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    The type of values to be returned in <em class="parameter"><code>values</code></em>.
+                    Symbolic constants
+                    <code class="constant">GL_UNSIGNED_BYTE</code>,
+                    <code class="constant">GL_BYTE</code>,
+                    <code class="constant">GL_BITMAP</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT</code>,
+                    <code class="constant">GL_SHORT</code>,
+                    <code class="constant">GL_UNSIGNED_INT</code>,
+                    <code class="constant">GL_INT</code>,
+                    <code class="constant">GL_FLOAT</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, and
+                    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>values</code></em></span></dt><dd><p>
+                    A pointer to storage for the returned histogram table.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetHistogram</code> returns the current histogram table as a one-dimensional image
+            with the same width as the histogram.
+            No pixel transfer operations are performed on this image, but pixel storage
+            modes that are applicable to 1D images are honored.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a histogram table is
+            requested, <em class="parameter"><code>values</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            Color components that are requested in the specified <em class="parameter"><code>format</code></em>, but which
+            are not included in the internal format of the histogram, are returned as
+            zero.
+            The assignments of internal color components to the components
+            requested by <em class="parameter"><code>format</code></em> are:
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Internal Component
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Resulting Component
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        Red
+                        </td><td align="left">
+                        Red
+                        </td></tr><tr><td align="left">
+                        Green
+                        </td><td align="left">
+                        Green
+                        </td></tr><tr><td align="left">
+                        Blue
+                        </td><td align="left">
+                        Blue
+                        </td></tr><tr><td align="left">
+                        Alpha
+                        </td><td align="left">
+                        Alpha
+                        </td></tr><tr><td align="left">
+                        Luminance
+                        </td><td align="left">
+                        Red
+                        </td></tr></tbody></table></div><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glGetHistogram</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_HISTOGRAM</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>format</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>type</code></em> is one of
+            <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>, or
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
+            and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_RGB</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>type</code></em> is one of
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, or
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GL_RGBA</code> nor <code class="constant">GL_BGRA</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer 
+            object such that the memory writes required would exceed the data store size.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible 
+            into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glGetHistogram</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetHistogramParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetHistogramParameter</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glHistogram</span></span></a>,
+            <a class="citerefentry" href="glResetHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glResetHistogram</span></span></a>,
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

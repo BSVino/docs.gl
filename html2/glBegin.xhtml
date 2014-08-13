@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBegin</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBegin"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBegin — delimit the vertices of a primitive or a group of like primitives</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBegin</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies the primitive or primitives that will be created from vertices
+                    presented between <code class="function">glBegin</code> and the subsequent <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+                    Ten symbolic constants are accepted:
+                    <code class="constant">GL_POINTS</code>,
+                    <code class="constant">GL_LINES</code>,
+                    <code class="constant">GL_LINE_STRIP</code>,
+                    <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_TRIANGLES</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP</code>,
+                    <code class="constant">GL_TRIANGLE_FAN</code>,
+                    <code class="constant">GL_QUADS</code>,
+                    <code class="constant">GL_QUAD_STRIP</code>, and
+                    <code class="constant">GL_POLYGON</code>.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEnd</b>(</code></td><td> </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a> delimit the vertices that define a primitive or
+            a group of like primitives.
+            <code class="function">glBegin</code> accepts a single argument that specifies in which of ten ways the
+            vertices are interpreted.
+            Taking 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            as an integer count starting at one,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+            as the total number of vertices specified,
+            the interpretations are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_POINTS</code></span></dt><dd><p>
+                        Treats each vertex as a single point.
+                        Vertex 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        defines point 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        points are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINES</code></span></dt><dd><p>
+                        Treats each pair of vertices as an independent line segment.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        define line 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mn>2</mml:mn>
+                            </mml:mfrac>
+                        </mml:math>
+                        lines are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_STRIP</code></span></dt><dd><p>
+                        Draws a connected group of line segments from the first vertex
+                        to the last.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define line 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        lines are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_LOOP</code></span></dt><dd><p>
+                        Draws a connected group of line segments from the first vertex
+                        to the last,
+                        then back to the first.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define line 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        The last line, however, is defined by vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>1</mml:mn>
+                        </mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        lines are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLES</code></span></dt><dd><p>
+                        Treats each triplet of vertices as an independent triangle.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>3</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>3</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>3</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        define triangle 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mn>3</mml:mn>
+                            </mml:mfrac>
+                        </mml:math>
+                        triangles are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLE_STRIP</code></span></dt><dd><p>
+                        Draws a connected group of triangles.  One triangle is defined for each
+                        vertex presented after the first two vertices.  For odd 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        vertices
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define triangle 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        For even 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        vertices
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define triangle 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        triangles are
+                        drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLE_FAN</code></span></dt><dd><p>
+                        Draws a connected group of triangles.
+                        One triangle is defined for each vertex presented after the first two vertices.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>1</mml:mn>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define triangle 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        triangles are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_QUADS</code></span></dt><dd><p>
+                        Treats each group of four vertices as an independent quadrilateral.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>4</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>3</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>4</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>4</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>4</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        define quadrilateral 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">N</mml:mi>
+                                <mml:mn>4</mml:mn>
+                            </mml:mfrac>
+                        </mml:math>
+                        quadrilaterals are drawn.
+                    </p></dd><dt><span class="term"><code class="constant">GL_QUAD_STRIP</code></span></dt><dd><p>
+                        Draws a connected group of quadrilaterals.
+                        One quadrilateral is defined for each pair of vertices presented
+                        after the first pair.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>2</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mn>2</mml:mn>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        define quadrilateral 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mfrac>
+                                    <mml:mi mathvariant="italic">N</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                </mml:mfrac>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        quadrilaterals are drawn.
+                        Note that the order in which vertices are used to construct a quadrilateral
+                        from strip data is different from that used with independent data.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POLYGON</code></span></dt><dd><p>
+                        Draws a single,
+                        convex polygon.
+                        Vertices 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>1</mml:mn>
+                        </mml:math>
+                        through 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        define this polygon.
+                    </p></dd></dl></div><p>
+            Only a subset of GL commands can be used between <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            The commands are
+            <a class="citerefentry" href="glVertex.xml"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
+            <a class="citerefentry" href="glColor.xml"><span class="citerefentry"><span class="refentrytitle">glColor</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColor.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColor</span></span></a>,
+            <a class="citerefentry" href="glIndex.xml"><span class="citerefentry"><span class="refentrytitle">glIndex</span></span></a>,
+            <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>,
+            <a class="citerefentry" href="glFogCoord.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoord</span></span></a>,
+            <a class="citerefentry" href="glTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
+            <a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
+            <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>,
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>,
+            <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>, and
+            <a class="citerefentry" href="glEdgeFlag.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlag</span></span></a>.
+            Also,
+            it is acceptable to use
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a> or
+            <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a> to execute
+            display lists that include only the preceding commands.
+            If any other GL command is executed between <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>,
+            the error flag is set and the command is ignored.
+        </p><p>
+            Regardless of the value chosen for <em class="parameter"><code>mode</code></em>,
+            there is no limit to the number of vertices that can be defined
+            between <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            Lines,
+            triangles,
+            quadrilaterals,
+            and polygons that are incompletely specified are not drawn.
+            Incomplete specification results when either too few vertices are
+            provided to specify even a single primitive or when an incorrect multiple
+            of vertices is specified. The incomplete primitive is ignored; the rest are drawn.
+        </p><p>
+            The minimum specification of vertices
+            for each primitive is as follows:
+            1 for a point,
+            2 for a line,
+            3 for a triangle,
+            4 for a quadrilateral,
+            and 3 for a polygon.
+            Modes that require a certain multiple of vertices are
+            <code class="constant">GL_LINES</code> (2),
+            <code class="constant">GL_TRIANGLES</code> (3),
+            <code class="constant">GL_QUADS</code> (4),
+            and <code class="constant">GL_QUAD_STRIP</code> (2).
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is set to an unaccepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBegin</code> is executed between a
+            <code class="function">glBegin</code>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a> is executed without being
+            preceded by a <code class="function">glBegin</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a command other than
+            <a class="citerefentry" href="glVertex.xml"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
+            <a class="citerefentry" href="glColor.xml"><span class="citerefentry"><span class="refentrytitle">glColor</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColor.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColor</span></span></a>,
+            <a class="citerefentry" href="glIndex.xml"><span class="citerefentry"><span class="refentrytitle">glIndex</span></span></a>,
+            <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>,
+            <a class="citerefentry" href="glFogCoord.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoord</span></span></a>,
+            <a class="citerefentry" href="glTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
+            <a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
+            <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>,
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>,
+            <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlag.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlag</span></span></a>,
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>, or
+            <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a> is executed between
+            the execution of <code class="function">glBegin</code> and the corresponding
+            execution <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p><p>
+            Execution of
+            <a class="citerefentry" href="glEnableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glEnableClientState</span></span></a>,
+            <a class="citerefentry" href="glDisableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glDisableClientState</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlagPointer.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>,
+            <a class="citerefentry" href="glFogCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glTexCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>,
+            <a class="citerefentry" href="glIndexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>,
+            <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
+            <a class="citerefentry" href="glInterleavedArrays.xml"><span class="citerefentry"><span class="refentrytitle">glInterleavedArrays</span></span></a>, or
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> is not allowed after a call to <code class="function">glBegin</code> and before
+            the corresponding call to <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>,
+            but an error may or may not be generated.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>,
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>,
+            <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a>,
+            <a class="citerefentry" href="glColor.xml"><span class="citerefentry"><span class="refentrytitle">glColor</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlag.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlag</span></span></a>,
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>,
+            <a class="citerefentry" href="glFogCoord.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoord</span></span></a>,
+            <a class="citerefentry" href="glIndex.xml"><span class="citerefentry"><span class="refentrytitle">glIndex</span></span></a>,
+            <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>,
+            <a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
+            <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColor.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColor</span></span></a>,
+            <a class="citerefentry" href="glTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
+            <a class="citerefentry" href="glVertex.xml"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
+            <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

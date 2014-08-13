@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glTexCoordPointer</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glTexCoordPointer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexCoordPointer — define an array of texture coordinates</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTexCoordPointer</b>(</code></td><td>GLint  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">stride</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">pointer</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+                    Specifies the number of coordinates per array element. Must be 1, 2, 3,
+                    or 4. The initial value is 4.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the data type of each texture coordinate.
+                    Symbolic constants
+                    <code class="constant">GL_SHORT</code>,
+                    <code class="constant">GL_INT</code>,
+                    <code class="constant">GL_FLOAT</code>,
+                    or <code class="constant">GL_DOUBLE</code>
+                    are accepted. The initial value is <code class="constant">GL_FLOAT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>stride</code></em></span></dt><dd><p>
+                    Specifies the byte offset between consecutive texture coordinate sets.
+                    If <em class="parameter"><code>stride</code></em> is 0, the array elements are understood
+                    to be tightly packed. The initial value is 0.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pointer</code></em></span></dt><dd><p>
+                    Specifies a pointer to the first coordinate of the first texture coordinate set in the
+                    array. The initial value is 0.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glTexCoordPointer</code> specifies the location and data format of an array of texture
+            coordinates to use when rendering.  
+            <em class="parameter"><code>size</code></em> specifies the number of coordinates per
+            texture coordinate set, and must be 1, 2, 3, or 4.
+            <em class="parameter"><code>type</code></em> specifies the data type of each texture coordinate,
+            and <em class="parameter"><code>stride</code></em> specifies the byte stride from one
+            texture coordinate set to the next, allowing vertices and attributes
+            to be packed into a single array or stored in separate arrays.
+            (Single-array storage may be more efficient on some implementations;
+            see
+            <a class="citerefentry" href="glInterleavedArrays.xml"><span class="citerefentry"><span class="refentrytitle">glInterleavedArrays</span></span></a>.)
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture coordinate array is
+            specified, <em class="parameter"><code>pointer</code></em> is treated as a byte offset into the buffer object's data store.
+            Also, the buffer object binding (<code class="constant">GL_ARRAY_BUFFER_BINDING</code>) is saved as texture coordinate vertex array
+            client-side state (<code class="constant">GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING</code>).
+        </p><p>
+            When a texture coordinate array is specified,
+            <em class="parameter"><code>size</code></em>, <em class="parameter"><code>type</code></em>, <em class="parameter"><code>stride</code></em>, and <em class="parameter"><code>pointer</code></em> are saved as client-side
+            state, in addition to the current vertex array buffer object binding.
+        </p><p>
+            To enable and disable a texture coordinate array, call <a class="citerefentry" href="glEnableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glEnableClientState</span></span></a> and
+            <a class="citerefentry" href="glDisableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glDisableClientState</span></span></a> with the argument
+            <code class="constant">GL_TEXTURE_COORD_ARRAY</code>. If enabled, the texture coordinate array is used when
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>, <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>, <a class="citerefentry" href="glMultiDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, <a class="citerefentry" href="glMultiDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>, or <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>
+            is called.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glTexCoordPointer</code> is available only if the GL version is 1.1 or greater.
+        </p><p>
+            For OpenGL versions 1.3 and greater, or when the <code class="code">ARB_multitexture</code>
+            extension is supported, <code class="function">glTexCoordPointer</code> updates the
+            texture coordinate array state of the active client texture unit,
+            specified with <a class="citerefentry" href="glClientActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glClientActiveTexture</span></span></a>.
+        </p><p>
+            Each texture coordinate array is initially disabled and isn't accessed when
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>, <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>, <a class="citerefentry" href="glMultiDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawArrays</span></span></a>, or <a class="citerefentry" href="glMultiDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>
+            is called.
+        </p><p>
+            Execution of <code class="function">glTexCoordPointer</code> is not allowed between the execution of
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>,
+            but an error may or may not be generated. If no error is generated,
+            the operation is undefined.
+        </p><p>
+            <code class="function">glTexCoordPointer</code> is typically implemented on the client side.
+        </p><p>
+            Texture coordinate array parameters are client-side state and are therefore
+            not saved or restored by <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a> and <a class="citerefentry" href="glPopAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>.
+            Use <a class="citerefentry" href="glPushClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushClientAttrib</span></span></a> and
+            <a class="citerefentry" href="glPopClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopClientAttrib</span></span></a> instead.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>size</code></em> is not 1, 2, 3, or 4.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>stride</code></em> is negative.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY_SIZE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY_TYPE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY_STRIDE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
+        </p><p>
+            <a class="citerefentry" href="glGetPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetPointerv</span></span></a> with argument <code class="constant">GL_TEXTURE_COORD_ARRAY_POINTER</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glClientActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glClientActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+            <a class="citerefentry" href="glDisableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glDisableClientState</span></span></a>,
+            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlagPointer.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>,
+            <a class="citerefentry" href="glEnableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glEnableClientState</span></span></a>,
+            <a class="citerefentry" href="glFogCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glIndexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>,
+            <a class="citerefentry" href="glInterleavedArrays.xml"><span class="citerefentry"><span class="refentrytitle">glInterleavedArrays</span></span></a>,
+            <a class="citerefentry" href="glMultiDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glMultiDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>,
+            <a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>,
+            <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            <a class="citerefentry" href="glPopClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopClientAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushClientAttrib</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>,
+            <a class="citerefentry" href="glTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoord</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

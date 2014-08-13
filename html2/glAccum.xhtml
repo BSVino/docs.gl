@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glAccum</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glAccum"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glAccum — operate on the accumulation buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glAccum</b>(</code></td><td>GLenum  </td><td><var class="pdparam">op</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">value</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>op</code></em></span></dt><dd><p>
+                    Specifies the accumulation buffer operation.
+                    Symbolic constants
+                    <code class="constant">GL_ACCUM</code>,
+                    <code class="constant">GL_LOAD</code>,
+                    <code class="constant">GL_ADD</code>,
+                    <code class="constant">GL_MULT</code>,
+                    and
+                    <code class="constant">GL_RETURN</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Specifies a floating-point value used in the accumulation buffer operation.
+                    <em class="parameter"><code>op</code></em> determines how <em class="parameter"><code>value</code></em> is used.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            The accumulation buffer is an extended-range color buffer.
+            Images are not rendered into it.
+            Rather,
+            images rendered into one of the color buffers
+            are added to the contents of the accumulation buffer after rendering.
+            Effects such as antialiasing (of points, lines, and polygons),
+            motion blur,
+            and depth of field can be created
+            by accumulating images generated with different transformation matrices.
+        </p><p>
+            Each pixel in the accumulation buffer consists of
+            red, green, blue, and alpha values.
+            The number of bits per component in the accumulation buffer
+            depends on the implementation. You can examine this number
+            by calling <a class="citerefentry" href="glGetIntegerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> four times,
+            with arguments <code class="constant">GL_ACCUM_RED_BITS</code>,
+            <code class="constant">GL_ACCUM_GREEN_BITS</code>,
+            <code class="constant">GL_ACCUM_BLUE_BITS</code>,
+            and <code class="constant">GL_ACCUM_ALPHA_BITS</code>.
+            Regardless of the number of bits per component,
+            the range of values stored by each component is 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>-1</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>.
+            The accumulation buffer pixels are mapped one-to-one with frame buffer pixels.
+        </p><p>
+            <code class="function">glAccum</code> operates on the accumulation buffer.
+            The first argument, <em class="parameter"><code>op</code></em>,
+            is a symbolic constant that selects an accumulation buffer operation.
+            The second argument, <em class="parameter"><code>value</code></em>,
+            is a floating-point value to be used in that operation.
+            Five operations are specified:
+            <code class="constant">GL_ACCUM</code>, <code class="constant">GL_LOAD</code>, <code class="constant">GL_ADD</code>,
+            <code class="constant">GL_MULT</code>, and <code class="constant">GL_RETURN</code>.
+        </p><p>
+            All accumulation buffer operations are limited
+            to the area of the current scissor box and applied identically to
+            the red, green, blue, and alpha components of each pixel.
+            If a <code class="function">glAccum</code> operation results in a value outside the range 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>-1</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>,
+            the contents of an accumulation buffer pixel component are undefined.
+        </p><p>
+            The operations are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_ACCUM</code></span></dt><dd><p>
+                        Obtains R, G, B, and A values
+                        from the buffer currently selected for reading (see <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>).
+                        Each component value is divided by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of bits allocated to each color component
+                        in the currently selected buffer.
+                        The result is a floating-point value in the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>,
+                        which is multiplied by <em class="parameter"><code>value</code></em> and added to the corresponding pixel component
+                        in the accumulation buffer,
+                        thereby updating the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LOAD</code></span></dt><dd><p>
+                        Similar to <code class="constant">GL_ACCUM</code>,
+                        except that the current value in the accumulation buffer is not used
+                        in the calculation of the new value.
+                        That is, the R, G, B, and A values from the currently selected buffer
+                        are divided by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        multiplied by <em class="parameter"><code>value</code></em>,
+                        and then stored in the corresponding accumulation buffer cell,
+                        overwriting the current value.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ADD</code></span></dt><dd><p>
+                        Adds <em class="parameter"><code>value</code></em> to each R, G, B, and A
+                        in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MULT</code></span></dt><dd><p>
+                        Multiplies each R, G, B, and A
+                        in the accumulation buffer by <em class="parameter"><code>value</code></em> and returns the scaled component
+                        to its corresponding accumulation buffer location.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RETURN</code></span></dt><dd><p>
+                        Transfers accumulation buffer values
+                        to the color buffer or buffers currently selected for writing.
+                        Each R, G, B, and A component is multiplied by <em class="parameter"><code>value</code></em>,
+                        then multiplied by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mrow>
+                                    <mml:msup><mml:mn>2</mml:mn>
+                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                    </mml:msup>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mrow>
+                            </mml:mfenced>
+                        </mml:math>,
+                        and stored
+                        in the corresponding display buffer cell.
+                        The only fragment operations that are applied to this transfer are
+                        pixel ownership,
+                        scissor,
+                        dithering,
+                        and color writemasks.
+                    </p></dd></dl></div><p>
+            To clear the accumulation buffer, call <a class="citerefentry" href="glClearAccum.xml"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a> with R, G, B,
+            and A values to set it to, then call <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> with the
+            accumulation buffer enabled.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            Only pixels within the current scissor box are updated by a
+            <code class="function">glAccum</code> operation.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>op</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if there is no accumulation buffer.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glAccum</code>
+            is executed between the execution of
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_RED_BITS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_GREEN_BITS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_BLUE_BITS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_ALPHA_BITS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+            <a class="citerefentry" href="glClearAccum.xml"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXQueryDrawable</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXQueryDrawable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXQueryDrawable — returns an attribute assoicated with a GLX drawable</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">int <b class="fsfunc">glXQueryDrawable</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXDrawable  </td><td><var class="pdparam">draw</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">attribute</var>, </td></tr><tr><td> </td><td>unsigned int *  </td><td><var class="pdparam">value</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>draw</code></em></span></dt><dd><p>
+                    Specifies the GLX drawable to be queried.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attribute</code></em></span></dt><dd><p>
+                    Specifies the attribute to be returned.  Must be one of
+                    <code class="constant">GLX_WIDTH</code>,
+					<code class="constant">GLX_HEIGHT</code>,
+					<code class="constant">GLX_PRESERVED_CONTENTS</code>,
+					<code class="constant">GLX_LARGEST_PBUFFER</code>, or
+					<code class="constant">GLX_FBCONFIG_ID</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Contains the return value for
+					<em class="parameter"><code>attribute</code></em>. 
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXQueryDrawable</code> sets
+			<em class="parameter"><code>value</code></em> to the value of
+			<em class="parameter"><code>attribute</code></em> with respect to the GLXDrawable
+			<em class="parameter"><code>draw</code></em>.
+		</p><p>
+            <em class="parameter"><code>attribute</code></em> may be one of the following:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLX_WIDTH</code></span></dt><dd><p>
+                        Returns the width of <em class="parameter"><code>ctx</code></em>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_HEIGHT</code></span></dt><dd><p>
+                        Returns the height of <em class="parameter"><code>ctx</code></em>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_PRESERVED_CONTENTS</code></span></dt><dd><p>
+                        Returns <code class="constant">True</code> if the contents
+						of a GLXPbuffer are preserved when a resource
+						conflict occurs; <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_LARGEST_PBUFFER</code></span></dt><dd><p>
+                        Returns the value set when
+                        <code class="function">glXCreatePbuffer</code> was called to
+                        create the GLXPbuffer. If
+                        <code class="constant">False</code> is returned, then the
+                        call to <code class="function">glXCreatePbuffer</code> will
+                        fail to create a GLXPbuffer if the requested size
+                        is larger than the implementation maximum or
+                        available resources.  If <code class="constant">True</code>
+                        is returned, a GLXPbuffer of the maximum availble
+                        size (if less than the requested width and height)
+                        is created.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_FBCONFIG_ID</code></span></dt><dd><p>
+					    Returns the XID for <em class="parameter"><code>draw</code></em>.
+					</p></dd></dl></div><p>
+            If <em class="parameter"><code>draw</code></em> is a GLXWindow or GLXPixmap and
+            <em class="parameter"><code>attribute</code></em> is set to
+            <code class="constant">GLX_PRESERVED_CONTENTS</code> or
+            <code class="constant">GLX_LARGETST_PBUFFER</code>, the contents of
+            <em class="parameter"><code>value</code></em> are undefined.  If
+            <em class="parameter"><code>attribute</code></em> is not one of the attributes
+            listed above, the contents of <em class="parameter"><code>value</code></em> are
+            unedfined.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            A <code class="constant">GLXBadDrawable</code> is generated if
+			<em class="parameter"><code>draw</code></em> is not a valid GLXDrawable.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+		    <a class="citerefentry" href="glXCreateWindow.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateWindow</span></span></a>,
+			<a class="citerefentry" href="glXCreatePixmap.xml"><span class="citerefentry"><span class="refentrytitle">glXCreatePixmap</span></span></a>,
+			<a class="citerefentry" href="glXCreatePbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glXCreatePbuffer</span></span></a>,
+			<a class="citerefentry" href="glXGetFBConfigAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glXGetFBConfigAttrib</span></span></a>,
+			<a class="citerefentry" href="glXChooseFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

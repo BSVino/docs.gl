@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glScale</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glScale"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glScale — multiply the current matrix by a general scaling matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glScaled</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glScalef</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em>, </span><span class="term"><em class="parameter"><code>z</code></em></span></dt><dd><p>
+                    Specify scale factors along the <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, and <span class="emphasis"><em>z</em></span> axes, respectively.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glScale</code> produces a nonuniform scaling along the <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, and
+            <span class="emphasis"><em>z</em></span> axes.
+            The three parameters indicate the desired scale factor along
+            each of the three axes.
+        </p><p>
+            The current matrix
+            (see <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>)
+            is multiplied by this scale matrix,
+            and the product replaces the current matrix
+            as if <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a> were called with the following matrix
+            as its argument:
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mtable>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mi mathvariant="italic">x</mml:mi>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mi mathvariant="italic">y</mml:mi>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mi mathvariant="italic">z</mml:mi>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>1</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                    </mml:mtable>
+                </mml:mfenced>
+            </mml:math></div><p>
+        </p><p>
+            If the matrix mode is either <code class="constant">GL_MODELVIEW</code> or <code class="constant">GL_PROJECTION</code>,
+            all objects drawn after <code class="function">glScale</code> is called are scaled.
+        </p><p>
+            Use <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a> and <a class="citerefentry" href="glPopMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to save and restore
+            the unscaled coordinate
+            system.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If scale factors other than 1 are applied to the modelview matrix
+            and lighting is enabled, lighting often appears wrong.
+            In that case, enable automatic normalization of normals by
+            calling <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> with the argument <code class="constant">GL_NORMALIZE</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glScale</code>
+            is executed between the execution of
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MATRIX_MODE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MODELVIEW_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROJECTION_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_MATRIX</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+            <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
+            <a class="citerefentry" href="glRotate.xml"><span class="citerefentry"><span class="refentrytitle">glRotate</span></span></a>,
+            <a class="citerefentry" href="glTranslate.xml"><span class="citerefentry"><span class="refentrytitle">glTranslate</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

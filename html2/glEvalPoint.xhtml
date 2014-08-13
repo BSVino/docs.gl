@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glEvalPoint</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glEvalPoint"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glEvalPoint — generate and evaluate a single point in a mesh</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEvalPoint1</b>(</code></td><td>GLint  </td><td><var class="pdparam">i</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEvalPoint2</b>(</code></td><td>GLint  </td><td><var class="pdparam">i</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">j</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>i</code></em></span></dt><dd><p>
+                    Specifies the integer value for grid domain variable 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>j</code></em></span></dt><dd><p>
+                    Specifies the integer value for grid domain variable 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                    (<code class="function">glEvalPoint2</code> only).
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <a class="citerefentry" href="glMapGrid.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a> and <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a> are used in tandem to efficiently
+            generate and evaluate a series of evenly spaced map domain values.
+            <code class="function">glEvalPoint</code> can be used to evaluate a single grid point in the same gridspace
+            that is traversed by <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a>.
+            Calling <code class="function">glEvalPoint1</code> is equivalent to calling
+            </p><pre class="programlisting">
+glEvalCoord1( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+	          
+     	          <mml:mrow>
+     	              <mml:mrow>
+     	                  <mml:mn>i</mml:mn>
+     	                  <mml:mo>·</mml:mo>
+     	                  <mml:mo>Δ</mml:mo>
+     	                  <mml:mi mathvariant="italic">u</mml:mi>
+     	              </mml:mrow>
+     	              <mml:mo>+</mml:mo>
+     	              <mml:msub>
+     	                  <mml:mi mathvariant="italic">u</mml:mi>
+     	                  <mml:mn>1</mml:mn>
+     	              </mml:msub>
+     	          </mml:mrow>
+              </mml:math> );
+         </pre><p>
+            where
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mo>Δ</mml:mo>
+                        <mml:mi mathvariant="italic">u</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>2</mml:mn>
+                                </mml:msub>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>1</mml:mn>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            are the arguments to the most recent <a class="citerefentry" href="glMapGrid1.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid1</span></span></a> command.
+            The one absolute numeric requirement is that if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">n</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the value computed from
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">u</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>.
+        </p><p>
+            In the two-dimensional case, <code class="function">glEvalPoint2</code>, let
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mo>Δ</mml:mo>
+                        <mml:mi mathvariant="italic">u</mml:mi>
+                    </mml:mrow>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mrow>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>2</mml:mn>
+                                </mml:msub>
+                                <mml:mo>-</mml:mo>
+                                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                                <mml:mn>1</mml:mn>
+                                </mml:msub>
+                            </mml:mrow>
+                        </mml:mfenced>
+                        <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+            </p><p>
+                </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                    
+                    <mml:mrow>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                        </mml:mrow>
+                        <mml:mo>=</mml:mo>
+                        <mml:mfrac>
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                                    <mml:mn>2</mml:mn>
+                                    </mml:msub>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                                    <mml:mn>1</mml:mn>
+                                    </mml:msub>
+                                </mml:mrow>
+                            </mml:mfenced>
+                            <mml:mi mathvariant="italic">m</mml:mi>
+                        </mml:mfrac>
+                    </mml:mrow>
+                </mml:math></div><p>
+            </p><p>
+        </p><p>
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>1</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            are the arguments to the most recent <a class="citerefentry" href="glMapGrid2.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid2</span></span></a> command.
+            Then the <code class="function">glEvalPoint2</code> command is equivalent to calling
+            </p><pre class="programlisting">
+glEvalCoord2( <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+		        <mml:mrow>
+			    <mml:mrow>
+			        <mml:mn>i</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">u</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			    <mml:mo>,</mml:mo>
+			    
+			    <mml:mrow>
+			        <mml:mn>j</mml:mn>
+				<mml:mo>·</mml:mo>
+			        <mml:mo>Δ</mml:mo>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+
+			    </mml:mrow>
+		            <mml:mo>+</mml:mo>
+		            <mml:msub>
+		                <mml:mi mathvariant="italic">v</mml:mi>
+		                <mml:mn>1</mml:mn>
+		            </mml:msub>
+			</mml:mrow>
+		    </mml:math> );
+            </pre><p>
+            The only absolute numeric requirements are that if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">n</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the value computed from
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">u</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">u</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>,
+            and if 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">m</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            then the value computed from
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                        <mml:mo>·</mml:mo>
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">v</mml:mi>
+                        </mml:mrow>
+                    </mml:mrow>
+                    <mml:mo>+</mml:mo>
+                    <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                    <mml:mn>1</mml:mn>
+                    </mml:msub>
+                </mml:mrow>
+            </mml:math>
+            is exactly 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">v</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_SEGMENTS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_SEGMENTS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a>,
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a>,
+            <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>,
+            <a class="citerefentry" href="glMapGrid.xml"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

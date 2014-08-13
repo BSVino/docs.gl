@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCallLists</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glCallLists"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCallLists — execute a list of display lists</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCallLists</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">lists</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of display lists to be executed.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the type of values in <em class="parameter"><code>lists</code></em>.
+                    Symbolic constants
+                    <code class="constant">GL_BYTE</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE</code>,
+                    <code class="constant">GL_SHORT</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT</code>,
+                    <code class="constant">GL_INT</code>,
+                    <code class="constant">GL_UNSIGNED_INT</code>,
+                    <code class="constant">GL_FLOAT</code>,
+                    <code class="constant">GL_2_BYTES</code>,
+                    <code class="constant">GL_3_BYTES</code>, and
+                    <code class="constant">GL_4_BYTES</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>lists</code></em></span></dt><dd><p>
+                    Specifies the address of an array of name offsets in the display list.
+                    The pointer type is void because the offsets can be bytes,
+                    shorts,
+                    ints,
+                    or floats,
+                    depending on the value of <em class="parameter"><code>type</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCallLists</code> causes each display list in the list of names passed as <em class="parameter"><code>lists</code></em>
+            to be executed.
+            As a result,
+            the commands saved in each display list are executed in order,
+            just as if they were called without using a display list.
+            Names of display lists that have not been defined are ignored.
+        </p><p>
+            <code class="function">glCallLists</code> provides an efficient means for executing more than one display list.
+            <em class="parameter"><code>type</code></em> allows lists with various name formats to be accepted.
+            The formats are as
+            follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_BYTE</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of signed bytes,
+                        each in the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-128</mml:mn>
+                        </mml:math>
+                        through 127.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNSIGNED_BYTE</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned bytes,
+                        each in the range 0 through 255.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SHORT</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of signed two-byte integers,
+                        each in the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-32768</mml:mn>
+                        </mml:math>
+                        through 32767.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNSIGNED_SHORT</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned two-byte integers,
+                        each in the range 0 through 65535.
+                    </p></dd><dt><span class="term"><code class="constant">GL_INT</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of signed four-byte integers.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNSIGNED_INT</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned four-byte integers.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FLOAT</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of four-byte floating-point values.
+                    </p></dd><dt><span class="term"><code class="constant">GL_2_BYTES</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned bytes.
+                        Each pair of bytes specifies a single display-list name.
+                        The value of the pair is computed as 256 times the unsigned value
+                        of the first byte plus the unsigned value of the second byte.
+                    </p></dd><dt><span class="term"><code class="constant">GL_3_BYTES</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned bytes.
+                        Each triplet of bytes specifies a single display-list name.
+                        The value of the triplet is computed as 65536 times the unsigned value
+                        of the first byte,
+                        plus 256 times the unsigned value of the second byte,
+                        plus the unsigned value of the third byte.
+                    </p></dd><dt><span class="term"><code class="constant">GL_4_BYTES</code></span></dt><dd><p>
+                        <em class="parameter"><code>lists</code></em> is treated as an array of unsigned bytes.
+                        Each quadruplet of bytes specifies a single display-list name.
+                        The value of the quadruplet is computed as 16777216 times the unsigned value
+                        of the first byte,
+                        plus 65536 times the unsigned value of the second byte,
+                        plus 256 times the unsigned value of the third byte,
+                        plus the unsigned value of the fourth byte.
+                    </p></dd></dl></div><p>
+            The list of display-list names is not null-terminated.
+            Rather,
+            <em class="parameter"><code>n</code></em> specifies how many names are to be taken from <em class="parameter"><code>lists</code></em>.
+        </p><p>
+            An additional level of indirection is made available with the
+            <a class="citerefentry" href="glListBase.xml"><span class="citerefentry"><span class="refentrytitle">glListBase</span></span></a> command,
+            which specifies an unsigned offset that is added to each display-list
+            name specified in <em class="parameter"><code>lists</code></em> before that display list is executed.
+        </p><p>
+            <code class="function">glCallLists</code> can appear inside a display list.
+            To avoid the possibility of infinite recursion resulting from display lists
+            calling one another,
+            a limit is placed on the nesting level of display
+            lists during display-list execution.
+            This limit must be at least 64, and it depends on the implementation.
+        </p><p>
+            GL state is not saved and restored across a call to <code class="function">glCallLists</code>.
+            Thus,
+            changes made to GL state during the execution of the display lists
+            remain after execution is completed.
+            Use <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>,
+            <a class="citerefentry" href="glPopAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
+            and <a class="citerefentry" href="glPopMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to preserve GL state across <code class="function">glCallLists</code> calls.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            Display lists can be executed between a call to <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding call to <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>,
+            as long as the display list includes only commands that are allowed
+            in this interval.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is not one of
+            <code class="constant">GL_BYTE</code>,
+            <code class="constant">GL_UNSIGNED_BYTE</code>,
+            <code class="constant">GL_SHORT</code>,
+            <code class="constant">GL_UNSIGNED_SHORT</code>,
+            <code class="constant">GL_INT</code>,
+            <code class="constant">GL_UNSIGNED_INT</code>,
+            <code class="constant">GL_FLOAT</code>,
+            <code class="constant">GL_2_BYTES</code>,
+            <code class="constant">GL_3_BYTES</code>,
+            <code class="constant">GL_4_BYTES</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIST_BASE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_LIST_NESTING</code>
+        </p><p>
+            <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>,
+            <a class="citerefentry" href="glDeleteLists.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteLists</span></span></a>,
+            <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>,
+            <a class="citerefentry" href="glListBase.xml"><span class="citerefentry"><span class="refentrytitle">glListBase</span></span></a>,
+            <a class="citerefentry" href="glNewList.xml"><span class="citerefentry"><span class="refentrytitle">glNewList</span></span></a>,
+            <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

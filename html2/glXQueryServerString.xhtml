@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXQueryServerString</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXQueryServerString"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXQueryServerString — return string describing the server</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">const char * <b class="fsfunc">glXQueryServerString</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">screen</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">name</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>screen</code></em></span></dt><dd><p>
+                    Specifies the screen number.
+                </p></dd><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>
+                    Specifies which string is returned:
+                    one of <code class="constant">GLX_VENDOR</code>, <code class="constant">GLX_VERSION</code>, or <code class="constant">GLX_EXTENSIONS</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXQueryServerString</code> 
+            returns a pointer to a static, null-terminated string 
+            describing some aspect of the server's GLX extension. The possible values for
+            <em class="parameter"><code>name</code></em> and the format of the strings is the same as for
+            <a class="citerefentry" href="glXGetClientString.xml"><span class="citerefentry"><span class="refentrytitle">glXGetClientString</span></span></a>. If <em class="parameter"><code>name</code></em> is not set to a recognized value,
+            <code class="constant">NULL</code> is returned. 
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glXQueryServerString</code> is available only if the GLX version is 1.1 or greater.
+        </p><p>
+            If the GLX version is 1.1 or 1.0, the GL version must be 1.0.
+            If the GLX version is 1.2, the GL version must be 1.1.
+            If the GLX version is 1.3, the GL version must be 1.2.
+        </p><p>
+            <code class="function">glXQueryServerString</code> only returns information about GLX extensions supported by the server.
+            Call <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a> to get a list of GL extensions.
+            Call <a class="citerefentry" href="glXGetClientString.xml"><span class="citerefentry"><span class="refentrytitle">glXGetClientString</span></span></a> to get a list of GLX extensions supported by the
+            client.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXQueryVersion.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryVersion</span></span></a>,
+            <a class="citerefentry" href="glXGetClientString.xml"><span class="citerefentry"><span class="refentrytitle">glXGetClientString</span></span></a>,
+            <a class="citerefentry" href="glXQueryExtensionsString.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryExtensionsString</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

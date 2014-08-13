@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXChooseVisual</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXChooseVisual"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXChooseVisual — return a visual that matches specified attributes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">XVisualInfo* <b class="fsfunc">glXChooseVisual</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">screen</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">attribList</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>screen</code></em></span></dt><dd><p>
+                    Specifies the screen number.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attribList</code></em></span></dt><dd><p>
+                    Specifies a list of boolean attributes and integer attribute/value pairs.
+                    The last attribute must be <code class="constant">None</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXChooseVisual</code> returns a pointer to an XVisualInfo structure describing the visual
+            that best meets a minimum specification.
+            The boolean GLX attributes of the visual that is returned will match the
+            specified values,
+            and the integer GLX attributes will meet or exceed the specified
+            minimum values. 
+            If all other attributes are equivalent, then TrueColor and PseudoColor
+            visuals have priority over DirectColor and StaticColor visuals,
+            respectively.
+            If no conforming visual exists, <code class="constant">NULL</code> is returned.
+            To free the data returned by this function, use <code class="function">XFree</code>.
+        </p><p>
+            All boolean GLX attributes default to <code class="constant">False</code>
+            except <code class="constant">GLX_USE_GL</code>,
+            which defaults to <code class="constant">True</code>.
+            All integer GLX attributes default to zero.
+            Default specifications are superseded by attributes included in <em class="parameter"><code>attribList</code></em>.
+            Boolean attributes included in <em class="parameter"><code>attribList</code></em> are understood to be <code class="constant">True</code>.
+            Integer attributes and enumerated type attributes are followed immediately 
+            by the corresponding desired or
+            minimum value.
+            The list must be terminated with <code class="constant">None</code>.
+        </p><p>
+            The interpretations of the various GLX visual attributes are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLX_USE_GL</code></span></dt><dd><p>
+                        Ignored.
+                        Only visuals that can be rendered with GLX are considered.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BUFFER_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative integer that indicates the desired
+                        color index buffer size.
+                        The smallest index buffer of at least the specified size is preferred.
+                        Ignored if <code class="constant">GLX_RGBA</code> is asserted.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_LEVEL</code></span></dt><dd><p>
+                        Must be followed by an integer buffer-level specification.
+                        This specification is honored exactly.
+                        Buffer level zero corresponds to the main frame buffer of the display.
+                        Buffer level one is the first overlay frame buffer, level two the second
+                        overlay frame buffer, and so on.
+                        Negative buffer levels correspond to underlay frame buffers.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RGBA</code></span></dt><dd><p>
+                        If present,
+                        only TrueColor and DirectColor visuals are considered.
+                        Otherwise,
+                        only PseudoColor and StaticColor visuals are considered.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DOUBLEBUFFER</code></span></dt><dd><p>
+                        If present,
+                        only double-buffered visuals are considered.
+                        Otherwise,
+                        only single-buffered visuals are considered.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STEREO</code></span></dt><dd><p>
+                        If present,
+                        only stereo visuals are considered.
+                        Otherwise,
+                        only monoscopic visuals are considered.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_AUX_BUFFERS</code></span></dt><dd><p>
+                        Must be followed by a nonnegative integer that indicates the desired
+                        number of auxiliary buffers.
+                        Visuals with the 
+                        smallest number of auxiliary buffers that meets or exceeds
+                        the specified number are preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RED_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        the smallest available red buffer is preferred.
+                        Otherwise, the largest available red buffer of at least the minimum size
+                        is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_GREEN_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        the smallest available green buffer is preferred.
+                        Otherwise, the largest available green buffer of at least the minimum size
+                        is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BLUE_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        the smallest available blue buffer is preferred.
+                        Otherwise, the largest available blue buffer of at least the minimum size
+                        is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ALPHA_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        the smallest available alpha buffer is preferred.
+                        Otherwise, the largest available alpha buffer of at least the minimum size
+                        is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DEPTH_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        visuals with no depth buffer are preferred.
+                        Otherwise, the largest available depth buffer of at least the minimum size
+                        is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STENCIL_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative integer that indicates the desired
+                        number of stencil bitplanes.
+                        The smallest stencil buffer of at least the specified size is preferred.
+                        If the desired value is zero,
+                        visuals with no stencil buffer are preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_RED_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        visuals with no red accumulation buffer are preferred.
+                        Otherwise, the largest possible red accumulation buffer
+                        of at least the minimum size is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_GREEN_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        visuals with no green accumulation buffer are preferred.
+                        Otherwise, the largest possible green accumulation buffer
+                        of at least the minimum size is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_BLUE_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        visuals with no blue accumulation buffer are preferred.
+                        Otherwise, the largest possible blue accumulation buffer
+                        of at least the minimum size is preferred.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_ALPHA_SIZE</code></span></dt><dd><p>
+                        Must be followed by a nonnegative minimum size specification.
+                        If this value is zero,
+                        visuals with no alpha accumulation buffer are preferred.
+                        Otherwise, the largest possible alpha accumulation buffer
+                        of at least the minimum size is preferred.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="examples"></a><h2>Examples</h2><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>attribList</code></em> =</span></dt><dd><p>
+                        {<code class="constant">GLX_RGBA</code>,
+                        <code class="constant">GLX_RED_SIZE</code>, 4,
+                        <code class="constant">GLX_GREEN_SIZE</code>, 4,
+                        <code class="constant">GLX_BLUE_SIZE</code>, 4,
+                        <code class="constant">None</code>};
+                    </p></dd></dl></div><p>
+            Specifies a single-buffered RGB visual in the normal frame buffer,
+            not an overlay or underlay buffer.
+            The returned visual supports at least four bits each of red,
+            green, and blue,
+            and possibly no bits of alpha.
+            It does not support color index mode,
+            double-buffering, or stereo display.
+            It may or may not have one or more auxiliary color buffers,
+            a depth buffer,
+            a stencil buffer,
+            or an accumulation buffer.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">XVisualInfo</code> is defined in <span class="emphasis"><em>Xutil.h.</em></span>
+            It is a structure that includes <span class="emphasis"><em>visual</em></span>, <span class="emphasis"><em>visualID</em></span>, <span class="emphasis"><em>screen</em></span>, and
+            <span class="emphasis"><em>depth</em></span> elements.
+        </p><p>
+            <code class="function">glXChooseVisual</code> is implemented as a client-side utility using only <code class="function">XGetVisualInfo</code>
+            and <a class="citerefentry" href="glXGetConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetConfig</span></span></a>.
+            Calls to these two routines can be used to implement selection algorithms
+            other than the generic one implemented by <code class="function">glXChooseVisual</code>.
+        </p><p>
+            GLX implementations are strongly discouraged,
+            but not proscribed,
+            from changing the selection algorithm used by <code class="function">glXChooseVisual</code>.
+            Therefore, selections may change from release to release
+            of the client-side library.
+        </p><p>
+            There is no direct filter for picking only visuals that
+            support GLXPixmaps.
+            GLXPixmaps are supported for visuals whose
+            <code class="constant">GLX_BUFFER_SIZE</code>
+            is one of the pixmap depths supported by the X server.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">NULL</code> is returned if an undefined GLX attribute is encountered in
+            <em class="parameter"><code>attribList</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>,
+            <a class="citerefentry" href="glXGetConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetConfig</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

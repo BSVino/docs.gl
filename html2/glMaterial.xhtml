@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glMaterial</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glMaterial"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMaterial — specify material parameters for the lighting model</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMaterialf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMateriali</b>(</code></td><td>GLenum  </td><td><var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>face</code></em></span></dt><dd><p>
+                    Specifies which face or faces are being updated.
+                    Must be one of
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>, or
+                    <code class="constant">GL_FRONT_AND_BACK</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the single-valued material parameter of the face or faces
+                    that is being updated.
+                    Must be <code class="constant">GL_SHININESS</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
+                    Specifies the value that parameter <code class="constant">GL_SHININESS</code> will be set to.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMaterialfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMaterialiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>face</code></em></span></dt><dd><p>
+                    Specifies which face or faces are being updated.
+                    Must be one of
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>, or
+                    <code class="constant">GL_FRONT_AND_BACK</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the material parameter of the face or faces that is being updated.
+                    Must be one of
+                    <code class="constant">GL_AMBIENT</code>,
+                    <code class="constant">GL_DIFFUSE</code>,
+                    <code class="constant">GL_SPECULAR</code>,
+                    <code class="constant">GL_EMISSION</code>,
+                    <code class="constant">GL_SHININESS</code>,
+                    <code class="constant">GL_AMBIENT_AND_DIFFUSE</code>, or
+                    <code class="constant">GL_COLOR_INDEXES</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Specifies a pointer to the value or values that <em class="parameter"><code>pname</code></em> will be set to.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glMaterial</code> assigns values to material parameters.
+            There are two matched sets of material parameters.
+            One,
+            the <span class="emphasis"><em>front-facing</em></span> set,
+            is used to shade points,
+            lines,
+            bitmaps,
+            and all polygons
+            (when two-sided lighting is disabled),
+            or just front-facing polygons
+            (when two-sided lighting is enabled).
+            The other set,
+            <span class="emphasis"><em>back-facing</em></span>,
+            is used to shade back-facing polygons only when two-sided lighting is enabled.
+            Refer to the <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a> reference page for details concerning one- and
+            two-sided lighting calculations.
+        </p><p>
+            <code class="function">glMaterial</code> takes three arguments.
+            The first,
+            <em class="parameter"><code>face</code></em>,
+            specifies whether the
+            <code class="constant">GL_FRONT</code> materials, the
+            <code class="constant">GL_BACK</code> materials, or both
+            <code class="constant">GL_FRONT_AND_BACK</code> materials will be modified.
+            The second,
+            <em class="parameter"><code>pname</code></em>,
+            specifies which of several parameters in one or both sets will be modified.
+            The third,
+            <em class="parameter"><code>params</code></em>,
+            specifies what value or values will be assigned to the specified parameter.
+        </p><p>
+            Material parameters are used in the lighting equation that is optionally
+            applied to each vertex.
+            The equation is discussed in the <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a> reference page.
+            The parameters that can be specified using <code class="function">glMaterial</code>,
+            and their interpretations by the lighting equation, are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_AMBIENT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> contains four integer or floating-point values that specify
+                        the ambient RGBA reflectance of the material.
+                        Integer values are mapped linearly such that the most positive representable
+                        value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Floating-point values are mapped directly.
+                        Neither integer nor floating-point values are clamped.
+                        The initial ambient reflectance for both front- and back-facing materials
+                        is (0.2, 0.2, 0.2, 1.0).
+                    </p></dd><dt><span class="term"><code class="constant">GL_DIFFUSE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> contains four integer or floating-point values that specify
+                        the diffuse RGBA reflectance of the material.
+                        Integer values are mapped linearly such that the most positive representable
+                        value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Floating-point values are mapped directly.
+                        Neither integer nor floating-point values are clamped.
+                        The initial diffuse reflectance for both front- and back-facing materials
+                        is (0.8, 0.8, 0.8, 1.0).
+                    </p></dd><dt><span class="term"><code class="constant">GL_SPECULAR</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> contains four integer or floating-point values that specify
+                        the specular RGBA reflectance of the material.
+                        Integer values are mapped linearly such that the most positive representable
+                        value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Floating-point values are mapped directly.
+                        Neither integer nor floating-point values are clamped.
+                        The initial specular reflectance for both front- and back-facing materials
+                        is (0, 0, 0, 1).
+                    </p></dd><dt><span class="term"><code class="constant">GL_EMISSION</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> contains four integer or floating-point values that specify
+                        the RGBA emitted light intensity of the material.
+                        Integer values are mapped linearly such that the most positive representable
+                        value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Floating-point values are mapped directly.
+                        Neither integer nor floating-point values are clamped.
+                        The initial emission intensity for both front- and back-facing materials
+                        is (0, 0, 0, 1).
+                    </p></dd><dt><span class="term"><code class="constant">GL_SHININESS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> is a single integer or floating-point value that specifies
+                        the RGBA specular exponent of the material.
+                        Integer and floating-point values are mapped directly.
+                        Only values in the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>128</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>
+                        are accepted.
+                        The initial specular exponent for both front- and back-facing materials
+                        is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_AMBIENT_AND_DIFFUSE</code></span></dt><dd><p>
+                        Equivalent to calling <code class="function">glMaterial</code> twice with the same parameter values,
+                        once with <code class="constant">GL_AMBIENT</code> and once with <code class="constant">GL_DIFFUSE</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_COLOR_INDEXES</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> contains three integer or floating-point values specifying
+                        the color indices for ambient,
+                        diffuse,
+                        and specular lighting.
+                        These three values,
+                        and <code class="constant">GL_SHININESS</code>,
+                        are the only material values used by the color index mode lighting equation.
+                        Refer to the <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a> reference page for a discussion
+                        of color index lighting.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The material parameters can be updated at any time.
+            In particular,
+            <code class="function">glMaterial</code> can be called between a call to <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            call to <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+            If only a single material parameter is to be changed per vertex,
+            however,
+            <a class="citerefentry" href="glColorMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glColorMaterial</span></span></a> is preferred over <code class="function">glMaterial</code>
+            (see <a class="citerefentry" href="glColorMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glColorMaterial</span></span></a>).
+        </p><p>
+            While the ambient, diffuse, specular and emission material parameters
+            all have alpha components, only the diffuse alpha component is used in
+            the lighting computation.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>face</code></em> or <em class="parameter"><code>pname</code></em> is not
+            an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if a specular exponent outside the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mn>128</mml:mn>
+                </mml:mfenced>
+            </mml:math>
+            is specified.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glGetMaterial</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glColorMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glColorMaterial</span></span></a>,
+            <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>,
+            <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

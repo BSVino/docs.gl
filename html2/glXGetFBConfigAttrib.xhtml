@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXGetFBConfigAttrib</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXGetFBConfigAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXGetFBConfigAttrib — return information about a GLX frame buffer configuration</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">int <b class="fsfunc">glXGetFBConfigAttrib</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXFBConfig  </td><td><var class="pdparam">config</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">attribute</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">value</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>config</code></em></span></dt><dd><p>
+                    Specifies the GLX frame buffer configuration to be queried.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attribute</code></em></span></dt><dd><p>
+                    Specifies the attribute to be returned.
+                </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Returns the requested value.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXGetFBConfigAttrib</code> sets <em class="parameter"><code>value</code></em> to the <em class="parameter"><code>attribute</code></em> value of GLX drawables
+            created with respect to <em class="parameter"><code>config</code></em>.
+            <code class="function">glXGetFBConfigAttrib</code> returns an error code if it fails for any reason.
+            Otherwise, <code class="constant">Success</code> is returned.
+        </p><p>
+            <em class="parameter"><code>attribute</code></em> is one of the following:
+        </p><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLX_FBCONFIG_ID</code></span></dt><dd><p>
+                        XID of the given GLXFBConfig.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BUFFER_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits per color buffer.
+                        If the frame buffer configuration supports RGBA contexts, then
+                        <code class="constant">GLX_BUFFER_SIZE</code> is the sum of
+                        <code class="constant">GLX_RED_SIZE</code>,
+                        <code class="constant">GLX_GREEN_SIZE</code>,
+                        <code class="constant">GLX_BLUE_SIZE</code>, and
+                        <code class="constant">GLX_ALPHA_SIZE</code>.
+                        If the frame buffer configuration supports only color index contexts,
+                        <code class="constant">GLX_BUFFER_SIZE</code> is the size of the
+                        color indexes.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_LEVEL</code></span></dt><dd><p>
+                    </p><p>
+                        Frame buffer level of the configuration.
+                        Level zero is the default frame buffer.
+                        Positive levels correspond to frame buffers that overlay the default buffer,
+                        and negative levels correspond to frame buffers that underlie the default
+                        buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DOUBLEBUFFER</code></span></dt><dd><p>
+                    </p><p>
+                        <code class="constant">True</code> if color buffers exist in front/back pairs that can be swapped,
+                        <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STEREO</code></span></dt><dd><p>
+                    </p><p>
+                        <code class="constant">True</code> if color buffers exist in left/right pairs,
+                        <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_AUX_BUFFERS</code></span></dt><dd><p>
+                    </p><p>
+                        Number of auxiliary color buffers that are available.
+                        Zero indicates that no auxiliary color buffers exist.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RED_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of red stored in each color buffer.
+                        Undefined if RGBA contexts are not supported by the frame buffer configuration.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_GREEN_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of green stored in each color buffer.
+                        Undefined if RGBA contexts are not supported by the frame buffer configuration.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BLUE_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of blue stored in each color buffer.
+                        Undefined if RGBA contexts are not supported by the frame buffer configuration.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ALPHA_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of alpha stored in each color buffer.
+                        Undefined if RGBA contexts are not supported by the frame buffer configuration.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DEPTH_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits in the depth buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STENCIL_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits in the stencil buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_RED_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of red stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_GREEN_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of green stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_BLUE_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of blue stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_ALPHA_SIZE</code></span></dt><dd><p>
+                    </p><p>
+                        Number of bits of alpha stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RENDER_TYPE</code></span></dt><dd><p>
+                    </p><p>
+                        Mask indicating what type of GLX contexts can be made
+                        current to the frame buffer configuration. Valid bits are 
+                        <code class="constant">GLX_RGBA_BIT</code> and
+                        <code class="constant">GLX_COLOR_INDEX_BIT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DRAWABLE_TYPE</code></span></dt><dd><p>
+                    </p><p>
+                        Mask indicating what drawable types the frame buffer configuration
+                        supports. Valid bits are <code class="constant">GLX_WINDOW_BIT</code>,
+                        <code class="constant">GLX_PIXMAP_BIT</code>, and <code class="constant">GLX_PBUFFER_BIT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_X_RENDERABLE</code></span></dt><dd><p>
+                    </p><p>
+                        <code class="constant">True</code> if drawables created with the 
+                        frame buffer configuration can be rendered to by X.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_VISUAL_ID</code></span></dt><dd><p>
+                    </p><p>
+                        XID of the corresponding visual, or zero 
+                        if there is no associated visual (i.e., if
+                        <code class="constant">GLX_X_RENDERABLE</code> is <code class="constant">False</code> or
+                        <code class="constant">GLX_DRAWABLE_TYPE</code> does not have the
+                        <code class="constant">GLX_WINDOW_BIT</code> bit set).
+                    </p></dd><dt><span class="term"><code class="constant">GLX_X_VISUAL_TYPE</code></span></dt><dd><p>
+                    </p><p>
+                        Visual type of associated visual. The returned value will be one of:
+                        <code class="constant">GLX_TRUE_COLOR</code>, <code class="constant">GLX_DIRECT_COLOR</code>, <code class="constant">GLX_PSEUDO_COLOR</code>,
+                        <code class="constant">GLX_STATIC_COLOR</code>, <code class="constant">GLX_GRAY_SCALE</code>, <code class="constant">GLX_STATIC_GRAY</code>,
+                        or <code class="constant">GLX_NONE</code>, if there is no associated visual (i.e., if
+                        <code class="constant">GLX_X_RENDERABLE</code> is <code class="constant">False</code> or
+                        <code class="constant">GLX_DRAWABLE_TYPE</code> does not have the
+                        <code class="constant">GLX_WINDOW_BIT</code> bit set).
+                    </p></dd><dt><span class="term"><code class="constant">GLX_CONFIG_CAVEAT</code></span></dt><dd><p>
+                    </p><p>
+                        One of <code class="constant">GLX_NONE</code>,
+                        <code class="constant">GLX_SLOW_CONFIG</code>, or 
+                        <code class="constant">GLX_NON_CONFORMANT_CONFIG</code>, indicating
+                        that the frame buffer configuration has no caveats,
+                        some aspect of the frame buffer configuration runs slower
+                        than other frame buffer configurations, or some aspect of the
+                        frame buffer configuration is nonconformant, respectively.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_TYPE</code></span></dt><dd><p>
+                    </p><p>
+                        One of <code class="constant">GLX_NONE</code>,
+                        <code class="constant">GLX_TRANSPARENT_RGB</code>,
+                        <code class="constant">GLX_TRANSPARENT_INDEX</code>, indicating that 
+                        the frame buffer configuration is opaque, is transparent for particular
+                        values of red, green, and blue, or is transparent for
+                        particular index values, respectively.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_INDEX_VALUE</code></span></dt><dd><p>
+                    </p><p>
+                        Integer value between 0 and the maximum
+                        frame buffer value for indices, indicating the transparent
+                        index value for the frame buffer configuration. 
+                        Undefined if <code class="constant">GLX_TRANSPARENT_TYPE</code>
+                        is not <code class="constant">GLX_TRANSPARENT_INDEX</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_RED_VALUE</code></span></dt><dd><p>
+                    </p><p>
+                        Integer value between 0 and the maximum
+                        frame buffer value for red, indicating the transparent
+                        red value for the frame buffer configuration. 
+                        Undefined if <code class="constant">GLX_TRANSPARENT_TYPE</code>
+                        is not <code class="constant">GLX_TRANSPARENT_RGB</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_GREEN_VALUE</code></span></dt><dd><p>
+                    </p><p>
+                        Integer value between 0 and the maximum
+                        frame buffer value for green, indicating the transparent
+                        green value for the frame buffer configuration. 
+                        Undefined if <code class="constant">GLX_TRANSPARENT_TYPE</code>
+                        is not <code class="constant">GLX_TRANSPARENT_RGB</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_BLUE_VALUE</code></span></dt><dd><p>
+                    </p><p>
+                        Integer value between 0 and the maximum
+                        frame buffer value for blue, indicating the transparent
+                        blue value for the frame buffer configuration. 
+                        Undefined if <code class="constant">GLX_TRANSPARENT_TYPE</code>
+                        is not <code class="constant">GLX_TRANSPARENT_RGB</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_TRANSPARENT_ALPHA_VALUE</code></span></dt><dd><p>
+                    </p><p>
+                        Integer value between 0 and the maximum
+                        frame buffer value for alpha, indicating the transparent
+                        blue value for the frame buffer configuration. 
+                        Undefined if <code class="constant">GLX_TRANSPARENT_TYPE</code>
+                        is not <code class="constant">GLX_TRANSPARENT_RGB</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_MAX_PBUFFER_WIDTH</code></span></dt><dd><p>
+                    </p><p>
+                        The maximum width that can be specified to 
+                        <a class="citerefentry" href="glXCreatePbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glXCreatePbuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_MAX_PBUFFER_HEIGHT</code></span></dt><dd><p>
+                    </p><p>
+                        The maximum height that can be specified to 
+                        <a class="citerefentry" href="glXCreatePbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glXCreatePbuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_MAX_PBUFFER_PIXELS</code></span></dt><dd><p>
+                    </p><p>
+                        The maximum number of pixels (width times height) for a 
+                        pixel buffer. Note that this value may be less than
+                        <code class="constant">GLX_MAX_PBUFFER_WIDTH</code> times
+                        <code class="constant">GLX_MAX_PBUFFER_HEIGHT</code>. Also, this
+                        value is static and assumes that no other pixel buffers 
+                        or X resources are contending for the frame buffer memory. 
+                        As a result, it may not be possible to allocate a pixel buffer of
+                        the size given by <code class="constant">GLX_MAX_PBUFFER_PIXELS</code>.
+                    </p></dd></dl></div><p>
+            Applications should choose the frame buffer configuration that most closely
+            meets their requirements.
+            Creating windows, GLX pixmaps, or GLX pixel buffers with unnecessary buffers 
+            can result in
+            reduced rendering performance as well as poor resource allocation.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glXGetFBConfigAttrib</code> is available only if the GLX version is 1.3 or greater.
+        </p><p>
+            If the GLX version is 1.1 or 1.0, the GL version must be 1.0.
+            If the GLX version is 1.2, then the GL version must be 1.1.
+            If the GLX version is 1.3, then the GL version must be 1.2.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLX_NO_EXTENSION</code> is returned if <em class="parameter"><code>dpy</code></em> does not support the GLX
+            extension.
+            <code class="constant">GLX_BAD_ATTRIBUTE</code> is returned if <em class="parameter"><code>attribute</code></em> is not a valid GLX attribute.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXGetFBConfigs.xml"><span class="citerefentry"><span class="refentrytitle">glXGetFBConfigs</span></span></a>,
+            <a class="citerefentry" href="glXChooseFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>,
+            <a class="citerefentry" href="glXGetVisualFromFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetVisualFromFBConfig</span></span></a>,
+            <a class="citerefentry" href="glXGetConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetConfig</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

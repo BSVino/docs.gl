@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetPointerv</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetPointerv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetPointerv — return the address of the specified pointer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetPointerv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLvoid **  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the array or buffer pointer to be returned.
+                    Symbolic constants
+                    <code class="constant">GL_COLOR_ARRAY_POINTER</code>,
+                    <code class="constant">GL_EDGE_FLAG_ARRAY_POINTER</code>,
+                    <code class="constant">GL_FOG_COORD_ARRAY_POINTER</code>,
+                    <code class="constant">GL_FEEDBACK_BUFFER_POINTER</code>,
+                    <code class="constant">GL_INDEX_ARRAY_POINTER</code>,
+                    <code class="constant">GL_NORMAL_ARRAY_POINTER</code>,
+                    <code class="constant">GL_SECONDARY_COLOR_ARRAY_POINTER</code>,
+                    <code class="constant">GL_SELECTION_BUFFER_POINTER</code>,
+                    <code class="constant">GL_TEXTURE_COORD_ARRAY_POINTER</code>,
+                    or
+                    <code class="constant">GL_VERTEX_ARRAY_POINTER</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the pointer value specified by <em class="parameter"><code>pname</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetPointerv</code> returns pointer information. <em class="parameter"><code>pname</code></em> is a symbolic constant
+            indicating the pointer to be returned, and <em class="parameter"><code>params</code></em> is a pointer to a
+            location in which to place the returned data.
+        </p><p>
+            For all <em class="parameter"><code>pname</code></em> arguments except <code class="constant">GL_FEEDBACK_BUFFER_POINTER</code> and <code class="constant">GL_SELECTION_BUFFER_POINTER</code>,
+            if a non-zero named buffer object was bound to the <code class="constant">GL_ARRAY_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) when the desired pointer was previously
+            specified, the pointer returned is a byte offset into the buffer object's data store.
+            Buffer objects are only available in OpenGL versions 1.5 and greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glGetPointerv</code> is available only if the GL version is 1.1 or greater.
+        </p><p>
+            <code class="constant">GL_FOG_COORD_ARRAY_POINTER</code> and <code class="constant">GL_SECONDARY_COLOR_ARRAY_POINTER</code> 
+            are available only if the GL version is 1.4 or greater.
+        </p><p>
+            The pointers are all client-side state.
+        </p><p>
+            The initial value for each pointer is 0.
+        </p><p>
+            For OpenGL versions 1.3 and greater, or when the <code class="code">ARB_multitexture</code>
+            extension is supported, querying the <code class="constant">GL_TEXTURE_COORD_ARRAY_POINTER</code>
+            returns the value for the active client texture unit.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glClientActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glClientActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlagPointer.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>,
+            <a class="citerefentry" href="glFogCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glFeedbackBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a>,
+            <a class="citerefentry" href="glGetVertexAttribPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttribPointerv</span></span></a>,
+            <a class="citerefentry" href="glIndexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>,
+            <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>,
+            <a class="citerefentry" href="glSelectBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glSelectBuffer</span></span></a>,
+            <a class="citerefentry" href="glTexCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

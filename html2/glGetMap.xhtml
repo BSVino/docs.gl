@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetMap</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetMap"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetMap — return evaluator parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMapdv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">query</var>, </td></tr><tr><td> </td><td>GLdouble *  </td><td><var class="pdparam">v</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMapfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">query</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">v</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMapiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">query</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">v</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of a map.
+                    Accepted values are
+                    <code class="constant">GL_MAP1_COLOR_4</code>,
+                    <code class="constant">GL_MAP1_INDEX</code>,
+                    <code class="constant">GL_MAP1_NORMAL</code>,
+                    <code class="constant">GL_MAP1_TEXTURE_COORD_1</code>,
+                    <code class="constant">GL_MAP1_TEXTURE_COORD_2</code>,
+                    <code class="constant">GL_MAP1_TEXTURE_COORD_3</code>,
+                    <code class="constant">GL_MAP1_TEXTURE_COORD_4</code>,
+                    <code class="constant">GL_MAP1_VERTEX_3</code>,
+                    <code class="constant">GL_MAP1_VERTEX_4</code>,
+                    <code class="constant">GL_MAP2_COLOR_4</code>,
+                    <code class="constant">GL_MAP2_INDEX</code>,
+                    <code class="constant">GL_MAP2_NORMAL</code>,
+                    <code class="constant">GL_MAP2_TEXTURE_COORD_1</code>,
+                    <code class="constant">GL_MAP2_TEXTURE_COORD_2</code>,
+                    <code class="constant">GL_MAP2_TEXTURE_COORD_3</code>,
+                    <code class="constant">GL_MAP2_TEXTURE_COORD_4</code>,
+                    <code class="constant">GL_MAP2_VERTEX_3</code>, and
+                    <code class="constant">GL_MAP2_VERTEX_4</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>query</code></em></span></dt><dd><p>
+                    Specifies which parameter to return.
+                    Symbolic names
+                    <code class="constant">GL_COEFF</code>,
+                    <code class="constant">GL_ORDER</code>, and
+                    <code class="constant">GL_DOMAIN</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>v</code></em></span></dt><dd><p>
+                    Returns the requested data.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a> and <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a> define evaluators.
+            <code class="function">glGetMap</code> returns evaluator parameters.
+            <em class="parameter"><code>target</code></em> chooses a map,
+            <em class="parameter"><code>query</code></em> selects a specific parameter,
+            and <em class="parameter"><code>v</code></em> points to storage where the values will be returned.
+        </p><p>
+            The acceptable values for the <em class="parameter"><code>target</code></em> parameter are described
+            in the <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a> and <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a> reference pages.
+        </p><p>
+            <em class="parameter"><code>query</code></em> can assume the following values:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COEFF</code></span></dt><dd><p>
+                        <em class="parameter"><code>v</code></em> returns the control points for the evaluator function.
+                        One-dimensional evaluators return 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">order</mml:mi></mml:math>
+                        control points,
+                        and two-dimensional evaluators return 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">uorder</mml:mi>
+                                <mml:mo>×</mml:mo>
+                                <mml:mi mathvariant="italic">vorder</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        control points.
+                        Each control point consists of one, two, three, or four integer,
+                        single-precision floating-point,
+                        or double-precision floating-point values,
+                        depending on the type of the evaluator.
+                        The GL returns two-dimensional control points in row-major order,
+                        incrementing the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">uorder</mml:mi></mml:math>
+                        index quickly
+                        and the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">vorder</mml:mi></mml:math>
+                        index after each row.
+                        Integer values,
+                        when requested,
+                        are computed by rounding the internal floating-point values to the
+                        nearest integer values.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ORDER</code></span></dt><dd><p>
+                        <em class="parameter"><code>v</code></em> returns the order of the evaluator function.
+                        One-dimensional evaluators return a single value,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">order</mml:mi></mml:math>.
+                        The initial value is 1.
+                        Two-dimensional evaluators return two values,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">uorder</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">vorder</mml:mi></mml:math>.
+                        The initial value is 1,1.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DOMAIN</code></span></dt><dd><p>
+                        <em class="parameter"><code>v</code></em> returns the linear 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">v</mml:mi></mml:math>
+                        mapping parameters.
+                        One-dimensional evaluators return two values,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u1</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u2</mml:mi></mml:math>,
+                        as specified by <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a>.
+                        Two-dimensional evaluators return four values
+                        (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u1</mml:mi></mml:math>, 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u2</mml:mi></mml:math>, 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">v1</mml:mi></mml:math>,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">v2</mml:mi></mml:math>)
+                        as specified by <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>.
+                        Integer values,
+                        when requested,
+                        are computed by rounding the internal floating-point values to the
+                        nearest integer values.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>v</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>target</code></em> or <em class="parameter"><code>query</code></em> is not
+            an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glGetMap</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a>,
+            <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

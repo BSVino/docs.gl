@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glConvolutionParameter</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glConvolutionParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glConvolutionParameter — set convolution parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glConvolutionParameterf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glConvolutionParameteri</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><p>
+    </p><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The target for the convolution parameter.
+                    Must be one of
+                    <code class="constant">GL_CONVOLUTION_1D</code>,
+                    <code class="constant">GL_CONVOLUTION_2D</code>, or
+                    <code class="constant">GL_SEPARABLE_2D</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    The parameter to be set.
+                    Must be
+                    <code class="constant">GL_CONVOLUTION_BORDER_MODE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    The parameter value.
+                    Must be one of
+                    <code class="constant">GL_REDUCE</code>, <code class="constant">GL_CONSTANT_BORDER</code>, <code class="constant">GL_REPLICATE_BORDER</code>.
+                </p><p>
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glConvolutionParameterfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glConvolutionParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><p>
+    </p><div class="refsect1" lang="en" xml:lang="en"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The target for the convolution parameter.
+                    Must be one of
+                    <code class="constant">GL_CONVOLUTION_1D</code>,
+                    <code class="constant">GL_CONVOLUTION_2D</code>, or
+                    <code class="constant">GL_SEPARABLE_2D</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    The parameter to be set.
+                    Must be one of
+                    <code class="constant">GL_CONVOLUTION_BORDER_MODE</code>,
+                    <code class="constant">GL_CONVOLUTION_BORDER_COLOR</code>,
+                    <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code>, or
+                    <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    The parameter value.
+                    If <em class="parameter"><code>pname</code></em>v is <code class="constant">GL_CONVOLUTION_BORDER_MODE</code>, <em class="parameter"><code>params</code></em>v must be one of
+                    <code class="constant">GL_REDUCE</code>, <code class="constant">GL_CONSTANT_BORDER</code>, or <code class="constant">GL_REPLICATE_BORDER</code>.
+                    Otherwise, must be a vector of four values (for red, green, blue, and alpha,
+                    respectively) to be used for
+                    scaling (when <em class="parameter"><code>pname</code></em>v is <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code>), or
+                    biasing (when <em class="parameter"><code>pname</code></em>v is <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>) a convolution
+                    filter kernel or setting the constant border color (when <em class="parameter"><code>pname</code></em>v is
+                    <code class="constant">GL_CONVOLUTION_BORDER_COLOR</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glConvolutionParameter</code> sets the value of a convolution parameter.
+        </p><p>
+            <em class="parameter"><code>target</code></em> selects the convolution filter to be affected:
+            <code class="constant">GL_CONVOLUTION_1D</code>,
+            <code class="constant">GL_CONVOLUTION_2D</code>, or
+            <code class="constant">GL_SEPARABLE_2D</code>
+            for the 1D, 2D, or separable 2D filter, respectively.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> selects the parameter to be changed.
+            <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> and <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>
+            affect the definition of the convolution filter kernel; see
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>, <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>, and
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a> for details.
+            In these cases, <em class="parameter"><code>params</code></em>v is an array of four values to be applied to
+            red, green, blue, and alpha values, respectively. The initial value for
+            <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> is (1, 1, 1, 1), and the initial value
+            for <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code> is (0, 0, 0, 0).
+        </p><p>
+            A <em class="parameter"><code>pname</code></em> value of <code class="constant">GL_CONVOLUTION_BORDER_MODE</code> controls the
+            convolution border mode. The accepted modes are:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_REDUCE</code></span></dt><dd><p>
+                        The image resulting from convolution is
+                        smaller than the source image.
+                        If the filter width is 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">Wf</mml:mi></mml:math>
+                        and height is 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">Hf</mml:mi></mml:math>,
+                        and the source image width is 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">Ws</mml:mi></mml:math>
+                        and height is 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">Hs</mml:mi></mml:math>,
+                        then the convolved image width will be 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">Ws</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mi mathvariant="italic">Wf</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
+                        and height
+                        will be 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">Hs</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mi mathvariant="italic">Hf</mml:mi>
+                                <mml:mo>+</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>.
+                        (If this reduction would generate an image with zero or negative width
+                        and/or height, the output is simply null, with no error generated.)
+                        The coordinates of the image resulting from convolution are zero
+                        through 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">Ws</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mi mathvariant="italic">Wf</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        in width and zero through 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">Hs</mml:mi>
+                                <mml:mo>-</mml:mo>
+                                <mml:mi mathvariant="italic">Hf</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        in
+                        height.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CONSTANT_BORDER</code></span></dt><dd><p>
+                        The image resulting from convolution is the same size as the source image, and
+                        processed as if the source image were surrounded by pixels with their color
+                        specified by the <code class="constant">GL_CONVOLUTION_BORDER_COLOR</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_REPLICATE_BORDER</code></span></dt><dd><p>
+                        The image resulting from convolution is the same size as the source image, and
+                        processed as if the outermost pixel on the border of the source image were
+                        replicated.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glConvolutionParameter</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p><p>
+            In cases where errors can result from the specification of invalid
+            image dimensions, it is the dimensions after convolution that are
+            tested, not the dimensions of the source image.
+            For example, <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> requires power-of-two image size.
+            When <code class="constant">GL_REDUCE</code> border mode is in effect,
+            the source image must be larger than the final power-of-two size
+            by one less than the size of the 1D filter kernel.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_CONVOLUTION_BORDER_MODE</code> and <em class="parameter"><code>params</code></em> is not one of
+            <code class="constant">GL_REDUCE</code>, <code class="constant">GL_CONSTANT_BORDER</code>, or <code class="constant">GL_REPLICATE_BORDER</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glConvolutionParameter</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
+            <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

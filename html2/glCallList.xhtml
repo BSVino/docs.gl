@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCallList</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glCallList"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCallList — execute a display list</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCallList</b>(</code></td><td>GLuint  </td><td><var class="pdparam">list</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>list</code></em></span></dt><dd><p>
+                    Specifies the integer name of the display list to be executed.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCallList</code> causes the named display list to be executed.
+            The commands saved in the display list are executed in order,
+            just as if they were called without using a display list.
+            If <em class="parameter"><code>list</code></em> has not been defined as a display list,
+            <code class="function">glCallList</code> is ignored.
+        </p><p>
+            <code class="function">glCallList</code> can appear inside a display list.
+            To avoid the possibility of infinite recursion resulting from display lists
+            calling one another,
+            a limit is placed on the nesting level of display
+            lists during display-list execution.
+            This limit is at least 64, and it depends on the implementation.
+        </p><p>
+            GL state is not saved and restored across a call to <code class="function">glCallList</code>.
+            Thus,
+            changes made to GL state during the execution of a display list
+            remain after execution of the display list is completed.
+            Use <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>,
+            <a class="citerefentry" href="glPopAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
+            and <a class="citerefentry" href="glPopMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to preserve GL state across <code class="function">glCallList</code> calls.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            Display lists can be executed between a call to <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding call to <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>,
+            as long as the display list includes only commands that are allowed
+            in this interval.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_LIST_NESTING</code>
+        </p><p>
+            <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <code class="function">glCallLists</code>,
+            <a class="citerefentry" href="glDeleteLists.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteLists</span></span></a>,
+            <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>,
+            <a class="citerefentry" href="glNewList.xml"><span class="citerefentry"><span class="refentrytitle">glNewList</span></span></a>,
+            <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

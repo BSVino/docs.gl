@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXGetVisualFromFBConfig</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXGetVisualFromFBConfig"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXGetVisualFromFBConfig — return visual that is associated with the frame buffer configuration</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">XVisualInfo * <b class="fsfunc">glXGetVisualFromFBConfig</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXFBConfig  </td><td><var class="pdparam">config</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server. 
+                </p></dd><dt><span class="term"><em class="parameter"><code>config</code></em></span></dt><dd><p>
+                    Specifies the GLX frame buffer configuration.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            If <em class="parameter"><code>config</code></em> is a valid GLX frame buffer configuration
+            and it has an associated X Visual, then
+            information describing that visual is returned; otherwise <code class="constant">NULL</code>
+            is returned. Use <code class="function">XFree</code> to free the data returned.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glXGetVisualFromFBConfig</code> is available only if the GLX version is 1.3 or greater.
+        </p><p>
+            If the GLX version is 1.1 or 1.0, the GL version must be 1.0.
+            If the GLX version is 1.2, then the GL version must be 1.1.
+            If the GLX version is 1.3, then the GL version must be 1.2.
+        </p><p>
+            <code class="constant">XVisualInfo</code> is defined in <span class="emphasis"><em>Xutil.h.</em></span>
+            It is a structure that includes <span class="emphasis"><em>visual</em></span>, <span class="emphasis"><em>visualID</em></span>, 
+            <span class="emphasis"><em>screen</em></span>, and <span class="emphasis"><em>depth</em></span> elements.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            Returns <code class="constant">NULL</code> if <em class="parameter"><code>config</code></em> is not a valid GLXFBConfig.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXGetFBConfigAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glXGetFBConfigAttrib</span></span></a>,
+            <a class="citerefentry" href="glXChooseFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>,
+            <a class="citerefentry" href="glXChooseVisual.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseVisual</span></span></a>,
+            <a class="citerefentry" href="glXGetConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetConfig</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXQueryContextInfoEXT</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXQueryContextInfoEXT"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXQueryContextInfoEXT — query context information</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">int <b class="fsfunc">glXQueryContextInfoEXT</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXContext  </td><td><var class="pdparam">ctx</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">attribute</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">value</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>ctx</code></em></span></dt><dd><p>
+                    Specifies a GLX rendering context.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attribute</code></em></span></dt><dd><p>
+                    Specifies that a context parameter should be retrieved.  Must be one of
+                    <code class="constant">GLX_SHARED_CONTEXT_EXT</code>, <code class="constant">GLX_VISUAL_ID_EXT</code>, or <code class="constant">GLX_SCREEN_EXT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Contains the return value for <em class="parameter"><code>attribute</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXQueryContextInfoEXT</code> sets <em class="parameter"><code>value</code></em> to the value of <em class="parameter"><code>attribute</code></em> with respect to <em class="parameter"><code>ctx</code></em>.
+            <code class="function">glXQueryContextInfoEXT</code> returns an error code if it fails for any reason. Otherwise,
+            <code class="constant">Success</code> is returned.
+        </p><p>
+            <em class="parameter"><code>attribute</code></em> may be one of the following:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLX_SHARED_CONTEXT_EXT</code></span></dt><dd><p>
+                        Returns the XID of the share list context associated with <em class="parameter"><code>ctx</code></em> at its
+                        creation.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_VISUAL_ID_EXT</code></span></dt><dd><p>
+                        Returns the XID of the GLX Visual associated with <em class="parameter"><code>ctx</code></em>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_SCREEN_EXT</code></span></dt><dd><p>
+                        Returns the screen number associated with <em class="parameter"><code>ctx</code></em>.
+                    </p></dd></dl></div><p>
+            This call may cause a round-trip to the server.
+        </p><p>
+            <code class="function">glXQueryContextInfoEXT</code> is part of the <code class="code">EXT_import_context</code> extension,
+            not part of the core GLX command set. If _glxextstring(EXT_import_context)
+            is included in the string returned by <a class="citerefentry" href="glXQueryExtensionsString.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryExtensionsString</span></span></a>,
+            when called with argument <code class="constant">GLX_EXTENSIONS</code>,
+            extension <code class="code">EXT_import_context</code> is supported.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLXBadContext</code> is generated if <em class="parameter"><code>ctx</code></em> does not
+            refer to a valid context.
+        </p><p>
+            <code class="constant">GLX_BAD_ATTRIBUTE</code> is returned if <em class="parameter"><code>attribute</code></em> is not a valid GLX
+            context attribute.
+        </p><p>
+            fred <code class="constant">GLX_BAD_CONTEXT</code> is returned if <em class="parameter"><code>attribute</code></em> is not a valid context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>,
+            <a class="citerefentry" href="glXQueryVersion.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryVersion</span></span></a>,
+            <a class="citerefentry" href="glXQueryExtensionsString.xml"><span class="citerefentry"><span class="refentrytitle">glXQueryExtensionsString</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

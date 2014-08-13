@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glDrawBuffer</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawBuffer — specify which color buffers are to be drawn into</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawBuffer</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies up to four color buffers to be drawn into.
+                    Symbolic constants
+                    <code class="constant">GL_NONE</code>,
+                    <code class="constant">GL_FRONT_LEFT</code>,
+                    <code class="constant">GL_FRONT_RIGHT</code>,
+                    <code class="constant">GL_BACK_LEFT</code>,
+                    <code class="constant">GL_BACK_RIGHT</code>,
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>,
+                    <code class="constant">GL_LEFT</code>,
+                    <code class="constant">GL_RIGHT</code>,
+                    <code class="constant">GL_FRONT_AND_BACK</code>, and
+                    <code class="constant">GL_AUX</code><span class="emphasis"><em>i</em></span>,
+                    where <span class="emphasis"><em>i</em></span> is between 0 and the value of <code class="constant">GL_AUX_BUFFERS</code> minus 1,
+                    are accepted.  (<code class="constant">GL_AUX_BUFFERS</code> is not the upper limit; use <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+                    to query the number of available aux buffers.)
+                    The initial value is <code class="constant">GL_FRONT</code> for single-buffered contexts,
+                    and <code class="constant">GL_BACK</code> for double-buffered contexts.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            When colors are written to the frame buffer,
+            they are written into the color buffers specified by <code class="function">glDrawBuffer</code>.
+            The specifications are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_NONE</code></span></dt><dd><p>
+                        No color buffers are written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRONT_LEFT</code></span></dt><dd><p>
+                        Only the front left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRONT_RIGHT</code></span></dt><dd><p>
+                        Only the front right color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BACK_LEFT</code></span></dt><dd><p>
+                        Only the back left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BACK_RIGHT</code></span></dt><dd><p>
+                        Only the back right color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRONT</code></span></dt><dd><p>
+                        Only the front left and front right color buffers are written.
+                        If there is no front right color buffer,
+                        only the front left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BACK</code></span></dt><dd><p>
+                        Only the back left and back right color buffers are written.
+                        If there is no back right color buffer,
+                        only the back left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LEFT</code></span></dt><dd><p>
+                        Only the front left and back left color buffers are written.
+                        If there is no back left color buffer,
+                        only the front left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RIGHT</code></span></dt><dd><p>
+                        Only the front right and back right color buffers are written.
+                        If there is no back right color buffer,
+                        only the front right color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRONT_AND_BACK</code></span></dt><dd><p>
+                        All the front and back color buffers
+                        (front left, front right, back left, back right)
+                        are written.
+                        If there are no back color buffers,
+                        only the front left and front right color buffers are written.
+                        If there are no right color buffers,
+                        only the front left and back left color buffers are written.
+                        If there are no right or back color buffers,
+                        only the front left color buffer is written.
+                    </p></dd><dt><span class="term"><code class="constant">GL_AUX</code><span class="emphasis"><em>i</em></span></span></dt><dd><p>
+                        Only auxiliary color buffer <span class="emphasis"><em>i</em></span> is written.
+                    </p></dd></dl></div><p>
+            If more than one color buffer is selected for drawing,
+            then blending or logical operations are computed and applied independently
+            for each color buffer and can produce different results in each buffer.
+        </p><p>
+            Monoscopic contexts include only
+            <span class="emphasis"><em>left</em></span>
+            buffers, and stereoscopic contexts include both
+            <span class="emphasis"><em>left</em></span>
+            and
+            <span class="emphasis"><em>right</em></span>
+            buffers.
+            Likewise, single-buffered contexts include only
+            <span class="emphasis"><em>front</em></span>
+            buffers, and double-buffered contexts include both
+            <span class="emphasis"><em>front</em></span>
+            and
+            <span class="emphasis"><em>back</em></span>
+            buffers.
+            The context is selected at GL initialization.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            It is always the case that <code class="constant">GL_AUX</code>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            = <code class="constant">GL_AUX0</code> + 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if none of the buffers indicated
+            by <em class="parameter"><code>mode</code></em> exists.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glDrawBuffer</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DRAW_BUFFER</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_AUX_BUFFERS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glColorMask.xml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>,
+            <a class="citerefentry" href="glIndexMask.xml"><span class="citerefentry"><span class="refentrytitle">glIndexMask</span></span></a>,
+            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+            <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

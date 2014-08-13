@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXCopyContext</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXCopyContext"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXCopyContext — copy state from one rendering context to another</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glXCopyContext</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXContext  </td><td><var class="pdparam">src</var>, </td></tr><tr><td> </td><td>GLXContext  </td><td><var class="pdparam">dst</var>, </td></tr><tr><td> </td><td>unsigned long  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>src</code></em></span></dt><dd><p>
+                    Specifies the source context.
+                </p></dd><dt><span class="term"><em class="parameter"><code>dst</code></em></span></dt><dd><p>
+                    Specifies the destination context.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+                    Specifies which portions of <em class="parameter"><code>src</code></em> state are to be copied to <em class="parameter"><code>dst</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXCopyContext</code> copies selected groups of state variables from <em class="parameter"><code>src</code></em> to <em class="parameter"><code>dst</code></em>.
+            <em class="parameter"><code>mask</code></em> indicates which groups of state variables are to be copied.
+            <em class="parameter"><code>mask</code></em> contains the bitwise OR of the same symbolic names that are
+            passed to the GL command <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>.
+            The single symbolic constant <code class="constant">GLX_ALL_ATTRIB_BITS</code> can be used to
+            copy the maximum possible portion of rendering state.
+        </p><p>
+            The copy can be done only if the renderers named by <em class="parameter"><code>src</code></em> and <em class="parameter"><code>dst</code></em>
+            share an address space.
+            Two rendering contexts share an address space if both are nondirect
+            using the same server,
+            or if both are direct and owned by a single process.
+            Note that in the nondirect case it is not necessary for the calling
+            threads to share an address space,
+            only for their related rendering contexts to share an address space.
+        </p><p>
+            Not all values for GL state can be copied.
+            For example,
+            pixel pack and unpack state,
+            render mode state,
+            and select and feedback state are not copied.
+            The state that can be copied is exactly the state that is manipulated
+            by the GL command 
+            <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>.
+        </p><p>
+            An implicit <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a> is done by <code class="function">glXCopyContext</code> if <em class="parameter"><code>src</code></em> is the current
+            context for the calling thread.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+        </p><p>
+            A <span class="emphasis"><em>process</em></span> is a single execution environment,
+            implemented in a single address space,
+            consisting of one or more threads.
+        </p><p>
+            A <span class="emphasis"><em>thread</em></span> is one of a set of subprocesses that share
+            a single address space,
+            but maintain separate program counters,
+            stack spaces,
+            and other related global data.
+            A <span class="emphasis"><em>thread</em></span> that is the only member of its subprocess group
+            is equivalent to a <span class="emphasis"><em>process</em></span>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">BadMatch</code> is generated if rendering contexts <em class="parameter"><code>src</code></em> and <em class="parameter"><code>dst</code></em>
+            do not share an address space
+            or were not created with respect to the same screen.
+        </p><p>
+            <code class="constant">BadAccess</code> is generated if <em class="parameter"><code>dst</code></em> is current to any thread
+            (including the calling thread) at the time <code class="function">glXCopyContext</code> is called.
+        </p><p>
+            <code class="constant">GLXBadCurrentWindow</code> is generated if <em class="parameter"><code>src</code></em> is the current
+            context and the current drawable is a window that is no longer valid.
+        </p><p>
+            <code class="constant">GLXBadContext</code> is generated if either <em class="parameter"><code>src</code></em> or <em class="parameter"><code>dst</code></em> is not
+            a valid GLX context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>,
+            <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>,
+            <a class="citerefentry" href="glXIsDirect.xml"><span class="citerefentry"><span class="refentrytitle">glXIsDirect</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPolygonStipple</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPolygonStipple"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonStipple — set the polygon stippling pattern</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonStipple</b>(</code></td><td>const GLubyte *  </td><td><var class="pdparam">pattern</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pattern</code></em></span></dt><dd><p>
+                    Specifies a pointer to a 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mn>32</mml:mn>
+                            <mml:mo>×</mml:mo>
+                            <mml:mn>32</mml:mn>
+                        </mml:mrow>
+                    </mml:math>
+                    stipple pattern that will be unpacked
+                    from memory in the same way that <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> unpacks pixels.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Polygon stippling,
+            like line stippling
+            (see <a class="citerefentry" href="glLineStipple.xml"><span class="citerefentry"><span class="refentrytitle">glLineStipple</span></span></a>),
+            masks out certain fragments produced by rasterization,
+            creating a pattern.
+            Stippling is independent of polygon antialiasing.
+        </p><p>
+            <em class="parameter"><code>pattern</code></em> is a pointer to a 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>32</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>32</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            stipple pattern that is stored
+            in memory just like the pixel data supplied to a <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>
+            call with
+            <span class="emphasis"><em></em></span>
+            height
+            and
+            <span class="emphasis"><em>width</em></span>
+            both equal to 32, a pixel format
+            of <code class="constant">GL_COLOR_INDEX</code>, and data type
+            of <code class="constant">GL_BITMAP</code>.
+            That is,
+            the stipple pattern is represented as a 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>32</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>32</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            array
+            of 1-bit color indices packed in unsigned bytes.
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> parameters like <code class="constant">GL_UNPACK_SWAP_BYTES</code>
+            and <code class="constant">GL_UNPACK_LSB_FIRST</code> affect the assembling of the bits into a
+            stipple pattern.
+            Pixel transfer operations
+            (shift, offset, pixel map)
+            are not applied to the stipple image,
+            however.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a stipple pattern is
+            specified, <em class="parameter"><code>pattern</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            To enable and disable polygon stippling, call
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
+            with argument <code class="constant">GL_POLYGON_STIPPLE</code>. Polygon stippling is initially
+            disabled. If it's enabled,
+            a rasterized polygon fragment with window coordinates 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                <mml:mi mathvariant="italic">w</mml:mi>
+                </mml:msub>
+            </mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                <mml:mi mathvariant="italic">w</mml:mi>
+                </mml:msub>
+            </mml:math>
+            is sent to the next stage of the GL if and only if the
+            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>%</mml:mo>
+                    <mml:mn>32</mml:mn>
+                </mml:mrow>
+            </mml:math>)th
+            bit in the 
+            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>%</mml:mo>
+                    <mml:mn>32</mml:mn>
+                </mml:mrow>
+            </mml:math>)th
+            row
+            of the stipple pattern is 1 (one).
+            When polygon stippling is disabled, it is as if the stipple pattern
+            consists of all 1's.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            object such that the memory reads required would exceed the data store size.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPolygonStipple</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glGetPolygonStipple</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_POLYGON_STIPPLE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glLineStipple.xml"><span class="citerefentry"><span class="refentrytitle">glLineStipple</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

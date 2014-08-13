@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glColorTableParameter</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glColorTableParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glColorTableParameter — set color lookup table parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glColorTableParameterfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glColorTableParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The target color table.
+                    Must be
+                    <code class="constant">GL_COLOR_TABLE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>, or
+                    <code class="constant">GL_POST_COLOR_MATRIX_COLOR_TABLE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    The symbolic name of a texture color lookup table parameter.
+                    Must be one of
+                    <code class="constant">GL_COLOR_TABLE_SCALE</code> or
+                    <code class="constant">GL_COLOR_TABLE_BIAS</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    A pointer to an array where the values of the parameters are stored.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glColorTableParameter</code> is used to specify the scale factors and bias terms applied to
+            color components when they are loaded into a color table. <em class="parameter"><code>target</code></em>
+            indicates which color table the scale and bias terms apply to; it
+            must be set to
+            <code class="constant">GL_COLOR_TABLE</code>,
+            <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>, or
+            <code class="constant">GL_POST_COLOR_MATRIX_COLOR_TABLE</code>.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_COLOR_TABLE_SCALE</code> to set the
+            scale factors.
+            In this case, <em class="parameter"><code>params</code></em> points to an array of four values, which are
+            the scale factors for red, green, blue, and alpha, in that order.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_COLOR_TABLE_BIAS</code> to set the
+            bias terms. In this case,
+            <em class="parameter"><code>params</code></em> points to an array of four values, which are the bias
+            terms for red, green, blue, and alpha, in that order.
+        </p><p>
+            The color tables themselves are specified by
+            calling <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glColorTableParameter</code> is available only if <code class="code">ARB_imaging</code> is returned from calling
+            <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a> with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not
+            an acceptable value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glColorTableParameter</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

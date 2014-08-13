@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBufferData</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBufferData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBufferData — creates and initializes a buffer object's data store</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBufferData</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizeiptr  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">usage</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target buffer object.
+                    The symbolic constant must be <code class="constant">GL_ARRAY_BUFFER</code>, 
+                    <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_PACK_BUFFER</code>, or
+                    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+                    Specifies the size in bytes of the buffer object's new data store.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    Specifies a pointer to data that will be copied into the data store for initialization,
+                    or <code class="constant">NULL</code> if no data is to be copied.
+                </p></dd><dt><span class="term"><em class="parameter"><code>usage</code></em></span></dt><dd><p>
+                    Specifies the expected usage pattern of the data store. The symbolic constant must be
+                    <code class="constant">GL_STREAM_DRAW</code>, <code class="constant">GL_STREAM_READ</code>, <code class="constant">GL_STREAM_COPY</code>, 
+                    <code class="constant">GL_STATIC_DRAW</code>, <code class="constant">GL_STATIC_READ</code>, <code class="constant">GL_STATIC_COPY</code>, 
+                    <code class="constant">GL_DYNAMIC_DRAW</code>, <code class="constant">GL_DYNAMIC_READ</code>, or <code class="constant">GL_DYNAMIC_COPY</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBufferData</code> creates a new data store for the buffer object currently bound to
+            <em class="parameter"><code>target</code></em>. Any pre-existing data store is deleted. The new data store is created with the
+            specified <em class="parameter"><code>size</code></em> in bytes and <em class="parameter"><code>usage</code></em>. If <em class="parameter"><code>data</code></em>
+            is not <code class="constant">NULL</code>, the data store is initialized with data from this pointer. In its initial 
+            state, the new data store is not mapped, it has a <code class="constant">NULL</code> mapped pointer, and its mapped access 
+            is <code class="constant">GL_READ_WRITE</code>.
+        </p><p>
+            <em class="parameter"><code>usage</code></em> is a hint to the GL implementation as to how a buffer object's data store will be 
+            accessed. This enables the GL implementation to make more intelligent decisions that may significantly 
+            impact buffer object performance. It does not, however, constrain the actual usage of the data store.
+            <em class="parameter"><code>usage</code></em> can be broken down into two parts: first, the frequency of access (modification 
+            and usage), and second, the nature of that access. The frequency of access may be one of these:
+        </p><div class="variablelist"><dl><dt><span class="term">STREAM</span></dt><dd><p>
+                        The data store contents will be modified once and used at most a few times.
+                    </p></dd><dt><span class="term">STATIC</span></dt><dd><p>
+                        The data store contents will be modified once and used many times.
+                    </p></dd><dt><span class="term">DYNAMIC</span></dt><dd><p>
+                        The data store contents will be modified repeatedly and used many times.
+                    </p></dd></dl></div><p>
+            The nature of access may be one of these:
+        </p><div class="variablelist"><dl><dt><span class="term">DRAW</span></dt><dd><p>
+                        The data store contents are modified by the application, and used as the source for GL drawing and
+                        image specification commands.
+                    </p></dd><dt><span class="term">READ</span></dt><dd><p>
+                        The data store contents are modified by reading data from the GL, and used to return that data 
+                        when queried by the application.
+                    </p></dd><dt><span class="term">COPY</span></dt><dd><p>
+                        The data store contents are modified by reading data from the GL, and used as the source for GL
+                        drawing and image specification commands.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glBufferData</code> is available only if the GL version is 1.5 or greater.
+        </p><p>
+            Targets <code class="constant">GL_PIXEL_PACK_BUFFER</code> and <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> are available 
+            only if the GL version is 2.1 or greater.
+        </p><p>
+            If <em class="parameter"><code>data</code></em> is <code class="constant">NULL</code>, a data store of the specified size is still created,
+            but its contents remain uninitialized and thus undefined.
+        </p><p>
+            Clients must align data elements consistent with the requirements of the client
+            platform, with an additional base-level requirement that an offset within a buffer to
+            a datum comprising <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi> bytes be a 
+            multiple of <mml:mi mathvariant="italic">N</mml:mi></mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not 
+            <code class="constant">GL_ARRAY_BUFFER</code>, <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>, 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code>, or <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>usage</code></em> is not 
+            <code class="constant">GL_STREAM_DRAW</code>, <code class="constant">GL_STREAM_READ</code>, <code class="constant">GL_STREAM_COPY</code>, 
+            <code class="constant">GL_STATIC_DRAW</code>, <code class="constant">GL_STATIC_READ</code>, <code class="constant">GL_STATIC_COPY</code>, 
+            <code class="constant">GL_DYNAMIC_DRAW</code>, <code class="constant">GL_DYNAMIC_READ</code>, or <code class="constant">GL_DYNAMIC_COPY</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>size</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the reserved buffer object name 0 is bound to <em class="parameter"><code>target</code></em>.
+        </p><p>
+            <code class="constant">GL_OUT_OF_MEMORY</code> is generated if the GL is unable to create a data store with the specified <em class="parameter"><code>size</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBufferData</code>
+            is executed between the execution of
+            <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of
+            <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferSubData</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glGetBufferParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameteriv</span></span></a> with argument <code class="constant">GL_BUFFER_SIZE</code> or <code class="constant">GL_BUFFER_USAGE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
+            <a class="citerefentry" href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

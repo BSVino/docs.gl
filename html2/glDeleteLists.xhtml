@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glDeleteLists</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDeleteLists"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDeleteLists — delete a contiguous group of display lists</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDeleteLists</b>(</code></td><td>GLuint  </td><td><var class="pdparam">list</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">range</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>list</code></em></span></dt><dd><p>
+                    Specifies the integer name of the first display list to delete.
+                </p></dd><dt><span class="term"><em class="parameter"><code>range</code></em></span></dt><dd><p>
+                    Specifies the number of display lists to delete.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDeleteLists</code> causes a contiguous group of display lists to be deleted.
+            <em class="parameter"><code>list</code></em> is the name of the first display list to be deleted,
+            and <em class="parameter"><code>range</code></em> is the number of display lists to delete.
+            All display lists 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">d</mml:mi></mml:math>
+            with 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">list</mml:mi>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mi mathvariant="italic">d</mml:mi>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">list</mml:mi>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">range</mml:mi>
+                        <mml:mo>-</mml:mo>
+                        <mml:mn>1</mml:mn>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>
+            are deleted.
+        </p><p>
+            All storage locations allocated to the specified display lists are freed,
+            and the names are available for reuse at a later time.
+            Names within the range that do not have an associated display list are ignored.
+            If <em class="parameter"><code>range</code></em> is 0, nothing happens.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>range</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glDeleteLists</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>,
+            <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a>,
+            <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>,
+            <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>,
+            <a class="citerefentry" href="glNewList.xml"><span class="citerefentry"><span class="refentrytitle">glNewList</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

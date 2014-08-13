@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glHistogram</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glHistogram"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glHistogram — define histogram table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glHistogram</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLboolean  </td><td><var class="pdparam">sink</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The histogram whose parameters are to be set.
+                    Must be one of
+                    <code class="constant">GL_HISTOGRAM</code> or
+                    <code class="constant">GL_PROXY_HISTOGRAM</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    The number of entries in the histogram table.  Must be a power of 2.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    The format of entries in the histogram table.
+                    Must be one of
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_ALPHA4</code>,
+                    <code class="constant">GL_ALPHA8</code>,
+                    <code class="constant">GL_ALPHA12</code>,
+                    <code class="constant">GL_ALPHA16</code>,
+                    <code class="constant">GL_LUMINANCE</code>,
+                    <code class="constant">GL_LUMINANCE4</code>,
+                    <code class="constant">GL_LUMINANCE8</code>,
+                    <code class="constant">GL_LUMINANCE12</code>,
+                    <code class="constant">GL_LUMINANCE16</code>,
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE4_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE6_ALPHA2</code>,
+                    <code class="constant">GL_LUMINANCE8_ALPHA8</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA12</code>,
+                    <code class="constant">GL_LUMINANCE16_ALPHA16</code>,
+                    <code class="constant">GL_R3_G3_B2</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_RGB4</code>,
+                    <code class="constant">GL_RGB5</code>,
+                    <code class="constant">GL_RGB8</code>,
+                    <code class="constant">GL_RGB10</code>,
+                    <code class="constant">GL_RGB12</code>,
+                    <code class="constant">GL_RGB16</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_RGBA2</code>,
+                    <code class="constant">GL_RGBA4</code>,
+                    <code class="constant">GL_RGB5_A1</code>,
+                    <code class="constant">GL_RGBA8</code>,
+                    <code class="constant">GL_RGB10_A2</code>,
+                    <code class="constant">GL_RGBA12</code>, or
+                    <code class="constant">GL_RGBA16</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>sink</code></em></span></dt><dd><p>
+                    If <code class="constant">GL_TRUE</code>, pixels will be consumed by the histogramming
+                    process and no drawing or texture loading will take place.
+                    If <code class="constant">GL_FALSE</code>, pixels will proceed to the minmax process after
+                    histogramming.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            When <code class="constant">GL_HISTOGRAM</code> is enabled, RGBA color components are converted to
+            histogram table indices by clamping to the range [0,1], multiplying by
+            the width of the histogram table, and rounding to the nearest integer.
+            The table entries selected by the RGBA indices are then incremented.
+            (If the internal format of the histogram table includes luminance, then
+            the index derived from the R color component determines the luminance
+            table entry to be incremented.)  If a histogram table entry is incremented
+            beyond its maximum value, then its value becomes undefined.  (This is
+            not an error.)
+        </p><p>
+            Histogramming is performed only for RGBA pixels (though these may
+            be specified originally as color indices and converted to RGBA by
+            index table lookup).
+            Histogramming is enabled with <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and disabled with <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>.
+        </p><p>
+            When <em class="parameter"><code>target</code></em> is <code class="constant">GL_HISTOGRAM</code>, <code class="function">glHistogram</code> redefines the current
+            histogram table to have <em class="parameter"><code>width</code></em> entries of the format specified by
+            <em class="parameter"><code>internalformat</code></em>.
+            The entries are indexed 0 through 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>-</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            and
+            all entries are initialized to zero.
+            The values in the previous histogram table, if any, are lost.
+            If <em class="parameter"><code>sink</code></em> is <code class="constant">GL_TRUE</code>, then pixels are discarded after histogramming;
+            no further processing of the pixels takes place, and no drawing,
+            texture loading, or pixel readback will result.
+        </p><p>
+            When <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_HISTOGRAM</code>, <code class="function">glHistogram</code> computes all
+            state information as if the histogram table were to be redefined,
+            but does not actually define the new table.
+            If the requested histogram table is too large to be supported, then the
+            state information will be set to zero.
+            This provides a way to determine if a histogram table with the given
+            parameters can be supported.
+        </p><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glHistogram</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than zero or is
+            not a power of 2.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not one of the
+            allowable values.
+        </p><p>
+            <code class="constant">GL_TABLE_TOO_LARGE</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_HISTOGRAM</code>
+            and the histogram table specified is too large for the implementation.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glHistogram</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetHistogramParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetHistogramParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glGetHistogram</span></span></a>,
+            <a class="citerefentry" href="glResetHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glResetHistogram</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

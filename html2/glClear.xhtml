@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glClear</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glClear"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glClear — clear buffers to preset values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glClear</b>(</code></td><td>GLbitfield  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+                    Bitwise OR of masks that indicate the buffers to be cleared.
+                    The four masks are
+                    <code class="constant">GL_COLOR_BUFFER_BIT</code>,
+                    <code class="constant">GL_DEPTH_BUFFER_BIT</code>,
+                    <code class="constant">GL_ACCUM_BUFFER_BIT</code>, and
+                    <code class="constant">GL_STENCIL_BUFFER_BIT</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glClear</code> sets the bitplane area of the window to values previously selected
+            by <code class="function">glClearColor</code>, <code class="function">glClearIndex</code>, <code class="function">glClearDepth</code>,
+            <code class="function">glClearStencil</code>, and <code class="function">glClearAccum</code>.
+            Multiple color buffers can be cleared simultaneously by selecting
+            more than one buffer at a time using <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>.
+        </p><p>
+            The pixel ownership test,
+            the scissor test,
+            dithering, and the buffer writemasks affect the operation of <code class="function">glClear</code>.
+            The scissor box bounds the cleared region.
+            Alpha function,
+            blend function,
+            logical operation,
+            stenciling,
+            texture mapping,
+            and depth-buffering are ignored by <code class="function">glClear</code>.
+        </p><p>
+            <code class="function">glClear</code> takes a single argument that is the bitwise OR of several
+            values indicating which buffer is to be cleared.
+        </p><p>
+            The values are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COLOR_BUFFER_BIT</code></span></dt><dd><p>
+                        Indicates the buffers currently enabled for color
+                        writing.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_BUFFER_BIT</code></span></dt><dd><p>
+                        Indicates the depth buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ACCUM_BUFFER_BIT</code></span></dt><dd><p>
+                        Indicates the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BUFFER_BIT</code></span></dt><dd><p>
+                        Indicates the stencil buffer.
+                    </p></dd></dl></div><p>
+            The value to which each buffer is cleared depends on the setting of the
+            clear value for that buffer.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If a buffer is not present,
+            then a <code class="function">glClear</code> directed at that buffer has no effect.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if any bit other than the four defined
+            bits is set in <em class="parameter"><code>mask</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glClear</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ACCUM_CLEAR_VALUE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DEPTH_CLEAR_VALUE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_CLEAR_VALUE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_CLEAR_VALUE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_STENCIL_CLEAR_VALUE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <code class="function">glClearAccum</code>,
+            <code class="function">glClearColor</code>,
+            <code class="function">glClearDepth</code>,
+            <code class="function">glClearIndex</code>,
+            <code class="function">glClearStencil</code>,
+            <a class="citerefentry" href="glColorMask.xml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>,
+            <a class="citerefentry" href="glDepthMask.xml"><span class="citerefentry"><span class="refentrytitle">glDepthMask</span></span></a>,
+            <a class="citerefentry" href="glDrawBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffer</span></span></a>,
+            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

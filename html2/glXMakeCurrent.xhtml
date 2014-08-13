@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXMakeCurrent</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXMakeCurrent"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXMakeCurrent — attach a GLX context to a window or a GLX pixmap</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">Bool <b class="fsfunc">glXMakeCurrent</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXDrawable  </td><td><var class="pdparam">drawable</var>, </td></tr><tr><td> </td><td>GLXContext  </td><td><var class="pdparam">ctx</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>drawable</code></em></span></dt><dd><p>
+                    Specifies a GLX drawable.
+                    Must be either an X window ID or a GLX pixmap ID.
+                </p></dd><dt><span class="term"><em class="parameter"><code>ctx</code></em></span></dt><dd><p>
+                    Specifies a GLX rendering context that is to be attached to <em class="parameter"><code>drawable</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXMakeCurrent</code> does two things:
+            It makes <em class="parameter"><code>ctx</code></em> the current GLX rendering context of the calling thread,
+            replacing the previously current context if there was one,
+            and it attaches <em class="parameter"><code>ctx</code></em> to a GLX drawable,
+            either a window or a GLX pixmap.
+            As a result of these two actions,
+            subsequent GL rendering calls
+            use rendering context <em class="parameter"><code>ctx</code></em> to modify GLX drawable <em class="parameter"><code>drawable</code></em> (for
+            reading and writing).
+            Because <code class="function">glXMakeCurrent</code> always replaces the current rendering context with <em class="parameter"><code>ctx</code></em>,
+            there can be only one current context per thread.
+        </p><p>
+            Pending commands to the
+            previous context, if any, are flushed before it is released.
+        </p><p>
+            The first time <em class="parameter"><code>ctx</code></em> is made current to any thread,
+            its viewport is set to the full size of <em class="parameter"><code>drawable</code></em>.
+            Subsequent calls by any thread to <code class="function">glXMakeCurrent</code> with <em class="parameter"><code>ctx</code></em>
+            have no effect on its viewport.
+        </p><p>
+            To release the current context without assigning a new one,
+            call <code class="function">glXMakeCurrent</code> with <em class="parameter"><code>drawable</code></em> set to <code class="constant">None</code> and <em class="parameter"><code>ctx</code></em>
+            set to <code class="constant">NULL</code>.
+        </p><p>
+            <code class="function">glXMakeCurrent</code> returns <code class="constant">True</code> if it is successful,
+            <code class="constant">False</code> otherwise.
+            If <code class="constant">False</code> is returned, the previously current rendering context
+            and drawable (if any) remain unchanged.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            A <span class="emphasis"><em>process</em></span> is a single-execution environment,
+            implemented in a single address space,
+            consisting of one or more threads.
+        </p><p>
+            A <span class="emphasis"><em>thread</em></span> is one of a set of subprocesses that share
+            a single address space,
+            but maintain separate program counters,
+            stack spaces,
+            and other related global data.
+            A <span class="emphasis"><em>thread</em></span> that is the only member of its subprocess group
+            is equivalent to a <span class="emphasis"><em>process</em></span>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">BadMatch</code> is generated if <em class="parameter"><code>drawable</code></em> was not
+            created with the same X screen and visual as <em class="parameter"><code>ctx</code></em>.
+            It is also generated if <em class="parameter"><code>drawable</code></em> is <code class="constant">None</code> and <em class="parameter"><code>ctx</code></em> is not
+            <code class="constant">NULL</code>.
+        </p><p>
+            <code class="constant">BadAccess</code> is generated if <em class="parameter"><code>ctx</code></em> was current to another thread
+            at the time <code class="function">glXMakeCurrent</code> was called.
+        </p><p>
+            <code class="constant">GLXBadDrawable</code> is generated if <em class="parameter"><code>drawable</code></em> is not a valid GLX drawable.
+        </p><p>
+            <code class="constant">GLXBadContext</code> is generated if <em class="parameter"><code>ctx</code></em> is not a valid GLX context.
+        </p><p>
+            <code class="constant">GLXBadContextState</code> is generated if <code class="function">glXMakeCurrent</code> is executed between
+            the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p><p>
+            <code class="constant">GLXBadContextState</code> is also generated if the rendering context current
+            to the calling thread has GL renderer state <code class="constant">GLX_FEEDBACK</code> or
+            <code class="constant">GLX_SELECT</code>.
+        </p><p>
+            <code class="constant">GLXBadCurrentWindow</code> is generated if there are pending GL
+            commands for the previous context and the current drawable is
+            a window that is no longer valid.
+        </p><p>
+            <code class="constant">BadAlloc</code> may be generated if the server has delayed allocation
+            of ancillary buffers until <code class="function">glXMakeCurrent</code> is called, only to find that it has
+            insufficient resources to complete the allocation.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>,
+            <a class="citerefentry" href="glXCreateGLXPixmap.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateGLXPixmap</span></span></a>
+            <a class="citerefentry" href="glXGetCurrentContext.xml"><span class="citerefentry"><span class="refentrytitle">glXGetCurrentContext</span></span></a>,
+            <a class="citerefentry" href="glXGetCurrentDisplay.xml"><span class="citerefentry"><span class="refentrytitle">glXGetCurrentDisplay</span></span></a>,
+            <a class="citerefentry" href="glXGetCurrentDrawable.xml"><span class="citerefentry"><span class="refentrytitle">glXGetCurrentDrawable</span></span></a>,
+            <a class="citerefentry" href="glXGetCurrentReadDrawable.xml"><span class="citerefentry"><span class="refentrytitle">glXGetCurrentReadDrawable</span></span></a>,
+            <a class="citerefentry" href="glXMakeContextCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

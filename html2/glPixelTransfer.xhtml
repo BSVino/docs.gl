@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPixelTransfer</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPixelTransfer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelTransfer — set pixel transfer modes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferi</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of the pixel transfer parameter to be set.
+                    Must be one of the following:
+                    <code class="constant">GL_MAP_COLOR</code>,
+                    <code class="constant">GL_MAP_STENCIL</code>,
+                    <code class="constant">GL_INDEX_SHIFT</code>,
+                    <code class="constant">GL_INDEX_OFFSET</code>,
+                    <code class="constant">GL_RED_SCALE</code>,
+                    <code class="constant">GL_RED_BIAS</code>,
+                    <code class="constant">GL_GREEN_SCALE</code>,
+                    <code class="constant">GL_GREEN_BIAS</code>,
+                    <code class="constant">GL_BLUE_SCALE</code>,
+                    <code class="constant">GL_BLUE_BIAS</code>,
+                    <code class="constant">GL_ALPHA_SCALE</code>,
+                    <code class="constant">GL_ALPHA_BIAS</code>,
+                    <code class="constant">GL_DEPTH_SCALE</code>, or
+                    <code class="constant">GL_DEPTH_BIAS</code>.
+                </p><p>
+                    Additionally, if the <code class="code">ARB_imaging</code> extension is supported, the
+                    following symbolic names are accepted:
+                    <code class="constant">GL_POST_COLOR_MATRIX_RED_SCALE</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_GREEN_SCALE</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_BLUE_SCALE</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_RED_BIAS</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_GREEN_BIAS</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_BLUE_BIAS</code>,
+                    <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_RED_SCALE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_GREEN_SCALE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_BLUE_SCALE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_RED_BIAS</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_GREEN_BIAS</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_BLUE_BIAS</code>, and
+                    <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
+                    Specifies the value that <em class="parameter"><code>pname</code></em> is set to.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glPixelTransfer</code> sets pixel transfer modes that affect the operation of subsequent
+            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a> commands.
+            Additionally, if the <code class="code">ARB_imaging</code> subset is supported, the
+            routines
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glHistogram</span></span></a>,
+            <a class="citerefentry" href="glMinmax.xml"><span class="citerefentry"><span class="refentrytitle">glMinmax</span></span></a>, and
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a> are also affected.
+            The algorithms that are specified by pixel transfer modes operate on
+            pixels after they are read from the frame buffer
+            (<a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>, and
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>),
+            or unpacked from client memory
+            (<a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>, <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>, <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
+            Pixel transfer operations happen in the same order,
+            and in the same manner,
+            regardless of the command that resulted in the pixel operation.
+            Pixel storage modes
+            (see <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>)
+            control the unpacking of pixels being read from client memory
+            and the packing of pixels being written back into client memory.
+        </p><p>
+            Pixel transfer operations handle four fundamental pixel types:
+            <span class="emphasis"><em>color</em></span>,
+            <span class="emphasis"><em>color index</em></span>,
+            <span class="emphasis"><em>depth</em></span>, and
+            <span class="emphasis"><em>stencil</em></span>.
+            <span class="emphasis"><em>Color</em></span> pixels consist of four floating-point values
+            with unspecified mantissa and exponent sizes,
+            scaled such that 0 represents zero intensity
+            and 1 represents full intensity.
+            <span class="emphasis"><em>Color indices</em></span> comprise a single fixed-point value,
+            with unspecified precision to the right of the binary point.
+            <span class="emphasis"><em>Depth</em></span> pixels comprise a single floating-point value,
+            with unspecified mantissa and exponent sizes,
+            scaled such that 0.0 represents the minimum depth buffer value,
+            and 1.0 represents the maximum depth buffer value.
+            Finally,
+            <span class="emphasis"><em>stencil</em></span> pixels comprise a single fixed-point value,
+            with unspecified precision to the right of the binary point.
+        </p><p>
+            The pixel transfer operations performed on the four basic pixel types are
+            as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>Color</em></span></span></dt><dd><p>
+                        Each of the four color components is multiplied by a scale factor,
+                        then added to a bias factor.
+                        That is,
+                        the red component is multiplied by <code class="constant">GL_RED_SCALE</code>,
+                        then added to <code class="constant">GL_RED_BIAS</code>;
+                        the green component is multiplied by <code class="constant">GL_GREEN_SCALE</code>,
+                        then added to <code class="constant">GL_GREEN_BIAS</code>;
+                        the blue component is multiplied by <code class="constant">GL_BLUE_SCALE</code>,
+                        then added to <code class="constant">GL_BLUE_BIAS</code>; and
+                        the alpha component is multiplied by <code class="constant">GL_ALPHA_SCALE</code>,
+                        then added to <code class="constant">GL_ALPHA_BIAS</code>.
+                        After all four color components are scaled and biased,
+                        each is clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                        All color, scale, and bias values are specified with <code class="function">glPixelTransfer</code>.
+                    </p><p>
+                        If <code class="constant">GL_MAP_COLOR</code> is true,
+                        each color component is scaled by the size of the corresponding
+                        color-to-color map,
+                        then replaced by the contents of that map indexed by the scaled component.
+                        That is,
+                        the red component is scaled by <code class="constant">GL_PIXEL_MAP_R_TO_R_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_R_TO_R</code> indexed by itself.
+                        The green component is scaled by <code class="constant">GL_PIXEL_MAP_G_TO_G_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_G_TO_G</code> indexed by itself.
+                        The blue component is scaled by <code class="constant">GL_PIXEL_MAP_B_TO_B_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_B_TO_B</code> indexed by itself.
+                        And
+                        the alpha component is scaled by <code class="constant">GL_PIXEL_MAP_A_TO_A_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_A_TO_A</code> indexed by itself.
+                        All components taken from the maps are then clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                        <code class="constant">GL_MAP_COLOR</code> is specified with <code class="function">glPixelTransfer</code>.
+                        The contents of the various maps are specified with <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+                    </p><p>
+                        If the <code class="code">ARB_imaging</code> extension is supported, each of the four
+                        color components may be scaled and biased after transformation by the
+                        color matrix.
+                        That is,
+                        the red component is multiplied by <code class="constant">GL_POST_COLOR_MATRIX_RED_SCALE</code>,
+                        then added to <code class="constant">GL_POST_COLOR_MATRIX_RED_BIAS</code>;
+                        the green component is multiplied by <code class="constant">GL_POST_COLOR_MATRIX_GREEN_SCALE</code>,
+                        then added to <code class="constant">GL_POST_COLOR_MATRIX_GREEN_BIAS</code>;
+                        the blue component is multiplied by <code class="constant">GL_POST_COLOR_MATRIX_BLUE_SCALE</code>,
+                        then added to <code class="constant">GL_POST_COLOR_MATRIX_BLUE_BIAS</code>; and
+                        the alpha component is multiplied by <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>,
+                        then added to <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>.
+                        After all four color components are scaled and biased,
+                        each is clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                    </p><p>
+                        Similarly, if the <code class="code">ARB_imaging</code> extension is supported, each of
+                        the four color components may be scaled and biased after processing by
+                        the enabled convolution filter.
+                        That is,
+                        the red component is multiplied by <code class="constant">GL_POST_CONVOLUTION_RED_SCALE</code>,
+                        then added to <code class="constant">GL_POST_CONVOLUTION_RED_BIAS</code>;
+                        the green component is multiplied by <code class="constant">GL_POST_CONVOLUTION_GREEN_SCALE</code>,
+                        then added to <code class="constant">GL_POST_CONVOLUTION_GREEN_BIAS</code>;
+                        the blue component is multiplied by <code class="constant">GL_POST_CONVOLUTION_BLUE_SCALE</code>,
+                        then added to <code class="constant">GL_POST_CONVOLUTION_BLUE_BIAS</code>; and
+                        the alpha component is multiplied by <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>,
+                        then added to <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>.
+                        After all four color components are scaled and biased,
+                        each is clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                    </p></dd><dt><span class="term"><span class="emphasis"><em>Color index</em></span></span></dt><dd><p>
+                        Each color index is shifted left by <code class="constant">GL_INDEX_SHIFT</code> bits; any bits
+                        beyond the number of fraction bits carried
+                        by the fixed-point index are filled with zeros.
+                        If <code class="constant">GL_INDEX_SHIFT</code> is negative,
+                        the shift is to the right,
+                        again zero filled.
+                        Then <code class="constant">GL_INDEX_OFFSET</code> is added to the index.
+                        <code class="constant">GL_INDEX_SHIFT</code> and <code class="constant">GL_INDEX_OFFSET</code> are specified with
+                        <code class="function">glPixelTransfer</code>.
+                    </p><p>
+                        From this point, operation diverges depending on the required format of
+                        the resulting pixels.
+                        If the resulting pixels are to be written to a color index buffer,
+                        or if they are being read back to client memory in <code class="constant">GL_COLOR_INDEX</code> format,
+                        the pixels continue to be treated as indices.
+                        If <code class="constant">GL_MAP_COLOR</code> is true,
+                        each index is masked by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is <code class="constant">GL_PIXEL_MAP_I_TO_I_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_I_TO_I</code> indexed by the
+                        masked value.
+                        <code class="constant">GL_MAP_COLOR</code> is specified with <code class="function">glPixelTransfer</code>.
+                        The contents of the index map is specified with <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+                    </p><p>
+                        If the resulting pixels are to be written to an RGBA color buffer,
+                        or if they are read back to client memory in a format other than
+                        <code class="constant">GL_COLOR_INDEX</code>,
+                        the pixels are converted from indices to colors by referencing the
+                        four maps
+                        <code class="constant">GL_PIXEL_MAP_I_TO_R</code>,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_G</code>,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_B</code>, and
+                        <code class="constant">GL_PIXEL_MAP_I_TO_A</code>.
+                        Before being dereferenced,
+                        the index is masked by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is
+                        <code class="constant">GL_PIXEL_MAP_I_TO_R_SIZE</code> for the red map,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_G_SIZE</code> for the green map,
+                        <code class="constant">GL_PIXEL_MAP_I_TO_B_SIZE</code> for the blue map, and
+                        <code class="constant">GL_PIXEL_MAP_I_TO_A_SIZE</code> for the alpha map.
+                        All components taken from the maps are then clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                        The contents of the four maps is specified with <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
+                    </p></dd><dt><span class="term"><span class="emphasis"><em>Depth</em></span></span></dt><dd><p>
+                        Each depth value is multiplied by <code class="constant">GL_DEPTH_SCALE</code>,
+                        added to <code class="constant">GL_DEPTH_BIAS</code>,
+                        then clamped to the range 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close="]">
+                                <mml:mn>0</mml:mn>
+                                <mml:mn>1</mml:mn>
+                            </mml:mfenced>
+                        </mml:math>.
+                    </p></dd><dt><span class="term"><span class="emphasis"><em>Stencil</em></span></span></dt><dd><p>
+                        Each index is shifted <code class="constant">GL_INDEX_SHIFT</code> bits just as a color index is,
+                        then added to <code class="constant">GL_INDEX_OFFSET</code>.
+                        If <code class="constant">GL_MAP_STENCIL</code> is true,
+                        each index is masked by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is <code class="constant">GL_PIXEL_MAP_S_TO_S_SIZE</code>,
+                        then replaced by the contents of <code class="constant">GL_PIXEL_MAP_S_TO_S</code> indexed by the
+                        masked value.
+                    </p></dd></dl></div><p>
+            The following table gives the type,
+            initial value,
+            and range of valid values for each of the pixel transfer parameters
+            that are set with <code class="function">glPixelTransfer</code>.
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        <em class="parameter"><code>pname</code></em>
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Type
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Initial Value
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Valid Range
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_MAP_COLOR</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true/false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_MAP_STENCIL</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true/false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_INDEX_SHIFT</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_INDEX_OFFSET</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RED_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_GREEN_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_BLUE_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ALPHA_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DEPTH_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RED_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_GREEN_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_BLUE_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_ALPHA_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_DEPTH_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_RED_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_GREEN_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_BLUE_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_RED_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_GREEN_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_BLUE_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_RED_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_GREEN_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_BLUE_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        1
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_RED_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_GREEN_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_BLUE_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>
+                        </td><td align="center">
+                        float
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="(" close=")">
+                                <mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                                </mml:mrow>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr></tbody></table></div><p>
+            <code class="function">glPixelTransferf</code> can be used to set any pixel transfer parameter.
+            If the parameter type is boolean,
+            0 implies false and any other value implies true.
+            If <em class="parameter"><code>pname</code></em> is an integer parameter,
+            <em class="parameter"><code>param</code></em> is rounded to the nearest integer.
+        </p><p>
+            Likewise,
+            <code class="function">glPixelTransferi</code> can be used to set any of the
+            pixel transfer parameters.
+            Boolean parameters are set to false if <em class="parameter"><code>param</code></em> is 0 and to true otherwise.
+            <em class="parameter"><code>param</code></em> is converted to floating point before being assigned to real-valued parameters.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            If a
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, or
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+            command is placed in a display list
+            (see <a class="citerefentry" href="glNewList.xml"><span class="citerefentry"><span class="refentrytitle">glNewList</span></span></a> and <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>),
+            the pixel transfer mode settings in effect when the display list is
+            <span class="emphasis"><em>executed</em></span>
+            are the ones that are used.
+            They may be different from the settings when the command was compiled
+            into the display list.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPixelTransfer</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP_COLOR</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP_STENCIL</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_SHIFT</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_OFFSET</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RED_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RED_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_GREEN_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_GREEN_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLUE_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLUE_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALPHA_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALPHA_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DEPTH_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DEPTH_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_RED_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_RED_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_GREEN_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_GREEN_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_BLUE_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_BLUE_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_RED_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_RED_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_GREEN_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_GREEN_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_BLUE_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_BLUE_BIAS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>,
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glCopyPixels.xml"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glNewList.xml"><span class="citerefentry"><span class="refentrytitle">glNewList</span></span></a>,
+            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

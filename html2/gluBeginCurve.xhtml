@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>gluBeginCurve</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="gluBeginCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginCurve — delimit a NURBS curve definition</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluEndCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
+                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Use <code class="function">gluBeginCurve</code> to mark the beginning of a NURBS 
+            curve definition.
+            After 
+            calling <code class="function">gluBeginCurve</code>, make one or more calls to
+            <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a> to define the attributes of the curve.
+            Exactly one of the calls to <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a> must have
+            a curve type of <code class="constant">GLU_MAP1_VERTEX_3</code> or <code class="constant">GLU_MAP1_VERTEX_4</code>.
+            To mark the end of the NURBS curve definition, call <a class="citerefentry" href="gluEndCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluEndCurve</span></span></a>.
+        </p><p>
+            GL evaluators are used to render the NURBS curve as a series of line
+            segments.
+            Evaluator state is preserved during rendering
+            with <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>(<code class="constant">GLU_EVAL_BIT</code>) and 
+            <a class="citerefentry" href="glPopAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>().  
+            See the <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a> reference page for details on exactly what state
+            these calls preserve.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="example"></a><h2>Example</h2><p>
+            The following commands render a textured NURBS curve with normals;
+            texture coordinates and normals are also specified as NURBS curves:
+            </p><pre class="programlisting">
+gluBeginCurve(nobj);
+   gluNurbsCurve(nobj, ..., GL_MAP1_TEXTURE_COORD_2);
+   gluNurbsCurve(nobj, ..., GL_MAP1_NORMAL);
+   gluNurbsCurve(nobj, ..., GL_MAP1_VERTEX_4);
+gluEndCurve(nobj);
+            </pre><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="gluBeginSurface.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a>,
+            <a class="citerefentry" href="gluBeginTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a>,
+            <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>, 
+            <a class="citerefentry" href="gluNurbsCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>, 
+            <a class="citerefentry" href="glPopAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>,
+            <a class="citerefentry" href="glPushAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glLightModel</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glLightModel"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLightModel — set the lighting model parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLightModelf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLightModeli</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies a single-valued lighting model parameter.
+                    <code class="constant">GL_LIGHT_MODEL_LOCAL_VIEWER</code>,
+                    <code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code>, and
+                    <code class="constant">GL_LIGHT_MODEL_TWO_SIDE</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
+                    Specifies the value that <em class="parameter"><code>param</code></em> will be set to.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLightModelfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLightModeliv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies a lighting model parameter.
+                    <code class="constant">GL_LIGHT_MODEL_AMBIENT</code>,
+                    <code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code>,
+                    <code class="constant">GL_LIGHT_MODEL_LOCAL_VIEWER</code>, and
+                    <code class="constant">GL_LIGHT_MODEL_TWO_SIDE</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Specifies a pointer to the value or values that <em class="parameter"><code>params</code></em> will be set to.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glLightModel</code> sets the lighting model parameter.
+            <em class="parameter"><code>pname</code></em> names a parameter and <em class="parameter"><code>params</code></em> gives the new value.
+            There are three lighting model parameters:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_LIGHT_MODEL_AMBIENT</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> contains four integer or floating-point values that specify
+                        the ambient RGBA intensity of the entire scene.
+                        Integer values are mapped linearly such that the most positive representable
+                        value maps to 1.0,
+                        and the most negative representable value maps to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>.
+                        Floating-point values are mapped directly.
+                        Neither integer nor floating-point values are clamped.
+                        The initial ambient scene intensity is (0.2, 0.2, 0.2, 1.0).
+                    </p></dd><dt><span class="term"><code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> must be either <code class="constant">GL_SEPARATE_SPECULAR_COLOR</code> or
+                        <code class="constant">GL_SINGLE_COLOR</code>.
+                        <code class="constant">GL_SINGLE_COLOR</code> specifies that a single color is generated from the
+                        lighting computation for a vertex.  <code class="constant">GL_SEPARATE_SPECULAR_COLOR</code>
+                        specifies that the specular color computation of lighting be stored
+                        separately from the remainder of the lighting computation.  The specular
+                        color is summed into the generated fragment's color after the application
+                        of texture mapping (if enabled).  The initial value is <code class="constant">GL_SINGLE_COLOR</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LIGHT_MODEL_LOCAL_VIEWER</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> is a single integer or floating-point value that specifies
+                        how specular reflection angles are computed.
+                        If <em class="parameter"><code>params</code></em> is 0 (or 0.0), specular reflection angles take the
+                        view direction to be parallel to and in the direction of the -<span class="emphasis"><em>z</em></span> axis,
+                        regardless of the location of the vertex in eye coordinates.
+                        Otherwise, specular reflections are computed from the origin
+                        of the eye coordinate system.
+                        The initial value is 0.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LIGHT_MODEL_TWO_SIDE</code></span></dt><dd><p>
+                    </p><p>
+                        <em class="parameter"><code>params</code></em> is a single integer or floating-point value that specifies
+                        whether one- or two-sided lighting calculations are done for polygons.
+                        It has no effect on the lighting calculations for points,
+                        lines,
+                        or bitmaps.
+                        If <em class="parameter"><code>params</code></em> is 0 (or 0.0), one-sided lighting is specified,
+                        and only the <span class="emphasis"><em>front</em></span> material parameters are used in the
+                        lighting equation.
+                        Otherwise, two-sided lighting is specified.
+                        In this case, vertices of back-facing polygons are lighted using the
+                        <span class="emphasis"><em>back</em></span> material parameters
+                        and have their normals reversed before the lighting equation is evaluated.
+                        Vertices of front-facing polygons are always lighted using the
+                        <span class="emphasis"><em>front</em></span> material parameters,
+                        with no change to their normals. The initial value is 0.
+                    </p></dd></dl></div><p>
+            In RGBA mode, the lighted color of a vertex is the sum of
+            the material emission intensity,
+            the product of the material ambient reflectance and the lighting model full-scene
+            ambient intensity,
+            and the contribution of each enabled light source.
+            Each light source contributes the sum of three terms:
+            ambient, diffuse, and specular.
+            The ambient light source contribution is the product of the material ambient
+            reflectance and the light's ambient intensity.
+            The diffuse light source contribution is the product of the material diffuse
+            reflectance,
+            the light's diffuse intensity,
+            and the dot product of the vertex's normal with the normalized vector from
+            the vertex to the light source.
+            The specular light source contribution is the product of the material specular
+            reflectance,
+            the light's specular intensity,
+            and the dot product of the normalized vertex-to-eye and vertex-to-light
+            vectors,
+            raised to the power of the shininess of the material.
+            All three light source contributions are attenuated equally based on
+            the distance from the vertex to the light source and on light source
+            direction, spread exponent, and spread cutoff angle.
+            All dot products are replaced with 0 if they evaluate to a negative value.
+        </p><p>
+            The alpha component of the resulting lighted color is set to the alpha value
+            of the material diffuse reflectance.
+        </p><p>
+            In color index mode,
+            the value of the lighted index of a vertex ranges from the ambient
+            to the specular values passed to <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a> using <code class="constant">GL_COLOR_INDEXES</code>.
+            Diffuse and specular coefficients,
+            computed with a (.30, .59, .11) weighting of the lights' colors,
+            the shininess of the material,
+            and the same reflection and attenuation equations as in the RGBA case,
+            determine how much above ambient the resulting index is.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code> is available only if the GL version is
+            1.2 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code> and <em class="parameter"><code>params</code></em> is not one of
+            <code class="constant">GL_SINGLE_COLOR</code> or <code class="constant">GL_SEPARATE_SPECULAR_COLOR</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glLightModel</code> is executed between
+            the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIGHT_MODEL_AMBIENT</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIGHT_MODEL_COLOR_CONTROL</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIGHT_MODEL_LOCAL_VIEWER</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIGHT_MODEL_TWO_SIDE</code>
+        </p><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_LIGHTING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>,
+            <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

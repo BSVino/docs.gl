@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>gluNurbsCurve</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="gluNurbsCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluNurbsCurve — define the shape of a NURBS curve</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluNurbsCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">knotCount</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">knots</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">stride</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">control</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">order</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
+                    Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
+                </p></dd><dt><span class="term"><em class="parameter"><code>knotCount</code></em></span></dt><dd><p>
+                    Specifies the number of knots in <em class="parameter"><code>knots</code></em>.
+                    <em class="parameter"><code>knotCount</code></em> equals the number of control points plus the order.
+                </p></dd><dt><span class="term"><em class="parameter"><code>knots</code></em></span></dt><dd><p>
+                    Specifies an array of <em class="parameter"><code>knotCount</code></em> nondecreasing knot values.
+                </p></dd><dt><span class="term"><em class="parameter"><code>stride</code></em></span></dt><dd><p>
+                    Specifies the offset (as a number of single-precision floating-point values)
+                    between successive curve control points.
+                </p></dd><dt><span class="term"><em class="parameter"><code>control</code></em></span></dt><dd><p>
+                    Specifies a pointer to an array of control points. The coordinates must
+                    agree with <em class="parameter"><code>type</code></em>, specified below.
+                </p></dd><dt><span class="term"><em class="parameter"><code>order</code></em></span></dt><dd><p>
+                    Specifies the order of the NURBS curve. <em class="parameter"><code>order</code></em> equals degree + 1, hence
+                    a cubic curve has an order of 4.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the type of the curve. If this curve is defined within a 
+                    <a class="citerefentry" href="gluBeginCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginCurve</span></span></a>/<a class="citerefentry" href="gluEndCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluEndCurve</span></span></a> pair, then 
+                    the type can be any of the valid
+                    one-dimensional evaluator types (such as <code class="constant">GLU_MAP1_VERTEX_3</code> or 
+                    <code class="constant">GLU_MAP1_COLOR_4</code>). Between a <a class="citerefentry" href="gluBeginTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a>/<a class="citerefentry" href="gluEndTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> pair,
+                    the only valid types are <code class="constant">GLU_MAP1_TRIM_2</code> and <code class="constant">GLU_MAP1_TRIM_3</code>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Use <code class="function">gluNurbsCurve</code> to describe a NURBS curve.
+        </p><p>
+            When <code class="function">gluNurbsCurve</code> appears between a <a class="citerefentry" href="gluBeginCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginCurve</span></span></a>/<a class="citerefentry" href="gluEndCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluEndCurve</span></span></a> pair, it is 
+            used to describe a curve to be rendered.
+            Positional, texture, and color coordinates are associated
+            by presenting each as a separate <code class="function">gluNurbsCurve</code> between a 
+            <a class="citerefentry" href="gluBeginCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginCurve</span></span></a>/<a class="citerefentry" href="gluEndCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluEndCurve</span></span></a> pair. No more than
+            one call to <code class="function">gluNurbsCurve</code> for each of color, position, and texture
+            data can be made within a single <a class="citerefentry" href="gluBeginCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginCurve</span></span></a>/<a class="citerefentry" href="gluEndCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluEndCurve</span></span></a>
+            pair. Exactly one call must be made to describe the position of the 
+            curve (a <em class="parameter"><code>type</code></em> of <code class="constant">GLU_MAP1_VERTEX_3</code> or <code class="constant">GLU_MAP1_VERTEX_4</code>).
+        </p><p>
+            When <code class="function">gluNurbsCurve</code> appears between a <a class="citerefentry" href="gluBeginTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a>/<a class="citerefentry" href="gluEndTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluEndTrim</span></span></a> pair, it is 
+            used to describe a trimming curve on a NURBS surface. If <em class="parameter"><code>type</code></em> is
+            <code class="constant">GLU_MAP1_TRIM_2</code>, then it describes a curve in two-dimensional (<span class="emphasis"><em>u</em></span> 
+            and <span class="emphasis"><em>v</em></span>)
+            parameter space. If it is <code class="constant">GLU_MAP1_TRIM_3</code>, then it describes a 
+            curve in two-dimensional homogeneous (<span class="emphasis"><em>u</em></span>, <span class="emphasis"><em>v</em></span>, and <span class="emphasis"><em>w</em></span>) 
+            parameter space.
+            See the <a class="citerefentry" href="gluBeginTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a> reference page for more discussion about trimming
+            curves.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="example"></a><h2>Example</h2><p>
+            The following commands render a textured NURBS curve with normals:
+            </p><pre class="programlisting">
+gluBeginCurve(nobj);
+   gluNurbsCurve(nobj, ..., GL_MAP1_TEXTURE_COORD_2);
+   gluNurbsCurve(nobj, ..., GL_MAP1_NORMAL);
+   gluNurbsCurve(nobj, ..., GL_MAP1_VERTEX_4);
+gluEndCurve(nobj);
+            </pre><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            To define trim curves that stitch well, use <a class="citerefentry" href="gluPwlCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="gluBeginCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginCurve</span></span></a>,
+            <a class="citerefentry" href="gluBeginTrim.xml"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a>,
+            <a class="citerefentry" href="gluNewNurbsRenderer.xml"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
+            <a class="citerefentry" href="gluPwlCurve.xml"><span class="citerefentry"><span class="refentrytitle">gluPwlCurve</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

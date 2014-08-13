@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetActiveUniform</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetActiveUniform"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveUniform — Returns information about an active uniform variable for the specified program object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetActiveUniform</b>(</code></td><td>GLuint  </td><td><var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLsizei * </td><td><var class="pdparam">length</var>, </td></tr><tr><td> </td><td>GLint * </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLenum * </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLchar * </td><td><var class="pdparam">name</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be
+		    queried.</p></dd><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the index of the uniform variable to
+		    be queried.</p></dd><dt><span class="term"><em class="parameter"><code>bufSize</code></em></span></dt><dd><p>Specifies the maximum number of characters
+		    OpenGL is allowed to write in the character buffer
+		    indicated by <em class="parameter"><code>name</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>length</code></em></span></dt><dd><p>Returns the number of characters actually
+		    written by OpenGL in the string indicated by
+		    <em class="parameter"><code>name</code></em> (excluding the null
+		    terminator) if a value other than
+		    <code class="constant">NULL</code> is passed.</p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>Returns the size of the uniform
+		    variable.</p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>Returns the data type of the uniform
+		    variable.</p></dd><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>Returns a null terminated string containing
+		    the name of the uniform variable.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glGetActiveUniform</code> returns
+	information about an active uniform variable in the program
+	object specified by <em class="parameter"><code>program</code></em>. The number
+	of active uniform variables can be obtained by calling
+	<a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+	with the value <code class="constant">GL_ACTIVE_UNIFORMS</code>. A value
+	of 0 for <em class="parameter"><code>index</code></em> selects the first active
+	uniform variable. Permissible values for
+	<em class="parameter"><code>index</code></em> range from 0 to the number of
+	active uniform variables minus 1.</p><p>Shaders may use either built-in uniform variables,
+	user-defined uniform variables, or both. Built-in uniform
+	variables have a prefix of "gl_" and reference
+	existing OpenGL state or values derived from such state (e.g.,
+	<em class="parameter"><code>gl_Fog</code></em>,
+	<em class="parameter"><code>gl_ModelViewMatrix</code></em>, etc., see the OpenGL
+	Shading Language specification for a complete list.)
+	User-defined uniform variables have arbitrary names and obtain
+	their values from the application through calls to
+	<a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
+	A uniform variable (either built-in or user-defined) is
+	considered active if it is determined during the link operation
+	that it may be accessed during program execution. Therefore,
+	<em class="parameter"><code>program</code></em> should have previously been the
+	target of a call to
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	but it is not necessary for it to have been linked
+	successfully.</p><p>The size of the character buffer required to store the
+	longest uniform variable name in <em class="parameter"><code>program</code></em>
+	can be obtained by calling
+	<a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+	with the value
+	<code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>. This value
+	should be used to allocate a buffer of sufficient size to store
+	the returned uniform variable name. The size of this character
+	buffer is passed in <em class="parameter"><code>bufSize</code></em>, and a
+	pointer to this character buffer is passed in
+	<em class="parameter"><code>name.</code></em></p><p><code class="function">glGetActiveUniform</code> returns the name
+	of the uniform variable indicated by
+	<em class="parameter"><code>index</code></em>, storing it in the character buffer
+	specified by <em class="parameter"><code>name</code></em>. The string returned
+	will be null terminated. The actual number of characters written
+	into this buffer is returned in <em class="parameter"><code>length</code></em>,
+	and this count does not include the null termination character.
+	If the length of the returned string is not required, a value of
+	<code class="constant">NULL</code> can be passed in the
+	<em class="parameter"><code>length</code></em> argument.</p><p>The <em class="parameter"><code>type</code></em>
+	argument will return a pointer to the uniform variable's data
+	type. The symbolic constants
+	<code class="constant">GL_FLOAT</code>,
+	<code class="constant">GL_FLOAT_VEC2</code>,
+	<code class="constant">GL_FLOAT_VEC3</code>,
+	<code class="constant">GL_FLOAT_VEC4</code>,
+	<code class="constant">GL_INT</code>,
+	<code class="constant">GL_INT_VEC2</code>,
+	<code class="constant">GL_INT_VEC3</code>,
+	<code class="constant">GL_INT_VEC4</code>,
+	<code class="constant">GL_BOOL</code>,
+	<code class="constant">GL_BOOL_VEC2</code>,
+	<code class="constant">GL_BOOL_VEC3</code>,
+	<code class="constant">GL_BOOL_VEC4</code>,
+	<code class="constant">GL_FLOAT_MAT2</code>,
+	<code class="constant">GL_FLOAT_MAT3</code>,
+	<code class="constant">GL_FLOAT_MAT4</code>,
+	<code class="constant">GL_FLOAT_MAT2x3</code>,
+	<code class="constant">GL_FLOAT_MAT2x4</code>,
+	<code class="constant">GL_FLOAT_MAT3x2</code>,
+	<code class="constant">GL_FLOAT_MAT3x4</code>,
+	<code class="constant">GL_FLOAT_MAT4x2</code>,
+	<code class="constant">GL_FLOAT_MAT4x3</code>,
+	<code class="constant">GL_SAMPLER_1D</code>,
+	<code class="constant">GL_SAMPLER_2D</code>,
+	<code class="constant">GL_SAMPLER_3D</code>,
+	<code class="constant">GL_SAMPLER_CUBE</code>,
+	<code class="constant">GL_SAMPLER_1D_SHADOW</code>, or
+	<code class="constant">GL_SAMPLER_2D_SHADOW</code>
+	may be returned.</p><p>If one or more elements of an array are active, the name
+	of the array is returned in <em class="parameter"><code>name</code></em>, the
+	type is returned in <em class="parameter"><code>type</code></em>, and the
+	<em class="parameter"><code>size</code></em> parameter returns the highest array
+	element index used, plus one, as determined by the compiler
+	and/or linker. Only one active uniform variable will be reported
+	for a uniform array.</p><p>Uniform variables that are declared as structures or
+	arrays of structures will not be returned directly by this
+	function. Instead, each of these uniform variables will be
+	reduced to its fundamental components containing the
+	"." and "[]" operators such that each of the
+	names is valid as an argument to
+	<a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
+	Each of these reduced uniform variables is counted as one active
+	uniform variable and is assigned an index. A valid name cannot
+	be a structure, an array of structures, or a subcomponent of a
+	vector or matrix.</p><p>The size of the uniform variable will be returned in
+	<em class="parameter"><code>size</code></em>. Uniform variables other than arrays
+	will have a size of 1. Structures and arrays of structures will
+	be reduced as described earlier, such that each of the names
+	returned will be a data type in the earlier list. If this
+	reduction results in an array, the size returned will be as
+	described for uniform arrays; otherwise, the size returned will
+	be 1.</p><p>The list of active uniform variables may include both
+	built-in uniform variables (which begin with the prefix
+	"gl_") as well as user-defined uniform variable
+	names.</p><p>This function will return as much information as it can
+	about the specified active uniform variable. If no information
+	is available, <em class="parameter"><code>length</code></em> will be 0, and
+	<em class="parameter"><code>name</code></em> will be an empty string. This
+	situation could occur if this function is called after a link
+	operation that failed. If an error occurs, the return values
+	<em class="parameter"><code>length</code></em>, <em class="parameter"><code>size</code></em>,
+	<em class="parameter"><code>type</code></em>, and <em class="parameter"><code>name</code></em>
+	will be unmodified.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p><code class="function">glGetActiveUniform</code> is available only
+	if the GL version is 2.0 or greater.</p><p><code class="constant">GL_FLOAT_MAT2x3</code>,
+	<code class="constant">GL_FLOAT_MAT2x4</code>,
+	<code class="constant">GL_FLOAT_MAT3x2</code>,
+	<code class="constant">GL_FLOAT_MAT3x4</code>,
+	<code class="constant">GL_FLOAT_MAT4x2</code>, and
+	<code class="constant">GL_FLOAT_MAT4x3</code>
+	will only be returned as a <em class="parameter"><code>type</code></em>
+        if the GL version is 2.1 or greater.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>program</code></em> is not a value generated by
+	OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>program</code></em> is not a program object.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>index</code></em> is greater than or equal to the
+	number of active uniform variables in
+	<em class="parameter"><code>program</code></em>.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<code class="function">glGetActiveUniform</code> is executed between the
+	execution of
+	<a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+	and the corresponding execution of
+	<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>bufSize</code></em> is less than 0.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_MAX_VERTEX_UNIFORM_COMPONENTS
+	</code> or
+	<code class="constant">GL_MAX_FRAGMENT_UNIFORM_COMPONENTS</code>.</p><p><a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+	with argument <code class="constant">GL_ACTIVE_UNIFORMS</code> or
+	<code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>.</p><p><a class="citerefentry" href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
+	<a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	<a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
+	<a class="citerefentry" href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

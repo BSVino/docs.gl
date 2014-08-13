@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXGetConfig</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXGetConfig"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXGetConfig — return information about GLX visuals</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">int <b class="fsfunc">glXGetConfig</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>XVisualInfo *  </td><td><var class="pdparam">vis</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">attrib</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">value</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>vis</code></em></span></dt><dd><p>
+                    Specifies the visual to be queried.
+                    It is a pointer to an <code class="constant">XVisualInfo</code> structure,
+                    not a visual ID or a pointer to a <code class="constant">Visual</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attrib</code></em></span></dt><dd><p>
+                    Specifies the visual attribute to be returned.
+                </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Returns the requested value.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXGetConfig</code> sets <em class="parameter"><code>value</code></em> to the <em class="parameter"><code>attrib</code></em> value of windows or GLX pixmaps
+            created with respect to <em class="parameter"><code>vis</code></em>.
+            <code class="function">glXGetConfig</code> returns an error code if it fails for any reason.
+            Otherwise, zero is returned.
+        </p><p>
+            <em class="parameter"><code>attrib</code></em> is one of the following:
+        </p><p>
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLX_USE_GL</code></span></dt><dd><p>
+                        <code class="constant">True</code> if OpenGL rendering is supported by this visual,
+                        <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BUFFER_SIZE</code></span></dt><dd><p>
+                        Number of bits per color buffer.
+                        For RGBA visuals, <code class="constant">GLX_BUFFER_SIZE</code> is the sum of
+                        <code class="constant">GLX_RED_SIZE</code>,
+                        <code class="constant">GLX_GREEN_SIZE</code>,
+                        <code class="constant">GLX_BLUE_SIZE</code>, and
+                        <code class="constant">GLX_ALPHA_SIZE</code>.
+                        For color index visuals, <code class="constant">GLX_BUFFER_SIZE</code> is the size of the
+                        color indexes.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_LEVEL</code></span></dt><dd><p>
+                        Frame buffer level of the visual.
+                        Level zero is the default frame buffer.
+                        Positive levels correspond to frame buffers that overlay the default buffer,
+                        and negative levels correspond to frame buffers that underlay the default
+                        buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RGBA</code></span></dt><dd><p>
+                        <code class="constant">True</code> if color buffers store red, green, blue, and alpha values.
+                        <code class="constant">False</code> if they store color indexes.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DOUBLEBUFFER</code></span></dt><dd><p>
+                        <code class="constant">True</code> if color buffers exist in front/back pairs that can be swapped,
+                        <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STEREO</code></span></dt><dd><p>
+                        <code class="constant">True</code> if color buffers exist in left/right pairs,
+                        <code class="constant">False</code> otherwise.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_AUX_BUFFERS</code></span></dt><dd><p>
+                        Number of auxiliary color buffers that are available.
+                        Zero indicates that no auxiliary color buffers exist.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_RED_SIZE</code></span></dt><dd><p>
+                        Number of bits of red stored in each color buffer.
+                        Undefined if <code class="constant">GLX_RGBA</code> is <code class="constant">False</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_GREEN_SIZE</code></span></dt><dd><p>
+                        Number of bits of green stored in each color buffer.
+                        Undefined if <code class="constant">GLX_RGBA</code> is <code class="constant">False</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_BLUE_SIZE</code></span></dt><dd><p>
+                        Number of bits of blue stored in each color buffer.
+                        Undefined if <code class="constant">GLX_RGBA</code> is <code class="constant">False</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ALPHA_SIZE</code></span></dt><dd><p>
+                        Number of bits of alpha stored in each color buffer.
+                        Undefined if <code class="constant">GLX_RGBA</code> is <code class="constant">False</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_DEPTH_SIZE</code></span></dt><dd><p>
+                        Number of bits in the depth buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_STENCIL_SIZE</code></span></dt><dd><p>
+                        Number of bits in the stencil buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_RED_SIZE</code></span></dt><dd><p>
+                        Number of bits of red stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_GREEN_SIZE</code></span></dt><dd><p>
+                        Number of bits of green stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_BLUE_SIZE</code></span></dt><dd><p>
+                        Number of bits of blue stored in the accumulation buffer.
+                    </p></dd><dt><span class="term"><code class="constant">GLX_ACCUM_ALPHA_SIZE</code></span></dt><dd><p>
+                        Number of bits of alpha stored in the accumulation buffer.
+                    </p></dd></dl></div><p>
+            The X protocol allows a single visual ID to be instantiated with
+            different numbers of bits per pixel.
+            Windows or GLX pixmaps that will be rendered with OpenGL, however,
+            must be instantiated with a color buffer depth of <code class="constant">GLX_BUFFER_SIZE</code>.
+        </p><p>
+            Although a GLX implementation can export many visuals that support GL
+            rendering,
+            it must support 
+            at least one RGBA visual. This visual must have at 
+            least one color buffer,
+            a stencil buffer of at least 1 bit,
+            a depth buffer of at least 12 bits,
+            and an accumulation buffer.
+            Alpha bitplanes are optional in this visual.
+            However,
+            its color buffer size must be as great as that of the
+            deepest <code class="constant">TrueColor</code>, <code class="constant">DirectColor</code>,
+            <code class="constant">PseudoColor</code>, or <code class="constant">StaticColor</code> visual supported on level zero,
+            and it must itself be made available on level zero.
+        </p><p>
+            In addition, if the X server exports a <code class="constant">PseudoColor</code> 
+            or <code class="constant">StaticColor</code> visual on framebuffer level 0, a color index 
+            visual is also required on that level.
+            It must have  
+            at least one color buffer,
+            a stencil buffer of at least 1 bit,
+            and a depth buffer of at least 12 bits.
+            This visual must 
+            have as many 
+            color bitplanes as the deepest
+            <code class="constant">PseudoColor</code> or <code class="constant">StaticColor</code> visual supported on level 0.
+        </p><p>
+            Applications are best written to select the visual that most closely
+            meets their requirements.
+            Creating windows or GLX pixmaps with unnecessary buffers can result in
+            reduced rendering performance as well as poor resource allocation.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">XVisualInfo</code> is defined in <span class="emphasis"><em>Xutil.h.</em></span>
+            It is a structure that includes <span class="emphasis"><em>visual</em></span>, <span class="emphasis"><em>visualID</em></span>, <span class="emphasis"><em>screen</em></span>, and
+            <span class="emphasis"><em>depth</em></span> elements.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLX_NO_EXTENSION</code> is returned if <em class="parameter"><code>dpy</code></em> does not support the GLX
+            extension.
+        </p><p>
+            <code class="constant">GLX_BAD_SCREEN</code> is returned if the screen of <em class="parameter"><code>vis</code></em> does not correspond
+            to a screen.
+        </p><p>
+            <code class="constant">GLX_BAD_ATTRIBUTE</code> is returned if <em class="parameter"><code>attrib</code></em> is not a valid GLX attribute.
+        </p><p>
+            <code class="constant">GLX_BAD_VISUAL</code> is returned if <em class="parameter"><code>vis</code></em> doesn't support GLX and an
+            attribute other than <code class="constant">GLX_USE_GL</code> is requested.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXChooseVisual.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseVisual</span></span></a>,
+            <a class="citerefentry" href="glXCreateContext.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateContext</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXWaitX</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXWaitX"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXWaitX — complete X execution prior to subsequent GL calls</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glXWaitX</b>(</code></td><td> </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            X rendering calls made prior to <code class="function">glXWaitX</code> are guaranteed to be
+            executed before GL rendering calls made after <code class="function">glXWaitX</code>.
+            Although the same result can be achieved using <code class="function">XSync</code>,
+            <code class="function">glXWaitX</code> does not require a round trip to the server,
+            and it is therefore more efficient in cases where client and server
+            are on separate machines.
+        </p><p>
+            <code class="function">glXWaitX</code> is ignored if there is no current GLX context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glXWaitX</code> may or may not flush the GL stream.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLXBadCurrentWindow</code> is generated if the drawable associated
+            with the current context of the calling thread is a window, and that
+            window is no longer valid.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFinish.xml"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a>,
+            <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a>,
+            <a class="citerefentry" href="glXWaitGL.xml"><span class="citerefentry"><span class="refentrytitle">glXWaitGL</span></span></a>,
+            <code class="function">XSync</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

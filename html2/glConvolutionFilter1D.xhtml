@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glConvolutionFilter1D</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glConvolutionFilter1D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glConvolutionFilter1D — define a one-dimensional convolution filter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glConvolutionFilter1D</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Must be <code class="constant">GL_CONVOLUTION_1D</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    The internal format of the convolution filter kernel.
+                    The allowable values are
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_ALPHA4</code>,
+                    <code class="constant">GL_ALPHA8</code>,
+                    <code class="constant">GL_ALPHA12</code>,
+                    <code class="constant">GL_ALPHA16</code>,
+                    <code class="constant">GL_LUMINANCE</code>,
+                    <code class="constant">GL_LUMINANCE4</code>,
+                    <code class="constant">GL_LUMINANCE8</code>,
+                    <code class="constant">GL_LUMINANCE12</code>,
+                    <code class="constant">GL_LUMINANCE16</code>,
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE4_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE6_ALPHA2</code>,
+                    <code class="constant">GL_LUMINANCE8_ALPHA8</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA12</code>,
+                    <code class="constant">GL_LUMINANCE16_ALPHA16</code>,
+                    <code class="constant">GL_INTENSITY</code>,
+                    <code class="constant">GL_INTENSITY4</code>,
+                    <code class="constant">GL_INTENSITY8</code>,
+                    <code class="constant">GL_INTENSITY12</code>,
+                    <code class="constant">GL_INTENSITY16</code>,
+                    <code class="constant">GL_R3_G3_B2</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_RGB4</code>,
+                    <code class="constant">GL_RGB5</code>,
+                    <code class="constant">GL_RGB8</code>,
+                    <code class="constant">GL_RGB10</code>,
+                    <code class="constant">GL_RGB12</code>,
+                    <code class="constant">GL_RGB16</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_RGBA2</code>,
+                    <code class="constant">GL_RGBA4</code>,
+                    <code class="constant">GL_RGB5_A1</code>,
+                    <code class="constant">GL_RGBA8</code>,
+                    <code class="constant">GL_RGB10_A2</code>,
+                    <code class="constant">GL_RGBA12</code>, or
+                    <code class="constant">GL_RGBA16</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    The width of the pixel array referenced by <em class="parameter"><code>data</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
+                    The format of the pixel data in <em class="parameter"><code>data</code></em>.
+                    The allowable values are
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE</code>,
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GL_INTENSITY</code>,
+                    <code class="constant">GL_RGB</code>, and
+                    <code class="constant">GL_RGBA</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    The type of the pixel data in <em class="parameter"><code>data</code></em>.
+                    Symbolic constants
+                    <code class="constant">GL_UNSIGNED_BYTE</code>,
+                    <code class="constant">GL_BYTE</code>,
+                    <code class="constant">GL_BITMAP</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT</code>,
+                    <code class="constant">GL_SHORT</code>,
+                    <code class="constant">GL_UNSIGNED_INT</code>,
+                    <code class="constant">GL_INT</code>,
+                    <code class="constant">GL_FLOAT</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+                    <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+                    <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+                    <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+                    <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, and
+                    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    Pointer to a one-dimensional array of pixel data that is processed to
+                    build the convolution filter kernel.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glConvolutionFilter1D</code> builds a one-dimensional convolution filter kernel from an array of
+            pixels.
+        </p><p>
+            The pixel array specified by <em class="parameter"><code>width</code></em>, <em class="parameter"><code>format</code></em>, <em class="parameter"><code>type</code></em>, and <em class="parameter"><code>data</code></em>
+            is extracted from memory and
+            processed just as if <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> were called, but processing
+            stops after the final expansion to RGBA is completed.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a convolution filter is
+            specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            The R, G, B, and A components of each pixel are next scaled by the four
+            1D <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> parameters and biased by the
+            four 1D <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code> parameters.
+            (The scale and bias parameters are set by <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>
+            using the <code class="constant">GL_CONVOLUTION_1D</code> target and the names
+            <code class="constant">GL_CONVOLUTION_FILTER_SCALE</code> and <code class="constant">GL_CONVOLUTION_FILTER_BIAS</code>.
+            The parameters themselves are vectors of four values that are applied to red,
+            green, blue, and alpha, in that order.)
+            The R, G, B, and A values are not clamped to [0,1] at any time during this
+            process.
+        </p><p>
+            Each pixel is then converted to the internal format specified by
+            <em class="parameter"><code>internalformat</code></em>.
+            This conversion simply maps the component values of the pixel (R, G, B,
+            and A) to the values included in the internal format (red, green, blue,
+            alpha, luminance, and intensity).  The mapping is as follows:
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Internal Format
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Red
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Green
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Blue
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Alpha
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Luminance
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Intensity
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_ALPHA</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LUMINANCE</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LUMINANCE_ALPHA</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_INTENSITY</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        R
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RGB</code>
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                        G
+                        </td><td align="center">
+                        B
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RGBA</code>
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                        G
+                        </td><td align="center">
+                        B
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr></tbody></table></div><p>
+            The red, green, blue, alpha, luminance, and/or intensity components of
+            the resulting pixels are stored in floating-point rather than integer
+            format.
+            They form a one-dimensional filter kernel image indexed with coordinate
+            <span class="emphasis"><em>i</em></span> such that <span class="emphasis"><em>i</em></span> starts at 0 and increases from left to right.
+            Kernel location <span class="emphasis"><em>i</em></span> is derived from the <span class="emphasis"><em>i</em></span>th pixel, counting from 0.
+        </p><p>
+            Note that after a convolution is performed, the resulting color
+            components are also scaled by their corresponding
+            <code class="constant">GL_POST_CONVOLUTION_c_SCALE</code> parameters and biased by their
+            corresponding <code class="constant">GL_POST_CONVOLUTION_c_BIAS</code> parameters (where
+            <span class="emphasis"><em>c</em></span> takes on the values <span class="bold"><strong>RED</strong></span>, <span class="bold"><strong>GREEN</strong></span>, <span class="bold"><strong>BLUE</strong></span>, and
+            <span class="bold"><strong>ALPHA</strong></span>).
+            These parameters are set by <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glConvolutionFilter1D</code> is present only if <code class="code">ARB_imaging</code> is returned when <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>
+            is called with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            <code class="constant">GL_CONVOLUTION_1D</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not one of the
+            allowable values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>format</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is not one of the allowable
+            values.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than zero or greater
+            than the maximum supported value.
+            This value may be queried with <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>
+            using target <code class="constant">GL_CONVOLUTION_1D</code> and name
+            <code class="constant">GL_MAX_CONVOLUTION_WIDTH</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is one of
+            <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>, or
+            <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
+            and <em class="parameter"><code>type</code></em> is not <code class="constant">GL_RGB</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>format</code></em> is one of
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+            <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>,
+            <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>,
+            <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>, or
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+            and <em class="parameter"><code>type</code></em> is neither <code class="constant">GL_RGBA</code> nor <code class="constant">GL_BGRA</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            object such that the memory reads required would exceed the data store size.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glConvolutionFilter1D</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionParameter</span></span></a>, <a class="citerefentry" href="glGetConvolutionFilter.xml"><span class="citerefentry"><span class="refentrytitle">glGetConvolutionFilter</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionParameter.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glHint</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glHint"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glHint — specify implementation-specific hints</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glHint</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies a symbolic constant indicating the behavior to be controlled.
+                    <code class="constant">GL_FOG_HINT</code>,	
+                    <code class="constant">GL_GENERATE_MIPMAP_HINT</code>,
+                    <code class="constant">GL_LINE_SMOOTH_HINT</code>,
+                    <code class="constant">GL_PERSPECTIVE_CORRECTION_HINT</code>,
+                    <code class="constant">GL_POINT_SMOOTH_HINT</code>,
+                    <code class="constant">GL_POLYGON_SMOOTH_HINT</code>,
+                    <code class="constant">GL_TEXTURE_COMPRESSION_HINT</code>, and
+                    <code class="constant">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</code>
+                    are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies a symbolic constant indicating the desired behavior.
+                    <code class="constant">GL_FASTEST</code>,
+                    <code class="constant">GL_NICEST</code>, and
+                    <code class="constant">GL_DONT_CARE</code> are accepted.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Certain aspects of GL behavior,
+            when there is room for interpretation,
+            can be controlled with hints.
+            A hint is specified with two arguments.
+            <em class="parameter"><code>target</code></em> is a symbolic
+            constant indicating the behavior to be controlled,
+            and <em class="parameter"><code>mode</code></em> is another symbolic constant indicating the desired
+            behavior. The initial value for each <em class="parameter"><code>target</code></em> is <code class="constant">GL_DONT_CARE</code>.
+            <em class="parameter"><code>mode</code></em> can be one of the following:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_FASTEST</code></span></dt><dd><p>
+                    </p><p>
+                        The most efficient option should be chosen.
+                    </p></dd><dt><span class="term"><code class="constant">GL_NICEST</code></span></dt><dd><p>
+                    </p><p>
+                        The most correct,
+                        or highest quality,
+                        option should be chosen.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DONT_CARE</code></span></dt><dd><p>
+                    </p><p>
+                        No preference.
+                    </p></dd></dl></div><p>
+            Though the implementation aspects that can be hinted are well defined,
+            the interpretation of the hints depends on the implementation.
+            The hint aspects that can be specified with <em class="parameter"><code>target</code></em>,
+            along with suggested semantics,
+            are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_FOG_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the accuracy of fog calculation.
+                        If per-pixel fog calculation is not efficiently supported
+                        by the GL implementation,
+                        hinting <code class="constant">GL_DONT_CARE</code> or <code class="constant">GL_FASTEST</code> can result in per-vertex
+                        calculation of fog effects.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the accuracy of the derivative calculation for the GL shading language fragment processing built-in functions:
+                        <code class="constant">dFdx</code>, <code class="constant">dFdy</code>, and <code class="constant">fwidth</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_GENERATE_MIPMAP_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the quality of filtering when generating mipmap images.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_SMOOTH_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the sampling quality of antialiased lines.
+                        If a larger filter function is applied, hinting <code class="constant">GL_NICEST</code> can
+                        result in more pixel fragments being generated during rasterization.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PERSPECTIVE_CORRECTION_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the quality of color, texture coordinate, and fog coordinate
+                        interpolation.  If perspective-corrected parameter interpolation is not
+                        efficiently supported by the GL implementation, hinting <code class="constant">GL_DONT_CARE</code>
+                        or <code class="constant">GL_FASTEST</code> can result in simple linear interpolation of colors
+                        and/or texture coordinates.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POINT_SMOOTH_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the sampling quality of antialiased points.
+                        If a larger filter function is applied, hinting <code class="constant">GL_NICEST</code> can
+                        result in more pixel fragments being generated during rasterization.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POLYGON_SMOOTH_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the sampling quality of antialiased polygons.
+                        Hinting <code class="constant">GL_NICEST</code> can result in more pixel fragments being generated
+                        during rasterization,
+                        if a larger filter function is applied.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPRESSION_HINT</code></span></dt><dd><p>
+                    </p><p>
+                        Indicates the quality and performance of the compressing texture images.
+                        Hinting <code class="constant">GL_FASTEST</code> indicates that texture images should be compressed
+                        as quickly as possible, while <code class="constant">GL_NICEST</code> indicates that texture images
+                        should be compressed with as little image quality loss as possible.
+                        <code class="constant">GL_NICEST</code> should be selected if the texture is to be retrieved by
+                        <a class="citerefentry" href="glGetCompressedTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a> for reuse.
+                    </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The interpretation of hints depends on the implementation.
+            Some implementations ignore <code class="function">glHint</code> settings.
+        </p><p>
+            <code class="constant">GL_TEXTURE_COMPRESSION_HINT</code> is available only if the GL version is 1.3
+            or greater.
+        </p><p>
+            <code class="constant">GL_GENERATE_MIPMAP_HINT</code> is available only if the GL version is 1.4
+            or greater.
+        </p><p>
+            <code class="constant">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</code> is available only if the GL version is 2.0
+            or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>target</code></em> or <em class="parameter"><code>mode</code></em> is not
+            an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glHint</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>gluLookAt</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gluLookAt"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluLookAt — define a viewing transformation</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">gluLookAt</strong>(</code></td><td>GLdouble <var class="pdparam">eyeX</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">eyeY</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">eyeZ</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">centerX</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">centerY</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">centerZ</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">upX</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">upY</var>, </td></tr><tr><td> </td><td>GLdouble <var class="pdparam">upZ</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>eyeX</code></em>, </span><span class="term"><em class="parameter"><code>eyeY</code></em>, </span><span class="term"><em class="parameter"><code>eyeZ</code></em></span></dt><dd><p>
+                    Specifies the position of the eye point.
+                </p></dd><dt><span class="term"><em class="parameter"><code>centerX</code></em>, </span><span class="term"><em class="parameter"><code>centerY</code></em>, </span><span class="term"><em class="parameter"><code>centerZ</code></em></span></dt><dd><p>
+                    Specifies the position of the reference point.
+                </p></dd><dt><span class="term"><em class="parameter"><code>upX</code></em>, </span><span class="term"><em class="parameter"><code>upY</code></em>, </span><span class="term"><em class="parameter"><code>upZ</code></em></span></dt><dd><p>
+                    Specifies the direction of the <span class="emphasis"><em>up</em></span> vector.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">gluLookAt</code> creates a viewing matrix derived from an eye point, a reference
+            point indicating the center of the scene, and an <span class="emphasis"><em>UP</em></span> vector.
+        </p><p>
+            The matrix
+            maps the reference point to the negative <span class="emphasis"><em>z</em></span> axis and the
+            eye point to the origin.
+            When a typical projection matrix is used,
+            the center of the scene therefore maps to the center of the viewport.
+            Similarly, the direction described by the <span class="emphasis"><em>UP</em></span>
+            vector projected onto the viewing plane is mapped to the positive <span class="emphasis"><em>y</em></span>
+            axis so that it points upward in the viewport.
+            The <span class="emphasis"><em>UP</em></span> vector must not be parallel to the line of sight from the
+            eye point to the reference point.
+        </p><p>
+            Let
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">F</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mtable>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">centerX</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">eyeX</mml:mi>
+                                    </mml:mrow>
+                                </mml:mtd>
+                            </mml:mtr>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">centerY</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">eyeY</mml:mi>
+                                    </mml:mrow>
+                                </mml:mtd>
+                            </mml:mtr>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">centerZ</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">eyeZ</mml:mi>
+                                    </mml:mrow>
+                                </mml:mtd>
+                            </mml:mtr>
+                        </mml:mtable>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+        </p><p>
+            Let <span class="emphasis"><em>UP</em></span> be the vector
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mi mathvariant="italic">upX</mml:mi>
+                    <mml:mi mathvariant="italic">upY</mml:mi>
+                    <mml:mi mathvariant="italic">upZ</mml:mi>
+                </mml:mfenced>
+            </mml:math>.
+        </p><p>
+            Then normalize as follows:
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">f</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mi mathvariant="italic">F</mml:mi>
+                        <mml:mfenced open="" close="">
+                            <mml:mfenced open="∥" close="∥">
+                                <mml:mi mathvariant="italic">F</mml:mi>
+                            </mml:mfenced>
+                        </mml:mfenced>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msup><mml:mi mathvariant="italic">UP</mml:mi>
+                    <mml:mo>″</mml:mo>
+                    </mml:msup>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfrac>
+                        <mml:mi mathvariant="italic">UP</mml:mi>
+                        <mml:mfenced open="" close="">
+                            <mml:mfenced open="∥" close="∥">
+                                <mml:mi mathvariant="italic">UP</mml:mi>
+                            </mml:mfenced>
+                        </mml:mfenced>
+                    </mml:mfrac>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+        </p><p>
+            Finally, let
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">f</mml:mi>
+                        <mml:mo>×</mml:mo>
+                        <mml:msup><mml:mi mathvariant="italic">UP</mml:mi>
+                        <mml:mo>″</mml:mo>
+                        </mml:msup>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>,
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mfrac>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                                <mml:mfenced open="∥" close="∥">
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mfenced>
+                            </mml:mfrac>
+                        </mml:mfenced>
+                        <mml:mo>×</mml:mo>
+                        <mml:mi mathvariant="italic">f</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>.
+        </p><p>
+        </p><p>
+            M is then constructed as follows:
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">M</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mtable>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>0</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>1</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>2</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                            </mml:mtr>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">u</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>0</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">u</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>1</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">u</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="[" close="]">
+                                            <mml:mn>2</mml:mn>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                            </mml:mtr>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">f</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>0</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">f</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>1</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mrow>
+                                            <mml:mi mathvariant="italic">f</mml:mi>
+                                            <mml:mo>⁡</mml:mo>
+                                            <mml:mfenced open="[" close="]">
+                                                <mml:mn>2</mml:mn>
+                                            </mml:mfenced>
+                                        </mml:mrow>
+                                    </mml:mrow>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                            </mml:mtr>
+                            <mml:mtr>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>0</mml:mn>
+                                </mml:mtd>
+                                <mml:mtd>
+                                    <mml:mn>1</mml:mn>
+                                </mml:mtd>
+                            </mml:mtr>
+                        </mml:mtable>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            and <code class="function">gluLookAt</code> is equivalent to
+            </p><pre class="programlisting">
+glMultMatrixf(M);
+glTranslated(-eyex, -eyey, -eyez);
+            </pre><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="gluPerspective.xml"><span class="citerefentry"><span class="refentrytitle">gluPerspective</span></span></a>,
+            <a class="citerefentry" href="glFrustum.xml"><span class="citerefentry"><span class="refentrytitle">glFrustum</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

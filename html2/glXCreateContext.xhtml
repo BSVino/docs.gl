@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXCreateContext</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXCreateContext"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXCreateContext — create a new GLX rendering context</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLXContext <b class="fsfunc">glXCreateContext</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>XVisualInfo *  </td><td><var class="pdparam">vis</var>, </td></tr><tr><td> </td><td>GLXContext  </td><td><var class="pdparam">shareList</var>, </td></tr><tr><td> </td><td>Bool  </td><td><var class="pdparam">direct</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>vis</code></em></span></dt><dd><p>
+                    Specifies the visual that defines the frame buffer resources available to
+                    the rendering context.
+                    It is a pointer to an <code class="constant">XVisualInfo</code> structure,
+                    not a visual ID or a pointer to a <code class="constant">Visual</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>shareList</code></em></span></dt><dd><p>
+                    Specifies the context with which to share display lists.
+                    <code class="constant">NULL</code> indicates that no sharing is to take place.
+                </p></dd><dt><span class="term"><em class="parameter"><code>direct</code></em></span></dt><dd><p>
+                    Specifies whether rendering is to be done with a direct connection
+                    to the graphics system if possible (<code class="constant">True</code>)
+                    or through the X server (<code class="constant">False</code>).
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXCreateContext</code> creates a GLX rendering context and returns its handle.
+            This context can be used to render into both windows and GLX pixmaps.
+            If <code class="function">glXCreateContext</code> fails to create a rendering context,
+            <code class="constant">NULL</code> is returned.
+        </p><p>
+            If <em class="parameter"><code>direct</code></em> is <code class="constant">True</code>,
+            then a direct rendering context is created if the
+            implementation supports direct rendering, if the connection is to an X
+            server that is local, and if a direct rendering context is available. (An implementation may return an indirect context when <em class="parameter"><code>direct</code></em> is <code class="constant">True</code>.)
+            If <em class="parameter"><code>direct</code></em> is <code class="constant">False</code>,
+            then a rendering context that renders through the X server is always created.
+            Direct rendering provides a performance advantage in some implementations.
+            However, direct rendering contexts cannot be shared outside a single process,
+            and they may be unable to render to GLX pixmaps.
+        </p><p>
+            If <em class="parameter"><code>shareList</code></em> is not <code class="constant">NULL</code>,
+            then all display-list indexes and definitions are shared by
+            context <em class="parameter"><code>shareList</code></em> and by the newly created context.
+            An arbitrary number of contexts can share a single display-list space.
+            However,
+            all rendering contexts that share a single display-list space must
+            themselves exist in the same address space.
+            Two rendering contexts share an address space if both are nondirect
+            using the same server,
+            or if both are direct and owned by a single process.
+            Note that in the nondirect case, it is not necessary for the calling
+            threads to share an address space,
+            only for their related rendering contexts to share an address space.
+        </p><p>
+            If the GL version is 1.1 or greater, 
+            then all texture objects except object 0  
+            are shared by any contexts that share display lists.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">XVisualInfo</code> is defined in <span class="emphasis"><em>Xutil.h.</em></span>
+            It is a structure that includes <span class="emphasis"><em>visual</em></span>, <span class="emphasis"><em>visualID</em></span>, <span class="emphasis"><em>screen</em></span>, and
+            <span class="emphasis"><em>depth</em></span> elements.
+        </p><p>
+            A <span class="emphasis"><em>process</em></span> is a single execution environment,
+            implemented in a single address space,
+            consisting of one or more threads.
+        </p><p>
+            A <span class="emphasis"><em>thread</em></span> is one of a set of subprocesses that share
+            a single address space,
+            but maintain separate program counters,
+            stack spaces,
+            and other related global data.
+            A <span class="emphasis"><em>thread</em></span> that is the only member of its subprocess group
+            is equivalent to a <span class="emphasis"><em>process</em></span>.
+        </p><p>
+            It may not be possible to render to a GLX pixmap with a direct rendering 
+            context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">NULL</code> is returned if execution fails on the client side.
+        </p><p>
+            <code class="constant">BadMatch</code> is generated if the context to be created would not
+            share the address space or the screen of the context specified by <em class="parameter"><code>shareList</code></em>.
+        </p><p>
+            <code class="constant">BadValue</code> is generated if <em class="parameter"><code>vis</code></em> is not a valid visual (for
+            example, if a particular GLX implementation does not support it).
+        </p><p>
+            <code class="constant">GLXBadContext</code> is generated if <em class="parameter"><code>shareList</code></em> is not a GLX context
+            and is not <code class="constant">NULL</code>.
+        </p><p>
+            <code class="constant">BadAlloc</code> is generated if the server does not have enough
+            resources to allocate the new context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXDestroyContext.xml"><span class="citerefentry"><span class="refentrytitle">glXDestroyContext</span></span></a>,
+            <a class="citerefentry" href="glXGetConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXGetConfig</span></span></a>,
+            <a class="citerefentry" href="glXIsDirect.xml"><span class="citerefentry"><span class="refentrytitle">glXIsDirect</span></span></a>,
+            <a class="citerefentry" href="glXMakeCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeCurrent</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

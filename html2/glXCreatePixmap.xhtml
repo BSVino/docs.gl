@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXCreatePixmap</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXCreatePixmap"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXCreatePixmap — create an off-screen rendering area</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLXPixmap <b class="fsfunc">glXCreatePixmap</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXFBConfig  </td><td><var class="pdparam">config</var>, </td></tr><tr><td> </td><td>Pixmap  </td><td><var class="pdparam">pixmap</var>, </td></tr><tr><td> </td><td>const int *  </td><td><var class="pdparam">attrib_list</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>config</code></em></span></dt><dd><p>
+                    Specifies a GLXFBConfig structure with the desired attributes for the
+                    window.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pixmap</code></em></span></dt><dd><p>
+                    Specifies the X pixmap to be used as the rendering area.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attrib_list</code></em></span></dt><dd><p>
+                    Currently unused. This must be set to <code class="constant">NULL</code> or be an empty list
+                    (i.e., one in which the first element is <code class="constant">None</code>).
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXCreatePixmap</code> creates an off-screen rendering area and returns its XID.
+            Any GLX rendering context that was created with respect to <em class="parameter"><code>config</code></em>
+            can be used to render into this window.
+            Use <a class="citerefentry" href="glXMakeCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeCurrent</span></span></a> to associate the rendering area with a GLX
+            rendering context.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glXCreatePixmap</code> is available only if the GLX version is 1.3 or greater.
+        </p><p>
+            If the GLX version is 1.1 or 1.0, the GL version must be 1.0.
+            If the GLX version is 1.2, then the GL version must be 1.1.
+            If the GLX version is 1.3, then the GL version must be 1.2.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">BadMatch</code> is generated if <em class="parameter"><code>pixmap</code></em> was not created with a visual
+            that corresponds to <em class="parameter"><code>config</code></em>.
+        </p><p>
+            <code class="constant">BadMatch</code> is generated if <em class="parameter"><code>config</code></em> does not support rendering to
+            windows (e.g., <code class="constant">GLX_DRAWABLE_TYPE</code> does not contain
+            <code class="constant">GLX_WINDOW_BIT</code>).
+        </p><p>
+            <code class="constant">BadWindow</code> is generated if <em class="parameter"><code>pixmap</code></em> is not a valid window XID.
+            <code class="constant">BadAlloc</code> is generated if there is already a GLXFBConfig
+            associated with <em class="parameter"><code>pixmap</code></em>.
+        </p><p>
+            <code class="constant">BadAlloc</code> is generated if the X server cannot allocate a new
+            GLX window.
+        </p><p>
+            <code class="constant">GLXBadFBConfig</code> is generated if <em class="parameter"><code>config</code></em> is not a valid
+            GLXFBConfig.
+        </p><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glXChooseFBConfig.xml"><span class="citerefentry"><span class="refentrytitle">glXChooseFBConfig</span></span></a>,
+            <a class="citerefentry" href="glXCreateGLXPixmap.xml"><span class="citerefentry"><span class="refentrytitle">glXCreateGLXPixmap</span></span></a>,
+            <a class="citerefentry" href="glXDestroyWindow.xml"><span class="citerefentry"><span class="refentrytitle">glXDestroyWindow</span></span></a>,
+            <a class="citerefentry" href="glXMakeContextCurrent.xml"><span class="citerefentry"><span class="refentrytitle">glXMakeContextCurrent</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glAreTexturesResident</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glAreTexturesResident"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glAreTexturesResident — determine if textures are loaded in texture memory</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLboolean <b class="fsfunc">glAreTexturesResident</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">textures</var>, </td></tr><tr><td> </td><td>GLboolean *  </td><td><var class="pdparam">residences</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of textures to be queried.
+                </p></dd><dt><span class="term"><em class="parameter"><code>textures</code></em></span></dt><dd><p>
+                    Specifies an array containing the names of the textures to be queried.
+                </p></dd><dt><span class="term"><em class="parameter"><code>residences</code></em></span></dt><dd><p>
+                    Specifies an array in which the texture residence status is returned.
+                    The residence status of a texture named by an element of <em class="parameter"><code>textures</code></em> is
+                    returned in the corresponding element of <em class="parameter"><code>residences</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            GL establishes
+            a ``working set'' of textures that are resident in texture memory.
+            These textures can be bound to a texture target much more efficiently
+            than textures that are not resident.
+        </p><p>
+            <code class="function">glAreTexturesResident</code> queries the texture residence status of the <em class="parameter"><code>n</code></em> textures named by
+            the elements of <em class="parameter"><code>textures</code></em>.
+            If all the named textures are resident,
+            <code class="function">glAreTexturesResident</code> returns <code class="constant">GL_TRUE</code>,
+            and the contents of <em class="parameter"><code>residences</code></em> are undisturbed.
+            If not all the named textures are resident, <code class="function">glAreTexturesResident</code> returns <code class="constant">GL_FALSE</code>,
+            and detailed status is returned in the <em class="parameter"><code>n</code></em> elements of <em class="parameter"><code>residences</code></em>.
+            If an element of <em class="parameter"><code>residences</code></em> is <code class="constant">GL_TRUE</code>, then the texture named by
+            the corresponding element of <em class="parameter"><code>textures</code></em> is resident.
+        </p><p>
+            The residence status of a single bound texture may also be queried
+            by calling
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a> with the <span class="emphasis"><em>target</em></span> argument set to the
+            target to which the texture is bound, and the <span class="emphasis"><em>pname</em></span> argument
+            set to <code class="constant">GL_TEXTURE_RESIDENT</code>.
+            This is the only way that the residence status of a default texture can be
+            queried.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glAreTexturesResident</code> is available only if the GL version is 1.1 or greater.
+        </p><p>
+            <code class="function">glAreTexturesResident</code> returns the residency status of the textures at the time of
+            invocation. It does not guarantee that the textures will remain
+            resident at any other time.
+        </p><p>
+            If textures reside in virtual memory (there is no texture memory), they
+            are considered always resident.
+        </p><p>
+            Some implementations may not load a texture until the first use of
+            that texture.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if any element in <em class="parameter"><code>textures</code></em>
+            is 0 or does not name a texture. In that case, the function returns
+            <code class="constant">GL_FALSE</code> and the contents of <em class="parameter"><code>residences</code></em> is indeterminate.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glAreTexturesResident</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a> with parameter name <code class="constant">GL_TEXTURE_RESIDENT</code>
+            retrieves the residence status of a currently bound texture.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a class="citerefentry" href="glPrioritizeTextures.xml"><span class="citerefentry"><span class="refentrytitle">glPrioritizeTextures</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

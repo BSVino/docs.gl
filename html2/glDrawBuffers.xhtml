@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glDrawBuffers</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawBuffers"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawBuffers — Specifies a list of color buffers to be drawn into</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawBuffers</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLenum * </td><td><var class="pdparam">bufs</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>Specifies the number of buffers in
+		    <em class="parameter"><code>bufs</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>bufs</code></em></span></dt><dd><p>Points to an array of symbolic constants
+		    specifying the buffers into which fragment colors or
+		    data values will be written.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glDrawBuffers</code> defines an array of
+	buffers into which fragment color values or fragment data will
+	be written. If no fragment shader is active, rendering
+	operations will generate only one fragment color per fragment
+	and it will be written into each of the buffers specified by
+	<em class="parameter"><code>bufs</code></em>. If a fragment shader is active and
+	it writes a value to the output variable
+	<code class="code">gl_FragColor</code>, then that value will be
+	written into each of the buffers specified by
+	<em class="parameter"><code>bufs</code></em>. If a fragment shader is active and
+	it writes a value to one or more elements of the output array
+	variable <code class="code">gl_FragData[]</code>, then the value of
+	<code class="code">gl_FragData[0] </code> will be written into the
+	first buffer specified by <em class="parameter"><code>bufs</code></em>, the value
+	of <code class="code">gl_FragData[1] </code> will be written into the
+	second buffer specified by <em class="parameter"><code>bufs</code></em>, and so
+	on up to <code class="code">gl_FragData[n-1]</code>. The draw buffer
+	used for <code class="code">gl_FragData[n]</code> and beyond is
+	implicitly set to be <code class="constant">GL_NONE</code>.</p><p>The symbolic constants contained in
+	<em class="parameter"><code>bufs</code></em> may be any of the following:</p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_NONE</code></span></dt><dd><p>The fragment color/data value is not written into
+		    any color buffer.</p></dd><dt><span class="term"><code class="constant">GL_FRONT_LEFT</code></span></dt><dd><p>The fragment color/data value is written into the
+		    front left color buffer.</p></dd><dt><span class="term"><code class="constant">GL_FRONT_RIGHT</code></span></dt><dd><p>The fragment color/data value is written into the
+		    front right color buffer.</p></dd><dt><span class="term"><code class="constant">GL_BACK_LEFT</code></span></dt><dd><p>The fragment color/data value is written into the
+		    back left color buffer.</p></dd><dt><span class="term"><code class="constant">GL_BACK_RIGHT</code></span></dt><dd><p>The fragment color/data value is written into the
+		    back right color buffer.</p></dd><dt><span class="term"><code class="constant">GL_AUXi</code></span></dt><dd><p>The fragment color/data value is written into
+		    auxiliary buffer <code class="code">i</code>.</p></dd></dl></div><p>Except for <code class="constant">GL_NONE</code>, the preceding
+	symbolic constants may not appear more than once in
+	<em class="parameter"><code>bufs</code></em>. The maximum number of draw buffers
+	supported is implementation dependent and can be queried by
+	calling
+	<a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with the argument <code class="constant">GL_MAX_DRAW_BUFFERS</code>. The
+	number of auxiliary buffers can be queried by calling
+	<a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with the argument <code class="constant">GL_AUX_BUFFERS</code>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p><code class="function">glDrawBuffers</code> is available only if
+	the GL version is 2.0 or greater.</p><p>It is always the case that <code class="constant">GL_AUXi</code> =
+	<code class="constant">GL_AUX0</code> + <code class="code">i</code>.</p><p>The symbolic constants <code class="constant">GL_FRONT</code>,
+	<code class="constant">GL_BACK</code>, <code class="constant">GL_LEFT</code>,
+	<code class="constant">GL_RIGHT</code>, and
+	<code class="constant">GL_FRONT_AND_BACK</code> are not allowed in the
+	<em class="parameter"><code>bufs</code></em> array since they may refer to
+	multiple buffers.</p><p>If a fragment shader writes to neither
+	<code class="code">gl_FragColor</code> nor
+	<code class="code">gl_FragData</code>, the values of the fragment
+	colors following shader execution are undefined. For each
+	fragment generated in this situation, a different value may be
+	written into each of the buffers specified by
+	<em class="parameter"><code>bufs</code></em>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if one of the
+	values in <em class="parameter"><code>bufs</code></em> is not an accepted
+	value.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>n</code></em> is less than 0.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if a
+	symbolic constant other than <code class="constant">GL_NONE</code>
+	appears more than once in <em class="parameter"><code>bufs</code></em>.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if any of
+	the entries in <em class="parameter"><code>bufs</code></em> (other than
+	<code class="constant">GL_NONE</code> ) indicates a color buffer that
+	does not exist in the current GL context.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>n</code></em> is greater than
+	<code class="constant">GL_MAX_DRAW_BUFFERS</code>.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<code class="function">glDrawBuffers</code> is executed between the
+	execution of
+	<a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+	and the corresponding execution of
+	<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_MAX_DRAW_BUFFERS</code></p><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_DRAW_BUFFERSi</code> where
+	<code class="code">i</code> indicates the number of the draw buffer
+	whose value is to be queried</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p> <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+	<a class="citerefentry" href="glColorMask.xml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>,
+	<a class="citerefentry" href="glDrawBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>,
+	<a class="citerefentry" href="glIndexMask.xml"><span class="citerefentry"><span class="refentrytitle">glIndexMask</span></span></a>,
+	<a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+	<a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

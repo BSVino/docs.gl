@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glLineStipple</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glLineStipple"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLineStipple — specify the line stipple pattern</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLineStipple</b>(</code></td><td>GLint  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLushort  </td><td><var class="pdparam">pattern</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
+                    Specifies a multiplier for each bit in the line stipple pattern.
+                    If <em class="parameter"><code>factor</code></em> is 3,
+                    for example,
+                    each bit in the pattern is used three times
+                    before the next bit in the pattern is used.
+                    <em class="parameter"><code>factor</code></em> is clamped to the range [1, 256] and defaults to 1.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pattern</code></em></span></dt><dd><p>
+                    Specifies a 16-bit integer whose bit pattern determines
+                    which fragments of a line will be drawn when the line is rasterized.
+                    Bit zero is used first; the default pattern is all 1's.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Line stippling masks out certain fragments produced by rasterization;
+            those fragments will not be drawn.
+            The masking is achieved by using three parameters:
+            the 16-bit line stipple pattern <em class="parameter"><code>pattern</code></em>,
+            the repeat count <em class="parameter"><code>factor</code></em>,
+            and an integer stipple counter 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>.
+        </p><p>
+            Counter 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            is reset to 0 whenever <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> is called
+            and before each line segment of a <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>(<code class="constant">GL_LINES</code>)/<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>
+            sequence is generated.
+            It is incremented after each fragment of a unit width aliased line segment
+            is generated
+            or after each 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            fragments of an 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            width line segment are generated.
+            The 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            fragments associated with count 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            are masked out if
+        </p><p>
+            <em class="parameter"><code>pattern</code></em> bit 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mfrac>
+                            <mml:mi mathvariant="italic">s</mml:mi>
+                            <mml:mi mathvariant="italic">factor</mml:mi>
+                        </mml:mfrac>
+                    </mml:mfenced>
+                    <mml:mo>%</mml:mo>
+                    <mml:mn>16</mml:mn>
+                </mml:mrow>
+            </mml:math>
+        </p><p>
+            is 0, otherwise these fragments are sent to the frame buffer.
+            Bit zero of <em class="parameter"><code>pattern</code></em> is the least significant bit.
+        </p><p>
+            Antialiased lines are treated as a sequence of 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>1</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            rectangles
+            for purposes of stippling.
+            Whether rectangle 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            is rasterized or not depends on the fragment rule
+            described for aliased lines,
+            counting rectangles rather than groups of fragments.
+        </p><p>
+            To enable and disable line stippling, call <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
+            with argument <code class="constant">GL_LINE_STIPPLE</code>.
+            When enabled,
+            the line stipple pattern is applied as described above.
+            When disabled,
+            it is as if the pattern were all 1's.
+            Initially, line stippling is disabled.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glLineStipple</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LINE_STIPPLE_PATTERN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LINE_STIPPLE_REPEAT</code>
+        </p><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_LINE_STIPPLE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
+            <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

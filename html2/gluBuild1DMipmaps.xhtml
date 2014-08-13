@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>gluBuild1DMipmaps</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="gluBuild1DMipmaps"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBuild1DMipmaps — builds a one-dimensional mipmap</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLint <b class="fsfunc">gluBuild1DMipmaps</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const void *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target texture.  Must be <code class="constant">GLU_TEXTURE_1D</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalFormat</code></em></span></dt><dd><p>
+                    Requests the internal storage format of the texture image.  The most
+                    current version of the SGI implementation of GLU does not check this
+                    value for validity before passing it on to the underlying OpenGL
+                    implementation.  A value that is not accepted by the OpenGL
+                    implementation will lead to an OpenGL error.  The benefit of not
+                    checking this value at the GLU level is that OpenGL extensions can add
+                    new internal texture formats without requiring a revision of the GLU
+                    implementation.  Older implementations of GLU check this value and
+                    raise a GLU error if it is not 1, 2, 3, or 4 or one of the following
+                    symbolic constants:
+                    <code class="constant">GLU_ALPHA</code>,
+                    <code class="constant">GLU_ALPHA4</code>,
+                    <code class="constant">GLU_ALPHA8</code>,
+                    <code class="constant">GLU_ALPHA12</code>,
+                    <code class="constant">GLU_ALPHA16</code>,
+                    <code class="constant">GLU_LUMINANCE</code>,
+                    <code class="constant">GLU_LUMINANCE4</code>,
+                    <code class="constant">GLU_LUMINANCE8</code>,
+                    <code class="constant">GLU_LUMINANCE12</code>,
+                    <code class="constant">GLU_LUMINANCE16</code>,
+                    <code class="constant">GLU_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GLU_LUMINANCE4_ALPHA4</code>,
+                    <code class="constant">GLU_LUMINANCE6_ALPHA2</code>,
+                    <code class="constant">GLU_LUMINANCE8_ALPHA8</code>,
+                    <code class="constant">GLU_LUMINANCE12_ALPHA4</code>,
+                    <code class="constant">GLU_LUMINANCE12_ALPHA12</code>,
+                    <code class="constant">GLU_LUMINANCE16_ALPHA16</code>,
+                    <code class="constant">GLU_INTENSITY</code>,
+                    <code class="constant">GLU_INTENSITY4</code>,
+                    <code class="constant">GLU_INTENSITY8</code>,
+                    <code class="constant">GLU_INTENSITY12</code>,
+                    <code class="constant">GLU_INTENSITY16</code>,
+                    <code class="constant">GLU_RGB</code>,
+                    <code class="constant">GLU_R3_G3_B2</code>,
+                    <code class="constant">GLU_RGB4</code>,
+                    <code class="constant">GLU_RGB5</code>,
+                    <code class="constant">GLU_RGB8</code>,
+                    <code class="constant">GLU_RGB10</code>,
+                    <code class="constant">GLU_RGB12</code>,
+                    <code class="constant">GLU_RGB16</code>,
+                    <code class="constant">GLU_RGBA</code>,
+                    <code class="constant">GLU_RGBA2</code>,
+                    <code class="constant">GLU_RGBA4</code>,
+                    <code class="constant">GLU_RGB5_A1</code>,
+                    <code class="constant">GLU_RGBA8</code>,
+                    <code class="constant">GLU_RGB10_A2</code>,
+                    <code class="constant">GLU_RGBA12</code>, or
+                    <code class="constant">GLU_RGBA16</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    Specifies the width, in pixels, of the texture image. 
+                </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
+                    Specifies the format of the pixel data.
+                    Must be one of
+                    <code class="constant">GLU_COLOR_INDEX</code>,
+                    <code class="constant">GLU_DEPTH_COMPONENT</code>,
+                    <code class="constant">GLU_RED</code>,
+                    <code class="constant">GLU_GREEN</code>,
+                    <code class="constant">GLU_BLUE</code>,
+                    <code class="constant">GLU_ALPHA</code>,
+                    <code class="constant">GLU_RGB</code>,
+                    <code class="constant">GLU_RGBA</code>,
+                    <code class="constant">GLU_BGR</code>,
+                    <code class="constant">GLU_BGRA</code>,
+                    <code class="constant">GLU_LUMINANCE</code>, or
+                    <code class="constant">GLU_LUMINANCE_ALPHA</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    Specifies the data type for <em class="parameter"><code>data</code></em>.
+                    Must be one of
+                    <code class="constant">GLU_UNSIGNED_BYTE</code>,
+                    <code class="constant">GLU_BYTE</code>,
+                    <code class="constant">GLU_BITMAP</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT</code>,
+                    <code class="constant">GLU_SHORT</code>,
+                    <code class="constant">GLU_UNSIGNED_INT</code>,
+                    <code class="constant">GLU_INT</code>, 
+                    <code class="constant">GLU_FLOAT</code>, 
+                    <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code>,
+                    <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_5_6_5</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_5_6_5_REV</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_5_5_5_1</code>,
+                    <code class="constant">GLU_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+                    <code class="constant">GLU_UNSIGNED_INT_8_8_8_8</code>,
+                    <code class="constant">GLU_UNSIGNED_INT_8_8_8_8_REV</code>,
+                    <code class="constant">GLU_UNSIGNED_INT_10_10_10_2</code>, or
+                    <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    Specifies a pointer to the image data in memory.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">gluBuild1DMipmaps</code> builds a series of prefiltered one-dimensional texture maps of decreasing
+            resolutions called a mipmap. This is used for the antialiasing of
+            texture mapped primitives.
+        </p><p>
+            A return value of zero indicates success, otherwise a GLU error code is
+            returned (see <a class="citerefentry" href="gluErrorString.xml"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>).
+        </p><p>
+            Initially, the <em class="parameter"><code>width</code></em> of <em class="parameter"><code>data</code></em> is checked to see if it is
+            a power of 2. If not, a copy of <em class="parameter"><code>data</code></em> is scaled up or down to the
+            nearest power of 2. (If <em class="parameter"><code>width</code></em> is exactly between powers of 2, then
+            the copy of <em class="parameter"><code>data</code></em> will scale upwards.)  This copy will be used for
+            subsequent mipmapping operations described below. 
+            For example, if <em class="parameter"><code>width</code></em> is 57, then a copy of <em class="parameter"><code>data</code></em>
+            will scale up to 64 before mipmapping
+            takes place.
+        </p><p>
+            Then, proxy textures (see <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>) are used to determine if
+            the implementation can fit the requested texture. If not, <em class="parameter"><code>width</code></em> is
+            continually halved until it fits.
+        </p><p>
+            Next, a series of mipmap levels is built by decimating a copy of
+            <em class="parameter"><code>data</code></em> in half
+            until size 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>1</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            is reached. At each level, each texel in the
+            halved mipmap level is an average of the corresponding two texels in the larger
+            mipmap level.
+        </p><p>
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> is called to load each of these mipmap levels.
+            Level 0 is a copy of <em class="parameter"><code>data</code></em>. 
+            The highest level is 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="" close="">
+                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                        <mml:mn>2</mml:mn>
+                        </mml:msub>
+                    </mml:mfenced>
+                    <mml:mo>⁡</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">width</mml:mi>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>.
+            For example, if <em class="parameter"><code>width</code></em> is 64 and the implementation can store a texture of
+            this size, the following mipmap levels are
+            built: 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>64</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>32</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>16</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>8</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>4</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>2</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mn>1</mml:mn>
+                    <mml:mo>×</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>.
+            These correspond to 
+            levels 0 through 6, respectively.
+        </p><p>
+            See the <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> reference page for a description of the
+            acceptable values for the <em class="parameter"><code>type</code></em> parameter. See the <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> 
+            reference page for a description of the acceptable values 
+            for the <em class="parameter"><code>data</code></em> parameter.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            Note that there is no direct way of querying the maximum level. This can
+            be derived indirectly via <a class="citerefentry" href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>. First, query
+            for the
+            width actually used at level 0. 
+            (The width may not be equal to <em class="parameter"><code>width</code></em> since
+            proxy textures might have scaled it to fit the implementation.)
+            Then the maximum
+            level can be derived from the formula 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="" close="">
+                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                        <mml:mn>2</mml:mn>
+                        </mml:msub>
+                    </mml:mfenced>
+                    <mml:mo>⁡</mml:mo>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">width</mml:mi>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>.
+        </p><p>
+            Formats <code class="constant">GLU_BGR</code>, and <code class="constant">GLU_BGRA</code>, and types 
+            <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code>,
+            <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_5_6_5</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_5_6_5_REV</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4_REV</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_5_5_5_1</code>,
+            <code class="constant">GLU_UNSIGNED_SHORT_1_5_5_5_REV</code>,
+            <code class="constant">GLU_UNSIGNED_INT_8_8_8_8</code>,
+            <code class="constant">GLU_UNSIGNED_INT_8_8_8_8_REV</code>,
+            <code class="constant">GLU_UNSIGNED_INT_10_10_10_2</code>, and
+            <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code> are only available if the GL version 
+            is 1.2 or greater, and if the GLU version is 1.3 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLU_INVALID_VALUE</code> is returned if <em class="parameter"><code>width</code></em> is &lt; 1.
+        </p><p>
+            <code class="constant">GLU_INVALID_ENUM</code> is returned if <em class="parameter"><code>format</code></em> or <em class="parameter"><code>type</code></em> are not legal.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code> or <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>
+            and <em class="parameter"><code>format</code></em> is not <code class="constant">GLU_RGB</code>.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_SHORT_5_6_5</code> or <code class="constant">GLU_UNSIGNED_SHORT_5_6_5_REV</code>
+            and <em class="parameter"><code>format</code></em> is not <code class="constant">GLU_RGB</code>.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4</code> or <code class="constant">GLU_UNSIGNED_SHORT_4_4_4_4_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_SHORT_5_5_5_1</code> or <code class="constant">GLU_UNSIGNED_SHORT_1_5_5_5_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_INT_8_8_8_8</code> or <code class="constant">GLU_UNSIGNED_INT_8_8_8_8_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
+        </p><p>
+            <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_INT_10_10_10_2</code> or <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code>
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="gluBuild1DMipmapLevels.xml"><span class="citerefentry"><span class="refentrytitle">gluBuild1DMipmapLevels</span></span></a>,
+            <a class="citerefentry" href="gluBuild2DMipmapLevels.xml"><span class="citerefentry"><span class="refentrytitle">gluBuild2DMipmapLevels</span></span></a>, 
+            <a class="citerefentry" href="gluBuild2DMipmaps.xml"><span class="citerefentry"><span class="refentrytitle">gluBuild2DMipmaps</span></span></a>,
+            <a class="citerefentry" href="gluBuild3DMipmapLevels.xml"><span class="citerefentry"><span class="refentrytitle">gluBuild3DMipmapLevels</span></span></a>,
+            <a class="citerefentry" href="gluBuild3DMipmaps.xml"><span class="citerefentry"><span class="refentrytitle">gluBuild3DMipmaps</span></span></a>,
+            <a class="citerefentry" href="gluErrorString.xml"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>, 
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glGetTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>,
+            <a class="citerefentry" href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>, 
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

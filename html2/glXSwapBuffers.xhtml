@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glXSwapBuffers</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glXSwapBuffers"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXSwapBuffers — exchange front and back buffers</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glXSwapBuffers</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXDrawable  </td><td><var class="pdparam">drawable</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+                    Specifies the connection to the X server.
+                </p></dd><dt><span class="term"><em class="parameter"><code>drawable</code></em></span></dt><dd><p>
+                    Specifies the drawable whose buffers are to be swapped.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glXSwapBuffers</code> promotes the contents of the back buffer of <em class="parameter"><code>drawable</code></em> to become
+            the contents of the front buffer of <em class="parameter"><code>drawable</code></em>.
+            The contents of the back buffer then become undefined.
+            The update typically takes place during the vertical retrace of
+            the monitor,
+            rather than immediately after <code class="function">glXSwapBuffers</code> is called.
+        </p><p>
+            <code class="function">glXSwapBuffers</code> performs an implicit <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a> before it returns.
+            Subsequent OpenGL commands may be issued immediately after calling <code class="function">glXSwapBuffers</code>,
+            but are not executed until the buffer exchange is completed.
+        </p><p>
+            If <em class="parameter"><code>drawable</code></em> was not created with respect to a double-buffered visual,
+            <code class="function">glXSwapBuffers</code> has no effect,
+            and no error is generated.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The contents of the back buffer become undefined after
+            a swap. Note that this applies to pixel buffers as well as windows.
+        </p><p>
+            All GLX rendering contexts share the same notion of which are front buffers
+            and which are back buffers.
+            One consequence is that when multiple clients are rendering to the same
+            double-buffered window,
+            all of them should finish rendering before one of them issues the command
+            to swap buffers.
+            The clients are responsible for implementing this synchronization.
+            Typically this is accomplished by executing <a class="citerefentry" href="glFinish.xml"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a> and then
+            using a semaphore in shared memory to rendezvous before swapping.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GLXBadDrawable</code> is generated if <em class="parameter"><code>drawable</code></em> is not a valid GLX drawable.
+        </p><p>
+            <code class="constant">GLXBadCurrentWindow</code> is generated if <em class="parameter"><code>dpy</code></em> and <em class="parameter"><code>drawable</code></em> are
+            respectively the display and drawable associated with the current
+            context of the calling thread, and <em class="parameter"><code>drawable</code></em> identifies a window that
+            is no longer valid.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

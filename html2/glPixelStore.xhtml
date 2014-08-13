@@ -1,0 +1,1192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPixelStore</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPixelStore"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelStore — set pixel storage modes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStoref</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStorei</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the symbolic name of the parameter to be set.
+                    Six values affect the packing of pixel data into memory:
+                    <code class="constant">GL_PACK_SWAP_BYTES</code>,
+                    <code class="constant">GL_PACK_LSB_FIRST</code>,
+                    <code class="constant">GL_PACK_ROW_LENGTH</code>,
+                    <code class="constant">GL_PACK_IMAGE_HEIGHT</code>,
+                    <code class="constant">GL_PACK_SKIP_PIXELS</code>,
+                    <code class="constant">GL_PACK_SKIP_ROWS</code>,
+                    <code class="constant">GL_PACK_SKIP_IMAGES</code>, and
+                    <code class="constant">GL_PACK_ALIGNMENT</code>.
+                    Six more affect the unpacking of pixel data <span class="emphasis"><em>from</em></span> memory:
+                    <code class="constant">GL_UNPACK_SWAP_BYTES</code>,
+                    <code class="constant">GL_UNPACK_LSB_FIRST</code>,
+                    <code class="constant">GL_UNPACK_ROW_LENGTH</code>,
+                    <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>,
+                    <code class="constant">GL_UNPACK_SKIP_PIXELS</code>,
+                    <code class="constant">GL_UNPACK_SKIP_ROWS</code>,
+                    <code class="constant">GL_UNPACK_SKIP_IMAGES</code>, and
+                    <code class="constant">GL_UNPACK_ALIGNMENT</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
+                    Specifies the value that <em class="parameter"><code>pname</code></em> is set to.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glPixelStore</code> sets pixel storage modes that affect the operation of subsequent
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> and <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> as well as the unpacking of
+            polygon stipple patterns (see <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>), bitmaps (see
+            <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>), texture patterns (see <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>, <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
+            Additionally, if the <code class="code">ARB_imaging</code> extension is supported, pixel
+            storage modes affect convolution filters
+            (see <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>, <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>, and
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>, color table (see <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>, and
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>, and unpacking histogram (See <a class="citerefentry" href="glHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glHistogram</span></span></a>),
+            and minmax (See <a class="citerefentry" href="glMinmax.xml"><span class="citerefentry"><span class="refentrytitle">glMinmax</span></span></a>) data.
+        </p><p>
+            <em class="parameter"><code>pname</code></em> is a symbolic constant indicating the parameter to be set, and
+            <em class="parameter"><code>param</code></em> is the new value.  Six of the twelve storage parameters affect
+            how pixel data is returned to client memory.
+            They are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_PACK_SWAP_BYTES</code></span></dt><dd><p>
+                        If true,
+                        byte ordering for multibyte color components,
+                        depth components,
+                        color indices,
+                        or stencil indices
+                        is reversed.
+                        That is,
+                        if a four-byte component consists of bytes
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>0</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>1</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>2</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>3</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        it is stored in memory as
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>3</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>2</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>1</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>0</mml:mn>
+                            </mml:msub>
+                        </mml:math>
+                        if <code class="constant">GL_PACK_SWAP_BYTES</code> is true.
+                        <code class="constant">GL_PACK_SWAP_BYTES</code> has no effect on the memory order of components
+                        within a pixel,
+                        only on the order of bytes within components or indices.
+                        For example,
+                        the three components of a <code class="constant">GL_RGB</code> format pixel are always stored with
+                        red first,
+                        green second,
+                        and blue third,
+                        regardless of the value of <code class="constant">GL_PACK_SWAP_BYTES</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_LSB_FIRST</code></span></dt><dd><p>
+                        If true,
+                        bits are ordered within a byte from least significant to most significant;
+                        otherwise,
+                        the first bit in each byte is the most significant one.
+                        This parameter is significant for bitmap data only.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_ROW_LENGTH</code></span></dt><dd><p>
+                        If greater than 0,
+                        <code class="constant">GL_PACK_ROW_LENGTH</code> defines the number of pixels in a row.
+                        If the first pixel of a row is placed at location 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        in memory,
+                        then the location of the first pixel of the next row is obtained by skipping
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mfenced open="{" close="">
+                                    <mml:mrow>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mfenced open="" close="">
+                                                        <mml:mfrac>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                            <mml:mi mathvariant="italic">s</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                                        <mml:mfrac>
+                                                            <mml:mfenced open="" close="">
+                                                                <mml:mrow>
+                                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                                </mml:mrow>
+                                                            </mml:mfenced>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&gt;=</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&lt;</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                    </p><p>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices in a pixel,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        is the number of pixels in a row
+                        (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0,
+                        the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        argument to the pixel routine otherwise),
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        is the value of <code class="constant">GL_PACK_ALIGNMENT</code>, and
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is the size, in bytes, of a single component
+                        (if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>&lt;</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        then it is as if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>).
+                        In the case of 1-bit values,
+                        the location of the next row is obtained by skipping
+                    </p><p>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:mn>8</mml:mn>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                        <mml:mfrac>
+                                            <mml:mfenced open="" close="">
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mfenced>
+                                            <mml:mfenced open="" close="">
+                                                <mml:mrow>
+                                                    <mml:mn>8</mml:mn>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mfenced>
+                                        </mml:mfrac>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math>
+                    </p><p>
+                        components or indices.
+                    </p><p>
+                        The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
+                        red,
+                        green,
+                        blue,
+                        alpha,
+                        and depth.
+                        Storage format <code class="constant">GL_RGB</code>,
+                        for example,
+                        has three components per pixel:
+                        first red,
+                        then green,
+                        and finally blue.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_IMAGE_HEIGHT</code></span></dt><dd><p>
+                        If greater than 0,
+                        <code class="constant">GL_PACK_IMAGE_HEIGHT</code> defines the number of pixels in an image
+                        three-dimensional texture volume, where ``image'' is defined by all pixels
+                        sharing the same third dimension index.
+                        If the first pixel of a row is placed at location 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        in memory,
+                        then the location of the first pixel of the next row is obtained by skipping
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mfenced open="{" close="">
+                                    <mml:mrow>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">h</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mfenced open="" close="">
+                                                        <mml:mfrac>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                            <mml:mi mathvariant="italic">s</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                                        <mml:mfrac>
+                                                            <mml:mfenced open="" close="">
+                                                                <mml:mrow>
+                                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">h</mml:mi>
+                                                                </mml:mrow>
+                                                            </mml:mfenced>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&gt;=</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&lt;</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                    </p><p>
+                        components or indices, where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices
+                        in a pixel, 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        is the number of pixels in a row
+                        (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0, the
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise), 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+                        is the number of
+                        rows in a pixel image (<code class="constant">GL_PACK_IMAGE_HEIGHT</code> if it is greater than
+                        0, the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+                        argument to the <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> routine otherwise),
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        is the value of
+                        <code class="constant">GL_PACK_ALIGNMENT</code>, and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is the size, in bytes, of a single
+                        component (if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>&lt;</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        then it is as if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>).
+                    </p><p>
+                        The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
+                        red,
+                        green,
+                        blue,
+                        alpha,
+                        and depth.
+                        Storage format <code class="constant">GL_RGB</code>,
+                        for example,
+                        has three components per pixel:
+                        first red,
+                        then green,
+                        and finally blue.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_SKIP_PIXELS</code>, <code class="constant">GL_PACK_SKIP_ROWS</code>, and <code class="constant">GL_PACK_SKIP_IMAGES</code></span></dt><dd><p>
+                        These values are provided as a convenience to the programmer;
+                        they provide no functionality that cannot be duplicated simply by
+                        incrementing the pointer passed to <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
+                        Setting <code class="constant">GL_PACK_SKIP_PIXELS</code> to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+                        is equivalent to incrementing
+                        the pointer by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices in each pixel.
+                        Setting <code class="constant">GL_PACK_SKIP_ROWS</code> to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        is equivalent to incrementing
+                        the pointer by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">j</mml:mi>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">m</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>
+                        is the number of components or indices per row,
+                        as just computed in the <code class="constant">GL_PACK_ROW_LENGTH</code> section.
+                        Setting <code class="constant">GL_PACK_SKIP_IMAGES</code> to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
+                        is equivalent to incrementing
+                        the pointer by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">p</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        is the number of components or indices
+                        per image, as computed in the <code class="constant">GL_PACK_IMAGE_HEIGHT</code> section.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_ALIGNMENT</code></span></dt><dd><p>
+                        Specifies the alignment requirements for the start of each pixel row in memory.
+                        The allowable values are
+                        1 (byte-alignment),
+                        2 (rows aligned to even-numbered bytes),
+                        4 (word-alignment), and
+                        8 (rows start on double-word boundaries).
+                    </p></dd></dl></div><p>
+            The other six of the twelve storage parameters affect how pixel data is
+            read from client memory.
+            These values are significant for <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>, and
+            <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>.
+        </p><p>
+            Additionally, if the <code class="code">ARB_imaging</code> extension is supported,
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>, and
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>.
+            They are as follows:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_UNPACK_SWAP_BYTES</code></span></dt><dd><p>
+                        If true,
+                        byte ordering for multibyte color components,
+                        depth components,
+                        color indices,
+                        or stencil indices
+                        is reversed.
+                        That is,
+                        if a four-byte component consists of bytes
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>0</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>1</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>2</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>3</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        it is taken from memory as
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>3</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>2</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>1</mml:mn>
+                            </mml:msub>
+                        </mml:math>,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
+                            <mml:mn>0</mml:mn>
+                            </mml:msub>
+                        </mml:math>
+                        if <code class="constant">GL_UNPACK_SWAP_BYTES</code> is true.
+                        <code class="constant">GL_UNPACK_SWAP_BYTES</code> has no effect on the memory order of components
+                        within a pixel,
+                        only on the order of bytes within components or indices.
+                        For example,
+                        the three components of a <code class="constant">GL_RGB</code> format pixel are always stored with
+                        red first,
+                        green second,
+                        and blue third,
+                        regardless of the value of <code class="constant">GL_UNPACK_SWAP_BYTES</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_LSB_FIRST</code></span></dt><dd><p>
+                        If true,
+                        bits are ordered within a byte from least significant to most significant;
+                        otherwise,
+                        the first bit in each byte is the most significant one.
+                        This is relevant only for bitmap data.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ROW_LENGTH</code></span></dt><dd><p>
+                        If greater than 0,
+                        <code class="constant">GL_UNPACK_ROW_LENGTH</code> defines the number of pixels in a row.
+                        If the first pixel of a row is placed at location 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        in memory,
+                        then the location of the first pixel of the next row is obtained by skipping
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mfenced open="{" close="">
+                                    <mml:mrow>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mfenced open="" close="">
+                                                        <mml:mfrac>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                            <mml:mi mathvariant="italic">s</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                                        <mml:mfrac>
+                                                            <mml:mfenced open="" close="">
+                                                                <mml:mrow>
+                                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                                </mml:mrow>
+                                                            </mml:mfenced>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&gt;=</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&lt;</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                    </p><p>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices in a pixel,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        is the number of pixels in a row
+                        (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
+                        the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        argument to the pixel routine otherwise),
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is the size, in bytes, of a single component
+                        (if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>&lt;</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        then it is as if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>).
+                        In the case of 1-bit values,
+                        the location of the next row is obtained by skipping
+                    </p><p>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                    <mml:mn>8</mml:mn>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                        <mml:mfrac>
+                                            <mml:mfenced open="" close="">
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mfenced>
+                                            <mml:mfenced open="" close="">
+                                                <mml:mrow>
+                                                    <mml:mn>8</mml:mn>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mfenced>
+                                        </mml:mfrac>
+                                    </mml:mfenced>
+                                </mml:mrow>
+                            </mml:mrow>
+                        </mml:math>
+                    </p><p>
+                        components or indices.
+                    </p><p>
+                        The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
+                        red,
+                        green,
+                        blue,
+                        alpha,
+                        and depth.
+                        Storage format <code class="constant">GL_RGB</code>,
+                        for example,
+                        has three components per pixel:
+                        first red,
+                        then green,
+                        and finally blue.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_IMAGE_HEIGHT</code></span></dt><dd><p>
+                        If greater than 0,
+                        <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> defines the number of pixels in an image of
+                        a three-dimensional texture volume.  Where ``image'' is defined by all
+                        pixel sharing the same third dimension index.
+                        If the first pixel of a row is placed at location 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        in memory,
+                        then the location of the first pixel of the next row is obtained by skipping
+                    </p><p>
+                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mfenced open="{" close="">
+                                    <mml:mrow>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mi mathvariant="italic">h</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mfenced open="" close="">
+                                                        <mml:mfrac>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                            <mml:mi mathvariant="italic">s</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                    <mml:mo>⁢</mml:mo>
+                                                    <mml:mfenced open="&#x2308;" close="&#x2309;">
+                                                        <mml:mfrac>
+                                                            <mml:mfenced open="" close="">
+                                                                <mml:mrow>
+                                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">n</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">l</mml:mi>
+                                                                    <mml:mo>⁢</mml:mo>
+                                                                    <mml:mi mathvariant="italic">h</mml:mi>
+                                                                </mml:mrow>
+                                                            </mml:mfenced>
+                                                            <mml:mi mathvariant="italic">a</mml:mi>
+                                                        </mml:mfrac>
+                                                    </mml:mfenced>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:mtable>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&gt;=</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                            <mml:mtr><mml:mtd>
+                                                <mml:mrow>
+                                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                                    <mml:mo>&lt;</mml:mo>
+                                                    <mml:mi mathvariant="italic">a</mml:mi>
+                                                </mml:mrow>
+                                            </mml:mtd></mml:mtr>
+                                        </mml:mtable>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                        </mml:math></div><p>
+                    </p><p>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices in a pixel,
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        is the number of pixels in a row
+                        (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
+                        the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+                        is the number of rows in an image (<code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> if
+                        it is greater than 0, the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+                        argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        is the size, in bytes, of a single component
+                        (if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>&lt;</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>,
+                        then it is as if 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">a</mml:mi>
+                                <mml:mo>=</mml:mo>
+                                <mml:mi mathvariant="italic">s</mml:mi>
+                            </mml:mrow>
+                        </mml:math>).
+                    </p><p>
+                        The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
+                        red,
+                        green,
+                        blue,
+                        alpha,
+                        and depth.
+                        Storage format <code class="constant">GL_RGB</code>,
+                        for example,
+                        has three components per pixel:
+                        first red,
+                        then green,
+                        and finally blue.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_SKIP_PIXELS</code> and <code class="constant">GL_UNPACK_SKIP_ROWS</code></span></dt><dd><p>
+                        These values are provided as a convenience to the programmer;
+                        they provide no functionality that cannot be duplicated by
+                        incrementing the pointer passed to
+                        <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+                        <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+                        <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                        <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+                        <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+                        <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>, or
+                        <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>.
+                        Setting <code class="constant">GL_UNPACK_SKIP_PIXELS</code> to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+                        is equivalent to incrementing
+                        the pointer by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">n</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        is the number of components or indices in each pixel.
+                        Setting <code class="constant">GL_UNPACK_SKIP_ROWS</code> to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        is equivalent to incrementing
+                        the pointer by 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">j</mml:mi>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">k</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
+                        components or indices,
+                        where 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
+                        is the number of components or indices per row,
+                        as just computed in the <code class="constant">GL_UNPACK_ROW_LENGTH</code> section.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
+                        Specifies the alignment requirements for the start of each pixel row in memory.
+                        The allowable values are
+                        1 (byte-alignment),
+                        2 (rows aligned to even-numbered bytes),
+                        4 (word-alignment), and
+                        8 (rows start on double-word boundaries).
+                    </p></dd></dl></div><p>
+            The following table gives the type,
+            initial value,
+            and range of valid values for each storage parameter
+            that can be set with <code class="function">glPixelStore</code>.
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        <em class="parameter"><code>pname</code></em>
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Type
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Initial Value
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Valid Range
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_PACK_SWAP_BYTES</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true or false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_LSB_FIRST</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true or false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_ROW_LENGTH</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_SKIP_ROWS</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_SKIP_PIXELS</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_SKIP_IMAGES</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_PACK_ALIGNMENT</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        4
+                        </td><td align="center">
+                        1, 2, 4, or 8
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_SWAP_BYTES</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true or false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_LSB_FIRST</code>
+                        </td><td align="center">
+                        boolean
+                        </td><td align="center">
+                        false
+                        </td><td align="center">
+                        true or false
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_ROW_LENGTH</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_SKIP_ROWS</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        0
+                        </td><td align="center">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mfenced open="[" close=")">
+                                <mml:mn>0</mml:mn>
+                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
+                            </mml:mfenced>
+                        </mml:math>
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_UNPACK_ALIGNMENT</code>
+                        </td><td align="center">
+                        integer
+                        </td><td align="center">
+                        4
+                        </td><td align="center">
+                        1, 2, 4, or 8
+                        </td></tr></tbody></table></div><p>
+            <code class="function">glPixelStoref</code> can be used to set any pixel store parameter.
+            If the parameter type is boolean,
+            then if <em class="parameter"><code>param</code></em> is 0,
+            the parameter is false;
+            otherwise it is set to true.
+            If <em class="parameter"><code>pname</code></em> is a integer type parameter,
+            <em class="parameter"><code>param</code></em> is rounded to the nearest integer.
+        </p><p>
+            Likewise, <code class="function">glPixelStorei</code> can also be used to set any of the
+            pixel store parameters.
+            Boolean parameters are set to false if <em class="parameter"><code>param</code></em> is 0 and true otherwise.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The pixel storage modes in effect when
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
+            or <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a> is placed in a display list control the interpretation
+            of memory data.
+            Likewise, if the <code class="code">ARB_imaging</code> extension is supported, the pixel
+            storage modes in effect when
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>, of
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a> is placed in a display list control the
+            interpretation of memory data.
+            The pixel storage modes in effect when a display list is executed are
+            not significant.
+        </p><p>
+            Pixel storage modes are client state and must be pushed and restored
+            using
+            <a class="citerefentry" href="glPushClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushClientAttrib</span></span></a> and <a class="citerefentry" href="glPopClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopClientAttrib</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if a negative row length,
+            pixel skip,
+            or row skip value is specified,
+            or if alignment is specified as other than 1, 2, 4, or 8.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPixelStore</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_SWAP_BYTES</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_LSB_FIRST</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_ROW_LENGTH</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_SKIP_ROWS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_SKIP_PIXELS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_SKIP_IMAGES</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PACK_ALIGNMENT</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_SWAP_BYTES</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_LSB_FIRST</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_ROW_LENGTH</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_SKIP_ROWS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_UNPACK_ALIGNMENT</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBitmap.xml"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorSubTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorSubTable</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter1D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter1D</span></span></a>,
+            <a class="citerefentry" href="glConvolutionFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glConvolutionFilter2D</span></span></a>,
+            <a class="citerefentry" href="glSeparableFilter2D.xml"><span class="citerefentry"><span class="refentrytitle">glSeparableFilter2D</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glHistogram</span></span></a>,
+            <a class="citerefentry" href="glMinmax.xml"><span class="citerefentry"><span class="refentrytitle">glMinmax</span></span></a>,
+            <a class="citerefentry" href="glPixelMap.xml"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glPixelZoom.xml"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>,
+            <a class="citerefentry" href="glPolygonStipple.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>,
+            <a class="citerefentry" href="glPushClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushClientAttrib</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

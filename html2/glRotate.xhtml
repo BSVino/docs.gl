@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glRotate</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glRotate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glRotate — multiply the current matrix by a rotation matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glRotated</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">angle</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glRotatef</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">angle</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>angle</code></em></span></dt><dd><p>
+                    Specifies the angle of rotation, in degrees.
+                </p></dd><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em>, </span><span class="term"><em class="parameter"><code>z</code></em></span></dt><dd><p>
+                    Specify the <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, and <span class="emphasis"><em>z</em></span> coordinates of a vector, respectively.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glRotate</code> produces a rotation of <em class="parameter"><code>angle</code></em> degrees around
+            the vector 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">z</mml:mi>
+                </mml:mfenced>
+            </mml:math>.
+            The current matrix (see <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>) is multiplied by a rotation
+            matrix with the product
+            replacing the current matrix, as if <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a> were called
+            with the following matrix as its argument:
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mtable>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mrow>
+                                        <mml:msup><mml:mi mathvariant="italic">x</mml:mi>
+                                        <mml:mn>2</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mi mathvariant="italic">z</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">z</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">x</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">z</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mrow>
+                                        <mml:msup><mml:mi mathvariant="italic">y</mml:mi>
+                                        <mml:mn>2</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">z</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">z</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mi mathvariant="italic">y</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">z</mml:mi>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">x</mml:mi>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mrow>
+                                    <mml:mrow>
+                                        <mml:msup><mml:mi mathvariant="italic">z</mml:mi>
+                                        <mml:mn>2</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>⁡</mml:mo>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:mn>1</mml:mn>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mi mathvariant="italic">c</mml:mi>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                    </mml:mrow>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:mi mathvariant="italic">c</mml:mi>
+                                </mml:mrow>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                        <mml:mtr>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>0</mml:mn>
+                            </mml:mtd>
+                            <mml:mtd>
+                                <mml:mn>1</mml:mn>
+                            </mml:mtd>
+                        </mml:mtr>
+                    </mml:mtable>
+                </mml:mfenced>
+            </mml:math></div><p>
+        </p><p>
+        </p><p>
+            Where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">c</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">cos</mml:mi>
+                        <mml:mo>⁡</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mi mathvariant="italic">angle</mml:mi>
+                        </mml:mfenced>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>, 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">s</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">sin</mml:mi>
+                        <mml:mo>⁡</mml:mo>
+                        <mml:mfenced open="(" close=")">
+                            <mml:mi mathvariant="italic">angle</mml:mi>
+                        </mml:mfenced>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math>,
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="&#x2225;" close="&#x2225;">
+                        <mml:mfenced open="(" close=")">
+                            <mml:mi mathvariant="italic">x</mml:mi>
+                            <mml:mi mathvariant="italic">y</mml:mi>
+                            <mml:mi mathvariant="italic">z</mml:mi>
+                        </mml:mfenced>
+                    </mml:mfenced>
+                    <mml:mo>=</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            (if not, the GL
+            will normalize this vector).
+        </p><p>
+        </p><p>
+        </p><p>
+            If the matrix mode is either <code class="constant">GL_MODELVIEW</code> or <code class="constant">GL_PROJECTION</code>,
+            all objects drawn after <code class="function">glRotate</code> is called are rotated.
+            Use <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a> and <a class="citerefentry" href="glPopMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPopMatrix</span></span></a> to save and restore
+            the unrotated coordinate system.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            This rotation follows the right-hand rule, so
+            if the vector 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">z</mml:mi>
+                </mml:mfenced>
+            </mml:math>
+            points toward the
+            user, the rotation will be counterclockwise.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glRotate</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MATRIX_MODE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MODELVIEW_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROJECTION_MATRIX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_MATRIX</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+            <a class="citerefentry" href="glMultMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
+            <a class="citerefentry" href="glPushMatrix.xml"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
+            <a class="citerefentry" href="glScale.xml"><span class="citerefentry"><span class="refentrytitle">glScale</span></span></a>,
+            <a class="citerefentry" href="glTranslate.xml"><span class="citerefentry"><span class="refentrytitle">glTranslate</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

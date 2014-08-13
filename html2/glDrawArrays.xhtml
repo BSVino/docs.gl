@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glDrawArrays</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawArrays"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawArrays — render primitives from array data</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawArrays</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">first</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">count</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies what kind of primitives to render.
+                    Symbolic constants
+                    <code class="constant">GL_POINTS</code>,
+                    <code class="constant">GL_LINE_STRIP</code>,
+                    <code class="constant">GL_LINE_LOOP</code>,
+                    <code class="constant">GL_LINES</code>,
+                    <code class="constant">GL_TRIANGLE_STRIP</code>,
+                    <code class="constant">GL_TRIANGLE_FAN</code>,
+                    <code class="constant">GL_TRIANGLES</code>,
+                    <code class="constant">GL_QUAD_STRIP</code>,
+                    <code class="constant">GL_QUADS</code>,
+                    and <code class="constant">GL_POLYGON</code> are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>first</code></em></span></dt><dd><p>
+                    Specifies the starting index in the enabled arrays.
+                </p></dd><dt><span class="term"><em class="parameter"><code>count</code></em></span></dt><dd><p>
+                    Specifies the number of indices to be rendered.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawArrays</code> specifies multiple geometric primitives
+            with very few subroutine calls. Instead of calling a GL procedure
+            to pass each individual vertex, normal, texture coordinate, edge
+            flag, or color, you can prespecify
+            separate arrays of vertices, normals, and colors and use them to
+            construct a sequence of primitives with a single
+            call to <code class="function">glDrawArrays</code>.
+        </p><p>
+            When <code class="function">glDrawArrays</code> is called, it uses <em class="parameter"><code>count</code></em> sequential elements from each
+            enabled array to construct a sequence of geometric primitives,
+            beginning with element <em class="parameter"><code>first</code></em>. <em class="parameter"><code>mode</code></em> specifies what kind of
+            primitives are constructed and how the array elements
+            construct those primitives. If <code class="constant">GL_VERTEX_ARRAY</code> is not enabled, no
+            geometric primitives are generated.
+        </p><p>
+            Vertex attributes that are modified by <code class="function">glDrawArrays</code> have an
+            unspecified value after <code class="function">glDrawArrays</code> returns. For example, if
+            <code class="constant">GL_COLOR_ARRAY</code> is enabled, the value of the current color is
+            undefined after <code class="function">glDrawArrays</code> executes. Attributes that aren't
+            modified remain well defined.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glDrawArrays</code> is available only if the GL version is 1.1 or greater.
+        </p><p>
+            <code class="function">glDrawArrays</code> is included in display lists. If <code class="function">glDrawArrays</code> is entered into a
+            display list,
+            the necessary array data (determined by the array pointers and
+            enables) is also
+            entered into the display list. Because the array pointers and
+            enables are client-side state, their values affect display lists
+            when the lists are created, not when the lists are executed.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
+            enabled array and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glDrawArrays</code> is executed between
+            the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glArrayElement.xml"><span class="citerefentry"><span class="refentrytitle">glArrayElement</span></span></a>,
+            <a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlagPointer.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>,
+            <a class="citerefentry" href="glFogCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glGetPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetPointerv</span></span></a>,
+            <a class="citerefentry" href="glIndexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>,
+            <a class="citerefentry" href="glInterleavedArrays.xml"><span class="citerefentry"><span class="refentrytitle">glInterleavedArrays</span></span></a>,
+            <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            <a class="citerefentry" href="glSecondaryColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>,
+            <a class="citerefentry" href="glTexCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

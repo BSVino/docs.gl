@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glNewList</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glNewList"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glNewList — create or replace a display list</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glNewList</b>(</code></td><td>GLuint  </td><td><var class="pdparam">list</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>list</code></em></span></dt><dd><p>
+                    Specifies the display-list name.
+                </p></dd><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+                    Specifies the compilation mode,
+                    which can be
+                    <code class="constant">GL_COMPILE</code> or
+                    <code class="constant">GL_COMPILE_AND_EXECUTE</code>.
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEndList</b>(</code></td><td>  </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            Display lists are groups of GL commands that have been stored
+            for subsequent execution.
+            Display lists are created with <code class="function">glNewList</code>.
+            All subsequent commands are placed in the display list,
+            in the order issued,
+            until <a class="citerefentry" href="glEndList.xml"><span class="citerefentry"><span class="refentrytitle">glEndList</span></span></a> is called.
+        </p><p>
+            <code class="function">glNewList</code> has two arguments.
+            The first argument,
+            <em class="parameter"><code>list</code></em>,
+            is a positive integer that becomes the unique name for the display list.
+            Names can be created and reserved with <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>
+            and tested for uniqueness with <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>.
+            The second argument,
+            <em class="parameter"><code>mode</code></em>,
+            is a symbolic constant that can assume one of two values:
+        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_COMPILE</code></span></dt><dd><p>
+                        Commands are merely compiled.
+                    </p></dd><dt><span class="term"><code class="constant">GL_COMPILE_AND_EXECUTE</code></span></dt><dd><p>
+                        Commands are executed as they are compiled into the display list.
+                    </p></dd></dl></div><p>
+            Certain commands are not compiled into the display list
+            but are executed immediately,
+            regardless of the display-list mode.
+            These commands are
+            <a class="citerefentry" href="glAreTexturesResident.xml"><span class="citerefentry"><span class="refentrytitle">glAreTexturesResident</span></span></a>,
+            <a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+            <a class="citerefentry" href="glDeleteLists.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteLists</span></span></a>,
+            <a class="citerefentry" href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,
+            <a class="citerefentry" href="glDisableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glDisableClientState</span></span></a>,
+            <a class="citerefentry" href="glEdgeFlagPointer.xml"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>,
+            <a class="citerefentry" href="glEnableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glEnableClientState</span></span></a>,
+            <a class="citerefentry" href="glFeedbackBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a>,
+            <a class="citerefentry" href="glFinish.xml"><span class="citerefentry"><span class="refentrytitle">glFinish</span></span></a>,
+            <a class="citerefentry" href="glFlush.xml"><span class="citerefentry"><span class="refentrytitle">glFlush</span></span></a>,
+            <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>,
+            <a class="citerefentry" href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a>,
+            <a class="citerefentry" href="glIndexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>,
+            <a class="citerefentry" href="glInterleavedArrays.xml"><span class="citerefentry"><span class="refentrytitle">glInterleavedArrays</span></span></a>,
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>,
+            <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>,
+            <a class="citerefentry" href="glIsTexture.xml"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>,
+            <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            <a class="citerefentry" href="glPopClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPopClientAttrib</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPushClientAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glPushClientAttrib</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glRenderMode.xml"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>,
+            <a class="citerefentry" href="glSelectBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glSelectBuffer</span></span></a>,
+            <a class="citerefentry" href="glTexCoordPointer.xml"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>,
+            and all of the <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> commands.
+        </p><p>
+            Similarly,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>, <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, and <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
+            are executed immediately and not compiled into the display list when their
+            first argument is <code class="constant">GL_PROXY_TEXTURE_1D</code>, <code class="constant">GL_PROXY_TEXTURE_1D</code>, or
+            <code class="constant">GL_PROXY_TEXTURE_3D</code>, respectively.
+        </p><p>
+            When the <code class="code">ARB_imaging</code> extension is supported,
+            <a class="citerefentry" href="glHistogram.xml"><span class="citerefentry"><span class="refentrytitle">glHistogram</span></span></a> executes immediately when its argument is
+            <code class="constant">GL_PROXY_HISTOGRAM</code>.  Similarly, <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a> executes
+            immediately when its first argument is <code class="constant">GL_PROXY_COLOR_TABLE</code>,
+            <code class="constant">GL_PROXY_POST_CONVOLUTION_COLOR_TABLE</code>, or
+            <code class="constant">GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE</code>.
+        </p><p>
+            For OpenGL versions 1.3 and greater, or when the <code class="code">ARB_multitexture</code> extension is supported,
+            <a class="citerefentry" href="glClientActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glClientActiveTexture</span></span></a> is not compiled into display lists, but
+            executed immediately.
+        </p><p>
+            When <a class="citerefentry" href="glEndList.xml"><span class="citerefentry"><span class="refentrytitle">glEndList</span></span></a> is encountered,
+            the display-list definition is completed by associating the list
+            with the unique name <em class="parameter"><code>list</code></em>
+            (specified in the <code class="function">glNewList</code> command).
+            If a display list with name <em class="parameter"><code>list</code></em> already exists,
+            it is replaced only when <a class="citerefentry" href="glEndList.xml"><span class="citerefentry"><span class="refentrytitle">glEndList</span></span></a> is called.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a> and <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a> can be entered into display lists.
+            Commands in the display list or lists executed by <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>
+            or <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a> are not included in the display list being created,
+            even if the list creation mode is <code class="constant">GL_COMPILE_AND_EXECUTE</code>.
+        </p><p>
+            A display list is just a group of commands and arguments, so errors
+            generated by commands in a display list must be generated when the list is
+            executed. If the list is created in <code class="constant">GL_COMPILE</code> mode, errors are
+            not generated until the list is executed.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>list</code></em> is 0.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <a class="citerefentry" href="glEndList.xml"><span class="citerefentry"><span class="refentrytitle">glEndList</span></span></a> is called
+            without a preceding <code class="function">glNewList</code>,
+            or if <code class="function">glNewList</code> is called while a display list is being defined.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glNewList</code> or <a class="citerefentry" href="glEndList.xml"><span class="citerefentry"><span class="refentrytitle">glEndList</span></span></a>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p><p>
+            <code class="constant">GL_OUT_OF_MEMORY</code> is generated if there is insufficient memory to
+            compile the display list. If the GL version is 1.1 or greater, no
+            change is made to the previous contents of the display list, if any,
+            and no other change is made to the GL state. (It is as if no attempt
+            had been made to create the new display list.)
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glIsList.xml"><span class="citerefentry"><span class="refentrytitle">glIsList</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIST_INDEX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LIST_MODE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glCallList.xml"><span class="citerefentry"><span class="refentrytitle">glCallList</span></span></a>,
+            <a class="citerefentry" href="glCallLists.xml"><span class="citerefentry"><span class="refentrytitle">glCallLists</span></span></a>,
+            <a class="citerefentry" href="glDeleteLists.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteLists</span></span></a>,
+            <a class="citerefentry" href="glGenLists.xml"><span class="citerefentry"><span class="refentrytitle">glGenLists</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

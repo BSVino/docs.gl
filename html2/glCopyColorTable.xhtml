@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCopyColorTable</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glCopyColorTable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyColorTable — copy pixels into a color table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyColorTable</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The color table target. Must be
+                    <code class="constant">GL_COLOR_TABLE</code>,
+                    <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>,
+                    or <code class="constant">GL_POST_COLOR_MATRIX_COLOR_TABLE</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    The internal storage format of the texture image.
+                    Must be one of the following symbolic constants:
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_ALPHA4</code>,
+                    <code class="constant">GL_ALPHA8</code>,
+                    <code class="constant">GL_ALPHA12</code>,
+                    <code class="constant">GL_ALPHA16</code>,
+                    <code class="constant">GL_LUMINANCE</code>,
+                    <code class="constant">GL_LUMINANCE4</code>,
+                    <code class="constant">GL_LUMINANCE8</code>,
+                    <code class="constant">GL_LUMINANCE12</code>,
+                    <code class="constant">GL_LUMINANCE16</code>,
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE4_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE6_ALPHA2</code>,
+                    <code class="constant">GL_LUMINANCE8_ALPHA8</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA4</code>,
+                    <code class="constant">GL_LUMINANCE12_ALPHA12</code>,
+                    <code class="constant">GL_LUMINANCE16_ALPHA16</code>,
+                    <code class="constant">GL_INTENSITY</code>,
+                    <code class="constant">GL_INTENSITY4</code>,
+                    <code class="constant">GL_INTENSITY8</code>,
+                    <code class="constant">GL_INTENSITY12</code>,
+                    <code class="constant">GL_INTENSITY16</code>,
+                    <code class="constant">GL_R3_G3_B2</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_RGB4</code>,
+                    <code class="constant">GL_RGB5</code>,
+                    <code class="constant">GL_RGB8</code>,
+                    <code class="constant">GL_RGB10</code>,
+                    <code class="constant">GL_RGB12</code>,
+                    <code class="constant">GL_RGB16</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_RGBA2</code>,
+                    <code class="constant">GL_RGBA4</code>,
+                    <code class="constant">GL_RGB5_A1</code>,
+                    <code class="constant">GL_RGBA8</code>,
+                    <code class="constant">GL_RGB10_A2</code>,
+                    <code class="constant">GL_RGBA12</code>, or
+                    <code class="constant">GL_RGBA16</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>x</code></em></span></dt><dd><p>
+                    The x coordinate of the lower-left corner of the pixel rectangle
+                    to be transferred to the color table.
+                </p></dd><dt><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+                    The y coordinate of the lower-left corner of the pixel rectangle
+                    to be transferred to the color table.
+                </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    The width of the pixel rectangle.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCopyColorTable</code> loads a color table with pixels from the current
+            <code class="constant">GL_READ_BUFFER</code> (rather than from main memory, as is the case for
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>).
+        </p><p>
+            The screen-aligned pixel rectangle with lower-left corner at (<em class="parameter"><code>x</code></em>,\ <em class="parameter"><code>y</code></em>)
+            having width <em class="parameter"><code>width</code></em> and height 1
+            is loaded into the color table. If any pixels within
+            this region are outside the window that is associated with the GL
+            context, the values obtained for those pixels are undefined.
+        </p><p>
+            The pixels in the rectangle are processed just as if
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> were called, with <em class="parameter"><code>internalformat</code></em> set to RGBA,
+            but processing stops after the final conversion to RGBA.
+        </p><p>
+            The four scale parameters and the four bias parameters that are defined
+            for the table are then used to scale and bias the R, G, B, and A components
+            of each pixel. The scale and bias parameters are set by calling
+            <a class="citerefentry" href="glColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glColorTableParameter</span></span></a>.
+        </p><p>
+            Next, the R, G, B, and A values are clamped to the range 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>.
+            Each pixel is then converted to the internal format specified by
+            <em class="parameter"><code>internalformat</code></em>. This conversion simply maps the component values of the pixel (R, G, B,
+            and A) to the values included in the internal format (red, green, blue,
+            alpha, luminance, and intensity).  The mapping is as follows:
+        </p><p>
+        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Internal Format
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Red
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Green
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Blue
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Alpha
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Luminance
+                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        Intensity
+                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        <code class="constant">GL_ALPHA</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LUMINANCE</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_LUMINANCE_ALPHA</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_INTENSITY</code>
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                        R
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RGB</code>
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                        G
+                        </td><td align="center">
+                        B
+                        </td><td align="center">
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr><tr><td align="left">
+                        <code class="constant">GL_RGBA</code>
+                        </td><td align="center">
+                        R
+                        </td><td align="center">
+                        G
+                        </td><td align="center">
+                        B
+                        </td><td align="center">
+                        A
+                        </td><td align="center">
+                        </td><td align="center">
+                         
+                        </td></tr></tbody></table></div><p>
+            Finally, the red, green, blue, alpha, luminance, and/or intensity components of
+            the resulting pixels are stored in the color table.
+            They form a one-dimensional table with indices in the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">width</mml:mi>
+                        <mml:mo>-</mml:mo>
+                        <mml:mn>1</mml:mn>
+                    </mml:mrow>
+                </mml:mfenced>
+            </mml:math>.
+        </p><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glCopyColorTable</code> is available only if <code class="code">ARB_imaging</code> is returned from calling
+            <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a> with an argument of <code class="constant">GL_EXTENSIONS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated when <em class="parameter"><code>target</code></em> is not one of the
+            allowable values.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than zero.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>internalformat</code></em> is not one of the
+            allowable values.
+        </p><p>
+            <code class="constant">GL_TABLE_TOO_LARGE</code> is generated if the requested color table
+            is too large to be supported by the implementation.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glCopyColorTable</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTable</span></span></a>,
+            <a class="citerefentry" href="glGetColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetColorTableParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glColorTable.xml"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>,
+            <a class="citerefentry" href="glColorTableParameter.xml"><span class="citerefentry"><span class="refentrytitle">glColorTableParameter</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

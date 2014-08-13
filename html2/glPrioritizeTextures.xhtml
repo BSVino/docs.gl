@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPrioritizeTextures</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glPrioritizeTextures"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPrioritizeTextures — set texture residence priority</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPrioritizeTextures</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">textures</var>, </td></tr><tr><td> </td><td>const GLclampf *  </td><td><var class="pdparam">priorities</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+                    Specifies the number of textures to be prioritized.
+                </p></dd><dt><span class="term"><em class="parameter"><code>textures</code></em></span></dt><dd><p>
+                    Specifies an array containing the names of the textures to be prioritized.
+                </p></dd><dt><span class="term"><em class="parameter"><code>priorities</code></em></span></dt><dd><p>
+                    Specifies an array containing the texture priorities.
+                    A priority given in an element of <em class="parameter"><code>priorities</code></em> applies to the texture
+                    named by the corresponding element of <em class="parameter"><code>textures</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glPrioritizeTextures</code> assigns the <em class="parameter"><code>n</code></em> texture priorities given in <em class="parameter"><code>priorities</code></em> to the
+            <em class="parameter"><code>n</code></em> textures named in <em class="parameter"><code>textures</code></em>.
+        </p><p>
+            The GL establishes
+            a ``working set'' of textures that are resident in texture memory.
+            These textures may be bound to a texture target much more efficiently
+            than textures that are not resident.
+            By specifying a priority for each texture,
+            <code class="function">glPrioritizeTextures</code> allows applications to guide the GL implementation in determining
+            which textures should be resident.
+        </p><p>
+            The priorities given in <em class="parameter"><code>priorities</code></em> are clamped to the range 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="[" close="]">
+                    <mml:mn>0</mml:mn>
+                    <mml:mn>1</mml:mn>
+                </mml:mfenced>
+            </mml:math>
+            before they are assigned.
+            0 indicates the lowest priority; textures with priority 0
+            are least likely to be resident.
+            1 indicates the highest priority; textures with priority 1
+            are most likely to be resident.
+            However, textures are not guaranteed to be resident until they are used.
+        </p><p>
+            <code class="function">glPrioritizeTextures</code> silently ignores attempts to prioritize texture 0 or any texture
+            name that does not correspond to an existing texture.
+        </p><p>
+            <code class="function">glPrioritizeTextures</code> does not require that any of the textures named by <em class="parameter"><code>textures</code></em>
+            be bound to a texture target.
+            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a> may also be used to set a texture's priority,
+            but only if the texture is currently bound.
+            This is the only way to set the priority of a default texture.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glPrioritizeTextures</code> is available only if the GL version is 1.1 or greater.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPrioritizeTextures</code> is executed
+            between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding
+            execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a> with parameter name <code class="constant">GL_TEXTURE_PRIORITY</code>
+            retrieves the priority of a currently bound texture.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glAreTexturesResident.xml"><span class="citerefentry"><span class="refentrytitle">glAreTexturesResident</span></span></a>,
+            <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

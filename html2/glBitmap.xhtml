@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBitmap</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBitmap"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBitmap — draw a bitmap</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBitmap</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">xorig</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">yorig</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">xmove</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">ymove</var>, </td></tr><tr><td> </td><td>const GLubyte *  </td><td><var class="pdparam">bitmap</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>width</code></em>, </span><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
+                    Specify the pixel width and height of the bitmap image.
+                </p></dd><dt><span class="term"><em class="parameter"><code>xorig</code></em>, </span><span class="term"><em class="parameter"><code>yorig</code></em></span></dt><dd><p>
+                    Specify the location of the origin in the bitmap image.
+                    The origin is measured from the lower left corner of the bitmap,
+                    with right and up being the positive axes.
+                </p></dd><dt><span class="term"><em class="parameter"><code>xmove</code></em>, </span><span class="term"><em class="parameter"><code>ymove</code></em></span></dt><dd><p>
+                    Specify the <span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span> offsets to be added to the current raster position
+                    after the bitmap is drawn.
+                </p></dd><dt><span class="term"><em class="parameter"><code>bitmap</code></em></span></dt><dd><p>
+                    Specifies the address of the bitmap image.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            A bitmap is a binary image.
+            When drawn,
+            the bitmap is positioned relative to the current raster position,
+            and frame buffer pixels corresponding to 1's in the bitmap are
+            written using the current raster color or index.
+            Frame buffer pixels corresponding to 0's in the bitmap are not modified.
+        </p><p>
+            <code class="function">glBitmap</code> takes seven arguments.
+            The first pair specifies the width and height of the bitmap image.
+            The second pair specifies the location of the bitmap origin relative
+            to the lower left corner of the bitmap image.
+            The third pair of arguments specifies <span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span> offsets to be added
+            to the current raster position after the bitmap has been drawn.
+            The final argument is a pointer to the bitmap image itself.
+        </p><p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a bitmap image is
+            specified, <em class="parameter"><code>bitmap</code></em> is treated as a byte offset into the buffer object's data store.
+        </p><p>
+            The bitmap image is interpreted like image data for the <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>
+            command,
+            with <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> corresponding to the width and height arguments
+            of that command,
+            and with <span class="emphasis"><em>type</em></span> set to <code class="constant">GL_BITMAP</code>
+            and <span class="emphasis"><em>format</em></span> set to <code class="constant">GL_COLOR_INDEX</code>.
+            Modes specified using <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> affect the
+            interpretation of bitmap image data;
+            modes specified using <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a> do not.
+        </p><p>
+            If the current raster position is invalid, <code class="function">glBitmap</code> is ignored.
+            Otherwise,
+            the lower left corner of the bitmap image is positioned at the window coordinates
+        </p><p>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="&#x230A;" close="&#x230B;">
+                        <mml:mrow>
+                            <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                            <mml:mi mathvariant="italic">r</mml:mi>
+                            </mml:msub>
+                            <mml:mo>-</mml:mo>
+                            <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                            <mml:mi mathvariant="italic">o</mml:mi>
+                            </mml:msub>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>
+        </p><p>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">w</mml:mi>
+                    </mml:msub>
+                    <mml:mo>=</mml:mo>
+                    <mml:mfenced open="&#x230A;" close="&#x230B;">
+                        <mml:mrow>
+                            <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                            <mml:mi mathvariant="italic">r</mml:mi>
+                            </mml:msub>
+                            <mml:mo>-</mml:mo>
+                            <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                            <mml:mi mathvariant="italic">o</mml:mi>
+                            </mml:msub>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>
+        </p><p>
+            where 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">r</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">r</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            is the raster position
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfenced open="(" close=")">
+                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
+                    <mml:mi mathvariant="italic">o</mml:mi>
+                    </mml:msub>
+                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
+                    <mml:mi mathvariant="italic">o</mml:mi>
+                    </mml:msub>
+                </mml:mfenced>
+            </mml:math>
+            is the bitmap origin.
+            Fragments are then generated for each pixel corresponding to a 1 (one)
+            in the bitmap image.
+            These fragments are generated using the current raster <span class="emphasis"><em>z</em></span> coordinate,
+            color or color index, and current raster texture coordinates.
+            They are then treated just as if they had been generated
+            by a point, line, or polygon,
+            including texture mapping,
+            fogging,
+            and all per-fragment operations such as alpha and depth testing.
+        </p><p>
+            After the bitmap has been drawn,
+            the <span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span> coordinates of the current raster position are offset by
+            <em class="parameter"><code>xmove</code></em> and <em class="parameter"><code>ymove</code></em>.
+            No change is made to the <span class="emphasis"><em>z</em></span> coordinate of the current raster position,
+            or to the current raster color, texture coordinates, or index.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            To set a valid raster position outside the viewport, first set a valid
+            raster position inside the viewport, then call <code class="function">glBitmap</code> with NULL
+            as the <em class="parameter"><code>bitmap</code></em> parameter and with <em class="parameter"><code>xmove</code></em> and <em class="parameter"><code>ymove</code></em> set to
+            the offsets of the new raster position. This technique is useful when
+            panning an image around the viewport.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            object such that the memory reads required would exceed the data store size.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBitmap</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding execution of
+            <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_COLOR</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_SECONDARY_COLOR</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_DISTANCE</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_INDEX</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_TEXTURE_COORDS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_RASTER_POSITION_VALID</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glDrawPixels.xml"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
+            <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,
+            <a class="citerefentry" href="glPixelTransfer.xml"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
+            <a class="citerefentry" href="glRasterPos.xml"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>,
+            <a class="citerefentry" href="glWindowPos.xml"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

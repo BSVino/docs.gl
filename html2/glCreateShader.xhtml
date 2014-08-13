@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCreateShader</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glCreateShader"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCreateShader — Creates a shader object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLuint <b class="fsfunc">glCreateShader</b>(</code></td><td>GLenum  </td><td><var class="pdparam">shaderType</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>shaderType</code></em></span></dt><dd><p>Specifies the type of shader to be created.
+		    Must be either <code class="constant">GL_VERTEX_SHADER</code>
+		    or <code class="constant">GL_FRAGMENT_SHADER</code>.</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p><code class="function">glCreateShader</code> creates an empty
+	shader object and returns a non-zero value by which it can be
+	referenced. A shader object is used to maintain the source code
+	strings that define a shader. <em class="parameter"><code>shaderType</code></em>
+	indicates the type of shader to be created. Two types of shaders
+	are supported. A shader of type
+	<code class="constant">GL_VERTEX_SHADER</code> is a shader that is
+	intended to run on the programmable vertex processor and replace
+	the fixed functionality vertex processing in OpenGL. A shader of
+	type <code class="constant">GL_FRAGMENT_SHADER</code> is a shader that is
+	intended to run on the programmable fragment processor and
+	replace the fixed functionality fragment processing in
+	OpenGL.</p><p>When created, a shader object's
+	<code class="constant">GL_SHADER_TYPE</code> parameter is set to either
+	<code class="constant">GL_VERTEX_SHADER</code> or
+	<code class="constant">GL_FRAGMENT_SHADER</code>, depending on the value
+	of <em class="parameter"><code>shaderType</code></em>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p><code class="function">glCreateShader</code> is available only if
+	the GL version is 2.0 or greater.</p><p>Like display lists and texture objects, the name space for
+	shader objects may be shared across a set of contexts, as long
+	as the server sides of the contexts share the same address
+	space. If the name space is shared across contexts, any attached
+	objects and the data associated with those attached objects are
+	shared as well.</p><p>Applications are responsible for providing the
+	synchronization across API calls when objects are accessed from
+	different execution threads.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>This function returns 0 if an error occurs creating the
+	shader object.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>shaderType</code></em> is not an accepted value.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<code class="function">glCreateShader</code> is executed between the
+	execution of
+	<a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+	and the corresponding execution of
+	<a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGetShader.xml"><span class="citerefentry"><span class="refentrytitle">glGetShader</span></span></a>
+	with a valid shader object and the parameter to be queried</p><p><a class="citerefentry" href="glGetShaderInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
+	with a valid shader object</p><p><a class="citerefentry" href="glGetShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>
+	with a valid shader object</p><p><a class="citerefentry" href="glIsShader.xml"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glAttachShader.xml"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+	<a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+	<a class="citerefentry" href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+	<a class="citerefentry" href="glDetachShader.xml"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
+	<a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
+	</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

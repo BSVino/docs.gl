@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glMapGrid</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glMapGrid"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMapGrid — define a one- or two-dimensional mesh</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMapGrid1d</b>(</code></td><td>GLint  </td><td><var class="pdparam">un</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">u1</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">u2</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMapGrid1f</b>(</code></td><td>GLint  </td><td><var class="pdparam">un</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">u1</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">u2</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMapGrid2d</b>(</code></td><td>GLint  </td><td><var class="pdparam">un</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">u1</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">u2</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">vn</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">v1</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">v2</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMapGrid2f</b>(</code></td><td>GLint  </td><td><var class="pdparam">un</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">u1</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">u2</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">vn</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">v1</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">v2</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>un</code></em></span></dt><dd><p>
+                    Specifies the number of partitions in the grid range interval
+                    [<em class="parameter"><code>u1</code></em>, <em class="parameter"><code>u2</code></em>].
+                    Must be positive.
+                </p></dd><dt><span class="term"><em class="parameter"><code>u1</code></em>, </span><span class="term"><em class="parameter"><code>u2</code></em></span></dt><dd><p>
+                    Specify the mappings for integer grid domain values 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">i</mml:mi>
+                            <mml:mo>=</mml:mo>
+                            <mml:mn>0</mml:mn>
+                        </mml:mrow>
+                    </mml:math>
+                    and 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">i</mml:mi>
+                            <mml:mo>=</mml:mo>
+                            <mml:mi mathvariant="italic">un</mml:mi>
+                        </mml:mrow>
+                    </mml:math>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>vn</code></em></span></dt><dd><p>
+                    Specifies the number of partitions in the grid range interval
+                    [<em class="parameter"><code>v1</code></em>, <em class="parameter"><code>v2</code></em>]
+                    (<code class="function">glMapGrid2</code> only).
+                </p></dd><dt><span class="term"><em class="parameter"><code>v1</code></em>, </span><span class="term"><em class="parameter"><code>v2</code></em></span></dt><dd><p>
+                    Specify the mappings for integer grid domain values 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">j</mml:mi>
+                            <mml:mo>=</mml:mo>
+                            <mml:mn>0</mml:mn>
+                        </mml:mrow>
+                    </mml:math>
+                    and 
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        
+                        <mml:mrow>
+                            <mml:mi mathvariant="italic">j</mml:mi>
+                            <mml:mo>=</mml:mo>
+                            <mml:mi mathvariant="italic">vn</mml:mi>
+                        </mml:mrow>
+                    </mml:math>
+                    (<code class="function">glMapGrid2</code> only).
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glMapGrid</code> and <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a> are used together to efficiently
+            generate and evaluate a series of evenly-spaced map domain values.
+            <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a> steps through the integer domain
+            of a one- or two-dimensional grid,
+            whose range is the domain of the evaluation maps specified by
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a> and <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>.
+        </p><p>
+            <code class="function">glMapGrid1</code> and <code class="function">glMapGrid2</code> specify the linear grid mappings
+            between the 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            (or 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>)
+            integer grid coordinates,
+            to the 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u</mml:mi></mml:math>
+            (or 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u</mml:mi></mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">v</mml:mi></mml:math>)
+            floating-point evaluation map coordinates.
+            See <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a> and <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a> for details of how 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">u</mml:mi></mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">v</mml:mi></mml:math>
+            coordinates
+            are evaluated.
+        </p><p>
+            <code class="function">glMapGrid1</code> specifies a single linear mapping
+            such that integer grid coordinate 0 maps exactly to <em class="parameter"><code>u1</code></em>,
+            and integer grid coordinate <em class="parameter"><code>un</code></em> maps exactly to <em class="parameter"><code>u2</code></em>.
+            All other integer grid coordinates 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            are mapped so that
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfrac>
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">u2</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">u1</mml:mi>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                            <mml:mi mathvariant="italic">un</mml:mi>
+                        </mml:mfrac>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">u1</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            <code class="function">glMapGrid2</code> specifies two such linear mappings.
+            One maps integer grid coordinate 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mn>0</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            exactly to <em class="parameter"><code>u1</code></em>,
+            and integer grid coordinate 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">un</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            exactly to <em class="parameter"><code>u2</code></em>.
+            The other maps integer grid coordinate 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mn>0</mml:mn>
+                </mml:mrow>
+            </mml:math>
+            exactly to <em class="parameter"><code>v1</code></em>,
+            and integer grid coordinate 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mi mathvariant="italic">vn</mml:mi>
+                </mml:mrow>
+            </mml:math>
+            exactly to <em class="parameter"><code>v2</code></em>.
+            Other integer grid coordinates 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+            are mapped such that
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">u</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfrac>
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">i</mml:mi>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">u2</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">u1</mml:mi>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                            <mml:mi mathvariant="italic">un</mml:mi>
+                        </mml:mfrac>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">u1</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mi mathvariant="italic">v</mml:mi>
+                    <mml:mo>=</mml:mo>
+                    <mml:mrow>
+                        <mml:mfrac>
+                            <mml:mrow>
+                                <mml:mi mathvariant="italic">j</mml:mi>
+                                <mml:mo>⁡</mml:mo>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:mi mathvariant="italic">v2</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mi mathvariant="italic">v1</mml:mi>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                            </mml:mrow>
+                            <mml:mi mathvariant="italic">vn</mml:mi>
+                        </mml:mfrac>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">v1</mml:mi>
+                    </mml:mrow>
+                </mml:mrow>
+            </mml:math></div><p>
+        </p><p>
+            The mappings specified by <code class="function">glMapGrid</code> are used identically by
+            <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a> and <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if either <em class="parameter"><code>un</code></em> or <em class="parameter"><code>vn</code></em> is not
+            positive.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glMapGrid</code>
+            is executed between the execution of <a class="citerefentry" href="glBegin.xml"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
+            and the corresponding execution of <a class="citerefentry" href="glEnd.xml"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_DOMAIN</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP1_GRID_SEGMENTS</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAP2_GRID_SEGMENTS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEvalCoord.xml"><span class="citerefentry"><span class="refentrytitle">glEvalCoord</span></span></a>,
+            <a class="citerefentry" href="glEvalMesh.xml"><span class="citerefentry"><span class="refentrytitle">glEvalMesh</span></span></a>,
+            <a class="citerefentry" href="glEvalPoint.xml"><span class="citerefentry"><span class="refentrytitle">glEvalPoint</span></span></a>,
+            <a class="citerefentry" href="glMap1.xml"><span class="citerefentry"><span class="refentrytitle">glMap1</span></span></a>,
+            <a class="citerefentry" href="glMap2.xml"><span class="citerefentry"><span class="refentrytitle">glMap2</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>
