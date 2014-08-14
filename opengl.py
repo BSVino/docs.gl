@@ -1085,5 +1085,25 @@ def reverse_versions():
   commands_version = reverse_version_index(version_commands)
   glsl_version = reverse_version_index(version_glsl)
   print "Done."
+  
+command_categories = {
+  "Immediate Mode": [
+    "glBegin", "glEnd", "glVertex", "glColor", "glColorPointer", 
+  ]
+}
 
 reverse_versions()
+
+def get_major_versions_available(command):
+  global commands_version
+
+  versions_available = commands_version[command]
+  versions_available.sort()
+    
+  major_versions = []
+  for v in versions_available:
+    major_version = v[0]
+    if not major_version in major_versions:
+      major_versions.append(major_version)
+      
+  return major_versions

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+<meta charset='utf-8'>
 <title>{$title} - OpenGL API Documentation</title>
 <link href="../reset.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
@@ -9,12 +10,40 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" href="../jquery-ui.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="../jquery-bonsai/jquery.bonsai.js"></script>
+<link href="../jquery-bonsai/jquery.bonsai.css" rel="stylesheet" type="text/css" />
 
 <link href="../style.css" rel="stylesheet" type="text/css" />
 
 <script>
+function gl_printable_name(name) {
+	if (name == "gl2")
+		return "OpenGL 2";
+	if (name == "gl3")
+		return "OpenGL 3";
+	if (name == "gl4")
+		return "OpenGL 4";
+	return "OpenGL X";
+}
+
+function set_api_version(version) {
+	$( "#opengl_name" ).text(gl_printable_name(version));
+
+	$(".category").addClass("disabled")
+	$(".command").addClass("disabled")
+	$("." + version).removeClass("disabled")
+}
+
 $(function() {
-	$( "#versions_dropdown" ).selectmenu();
+	$( "#command_categories" ).bonsai()
+	
+	$( "#versions_dropdown" ).selectmenu({
+		change: function( event, ui ) {
+			set_api_version(ui.item.value);
+		}
+	});
+
+	set_api_version("{$current_api}");
 });
 </script>
 
@@ -23,8 +52,11 @@ $(function() {
 
 <div id="everything">
 <div id="toc">
+<h2 id="opengl_name"></h2>
 <div id="versions_container"><span id="api">API:</span><select id="versions_dropdown">{$versions_options}</select></div>
-TABLE OF CONTENTS
+
+<br clear="both" />
+<ul id="command_categories">{$api_commands}</ul>
 
 </div>
 
