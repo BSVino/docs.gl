@@ -1,7 +1,9 @@
 import os
 import shutil
 import time
+
 import opengl
+import shared
 
 def create_directory(dir):
   if not os.path.exists(dir):
@@ -50,7 +52,7 @@ footer = footer_fp.read()
 footer_fp.close()
 print "Done."
 
-unhandled_commands = opengl.commands_version.keys()
+unhandled_commands = opengl.commands_version_flat.keys()
 
 def spew_category(name, commands):
   commands.sort()
@@ -59,7 +61,7 @@ def spew_category(name, commands):
   commands_list = ""
   category_versions = []
   for command in commands:
-    versions_available = opengl.commands_version[command]
+    versions_available = opengl.commands_version_flat[command]
     versions_available.sort()
     
     classes = "command"
@@ -103,6 +105,9 @@ version_numbers = opengl.version_commands.keys()
 major_versions = opengl.get_major_versions(opengl.version_commands.keys())
 
 for version in major_versions:
+  if int(version) < 2:
+    continue
+    
   written = 0
  
   print "Compiling GL" + version + " ..."
@@ -121,6 +126,9 @@ for version in major_versions:
   
   toc_versions_options = ""
   for version_option in all_versions:
+    if float(version_option) < 2.1:
+      continue
+
     selected = ""
     if version_option == latest_minor:
       selected = " selected='selected'"
@@ -128,8 +136,8 @@ for version in major_versions:
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
   header_for_version = header_for_version.replace("{$current_api}", "gl" + latest_minor.replace(".", ""))
     
-  for command in opengl.commands_version:
-    if not version in opengl.get_major_versions(opengl.commands_version[command]):
+  for command in opengl.commands_version_flat:
+    if not version in opengl.get_major_versions(opengl.commands_version_flat[command]):
       continue
       
     header_for_command = header_for_version
@@ -153,10 +161,12 @@ for version in major_versions:
     version_dir = version[0]
     
     create_directory(output_dir + version_dir)
-    
-    gldir = "gl" + version[0]
-    
-    fp = open(gldir + "/" + command + ".xhtml")
+
+    command_file = shared.find_command_file(version[0], command)
+    if command_file == False:
+      raise IOError("Couldn't find page for command " + command + " (" + version[0] + ")")
+
+    fp = open(command_file)
     command_html = fp.read().decode('utf8')
     fp.close()
     
