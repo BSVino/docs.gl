@@ -94,6 +94,7 @@ for category in opengl.command_categories:
 api_commands += spew_category("Uncategorized", unhandled_commands)
 
 header = header.replace("{$api_commands}", api_commands)
+footer = footer.replace("{$gentime}", time.strftime("%d %B %Y at %H:%M:%S GMT", time.gmtime()));
 
 for version in opengl.version_commands:
   written = 0
@@ -101,6 +102,7 @@ for version in opengl.version_commands:
   print "Compiling GL" + version[0] + " ..."
   
   header_for_version = header;
+  footer_for_version = footer;
   
   all_versions = opengl.version_commands.keys()
   all_versions.sort()
@@ -119,6 +121,7 @@ for version in opengl.version_commands:
       continue
       
     header_for_command = header_for_version
+    footer_for_command = footer_for_version
 
     major_versions = opengl.get_major_versions_available(command)
     
@@ -131,6 +134,9 @@ for version in opengl.version_commands:
       
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$title}", command)
+    
+    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/gl" + version[0] + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
+    footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
 
     version_dir = version[0]
     
@@ -142,7 +148,7 @@ for version in opengl.version_commands:
     command_html = fp.read().decode('utf8')
     fp.close()
     
-    output_html = header_for_command + command_html + footer
+    output_html = header_for_command + command_html + footer_for_command
 
     output = open(output_dir + version_dir + "/" + command, "w")
     output.write(output_html.encode('ascii', 'xmlcharrefreplace'))
