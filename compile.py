@@ -59,17 +59,17 @@ def spew_category(name, commands):
   commands_list = ""
   category_versions = []
   for command in commands:
-    major_versions = opengl.get_major_versions_available(command)
-    major_versions.sort()
+    versions_available = opengl.commands_version[command]
+    versions_available.sort()
     
     classes = "command"
-    for v in major_versions:
-      classes += " gl" + v
+    for v in versions_available:
+      classes += " gl" + v.replace(".", "")
       
       if not v in category_versions:
         category_versions.append(v)
         
-    latest_present = major_versions[-1][0]
+    latest_present = versions_available[-1][0]
       
     commands_list += "<li class='" + classes + "'><a href='../" + latest_present + "/" + command + "'>" + command + "</a></li>"
     
@@ -81,7 +81,7 @@ def spew_category(name, commands):
 
   classes = "category"
   for v in category_versions:
-    classes += " gl" + v
+    classes += " gl" + v.replace(".", "")
     
   api_commands += "<li class='" + classes + "'>" + name + ""
   
@@ -98,37 +98,47 @@ api_commands += spew_category("Uncategorized", unhandled_commands)
 header = header.replace("{$api_commands}", api_commands)
 footer = footer.replace("{$gentime}", time.strftime("%d %B %Y at %H:%M:%S GMT", time.gmtime()));
 
-for version in opengl.version_commands:
+version_numbers = opengl.version_commands.keys()
+
+major_versions = opengl.get_major_versions(opengl.version_commands.keys())
+
+for version in major_versions:
   written = 0
  
-  print "Compiling GL" + version[0] + " ..."
+  print "Compiling GL" + version + " ..."
   
   header_for_version = header;
   footer_for_version = footer;
   
   all_versions = opengl.version_commands.keys()
   all_versions.sort()
-    
+
+  # Find latest minor version for this major version.
+  latest_minor = version + ".0"
+  for version_option in all_versions:
+    if latest_minor[0] == version_option[0] and float(latest_minor) < float(version_option):
+      latest_minor = version_option
+  
   toc_versions_options = ""
   for version_option in all_versions:
     selected = ""
-    if version_option[0] == version[0]:
+    if version_option == latest_minor:
       selected = " selected='selected'"
-    toc_versions_options = toc_versions_options + "<option value='gl" + version_option[0] + "'" + selected + ">GL" + version_option[0] + "</option>"
+    toc_versions_options = toc_versions_options + "<option value='gl" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option + "</option>"
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
-  header_for_version = header_for_version.replace("{$current_api}", "gl" + version[0])
+  header_for_version = header_for_version.replace("{$current_api}", "gl" + latest_minor.replace(".", ""))
     
   for command in opengl.commands_version:
-    if not version in opengl.commands_version[command]:
+    if not version in opengl.get_major_versions(opengl.commands_version[command]):
       continue
       
     header_for_command = header_for_version
     footer_for_command = footer_for_version
 
-    major_versions = opengl.get_major_versions_available(command)
+    command_major_versions = opengl.get_major_versions_available(command)
     
-    command_versions = "<strong>OpenGL " + version[0] + "</strong>"
-    for version_option in major_versions:
+    command_versions = "<strong>OpenGL " + version + "</strong>"
+    for version_option in command_major_versions:
       if version_option[0] == version[0]:
         continue
         
