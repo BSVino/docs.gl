@@ -1,3 +1,4 @@
+from collections import OrderedDict
 
 version_commands = {
   "2.1": [
@@ -659,6 +660,7 @@ version_commands = {
     "glDepthRangeIndexed",
     "glDepthRange",
     "glDetachShader",
+    "glDisableVertexAttribArray",
     "glDispatchComputeIndirect",
     "glDispatchCompute",
     "glDrawArraysIndirect",
@@ -682,6 +684,9 @@ version_commands = {
     "glDrawTransformFeedback",
     "glEnableVertexAttribArray",
     "glEnable",
+    "glEndConditionalRender",
+    "glEndTransformFeedback",
+    "glEndQuery",
     "glFenceSync",
     "glFinish",
     "glFlushMappedBufferRange",
@@ -1085,12 +1090,85 @@ def reverse_versions():
   commands_version = reverse_version_index(version_commands)
   glsl_version = reverse_version_index(version_glsl)
   print "Done."
-  
-command_categories = {
-  "Immediate Mode": [
-    "glBegin", "glEnd", "glVertex", "glColor", "glColorPointer", 
-  ]
-}
+
+command_categories = OrderedDict([
+  ( "Textures", [
+    "glBindTexture", "glTexImage1D", "glTexImage2D", "glTexImage2DMultisample", "glTexImage3D",
+    "glTexImage3DMultisample", "glTexParameter", "glCopyTexImage1D", "glCopyTexImage2D",
+    "glCopyTexSubImage1D", "glCopyTexSubImage2D", "glCopyTexSubImage3D"
+  ] ),
+  ( "Immediate Mode", [
+    # Stuff you can call between glBegin and glEnd
+    "glBegin", "glEnd", "glVertex", "glColor", "glTexCoord", "glFogCoord", "glIndex", "glMaterial",
+    "glMultiTexCoord", "glNormal", "glSecondaryColor", "glArrayElement", "glEvalCoord", "glEvalMesh",
+    "glEvalPoint"
+  ] ),
+  ( "GL2 Rasterization", [
+    # Anything render related that doesn't exist anymore
+    "glRenderMode", "glFeedbackBuffer", "glPushName", "glLoadName", "glPassThrough", "glSelectBuffer",
+    "glInitNames", "glLineStipple", "glPolygonStipple", "glDrawPixels", "glCopyPixels", "glRasterPos",
+    "glWindowPos", "glRect", "glBitmap", "glClipPlane", "glClearIndex", "glColorTable", "glColorSubTable",
+    "glColorTableParameter", "glCopyColorTable", "glCopyColorSubTable", "glGetColorTable",
+    "glGetColorTableParameter", "glConvolutionFilter1D", "glConvolutionFilter2D", "glConvolutionParameter",
+    "glCopyConvolutionFilter1D", "glCopyConvolutionFilter2D", "glFog", "glGetClipPlane",
+    "glGetConvolutionFilter", "glGetConvolutionParameter", "glGetHistogram", "glGetHistogramParameter",
+    "glGetMap", "glGetPixelMap", "glGetPolygonStipple", "glGetSeparableFilter", "glHistogram",
+    "glMap1", "glMap2", "glMapGrid", "glPopName", "glPixelZoom", "glResetHistogram",
+    "glSeparableFilter2D"
+  ] ),
+  ( "Client Arrays", [
+    "glVertexPointer", "glEnableClientState", "glDisableClientState", "glFogCoordPointer",
+    "glIndexPointer", "glInterleavedArrays", "glNormalPointer", "glPopClientAttrib", "glPushClientAttrib",
+    "glSecondaryColorPointer", "glColorPointer", "glTexCoordPointer",
+  ] ),
+  ( "Fixed Function", [
+    # Stuff that got moved into shaders
+    "glEdgeFlag", "glEdgeFlagPointer", "glAlphaFunc", "glLight", "glColorMaterial",
+    "glLightModel", "glAccum", "glClearAccum", "glGetLight", "glGetMaterial", "glGetMinmax",
+    "glGetMinmaxParameter", "glGetTexEnv", "glTexEnv", "glTexGen", "glGetTexGen", "glIndexMask",
+    "glMinmax", "glPushAttrib", "glPopAttrib", "glResetMinmax", "glShadeModel"
+  ] ),
+  ( "Matrix State", [
+    "glLoadMatrix", "glLoadIdentity", "glMatrixMode", "glMultMatrix", "glMultTransposeMatrix",
+    "glPushMatrix", "glPopMatrix", "glLoadTransposeMatrix", "glFrustum", "glOrtho", "glRotate",
+    "glScale", "glTranslate"
+  ] ),
+  ( "GL2 Textures", [
+    "glAreTexturesResident", "glPrioritizeTextures", "glClientActiveTexture", "glPixelMap",
+    "glPixelTransfer"
+  ] ),
+  ( "Call Lists", [
+    "glCallList", "glCallLists", "glIsList", "glDeleteLists", "glGenLists", "glNewList", "glEndList",
+    "glListBase"
+  ] ),
+  ( "GLX", [
+    "glXChooseFBConfig", "glXChooseVisual", "glXCopyContext", "glXCreateContext", "glXCreateGLXPixmap",
+    "glXCreateNewContext", "glXCreatePbuffer", "glXCreatePixmap", "glXCreateWindow", "glXDestroyContext",
+    "glXDestroyGLXPixmap", "glXDestroyPbuffer", "glXDestroyPixmap", "glXDestroyWindow",
+    "glXFreeContextEXT", "glXGetClientString", "glXGetConfig", "glXGetContextIDEXT",
+    "glXGetCurrentContext", "glXGetCurrentDisplay", "glXGetCurrentDrawable", "glXGetCurrentReadDrawable",
+    "glXGetFBConfigAttrib", "glXGetFBConfigs", "glXGetProcAddress", "glXGetSelectedEvent",
+    "glXGetVisualFromFBConfig", "glXImportContextEXT", "glXIntro", "glXIsDirect", "glXMakeContextCurrent",
+    "glXMakeCurrent", "glXQueryContextInfoEXT", "glXQueryContext", "glXQueryDrawable",
+    "glXQueryExtensionsString", "glXQueryExtension", "glXQueryServerString", "glXQueryVersion",
+    "glXSelectEvent", "glXSwapBuffers", "glXUseXFont", "glXWaitGL", "glXWaitX",
+  ] ),
+  ( "GLU", [
+    "gluBeginCurve", "gluBeginPolygon", "gluBeginSurface", "gluBeginTrim", "gluBuild1DMipmapLevels",
+    "gluBuild1DMipmaps", "gluBuild2DMipmapLevels", "gluBuild2DMipmaps", "gluBuild3DMipmapLevels",
+    "gluBuild3DMipmaps", "gluCheckExtension", "gluCylinder", "gluDeleteNurbsRenderer", "gluDeleteQuadric",
+    "gluDeleteTess", "gluDisk", "gluEndCurve", "gluEndPolygon", "gluEndSurface", "gluEndTrim",
+    "gluErrorString", "gluGetNurbsProperty", "gluGetString", "gluGetTessProperty",
+    "gluLoadSamplingMatrices", "gluLookAt", "gluNewNurbsRenderer", "gluNewQuadric", "gluNewTess",
+    "gluNextContour", "gluNurbsCallbackDataEXT", "gluNurbsCallbackData", "gluNurbsCallback",
+    "gluNurbsCurve", "gluNurbsProperty", "gluNurbsSurface", "gluOrtho2D", "gluPartialDisk",
+    "gluPerspective", "gluPickMatrix", "gluProject", "gluPwlCurve", "gluQuadricCallback",
+    "gluQuadricDrawStyle", "gluQuadricNormals", "gluQuadricOrientation", "gluQuadricTexture",
+    "gluScaleImage", "gluSphere", "gluTessBeginContour", "gluTessBeginPolygon", "gluTessCallback",
+    "gluTessEndContour", "gluTessEndPolygon", "gluTessNormal", "gluTessProperty", "gluTessVertex",
+    "gluUnProject4", "gluUnProject",
+  ] ),
+])
 
 reverse_versions()
 
