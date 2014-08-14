@@ -1097,6 +1097,25 @@ command_categories = OrderedDict([
     "glTexImage3DMultisample", "glTexParameter", "glCopyTexImage1D", "glCopyTexImage2D",
     "glCopyTexSubImage1D", "glCopyTexSubImage2D", "glCopyTexSubImage3D"
   ] ),
+  ( "Shaders", [
+    "glVertexAttrib", "glGetVertexAttrib", "glVertexAttribPointer", "glUniform", "glGetUniform",
+    "glBindFragDataLocation", "glGetFragDataLocation"
+  ] ),
+  ( "Rendering", [
+    "glBeginConditionalRender", "glEndConditionalRender", "glReadPixels", "glReadBuffer", "glDrawBuffer",
+    "glDepthRange", "glClearDepth"
+  ] ),
+  ( "Frame Buffers", [
+    "glIsRenderbuffer", "glBindRenderbuffer", "glDeleteRenderbuffers", "glGenRenderbuffers",
+    "glRenderbufferStorage", "glGetRenderbufferParameter", "glIsFramebuffer", "glBindFramebuffer",
+    "glDeleteFramebuffers", "glGenFramebuffers", "glCheckFramebufferStatus", "glFramebufferTexture",
+    "glFramebufferRenderbuffer", "glGetFramebufferAttachmentParameter", "glGenerateMipmap"
+  ] ),
+  ( "Buffer Objects", [
+    "glBindBuffer", "glDeleteBuffers", "glGenBuffers", "glIsBuffer", "glBufferData", "glBufferSubData",
+    "glGetBufferSubData", "glMapBuffer", "glUnmapBuffer", "glGetBufferParameter", "glGetBufferParameteriv",
+    "glGetBufferPointerv", "glFlushMappedBufferRange"
+  ] ),
   ( "Immediate Mode", [
     # Stuff you can call between glBegin and glEnd
     "glBegin", "glEnd", "glVertex", "glColor", "glTexCoord", "glFogCoord", "glIndex", "glMaterial",
