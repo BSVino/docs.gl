@@ -1095,7 +1095,7 @@ command_categories = OrderedDict([
   ( "Textures", [
     "glBindTexture", "glTexImage1D", "glTexImage2D", "glTexImage2DMultisample", "glTexImage3D",
     "glTexImage3DMultisample", "glTexParameter", "glCopyTexImage1D", "glCopyTexImage2D",
-    "glCopyTexSubImage1D", "glCopyTexSubImage2D", "glCopyTexSubImage3D"
+    "glCopyTexSubImage1D", "glCopyTexSubImage2D", "glCopyTexSubImage3D", "glGetTexParameter"
   ] ),
   ( "Shaders", [
     "glVertexAttrib", "glGetVertexAttrib", "glVertexAttribPointer", "glUniform", "glGetUniform",
@@ -1103,18 +1103,24 @@ command_categories = OrderedDict([
   ] ),
   ( "Rendering", [
     "glBeginConditionalRender", "glEndConditionalRender", "glReadPixels", "glReadBuffer", "glDrawBuffer",
-    "glDepthRange", "glClearDepth"
+    "glDepthRange", "glClearDepth", "glClearColor"
   ] ),
   ( "Frame Buffers", [
     "glIsRenderbuffer", "glBindRenderbuffer", "glDeleteRenderbuffers", "glGenRenderbuffers",
     "glRenderbufferStorage", "glGetRenderbufferParameter", "glIsFramebuffer", "glBindFramebuffer",
     "glDeleteFramebuffers", "glGenFramebuffers", "glCheckFramebufferStatus", "glFramebufferTexture",
-    "glFramebufferRenderbuffer", "glGetFramebufferAttachmentParameter", "glGenerateMipmap"
+    "glFramebufferRenderbuffer", "glGetFramebufferAttachmentParameter", "glGenerateMipmap",
+    "glRenderbufferStorageMultisample", "glBlitFramebuffer", "glFramebufferTextureLayer"
   ] ),
   ( "Buffer Objects", [
     "glBindBuffer", "glDeleteBuffers", "glGenBuffers", "glIsBuffer", "glBufferData", "glBufferSubData",
     "glGetBufferSubData", "glMapBuffer", "glUnmapBuffer", "glGetBufferParameter", "glGetBufferParameteriv",
-    "glGetBufferPointerv", "glFlushMappedBufferRange"
+    "glGetBufferPointerv", "glFlushMappedBufferRange", "glBindBufferRange", "glBindBufferBase",
+    "glBeginTransformFeedback", "glEndTransformFeedback", "glTransformFeedbackVaryings",
+    "glGetTransformFeedbackVarying",
+  ] ),
+  ( "Vertex Array Objects", [
+    "glBindVertexArray", "glDeleteVertexArrays", "glGenVertexArrays", "glIsVertexArray"
   ] ),
   ( "Immediate Mode", [
     # Stuff you can call between glBegin and glEnd
