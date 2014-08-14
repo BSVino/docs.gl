@@ -54,7 +54,7 @@ unhandled_commands = opengl.commands_version.keys()
 
 def spew_category(name, commands):
   commands.sort()
-  
+
   api_commands = ""
   commands_list = ""
   category_versions = []
@@ -72,10 +72,12 @@ def spew_category(name, commands):
     latest_present = major_versions[-1][0]
       
     commands_list += "<li class='" + classes + "'><a href='../" + latest_present + "/" + command + "'>" + command + "</a></li>"
-    try:
-      unhandled_commands.remove(command)
-    except:
-      pass
+    
+    if commands != unhandled_commands:
+      try:
+        unhandled_commands.remove(command)
+      except:
+        pass
 
   classes = "category"
   for v in category_versions:
