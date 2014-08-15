@@ -172,7 +172,7 @@ for version in major_versions:
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$title}", command)
     
-    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/" + version[:2] + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
+    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/" + version + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
 
     version_dir = version
