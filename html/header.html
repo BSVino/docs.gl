@@ -51,9 +51,25 @@ function gl_printable_name(name) {
 function set_api_version(version) {
 	$( "#opengl_name" ).text(gl_printable_name(version));
 
-	$(".category").addClass("disabled")
-	$(".command").addClass("disabled")
-	$("." + version).removeClass("disabled")
+	$(".category").addClass("disabled");
+	$(".command").addClass("disabled");
+	$("." + version).removeClass("disabled");
+
+	// Remove functions from GL that ES doesn't have and vice versa.
+	/*$(".command").each(function() {
+		$(this).addClass("hidden");
+
+		var classList = $(this).attr('class').split(/\s+/);
+		for (var i = 0; i < classList.length; i++) {
+			if (classList[i].substring(0, 2) === version.substring(0, 2)) {
+				$(this).removeClass("hidden");
+				break;
+			}
+		}
+	});
+	$(".category").each(function() {
+		// Fix the different sizes
+	});*/
 }
 
 $(function() {
