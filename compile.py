@@ -106,12 +106,12 @@ version_numbers = opengl.version_commands.keys()
 major_versions = opengl.get_major_versions(opengl.version_commands.keys())
 
 for version in major_versions:
-  if int(version[0]) < 2:
+  if int(version[2]) < 2:
     continue
     
   written = 0
- 
-  print "Compiling GL" + version + " ..."
+
+  print "Compiling " + version + " ..."
   
   header_for_version = header;
   footer_for_version = footer;
@@ -120,7 +120,7 @@ for version in major_versions:
   all_versions.sort()
 
   # Find latest minor version for this major version.
-  latest_minor = version + ".0"
+  latest_minor = version[2] + ".0"
   for version_option in all_versions:
     if latest_minor[0] == version_option[2] and float(latest_minor) < float(version_option[2:]):
       latest_minor = version_option
@@ -137,9 +137,9 @@ for version in major_versions:
     if version_option == latest_minor:
       selected = " selected='selected'"
 
-    if version_option[0:2] == 'gl':
+    if version_option[:2] == 'gl':
       toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option[2:] + "</option>"
-    elif version_option[0:2] == 'es':
+    elif version_option[:2] == 'es':
       toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLES" + version_option[2:] + "</option>"
       
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
@@ -148,32 +148,40 @@ for version in major_versions:
   for command in opengl.commands_version_flat:
     if not version in opengl.get_major_versions(opengl.commands_version_flat[command]):
       continue
-      
+ 
     header_for_command = header_for_version
     footer_for_command = footer_for_version
 
     command_major_versions = opengl.get_major_versions_available(command)
     
-    command_versions = "<strong>OpenGL " + version + "</strong>"
+    command_versions = '<strong>OpenGL</strong>'
+    if version[:2] == 'gl':
+      command_versions = "<strong>OpenGL " + version[2] + "</strong>"
+    elif version[:2] == 'es':
+      command_versions = "<strong>OpenGL ES " + version[2] + "</strong>"
+      
     for major_version in command_major_versions:
-      if major_version[0] == version[0]:
+      if major_version == version:
         continue
         
-      command_versions = command_versions + " | <a href='../" + version_option[0:2] + major_version[0] + "/" + command + "'>GL" + major_version[0] + "</a>"
+      if major_version[:2] == 'gl':
+        command_versions += " | <a href='../" + major_version + "/" + command + "'>GL" + major_version[2] + "</a>"
+      elif major_version[:2] == 'es':
+        command_versions += " | <a href='../" + major_version + "/" + command + "'>GLES" + major_version[2] + "</a>"
       
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$title}", command)
     
-    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/gl" + version[0] + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
+    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/" + version[:2] + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
 
-    version_dir = version[0]
+    version_dir = version
     
-    create_directory(output_dir + version_option[0:2] + version_dir)
+    create_directory(output_dir + version_dir)
 
-    command_file = shared.find_command_file(version[0], command)
+    command_file = shared.find_command_file(version, command)
     if command_file == False:
-      raise IOError("Couldn't find page for command " + command + " (" + version[0] + ")")
+      raise IOError("Couldn't find page for command " + command + " (" + version + ")")
 
     fp = open(command_file)
     command_html = fp.read().decode('utf8')
@@ -181,11 +189,11 @@ for version in major_versions:
     
     output_html = header_for_command + command_html + footer_for_command
 
-    output = open(output_dir + version_option[0:2] + version_dir + "/" + command, "w")
+    output = open(output_dir + version_dir + "/" + command, "w")
     output.write(output_html.encode('ascii', 'xmlcharrefreplace'))
     output.close()
     
     written += 1
   
-  print "Wrote " + str(written) + " commands for GL" + version[0]
+  print "Wrote " + str(written) + " commands for " + version
 

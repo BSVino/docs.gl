@@ -51,7 +51,7 @@ def generate_versions():
           aliased_functions[version_commands[version][command]].append(command)
 
         if not function_aliases[command] in version_commands_flat[version]:
-          version_commands_flat[version].append(function_aliases[command])
+          version_commands_flat[version].append(version_commands[version][command])
   
   commands_version = reverse_version_index(version_commands)
   commands_version_flat = reverse_version_index(version_commands_flat)
@@ -243,7 +243,7 @@ generate_versions()
 def get_major_versions(all_versions):
   major_versions = []
   for v in all_versions:
-    major_version = v[2]
+    major_version = v[:3]
     if not major_version in major_versions:
       major_versions.append(major_version)
       

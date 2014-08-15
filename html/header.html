@@ -17,6 +17,12 @@
 
 <script>
 function gl_printable_name(name) {
+	if (name == "es20")
+		return "OpenGL ES 2.0";
+	if (name == "es30")
+		return "OpenGL ES 3.0";
+	if (name == "es31")
+		return "OpenGL ES 3.1";
 	if (name == "gl21")
 		return "OpenGL 2.1";
 	if (name == "gl30")
@@ -68,7 +74,7 @@ $(function() {
 
 <div id="everything">
 <div id="toc">
-<h2 id="opengl_name"></h2>
+<strong id="opengl_name"></strong>
 <div id="versions_container"><span id="api">API:</span><select id="versions_dropdown">{$versions_options}</select></div>
 
 <br clear="both" />
