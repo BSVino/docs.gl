@@ -95,7 +95,8 @@ api_commands = ""
 for category in opengl.command_categories:
   api_commands += spew_category(category, opengl.command_categories[category])
 
-api_commands += spew_category("Uncategorized", unhandled_commands)
+if len(unhandled_commands):
+  api_commands += spew_category("Uncategorized", unhandled_commands)
 
 header = header.replace("{$api_commands}", api_commands)
 footer = footer.replace("{$gentime}", time.strftime("%d %B %Y at %H:%M:%S GMT", time.gmtime()));
