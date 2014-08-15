@@ -54,8 +54,8 @@
                 </span></dt><dd><p>Specifies a pointer to the image data in memory.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>Texturing maps a portion of a specified texture image
         onto each graphical primitive for which texturing is enabled.
         To enable and disable two-dimensional texturing, call
-        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and
-        <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
+        <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and
+        <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
         with argument <code class="constant">GL_TEXTURE_2D</code>.
         Two-dimensional texturing is initially disabled.
         </p><p>To define texture images, call
@@ -63,7 +63,7 @@
         The arguments describe the parameters of the texture image,
         such as height, width, width of the border, level-of-detail
         number (see
-        <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
+        <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
         and number of color components provided. The last three
         arguments describe how the image is represented in memory.</p><p>Data is read from <em class="parameter"><code>pixels</code></em>
         as a sequence of unsigned bytes or shorts, depending on
@@ -89,7 +89,7 @@
         locations, except that after all <em class="parameter"><code>width</code></em> pixels are
         read, the read pointer is advanced to the next four-byte boundary.
         The four-byte row alignment is specified by
-        <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
+        <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
         with argument <code class="constant">GL_UNPACK_ALIGNMENT</code>, and it can be set
         to one, two, four, or eight bytes.</p><p><em class="parameter"><code>format</code></em>
         determines the composition of each element in
@@ -125,10 +125,10 @@
         uninitialized portion of the texture image to a primitive.</p><p><code class="function">glTexImage2D</code>
         specifies the two-dimensional texture for the currently bound texture
         specified with
-        <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+        <a class="citerefentry" href="glBindTexture"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
         and the current texture
         unit, specified with
-        <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+        <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
         <em class="parameter"><code>target</code></em> is not
         <code class="constant">GL_TEXTURE_2D</code>.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
@@ -162,18 +162,18 @@
         <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code> and
         <em class="parameter"><code>format</code></em> is not
         <code class="constant">GL_RGBA</code>.</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-        <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         with argument <code class="constant">GL_MAX_TEXTURE_SIZE</code></p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
-        <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-        <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
-        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
-        <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
-        <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-        <a class="citerefentry" href="glMatrixMode.xml"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
-        <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
-        <a class="citerefentry" href="glTexEnv.xml"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
-        <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
-        <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+        <a class="citerefentry" href="glBindTexture"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+        <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+        <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+        <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+        <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>,
+        <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
+        <a class="citerefentry" href="glTexEnv"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
+        <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+        <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
