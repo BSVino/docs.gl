@@ -1,5 +1,5 @@
     <div class="refentry" id="glBindTexture">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glBindTexture — bind a named texture to a texturing target</p>
@@ -38,6 +38,7 @@
                     Specifies the target to which the texture is bound.
                     Must be either
                     <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
                     <code class="constant">GL_TEXTURE_3D</code>,
                     <code class="constant">GL_TEXTURE_2D_ARRAY</code>, or
                     <code class="constant">GL_TEXTURE_CUBE_MAP</code>,
@@ -64,9 +65,10 @@
             <code class="function">glBindTexture</code> binds the texture object with name <em class="parameter"><code>texture</code></em> to the texture target specified
             by <em class="parameter"><code>target</code></em>. Calling <code class="function">glBindTexture</code> with
             <em class="parameter"><code>target</code></em> set to
-            <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, or
-            <code class="constant">GL_TEXTURE_CUBE_MAP</code> and <em class="parameter"><code>texture</code></em> set to the name of the new texture binds the
-            texture name to that target. When a texture is bound to a target, the previous binding for that target is automatically broken.
+            <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <code class="constant">GL_TEXTURE_3D</code>, 
+			<code class="constant">GL_TEXTURE_2D_ARRAY</code>, or <code class="constant">GL_TEXTURE_CUBE_MAP</code> and <em class="parameter"><code>texture</code></em> 
+			set to the name of the new texture binds the texture name to that target. When a texture is bound to a target, 
+			the previous binding for that target is automatically broken.
         </p>
         <p>
             Texture names are unsigned integers. The value zero is reserved to
@@ -81,9 +83,10 @@
         </p>
         <p>
             When a texture is first bound, it assumes the specified target:
-            A texture first bound to <code class="constant">GL_TEXTURE_2D</code> becomes two-dimensional texture, a
-            texture first bound to <code class="constant">GL_TEXTURE_3D</code> becomes three-dimensional texture, a
-            texture first bound to <code class="constant">GL_TEXTURE_2D_ARRAY</code> becomes two-dimensional arary texture, and a
+            A texture first bound to <code class="constant">GL_TEXTURE_2D</code> becomes a two-dimensional texture, a
+            texture first bound to <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> becomes a two-dimensional multisampled texture, a
+            texture first bound to <code class="constant">GL_TEXTURE_3D</code> becomes a three-dimensional texture, a
+            texture first bound to <code class="constant">GL_TEXTURE_2D_ARRAY</code> becomes a two-dimensional array texture, and a
             texture first bound to <code class="constant">GL_TEXTURE_CUBE_MAP</code> becomes a cube-mapped texture.
             The state of a two-dimensional texture immediately after it is first bound is equivalent to the state of the
             default <code class="constant">GL_TEXTURE_2D</code> at GL initialization, and similarly for the other texture types.
@@ -129,7 +132,8 @@
         <h2>Associated Gets</h2>
         <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_2D</code>,
-            <code class="constant">GL_TEXTURE_BINDING_3D</code>, <code class="constant">GL_TEXTURE_BINDING_2D_ARRAY</code>, or <code class="constant">GL_TEXTURE_BINDING_CUBE_MAP</code>.
+			<code class="constant">GL_TEXTURE_BINDING_2D_MULTISAMPLE</code>, <code class="constant">GL_TEXTURE_BINDING_3D</code>, 
+			<code class="constant">GL_TEXTURE_BINDING_2D_ARRAY</code>, or <code class="constant">GL_TEXTURE_BINDING_CUBE_MAP</code>.
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -139,6 +143,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -146,7 +151,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -157,14 +162,18 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glBindTexture</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
@@ -182,7 +191,10 @@
             <a class="citerefentry" href="glIsTexture"><span class="citerefentry"><span class="refentrytitle">glIsTexture</span></span></a>,
             <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2DMultisample"><span class="citerefentry"><span class="refentrytitle">glTexStorage2DMultisample</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

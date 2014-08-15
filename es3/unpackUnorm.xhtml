@@ -1,8 +1,8 @@
     <div class="refentry" id="unpackUnorm">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
-        <p>unpackUnorm2x16, unpackSnorm2x16 — unpack floating-point values from an unsigned integer</p>
+        <p>unpackUnorm2x16, unpackSnorm2x16, unpackUnorm4x8, unpackSnorm4x8 — unpack floating-point values from an unsigned integer</p>
       </div>
       <div class="refsynopsisdiv">
         <h2>Declaration</h2>
@@ -20,6 +20,24 @@
             <tr>
               <td>
                 <code class="funcdef">vec2 <strong class="fsfunc">unpackSnorm2x16</strong>(</code>
+              </td>
+              <td>uint <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">vec2 <strong class="fsfunc">unpackUnorm4x8</strong>(</code>
+              </td>
+              <td>uint <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">vec2 <strong class="fsfunc">unpackSnorm4x8</strong>(</code>
               </td>
               <td>uint <var class="pdparam">p</var><code>)</code>;</td>
             </tr>
@@ -49,10 +67,16 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">unpackUnorm2x16</code>, <code class="function">unpackSnorm2x16</code> unpack
-            single 32-bit unsigned integers, specified in the parameter <em class="parameter"><code>p</code></em> into a pair of 16-bit unsigned integers.
-                        Then, each component is converted to a normalized floating-point
-            value to generate the returned two- or four-component vector.
+            <code class="function">unpackUnorm2x16</code>,
+            <code class="function">unpackSnorm2x16</code>,
+            <code class="function">unpackUnorm4x8</code>, and
+            <code class="function">unpackSnorm4x8</code> unpack single 32-bit
+            unsigned integers, specified in the parameter
+            <em class="parameter"><code>p</code></em> into a pair of 16-bit unsigned
+            integers. a pair of 16-bit signed integers, four 8-bit unsigned
+            integers, or four 8-bit signed integers respectively. Then, each
+            component is converted to a normalized floating-point value to
+            generate the returned two- or four-component vector.
         </p>
         <p>
             The conversion for unpacked fixed point value <span class="emphasis"><em>f</em></span> to floating-point is performed as follows:
@@ -67,6 +91,16 @@
             <li class="listitem">
               <p>
                         <code class="function">unpackSnorm2x16</code>: <code class="code">clamp(f / 32727.0, -1.0, 1.0)</code>
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="function">packUnorm4x8</code>: <code class="code">f / 255.0</code>
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="function">packSnorm4x8</code>: <code class="code">clamp(f / 127.0, -1.0, 1.0)</code>
                     </p>
             </li>
           </ul>
@@ -85,6 +119,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -92,7 +127,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES Shading Language Version</strong></span>
             </th>
               </tr>
@@ -103,8 +138,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>1.00</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.00</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.10</strong></span>
             </th>
               </tr>
             </thead>
@@ -112,10 +150,24 @@
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">unpackUnorm2x16</td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
-                <td style="text-align: left; border-right: 2px solid ; ">unpackSnorm2x16</td>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">unpackSnorm2x16</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">unpackSnorm4x8</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">unpackSnorm4x8</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
@@ -129,6 +181,8 @@
             <a class="citerefentry" href="clamp"><span class="citerefentry"><span class="refentrytitle">clamp</span></span></a>,
             <a class="citerefentry" href="packUnorm2x16"><span class="citerefentry"><span class="refentrytitle">packUnorm2x16</span></span></a>,
             <a class="citerefentry" href="packSnorm2x16"><span class="citerefentry"><span class="refentrytitle">packSnorm2x16</span></span></a>
+            <a class="citerefentry" href="packUnorm4x8"><span class="citerefentry"><span class="refentrytitle">packUnorm4x8</span></span></a>
+            <a class="citerefentry" href="packSnorm4x8"><span class="citerefentry"><span class="refentrytitle">packSnorm4x8</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

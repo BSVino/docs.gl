@@ -1,5 +1,5 @@
     <div class="refentry" id="glFramebufferTexture2D">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glFramebufferTexture2D — attach a level of a texture object as a logical buffer to the currently bound framebuffer object</p>
@@ -75,7 +75,7 @@
             </dt>
             <dd>
               <p>
-                    Specifies a 2D texture target, or for cube map textures, which face is to be attached.
+                    Specifies a 2D texture target, 2D multisample texture target, or for cube map textures, which face is to be attached.
                 </p>
             </dd>
             <dt>
@@ -127,6 +127,7 @@
             <em class="parameter"><code>textarget</code></em> specifies what type of texture is named by <em class="parameter"><code>texture</code></em>, and for
             cube map textures, specifies the face that is to be attached. If <em class="parameter"><code>texture</code></em> is not zero, it
             must be the name of an existing two dimensional texture with <em class="parameter"><code>textarget</code></em> set to <code class="constant">GL_TEXTURE_2D</code>,
+			or an existing two dimensional multisample texture with <em class="parameter"><code>textarget</code></em> set to <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
                         unless it is a cube map texture, in which case <em class="parameter"><code>textarget</code></em> must be
                         <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>
             <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
@@ -145,7 +146,8 @@
             than or equal to zero and less than or equal to log<sub>2</sub> of the value of
                         <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code>. If <em class="parameter"><code>textarget</code></em> is <code class="constant">GL_TEXTURE_2D</code>,
                         <em class="parameter"><code>level</code></em> must be greater than or equal to zero and no larger than log<sub>2</sub>
-            of the value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+            of the value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>. If <em class="parameter"><code>textarget</code></em> is <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+                        <em class="parameter"><code>level</code></em> must be equal to zero.
         </p>
       </div>
       <div class="refsect1" id="errors">
@@ -171,6 +173,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -178,7 +181,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -189,14 +192,18 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glFramebufferTexture2D</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>

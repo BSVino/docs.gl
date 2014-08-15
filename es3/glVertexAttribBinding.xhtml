@@ -1,0 +1,152 @@
+    <div class="refentry" id="glVertexAttribBinding">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glVertexAttribBinding — associate a vertex attribute and a vertex buffer binding</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glVertexAttribBinding</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">attribindex</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">bindingindex</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>attribindex</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The index of the attribute to associate with a vertex buffer binding.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bindingindex</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The index of the vertex buffer binding with which to associate the generic vertex attribute.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glVertexAttribBinding</code>, establishes an association between the generic vertex
+            attribute whose index is given by <em class="parameter"><code>attribindex</code></em> and a vertex buffer binding
+            whose index is given by <em class="parameter"><code>bindingindex</code></em>. <em class="parameter"><code>attribindex</code></em>
+            must be less than the value of <code class="constant">GL_MAX_VERTEX_ATTRIBS</code> and <em class="parameter"><code>bindingindex</code></em>
+            must be less than the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>attribindex</code></em> is greater than
+            or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bindingindex</code></em> is greater than
+            or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if no vertex array object is bound.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>,
+            <code class="constant">GL_VERTEX_BINDING_DIVISOR</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glVertexAttribBinding</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBindVertexBuffer"><span class="citerefentry"><span class="refentrytitle">glBindVertexBuffer</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribFormat"><span class="citerefentry"><span class="refentrytitle">glVertexAttribFormat</span></span></a>,
+            <a class="citerefentry" href="glVertexBindingDivisor"><span class="citerefentry"><span class="refentrytitle">glVertexBindingDivisor</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2012-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

@@ -1,0 +1,164 @@
+    <div class="refentry" id="glShaderStorageBlockBinding">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glShaderStorageBlockBinding — change an active shader storage block binding</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glShaderStorageBlockBinding</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">storageBlockIndex</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">storageBlockBinding</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the program containing the block whose binding to change.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>storageBlockIndex</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The index storage block within the program.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>storageBlockBinding</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The index storage block binding to associate with the specified storage block.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glShaderStorageBlockBinding</code>, changes the active
+            shader storage block with an assigned index of <em class="parameter"><code>storageBlockIndex</code></em>
+            in program object <em class="parameter"><code>program</code></em>.  <em class="parameter"><code>storageBlockIndex</code></em> must be an active shader storage block
+            index in <em class="parameter"><code>program</code></em>. <em class="parameter"><code>storageBlockBinding</code></em> must be less than the value of <code class="constant">GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS</code>.
+            If successful, <code class="function">glShaderStorageBinding</code> specifies that <em class="parameter"><code>program</code></em> will use the data store of
+            the buffer object bound to the binding point <em class="parameter"><code>storageBlockBinding</code></em> to read
+            and write the values of the buffer variables in the shader storage block identified by <em class="parameter"><code>storageBlockIndex</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>attribindex</code></em> is greater than
+            or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bindingindex</code></em> is greater than
+            or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if no vertex array object is bound.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments <code class="constant">GL_SHADER_STORAGE_BUFFER_BINDING</code>,
+            <code class="constant">GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS</code>, <code class="constant">GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS</code>,
+            <code class="constant">GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS</code>,
+            <code class="constant">GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS</code>, <code class="constant">GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS</code>,
+            <code class="constant">GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS</code>, or <code class="constant">GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glShaderStorageBlockBinding</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2012-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

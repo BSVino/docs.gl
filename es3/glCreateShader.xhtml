@@ -1,5 +1,5 @@
     <div class="refentry" id="glCreateShader">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glCreateShader — Creates a shader object</p>
@@ -30,64 +30,89 @@
               </span>
             </dt>
             <dd>
-              <p>Specifies the type of shader to be created.
-                    Must be one of <code class="constant">GL_VERTEX_SHADER</code>
-                    or <code class="constant">GL_FRAGMENT_SHADER</code>.</p>
+              <p>
+                        Specifies the type of shader to be created.
+                        <code class="constant">GL_VERTEX_SHADER</code>,
+                        <code class="constant">GL_FRAGMENT_SHADER</code>, or
+                        <code class="constant">GL_COMPUTE_SHADER</code>,
+                    </p>
             </dd>
           </dl>
         </div>
       </div>
       <div class="refsect1" id="description">
         <h2>Description</h2>
-        <p><code class="function">glCreateShader</code> creates an empty
-        shader object and returns a non-zero value by which it can be
-        referenced. A shader object is used to maintain the source code
-        strings that define a shader. <em class="parameter"><code>shaderType</code></em>
-        indicates the type of shader to be created. Three types of shaders
-        are supported. A shader of type
-        <code class="constant">GL_VERTEX_SHADER</code> is a shader that is
-        intended to run on the programmable vertex processor. A shader of
-        type <code class="constant">GL_FRAGMENT_SHADER</code> is a shader that is
-        intended to run on the programmable fragment processor.</p>
-        <p>When created, a shader object's
-        <code class="constant">GL_SHADER_TYPE</code> parameter is set to either
-        <code class="constant">GL_VERTEX_SHADER</code> or 
-        <code class="constant">GL_FRAGMENT_SHADER</code>, depending on the value
-        of <em class="parameter"><code>shaderType</code></em>.</p>
+        <p>
+            <code class="function">glCreateShader</code> creates an empty shader
+            object and returns a non-zero value by which it can be
+            referenced. A shader object is used to maintain the source code
+            strings that define a shader. <em class="parameter"><code>shaderType</code></em>
+            indicates the type of shader to be created. Three types of
+            shaders are supported. A shader of type
+            <code class="constant">GL_VERTEX_SHADER</code> is a shader that is
+            intended to run on the programmable vertex processor. A shader
+            of type <code class="constant">GL_FRAGMENT_SHADER</code> is a shader that
+            is intended to run on the programmable fragment processor. A
+            shader of type <code class="constant">GL_COMPUTE_SHADER</code> is a
+            shader that is intended to run on the programmable compute
+            processor.
+        </p>
+        <p>
+            When created, a shader object's
+            <code class="constant">GL_SHADER_TYPE</code> parameter is set to
+            <code class="constant">GL_COMPUTE_SHADER</code>,
+            <code class="constant">GL_VERTEX_SHADER</code> or
+            <code class="constant">GL_FRAGMENT_SHADER</code>, depending on the value
+            of <em class="parameter"><code>shaderType</code></em>.
+        </p>
       </div>
       <div class="refsect1" id="notes">
         <h2>Notes</h2>
-        <p>Like buffer and texture objects, the name space for
-        shader objects may be shared across a set of contexts, as long
-        as the server sides of the contexts share the same address
-        space. If the name space is shared across contexts, any attached
-        objects and the data associated with those attached objects are
-        shared as well.</p>
-        <p>Applications are responsible for providing the
-        synchronization across API calls when objects are accessed from
-        different execution threads.</p>
+        <p>
+            Like buffer and texture objects, the name space for shader
+            objects may be shared across a set of contexts, as long as the
+            server sides of the contexts share the same address space. If
+            the name space is shared across contexts, any attached objects
+            and the data associated with those attached objects are shared
+            as well.
+        </p>
+        <p>
+            Applications are responsible for providing the synchronization
+            across API calls when objects are accessed from different
+            execution threads.
+        </p>
+        <p>
+            <code class="constant">GL_COMPUTE_SHADER</code> is available only if the
+            GL version is 3.1 or higher.
+        </p>
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
-        <p>This function returns 0 if an error occurs creating the
-        shader object.</p>
-        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
-        <em class="parameter"><code>shaderType</code></em> is not an accepted value.</p>
+        <p>
+            This function returns 0 if an error occurs creating the shader
+            object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if
+            <em class="parameter"><code>shaderType</code></em> is not an accepted
+            value.
+        </p>
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
-        <p><a class="citerefentry" href="glGetShaderiv"><span class="citerefentry"><span class="refentrytitle">glGetShaderiv</span></span></a>
-        with a valid shader object and the parameter to be queried</p>
-        <p><a class="citerefentry" href="glGetShaderInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
-        with a valid shader object</p>
-        <p><a class="citerefentry" href="glGetShaderSource"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>
-        with a valid shader object</p>
         <p>
-          <a class="citerefentry" href="glIsShader">
-            <span class="citerefentry">
-              <span class="refentrytitle">glIsShader</span>
-            </span>
-          </a>
+            <a class="citerefentry" href="glGetShaderiv"><span class="citerefentry"><span class="refentrytitle">glGetShaderiv</span></span></a>
+            with a valid shader object and the parameter to be
+            queried</p>
+        <p>
+            <a class="citerefentry" href="glGetShaderInfoLog"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
+            with a valid shader object</p>
+        <p>
+            <a class="citerefentry" href="glGetShaderSource"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>
+            with a valid shader object
+        </p>
+        <p>
+            <a class="citerefentry" href="glIsShader"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -97,6 +122,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -104,7 +130,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -115,8 +141,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -126,6 +155,7 @@
                   <code class="function">glCreateShader</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>
@@ -134,11 +164,12 @@
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
-        <p><a class="citerefentry" href="glAttachShader"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
-        <a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
-        <a class="citerefentry" href="glDeleteShader"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
-        <a class="citerefentry" href="glDetachShader"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
-        <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
+        <p>
+            <a class="citerefentry" href="glAttachShader"><span class="citerefentry"><span class="refentrytitle">glAttachShader</span></span></a>,
+            <a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+            <a class="citerefentry" href="glDeleteShader"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+            <a class="citerefentry" href="glDetachShader"><span class="citerefentry"><span class="refentrytitle">glDetachShader</span></span></a>,
+            <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

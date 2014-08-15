@@ -1,0 +1,315 @@
+    <div class="refentry" id="glGetProgramResourceName">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetProgramResourceName — query the name of an indexed resource within a program</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetProgramResourceName</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">programInterface</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei * <var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>char * <var class="pdparam">name</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of a program object whose resources to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>programInterface</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    A token identifying the interface within <em class="parameter"><code>program</code></em> containing the indexed resource.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The index of the resource within <em class="parameter"><code>programInterface</code></em> of <em class="parameter"><code>program</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The size of the character array whose address is given by <em class="parameter"><code>name</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>length</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address of a variable which will receive the length of the resource name.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>name</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address of a character array into which will be written the name of the resource.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetProgramResourceName</code> retrieves the name string
+            assigned to the single active resource with an index of <em class="parameter"><code>index</code></em>
+            in the interface <em class="parameter"><code>programInterface</code></em> of program object
+            <em class="parameter"><code>program</code></em>. <em class="parameter"><code>index</code></em> must be less than
+            the number of entries in the active resource list for <em class="parameter"><code>programInterface</code></em>.
+        </p>
+        <p>
+            <em class="parameter"><code>program</code></em> must be the name of an existing program object. <em class="parameter"><code>programInterface</code></em>
+            is the name of the interface within <em class="parameter"><code>program</code></em> which contains the resource and must be one of the following
+            values:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_UNIFORM</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active uniforms within <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_UNIFORM_BLOCK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active uniform blocks within <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_INPUT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active input variables used by the first shader stage of <em class="parameter"><code>program</code></em>.
+                        If <em class="parameter"><code>program</code></em> contains multiple shader stages then input variables from any stage other than the first
+                        will not be enumerated.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_OUTPUT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active output variables produced by the last shader stage of <em class="parameter"><code>program</code></em>.
+                        If <em class="parameter"><code>program</code></em> contains multiple shader stages then output variables from any stage other than the last
+                        will not be enumerated.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of output variables from vertex stage of <em class="parameter"><code>program</code></em> that would be
+                        captured if transform feedback were active.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BUFFER_VARIABLE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active buffer variables used by <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SHADER_STORAGE_BLOCK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The query is targeted at the set of active shader storage blocks used by <em class="parameter"><code>program</code></em>.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            The name string assigned to the active resource identified by <em class="parameter"><code>index</code></em> is
+            returned as a null-terminated string in the character array whose address is given in <em class="parameter"><code>name</code></em>.  The actual number of
+            characters written into <em class="parameter"><code>name</code></em>, excluding the null terminator, is returned
+            in <em class="parameter"><code>length</code></em>.  If <em class="parameter"><code>length</code></em> is NULL, no length is returned.  The maximum
+            number of characters that may be written into <em class="parameter"><code>name</code></em>, including the null
+            terminator, is specified by <em class="parameter"><code>bufSize</code></em>.  If the length of the name string
+            <span class="emphasis"><em>including the null terminator</em></span> is greater than <em class="parameter"><code>bufSize</code></em>, the first
+            <em class="parameter"><code>bufSize</code></em>-1 characters of the name string will be written to <em class="parameter"><code>name</code></em>,
+            followed by a null terminator.  If <em class="parameter"><code>bufSize</code></em> is zero, no error will be
+            generated but no characters will be written to <em class="parameter"><code>name</code></em>.  The length of the
+            longest name string for <em class="parameter"><code>programInterface</code></em>&gt;, including a null terminator,
+            can be queried by calling <a class="citerefentry" href="glGetProgramInterface"><span class="citerefentry"><span class="refentrytitle">glGetProgramInterface</span></span></a> with a <em class="parameter"><code>pname</code></em> of
+            <code class="constant">GL_MAX_NAME_LENGTH</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>programInterface</code></em>
+            is not one of the accepted interface types.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>progam</code></em> is not
+            the name of an existing program.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater
+            than or equal to the number of entries in the active resource list for
+            <em class="parameter"><code>programInterface</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>programInterface</code></em> is
+            <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> or <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, since active atomic
+            counter and transform feedback buffer resources are not assigned name strings.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetProgramResourceName</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGetProgramResourceIndex"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceIndex</span></span></a>,
+            <a class="citerefentry" href="glGetGetProgramResource"><span class="citerefentry"><span class="refentrytitle">glGetGetProgramResource</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocation"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocation</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocationIndex"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocationIndex</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2012-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

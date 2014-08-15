@@ -1,5 +1,5 @@
     <div class="refentry" id="glBlitFramebuffer">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glBlitFramebuffer — copy a block of pixels from the read framebuffer to the draw framebuffer</p>
@@ -151,10 +151,6 @@
             buffers of the draw framebuffer.
         </p>
         <p>
-            If the source and destination rectangles overlap or are the same, and the read and draw buffers are the same, the result of the operation
-            is undefined.
-        </p>
-        <p>
             If <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the read framebuffer is greater than zero and <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the
             draw framebuffer is zero, the samples corresponding to each pixel location in the source are converted to a single sample before being
             written to the destination.
@@ -163,8 +159,40 @@
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>mask</code></em> contains any bits other than 
+			<code class="constant">GL_COLOR_BUFFER_BIT</code>, <code class="constant">GL_DEPTH_BUFFER_BIT</code> or <code class="constant">GL_STENCIL_BUFFER_BIT</code>.
+       </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>filter</code></em> is not 
+			<code class="constant">GL_LINEAR</code> or <code class="constant">GL_NEAREST</code>.
+        </p>
+        <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains any of the <code class="constant">GL_DEPTH_BUFFER_BIT</code>
             or <code class="constant">GL_STENCIL_BUFFER_BIT</code> and <em class="parameter"><code>filter</code></em> is not <code class="constant">GL_NEAREST</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the source and destination buffers are identical.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the objects bound to <code class="constant">GL_DRAW_FRAMEBUFFER_BINDING</code>
+            or <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code> are not framebuffer complete.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains <code class="constant">GL_DEPTH_BUFFER_BIT</code> or
+            <code class="constant">GL_DEPTH_BUFFER_BIT</code> and the source and destination depth and stencil formats do not match.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>filter</code></em> is <code class="constant">GL_LINEAR</code> and the read buffer
+            contains integer data.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for the read buffer is greater than
+            zero and the formats of draw and read buffers are not identical, or the source and destination rectangles are not defined with the same
+            (X0, Y0) and (X1, Y1) bounds.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for the draw buffer is
+            greater than zero.
         </p>
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains <code class="constant">GL_COLOR_BUFFER_BIT</code>
@@ -187,27 +215,6 @@
         </div>
         <p>
         </p>
-        <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mask</code></em> contains <code class="constant">GL_DEPTH_BUFFER_BIT</code> or
-            <code class="constant">GL_DEPTH_BUFFER_BIT</code> and the source and destination depth and stencil formats do not match.
-        </p>
-        <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>filter</code></em> is <code class="constant">GL_LINEAR</code> and the read buffer
-            contains integer data.
-        </p>
-        <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for the draw buffer is
-            greater than zero.
-        </p>
-        <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for the read buffer is greater than
-            zero and the formats of draw and read buffers are not identical, or the source and destination rectangles are not defined with the same
-            (X0, Y0) and (X1, Y1) bounds.
-        </p>
-        <p>
-            <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the objects bound to <code class="constant">GL_DRAW_FRAMEBUFFER_BINDING</code>
-            or <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code> are not framebuffer complete.
-        </p>
       </div>
       <div class="refsect1" id="versions">
         <h2>API Version Support</h2>
@@ -216,6 +223,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -223,7 +231,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -234,8 +242,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -243,6 +254,7 @@
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glBlitFramebuffer</td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>

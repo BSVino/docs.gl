@@ -1,5 +1,5 @@
     <div class="refentry" id="glGetVertexAttrib">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glGetVertexAttrib — Return a generic vertex attribute parameter</p>
@@ -102,6 +102,7 @@
             <dd>
               <p>Specifies the symbolic name of the vertex
             attribute parameter to be queried. Accepted values are
+            <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>,
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>,
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>,
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>,
@@ -110,7 +111,7 @@
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>,
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>,
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>, or
-            <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>.</p>
+            <code class="constant">GL_VERTEX_ATTRIB_BINDING</code>.</p>
             </dd>
             <dt>
               <span class="term">
@@ -135,6 +136,19 @@
         <p>The accepted parameter names are as follows:</p>
         <div class="variablelist">
           <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                </p>
+              <p> <em class="parameter"><code>params</code></em> returns four
+            values that represent the current value for the
+            generic vertex attribute specified by index. The initial value
+            for all generic vertex attributes is (0,0,0,1).</p>
+            </dd>
             <dt>
               <span class="term">
                 <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>
@@ -263,16 +277,15 @@
             </dd>
             <dt>
               <span class="term">
-                <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>
+                <code class="constant">GL_VERTEX_ATTRIB_BINDING</code>
               </span>
             </dt>
             <dd>
               <p>
                 </p>
-              <p> <em class="parameter"><code>params</code></em> returns four
-            values that represent the current value for the
-            generic vertex attribute specified by index. The initial value
-            for all generic vertex attributes is (0,0,0,1).</p>
+              <p> <em class="parameter"><code>params</code></em> returns a single value
+			that is the current vertex buffer binding of the vertex attribute. See 
+            <a class="citerefentry" href="glVertexAttribBinding"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>.</p>
             </dd>
           </dl>
         </div>
@@ -308,6 +321,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -315,7 +329,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -326,8 +340,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -337,12 +354,14 @@
                   <code class="function">glGetVertexAttribfv</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
                   <code class="function">glGetVertexAttribiv</code>
                 </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
@@ -351,6 +370,7 @@
                   <code class="function">glGetVertexAttribIiv</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
@@ -358,6 +378,7 @@
                   <code class="function">glGetVertexAttribIuiv</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>

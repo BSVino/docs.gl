@@ -1,5 +1,5 @@
     <div class="refentry" id="glGetProgramiv">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glGetProgramiv — Returns a parameter from a program object</p>
@@ -51,6 +51,7 @@
             <dd>
               <p>Specifies the object parameter. Accepted
             symbolic names are
+            <code class="constant">GL_ACTIVE_ATOMIC_COUNTER_BUFFERS</code>,
             <code class="constant">GL_ACTIVE_ATTRIBUTES</code>,
             <code class="constant">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</code>,
             <code class="constant">GL_ACTIVE_UNIFORMS</code>,
@@ -58,10 +59,12 @@
             <code class="constant">GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH</code>,
             <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>,
             <code class="constant">GL_ATTACHED_SHADERS</code>,
+            <code class="constant">GL_COMPUTE_WORK_GROUP_SIZE</code>,
             <code class="constant">GL_DELETE_STATUS</code>,
             <code class="constant">GL_INFO_LOG_LENGTH</code>,
             <code class="constant">GL_LINK_STATUS</code>,
-                        <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>,
+            <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>,
+            <code class="constant">GL_PROGRAM_SEPARABLE</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code>, 
             <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</code> and
@@ -87,6 +90,18 @@
     the value of a parameter for a specific program object. The following parameters are defined:</p>
         <div class="variablelist">
           <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_ACTIVE_ATOMIC_COUNTER_BUFFERS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+            </p>
+              <p> <em class="parameter"><code>params</code></em> returns the
+            number of active attribute atomic counter buffers used by
+            <em class="parameter"><code>program</code></em>.</p>
+            </dd>
             <dt>
               <span class="term">
                 <code class="constant">GL_ACTIVE_ATTRIBUTES</code>
@@ -185,6 +200,22 @@
             </dd>
             <dt>
               <span class="term">
+                <code class="constant">GL_COMPUTE_WORK_GROUP_SIZE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+            </p>
+              <p> <em class="parameter"><code>params</code></em> returns an
+            array of three integers containing the local work group size of
+            the compute program as specified by its input layout qualifier(s).
+            <em class="parameter"><code>program</code></em> must be the name of a program object
+            that has been previously linked successfully and contains a binary
+            for the compute shader stage.
+            </p>
+            </dd>
+            <dt>
+              <span class="term">
                 <code class="constant">GL_DELETE_STATUS</code>
               </span>
             </dt>
@@ -238,8 +269,21 @@
             </p>
               <p> <em class="parameter"><code>params</code></em> returns the
             current value of whether the binary retrieval
-            hint is enabled for <em class="parameter"><code>program</code></em>.
-                        </p>
+            hint is enabled for <em class="parameter"><code>program</code></em>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_PROGRAM_SEPARABLE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+            </p>
+              <p> <em class="parameter"><code>params</code></em> returns 
+			<code class="constant">GL_TRUE</code> if the program has been flagged
+			for use as a separable program object that can be found to 
+			individual shader stages with 
+			<a class="citerefentry" href="glUseProgramStages"><span class="citerefentry"><span class="refentrytitle">glUseProgramStages</span></span></a>.</p>
             </dd>
             <dt>
               <span class="term">
@@ -331,6 +375,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -338,7 +383,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -349,14 +394,18 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glGetProgramiv</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>

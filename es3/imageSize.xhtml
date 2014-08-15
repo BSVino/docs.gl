@@ -1,0 +1,203 @@
+    <div class="refentry" id="imageSize">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>imageSize — retrieve the dimensions of an image</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">int <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage1D <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec2 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage2D <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec3 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage3D <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec2 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimageCube <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec3 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimageCubeArray <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec2 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimageRect <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec2 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage1DArray <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec3 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage2DArray <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">int <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimageBuffer <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec2 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage2DMS <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">ivec3 <strong class="fsfunc">imageSize</strong>(</code>
+              </td>
+              <td>gimage2DMSArray <var class="pdparam">image</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>image</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the image to which the texture whose dimensions to retrieve is bound.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">imageSize</code> returns the dimensions of the image bound to <em class="parameter"><code>image</code></em>.
+            The components in the return value are filled in,
+            in order, with the width, height and depth of the image. For the array forms, the last component of the
+            return value is the number of layers in the texture array.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.00</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.10</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">imageSize</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="textureSize"><span class="citerefentry"><span class="refentrytitle">textureSize</span></span></a>,
+            <a class="citerefentry" href="imageLoad"><span class="citerefentry"><span class="refentrytitle">imageLoad</span></span></a>,
+            <a class="citerefentry" href="imageStore"><span class="citerefentry"><span class="refentrytitle">imageStore</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

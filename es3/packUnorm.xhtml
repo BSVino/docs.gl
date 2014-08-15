@@ -1,8 +1,8 @@
     <div class="refentry" id="packUnorm">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
-        <p>packUnorm2x16, packSnorm2x16 — pack floating-point values into an unsigned integer</p>
+        <p>packUnorm2x16, packSnorm2x16, packUnorm4x8, packSnorm4x8 — pack floating-point values into an unsigned integer</p>
       </div>
       <div class="refsynopsisdiv">
         <h2>Declaration</h2>
@@ -24,6 +24,28 @@
                 <code class="funcdef">uint <strong class="fsfunc">packSnorm2x16</strong>(</code>
               </td>
               <td>vec2 <var class="pdparam">v</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">uint <strong class="fsfunc">packUnorm4x8</strong>(</code>
+              </td>
+              <td>vec4 <var class="pdparam">v</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">uint <strong class="fsfunc">packSnorm4x8</strong>(</code>
+              </td>
+              <td>vec4 <var class="pdparam">v</var><code>)</code>;</td>
             </tr>
           </table>
           <div class="funcprototype-spacer"> </div>
@@ -51,9 +73,13 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">packUnorm2x16</code> and <code class="function">packSnorm2x16</code> converts
-            each component of the normalized floating-point value <em class="parameter"><code>v</code></em> into 16-bit integer
-            values and then packs the results into a 32-bit unsigned intgeter.
+            <code class="function">packUnorm2x16</code>,
+            <code class="function">packSnorm2x16</code>,
+            <code class="function">packUnorm4x8</code> and
+            <code class="function">packSnorm4x8</code> convert each component of the
+            normalized floating-point value <em class="parameter"><code>v</code></em> into
+            16- or 8-bit integer values and then packs the results into a
+            32-bit unsigned integer.
         </p>
         <p>
             The conversion for component <em class="parameter"><code>c</code></em> of <em class="parameter"><code>v</code></em> to fixed-point is
@@ -71,13 +97,24 @@
                         <code class="function">packSnorm2x16</code>: <code class="code">round(clamp(<em class="parameter"><code>c</code></em>, -1.0, 1.0) * 32767.0)</code>
                     </p>
             </li>
+            <li class="listitem">
+              <p>
+                        <code class="function">packUnorm4x8</code>:  <code class="code">round(clamp(<em class="parameter"><code>c</code></em>, 0.0, 1.0) * 255.0)</code>
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="function">packSnorm4x8</code>:  <code class="code">round(clamp(<em class="parameter"><code>c</code></em>, -1.0, 1.0) * 127.0)</code>
+                    </p>
+            </li>
           </ul>
         </div>
         <p>
         </p>
         <p>
-            The first component of the vector will be written to the least significant bits of the output;
-            the last component will be written to the most significant bits.
+            The first component of the vector will be written to the least
+            significant bits of the output; the last component will be
+            written to the most significant bits.
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -87,6 +124,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -94,7 +132,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES Shading Language Version</strong></span>
             </th>
               </tr>
@@ -105,8 +143,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>1.00</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.00</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.10</strong></span>
             </th>
               </tr>
             </thead>
@@ -114,10 +155,24 @@
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">packUnorm2x16</td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
-                <td style="text-align: left; border-right: 2px solid ; ">packSnorm2x16</td>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">packSnorm2x16</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">packUnorm4x8</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">packSnorm4x8</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
@@ -132,6 +187,8 @@
             <a class="citerefentry" href="round"><span class="citerefentry"><span class="refentrytitle">round</span></span></a>,
             <a class="citerefentry" href="unpackUnorm2x16"><span class="citerefentry"><span class="refentrytitle">unpackUnorm2x16</span></span></a>,
             <a class="citerefentry" href="unpackSnorm2x16"><span class="citerefentry"><span class="refentrytitle">unpackSnorm2x16</span></span></a>,
+            <a class="citerefentry" href="unpackUnorm4x8"><span class="citerefentry"><span class="refentrytitle">unpackUnorm4x8</span></span></a>,
+            <a class="citerefentry" href="unpackSnorm4x8"><span class="citerefentry"><span class="refentrytitle">unpackSnorm4x8</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">

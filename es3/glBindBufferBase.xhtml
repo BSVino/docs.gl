@@ -1,5 +1,5 @@
     <div class="refentry" id="glBindBufferBase">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glBindBufferBase — bind a buffer object to an indexed buffer target</p>
@@ -40,8 +40,9 @@
             <dd>
               <p>
                     Specify the target of the bind operation. <em class="parameter"><code>target</code></em> must be
-                    either <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
-                </p>
+                    one of <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BUFFER</code>, 
+					<code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
+                 </p>
             </dd>
             <dt>
               <span class="term">
@@ -91,28 +92,29 @@
                         of data that can be read from or written to the buffer is determined by the size of
                         the bound buffer at the time the binding is used.
         </p>
+        <p>
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code> 
+            targets are available only if the GL ES version is 3.1 or greater.
+        </p>
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BUFFER</code>, 
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
         </p>
         <p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is
-                        <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and <em class="parameter"><code>index</code></em> is greater
-            than or equal to  <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>.
-        </p>
-        <p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is
-                        <code class="constant">GL_UNIFORM_BUFFER</code> and <em class="parameter"><code>index</code></em> is greater
-            than or equal to  <code class="constant">GL_MAX_UNIFORM_BUFFER_BINDINGS</code>.
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater
+            than or equal to the number of <em class="parameter"><code>target</code></em>-specific indexed binding points.
         </p>
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_UNIFORM_BUFFER_BINDINGS</code>, or <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>.
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS</code>,
+			<code class="constant">GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS</code>, <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code> or 
+			<code class="constant">GL_MAX_UNIFORM_BUFFER_BINDINGS</code>.
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -122,6 +124,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -129,7 +132,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -140,8 +143,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -149,6 +155,7 @@
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glBindBufferBase</td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>

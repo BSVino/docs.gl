@@ -1,5 +1,5 @@
     <div class="refentry" id="glMapBufferRange">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glMapBufferRange — map a section of a buffer object's data store</p>
@@ -120,9 +120,10 @@
         <p>
             <code class="function">glMapBufferRange</code> maps all or part of the data store of a buffer object into the client's address
             space. <em class="parameter"><code>target</code></em> specifies the target to which the buffer is bound and must be one of <code class="constant">GL_ARRAY_BUFFER</code>,
-            <code class="constant">GL_COPY_READ_BUFFER</code>, <code class="constant">GL_COPY_WRITE_BUFFER</code>, <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code>, <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>,
-            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, or <code class="constant">GL_UNIFORM_BUFFER</code>. <em class="parameter"><code>offset</code></em> and
+            <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_COPY_READ_BUFFER</code>, <code class="constant">GL_COPY_WRITE_BUFFER</code>, 
+			<code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>, <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>, <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code>, <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>, <code class="constant">GL_SHADER_STORAGE_BUFFER</code>,
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>. <em class="parameter"><code>offset</code></em> and
             <em class="parameter"><code>length</code></em> indicate the range of data in the buffer object that is to be mapped, in terms of basic machine units.
             <em class="parameter"><code>access</code></em> is a bitfield containing flags which describe the requested mapping. These flags are described below.
         </p>
@@ -231,6 +232,11 @@
             Using a mapping in a fashion inconsistent with these values is liable to be multiple orders of magnitude slower
             than using normal memory.
         </p>
+        <p>
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>,
+            <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code> 
+            targets are available only if the GL ES version is 3.1 or greater.
+        </p>
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
@@ -283,6 +289,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -290,7 +297,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -301,8 +308,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -312,6 +322,7 @@
                   <code class="function">glMapBufferRange</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
@@ -319,6 +330,7 @@
                   <code class="function">glUnmapBuffer</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>

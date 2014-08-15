@@ -1,0 +1,1256 @@
+    <div class="refentry" id="glTexStorage2DMultisample">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glTexStorage2DMultisample — specify storage for a two-dimensional multisample texture</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glTexStorage2DMultisample</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">samples</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLboolean <var class="pdparam">fixedsamplelocations</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specify the target of the operation. <em class="parameter"><code>target</code></em> must be
+                    <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>samples</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specify the number of samples in the texture.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the sized internal format to be used to store texture image data.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>width</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the width of the texture, in texels.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the height of the texture, in texels.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>fixedsamplelocations</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
+                    depend on the internal format or size of the image.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glTexStorage2DMultisample</code> specifies the storage requirements for
+            a two-dimensional multisample texture. Once a texture is specified with this
+            command, its format and dimensions become immutable. 
+                        The contents of the image may still be modified, however, its storage requirements
+            may not change. Such a texture is referred to as an <span class="emphasis"><em>immutable-format</em></span>
+            texture.
+        </p>
+        <p>
+            <em class="parameter"><code>samples</code></em> specifies the number of samples to be used for the texture
+            and must be greater than zero and less than or equal to the value of <code class="constant">GL_MAX_SAMPLES</code>.
+            <em class="parameter"><code>internalformat</code></em> must be a color-renderable, depth-renderable, or stencil-renderable format.
+            <em class="parameter"><code>width</code></em> and <em class="parameter"><code>height</code></em> specify the width and height,
+            respectively, of the texture. If <em class="parameter"><code>fixedsamplelocations</code></em> is <code class="constant">GL_TRUE</code>,
+            the image will use identical sample locations and the same number of samples for all texels in the image,
+            and the sample locations will not depend on the internal format or size of the image.
+        </p>
+        <p>
+            </p>
+        <div class="table" id="idm1328">
+          <div class="table-title">Table 1. Sized Internal Formats</div>
+          <div class="table-contents">
+            <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+              <colgroup>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Sized Internal Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Type</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Red Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Green Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Blue Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Alpha Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Shared Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Color renderable</strong></span>
+            </th>
+                  <th style="text-align: left; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Texture filterable</strong></span>
+            </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_HALF_FLOAT</code>,<code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_FLOAT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R8I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R16I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R32I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_HALF_FLOAT</code>,<code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_FLOAT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG8I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG16I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG32I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SRGB8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB565</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_BYTE</code>,
+                   <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">6</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_R11F_G11F_B10F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>,
+                   <code class="constant">GL_HALF_FLOAT</code>,
+                   <code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f11</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f11</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB9_E5</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code>,
+                   <code class="constant">GL_HALF_FLOAT</code>,
+                   <code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">9</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">9</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">9</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB16F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_HALF_FLOAT</code>,
+                   <code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB32F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_FLOAT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB8UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB8I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB16UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB16I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB32UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB32I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SRGB8_ALPHA8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8_SNORM</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">s8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB5_A1</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_BYTE</code>,
+                   <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
+                   <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">5</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">1</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA4</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_BYTE</code>,
+                   <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">4</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">4</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">4</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">4</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB10_A2</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">2</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_HALF_FLOAT</code>,
+                   <code class="constant">GL_FLOAT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">Y</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA32F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_FLOAT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA8I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_BYTE</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i8</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB10_A2UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui10</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui2</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">ui16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA16I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_SHORT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i16</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA32I</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">i32</td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">Y</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_RGBA32UI</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_RGBA_INTEGER</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; ">ui32</td>
+                  <td style="text-align: left; border-right: 2px solid ; "> </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">Y</td>
+                  <td style="text-align: left; "> </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+              <colgroup>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Sized Internal Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Type</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Depth Bits</strong></span>
+            </th>
+                  <th style="text-align: left; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Stencil Bits</strong></span>
+            </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT16</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; "><code class="constant">GL_UNSIGNED_SHORT</code>,
+                   <code class="constant">GL_UNSIGNED_INT</code></td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">16</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT24</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">24</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT32F</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_COMPONENT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_FLOAT</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">f32</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; "> </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH24_STENCIL8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_STENCIL</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_UNSIGNED_INT_24_8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">24</td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_DEPTH32F_STENCIL8</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_DEPTH_STENCIL</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">f32</td>
+                  <td style="text-align: left; ">8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p><br class="table-break"/>
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not a
+            valid color-renderable, depth-renderable or stencil-renderable format.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            one of the accepted target enumerants.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em>
+            are less than 1 or greater than the value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>samples</code></em> is greater than the
+            value of <code class="constant">GL_MAX_SAMPLES</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the value of <code class="constant">GL_TEXTURE_IMMUTABLE_FORMAT</code>
+            for the texture bound to <em class="parameter"><code>target</code></em> is not <code class="constant">GL_FALSE</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glTexStorage2DMultisample</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2DMultisample"><span class="citerefentry"><span class="refentrytitle">glTexImage2DMultisample</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2012-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

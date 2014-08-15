@@ -1,0 +1,140 @@
+    <div class="refentry" id="glGenProgramPipelines">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGenProgramPipelines — reserve program pipeline object names</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGenProgramPipelines</strong>(</code>
+              </td>
+              <td>GLsizei <var class="pdparam">n</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint *<var class="pdparam">pipelines</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>n</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the number of program pipeline object names to reserve.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pipelines</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies an array of into which the reserved names will be written.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGenProgramPipelines</code> returns <em class="parameter"><code>n</code></em> previously unused
+            program pipeline object names in <em class="parameter"><code>pipelines</code></em>. These names are marked as used,
+            for the purposes of <code class="function">glGenProgramPipelines</code> only, but they
+            acquire program pipeline state only when they are first bound.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROGRAM_PIPELINE_BINDING</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glIsProgramPipeline"><span class="citerefentry"><span class="refentrytitle">glIsProgramPipeline</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGenProgramPipelines</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDeleteProgramPipelines"><span class="citerefentry"><span class="refentrytitle">glDeleteProgramPipelines</span></span></a>,
+            <a class="citerefentry" href="glBindProgramPipeline"><span class="citerefentry"><span class="refentrytitle">glBindProgramPipeline</span></span></a>,
+            <a class="citerefentry" href="glIsProgramPipeline"><span class="citerefentry"><span class="refentrytitle">glIsProgramPipeline</span></span></a>,
+            <a class="citerefentry" href="glUseShaderPrograms"><span class="citerefentry"><span class="refentrytitle">glUseShaderPrograms</span></span></a>,
+            <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

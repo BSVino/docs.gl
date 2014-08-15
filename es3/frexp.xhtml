@@ -1,0 +1,143 @@
+    <div class="refentry" id="frexp">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>frexp — split a floating point number</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>Declaration</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">frexp</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>out genIType <var class="pdparam">exp</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>x</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the value from which significand and exponent are to be extracted.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>out exp</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the variable into which to place the exponent
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">frexp</code> extracts <em class="parameter"><code>x</code></em> into a floating-point significand
+            in the range [0.5, 1.0) and in integral exponent of two, such that:
+        </p>
+        <p>
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <mml:mi>x</mml:mi>
+                <mml:mo>=</mml:mo>
+                <mml:mi>significand</mml:mi>
+                <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
+                <mml:msup>
+                <mml:mn>2</mml:mn>
+                <mml:mi>exponent</mml:mi>
+                </mml:msup>
+            </mml:math>
+        </p>
+        <p>
+            The significand is returned by the function and the exponent is returned in the output
+            parameter <em class="parameter"><code>exp</code></em>. For a floating-point value of zero, the
+            significand and exponent are both zero. For a floating-point value that is an
+            infinity or a floating-point NaN, the results are undefined.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES Shading Language Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>1.00</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.00</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.10</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">frexp</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="ldexp"><span class="citerefentry"><span class="refentrytitle">ldexp</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>

@@ -1,0 +1,411 @@
+    <div class="refentry" id="glGetTexLevelParameter">
+      <div class="titlepage"></div>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the symbolic name of the target texture,
+                    one of
+                    <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_3D</code>,
+                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>,
+                    <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level-of-detail number of the desired image.
+                    Level 0 is the base image level.
+                    Level
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                    is the
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>th
+                    mipmap reduction image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the symbolic name of a texture parameter.
+                    <code class="constant">GL_TEXTURE_WIDTH</code>,
+                    <code class="constant">GL_TEXTURE_HEIGHT</code>,
+                    <code class="constant">GL_TEXTURE_DEPTH</code>,
+                    <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>,
+                    <code class="constant">GL_TEXTURE_SAMPLES</code>,
+                    <code class="constant">GL_TEXTURE_FIXED_SAMPLE_LOCATIONS</code>,
+                    <code class="constant">GL_TEXTURE_RED_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_GREEN_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_BLUE_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_DEPTH_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_STENCIL_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_SHARED_SIZE</code>,
+                    <code class="constant">GL_TEXTURE_RED_TYPE</code>,
+                    <code class="constant">GL_TEXTURE_GREEN_TYPE</code>,
+                    <code class="constant">GL_TEXTURE_BLUE_TYPE</code>,
+                    <code class="constant">GL_TEXTURE_ALPHA_TYPE</code>,
+                    <code class="constant">GL_TEXTURE_DEPTH_TYPE</code>, and
+                    <code class="constant">GL_TEXTURE_COMPRESSED</code>
+                     are accepted.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>params</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Returns the requested data.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetTexLevelParameter</code> returns in <em class="parameter"><code>params</code></em> texture parameter values for a specific
+            level-of-detail value,
+            specified as <em class="parameter"><code>level</code></em>.
+            <em class="parameter"><code>target</code></em> defines the target texture,
+            either <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, 
+			<code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
+        </p>
+        <p>
+            <em class="parameter"><code>pname</code></em> specifies the texture parameter whose value or values
+            will be returned.
+        </p>
+        <p>
+            The accepted parameter names are as follows:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_WIDTH</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the width of the texture image.
+                        The initial value is 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_HEIGHT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the height of the texture image.
+                        The initial value is 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_DEPTH</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the depth of the texture image.
+                        The initial value is 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the internal format of the texture image.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_SAMPLES</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single value,
+                        the number of samples of the texture image.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FIXED_SAMPLE_LOCATIONS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value
+						indicating if texture sample fixed locations are enabled.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_TEXTURE_RED_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_GREEN_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_BLUE_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_ALPHA_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_DEPTH_TYPE</code></span>
+            </dt>
+            <dd>
+              <p>
+                        The data type used to store the component.
+                        The types <code class="constant">GL_NONE</code>, <code class="constant">GL_SIGNED_NORMALIZED</code>,
+                        <code class="constant">GL_UNSIGNED_NORMALIZED</code>, <code class="constant">GL_FLOAT</code>,
+                        <code class="constant">GL_INT</code>, and <code class="constant">GL_UNSIGNED_INT</code> may be returned
+                        to indicate missing, signed normalized fixed-point, unsigned normalized fixed-point, 
+						floating-point, signed unnormalized integer, 
+						and unsigned unnormalized integer components, respectively.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term"><code class="constant">GL_TEXTURE_RED_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_GREEN_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_BLUE_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_DEPTH_SIZE</code>,
+					  <code class="constant">GL_TEXTURE_SHARED_SIZE</code></span>
+            </dt>
+            <dd>
+              <p>
+                    </p>
+              <p>
+                        The actual internal storage resolution of an individual component.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_COMPRESSED</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    </p>
+              <p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the texture image is
+                        stored in a compressed internal format.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>params</code></em>.
+        </p>
+        <p>
+            <code class="function">glGetTexLevelParameter</code> returns the texture level parameters for the active texture unit.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not an
+            accepted value.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
+            than
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                <mml:mn>2</mml:mn>
+                </mml:msub>
+            </mml:math>
+            <span class="emphasis"><em>max</em></span>,
+            where <span class="emphasis"><em>max</em></span> is the returned value of the relevant one of 
+			<code class="constant">GL_MAX_TEXTURE_SIZE</code>, <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code> or <code class="constant">GL_MAX_CUBEMAP_TEXTURE_SIZE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>
+            and <em class="parameter"><code>level</code></em> is not zero.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glGetTexLevelParameterfv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glGetTexLevelParameteriv</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glTexStorage2D"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2DMultisample"><span class="citerefentry"><span class="refentrytitle">glTexStorage2DMultisample</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc. 
+			Copyright <span class="trademark"/>© 2010-2014 Khronos Group. 
+			This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>

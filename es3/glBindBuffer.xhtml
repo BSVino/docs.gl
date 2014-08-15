@@ -1,5 +1,5 @@
     <div class="refentry" id="glBindBuffer">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glBindBuffer — bind a named buffer object</p>
@@ -38,11 +38,15 @@
                     Specifies the target to which the buffer object is bound.
                     The symbolic constant must be
                     <code class="constant">GL_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>,
                     <code class="constant">GL_COPY_READ_BUFFER</code>,
                     <code class="constant">GL_COPY_WRITE_BUFFER</code>,
+                    <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>,
+                    <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>,
                     <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
                     <code class="constant">GL_PIXEL_PACK_BUFFER</code>,
                     <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>,
+                    <code class="constant">GL_SHADER_STORAGE_BUFFER</code>,
                     <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, or
                     <code class="constant">GL_UNIFORM_BUFFER</code>.
                 </p>
@@ -101,6 +105,17 @@
             buffer object measured in basic machine units.
         </p>
         <p>
+            When a non-zero buffer object is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> target,
+            parameters for draws issued through <a class="citerefentry" href="glDrawArraysIndirect"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>
+            and <a class="citerefentry" href="glDrawElementsIndirect"><span class="citerefentry"><span class="refentrytitle">glDrawElementsIndirect</span></span></a> are sourced
+            from the specified offset in that buffer object's data store.
+        </p>
+        <p>
+            When a non-zero buffer object is bound to the <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> target,
+            the parameters for compute dispatches issued through <a class="citerefentry" href="glDispatchComputeIndirect"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>
+            are sourced from the specified offset in that buffer object's data store.
+        </p>
+        <p>
             While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target,
             the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
             <a class="citerefentry" href="glDrawElementsInstanced"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
@@ -139,10 +154,12 @@
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> binding.
         </p>
         <p>
-            Likewise, the <code class="constant">GL_UNIFORM_BUFFER</code> buffer binding point may be used, but does not directly affect
-            uniform buffer state. <a class="citerefentry" href="glBindBufferBase"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
+            Likewise, the <code class="constant">GL_UNIFORM_BUFFER</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code>
+            buffer binding points may
+            be used, but do not directly affect uniform buffer, atomic counter buffer or shader storage buffer state, respectively.
+            <a class="citerefentry" href="glBindBufferBase"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
             or <a class="citerefentry" href="glBindBufferRange"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a> must be used to bind a buffer to
-            an indexed uniform buffer binding point.
+            an indexed uniform buffer, atomic counter buffer or shader storage buffer binding point.
         </p>
         <p>
             A buffer object binding created with <code class="function">glBindBuffer</code> remains active until a different
@@ -153,6 +170,20 @@
             Once created, a named buffer object may be re-bound to any target as often as needed. However,
             the GL implementation may make choices about how to optimize the storage of a buffer object based
             on its initial binding target.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            The <code class="constant">GL_COPY_READ_BUFFER</code>, <code class="constant">GL_COPY_WRITE_BUFFER</code>, 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code>,<code class="constant">GL_PIXEL_UNPACK_READ_BUFFER</code>,
+           <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and <code class="constant">GL_UNIFORM_BUFFER</code> 
+           targets are available only if the GL ES version is 3.0 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>,
+            <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code> 
+            targets are available only if the GL ES version is 3.1 or greater.
         </p>
       </div>
       <div class="refsect1" id="errors">
@@ -168,10 +199,19 @@
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
         </p>
         <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ATOMIC_COUNTER_BUFFER_BINDING</code>
+        </p>
+        <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_READ_BUFFER_BINDING</code>
         </p>
         <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COPY_WRITE_BUFFER_BINDING</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DRAW_INDIRECT_BUFFER_BINDING</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DISPATCH_INDIRECT_BUFFER_BINDING</code>
         </p>
         <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
@@ -181,6 +221,9 @@
         </p>
         <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SHADER_STORAGE_BUFFER_BINDING</code>
         </p>
         <p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_BINDING</code>
@@ -196,6 +239,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -203,7 +247,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -214,14 +258,18 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style="text-align: left; border-right: 2px solid ; ">glBindBuffer</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>

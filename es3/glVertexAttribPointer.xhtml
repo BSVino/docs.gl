@@ -1,5 +1,5 @@
     <div class="refentry" id="glVertexAttribPointer">
-      <div class="titlepage"/>
+      <div class="titlepage"></div>
       <div class="refnamediv">
         <h2>Name</h2>
         <p>glVertexAttribPointer — define an array of generic vertex attribute data</p>
@@ -135,11 +135,12 @@
               </span>
             </dt>
             <dd>
-              <p>Specifies the byte offset between consecutive
-            generic vertex attributes. If <em class="parameter"><code>stride</code></em>
-            is 0, the generic vertex attributes are
-            understood to be tightly packed in the
-            array. The initial value is 0.</p>
+              <p>
+                Specifies the byte offset between consecutive generic vertex
+                attributes. If <em class="parameter"><code>stride</code></em> is 0, the
+                generic vertex attributes are understood to be tightly
+                packed in the array. The initial value is 0.
+            </p>
             </dd>
             <dt>
               <span class="term">
@@ -149,9 +150,14 @@
               </span>
             </dt>
             <dd>
-              <p>Specifies a pointer to the first generic vertex attribute in the array. If a non-zero buffer is currently
-                        bound to the <code class="constant">GL_ARRAY_BUFFER</code> target, <em class="parameter"><code>pointer</code></em> specifies an offset of 
-                        into the array in the data store of that buffer. The initial value is 0.</p>
+              <p>
+                Specifies a pointer to the first generic vertex attribute in
+                the array. If a non-zero buffer is currently bound to the
+                <code class="constant">GL_ARRAY_BUFFER</code> target,
+                <em class="parameter"><code>pointer</code></em> specifies an offset of into
+                the array in the data store of that buffer. The initial
+                value is 0.
+            </p>
             </dd>
           </dl>
         </div>
@@ -179,14 +185,14 @@
         </p>
         <p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target 
-                        (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>),
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>),
             <em class="parameter"><code>pointer</code></em> is treated as a byte offset into the buffer object's data store and
             the buffer object binding (<code class="constant">GL_ARRAY_BUFFER_BINDING</code>) is saved as generic vertex attribute array
             state (<code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>) for index <em class="parameter"><code>index</code></em>.
         </p>
         <p>
             Client vertex arrays (a binding of zero to the <code class="constant">GL_ARRAY_BUFFER</code> target) are only valid in
-                        conjunction with the zero named vertex array object. This is provided for backwards compatibility with OpenGL ES 2.0. 
+            conjunction with the zero named vertex array object. This is provided for backwards compatibility with OpenGL ES 2.0. 
         </p>
         <p>
             When a generic vertex attribute array is specified,
@@ -217,43 +223,59 @@
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
-        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
-    <em class="parameter"><code>index</code></em> is greater than or equal to
-    <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p>
-        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
-    <em class="parameter"><code>size</code></em> is not 1, 2, 3 or 4.</p>
-        <p><code class="constant">GL_INVALID_ENUM</code> is generated if
-    <em class="parameter"><code>type</code></em> is not an accepted value.</p>
-        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
-    <em class="parameter"><code>stride</code></em> is negative.</p>
-        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>type</code></em>
-    is <code class="constant">GL_INT_2_10_10_10_REV</code> or <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
-    and <em class="parameter"><code>size</code></em> is not 4.</p>
-        <p><code class="constant">GL_INVALID_OPERATION</code> is generated a non-zero vertex array 
-        object is bound, zero is bound to the <code class="constant">GL_ARRAY_BUFFER</code> buffer object 
-        binding point and the <em class="parameter"><code>pointer</code></em> argument is not <code class="constant">NULL</code>.</p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <em class="parameter"><code>index</code></em> is greater than or equal to
+            <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <em class="parameter"><code>size</code></em> is not 1, 2, 3 or 4.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if
+            <em class="parameter"><code>type</code></em> is not an accepted value.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <em class="parameter"><code>stride</code></em> is negative.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if
+            <em class="parameter"><code>type</code></em> is
+            <code class="constant">GL_INT_2_10_10_10_REV</code> or
+            <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code> and
+            <em class="parameter"><code>size</code></em> is not 4.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated a
+            non-zero vertex array object is bound, zero is bound to the
+            <code class="constant">GL_ARRAY_BUFFER</code> buffer object binding point
+            and the <em class="parameter"><code>pointer</code></em> argument is not
+            <code class="constant">NULL</code>.
+        </p>
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-    with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code></p>
+        with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code></p>
         <p><a class="citerefentry" href="glGetVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code></p>
         <p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
         <code class="constant">GL_ARRAY_BUFFER_BINDING</code></p>
         <p><a class="citerefentry" href="glGetVertexAttribPointerv"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttribPointerv</span></span></a>
-    with arguments <em class="parameter"><code>index</code></em> and
-    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_POINTER</code></p>
+        with arguments <em class="parameter"><code>index</code></em> and
+        <code class="constant">GL_VERTEX_ATTRIB_ARRAY_POINTER</code></p>
       </div>
       <div class="refsect1" id="versions">
         <h2>API Version Support</h2>
@@ -262,6 +284,7 @@
             <colgroup>
               <col style="text-align: left; "/>
               <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -269,7 +292,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
             </th>
               </tr>
@@ -280,8 +303,11 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>2.0</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
             </th>
               </tr>
             </thead>
@@ -291,6 +317,7 @@
                   <code class="function">glVertexAttribPointer</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
@@ -298,6 +325,7 @@
                   <code class="function">glVertexAttribIPointer</code>
                 </td>
                 <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>
@@ -307,17 +335,17 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-        <a class="citerefentry" href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
-        <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
-        <a class="citerefentry" href="glDisableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
-        <a class="citerefentry" href="glDrawArrays"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
-        <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
-        <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
-        <a class="citerefentry" href="glEnableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
-        <a class="citerefentry" href="glDrawArraysInstanced"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
-        <a class="citerefentry" href="glDrawElementsIntanced"><span class="citerefentry"><span class="refentrytitle">glDrawElementsIntanced</span></span></a>,
-        <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>
-    </p>
+            <a class="citerefentry" href="glBindAttribLocation"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glDisableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
+            <a class="citerefentry" href="glDrawArrays"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glEnableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
+            <a class="citerefentry" href="glDrawArraysInstanced"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
+            <a class="citerefentry" href="glDrawElementsIntanced"><span class="citerefentry"><span class="refentrytitle">glDrawElementsIntanced</span></span></a>,
+            <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>
+        </p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
