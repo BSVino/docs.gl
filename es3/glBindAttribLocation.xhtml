@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>glBindAttribLocation - OpenGL ES 3 Reference Pages</title>
-    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
-    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
-    <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                MathML: {
-                    extensions: ["content-mathml.js"]
-                },
-                tex2jax: {
-                    inlineMath: [['$','$'], ['\\(','\\)']]
-                }
-            });
-        </script>
-    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
-  </head>
-  <body>
-    <header/>
     <div class="refentry" id="glBindAttribLocation">
       <div class="titlepage"/>
       <div class="refnamediv">
@@ -118,7 +98,7 @@
     <code class="constant">GL_MAX_VERTEX_ATTRIBS</code> minus one. The values sent
     to each generic attribute index are part of current state.
     If a different program object is made current by calling
-    <a class="citerefentry" href="glUseProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
+    <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
     the generic vertex attributes are tracked in such a way that the
     same values will be observed by attributes in the new program
     object that are also bound to
@@ -128,7 +108,7 @@
     can be explicitly assigned at any time by calling
     <code class="function">glBindAttribLocation</code>. Attribute bindings do
     not go into effect until
-    <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+    <a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
     is called. After a program object has been linked successfully,
     the index values for generic attributes remain fixed (and their
     values can be queried) until the next link command
@@ -161,9 +141,9 @@
     detect aliasing.</p>
         <p>Active attributes that are not explicitly bound will be
     bound by the linker when
-    <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+    <a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
     is called. The locations assigned can be queried by calling
-    <a class="citerefentry" href="glGetAttribLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>.</p>
+    <a class="citerefentry" href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>.</p>
         <p>OpenGL copies the <em class="parameter"><code>name</code></em> string when
     <code class="function">glBindAttribLocation</code> is called, so an
     application may free its copy of the <em class="parameter"><code>name</code></em>
@@ -171,7 +151,7 @@
         <p>Generic attribute locations may be specified in the shader source
     text using a <code class="function">location</code> layout qualifier. In this case,
     the location of the attribute specified in the shader's source takes precedence
-    and may be queried by calling <a class="citerefentry" href="glGetAttribLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>.
+    and may be queried by calling <a class="citerefentry" href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>.
     </p>
       </div>
       <div class="refsect1" id="errors">
@@ -190,15 +170,15 @@
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
-        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        <p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
     with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code></p>
-        <p><a class="citerefentry" href="glGetActiveAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
+        <p><a class="citerefentry" href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>
     with argument <em class="parameter"><code>program</code></em></p>
-        <p><a class="citerefentry" href="glGetAttribLocation.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
+        <p><a class="citerefentry" href="glGetAttribLocation"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>
     with arguments <em class="parameter"><code>program</code></em> and
     <em class="parameter"><code>name</code></em></p>
         <p>
-          <a class="citerefentry" href="glIsProgram.xhtml">
+          <a class="citerefentry" href="glIsProgram">
             <span class="citerefentry">
               <span class="refentrytitle">glIsProgram</span>
             </span>
@@ -247,11 +227,11 @@
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
-        <p><a class="citerefentry" href="glDisableVertexAttribArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
-    <a class="citerefentry" href="glEnableVertexAttribArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
-    <a class="citerefentry" href="glUseProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
-    <a class="citerefentry" href="glVertexAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
-    <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p>
+        <p><a class="citerefentry" href="glDisableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
+    <a class="citerefentry" href="glEnableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
+    <a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,
+    <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
+    <a class="citerefentry" href="glVertexAttribPointer"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
@@ -264,6 +244,3 @@
         </p>
       </div>
     </div>
-    <footer/>
-  </body>
-</html>

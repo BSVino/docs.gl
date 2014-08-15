@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>glEnable - OpenGL ES 3 Reference Pages</title>
-    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
-    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
-    <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                MathML: {
-                    extensions: ["content-mathml.js"]
-                },
-                tex2jax: {
-                    inlineMath: [['$','$'], ['\\(','\\)']]
-                }
-            });
-        </script>
-    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
-  </head>
-  <body>
-    <header/>
     <div class="refentry" id="glEnable">
       <div class="titlepage"/>
       <div class="refnamediv">
@@ -72,11 +52,11 @@
         <h2>Description</h2>
         <p>
             <code class="function">glEnable</code> and
-            <a class="citerefentry" href="glDisable.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
+            <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
             enable and disable various capabilities. Use
-            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
             or
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
             to determine the current setting of any capability. The initial
             value for each capability with the exception of
             <code class="constant">GL_DITHER</code> is <code class="constant">GL_FALSE</code>.
@@ -84,7 +64,7 @@
             <code class="constant">GL_TRUE</code>.
         </p>
         <p>
-            Both <code class="function">glEnable</code> and <a class="citerefentry" href="glDisable.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> take a single argument, <em class="parameter"><code>cap</code></em>,
+            Both <code class="function">glEnable</code> and <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> take a single argument, <em class="parameter"><code>cap</code></em>,
             which can assume one of the following values:
         </p>
         <div class="variablelist">
@@ -98,7 +78,7 @@
               <p>
                         If enabled,
                         blend the computed fragment color values with the values in the color
-                        buffers. See <a class="citerefentry" href="glBlendFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>.
+                        buffers. See <a class="citerefentry" href="glBlendFunc"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -112,7 +92,7 @@
               <p>
                         If enabled,
                         cull polygons based on their winding in window coordinates.
-                        See <a class="citerefentry" href="glCullFace.xhtml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.
+                        See <a class="citerefentry" href="glCullFace"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -126,8 +106,8 @@
                         do depth comparisons and update the depth buffer. Note that even if
                         the depth buffer exists and the depth mask is non-zero, the
                         depth buffer is not updated if the depth test is disabled. See
-                        <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a> and
-                        <a class="citerefentry" href="glDepthRangef.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>.
+                        <a class="citerefentry" href="glDepthFunc"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a> and
+                        <a class="citerefentry" href="glDepthRangef"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -149,7 +129,7 @@
               <p>
                         If enabled, an offset is added to depth values of a polygon's
                         fragments before the depth comparison is performed.
-                        See <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                        See <a class="citerefentry" href="glPolygonOffset"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -185,8 +165,8 @@
               <p>
                         If enabled, primitives are discarded immediately before the rasterization stage,
                         but after the optional transform feedback stage.
-                        <a class="citerefentry" href="glClear.xhtml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
-                        <a class="citerefentry" href="glClearBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a>* commands
+                        <a class="citerefentry" href="glClear"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
+                        <a class="citerefentry" href="glClearBuffer"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a>* commands
                         are also ignored.
                     </p>
             </dd>
@@ -214,7 +194,7 @@
                         the fragment's coverage is ANDed with the temporary coverage value.  If
                         <code class="constant">GL_SAMPLE_COVERAGE_INVERT</code> is set to <code class="constant">GL_TRUE</code>, invert the coverage
                         value.
-                        See <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                        See <a class="citerefentry" href="glSampleCoverage"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -226,7 +206,7 @@
               <p>
                         If enabled,
                         discard fragments that are outside the scissor rectangle.
-                        See <a class="citerefentry" href="glScissor.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
+                        See <a class="citerefentry" href="glScissor"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
                     </p>
             </dd>
             <dt>
@@ -238,7 +218,7 @@
               <p>
                         If enabled,
                         do stencil testing and update the stencil buffer.
-                        See <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>.
+                        See <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>.
                     </p>
             </dd>
           </dl>
@@ -254,10 +234,10 @@
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
         </p>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -312,17 +292,17 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="glBlendFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
-            <a class="citerefentry" href="glCullFace.xhtml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>,
-            <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
-            <a class="citerefentry" href="glDepthRangef.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>,
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>,
-            <a class="citerefentry" href="glPolygonOffset.xhtml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>,
-            <a class="citerefentry" href="glSampleCoverage.xhtml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>,
-            <a class="citerefentry" href="glScissor.xhtml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
-            <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
-            <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
+            <a class="citerefentry" href="glBlendFunc"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glCullFace"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>,
+            <a class="citerefentry" href="glDepthFunc"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glDepthRangef"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>,
+            <a class="citerefentry" href="glPolygonOffset"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>,
+            <a class="citerefentry" href="glSampleCoverage"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>,
+            <a class="citerefentry" href="glScissor"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
         </p>
       </div>
       <div class="refsect1" id="Copyright">
@@ -336,6 +316,3 @@
         </p>
       </div>
     </div>
-    <footer/>
-  </body>
-</html>

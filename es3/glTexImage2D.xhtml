@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>glTexImage2D - OpenGL ES 3 Reference Pages</title>
-    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
-    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
-    <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                MathML: {
-                    extensions: ["content-mathml.js"]
-                },
-                tex2jax: {
-                    inlineMath: [['$','$'], ['\\(','\\)']]
-                }
-            });
-        </script>
-    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
-  </head>
-  <body>
-    <header/>
     <div class="refentry" id="glTexImage2D">
       <div class="titlepage"/>
       <div class="refnamediv">
@@ -240,7 +220,7 @@
             To define texture images, call <code class="function">glTexImage2D</code>.
             The arguments describe the parameters of the texture image,
             such as height, width, width of the border, level-of-detail number
-            (see <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
+            (see <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>),
             and number of color components provided.
             The last three arguments describe how the image is represented in memory.
         </p>
@@ -254,7 +234,7 @@
         </p>
         <p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
-            (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p>
         <p>
@@ -1681,13 +1661,13 @@
         <p>
             Image-based shadowing can be enabled by comparing texture r coordinates to
             depth texture values to generate a boolean result.
-            See <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a> for details on texture comparison.
+            See <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a> for details on texture comparison.
         </p>
       </div>
       <div class="refsect1" id="notes">
         <h2>Notes</h2>
         <p>
-            The <a class="citerefentry" href="glPixelStorei.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a> mode affects texture images.
+            The <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a> mode affects texture images.
         </p>
         <p>
             <em class="parameter"><code>data</code></em> may be a null pointer.
@@ -1700,7 +1680,7 @@
         </p>
         <p>
             <code class="function">glTexImage2D</code> specifies the two-dimensional texture for the texture object bound to the current texture unit,
-            specified with <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+            specified with <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p>
       </div>
       <div class="refsect1" id="errors">
@@ -1778,7 +1758,7 @@
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
         <p>
-            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -1824,17 +1804,17 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-            <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glPixelStorei.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
-            <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
-            <a class="citerefentry" href="glTexStorage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+            <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">
@@ -1848,6 +1828,3 @@
         </p>
       </div>
     </div>
-    <footer/>
-  </body>
-</html>
