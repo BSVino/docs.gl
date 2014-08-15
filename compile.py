@@ -66,12 +66,12 @@ def spew_category(name, commands):
     
     classes = "command"
     for v in versions_available:
-      classes += " gl" + v.replace(".", "")
+      classes += " " + v.replace(".", "")
       
       if not v in category_versions:
         category_versions.append(v)
         
-    latest_present = versions_available[-1][0]
+    latest_present = versions_available[-1][0:3]
       
     commands_list += "<li class='" + classes + "'><a href='../" + latest_present + "/" + command + "'>" + command + "</a></li>"
     
@@ -83,7 +83,7 @@ def spew_category(name, commands):
 
   classes = "category"
   for v in category_versions:
-    classes += " gl" + v.replace(".", "")
+    classes += " " + v.replace(".", "")
     
   api_commands += "<li class='" + classes + "'>" + name + ""
   
@@ -106,7 +106,7 @@ version_numbers = opengl.version_commands.keys()
 major_versions = opengl.get_major_versions(opengl.version_commands.keys())
 
 for version in major_versions:
-  if int(version) < 2:
+  if int(version[0]) < 2:
     continue
     
   written = 0
@@ -122,20 +122,28 @@ for version in major_versions:
   # Find latest minor version for this major version.
   latest_minor = version + ".0"
   for version_option in all_versions:
-    if latest_minor[0] == version_option[0] and float(latest_minor) < float(version_option):
+    if latest_minor[0] == version_option[2] and float(latest_minor) < float(version_option[2:]):
       latest_minor = version_option
   
   toc_versions_options = ""
   for version_option in all_versions:
-    if float(version_option) < 2.1:
+    if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
+      continue
+
+    if version_option[0:2] == "es" and float(version_option[2:]) < 2.0:
       continue
 
     selected = ""
     if version_option == latest_minor:
       selected = " selected='selected'"
-    toc_versions_options = toc_versions_options + "<option value='gl" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option + "</option>"
+
+    if version_option[0:2] == 'gl':
+      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option[2:] + "</option>"
+    elif version_option[0:2] == 'es':
+      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLES" + version_option[2:] + "</option>"
+      
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
-  header_for_version = header_for_version.replace("{$current_api}", "gl" + latest_minor.replace(".", ""))
+  header_for_version = header_for_version.replace("{$current_api}", latest_minor.replace(".", ""))
     
   for command in opengl.commands_version_flat:
     if not version in opengl.get_major_versions(opengl.commands_version_flat[command]):
@@ -147,11 +155,11 @@ for version in major_versions:
     command_major_versions = opengl.get_major_versions_available(command)
     
     command_versions = "<strong>OpenGL " + version + "</strong>"
-    for version_option in command_major_versions:
-      if version_option[0] == version[0]:
+    for major_version in command_major_versions:
+      if major_version[0] == version[0]:
         continue
         
-      command_versions = command_versions + " | <a href='../" + version_option[0] + "/" + command + "'>GL" + version_option[0] + "</a>"
+      command_versions = command_versions + " | <a href='../" + version_option[0:2] + major_version[0] + "/" + command + "'>GL" + major_version[0] + "</a>"
       
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$title}", command)
@@ -161,7 +169,7 @@ for version in major_versions:
 
     version_dir = version[0]
     
-    create_directory(output_dir + version_dir)
+    create_directory(output_dir + version_option[0:2] + version_dir)
 
     command_file = shared.find_command_file(version[0], command)
     if command_file == False:
@@ -173,7 +181,7 @@ for version in major_versions:
     
     output_html = header_for_command + command_html + footer_for_command
 
-    output = open(output_dir + version_dir + "/" + command, "w")
+    output = open(output_dir + version_option[0:2] + version_dir + "/" + command, "w")
     output.write(output_html.encode('ascii', 'xmlcharrefreplace'))
     output.close()
     

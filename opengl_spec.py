@@ -1,5 +1,5 @@
 version_commands = {
-  '1.0': {
+  'gl1.0': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -307,7 +307,7 @@ version_commands = {
     'glTranslated': 'glTranslated',
     'glTranslatef': 'glTranslatef',
   },
-  '1.1': {
+  'gl1.1': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -645,7 +645,7 @@ version_commands = {
     'glPopClientAttrib': 'glPopClientAttrib',
     'glPushClientAttrib': 'glPushClientAttrib',
   },
-  '1.2': {
+  'gl1.2': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -987,7 +987,7 @@ version_commands = {
     'glTexSubImage3D': 'glTexSubImage3D',
     'glCopyTexSubImage3D': 'glCopyTexSubImage3D',
   },
-  '1.3': {
+  'gl1.3': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -1375,7 +1375,7 @@ version_commands = {
     'glMultTransposeMatrixf': 'glMultTransposeMatrixf',
     'glMultTransposeMatrixd': 'glMultTransposeMatrixd',
   },
-  '1.4': {
+  'gl1.4': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -1810,7 +1810,7 @@ version_commands = {
     'glBlendColor': 'glBlendColor',
     'glBlendEquation': 'glBlendEquation',
   },
-  '1.5': {
+  'gl1.5': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -2264,7 +2264,7 @@ version_commands = {
     'glGetBufferParameteriv': 'glGetBufferParameteriv',
     'glGetBufferPointerv': 'glGetBufferPointerv',
   },
-  '2.0': {
+  'gl2.0': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -2811,7 +2811,7 @@ version_commands = {
     'glVertexAttrib4usv': 'glVertexAttrib',
     'glVertexAttribPointer': 'glVertexAttribPointer',
   },
-  '2.1': {
+  'gl2.1': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -3364,7 +3364,7 @@ version_commands = {
     'glUniformMatrix3x4fv': 'glUniform',
     'glUniformMatrix4x3fv': 'glUniform',
   },
-  '3.0': {
+  'gl3.0': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -4001,7 +4001,7 @@ version_commands = {
     'glGenVertexArrays': 'glGenVertexArrays',
     'glIsVertexArray': 'glIsVertexArray',
   },
-  '3.1': {
+  'gl3.1': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -4650,7 +4650,7 @@ version_commands = {
     'glGetActiveUniformBlockName': 'glGetActiveUniformBlockName',
     'glUniformBlockBinding': 'glUniformBlockBinding',
   },
-  '3.2': {
+  'gl3.2': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -4968,7 +4968,7 @@ version_commands = {
     'glGetMultisamplefv': 'glGetMultisample',
     'glSampleMaski': 'glSampleMaski',
   },
-  '3.3': {
+  'gl3.3': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -5314,7 +5314,7 @@ version_commands = {
     'glVertexAttribP4ui': 'glVertexAttrib',
     'glVertexAttribP4uiv': 'glVertexAttrib',
   },
-  '4.0': {
+  'gl4.0': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -5706,7 +5706,7 @@ version_commands = {
     'glEndQueryIndexed': 'glEndQueryIndexed',
     'glGetQueryIndexediv': 'glGetQueryIndexed',
   },
-  '4.1': {
+  'gl4.1': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -6186,7 +6186,7 @@ version_commands = {
     'glGetFloati_v': 'glGet',
     'glGetDoublei_v': 'glGet',
   },
-  '4.2': {
+  'gl4.2': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -6678,7 +6678,7 @@ version_commands = {
     'glDrawTransformFeedbackInstanced': 'glDrawTransformFeedbackInstanced',
     'glDrawTransformFeedbackStreamInstanced': 'glDrawTransformFeedbackStreamInstanced',
   },
-  '4.3': {
+  'gl4.3': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -7215,7 +7215,7 @@ version_commands = {
     'glGetPointerv': 'glGetPointerv',
     'glGetPointerv': 'glGetPointerv',
   },
-  '4.4': {
+  'gl4.4': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',
@@ -7761,7 +7761,7 @@ version_commands = {
     'glBindImageTextures': 'glBindImageTextures',
     'glBindVertexBuffers': 'glBindVertexBuffers',
   },
-  '4.5': {
+  'gl4.5': {
     'glCullFace': 'glCullFace',
     'glFrontFace': 'glFrontFace',
     'glHint': 'glHint',

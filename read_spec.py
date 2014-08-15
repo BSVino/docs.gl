@@ -4,12 +4,6 @@ import os
 import xml.etree.ElementTree as ET
 import shared
 
-gltree = ET.parse('specs/gl.xml')
-glroot = gltree.getroot()
-
-output = open("opengl_spec.py", "w")
-output.write("version_commands = {\n")
-
 extensions = [
   'f', 'i', 'v', 'd', 's', '1', '2',
   'fv', 'iv', '3b', '3d', '3s', '3i', '3f', '4b', '4s', '4i', '4f', '4d', 'dv', 'sv', '2d', '2f', '2i', '2s', '1d', '1f', '1i', '1s', 'ub', 'fi', '1D', '2D', '3D',
@@ -123,6 +117,12 @@ def test_replacements(gl_major_version, command):
 
   return command
 
+gltree = ET.parse('specs/gl.xml')
+glroot = gltree.getroot()
+
+output = open("opengl_spec.py", "w")
+output.write("version_commands = {\n")
+
 current_command_list = []
 for feature in glroot:
   if feature.tag != 'feature':
@@ -144,7 +144,7 @@ for feature in glroot:
             continue
           current_command_list.remove(command.attrib['name'])
 
-    output.write("  '" + feature.attrib['number'] + "': {\n")
+    output.write("  'gl" + feature.attrib['number'] + "': {\n")
     for command in current_command_list:
       gldir = "gl" + gl_major_version
       
