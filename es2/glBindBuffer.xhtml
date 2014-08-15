@@ -20,7 +20,7 @@
             Buffer object names and the corresponding buffer object contents are local to
             the shared object space of the current GL rendering context.
         </p><p>
-            You may use <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> to generate a set of new buffer object names.
+            You may use <a class="citerefentry" href="glGenBuffers"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> to generate a set of new buffer object names.
         </p><p>
             The state of a buffer object immediately after it is first bound is a zero-sized memory buffer with
             <code class="constant">GL_STATIC_DRAW</code> usage.
@@ -32,7 +32,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> error.
         </p><p>
             When vertex array pointer state is changed by a call to 
-            <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>, 
+            <a class="citerefentry" href="glVertexAttribPointer"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>, 
             the current buffer object binding (<code class="constant">GL_ARRAY_BUFFER_BINDING</code>) is copied into the 
             corresponding client state for the vertex attrib array being changed, one of the indexed 
             <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>s. While a non-zero buffer object is bound to the 
@@ -41,13 +41,13 @@
             buffer object measured in basic machine units.
         </p><p>
             While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target, 
-            the indices parameter of <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a> that is traditionally
+            the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a> that is traditionally
             interpreted as a pointer to client-side memory is instead interpreted as an offset within the
             buffer object measured in basic machine units.
         </p><p>
             A buffer object binding created with <code class="function">glBindBuffer</code> remains active until a different
             buffer object name is bound to the same target, or until the bound buffer object is
-            deleted with <a class="citerefentry" href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>.
+            deleted with <a class="citerefentry" href="glDeleteBuffers"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>.
         </p><p>
             Once created, a named buffer object may be re-bound to any target as often as needed. However,
             the GL implementation may make choices about how to optimize the storage of a buffer object based
@@ -56,14 +56,14 @@
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the allowable
             values.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code>
         </p><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
-            <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glIsBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
+            <a class="citerefentry" href="glDeleteBuffers"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
+            <a class="citerefentry" href="glGenBuffers"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glIsBuffer"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
         </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
             This material may be distributed subject to the terms and conditions set forth in 

@@ -18,18 +18,18 @@
 	fragment shaders, or load an executable binary that contains an optimized
 	pair of vertex and fragment shaders stored in the same binary.</p><p>If <code class="function">glShaderBinary</code> fails, the old state of shader
 	objects for which the binary was being loaded will not be restored.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>Shader binary support is optional and thus must be queried
-	before use by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	before use by calling <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
 	with arguments <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code> and
 	<code class="constant">GL_SHADER_BINARY_FORMATS</code>. <code class="function">glShaderBinary</code> 
 	generates <code class="constant">GL_INVALID_OPERATION</code> on implementations
 	that do not support any shader binary formats. Such implementations instead
-        offer the <a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
+        offer the <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
 	alternative for supplying OpenGL ES Shading Language shader source for compilation.</p><p>If shader binary formats are supported, then an implementation may
 	require that an optimized pair of vertex and fragment shader
 	binaries that were compiled together to be specified to
-	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>.
+	<a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>.
 	Not specifying an optimized pair my cause 
-	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+	<a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
 	to fail. Such a restriction, if it exists, will be documented in
 	the extension specification defining <em class="parameter"><code>binaryformat</code></em>.</p><p>OpenGL copies the shader binary data when
 	<code class="function">glShaderBinary</code> is called, so an application
@@ -43,11 +43,11 @@
         or <em class="parameter"><code>length</code></em> is negative.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if any value in
 	<em class="parameter"><code>shaders</code></em> is not a shader object, or if there
 	is more than one vertex shader object handle or more than one fragment shader
-	object handle in <em class="parameter"><code>shaders</code></em>.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	object handle in <em class="parameter"><code>shaders</code></em>.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
 	with arguments <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code>
-        and <code class="constant">GL_SHADER_BINARY_FORMATS</code></p><p><a class="citerefentry" href="glIsShader.xml"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCreateShader.xml"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a>,
-	<a class="citerefentry" href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
-	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+        and <code class="constant">GL_SHADER_BINARY_FORMATS</code></p><p><a class="citerefentry" href="glIsShader"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCreateShader"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a>,
+	<a class="citerefentry" href="glDeleteShader"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2008 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.

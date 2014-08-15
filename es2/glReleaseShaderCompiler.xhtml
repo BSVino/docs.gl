@@ -3,21 +3,21 @@
 	frees resources allocated by the shader compiler.  This is a hint from the application
         that additional shader compilations are unlikely to occur, at least for some period of time,
         and that the resources consumed by the shader compiler may be released and put to better use
-        elsewhere.</p><p>However, if a call to <a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>
+        elsewhere.</p><p>However, if a call to <a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>
 	is made after a call to <code class="function">glReleaseShaderCompiler</code>, the shader compiler must be restored
 	to service the compilation request as if <code class="function">glReleaseShaderCompiler</code> had never been called.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>Shader compiler support is optional, and thus must be queried
-	before use by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-	with argument <code class="constant">GL_SHADER_COMPILER</code>. <a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>, 
-	<a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
-	<a class="citerefentry" href="glGetShaderPrecisionFormat.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderPrecisionFormat</span></span></a>, and
+	before use by calling <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_SHADER_COMPILER</code>. <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>, 
+	<a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+	<a class="citerefentry" href="glGetShaderPrecisionFormat"><span class="citerefentry"><span class="refentrytitle">glGetShaderPrecisionFormat</span></span></a>, and
 	<code class="function">glReleaseShaderCompiler</code> will
 	each generate <code class="constant">GL_INVALID_OPERATION</code> on implementations
 	that do not support a shader compiler. Such implementations instead offer the
-	<a class="citerefentry" href="glShaderBinary.xml"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>
+	<a class="citerefentry" href="glShaderBinary"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>
 	alternative for supplying a pre-compiled shader binary.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
-	a shader compiler is not supported.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-	with argument <code class="constant">GL_SHADER_COMPILER</code></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
-	<a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+	a shader compiler is not supported.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_SHADER_COMPILER</code></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+	<a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2008 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.

@@ -32,7 +32,7 @@
         </p><p>
             <code class="function">glCopyTexSubImage2D</code> replaces a rectangular portion of a two-dimensional texture image or
             cube-map texture image with pixels from the current framebuffer
-            (rather than from client memory, as is the case for <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>).
+            (rather than from client memory, as is the case for <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>).
         </p><p>
             The screen-aligned pixel rectangle with lower left corner at
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -69,10 +69,10 @@
             inclusive, at the mipmap level specified by <em class="parameter"><code>level</code></em>.
         </p><p>
             The pixels in the rectangle are processed exactly as if
-            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called with 
+            <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called with 
             <em class="parameter"><code>format</code></em> set to <code class="constant">GL_RGBA</code>, but the process stops just after
             conversion of RGBA values. Subsequent processing is identical to that
-            described for <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, 
+            described for <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, 
             beginning with the clamping of the R, G, B, and A values to the range 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
@@ -98,7 +98,7 @@
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glCopyTexSubImage2D</code>
             specifies the two-dimensional or cube-map texture for the current texture unit,
-            specified with <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+            specified with <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TEXTURE_2D</code>,
             <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
@@ -186,7 +186,7 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texture array has not been
-            defined by a previous <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> or <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a> operation.
+            defined by a previous <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a> or <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a> operation.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if 
             the currently bound framebuffer's format does not contain a superset of
@@ -194,19 +194,19 @@
         </p><p>
             <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if 
             the currently bound framebuffer is not framebuffer complete (i.e. the 
-            return value from <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>
+            return value from <a class="citerefentry" href="glCheckFramebufferStatus"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>
             is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
             with argument <code class="constant">GL_MAX_TEXTURE_SIZE</code> or
             <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
-            <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
-            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
-            <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>
+            <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glCheckFramebufferStatus"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>
         </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

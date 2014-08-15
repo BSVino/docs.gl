@@ -41,18 +41,18 @@
         </p><p>
             The stencil test conditionally eliminates a pixel based on the outcome
             of a comparison between the value in the stencil buffer and a
-            reference value. To enable and disable the test, call <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-            and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
+            reference value. To enable and disable the test, call <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+            and <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
             <code class="constant">GL_STENCIL_TEST</code>; to control it, call 
-            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> or 
-            <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+            <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> or 
+            <a class="citerefentry" href="glStencilFuncSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
         </p><p>
             There can be two separate sets of <em class="parameter"><code>sfail</code></em>, <em class="parameter"><code>dpfail</code></em>, and 
             <em class="parameter"><code>dppass</code></em> parameters; one affects back-facing polygons, and the other
             affects front-facing polygons as well as other non-polygon primitives. 
-            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> sets both front
+            <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> sets both front
             and back stencil state to the same values, as if 
-            <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a> were called
+            <a class="citerefentry" href="glStencilOpSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a> were called
             with <em class="parameter"><code>face</code></em> set to <code class="constant">GL_FRONT_AND_BACK</code>.
         </p><p>
             <code class="function">glStencilOpSeparate</code> takes three arguments that indicate what happens
@@ -67,7 +67,7 @@
                         Sets the stencil buffer value to 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_REPLACE</code></span></dt><dd><p>
                         Sets the stencil buffer value to <span class="emphasis"><em>ref</em></span>,
-                        as specified by <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>.
+                        as specified by <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_INCR</code></span></dt><dd><p>
                         Increments the current stencil buffer value.
                         Clamps to the maximum representable unsigned value.
@@ -105,7 +105,7 @@
             The other two arguments to <code class="function">glStencilOpSeparate</code> specify stencil buffer actions
             that depend on whether subsequent depth buffer tests succeed (<em class="parameter"><code>dppass</code></em>)
             or fail (<em class="parameter"><code>dpfail</code></em>) (see
-            <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>).
+            <a class="citerefentry" href="glDepthFunc"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>).
             The actions are specified using the same eight symbolic constants as <em class="parameter"><code>sfail</code></em>.
             Note that <em class="parameter"><code>dpfail</code></em> is ignored when there is no depth buffer,
             or when the depth buffer is not enabled.
@@ -125,22 +125,22 @@
             <em class="parameter"><code>dpfail</code></em>, or <em class="parameter"><code>dppass</code></em> is any value other 
             than the eight defined symbolic constant values.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
             <code class="constant">GL_STENCIL_FAIL</code>, <code class="constant">GL_STENCIL_PASS_DEPTH_PASS</code>, 
             <code class="constant">GL_STENCIL_PASS_DEPTH_FAIL</code>, <code class="constant">GL_STENCIL_BACK_FAIL</code>, 
             <code class="constant">GL_STENCIL_BACK_PASS_DEPTH_PASS</code>, <code class="constant">GL_STENCIL_BACK_PASS_DEPTH_FAIL</code>,
             or <code class="constant">GL_STENCIL_BITS</code>
         </p><p>
-            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_STENCIL_TEST</code>
+            <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_STENCIL_TEST</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
-            <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
-            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
-            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
-            <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>,
-            <a class="citerefentry" href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>,
-            <a class="citerefentry" href="glStencilMaskSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>,
-            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+            <a class="citerefentry" href="glBlendFunc"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+            <a class="citerefentry" href="glDepthFunc"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glStencilFuncSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>,
+            <a class="citerefentry" href="glStencilMask"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>,
+            <a class="citerefentry" href="glStencilMaskSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>,
+            <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
         </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2006 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 

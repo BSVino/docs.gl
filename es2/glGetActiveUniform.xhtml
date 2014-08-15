@@ -13,7 +13,7 @@
 	information about an active uniform variable in the program
 	object specified by <em class="parameter"><code>program</code></em>. The number
 	of active uniform variables can be obtained by calling
-	<a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	<a class="citerefentry" href="glGetProgramiv"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
 	with the value <code class="constant">GL_ACTIVE_UNIFORMS</code>. A value
 	of 0 for <em class="parameter"><code>index</code></em> selects the first active
 	uniform variable. Permissible values for
@@ -25,18 +25,18 @@
 	<em class="parameter"><code>gl_DepthRange</code></em>).
 	User-defined uniform variables have arbitrary names and obtain
 	their values from the application through calls to
-	<a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
+	<a class="citerefentry" href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
 	A uniform variable (either built-in or user-defined) is
 	considered active if it is determined during the link operation
 	that it may be accessed during program execution. Therefore,
 	<em class="parameter"><code>program</code></em> should have previously been the
 	target of a call to
-	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
 	but it is not necessary for it to have been linked
 	successfully.</p><p>The size of the character buffer required to store the
 	longest uniform variable name in <em class="parameter"><code>program</code></em>
 	can be obtained by calling
-	<a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	<a class="citerefentry" href="glGetProgramiv"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
 	with the value
 	<code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>. This value
 	should be used to allocate a buffer of sufficient size to store
@@ -84,7 +84,7 @@
 	reduced to its fundamental components containing the
 	"." and "[]" operators such that each of the
 	names is valid as an argument to
-	<a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
+	<a class="citerefentry" href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>.
 	Each of these reduced uniform variables is counted as one active
 	uniform variable and is assigned an index. A valid name cannot
 	be a structure, an array of structures, or a subcomponent of a
@@ -113,17 +113,17 @@
 	<em class="parameter"><code>index</code></em> is greater than or equal to the
 	number of active uniform variables in
 	<em class="parameter"><code>program</code></em>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
-	<em class="parameter"><code>bufSize</code></em> is less than 0.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	<em class="parameter"><code>bufSize</code></em> is less than 0.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
 	with argument <code class="constant">GL_MAX_VERTEX_UNIFORM_VECTORS
 	</code> or
-	<code class="constant">GL_MAX_FRAGMENT_UNIFORM_VECTORS</code>.</p><p><a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	<code class="constant">GL_MAX_FRAGMENT_UNIFORM_VECTORS</code>.</p><p><a class="citerefentry" href="glGetProgramiv"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
 	with argument <code class="constant">GL_ACTIVE_UNIFORMS</code> or
-	<code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>.</p><p><a class="citerefentry" href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>,
-	<a class="citerefentry" href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
-	<a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,
-	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
-	<a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
-	<a class="citerefentry" href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+	<code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>.</p><p><a class="citerefentry" href="glIsProgram"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glGetActiveAttrib"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>,
+	<a class="citerefentry" href="glGetUniform"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
+	<a class="citerefentry" href="glGetUniformLocation"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	<a class="citerefentry" href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>,
+	<a class="citerefentry" href="glUseProgram"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
