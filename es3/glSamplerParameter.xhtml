@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glSamplerParameter - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glSamplerParameter">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glSamplerParameter — set sampler parameters</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glSamplerParameterf</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLfloat <var class="pdparam">param</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glSamplerParameteri</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">param</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glSamplerParameterfv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLfloat * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glSamplerParameteriv</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">sampler</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLint * <var class="pdparam">params</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>sampler</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the sampler object whose parameter to modify.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the symbolic name of a single-valued sampler parameter.
+                    <em class="parameter"><code>pname</code></em> can be one of the following:
+                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_T</code>,
+                    <code class="constant">GL_TEXTURE_WRAP_R</code>,
+                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
+                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
+                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>, or
+                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>param</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For the scalar commands, specifies the value of
+                    <em class="parameter"><code>pname</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>params</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For the vector commands
+                    (<code class="function">glSamplerParameter*v</code>), specifies a
+                    pointer to an array where the value or values of
+                    <em class="parameter"><code>pname</code></em> are stored.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glSamplerParameter</code> assigns the value or values in <em class="parameter"><code>params</code></em> to the sampler parameter
+            specified as <em class="parameter"><code>pname</code></em>.
+            <em class="parameter"><code>sampler</code></em> specifies the sampler object to be modified, and must be the name of a sampler object previously
+            returned from a call to <a class="citerefentry" href="glGenSamplers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenSamplers</span></span></a>.
+            The following symbols are accepted in <em class="parameter"><code>pname</code></em>:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_MIN_FILTER</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The texture minifying function is used whenever the pixel being textured
+                        maps to an area greater than one texture element.
+                        There are six defined minifying functions.
+                        Two of them use the nearest one or nearest four texture elements
+                        to compute the texture value.
+                        The other four use mipmaps.
+                    </p>
+              <p>
+                        A mipmap is an ordered set of arrays representing the same image
+                        at progressively lower resolutions.
+                        If the texture has dimensions
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>×</mo>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">m</mi>
+                                </msup>
+                            </mrow>
+                        </math>,
+                        there are
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mrow>
+                                    <mi mathvariant="italic">max</mi>
+                                    <mo>⁡</mo>
+                                    <mfenced open="(" close=")">
+                                        <mi mathvariant="italic">n</mi>
+                                        <mi mathvariant="italic">m</mi>
+                                    </mfenced>
+                                </mrow>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        mipmaps.
+                        The first mipmap is the original texture,
+                        with dimensions
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>×</mo>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">m</mi>
+                                </msup>
+                            </mrow>
+                        </math>.
+                        Each subsequent mipmap has dimensions
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mi mathvariant="italic">k</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                </msup>
+                                <mo>×</mo>
+                                <msup><mn>2</mn>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mi mathvariant="italic">l</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                </msup>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">k</mi>
+                                </msup>
+                                <mo>×</mo>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">l</mi>
+                                </msup>
+                            </mrow>
+                        </math>
+                        are the dimensions of the previous mipmap,
+                        until either
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mn>0</mn>
+                            </mrow>
+                        </math>
+                        or
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mi mathvariant="italic">l</mi>
+                                <mo>=</mo>
+                                <mn>0</mn>
+                            </mrow>
+                        </math>.
+                        At that point,
+                        subsequent mipmaps have dimension
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <msup><mn>2</mn>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mi mathvariant="italic">l</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                </msup>
+                            </mrow>
+                        </math>
+                        or
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mi mathvariant="italic">k</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                </msup>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        until the final mipmap,
+                        which has dimension
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>.
+                        To define the mipmaps, call <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>, <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                         <a class="citerefentry" href="glTexStorage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>, <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+                        or <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>
+                        with the <span class="emphasis"><em>level</em></span> argument indicating the order of the mipmaps.
+                        Level 0 is the original texture;
+                        level
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mi mathvariant="italic">max</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mi mathvariant="italic">n</mi>
+                                    <mi mathvariant="italic">m</mi>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                        is the final
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        mipmap.
+                    </p>
+              <p>
+                        <em class="parameter"><code>params</code></em> supplies a function for minifying the texture as one of the
+                        following:
+                        </p>
+              <div class="variablelist">
+                <dl class="variablelist">
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_NEAREST</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Returns the value of the texture element that is nearest
+                                        (in Manhattan distance)
+                                        to the center of the pixel being textured.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_LINEAR</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Returns the weighted average of the four texture elements
+                                        that are closest to the center of the pixel being textured.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_NEAREST_MIPMAP_NEAREST</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Chooses the mipmap that most closely matches the size of the pixel
+                                        being textured and uses the <code class="constant">GL_NEAREST</code> criterion
+                                        (the texture element nearest to the center of the pixel)
+                                        to produce a texture value.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_LINEAR_MIPMAP_NEAREST</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Chooses the mipmap that most closely matches the size of the pixel
+                                        being textured and uses the <code class="constant">GL_LINEAR</code> criterion
+                                        (a weighted average of the four texture elements that are closest
+                                        to the center of the pixel)
+                                        to produce a texture value.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Chooses the two mipmaps that most closely match the size of the pixel
+                                        being textured and uses the <code class="constant">GL_NEAREST</code> criterion
+                                        (the texture element nearest to the center of the pixel)
+                                        to produce a texture value from each mipmap.
+                                        The final texture value is a weighted average of those two values.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_LINEAR_MIPMAP_LINEAR</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Chooses the two mipmaps that most closely match the size of the pixel
+                                        being textured and uses the <code class="constant">GL_LINEAR</code> criterion
+                                        (a weighted average of the four texture elements that are closest
+                                        to the center of the pixel)
+                                        to produce a texture value from each mipmap.
+                                        The final texture value is a weighted average of those two values.
+                                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p>
+                    </p>
+              <p>
+                        As more texture elements are sampled in the minification process,
+                        fewer aliasing artifacts will be apparent.
+                        While the <code class="constant">GL_NEAREST</code> and <code class="constant">GL_LINEAR</code> minification functions can be
+                        faster than the other four,
+                        they sample only one or four texture elements to determine the texture value
+                        of the pixel being rendered and can produce moire patterns
+                        or ragged transitions.
+                        The initial value of <code class="constant">GL_TEXTURE_MIN_FILTER</code> is
+                        <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_MAG_FILTER</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The texture magnification function is used when the pixel being textured
+                        maps to an area less than or equal to one texture element.
+                        It sets the texture magnification function to either <code class="constant">GL_NEAREST</code>
+                        or <code class="constant">GL_LINEAR</code> (see below). <code class="constant">GL_NEAREST</code> is generally faster
+                        than <code class="constant">GL_LINEAR</code>,
+                        but it can produce textured images with sharper edges
+                        because the transition between texture elements is not as smooth.
+                        The initial value of <code class="constant">GL_TEXTURE_MAG_FILTER</code> is <code class="constant">GL_LINEAR</code>.
+                        </p>
+              <div class="variablelist">
+                <dl class="variablelist">
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_NEAREST</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Returns the value of the texture element that is nearest
+                                        (in Manhattan distance)
+                                        to the center of the pixel being textured.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_LINEAR</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Returns the weighted average of the four texture elements
+                                        that are closest to the center of the pixel being textured.
+                                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p>
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_MIN_LOD</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the minimum level-of-detail parameter.  This floating-point value
+                        limits the selection of highest resolution mipmap (lowest mipmap
+                        level). The initial value is -1000.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_MAX_LOD</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the maximum level-of-detail parameter.  This floating-point value
+                        limits the selection of the lowest resolution mipmap (highest mipmap
+                        level). The initial value is 1000.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_WRAP_S</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the wrap parameter for texture coordinate
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        coordinates to be clamped to the
+                        range
+                        <math overflow="scroll">
+                            
+                            <mfenced open="[" close="]">
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfrac>
+                                            <mn>1</mn>
+                                            <mrow>
+                                                <mn>2</mn><mi mathvariant="italic">N</mi>
+                                            </mrow>
+                                        </mfrac>
+                                    </mrow>
+                                </mfenced>
+                                <mrow>
+                                    <mn>1</mn>
+                                    <mo>-</mo>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mfrac>
+                                                <mn>1</mn>
+                                                <mrow>
+                                                    <mn>2</mn><mi mathvariant="italic">N</mi>
+                                                </mrow>
+                                            </mfrac>
+                                        </mrow>
+                                    </mfenced>
+                                </mrow>
+                            </mfenced>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
+                        is the size
+                        of the texture in the direction of clamping.  <code class="constant">GL_REPEAT</code> causes the
+                        integer part of the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        coordinate to be ignored; the GL uses only the
+                        fractional part, thereby creating a repeating pattern.
+                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        coordinate to be set to the
+                        fractional part of the texture coordinate if the integer part of
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        is
+                        even; if the integer part of
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        is odd, then the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        texture coordinate is
+                        set to
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>-</mo>
+                                <mrow>
+                                    <mi mathvariant="italic">frac</mi>
+                                    <mo>⁡</mo>
+                                    <mfenced open="(" close=")">
+                                        <mi mathvariant="italic">s</mi>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+                            
+                            <mrow>
+                                <mi mathvariant="italic">frac</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mi mathvariant="italic">s</mi>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                        represents the fractional part of
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_S</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_WRAP_T</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the wrap parameter for texture coordinate
+                        <math overflow="scroll"><mi mathvariant="italic">t</mi></math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_T</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_WRAP_R</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the wrap parameter for texture coordinate
+                        <math overflow="scroll"><mi mathvariant="italic">r</mi></math>
+                        to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
+                        <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
+                        Initially, <code class="constant">GL_TEXTURE_WRAP_R</code> is set to <code class="constant">GL_REPEAT</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_COMPARE_MODE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Specifies the texture comparison mode for currently bound textures.
+                        That is, a texture whose base internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or
+                                                <code class="constant">GL_DEPTH_STENCIL</code>; see
+                        <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
+                        Permissible values are:
+                        </p>
+              <div class="variablelist">
+                <dl class="variablelist">
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_COMPARE_REF_TO_TEXTURE</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Specifies that the interpolated and clamped
+                                        <math overflow="scroll"><mi mathvariant="italic">r</mi></math>
+                                        texture coordinate should
+                                        be compared to the value in the currently bound texture.  See the
+                                        discussion of <code class="constant">GL_TEXTURE_COMPARE_FUNC</code> for details of how the comparison
+                                        is evaluated.  The result of the comparison is assigned to the red channel.
+                                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">
+                      <code class="constant">GL_NONE</code>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>
+                                        Specifies that the red channel should be assigned the
+                                        appropriate value from the currently bound texture.
+                                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p>
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Specifies the comparison operator used when <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is
+                        set to <code class="constant">GL_COMPARE_REF_TO_TEXTURE</code>.  Permissible values are:
+                        </p>
+              <div class="informaltable">
+                <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+                  <colgroup>
+                    <col style="text-align: left; "/>
+                    <col style="text-align: left; "/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                            <span class="bold"><strong> Texture Comparison Function </strong></span>
+                                        </th>
+                      <th style="text-align: left; border-bottom: 2px solid ; ">
+                                            <span class="bold"><strong> Computed result </strong></span>
+                                        </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_LEQUAL</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&lt;=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&gt;</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_GEQUAL</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&gt;=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&lt;</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_LESS</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&lt;</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&gt;=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_GREATER</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&gt;</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>&lt;=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_EQUAL</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>≠</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_NOTEQUAL</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mfenced open="{" close="">
+                                                        <mrow>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mn>1.0</mn>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mn>0.0</mn>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                            <mo>⁢  </mo>
+                                                            <mtable>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>≠</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                                <mtr><mtd>
+                                                                    <mrow>
+                                                                        <mi mathvariant="italic">r</mi>
+                                                                        <mo>=</mo>
+                                                                        <mfenced open="" close="">
+                                                                            <msub><mi mathvariant="italic">D</mi>
+                                                                            <mi mathvariant="italic">t</mi>
+                                                                            </msub>
+                                                                        </mfenced>
+                                                                    </mrow>
+                                                                </mtd></mtr>
+                                                            </mtable>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                                        <code class="constant">GL_ALWAYS</code>
+                                        </td>
+                      <td style="text-align: left; border-bottom: 2px solid ; ">
+                                            <math overflow="scroll">
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mi>1.0</mi>
+                                                </mrow>
+                                                </math>
+                                        </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left; border-right: 2px solid ; ">
+                                        <code class="constant">GL_NEVER</code>
+                                        </td>
+                      <td style="text-align: left; ">
+                                            <math overflow="scroll">
+                                                <mrow>
+                                                    <mi mathvariant="italic">result</mi>
+                                                    <mo>=</mo>
+                                                    <mi>0.0</mi>
+                                                </mrow>
+                                                </math>
+                                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                        where <math overflow="scroll"><mi mathvariant="italic">r</mi></math>
+                        is the current interpolated texture coordinate, and
+                        <math overflow="scroll">
+                            
+                            <msub><mi mathvariant="italic">D</mi>
+                            <mi mathvariant="italic">t</mi>
+                            </msub>
+                        </math>
+                        is the texture value sampled from the currently bound texture.
+                        <math overflow="scroll"><mi mathvariant="italic">result</mi></math>
+                        is assigned to
+                        <math overflow="scroll">
+                            
+                            <msub><mi mathvariant="italic">R</mi>
+                            <mi mathvariant="italic">t</mi>
+                            </msub>
+                        </math>.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            If a sampler object is bound to a texture unit and that unit is used to sample from a texture, the parameters in the sampler
+            are used to sample from the texture, rather than the equivalent parameters in the texture object bound to that unit. This
+            introduces the possibility of sampling from the same texture object with different sets of sampler state, which may lead to
+            a condition where a texture is <span class="emphasis"><em>incomplete</em></span> with respect to one sampler object and not with respect to
+            another. Thus, completeness can be considered a function of a sampler object and a texture object bound to a single
+            texture unit, rather than a property of the texture object itself.
+        </p>
+        <p>
+            The results of a texture lookup are undefined if:
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                    The sampler used in a texture lookup function is not one of the shadow sampler types, the texture object's base
+                    internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is not <code class="constant">GL_NONE</code>.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The sampler used in a texture lookup function is one of the shadow sampler types, the texture object's base internal format
+                    is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is <code class="constant">GL_NONE</code>.
+                </p>
+            </li>
+            <li class="listitem">
+              <p>
+                    The sampler used in a texture lookup function is one of the shadow sampler types, and the texture object's base
+                    internal format is not <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>.
+                </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>sampler</code></em> is not the name of a sampler object previously
+            returned from a call to <a class="citerefentry" href="glGenSamplers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenSamplers</span></span></a>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>params</code></em> should have a defined
+            constant value (based on the value of <em class="parameter"><code>pname</code></em>) and does not.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetSamplerParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetSamplerParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glSamplerParameterf</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glSamplerParameteri</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenSamplers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenSamplers</span></span></a>,
+            <a class="citerefentry" href="glBindSampler.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindSampler</span></span></a>,
+            <a class="citerefentry" href="glDeleteSamplers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteSamplers</span></span></a>,
+            <a class="citerefentry" href="glIsSampler.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsSampler</span></span></a>,
+            <a class="citerefentry" href="glBindTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

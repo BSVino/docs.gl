@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetActiveAttrib</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetActiveAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveAttrib — return information about an active attribute variable</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetActiveAttrib</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLsizei *<var class="pdparam">length</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLenum *<var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLchar *<var class="pdparam">name</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be
+		    queried.</p></dd><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the index of the attribute variable
+		    to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>bufSize</code></em></span></dt><dd><p>Specifies the maximum number of characters
+		    OpenGL is allowed to write in the character buffer
+		    indicated by <em class="parameter"><code>name</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>length</code></em></span></dt><dd><p>Returns the number of characters actually
+		    written by OpenGL in the string indicated by
+		    <em class="parameter"><code>name</code></em> (excluding the null
+		    terminator) if a value other than
+		    <code class="constant">NULL</code> is passed.</p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>Returns the size of the attribute
+		    variable.</p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>Returns the data type of the attribute
+		    variable.</p></dd><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>Returns a null terminated string containing
+		    the name of the attribute variable.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p><code class="function">glGetActiveAttrib</code> returns information
+	about an active attribute variable in the program object
+	specified by <em class="parameter"><code>program</code></em>. The number of
+	active attributes can be obtained by calling
+	<a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	with the value <code class="constant">GL_ACTIVE_ATTRIBUTES</code>. A
+	value of 0 for <em class="parameter"><code>index</code></em> selects the first
+	active attribute variable. Permissible values for
+	<em class="parameter"><code>index</code></em> range from 0 to the number of
+	active attribute variables minus 1.</p><p>Attribute variables have arbitrary names and obtain their values
+	through numbered generic vertex attributes. An attribute
+	variable is considered active
+	if it is determined during the link operation that it may be
+	accessed during program execution. Therefore,
+	<em class="parameter"><code>program</code></em> should have previously been the
+	target of a call to
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	but it is not necessary for it to have been linked
+	successfully.</p><p>The size of the character buffer required to store the
+	longest attribute variable name in
+	<em class="parameter"><code>program</code></em> can be obtained by calling
+	<a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	with the value
+	<code class="constant">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</code>. This value
+	should be used to allocate a buffer of sufficient size to store
+	the returned attribute name. The size of this character buffer
+	is passed in <em class="parameter"><code>bufSize</code></em>, and a pointer to
+	this character buffer is passed in
+	<em class="parameter"><code>name</code></em>.</p><p><code class="function">glGetActiveAttrib</code> returns the name of
+	the attribute variable indicated by
+	<em class="parameter"><code>index</code></em>, storing it in the character buffer
+	specified by <em class="parameter"><code>name</code></em>. The string returned
+	will be null terminated. The actual number of characters written
+	into this buffer is returned in <em class="parameter"><code>length</code></em>,
+	and this count does not include the null termination character.
+	If the length of the returned string is not required, a value of
+	<code class="constant">NULL</code> can be passed in the
+	<em class="parameter"><code>length</code></em> argument.</p><p>The <em class="parameter"><code>type</code></em> argument will return a
+	pointer to the attribute variable's data type. The symbolic
+	constants <code class="constant">GL_FLOAT</code>,
+	<code class="constant">GL_FLOAT_VEC2</code>,
+	<code class="constant">GL_FLOAT_VEC3</code>,
+	<code class="constant">GL_FLOAT_VEC4</code>,
+	<code class="constant">GL_FLOAT_MAT2</code>,
+	<code class="constant">GL_FLOAT_MAT3</code>, or
+	<code class="constant">GL_FLOAT_MAT4</code> may be returned. The
+	<em class="parameter"><code>size</code></em> argument will return the size of the
+	attribute, in units of the type returned in
+	<em class="parameter"><code>type</code></em>.</p><p>This function will return as much information as it can
+	about the specified active attribute variable. If no information
+	is available, <em class="parameter"><code>length</code></em> will be 0, and
+	<em class="parameter"><code>name</code></em> will be an empty string. This
+	situation could occur if this function is called after a link
+	operation that failed. If an error occurs, the return values
+	<em class="parameter"><code>length</code></em>, <em class="parameter"><code>size</code></em>,
+	<em class="parameter"><code>type</code></em>, and <em class="parameter"><code>name</code></em>
+	will be unmodified.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>program</code></em> is not a value generated by
+	OpenGL.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>program</code></em> is not a program object.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>index</code></em> is greater than or equal to the
+	number of active attribute variables in
+	<em class="parameter"><code>program</code></em>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>bufSize</code></em> is less than 0.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.</p><p><a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
+	with argument <code class="constant">GL_ACTIVE_ATTRIBUTES</code> or
+	<code class="constant">GL_ACTIVE_ATTRIBUTE_MAX_LENGTH</code>.</p><p><a class="citerefentry" href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glBindAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glBindAttribLocation</span></span></a>,
+	<a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>,
+	<a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
+	<a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

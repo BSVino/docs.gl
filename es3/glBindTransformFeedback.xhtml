@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glBindTransformFeedback - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glBindTransformFeedback">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glBindTransformFeedback — bind a transform feedback object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glBindTransformFeedback</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">id</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target to which to bind the transform feedback object <em class="parameter"><code>id</code></em>. <em class="parameter"><code>target</code></em>
+                    must be <code class="constant">GL_TRANSFORM_FEEDBACK</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>id</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of a transform feedback object reserved by <a class="citerefentry" href="glGenTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTransformFeedbacks</span></span></a>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glBindTransformFeedback</code> binds the transform feedback object with name <em class="parameter"><code>id</code></em> to the current
+            GL state. <em class="parameter"><code>id</code></em> must be a name previously returned from a call to
+            <a class="citerefentry" href="glGenTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTransformFeedbacks</span></span></a>. If <em class="parameter"><code>id</code></em> has not
+            previously been bound, a new transform feedback object with name <em class="parameter"><code>id</code></em> and initialized with with the
+            default transform state vector is created.
+        </p>
+        <p>
+            In the initial state, a default transform feedback object is bound and treated as
+            a transform feedback object with a name of zero. If the name zero is subsequently bound, the default
+            transform feedback object is again bound to the GL state.
+        </p>
+        <p>
+            While a transform feedback buffer object is bound, GL operations on the target
+            to which it is bound affect the bound transform feedback object, and queries of the
+            target to which a transform feedback object is bound return state from the bound
+            object. When buffer objects are bound for transform feedback, they are attached to
+            the currently bound transform feedback object. Buffer objects are used for transform feedback only if they are attached
+            to the currently bound transform feedback object.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TRANSFORM_FEEDBACK</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the transform feedback operation is
+            active on the currently bound transform feedback object, and that operation is not paused.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is not
+            zero or the name of a transform feedback object returned from a previous call to
+            <a class="citerefentry" href="glGenTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTransformFeedbacks</span></span></a>, or
+            if such a name has been deleted by <a class="citerefentry" href="glDeleteTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteTransformFeedbacks</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TRANSFORM_FEEDBACK_BINDING</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glBindTransformFeedback</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenTransformFeedbacks</span></span></a>,
+            <a class="citerefentry" href="glDeleteTransformFeedbacks.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteTransformFeedbacks</span></span></a>,
+            <a class="citerefentry" href="glIsTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glBeginTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glPauseTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glPauseTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glResumeTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glResumeTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glEndTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndTransformFeedback</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

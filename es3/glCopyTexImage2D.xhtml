@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glCopyTexImage2D - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glCopyTexImage2D">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glCopyTexImage2D — copy pixels into a 2D texture image</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glCopyTexImage2D</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">x</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">y</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">border</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target texture.
+                    Must be <code class="constant">GL_TEXTURE_2D</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level-of-detail number.
+                    Level 0 is the base image level.
+                    Level <span class="emphasis"><em>n</em></span> is the <span class="emphasis"><em>n</em></span>th mipmap reduction image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the internal format of the texture.
+                    Must be one of the following symbolic constants:
+                    <code class="constant">GL_ALPHA</code>,
+                    <code class="constant">GL_LUMINANCE</code>,
+                    <code class="constant">GL_LUMINANCE_ALPHA</code>,
+                    <code class="constant">GL_RGB</code>,
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_R8</code>,
+                    <code class="constant">GL_RG8</code>,
+                    <code class="constant">GL_RGB565</code>,
+                    <code class="constant">GL_RGB8</code>,
+                    <code class="constant">GL_RGBA4</code>,
+                    <code class="constant">GL_RGB5_A1</code>,
+                    <code class="constant">GL_RGBA8</code>,
+                    <code class="constant">GL_RGB10_A2</code>,
+                    <code class="constant">GL_SRGB8</code>,
+                    <code class="constant">GL_SRGB8_ALPHA8</code>,
+                                        <code class="constant">GL_R8I</code>,
+                                        <code class="constant">GL_R8UI</code>,
+                                        <code class="constant">GL_R16I</code>,
+                                        <code class="constant">GL_R16UI</code>,
+                                        <code class="constant">GL_R32I</code>,
+                                        <code class="constant">GL_R32UI</code>,
+                                        <code class="constant">GL_RG8I</code>,
+                                        <code class="constant">GL_RG8UI</code>,
+                                        <code class="constant">GL_RG16I</code>,
+                                        <code class="constant">GL_RG16UI</code>,
+                                        <code class="constant">GL_RG32I</code>,
+                                        <code class="constant">GL_RG32UI</code>,
+                                        <code class="constant">GL_RGBA8I</code>,
+                                        <code class="constant">GL_RGBA8UI</code>,
+                    <code class="constant">GL_RGB10_A2UI</code>,
+                                        <code class="constant">GL_RGBA16I</code>,
+                                        <code class="constant">GL_RGBA16UI</code>,
+                                        <code class="constant">GL_RGBA32I</code>,
+                                        <code class="constant">GL_RGBA32UI</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term"><em class="parameter"><code>x</code></em>, </span>
+              <span class="term">
+                <em class="parameter">
+                  <code>y</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specify the window coordinates of the lower left corner
+                    of the rectangular region of pixels to be copied.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>width</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the width of the texture image.
+              </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the height of the texture image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>border</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the width of the border.
+                    Must be 0.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glCopyTexImage2D</code> defines a two-dimensional texture image, or cube-map texture image
+            with pixels from the current
+            <code class="constant">GL_READ_BUFFER</code>.
+        </p>
+        <p>
+            The screen-aligned pixel rectangle with lower left corner at (<em class="parameter"><code>x</code></em>,
+            <em class="parameter"><code>y</code></em>) and with a width of <em class="parameter"><code>width</code></em>
+            and a height of <em class="parameter"><code>height</code></em> defines the texture array
+            at the mipmap level specified by <em class="parameter"><code>level</code></em>.
+            <em class="parameter"><code>internalformat</code></em> specifies the internal format of the texture array.
+        </p>
+        <p>
+            The pixels in the rectangle are processed exactly as if
+            <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops after
+            conversion to RGBA values. The error <code class="constant">GL_INVALID_OPERATION</code> is generated if integer RGBA data is
+                        required and the format of the current color buffer is not integer; or if floating- or fixed-point RGBA
+                        data is required and the format of the current color buffer is integer.
+        </p>
+        <p>
+            Pixel ordering is such that lower
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            screen coordinates correspond to
+            lower
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>
+            texture coordinates.
+        </p>
+        <p>
+            If any of the pixels within the specified rectangle of the current
+            <code class="constant">GL_READ_BUFFER</code> are outside the window associated with the current
+            rendering context, then the values obtained for those pixels are undefined.
+        </p>
+        <p>
+            When <em class="parameter"><code>internalformat</code></em> is one of the sRGB types, the GL does not automatically convert the source pixels to the sRGB color space.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            An image with height or width of 0 indicates a NULL texture.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TEXTURE_2D</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
+            than
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+                    <mml:mn>2</mml:mn>
+                    </mml:msub>
+                    <mml:mo>⁢</mml:mo>
+                    <mml:mi mathvariant="italic">max</mml:mi>
+                </mml:mrow>
+            </mml:math>,
+            where
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+            is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or
+                        <em class="parameter"><code>height</code></em> is less than 0 or greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>internalformat</code></em> is not an
+            accepted format.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glCopyTexImage2D</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glPixelStorei.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

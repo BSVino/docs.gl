@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glShaderBinary</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glShaderBinary"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glShaderBinary — load a precompiled shader binary</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glShaderBinary</strong>(</code></td><td>GLsizei <var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLuint *<var class="pdparam">shaders</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">binaryformat</var>, </td></tr><tr><td> </td><td>const void *<var class="pdparam">binary</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">length</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>Specifies the number of shader object handles
+                    present in <em class="parameter"><code>shaders</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>shaders</code></em></span></dt><dd><p>Specifies a pointer to an array of shader object handles into
+		    which the shader binary will be loaded.</p></dd><dt><span class="term"><em class="parameter"><code>binaryformat</code></em></span></dt><dd><p>Specifies the shader binary format.</p></dd><dt><span class="term"><em class="parameter"><code>binary</code></em></span></dt><dd><p>Specifies a pointer to the shader binary data in client memory.</p></dd><dt><span class="term"><em class="parameter"><code>length</code></em></span></dt><dd><p>Specifies the length of the shader binary data in bytes.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>For implementations that support them, 
+	<code class="function">glShaderBinary</code> loads precompiled shader binaries.
+	<em class="parameter"><code>shaders</code></em> contains a list of <em class="parameter"><code>n</code></em>
+	shader object handles. Each handle refers to a unique shader type (vertex shader or
+	fragment shader). <em class="parameter"><code>binary</code></em> points to precompiled binary
+	shader code in client memory, and <em class="parameter"><code>binaryformat</code></em> denotes
+	the format of the pre-compiled code.</p><p>The binary image is decoded according to the extension
+	specification defining the specified <em class="parameter"><code>binaryformat</code></em>.
+	OpenGL ES defines no specific binary formats, but does provide a mechanism
+	to obtain symbolic constants for such formats provided by extensions. The
+	number of shader binary formats supported can be obtained by querying the
+	value of <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code>. The list of
+	specific binary formats supported can be obtained by querying the value of
+	<code class="constant">GL_SHADER_BINARY_FORMATS</code>.</p><p>Depending on the types of the shader objects in <em class="parameter"><code>shaders</code></em>,
+	<code class="function">glShaderBinary</code> will individually load binary vertex or
+	fragment shaders, or load an executable binary that contains an optimized
+	pair of vertex and fragment shaders stored in the same binary.</p><p>If <code class="function">glShaderBinary</code> fails, the old state of shader
+	objects for which the binary was being loaded will not be restored.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>Shader binary support is optional and thus must be queried
+	before use by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with arguments <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code> and
+	<code class="constant">GL_SHADER_BINARY_FORMATS</code>. <code class="function">glShaderBinary</code> 
+	generates <code class="constant">GL_INVALID_OPERATION</code> on implementations
+	that do not support any shader binary formats. Such implementations instead
+        offer the <a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>
+	alternative for supplying OpenGL ES Shading Language shader source for compilation.</p><p>If shader binary formats are supported, then an implementation may
+	require that an optimized pair of vertex and fragment shader
+	binaries that were compiled together to be specified to
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>.
+	Not specifying an optimized pair my cause 
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+	to fail. Such a restriction, if it exists, will be documented in
+	the extension specification defining <em class="parameter"><code>binaryformat</code></em>.</p><p>OpenGL copies the shader binary data when
+	<code class="function">glShaderBinary</code> is called, so an application
+	may free its copy of the data immediately after
+	the function returns.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>binaryformat</code></em> is not a supported format returned in
+	<code class="constant">GL_SHADER_BINARY_FORMATS</code>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if any value in
+	<em class="parameter"><code>shaders</code></em> is not a vlue generated by OpenGL.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if the format of the
+        data pointed to by <em class="parameter"><code>binary</code></em> does not match 
+        <em class="parameter"><code>binaryformat</code></em>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>n</code></em>
+        or <em class="parameter"><code>length</code></em> is negative.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if any value in
+	<em class="parameter"><code>shaders</code></em> is not a shader object, or if there
+	is more than one vertex shader object handle or more than one fragment shader
+	object handle in <em class="parameter"><code>shaders</code></em>.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with arguments <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code>
+        and <code class="constant">GL_SHADER_BINARY_FORMATS</code></p><p><a class="citerefentry" href="glIsShader.xml"><span class="citerefentry"><span class="refentrytitle">glIsShader</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCreateShader.xml"><span class="citerefentry"><span class="refentrytitle">glCreateShader</span></span></a>,
+	<a class="citerefentry" href="glDeleteShader.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteShader</span></span></a>,
+	<a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

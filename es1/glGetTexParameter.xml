@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetTexParameter</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glGetTexParameter"><a id="glGetTexParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexParameter — return texture parameter values</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameterfv</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameteriv</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexParameterxv</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfixed * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+		    <em class="parameter"><code>target</code></em>
+		</span></dt><dd><p>Specifies the target texture, which must be
+		    <code class="constant">GL_TEXTURE_2D</code>.</p></dd><dt><span class="term">
+		    <em class="parameter"><code>pname</code></em>
+		</span></dt><dd><p>
+		    Specifies the symbolic name of a texture parameter.
+		    Which can be one of the following:
+		    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
+		    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
+		    <code class="constant">GL_TEXTURE_WRAP_S</code>,
+		    <code class="constant">GL_TEXTURE_WRAP_T</code>, or
+		    <code class="constant">GL_GENERATE_MIPMAP</code>.
+		    </p></dd><dt><span class="term">
+		    <em class="parameter"><code>params</code></em>
+		</span></dt><dd><p>Returns texture parameters.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+	<code class="function">glGetTexParameter</code>
+	returns in <em class="parameter"><code>param</code></em> the value of
+	the texture parameter specified as <em class="parameter"><code>pname</code></em>.
+	<em class="parameter"><code>target</code></em> defines the target texture,
+	which must be <code class="constant">GL_TEXTURE_2D</code>
+	which specifies two-dimensional texturing.
+	<em class="parameter"><code>pname</code></em> accepts the same symbols as
+	<a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
+	with the same interpretations:
+	</p><div class="variablelist"><dl><dt><span class="term">
+		    <code class="constant">GL_TEXTURE_MIN_FILTER</code>
+		</span></dt><dd><p>
+			Returns the single-valued texture minifying function, a symbolic
+			constant, which can be one of the following:
+		    <code class="constant">GL_NEAREST</code>,
+		    <code class="constant">GL_LINEAR</code>,
+		    <code class="constant">GL_NEAREST_MIPMAP_NEAREST</code>,
+		    <code class="constant">GL_LINEAR_MIPMAP_NEAREST</code>,
+		    <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>, or
+		    <code class="constant">GL_LINEAR_MIPMAP_LINEAR</code>.
+		    The initial value is
+		    <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>.
+		    </p></dd><dt><span class="term">
+		    <code class="constant">GL_TEXTURE_MAG_FILTER</code>
+		</span></dt><dd><p>
+			Returns the single-valued texture magnification function,
+			a symbolic constant, which can be either
+		    <code class="constant">GL_NEAREST</code> or
+		    <code class="constant">GL_LINEAR</code>.
+		    The initial value is
+		    <code class="constant">GL_LINEAR</code>.
+		    </p></dd><dt><span class="term">
+		    <code class="constant">GL_TEXTURE_WRAP_S</code>
+		</span></dt><dd><p>
+		    Returns the single-valued wrapping function for texture coordinate
+			<em class="replaceable"><code>s</code></em>, a symbolic constant, which can be
+		   	either:
+		    <code class="constant">GL_CLAMP_TO_EDGE</code>, or
+		    <code class="constant">GL_REPEAT</code>.
+		    The initial value is
+		    <code class="constant">GL_REPEAT</code>.
+		    </p></dd><dt><span class="term">
+		    <code class="constant">GL_TEXTURE_WRAP_T</code>
+		</span></dt><dd><p>
+		    Returns the single-valued wrapping function for texture coordinate
+			<em class="replaceable"><code>t</code></em>, a symbolic constant, which can be
+		   	either:
+		    <code class="constant">GL_CLAMP_TO_EDGE</code>, or
+		    <code class="constant">GL_REPEAT</code>.
+		    The initial value is
+		    <code class="constant">GL_REPEAT</code>.
+		    </p></dd><dt><span class="term">
+		    <code class="constant">GL_GENERATE_MIPMAP</code>
+		</span></dt><dd><p>
+			Returns a single boolean value indicating if automatic mipmap level
+			updates are enabled.  The initial value is
+			<code class="constant">GL_FALSE</code>.
+			See <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>.
+		    </p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+	If an error is generated, no change is made to the contents of
+	<em class="parameter"><code>param</code></em>.
+	</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>target</code></em> or
+	<em class="parameter"><code>pname</code></em>
+	is not one of the accepted defined values.</p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+	<a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+	</p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
+	    Copyright <span class="trademark"></span>© 2003-2004
+	    Silicon Graphics, Inc. This document is licensed under the SGI
+	    Free Software B License. For details, see
+	    <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+	</p></div></div></body></html>

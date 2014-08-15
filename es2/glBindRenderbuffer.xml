@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBindRenderbuffer</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBindRenderbuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindRenderbuffer — bind a named renderbuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindRenderbuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">renderbuffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target to which the renderbuffer object is bound.
+                    The symbolic constant must be
+                    <code class="constant">GL_RENDERBUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>renderbuffer</code></em></span></dt><dd><p>
+                    Specifies the name of a renderbuffer object.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            A renderbuffer is a data storage object containing a single
+            image of a renderable internal format.  A renderbuffer's image
+            may be attached to a framebuffer object to use as a destination
+            for rendering and as a source for reading.
+        </p><p>
+            <code class="function">glBindRenderbuffer</code> lets you create or use a named renderbuffer object. Calling <code class="function">glBindRenderbuffer</code> with
+            <em class="parameter"><code>target</code></em> set to <code class="constant">GL_RENDERBUFFER</code>
+            and <em class="parameter"><code>renderbuffer</code></em> set to the name
+            of the new renderbuffer object binds the renderbuffer object name.
+            When a renderbuffer object is bound, the previous binding
+            is automatically broken.
+        </p><p>
+            Renderbuffer object names are unsigned integers. The value zero is reserved, but there is no default renderbuffer object.
+            Instead, <em class="parameter"><code>renderbuffer</code></em> set to zero effectively unbinds any renderbuffer object previously bound. 
+            Renderbuffer object names and the corresponding renderbuffer object contents are local to
+            the shared object space of the current GL rendering context.
+        </p><p>
+            You may use <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a> to generate a set of new renderbuffer object names.
+        </p><p>
+            The state of a renderbuffer object immediately after it is first bound is
+            a zero-sized memory buffer with format <code class="constant">GL_RGBA4</code> and
+            zero-sized red, green, blue, alpha, depth, and stencil pixel depths.
+        </p><p>
+            While a non-zero renderbuffer object name is bound, GL operations on
+            target <code class="constant">GL_RENDERBUFFER</code> affect the bound renderbuffer
+            object, and queries of target <code class="constant">GL_RENDERBUFFER</code>
+            return state from the bound renderbuffer object. While renderbuffer object 
+            name zero is bound, as in the initial state, attempts to modify or query
+            state on target <code class="constant">GL_RENDERBUFFER</code> generates an 
+            <code class="constant">GL_INVALID_OPERATION</code> error.
+        </p><p>
+            A renderbuffer object binding created with <code class="function">glBindRenderbuffer</code> remains active until a different
+            renderbuffer object name is bound, or until the bound renderbuffer object is
+            deleted with <a class="citerefentry" href="glDeleteRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteRenderbuffers</span></span></a>.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_RENDERBUFFER</code>.
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_RENDERBUFFER_BINDING</code>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDeleteRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glGetRenderbufferParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetRenderbufferParameteriv</span></span></a>,
+            <a class="citerefentry" href="glIsRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorage.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorage</span></span></a>
+        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

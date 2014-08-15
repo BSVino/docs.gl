@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glBeginQuery - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glBeginQuery">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glBeginQuery — delimit the boundaries of a query object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glBeginQuery</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">id</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glEndQuery</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters for <code class="function">glBeginQuery</code></h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target type of query object established between
+                    <code class="function">glBeginQuery</code> and the subsequent <code class="function">glEndQuery</code>.
+                    The symbolic constant must be one of <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>,
+                    or <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>id</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of a query object.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters2">
+        <h2>Parameters for <code class="function">glEndQuery</code></h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target type of query object to be concluded.
+                    The symbolic constant must be one of <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>,
+                    or <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glBeginQuery</code> and <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> delimit the
+            boundaries of a query object.  <em class="parameter"><code>query</code></em> must be a name previously returned from a call to
+            <a class="citerefentry" href="glGenQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>. If a query object with name <em class="parameter"><code>id</code></em>
+            does not yet exist it is created with the type determined by <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must
+            be one of <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>,
+            or <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>. The behavior of the query
+            object depends on its type and is as follows.
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_ANY_SAMPLES_PASSED</code>, <em class="parameter"><code>id</code></em> must be an unused name,
+            or the name of an existing boolean occlusion query object.
+            When <code class="function">glBeginQuery</code> is executed, the query object's samples-passed flag is reset to <code class="constant">GL_FALSE</code>.
+            Subsequent rendering causes the flag to be set to <code class="constant">GL_TRUE</code> if any sample passes the depth test.  When
+            <code class="function">glEndQuery</code> is executed, the samples-passed flag is assigned to the query object's result value.  This value can
+            be queried by calling <a class="citerefentry" href="glGetQueryObjectuiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a> with <em class="parameter"><code>pname</code></em>
+            <code class="constant">GL_QUERY_RESULT</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>, <em class="parameter"><code>id</code></em> must be an unused name,
+            or the name of an existing boolean occlusion query object.
+            When <code class="function">glBeginQuery</code> is executed, the query object's samples-passed flag is reset to <code class="constant">GL_FALSE</code>.
+            Subsequent rendering causes the flag to be set to <code class="constant">GL_TRUE</code> if any sample passes the depth test.  The implementation
+            may choose to use a less precision version of the test, which can additionally set the samples-passed flag to <code class="constant">GL_TRUE</code>
+            in some other implementation-dependent cases. When <code class="function">glEndQuery</code> is executed, the samples-passed flag is assigned to
+            the query object's result value.  This value can be queried by calling <a class="citerefentry" href="glGetQueryObjectuiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>
+            with <em class="parameter"><code>pname</code></em> <code class="constant">GL_QUERY_RESULT</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, <em class="parameter"><code>id</code></em> must be
+            an unused name, or the name of an existing primitive query object previously bound to the <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>
+            query binding. When <code class="function">glBeginQuery</code> is executed, the query object's primitives-written counter is reset to 0.  Subsequent
+            rendering will increment the counter once for every vertex that is written into the bound transform feedback buffer(s).  If transform feedback
+            mode is not activated between the call to <code class="function">glBeginQuery</code> and <code class="function">glEndQuery</code>, the counter will not be
+            incremented.  When <code class="function">glEndQuery</code> is executed, the primitives-written counter is assigned to
+            the query object's result value.  This value can be queried by calling <a class="citerefentry" href="glGetQueryObjectuiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a> with <em class="parameter"><code>pname</code></em>
+            <code class="constant">GL_QUERY_RESULT</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the accepted tokens.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glBeginQuery</code> is executed while
+            a query object of the same <em class="parameter"><code>target</code></em> is already active. Note: <code class="constant">GL_ANY_SAMPLES_PASSED</code>
+            and <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code> alias to the same target for the purposes of this error.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glEndQuery</code>
+            is executed when a query object of the same <em class="parameter"><code>target</code></em> is not active.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> not a name returned from a previous call to
+            <code class="function">glGenQueries</code>, or if such a name has since been deleted with <code class="function">glDeleteQueries</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of an already active query object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> refers to an existing query object whose type
+            does not does not match <em class="parameter"><code>target</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glBeginQuery</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glEndQuery</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDeleteQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
+            <a class="citerefentry" href="glGenQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
+            <a class="citerefentry" href="glGetQueryiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
+            <a class="citerefentry" href="glGetQueryObjectuiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>,
+            <a class="citerefentry" href="glIsQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

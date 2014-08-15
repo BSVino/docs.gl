@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glStencilOpSeparate - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glStencilOpSeparate">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glStencilOpSeparate — set front and/or back stencil test actions</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glStencilOpSeparate</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">face</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">sfail</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">dpfail</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">dppass</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>face</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies whether front and/or back stencil state is updated.
+                    Three symbolic constants are valid:
+                    <code class="constant">GL_FRONT</code>,
+                    <code class="constant">GL_BACK</code>, and
+                    <code class="constant">GL_FRONT_AND_BACK</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>sfail</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the action to take when the stencil test fails.
+                    Eight symbolic constants are accepted:
+                    <code class="constant">GL_KEEP</code>,
+                    <code class="constant">GL_ZERO</code>,
+                    <code class="constant">GL_REPLACE</code>,
+                    <code class="constant">GL_INCR</code>,
+                    <code class="constant">GL_INCR_WRAP</code>,
+                    <code class="constant">GL_DECR</code>,
+                    <code class="constant">GL_DECR_WRAP</code>, and
+                    <code class="constant">GL_INVERT</code>. The initial value is <code class="constant">GL_KEEP</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>dpfail</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the stencil action when the stencil test passes,
+                    but the depth test fails.
+                    <em class="parameter"><code>dpfail</code></em> accepts the same symbolic constants as <em class="parameter"><code>sfail</code></em>. The initial value
+                    is <code class="constant">GL_KEEP</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>dppass</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the stencil action when both the stencil test and the depth
+                    test pass, or when the stencil test passes and either there is no
+                    depth buffer or depth testing is not enabled.
+                    <em class="parameter"><code>dppass</code></em> accepts the same symbolic constants as <em class="parameter"><code>sfail</code></em>. The initial value
+                    is <code class="constant">GL_KEEP</code>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            Stenciling,
+            like depth-buffering,
+            enables and disables drawing on a per-pixel basis.
+            You draw into the stencil planes using GL drawing primitives,
+            then render geometry and images,
+            using the stencil planes to mask out portions of the screen.
+            Stenciling is typically used in multipass rendering algorithms
+            to achieve special effects,
+            such as decals,
+            outlining,
+            and constructive solid geometry rendering.
+        </p>
+        <p>
+            The stencil test conditionally eliminates a pixel based on the outcome
+            of a comparison between the value in the stencil buffer and a
+            reference value. To enable and disable the test, call <a class="citerefentry" href="glEnable.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+            and <a class="citerefentry" href="glDisable.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument
+            <code class="constant">GL_STENCIL_TEST</code>; to control it, call
+            <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> or
+            <a class="citerefentry" href="glStencilFuncSeparate.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+        </p>
+        <p>
+            There can be two separate sets of <em class="parameter"><code>sfail</code></em>, <em class="parameter"><code>dpfail</code></em>, and
+            <em class="parameter"><code>dppass</code></em> parameters; one affects back-facing polygons, and the other
+            affects front-facing polygons as well as other non-polygon primitives.
+            <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> sets both front
+            and back stencil state to the same values, as if
+            <code class="function">glStencilOpSeparate</code> were called
+            with <em class="parameter"><code>face</code></em> set to <code class="constant">GL_FRONT_AND_BACK</code>.
+        </p>
+        <p>
+            <code class="function">glStencilOpSeparate</code> takes three arguments that indicate what happens
+            to the stored stencil value while stenciling is enabled.
+            If the stencil test fails,
+            no change is made to the pixel's color or depth buffers,
+            and <em class="parameter"><code>sfail</code></em> specifies what happens to the stencil buffer contents.
+            The following eight actions are possible.
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_KEEP</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Keeps the current value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_ZERO</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the stencil buffer value to 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_REPLACE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Sets the stencil buffer value to <span class="emphasis"><em>ref</em></span>,
+                        as specified by <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INCR</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Increments the current stencil buffer value.
+                        Clamps to the maximum representable unsigned value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INCR_WRAP</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Increments the current stencil buffer value.
+                        Wraps stencil buffer value to zero when incrementing the maximum
+                        representable unsigned value.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DECR</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Decrements the current stencil buffer value.
+                        Clamps to 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_DECR_WRAP</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Decrements the current stencil buffer value.
+                        Wraps stencil buffer value to the maximum representable unsigned value when
+                        decrementing a stencil buffer value of zero.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INVERT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Bitwise inverts the current stencil buffer value.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            Stencil buffer values are treated as unsigned integers.
+            When incremented and decremented,
+            values are clamped to 0 and
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:msup><mml:mn>2</mml:mn>
+                    <mml:mi mathvariant="italic">n</mml:mi>
+                    </mml:msup>
+                    <mml:mo>-</mml:mo>
+                    <mml:mn>1</mml:mn>
+                </mml:mrow>
+            </mml:math>,
+            where
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            is the value returned by querying <code class="constant">GL_STENCIL_BITS</code>.
+        </p>
+        <p>
+            The other two arguments to <code class="function">glStencilOpSeparate</code> specify stencil buffer actions
+            that depend on whether subsequent depth buffer tests succeed (<em class="parameter"><code>dppass</code></em>)
+            or fail (<em class="parameter"><code>dpfail</code></em>) (see
+            <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>).
+            The actions are specified using the same eight symbolic constants as <em class="parameter"><code>sfail</code></em>.
+            Note that <em class="parameter"><code>dpfail</code></em> is ignored when there is no depth buffer,
+            or when the depth buffer is not enabled.
+            In these cases, <em class="parameter"><code>sfail</code></em> and <em class="parameter"><code>dppass</code></em> specify stencil action when the
+            stencil test fails and passes,
+            respectively.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            Initially the stencil test is disabled.
+            If there is no stencil buffer,
+            no stencil modification can occur
+            and it is as if the stencil test always passes.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>face</code></em> is any value
+            other than <code class="constant">GL_FRONT</code>, <code class="constant">GL_BACK</code>, or <code class="constant">GL_FRONT_AND_BACK</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>sfail</code></em>,
+            <em class="parameter"><code>dpfail</code></em>, or <em class="parameter"><code>dppass</code></em> is any value other than the eight defined constant values.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_STENCIL_FAIL</code>, <code class="constant">GL_STENCIL_PASS_DEPTH_PASS</code>,
+            <code class="constant">GL_STENCIL_PASS_DEPTH_FAIL</code>, <code class="constant">GL_STENCIL_BACK_FAIL</code>,
+            <code class="constant">GL_STENCIL_BACK_PASS_DEPTH_PASS</code>, <code class="constant">GL_STENCIL_BACK_PASS_DEPTH_FAIL</code>,
+            or <code class="constant">GL_STENCIL_BITS</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glIsEnabled.xhtml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_STENCIL_TEST</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glStencilOpSeparate</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glDepthFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+            <a class="citerefentry" href="glEnable.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
+            <a class="citerefentry" href="glStencilFunc.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+            <a class="citerefentry" href="glStencilFuncSeparate.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>,
+            <a class="citerefentry" href="glStencilMask.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>,
+            <a class="citerefentry" href="glStencilMaskSeparate.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>,
+            <a class="citerefentry" href="glStencilOp.xhtml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

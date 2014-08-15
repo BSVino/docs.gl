@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glTransformFeedbackVaryings - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glTransformFeedbackVaryings">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glTransformFeedbackVaryings — specify values to record in transform feedback buffers</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glTransformFeedbackVaryings</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">count</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const char ** <var class="pdparam">varyings</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">bufferMode</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The name of the target program object.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>count</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The number of varying variables used for transform feedback.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>varyings</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    An array of <em class="parameter"><code>count</code></em> zero-terminated strings specifying the
+                    names of the varying variables to use for transform feedback.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufferMode</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Identifies the mode used to capture the varying variables when transform feedback is active.
+                    <em class="parameter"><code>bufferMode</code></em> must be <code class="constant">GL_INTERLEAVED_ATTRIBS</code> or <code class="constant">GL_SEPARATE_ATTRIBS</code>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            The names of the vertex shader outputs to be recorded in transform feedback mode
+            are specified using <code class="function">glTransformFeedbackVaryings</code> .Transform feedback
+                        records the values of the selected vertex shader outputs.
+        </p>
+        <p>
+            The state set by <code class="function">glTranformFeedbackVaryings</code> is stored and takes effect
+            next time <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> is called
+            on <em class="parameter"><code>program</code></em>. When <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
+            is called, <em class="parameter"><code>program</code></em> is linked so that the values of the specified varying variables
+            for the vertices of each primitive generated by the GL are written to a single buffer
+            object if <em class="parameter"><code>bufferMode</code></em> is <code class="constant">GL_INTERLEAVED_ATTRIBS</code> or multiple
+            buffer objects if <em class="parameter"><code>bufferMode</code></em> is <code class="constant">GL_SEPARATE_ATTRIBS</code>.
+        </p>
+        <p>
+            In addition to the errors generated by <code class="function">glTransformFeedbackVaryings</code>, the
+            program <em class="parameter"><code>program</code></em> will fail to link if:
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        Any variable name specified in the <em class="parameter"><code>varyings</code></em> array is not declared as an output
+                        in the vertex shader.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        Any two entries in the <em class="parameter"><code>varyings</code></em> array specify the same varying variable.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        The total number of components to capture in any varying variable in <em class="parameter"><code>varyings</code></em>
+                        is greater than the constant <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS</code>
+                        and the buffer mode is <code class="constant">GL_SEPARATE_ATTRIBS</code>.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        The total number of components to capture is greater than the constant
+                        <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS</code> and the buffer
+                        mode is <code class="constant">GL_INTERLEAVED_ATTRIBS</code>.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>program</code></em> is not
+            the name of a program object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufferMode</code></em> is <code class="constant">GL_SEPARATE_ATTRIBS</code>
+            and <em class="parameter"><code>count</code></em> is greater than the implementation-dependent limit <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetTransformFeedbackVarying.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTransformFeedbackVarying</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glTransformFeedbackVaryings</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBeginTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glEndTransformFeedback.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndTransformFeedback</span></span></a>,
+            <a class="citerefentry" href="glGetTransformFeedbackVarying.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTransformFeedbackVarying</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

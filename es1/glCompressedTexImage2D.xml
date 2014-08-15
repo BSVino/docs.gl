@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCompressedTexImage2D</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glCompressedTexImage2D"><a id="glCompressedTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCompressedTexImage2D — specify a two-dimensional compressed texture image</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glCompressedTexImage2D</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">imageSize</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+                    <em class="parameter"><code>target</code></em>
+                </span></dt><dd><p>Specifies the target texture. Must be
+                    <code class="constant">GL_TEXTURE_2D</code>.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>level</code></em>
+                </span></dt><dd><p>Specifies the level-of-detail number.  For paletted formats,
+                    where all mipmap levels are loaded at once,
+                    this parameter is overloaded to represent the negative of the
+                    greatest mipmap level included in <em class="parameter"><code>data</code></em>.
+                    </p></dd><dt><span class="term">
+                    <em class="parameter"><code>internalformat</code></em>
+                </span></dt><dd><p>Specifies the color components in the
+                    texture. The following symbolic constants are accepted:
+                    <code class="constant">GL_PALETTE4_RGB8_OES</code>,
+                    <code class="constant">GL_PALETTE4_RGBA8_OES</code>,
+                    <code class="constant">GL_PALETTE4_R5_G6_B5_OES</code>,
+                    <code class="constant">GL_PALETTE4_RGBA4_OES</code>,
+                    <code class="constant">GL_PALETTE4_RGB5_A1_OES</code>,
+                    <code class="constant">GL_PALETTE8_RGB8_OES</code>,
+                    <code class="constant">GL_PALETTE8_RGBA8_OES</code>,
+                    <code class="constant">GL_PALETTE8_R5_G6_B5_OES</code>,
+                    <code class="constant">GL_PALETTE8_RGBA4_OES</code>, and
+                    <code class="constant">GL_PALETTE8_RGB5_A1_OES</code>.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>width</code></em>
+                </span></dt><dd><p>Specifies the width of the texture image. Must be
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:msup><mml:mn>2</mml:mn><mml:mi>n</mml:mi></mml:msup>
+                    </mml:math>
+                    for some integer <em class="replaceable"><code>n</code></em>.
+                    All implementations support texture images that are at
+                    least 64 texels wide.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>height</code></em>
+                </span></dt><dd><p>Specifies the height of the texture image. Must be
+                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:msup><mml:mn>2</mml:mn><mml:mi>m</mml:mi></mml:msup>
+                    </mml:math>
+                    for some integer <em class="replaceable"><code>m</code></em>.
+                    All implementations support texture images that are at
+                    least 64 texels high.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>border</code></em>
+                </span></dt><dd><p>Specifies the width of the border. Must be 0.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>imageSize</code></em>
+                </span></dt><dd><p>Specifies the size of the compressed image data in bytes.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>data</code></em>
+                </span></dt><dd><p>Specifies a pointer to the compressed image data in memory.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCompressedTexImage2D</code> defines a two-dimensional texture image 
+            or cube-map texture image using compressed image data from client memory.  The texture
+            image is decoded according to the definition of the 
+            <em class="parameter"><code>internalformat</code></em>.  In addition to the paletted formats
+            described below, OpenGL ES provides a mechanism to obtain symbolic constants for 
+            other formats provided by extensions.  The number of compressed texture formats 
+            supported can be obtained by querying the value of 
+            <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code>.  The list of specific
+            compressed texture formats supported can be obtained by querying the value of
+            <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>.
+        </p><p>The required compressed formats are paletted textures.
+        The layout of the compressed image is a
+        palette followed by multiple mip-levels of
+        texture indices used for lookup into the palette.
+        The palette format can be one of
+        <code class="constant">R5_G6_B5</code>,
+        <code class="constant">RGBA4</code>,
+        <code class="constant">RGB5_A1</code>,
+        <code class="constant">RGB8</code>, or
+        <code class="constant">RGBA8</code>.
+        The texture indices can have a resolution of 4 or 8 bits.
+        As a result, the number of palette entries is either
+        16 or 256. If <em class="parameter"><code>level</code></em> is 0, only one mip-level
+        of texture indices is described in <em class="parameter"><code>data</code></em>. Otherwise,
+        the negative value of <em class="parameter"><code>level</code></em>
+        specifies up to which mip-level the texture indices are described.
+        A possibly remaining pad nibble for the lowest resolution
+        mip-level is ignored.</p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p><a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
+        has no effect on compressed texture images.</p><p><code class="function">glCompressedTexImage2D</code>
+        specifies the two-dimensional texture for the currently bound texture,
+        specified with
+        <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+        and the current texture
+        unit, specified with
+        <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+        <em class="parameter"><code>target</code></em> is not
+        <code class="constant">GL_TEXTURE_2D</code>.</p><p><code class="constant">GL_INVALID_VALUE</code> may be generated if
+        if <em class="parameter"><code>internalformat</code></em> is not one of the paletted formats and
+        <em class="parameter"><code>level</code></em> is greater than 0 or the
+        absolute value of <em class="parameter"><code>level</code></em> is greater than
+        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+            <mml:msub><mml:mo>log</mml:mo><mml:mn>2</mml:mn></mml:msub><mml:mi>max</mml:mi>
+        </mml:math>, where
+        <em class="parameter"><code>max</code></em> is the returned value of
+        <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p><p><code class="constant">GL_INVALID_VALUE</code> may be generated if
+        if <em class="parameter"><code>internalformat</code></em> is not one of the paletted formats and
+        <em class="parameter"><code>level</code></em> is less than 0 or greater than
+        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+            <mml:msub><mml:mo>log</mml:mo><mml:mn>2</mml:mn></mml:msub><mml:mi>max</mml:mi>
+        </mml:math>, where
+        <em class="parameter"><code>max</code></em> is the returned value of
+        <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p><p>
+        <code class="constant">GL_INVALID_ENUM</code> is generated if
+        <em class="parameter"><code>internalformat</code></em>
+        is not one of the accepted symbolic constants.
+        </p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+        <em class="parameter"><code>width</code></em> or
+        <em class="parameter"><code>height</code></em>
+        is less than 0 or greater than
+        <code class="constant">GL_MAX_TEXTURE_SIZE</code>,
+        or if either cannot be represented as
+        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+            <mml:msup><mml:mn>2</mml:mn><mml:mi>k</mml:mi></mml:msup>
+        </mml:math>
+        for some integer <em class="replaceable"><code>k</code></em>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+        <em class="parameter"><code>border</code></em> is not 0.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+        <em class="parameter"><code>imageSize</code></em> is not consistent
+        with format, dimentions, and contents of the compressed image.</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments 
+            <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> and
+            <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>
+        </p><p>
+        <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        with argument <code class="constant">GL_MAX_TEXTURE_SIZE</code></p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+        <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+        <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+        <a class="citerefentry" href="glCompressedTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+        <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+        <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
+        <a class="citerefentry" href="glTexEnv.xml"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
+        <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+        <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2004
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

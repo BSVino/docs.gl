@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glEnable</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glEnable"><a id="glEnable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glEnable — enable or disable server-side GL capabilities</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glEnable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glDisable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+                    <em class="parameter"><code>cap</code></em>
+                </span></dt><dd><p>Specifies a symbolic constant indicating a GL capability.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glEnable</code> and <code class="function">glDisable</code>
+        enable and disable various capabilities. Use 
+        <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> or 
+        <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> to determine the 
+        current setting of any capability. The initial value for
+        each capability with the exception of
+        <code class="constant">GL_DITHER</code> and
+        <code class="constant">GL_MULTISAMPLE</code> is
+        <code class="constant">GL_FALSE</code>. The initial value for
+        <code class="constant">GL_DITHER</code> and
+        <code class="constant">GL_MULTISAMPLE</code> is
+        <code class="constant">GL_TRUE</code>.</p><p>Both <code class="function">glEnable</code> and <code class="function">glDisable</code>
+        take a single argument, <em class="parameter"><code>cap</code></em>,
+        which can assume one of the following values:</p><div class="variablelist"><dl><dt><span class="term">
+                    <code class="constant">GL_ALPHA_TEST</code>
+                </span></dt><dd><p>If enabled, do alpha testing. See
+                    <a class="citerefentry" href="glAlphaFunc.xml"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_BLEND</code>
+                </span></dt><dd><p>If enabled, blend the computed fragment color values
+                    with the values in the color buffers. See
+                    <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_COLOR_LOGIC_OP</code>
+                </span></dt><dd><p>If enabled, apply the currently selected logical
+                    operation to the computed fragment color and color buffer values. See
+                    <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span>
+                </span></dt><dd><p>If enabled, clip geometry against user-defined clipping plane 
+                    <span class="emphasis"><em>i</em></span>. See 
+                    <a class="citerefentry" href="glClipPlane.xml"><span class="citerefentry"><span class="refentrytitle">glClipPlane</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_COLOR_MATERIAL</code>
+                </span></dt><dd><p>If enabled, have ambient and diffuse material
+                    parameters track the current color.</p></dd><dt><span class="term">
+                    <code class="constant">GL_CULL_FACE</code>
+                </span></dt><dd><p>If enabled, cull polygons based on their winding in
+                    window coordinates. See
+                    <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_DEPTH_TEST</code>
+                </span></dt><dd><p>If enabled, do depth comparisons and update the
+                    depth buffer. Note that even if the depth buffer exists
+                    and the depth mask is non-zero, the depth buffer is not
+                    updated if the depth test is disabled. See
+                    <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>
+                    and
+                    <a class="citerefentry" href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_DITHER</code>
+                </span></dt><dd><p>If enabled, dither color components
+                    before they are written to the color buffer.</p></dd><dt><span class="term">
+                    <code class="constant">GL_FOG</code>
+                </span></dt><dd><p>If enabled, blend a fog color into the
+                    posttexturing color. See
+                    <a class="citerefentry" href="glFog.xml"><span class="citerefentry"><span class="refentrytitle">glFog</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_LIGHT</code><em class="replaceable"><code>i</code></em>
+                </span></dt><dd><p>If enabled, include light <em class="replaceable"><code>i</code></em>
+                    in the evaluation of the lighting equation. See
+                    <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>
+                    and
+                    <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_LIGHTING</code>
+                </span></dt><dd><p>If enabled, use the current lighting parameters to
+                    compute the vertex color. Otherwise, simply
+                    associate the current color with each vertex. See
+                    <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>,
+                    <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>, and
+                    <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_LINE_SMOOTH</code>
+                </span></dt><dd><p>If enabled, draw lines with correct filtering.
+                    Otherwise, draw aliased lines. See
+                    <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_MULTISAMPLE</code>
+                </span></dt><dd><p>If enabled, use multiple fragment samples in computing the final color 
+                    of a pixel. See
+                    <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_NORMALIZE</code>
+                </span></dt><dd><p>If enabled, normal vectors are normalized to unit length after 
+                    transformation and before lighting. This method is generally
+                    less efficient than <code class="constant">GL_RESCALE_NORMAL</code>. See
+                    <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a> and
+                    <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_POINT_SMOOTH</code>
+                </span></dt><dd><p>If enabled, draw points with proper filtering.
+                    Otherwise, draw aliased points. See
+                    <a class="citerefentry" href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_POINT_SPRITE_OES</code>
+                </span></dt><dd><p>
+                    If enabled, point sprites are enabled.
+                    See
+                    <a class="citerefentry" href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>
+                    and
+                    <a class="citerefentry" href="glTexEnv.xml"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>
+                    </p></dd><dt><span class="term">
+                    <code class="constant">GL_POLYGON_OFFSET_FILL</code>
+                </span></dt><dd><p>If enabled,
+                    an offset is added to depth values of a polygon's
+                    fragments before the depth comparison is performed. See
+                    <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_RESCALE_NORMAL</code>
+                </span></dt><dd><p>If enabled, normal vectors are scaled after transformation and before
+                    lighting by a factor computed from the modelview matrix. If the modelview
+                    matrix scales space uniformly, this has the effect of restoring the
+                    transformed normal to unit length. This method is generally more efficient than
+                    <code class="constant">GL_NORMALIZE</code>. See
+                    <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a> and
+                    <a class="citerefentry" href="glNormalPointer.xml"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
+                </span></dt><dd><p>If enabled, compute a temporary coverage value where each bit is 
+                    determined by the alpha value at the corresponding sample location. The 
+                    temporary coverage value is then ANDed with the fragment coverage value.</p></dd><dt><span class="term">
+                    <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
+                </span></dt><dd><p>If enabled, each sample alpha value is replaced by the maximum 
+                    representable alpha value.</p></dd><dt><span class="term">
+                    <code class="constant">GL_SAMPLE_COVERAGE</code>
+                </span></dt><dd><p>If enabled, the fragment's coverage is ANDed with the temporary 
+                    coverage value. If <code class="constant">GL_SAMPLE_COVERAGE_INVERT</code> is set to 
+                    <code class="constant">GL_TRUE</code>, invert the coverage value. See 
+                    <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_SCISSOR_TEST</code>
+                </span></dt><dd><p>If enabled, discard fragments that are outside the
+                    scissor rectangle. See
+                    <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_STENCIL_TEST</code>
+                </span></dt><dd><p>If enabled, do stencil testing and update the
+                    stencil buffer. See
+                    <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+                    <a class="citerefentry" href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a>,
+                    and
+                    <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>.</p></dd><dt><span class="term">
+                    <code class="constant">GL_TEXTURE_2D</code>
+                </span></dt><dd><p>If enabled, two-dimensional texturing is performed
+                    for the active texture unit. See
+                    <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+                    <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                    <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+                    and
+                    <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>.</p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span> and 
+            <code class="constant">GL_POINT_SPRITE_OES</code> are only supported if the GL version is
+            1.1 or greater.
+        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+        <em class="parameter"><code>cap</code></em>
+        is not one of the values listed previously.</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+        <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+        <a class="citerefentry" href="glAlphaFunc.xml"><span class="citerefentry"><span class="refentrytitle">glAlphaFunc</span></span></a>,
+        <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
+        <a class="citerefentry" href="glClipPlane.xml"><span class="citerefentry"><span class="refentrytitle">glClipPlane</span></span></a>,
+        <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+        <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>,
+        <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+        <a class="citerefentry" href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>,
+        <a class="citerefentry" href="glEnableClientState.xml"><span class="citerefentry"><span class="refentrytitle">glEnableClientState</span></span></a>,
+        <a class="citerefentry" href="glFog.xml"><span class="citerefentry"><span class="refentrytitle">glFog</span></span></a>,
+        <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+        <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>,
+        <a class="citerefentry" href="glLight.xml"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>,
+        <a class="citerefentry" href="glLightModel.xml"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>,
+        <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
+        <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>,
+        <a class="citerefentry" href="glMaterial.xml"><span class="citerefentry"><span class="refentrytitle">glMaterial</span></span></a>,
+        <a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>,
+        <a class="citerefentry" href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>,
+        <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>,
+        <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>,
+        <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>,
+        <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
+        <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
+        <a class="citerefentry" href="glTexEnv.xml"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>,
+        <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2004
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glFramebufferTexture2D - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glFramebufferTexture2D">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glFramebufferTexture2D — attach a level of a texture object as a logical buffer to the currently bound framebuffer object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glFramebufferTexture2D</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">attachment</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">textarget</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the framebuffer target. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_DRAW_FRAMEBUFFER</code>,
+                    <code class="constant">GL_READ_FRAMEBUFFER</code>, or <code class="constant">GL_FRAMEBUFFER</code>. <code class="constant">GL_FRAMEBUFFER</code>
+                    is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>attachment</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the attachment point of the framebuffer. <em class="parameter"><code>attachment</code></em> must be
+                    <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>, <code class="constant">GL_DEPTH_ATTACHMENT</code>,
+                    <code class="constant">GL_STENCIL_ATTACHMENT</code> or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>textarget</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a 2D texture target, or for cube map textures, which face is to be attached.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture object to attach to the framebuffer attachment point named by <em class="parameter"><code>attachment</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the mipmap level of <em class="parameter"><code>texture</code></em> to attach.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glFramebufferTexture2D</code> attaches a selected mipmap level or image of a texture object as one of the
+            logical buffers of the framebuffer object currently bound to <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must
+            be <code class="constant">GL_DRAW_FRAMEBUFFER</code>, <code class="constant">GL_READ_FRAMEBUFFER</code>, or <code class="constant">GL_FRAMEBUFFER</code>.
+            <code class="constant">GL_FRAMEBUFFER</code> is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+        </p>
+        <p>
+            <em class="parameter"><code>attachment</code></em> specifies the logical attachment of the framebuffer and must be
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>, <code class="constant">GL_DEPTH_ATTACHMENT</code>,
+            <code class="constant">GL_STENCIL_ATTACHMENT</code> or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> may range from zero to
+            the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1. Attaching a level of a texture to
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> is equivalent to attaching that level to both the
+            <code class="constant">GL_DEPTH_ATTACHMENT</code> <span class="emphasis"><em>and</em></span> the <code class="constant">GL_STENCIL_ATTACHMENT</code>
+            attachment points simultaneously.
+        </p>
+        <p>
+            <em class="parameter"><code>textarget</code></em> specifies what type of texture is named by <em class="parameter"><code>texture</code></em>, and for
+            cube map textures, specifies the face that is to be attached. If <em class="parameter"><code>texture</code></em> is not zero, it
+            must be the name of an existing two dimensional texture with <em class="parameter"><code>textarget</code></em> set to <code class="constant">GL_TEXTURE_2D</code>,
+                        unless it is a cube map texture, in which case <em class="parameter"><code>textarget</code></em> must be
+                        <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
+            <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>texture</code></em> is non-zero, the specified <em class="parameter"><code>level</code></em> of the texture object named
+            <em class="parameter"><code>texture</code></em> is attached to the framebuffer attachment point named by <em class="parameter"><code>attachment</code></em>.
+        </p>
+        <p>
+                        If <em class="parameter"><code>textarget</code></em> is one of <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+            <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>,
+                        <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+                        or <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>, then <em class="parameter"><code>level</code></em> must be greater
+            than or equal to zero and less than or equal to log<sub>2</sub> of the value of
+                        <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code>. If <em class="parameter"><code>textarget</code></em> is <code class="constant">GL_TEXTURE_2D</code>,
+                        <em class="parameter"><code>level</code></em> must be greater than or equal to zero and no larger than log<sub>2</sub>
+            of the value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the accepted tokens.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>renderbuffertarget</code></em> is not <code class="constant">GL_RENDERBUFFER</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if zero is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>textarget</code></em> and <em class="parameter"><code>texture</code></em>
+            are not compatible.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glFramebufferTexture2D</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenFramebuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glBindFramebuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
+            <a class="citerefentry" href="glGenRenderbuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glFramebufferTextureLayer.xhtml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTextureLayer</span></span></a>,
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

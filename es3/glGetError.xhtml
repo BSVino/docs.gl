@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetError - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetError">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetError — return error information</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">GLenum <strong class="fsfunc">glGetError</strong>(</code>
+              </td>
+              <td> <var class="pdparam">void</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetError</code> returns the value of the error flag.
+            Each detectable error is assigned a numeric code and symbolic name.
+            When an error occurs,
+            the error flag is set to the appropriate error code value.
+            No other errors are recorded until <code class="function">glGetError</code> is called,
+            the error code is returned,
+            and the flag is reset to <code class="constant">GL_NO_ERROR</code>.
+            If a call to <code class="function">glGetError</code> returns <code class="constant">GL_NO_ERROR</code>,
+            there has been no detectable error since the last call to <code class="function">glGetError</code>,
+            or since the GL was initialized.
+        </p>
+        <p>
+            To allow for distributed implementations,
+            there may be several error flags.
+            If any single error flag has recorded an error,
+            the value of that flag is returned
+            and that flag is reset to <code class="constant">GL_NO_ERROR</code>
+            when <code class="function">glGetError</code> is called.
+            If more than one flag has recorded an error,
+            <code class="function">glGetError</code> returns and clears an arbitrary error flag value.
+            Thus, <code class="function">glGetError</code> should always be called in a loop,
+            until it returns <code class="constant">GL_NO_ERROR</code>,
+            if all error flags are to be reset.
+        </p>
+        <p>
+            Initially, all error flags are set to <code class="constant">GL_NO_ERROR</code>.
+        </p>
+        <p>
+            The following errors are currently defined:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_NO_ERROR</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        No error has been recorded.
+                        The value of this symbolic constant is guaranteed to be 0.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INVALID_ENUM</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        An unacceptable value is specified for an enumerated argument.
+                        The offending command is ignored
+                        and has no other side effect than to set the error flag.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INVALID_VALUE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        A numeric argument is out of range.
+                        The offending command is ignored
+                        and has no other side effect than to set the error flag.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INVALID_OPERATION</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The specified operation is not allowed in the current state.
+                        The offending command is ignored
+                        and has no other side effect than to set the error flag.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        The framebuffer object is not complete. The offending command
+                        is ignored and has no other side effect than to set the error flag.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_OUT_OF_MEMORY</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        There is not enough memory left to execute the command.
+                        The state of the GL is undefined,
+                        except for the state of the error flags,
+                        after this error is recorded.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            When an error flag is set,
+            results of a GL operation are undefined only if <code class="constant">GL_OUT_OF_MEMORY</code>
+            has occurred.
+            In all other cases,
+            the command generating the error is ignored and has no effect on the GL state
+            or frame buffer contents.
+            If the generating command returns a value, it returns 0.
+            If <code class="function">glGetError</code> itself generates an error, it returns 0.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glGetError</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

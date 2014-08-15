@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetSynciv - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetSynciv">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetSynciv — query the properties of a sync object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetSynciv</strong>(</code>
+              </td>
+              <td>GLsync <var class="pdparam">sync</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">bufSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei *<var class="pdparam">length</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint *<var class="pdparam">values</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>sync</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the sync object whose properties to query.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the parameter whose value to retrieve from the sync object specified in <em class="parameter"><code>sync</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the size of the buffer whose address is given in <em class="parameter"><code>values</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>length</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the address of an variable to receive the number of integers placed in <em class="parameter"><code>values</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>values</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the address of an array to receive the values of the queried parameter.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetSynciv</code> retrieves properties of a sync object. <em class="parameter"><code>sync</code></em> specifies the name of the sync
+            object whose properties to retrieve.
+        </p>
+        <p>
+            On success, <code class="function">glGetSynciv</code> replaces up to <em class="parameter"><code>bufSize</code></em> integers in <em class="parameter"><code>values</code></em> with the
+            corresponding property values of the object being queried.  The actual number of integers replaced is returned in the variable whose address is
+            specified in <em class="parameter"><code>length</code></em>. If <em class="parameter"><code>length</code></em> is <code class="code">NULL</code>, no length is returned.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_OBJECT_TYPE</code>, a single value representing the specific type of the sync object is
+            placed in <em class="parameter"><code>values</code></em>. The only type supported is <code class="constant">GL_SYNC_FENCE</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SYNC_STATUS</code>, a single value representing the status of the sync object
+            (<code class="constant">GL_SIGNALED</code> or <code class="constant">GL_UNSIGNALED</code>) is placed in <em class="parameter"><code>values</code></em>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SYNC_CONDITION</code>, a single value representing the condition of the sync object
+            is placed in <em class="parameter"><code>values</code></em>. The only condition supported is <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>.
+        </p>
+        <p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SYNC_FLAGS</code>, a single value representing the flags with which the sync object
+            was created is placed in <em class="parameter"><code>values</code></em>. No flags are currently supported<a href="#ftn.idp122384" class="footnote"><sup class="footnote" id="idp122384">[1]</sup></a>.
+        </p>
+        <p>
+            If an error occurs, nothing will be written to <em class="parameter"><code>values</code></em> or <em class="parameter"><code>length</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>sync</code></em> is not the name of a sync object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not one of the accepted tokens.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glGetSynciv</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glFenceSync.xhtml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a>,
+            <a class="citerefentry" href="glWaitSync.xhtml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>,
+            <a class="citerefentry" href="glClientWaitSync.xhtml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr class="footnote-hr"/>
+        <div id="ftn.idp122384" class="footnote">
+          <p><a href="#idp122384" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> is
+            expected to be used in future extensions to the sync objects.</p>
+        </div>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

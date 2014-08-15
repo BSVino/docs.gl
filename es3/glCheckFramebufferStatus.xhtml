@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glCheckFramebufferStatus - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glCheckFramebufferStatus">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glCheckFramebufferStatus — check the completeness status of a framebuffer</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">GLenum <strong class="fsfunc">glCheckFramebufferStatus</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specify the target of the framebuffer completeness check.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glCheckFramebufferStatus</code> queries the completeness status of the framebuffer object currently bound to <em class="parameter"><code>target</code></em>.
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_DRAW_FRAMEBUFFER</code>, <code class="constant">GL_READ_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>.
+            <code class="constant">GL_FRAMEBUFFER</code> is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+        </p>
+        <p>
+            The return value is <code class="constant">GL_FRAMEBUFFER_COMPLETE</code> if the framebuffer bound to <em class="parameter"><code>target</code></em> is complete. Otherwise,
+            the return value is determined as follows:
+            </p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_FRAMEBUFFER_UNDEFINED</code> is returned if <em class="parameter"><code>target</code></em> is the default framebuffer, but the default framebuffer does not exist.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT</code> is returned if any of the framebuffer attachment points are framebuffer incomplete.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT</code> is returned if the framebuffer does not have at least one image attached to it.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code> is returned if depth and stencil attachments, if present, are not the same renderbuffer, or if
+                                                the combination of internal formats of the attached images violates an implementation-dependent set of restrictions.
+                    </p>
+            </li>
+            <li class="listitem">
+              <p>
+                        <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE</code> is returned if the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code> is not the same
+                        for all attached renderbuffers or, if the attached images are a mix of renderbuffers and textures, the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code>
+                                                is not zero.
+                    </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+        </p>
+        <p>
+            Additionally, if an error occurs, zero is returned.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_DRAW_FRAMEBUFFER</code>,
+            <code class="constant">GL_READ_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glCheckFramebufferStatus</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenFramebuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glDeleteFramebuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>
+            <a class="citerefentry" href="glBindFramebuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
+            </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

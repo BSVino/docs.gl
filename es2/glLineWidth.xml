@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glLineWidth</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glLineWidth"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLineWidth — specify the width of rasterized lines</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glLineWidth</strong>(</code></td><td>GLfloat <var class="pdparam">width</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
+                    Specifies the width of rasterized lines.
+                    The initial value is 1.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glLineWidth</code> specifies the rasterized width of
+            lines.
+        </p><p>
+            The actual width is determined by rounding the supplied width
+            to the nearest integer.
+            (If the rounding results in the value 0,
+            it is as if the line width were 1.)
+            If
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mrow>
+                    <mml:mfenced open="∣" close="∣">
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">x</mml:mi>
+                        </mml:mrow>
+                    </mml:mfenced>
+                    <mml:mo>&gt;=</mml:mo>
+                    <mml:mfenced open="∣" close="∣">
+                        <mml:mrow>
+                            <mml:mo>Δ</mml:mo>
+                            <mml:mi mathvariant="italic">y</mml:mi>
+                        </mml:mrow>
+                    </mml:mfenced>
+                </mml:mrow>
+            </mml:math>,
+            <span class="emphasis"><em>i</em></span> pixels are filled in each column that is rasterized,
+            where <span class="emphasis"><em>i</em></span> is the rounded value of <em class="parameter"><code>width</code></em>.
+            Otherwise,
+            <span class="emphasis"><em>i</em></span> pixels are filled in each row that is rasterized.
+        </p><p>
+            There is a range of supported line widths.  Only width 1 is guaranteed to be supported; others depend on the
+            implementation.  
+            To query the range of supported widths, call <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+            with argument <code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code>.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            The line width specified by <code class="function">glLineWidth</code> is always returned when <code class="constant">GL_LINE_WIDTH</code>
+            is queried.
+            Clamping and rounding have no effect on the specified value.
+        </p><p>
+            Line width may be clamped to an implementation-dependent maximum.  Call <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with <code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code> to determine the maximum width.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than or equal to 0.
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_LINE_WIDTH</code>
+        </p><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glProgramBinary - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glProgramBinary">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glProgramBinary — load a program object with a program binary</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glProgramBinary</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">program</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">binaryFormat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const void *<var class="pdparam">binary</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">length</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>program</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specifies the name of a program object into which to load a program binary.
+            </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>binaryFormat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specifies the format of the binary data in binary.
+            </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>binary</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specifies the address of an array containing the binary to be loaded into <em class="parameter"><code>program</code></em>.
+            </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>length</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                Specifies the number of bytes contained in <em class="parameter"><code>binary</code></em>.
+            </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glProgramBinary</code> loads a program object with a program binary previously
+            returned from <a class="citerefentry" href="glGetProgramBinary.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>.
+            <em class="parameter"><code>binaryFormat</code></em> and <em class="parameter"><code>binary</code></em> must be those returned
+            by a previous call to <a class="citerefentry" href="glGetProgramBinary.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>,
+            and <em class="parameter"><code>length</code></em> must be the length returned by
+            <a class="citerefentry" href="glGetProgramBinary.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>, or by
+            <a class="citerefentry" href="glGetProgramiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a> when called with
+            <em class="parameter"><code>pname</code></em> set to <code class="constant">GL_PROGRAM_BINARY_LENGTH</code>.
+            If these conditions are not met, loading the program binary will fail and <em class="parameter"><code>program</code></em>'s
+            <code class="constant">GL_LINK_STATUS</code> will be set to <code class="constant">GL_FALSE</code>.
+        </p>
+        <p>
+            A program object's program binary is replaced by calls to
+            <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> or
+            <code class="function">glProgramBinary</code>. When linking success or failure is concerned, <code class="function">glProgramBinary</code>
+            can be considered to perform an implicit linking operation.
+            <a class="citerefentry" href="glLinkProgram.xhtml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a> and <code class="function">glProgramBinary</code>
+            both set the program object's <code class="constant">GL_LINK_STATUS</code> to <code class="constant">GL_TRUE</code>
+            or <code class="constant">GL_FALSE</code>.
+        </p>
+        <p>
+            A successful call to <code class="function">glProgramBinary</code> will reset all uniform variables to their
+            initial values, <code class="constant">GL_FALSE</code> for booleans and zero for all others. Additionally, all vertex shader input
+            and fragment shader output assignments that were in effect when the program was linked before saving are
+            restored with <code class="function">glProgramBinary</code> is called.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>program</code></em> is not the
+            name of an existing program object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>binaryFormat</code></em> is not a
+            value recognized by the implementation.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            A program binary may fail to load if the implementation determines that there has been a
+            change in hardware or software configuration from when the program binary was produced such
+            as having been compiled with an incompatible or outdated version of the compiler.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetProgramiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a> with argument <code class="constant">GL_PROGRAM_BINARY_LENGTH</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_NUM_PROGRAM_BINARY_FORMATS</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PROGRAM_BINARY_FORMATS</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glProgramBinary</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGetProgramiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>,
+            <a class="citerefentry" href="glGetProgramBinary.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

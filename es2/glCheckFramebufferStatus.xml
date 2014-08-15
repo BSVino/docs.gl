@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glCheckFramebufferStatus</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glCheckFramebufferStatus"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCheckFramebufferStatus — return the framebuffer completeness status of a framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLenum <strong class="fsfunc">glCheckFramebufferStatus</strong>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target framebuffer object.
+                    The symbolic constant must be <code class="constant">GL_FRAMEBUFFER</code>.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glCheckFramebufferStatus</code> returns a symbolic
+            constant that identifies whether or not the currently bound
+            framebuffer is framebuffer complete, and if not, which of the rules
+            of framebuffer completeness is violated.
+        </p><p>
+            If the framebuffer is complete, then 
+            <code class="constant">GL_FRAMEBUFFER_COMPLETE</code> is returned. 
+            If the framebuffer is not complete, the return values are as follows:
+        </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT</code></span></dt><dd><p>
+                        Not all framebuffer attachment points are framebuffer
+                        attachment complete. This means that at least one
+                        attachment point with a renderbuffer or texture 
+                        attached has its attached object no longer in existence
+                        or has an attached image with a width or height of 
+                        zero, or the color attachment point has a 
+                        non-color-renderable image attached, or the
+                        depth attachment point has a non-depth-renderable
+                        image attached, or the stencil attachment point has a
+                        non-stencil-renderable image attached.
+                    </p><p>
+                        Color-renderable formats include <code class="constant">GL_RGBA4</code>,
+                        <code class="constant">GL_RGB5_A1</code>, and
+                        <code class="constant">GL_RGB565</code>.
+                        <code class="constant">GL_DEPTH_COMPONENT16</code> is the only
+                        depth-renderable format. 
+                        <code class="constant">GL_STENCIL_INDEX8</code> is the only
+                        stencil-renderable format.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS</code></span></dt><dd><p>
+                        Not all attached images have the same width and height.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT</code></span></dt><dd><p>
+                        No images are attached to the framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code></span></dt><dd><p>
+                        The combination of internal formats of the attached
+                        images violates an implementation-dependent set of
+                        restrictions.
+                    </p></dd></dl></div><p>
+            If the currently bound framebuffer is not framebuffer complete, 
+            then it is an error to attempt to use the framebuffer for
+            writing or reading. This means that rendering commands
+            (<a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+			<a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>, and
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>)
+            as well as commands that read the framebuffer
+            (<a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>, and
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>)
+            will generate the error <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code>
+            if called while the framebuffer is not framebuffer complete.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            It is strongly advised, thought not required, that an application
+            call <code class="function">glCheckFramebufferStatus</code> to see if the
+            framebuffer is complete prior to rendering. This is because some
+            implementations may not support rendering to particular combinations
+            of internal formats. In this case, 
+            <code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code>
+            is returned.
+        </p><p>
+            The default window-system-provided framebuffer is always
+            framebuffer complete, and thus <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>
+            is returned when <code class="constant">GL_FRAMEBUFFER_BINDING</code> is 0.
+        </p><p>
+            Additionally, if an error occurs, zero is returned.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_FRAMEBUFFER</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glRenderbufferStorage.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorage</span></span></a>
+        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

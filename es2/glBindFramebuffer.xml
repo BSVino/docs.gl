@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glBindFramebuffer</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBindFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindFramebuffer — bind a named framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindFramebuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">framebuffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Specifies the target to which the framebuffer object is bound.
+                    The symbolic constant must be
+                    <code class="constant">GL_FRAMEBUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>framebuffer</code></em></span></dt><dd><p>
+                    Specifies the name of a framebuffer object.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glBindFramebuffer</code> lets you create or use a named framebuffer object. Calling <code class="function">glBindFramebuffer</code> with
+            <em class="parameter"><code>target</code></em> set to <code class="constant">GL_FRAMEBUFFER</code>
+            and <em class="parameter"><code>framebuffer</code></em> set to the name
+            of the new framebuffer object binds the framebuffer object name.
+            When a framebuffer object is bound, the previous binding
+            is automatically broken.
+        </p><p>
+            Framebuffer object names are unsigned integers. The value zero is reserved to represent the default framebuffer
+            provided by the windowing system. Framebuffer object names and the corresponding framebuffer object contents are local to
+            the shared object space of the current GL rendering context.
+        </p><p>
+            You may use <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a> to generate a set of new framebuffer object names.
+        </p><p>
+            The state of a framebuffer object immediately after it is first bound is
+            three attachment points (<code class="constant">GL_COLOR_ATTACHMENT0</code>,
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>, and 
+            <code class="constant">GL_STENCIL_ATTACHMENT</code>) each with 
+            <code class="constant">GL_NONE</code> as the object type.
+        </p><p>
+            While a non-zero framebuffer object name is bound, GL operations on
+            target <code class="constant">GL_FRAMEBUFFER</code> affect the bound framebuffer
+            object, and queries of target <code class="constant">GL_FRAMEBUFFER</code> or of
+            framebuffer details such as <code class="constant">GL_DEPTH_BITS</code>
+            return state from the bound framebuffer object. While framebuffer object 
+            name zero is bound, as in the initial state, attempts to modify or query
+            state on target <code class="constant">GL_FRAMEBUFFER</code> generates an 
+            <code class="constant">GL_INVALID_OPERATION</code> error.
+        </p><p>
+            While a non-zero framebuffer object name is bound, all rendering to the
+            framebuffer (with <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>
+            and <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>)
+            and reading from the framebuffer (with 
+            <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+            <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+            or <a class="citerefentry" href="glCopyTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>)
+            use the images attached to the application-created framebuffer object rather than the default
+            window-system-provided framebuffer.
+        </p><p>
+            Application created framebuffer objects (i.e. those with a non-zero name)
+            differ from the default window-system-provided framebuffer in a few
+            important ways. First, they have modifiable attachment points for
+            a color buffer, a depth buffer, and a stencil buffer to which framebuffer
+            attachable images may be attached and detached. Second, the size and format of the
+            attached images are controlled entirely within the GL and are not
+            affected by window-system events, such as pixel format selection,
+            window resizes, and display mode changes. Third, when rendering to or
+            reading from an application created framebuffer object, the pixel
+            ownership test always succeeds (i.e. they own all their pixels). Fourth,
+            there are no visible color buffer bitplanes, only a single "off-screen"
+            color image attachment, so there is no sense of front and back buffers
+            or swapping. Finally, there is no multisample buffer, so the value of 
+            the implementation-dependent state variables 
+            <code class="constant">GL_SAMPLES</code> and <code class="constant">GL_SAMPLE_BUFFERS</code>
+            are both zero for application created framebuffer objects.
+        </p><p>
+            A framebuffer object binding created with <code class="function">glBindFramebuffer</code> remains active until a different
+            framebuffer object name is bound, or until the bound framebuffer object is
+            deleted with <a class="citerefentry" href="glDeleteFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            Queries of implementation-dependent pixel depths and related state are
+            derived from the currently bound framebuffer object.  These include
+            <code class="constant">GL_RED_BITS</code>, <code class="constant">GL_GREEN_BITS</code>, 
+            <code class="constant">GL_BLUE_BITS</code>, <code class="constant">GL_ALPHA_BITS</code>, 
+            <code class="constant">GL_DEPTH_BITS</code>, <code class="constant">GL_STENCIL_BITS</code>, 
+            <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>, 
+            <code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code>,
+            <code class="constant">GL_SAMPLES</code>, and <code class="constant">GL_SAMPLE_BUFFERS</code>.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_FRAMEBUFFER</code>.
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_FRAMEBUFFER_BINDING</code>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDeleteFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+            <a class="citerefentry" href="glFramebufferTexture2D.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTexture2D</span></span></a>,
+            <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
+            <a class="citerefentry" href="glGetFramebufferAttachmentParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferAttachmentParameteriv</span></span></a>,
+            <a class="citerefentry" href="glIsFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsFramebuffer</span></span></a>
+        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

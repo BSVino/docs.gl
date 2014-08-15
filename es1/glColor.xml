@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glColor</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glColor"><a id="glColor"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glColor — set the current color</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glColor4f</b>(</code></td><td>GLfloat <var class="pdparam">red</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">green</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">blue</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">alpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glColor4x</b>(</code></td><td>GLfixed <var class="pdparam">red</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">green</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">blue</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">alpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glColor4ub</b>(</code></td><td>GLubyte <var class="pdparam">red</var>, </td></tr><tr><td> </td><td>GLubyte <var class="pdparam">green</var>, </td></tr><tr><td> </td><td>GLubyte <var class="pdparam">blue</var>, </td></tr><tr><td> </td><td>GLubyte <var class="pdparam">alpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+		<em class="parameter"><code>red</code></em>,
+		<em class="parameter"><code>green</code></em>,
+		<em class="parameter"><code>blue</code></em>,
+		<em class="parameter"><code>alpha</code></em>
+		</span></dt><dd><p>Specify new red, green, blue, and alpha values for
+		    the current color.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glColor</code> sets a new four-valued current RGBA color.</p><p>Current color values are stored in fixed-point or
+	floating-point. In case the values are stored in
+	floating-point, the mantissa and exponent sizes are
+	unspecified.</p><p>Neither fixed-point nor floating-point values are clamped
+	to the range [0, 1] before the current color is updated.
+	However, color components are clamped to this range before they
+	are interpolated or written into the color buffer.</p><p>Unsigned byte color components specified
+	with <code class="function">glColor4ub</code> are linearly mapped to
+	floating-point values such that 255 maps to 1.0 (full
+	intensity), and 0 maps to 0.0 (zero intensity).</p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p> The initial value for the current color is (1, 1, 1, 1).</p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_CURRENT_COLOR</code>
+        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+	<a class="citerefentry" href="glColorPointer.xml"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>,
+	<a class="citerefentry" href="glNormal.xml"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>,
+	<a class="citerefentry" href="glMultiTexCoord.xml"><span class="citerefentry"><span class="refentrytitle">glMultiTexCoord</span></span></a>
+	</p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
+	    Copyright <span class="trademark"></span>© 2003-2004
+	    Silicon Graphics, Inc. This document is licensed under the SGI
+	    Free Software B License. For details, see
+	    <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+	</p></div></div></body></html>

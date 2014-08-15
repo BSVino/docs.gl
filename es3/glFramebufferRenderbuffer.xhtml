@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glFramebufferRenderbuffer - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glFramebufferRenderbuffer">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glFramebufferRenderbuffer — attach a renderbuffer as a logical buffer to the currently bound framebuffer object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">GLsync <strong class="fsfunc">glFramebufferRenderbuffer</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">attachment</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">renderbuffertarget</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">renderbuffer</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the framebuffer target. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_DRAW_FRAMEBUFFER</code>,
+                    <code class="constant">GL_READ_FRAMEBUFFER</code>, or <code class="constant">GL_FRAMEBUFFER</code>. <code class="constant">GL_FRAMEBUFFER</code>
+                    is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>attachment</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the attachment point of the framebuffer.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>renderbuffertarget</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the renderbuffer target and must be <code class="constant">GL_RENDERBUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>renderbuffer</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of an existing renderbuffer object of type <em class="parameter"><code>renderbuffertarget</code></em> to attach.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glFramebufferRenderbuffer</code> attaches a renderbuffer as one of the logical buffers of the
+            currently bound framebuffer object. <em class="parameter"><code>renderbuffer</code></em> is the name of the renderbuffer object
+            to attach and must be either zero, or the name of an existing renderbuffer object of type <em class="parameter"><code>renderbuffertarget</code></em>.
+            If <em class="parameter"><code>renderbuffer</code></em> is not zero and if <code class="function">glFramebufferRenderbuffer</code> is
+            successful, then the renderbuffer name <em class="parameter"><code>renderbuffer</code></em> will be used as the logical buffer
+            identified by <em class="parameter"><code>attachment</code></em> of the framebuffer currently bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            The value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> for the specified attachment point is
+            set to <code class="constant">GL_RENDERBUFFER</code> and the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>
+            is set to <em class="parameter"><code>renderbuffer</code></em>. All other state values of the attachment point specified by
+            <em class="parameter"><code>attachment</code></em> are set to their default values. No change is made to the state of the renderbuuffer
+            object and any previous attachment to the <em class="parameter"><code>attachment</code></em> logical buffer of the framebuffer
+            <em class="parameter"><code>target</code></em> is broken.
+        </p>
+        <p>
+            Calling <code class="function">glFramebufferRenderbuffer</code> with the renderbuffer name zero will detach the image, if any,
+            identified by <em class="parameter"><code>attachment</code></em>, in the framebuffer currently bound to <em class="parameter"><code>target</code></em>.
+            All state values of the attachment point specified by attachment in the object bound to target are set to their default values.
+        </p>
+        <p>
+            Setting <em class="parameter"><code>attachment</code></em> to the value <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> is a special
+            case causing both the depth and stencil attachments of the framebuffer object to be set to <em class="parameter"><code>renderbuffer</code></em>,
+            which should have the base internal format <code class="constant">GL_DEPTH_STENCIL</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the accepted tokens.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>renderbuffertarget</code></em> is not <code class="constant">GL_RENDERBUFFER</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if zero is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glFramebufferRenderbuffer</td>
+                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenFramebuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
+            <a class="citerefentry" href="glBindFramebuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
+            <a class="citerefentry" href="glGenRenderbuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>,
+            <a class="citerefentry" href="glFramebufferTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTexture</span></span></a>,
+            <a class="citerefentry" href="glFramebufferTexture2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTexture2D</span></span></a>,
+            <a class="citerefentry" href="glFramebufferTextureLayer.xhtml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTextureLayer</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

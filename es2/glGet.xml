@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGet</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGet"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGet — return the value or values of a selected parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetBooleanv</strong>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLboolean * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetFloatv</strong>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetIntegerv</strong>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the parameter value to be returned.
+                    The symbolic constants in the list below are accepted.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Returns the value or values of the specified parameter.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            These four commands return values for simple state variables in GL.
+            <em class="parameter"><code>pname</code></em> is a symbolic constant indicating the state variable to be returned,
+            and <em class="parameter"><code>params</code></em> is a pointer to an array of the indicated type in
+            which to place the returned data.
+        </p><p>
+            Type conversion is performed if <em class="parameter"><code>params</code></em> has a different type than
+            the state variable value being requested.
+            If <code class="function">glGetBooleanv</code> is called,
+            a floating-point (or integer) value is converted to <code class="constant">GL_FALSE</code> if
+            and only if it is 0.0 (or 0).
+            Otherwise,
+            it is converted to <code class="constant">GL_TRUE</code>.
+            If <code class="function">glGetIntegerv</code> is called, boolean values are returned as
+            <code class="constant">GL_TRUE</code> or <code class="constant">GL_FALSE</code>, and most floating-point values are
+            rounded to the nearest integer value. Floating-point colors and
+            normals, however, are returned with a linear mapping that maps 1.0 to
+            the most positive representable integer value
+            and 
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mn>-1.0</mml:mn>
+            </mml:math>
+            to the most negative representable integer value.
+            If <code class="function">glGetFloatv</code> is called,
+            boolean values are returned as <code class="constant">GL_TRUE</code> or <code class="constant">GL_FALSE</code>,
+            and integer values are converted to floating-point values.
+        </p><p>
+            The following symbolic constants are accepted by <em class="parameter"><code>pname</code></em>:
+        </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_ACTIVE_TEXTURE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value indicating the active multitexture unit.
+                        The initial value is <code class="constant">GL_TEXTURE0</code>.
+                        See <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns two values,
+                        the smallest and largest supported widths for aliased lines.
+                        The range must include width 1.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ALIASED_POINT_SIZE_RANGE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns two values,
+                        the smallest and largest supported sizes for aliased points.
+                        The range must include size 1.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ALPHA_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of alpha bitplanes in the color buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
+                        currently bound to the target <code class="constant">GL_ARRAY_BUFFER</code>. If no buffer object
+                        is bound to this target, 0 is returned.  The initial value is 0.
+                        See <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether blending is
+                        enabled. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_COLOR</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns four values,
+                        the red, green, blue, and alpha values which are the components of
+                        the blend color.
+                        See <a class="citerefentry" href="glBlendColor.xml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_DST_ALPHA</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the symbolic constant identifying the alpha destination blend
+                        function. The initial value is <code class="constant">GL_ZERO</code>.
+                        See <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a> and <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_DST_RGB</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the symbolic constant identifying the RGB destination blend
+                        function. The initial value is <code class="constant">GL_ZERO</code>.
+                        See <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a> and <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_EQUATION_ALPHA</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, a symbolic constant indicating whether
+                        the Alpha blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>, or
+                        <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>.
+                        See <a class="citerefentry" href="glBlendEquationSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendEquationSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_EQUATION_RGB</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, a symbolic constant indicating whether
+                        the RGB blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>, or
+                        <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>.
+                        See <a class="citerefentry" href="glBlendEquationSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendEquationSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_SRC_ALPHA</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the symbolic constant identifying the alpha source blend function. The initial
+                        value is <code class="constant">GL_ONE</code>.
+                        See <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a> and <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLEND_SRC_RGB</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the symbolic constant identifying the RGB source blend function. The initial
+                        value is <code class="constant">GL_ONE</code>.
+                        See <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a> and <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_BLUE_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of blue bitplanes in the color buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_COLOR_CLEAR_VALUE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns four values:
+                        the red, green, blue, and alpha values used to clear the color buffers.
+                        Integer values,
+                        if requested,
+                        are linearly mapped from the internal floating-point representation such
+                        that 1.0 returns the most positive representable integer value,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>
+                        returns the most negative representable integer
+                        value. The initial value is (0, 0, 0, 0).
+                        See <a class="citerefentry" href="glClearColor.xml"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_COLOR_WRITEMASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns four boolean values:
+                        the red, green, blue, and alpha write enables for the color
+                        buffers. The initial value is (<code class="constant">GL_TRUE</code>, <code class="constant">GL_TRUE</code>,
+                        <code class="constant">GL_TRUE</code>, <code class="constant">GL_TRUE</code>).
+                        See <a class="citerefentry" href="glColorMask.xml"><span class="citerefentry"><span class="refentrytitle">glColorMask</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a list of symbolic
+                        constants of length <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> 
+                        indicating which compressed texture formats are available.
+                        See <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CULL_FACE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether polygon culling
+                        is enabled. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CULL_FACE_MODE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating which polygon faces are to be
+                        culled. The initial value is <code class="constant">GL_BACK</code>.
+                        See <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_CURRENT_PROGRAM</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the name of the program object that is currently active, or 0 if no program object is active.
+                        See <a class="citerefentry" href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of bitplanes in the depth buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_CLEAR_VALUE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the value that is used to clear the depth buffer.
+                        Integer values,
+                        if requested,
+                        are linearly mapped from the internal floating-point representation such
+                        that 1.0 returns the most positive representable integer value,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>
+                        returns the most negative representable integer
+                        value. The initial value is 1.
+                        See <a class="citerefentry" href="glClearDepthf.xml"><span class="citerefentry"><span class="refentrytitle">glClearDepthf</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_FUNC</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the symbolic constant that indicates the depth comparison
+                        function. The initial value is <code class="constant">GL_LESS</code>.
+                        See <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_RANGE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns two values:
+                        the near and far mapping limits for the depth buffer.
+                        Integer values,
+                        if requested,
+                        are linearly mapped from the internal floating-point representation such
+                        that 1.0 returns the most positive representable integer value,
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            
+                            <mml:mn>-1.0</mml:mn>
+                        </mml:math>
+                        returns the most negative representable integer
+                        value. The initial value is (0, 1).
+                        See <a class="citerefentry" href="glDepthRangef.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_TEST</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether depth testing
+                        of fragments is enabled. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a> and <a class="citerefentry" href="glDepthRangef.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_WRITEMASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the depth buffer
+                        is enabled for writing. The initial value is <code class="constant">GL_TRUE</code>.
+                        See <a class="citerefentry" href="glDepthMask.xml"><span class="citerefentry"><span class="refentrytitle">glDepthMask</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_DITHER</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether dithering of
+                        fragment colors and indices is enabled. The initial value is <code class="constant">GL_TRUE</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
+                        currently bound to the target <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>. If no buffer object
+                        is bound to this target, 0 is returned.  The initial value is 0.
+                        See <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_BINDING</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the currently bound
+                        framebuffer. The initial value is 0, indicating the default framebuffer.
+                        See <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_FRONT_FACE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating whether clockwise or counterclockwise
+                        polygon winding is treated as front-facing. The initial value is
+                        <code class="constant">GL_CCW</code>.
+                        See <a class="citerefentry" href="glFrontFace.xml"><span class="citerefentry"><span class="refentrytitle">glFrontFace</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_GENERATE_MIPMAP_HINT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating the mode of the mipmap generation filtering
+                        hint. The initial value is <code class="constant">GL_DONT_CARE</code>.
+                        See <a class="citerefentry" href="glHint.xml"><span class="citerefentry"><span class="refentrytitle">glHint</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_GREEN_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of green bitplanes in the color buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, the format
+                        chosen by the implementation in which pixels may be read from the
+                        color buffer of the currently bound framebuffer in conjunction with
+                        <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>.
+                        In addition
+                        to this implementation-dependent format/type pair, format 
+                        <code class="constant">GL_RGBA</code> in conjunction with type 
+                        <code class="constant">GL_UNSIGNED_BYTE</code> is always allowed by every
+                        implementation, regardless of the currently bound render surface.
+                        See <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, the type
+                        chosen by the implementation with which pixels may be read from the
+                        color buffer of the currently bound framebuffer in conjunction with
+                        <code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code>.
+                        In addition
+                        to this implementation-dependent format/type pair, format 
+                        <code class="constant">GL_RGBA</code> in conjunction with type 
+                        <code class="constant">GL_UNSIGNED_BYTE</code> is always allowed by every
+                        implementation, regardless of the currently bound render surface.
+                        See <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_WIDTH</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the line width as specified with <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>. The initial value is
+                        1.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
+                        can be used to access texture maps from the vertex shader and the fragment processor combined. 
+                        If both the vertex shader and the fragment processing stage access the same texture image
+                        unit, then that counts as using two texture image units against this limit.
+                        The value must be at least 8.
+                        See <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value.
+                        The value gives a rough estimate of the largest cube-map texture that
+                        the GL can handle. The value must be at least 16.
+                        See <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_FRAGMENT_UNIFORM_VECTORS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the maximum number of four-element floating-point, integer, or boolean vectors that can be held 
+                        in uniform variable storage for a fragment shader. The value must be at least 16.
+                        See <a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_RENDERBUFFER_SIZE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value.
+                        The value indicates the largest renderbuffer width and height
+                        that the GL can handle. The value must be at least 1.
+                        See <a class="citerefentry" href="glRenderbufferStorage.xml"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
+                        can be used to access texture maps from the fragment shader. 
+                        The value must be at least 8.
+                        See <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_TEXTURE_SIZE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value.
+                        The value gives a rough estimate of the largest texture that
+                        the GL can handle. The value must be at least 64.
+                        See <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_VARYING_VECTORS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the maximum number four-element floating-point vectors available for interpolating varying variables used by
+                        vertex and fragment shaders. Varying variables declared as matrices or arrays 
+                        will consume multiple interpolators. The value must be at least 8.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_ATTRIBS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the maximum number of 4-component generic vertex attributes accessible to a vertex shader. 
+                        The value must be at least 8.
+                        See <a class="citerefentry" href="glVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
+                        can be used to access texture maps from the vertex shader. The value may be 0.
+                        See <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_UNIFORM_VECTORS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the maximum number of four-element floating-point, integer, or boolean vectors that can be held 
+                        in uniform variable storage for a vertex shader. The value must be at least 128.
+                        See <a class="citerefentry" href="glUniform.xml"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_VIEWPORT_DIMS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns two values:
+                        the maximum supported width and height of the viewport.
+                        These must be at least as large as the visible dimensions of the display
+                        being rendered to.
+                        See <a class="citerefentry" href="glViewport.xml"><span class="citerefentry"><span class="refentrytitle">glViewport</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single integer value indicating the number of available
+                        compressed texture formats.  The minimum value is 0.
+                        See <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single integer value indicating the number of available
+                        shader binary formats.  The minimum value is 0.
+                        See <a class="citerefentry" href="glShaderBinary.xml"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_ALIGNMENT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the byte alignment used for writing pixel data to memory. The initial
+                        value is 4.
+                        See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POLYGON_OFFSET_FACTOR</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the scaling factor used to determine the variable offset that is added
+                        to the depth value of each fragment generated when a polygon is
+                        rasterized. The initial value is 0.
+                        See <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POLYGON_OFFSET_FILL</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether polygon offset
+                        is enabled for polygons in fill mode. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_POLYGON_OFFSET_UNITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value.
+                        This value is multiplied by an implementation-specific value and then
+                        added to the depth value of each fragment
+                        generated when a polygon is rasterized. The initial value is 0.
+                        See <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RED_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of red bitplanes in the color buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RENDERBUFFER_BINDING</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the currently bound
+                        renderbuffer. The initial value is 0, indicating no renderbuffer is bound.
+                        See <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the 
+                        fragment coverage value should be ANDed with a temporary coverage value based
+                        on the fragment's alpha value. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_BUFFERS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single integer value indicating the number of sample buffers
+                        associated with the currently bound framebuffer.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_COVERAGE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the 
+                        fragment coverage value should be ANDed with a temporary coverage value based
+                        on the current sample coverage value. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_COVERAGE_INVERT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating if the temporary
+                        coverage value should be inverted.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_COVERAGE_VALUE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single positive floating-point value indicating the
+                        current sample coverage value.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SAMPLES</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single integer value 
+                        indicating the coverage mask size of the currently bound framebuffer.
+                        See <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SCISSOR_BOX</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns four values:
+                        the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates of the scissor box,
+                        followed by its width and height.
+                        Initially the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates are both 0 and the
+                        width and height are set to the size of the window.
+                        See <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SCISSOR_TEST</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether scissoring is
+                        enabled. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SHADER_BINARY_FORMATS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a list of symbolic
+                        constants of length <code class="constant">GL_NUM_SHADER_BINARY_FORMATS</code> 
+                        indicating which shader binary formats are available.
+                        See <a class="citerefentry" href="glShaderBinary.xml"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SHADER_COMPILER</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether a shader compiler
+                        is supported. <code class="constant">GL_FALSE</code> indicates that any call to
+                        <a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>, 
+                        <a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>, or 
+                        <a class="citerefentry" href="glReleaseShaderCompiler.xml"><span class="citerefentry"><span class="refentrytitle">glReleaseShaderCompiler</span></span></a> will result in a
+                        <code class="constant">GL_INVALID_OPERATION</code> error being generated.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_FAIL</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken for back-facing polygons when the stencil
+                        test fails. The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_FUNC</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what function is used for back-facing polygons to compare the
+                        stencil reference value with the stencil buffer value. The initial value
+                        is <code class="constant">GL_ALWAYS</code>.
+                        See <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_PASS_DEPTH_FAIL</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken for back-facing polygons when the stencil
+                        test passes,
+                        but the depth test fails. The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_PASS_DEPTH_PASS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken for back-facing polygons when the stencil
+                        test passes and the depth test passes. The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_REF</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the reference value that is compared with the contents of the stencil
+                        buffer for back-facing polygons. The initial value is 0.
+                        See <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_VALUE_MASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the mask that is used for back-facing polygons to mask both the stencil reference value and the
+                        stencil buffer value before they are compared. The initial value is all 1's.
+                        See <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BACK_WRITEMASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the mask that controls writing of the stencil bitplanes for back-facing polygons. The initial value
+                        is all 1's.
+                        See <a class="citerefentry" href="glStencilMaskSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the number of bitplanes in the stencil buffer of the
+                        currently bound framebuffer.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_CLEAR_VALUE</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the index to which the stencil bitplanes are cleared. The initial value is
+                        0.
+                        See <a class="citerefentry" href="glClearStencil.xml"><span class="citerefentry"><span class="refentrytitle">glClearStencil</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_FAIL</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken when the stencil
+                        test fails for front-facing polygons and non-polygons. 
+                        The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> and
+                        <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_FUNC</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what function is used to compare the
+                        stencil reference value with the stencil buffer value for front-facing polygons and non-polygons.
+                        The initial value is <code class="constant">GL_ALWAYS</code>.
+                        See <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and
+                        <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_PASS_DEPTH_FAIL</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken when the stencil
+                        test passes, but the depth test fails for front-facing polygons and non-polygons. 
+                        The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> and
+                        <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_PASS_DEPTH_PASS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        a symbolic constant indicating what action is taken when the stencil
+                        test passes and the depth test passes for front-facing polygons and non-polygons. 
+                        The initial value is <code class="constant">GL_KEEP</code>.
+                        See <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> and
+                        <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_REF</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the reference value that is compared with the contents of the stencil
+                        buffer for front-facing polygons and non-polygons.
+                        The initial value is 0.
+                        See <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and
+                        <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_TEST</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether stencil testing
+                        of fragments is enabled. The initial value is <code class="constant">GL_FALSE</code>.
+                        See <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_VALUE_MASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the mask that is used to mask both the stencil reference value and the
+                        stencil buffer value before they are compared for front-facing polygons and non-polygons.
+                        The initial value is all 1's.
+                        See <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> and
+                        <a class="citerefentry" href="glStencilFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFuncSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_STENCIL_WRITEMASK</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the mask that controls writing of the stencil bitplanes for front-facing polygons and non-polygons.
+                        The initial value is all 1's.
+                        See <a class="citerefentry" href="glStencilMask.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a> and
+                        <a class="citerefentry" href="glStencilMaskSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_SUBPIXEL_BITS</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        an estimate of the number of bits of subpixel resolution that are used to
+                        position rasterized geometry in window coordinates. The value must be at least 4.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BINDING_2D</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the texture
+                        currently bound to the target <code class="constant">GL_TEXTURE_2D</code> for the active multitexture unit. The initial value is 0.
+                        See <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BINDING_CUBE_MAP</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns a single value, the name of the texture
+                        currently bound to the target <code class="constant">GL_TEXTURE_CUBE_MAP</code> for the active multitexture unit. The initial value is 0.
+                        See <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns one value,
+                        the byte alignment used for reading pixel data from memory. The initial
+                        value is 4.
+                        See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_VIEWPORT</code></span></dt><dd><p>
+                        <em class="parameter"><code>params</code></em> returns four values:
+                        the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates of the viewport,
+                        followed by its width and height.
+                        Initially the 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        and 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        window coordinates are both set to 0,
+                        and the width and height are set to the width and height of the window into
+                        which the GL will do its rendering.
+                        See <a class="citerefentry" href="glViewport.xml"><span class="citerefentry"><span class="refentrytitle">glViewport</span></span></a>.
+                    </p></dd></dl></div><p>
+            Many of the boolean parameters can also be queried more easily using
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> 
+            is not one of the values listed previously.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetActiveAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveAttrib</span></span></a>,
+            <a class="citerefentry" href="glGetActiveUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniform</span></span></a>,
+            <a class="citerefentry" href="glGetAttachedShaders.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttachedShaders</span></span></a>,
+            <a class="citerefentry" href="glGetAttribLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetAttribLocation</span></span></a>,
+            <a class="citerefentry" href="glGetBufferParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameteriv</span></span></a>,
+            <a class="citerefentry" href="glGetError.xml"><span class="citerefentry"><span class="refentrytitle">glGetError</span></span></a>,
+            <a class="citerefentry" href="glGetFramebufferAttachmentParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferAttachmentParameteriv</span></span></a>,
+            <a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>,
+            <a class="citerefentry" href="glGetProgramInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramInfoLog</span></span></a>,
+            <a class="citerefentry" href="glGetRenderbufferParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetRenderbufferParameteriv</span></span></a>,
+            <a class="citerefentry" href="glGetShaderiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderiv</span></span></a>,
+            <a class="citerefentry" href="glGetShaderInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>,
+            <a class="citerefentry" href="glGetShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderSource</span></span></a>,
+            <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>,
+            <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>,
+            <a class="citerefentry" href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
+            <a class="citerefentry" href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,
+            <a class="citerefentry" href="glGetVertexAttrib.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>,
+            <a class="citerefentry" href="glGetVertexAttribPointerv.xml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttribPointerv</span></span></a>,
+            <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
+        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

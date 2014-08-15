@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetString - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetString">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetString — return a string describing the current GL connection</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">const GLubyte* <strong class="fsfunc">glGetString</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">name</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">const GLubyte* <strong class="fsfunc">glGetStringi</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">name</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">index</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>name</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a symbolic constant, one of
+                    <code class="constant">GL_EXTENSIONS</code>, <code class="constant">GL_RENDERER</code>,
+                                        <code class="constant">GL_SHADING_LANGUAGE_VERSION</code>, <code class="constant">GL_VENDOR</code>, or
+                    <code class="constant">GL_VERSION</code>.
+                    <code class="function">glGetStringi</code> accepts only the <code class="constant">GL_EXTENSIONS</code> token.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>index</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For <code class="function">glGetStringi</code>, specifies the index of the string to return.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetString</code> returns a pointer to a static string
+            describing some aspect of the current GL connection.
+            <em class="parameter"><code>name</code></em> can be one of the following:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_EXTENSIONS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns the extension string supported by the implementation.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_VENDOR</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns the company responsible for this GL implementation.
+                        This name does not change from release to release.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_RENDERER</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns the name of the renderer.
+                        This name is typically specific to a particular configuration of a hardware
+                        platform.
+                        It does not change from release to release.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_VERSION</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns a version or release number.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_SHADING_LANGUAGE_VERSION</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns a version or release number for the shading language.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            <code class="function">glGetStringi</code> returns a pointer to a static string
+            indexed by <em class="parameter"><code>index</code></em>.
+            <em class="parameter"><code>name</code></em> can be one of the following:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_EXTENSIONS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        Returns the extension string supported by the implementation at <em class="parameter"><code>index</code></em>.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+            Strings <code class="constant">GL_VENDOR</code> and <code class="constant">GL_RENDERER</code> together uniquely specify
+            a platform. They do not change from release to release and should be used
+            by platform-recognition algorithms.
+        </p>
+        <p>
+            The <code class="constant">GL_VERSION</code> and <code class="constant">GL_SHADING_LANGUAGE_VERSION</code> strings begin with a version number.
+            The version number uses one
+            of these forms:
+        </p>
+        <p>
+            <span class="emphasis"><em>major_number.minor_number</em></span>
+            <span class="emphasis"><em>major_number.minor_number.release_number</em></span>
+        </p>
+        <p>
+            Vendor-specific information may follow the version
+            number. Its format depends on the implementation, but
+            a space always separates the version number and
+            the vendor-specific information.
+        </p>
+        <p>
+            All strings are null-terminated.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            If an error is generated, <code class="function">glGetString</code> returns 0.
+        </p>
+        <p>
+            The client and server may support different versions.
+            <code class="function">glGetString</code> always returns a compatible version number.
+            The release number always describes the server.
+        </p>
+        <p>
+            There is no defined relationship between the order in which extension names appear in
+            the non-indexed string and the order in which they appear in the indexed query.
+        </p>
+        <p>
+            There is no defined relationship between any particular extension name and the index values;
+            an extension name may correspond to a different index in different GL contexts and/or implementations.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>name</code></em> is not an accepted value.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated by <code class="function">glGetStringi</code> if
+            <em class="parameter"><code>index</code></em> is outside the valid range for indexed state <em class="parameter"><code>name</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">GetString</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">GetStringi</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

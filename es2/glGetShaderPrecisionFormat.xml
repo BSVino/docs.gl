@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glGetShaderPrecisionFormat</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetShaderPrecisionFormat"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetShaderPrecisionFormat — return the range and precision for different shader numeric formats</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetShaderPrecisionFormat</strong>(</code></td><td>GLenum <var class="pdparam">shaderType</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">precisionType</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">range</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">precision</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>shaderType</code></em></span></dt><dd><p>Specifies the type of shader to query.
+		    Must be either <code class="constant">GL_VERTEX_SHADER</code>
+		    or <code class="constant">GL_FRAGMENT_SHADER</code>.</p></dd><dt><span class="term"><em class="parameter"><code>precisionType</code></em></span></dt><dd><p>Specifies the numeric format to query, corresponding to a shader precision qualifier and variable type.
+		    Must be one of <code class="constant">GL_LOW_FLOAT</code>, <code class="constant">GL_MEDIUM_FLOAT</code>, 
+                    <code class="constant">GL_HIGH_FLOAT</code>, <code class="constant">GL_LOW_INT</code>, 
+                    <code class="constant">GL_MEDIUM_INT</code>, or <code class="constant">GL_HIGH_INT</code>.</p></dd><dt><span class="term"><em class="parameter"><code>range</code></em></span></dt><dd><p>Specifies a pointer to the two-element array in which the
+		    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+			<mml:mrow>
+			    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+				<mml:mn>2</mml:mn>
+			    </mml:msub>
+			</mml:mrow>
+		    </mml:math>
+                    of the minimum and maximum representable magnitudes of the format
+                    are returned.</p></dd><dt><span class="term"><em class="parameter"><code>precision</code></em></span></dt><dd><p>Specifies a pointer to the location in which the
+		    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+			
+			<mml:mrow>
+			    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+				<mml:mn>2</mml:mn>
+			    </mml:msub>
+			</mml:mrow>
+		    </mml:math>
+                    of the precision of the format is returned.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p><code class="function">glGetShaderPrecisionFormat</code>
+	returns range and precision limits for floating-point and integer shader variable formats with low,
+	medium, and high precision qualifiers.  
+	When <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">minRep</mml:mi></mml:math>
+	and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">maxRep</mml:mi></mml:math>
+        are the minimum and maximum representable values of the format,
+	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+	    
+	    <mml:mrow>
+		<mml:mi mathvariant="italic">floor</mml:mi>
+		<mml:mo>⁡</mml:mo>
+		<mml:mfenced open="(" close=")">
+		<mml:mrow>
+		    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+			<mml:mn>2</mml:mn>
+		    </mml:msub>
+		    <mml:mo>⁡</mml:mo>
+		    <mml:mfenced open="(" close=")">
+		    <mml:mrow>
+			<mml:mfenced open="|" close="|">
+			<mml:mrow>
+			    <mml:mi mathvariant="italic">minRep</mml:mi>
+			</mml:mrow>
+			</mml:mfenced>
+		    </mml:mrow>
+		    </mml:mfenced>
+		</mml:mrow>
+		</mml:mfenced>
+	    </mml:mrow>
+	</mml:math>
+	and
+	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+	    
+	    <mml:mrow>
+		<mml:mi mathvariant="italic">floor</mml:mi>
+		<mml:mo>⁡</mml:mo>
+		<mml:mfenced open="(" close=")">
+		<mml:mrow>
+		    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+			<mml:mn>2</mml:mn>
+		    </mml:msub>
+		    <mml:mo>⁡</mml:mo>
+		    <mml:mfenced open="(" close=")">
+		    <mml:mrow>
+			<mml:mfenced open="|" close="|">
+			<mml:mrow>
+			    <mml:mi mathvariant="italic">maxRep</mml:mi>
+			</mml:mrow>
+			</mml:mfenced>
+		    </mml:mrow>
+		    </mml:mfenced>
+		</mml:mrow>
+		</mml:mfenced>
+	    </mml:mrow>
+	</mml:math>
+	are returned in
+	<em class="parameter"><code>range</code></em> as the first and second elements, respectively.</p><p>If the smallest representable value greater than 1 is
+	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+	    
+	    <mml:mfenced open="(" close=")">
+	    <mml:mrow>
+		<mml:mn>1</mml:mn>
+		<mml:mo>+</mml:mo>
+		<mml:mn>∊</mml:mn>
+	    </mml:mrow>
+	    </mml:mfenced>
+	</mml:math>
+	then
+	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+	    
+	    <mml:mrow>
+		<mml:mi mathvariant="italic">floor</mml:mi>
+		<mml:mo>⁡</mml:mo>
+		<mml:mfenced open="(" close=")">
+		<mml:mrow>
+		    <mml:mo>-</mml:mo>
+		    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
+			<mml:mn>2</mml:mn>
+		    </mml:msub>
+		    <mml:mo>⁡</mml:mo>
+		    <mml:mfenced open="(" close=")">
+		    <mml:mrow>
+			<mml:mn>∊</mml:mn>
+		    </mml:mrow>
+		    </mml:mfenced>
+		</mml:mrow>
+		</mml:mfenced>
+	    </mml:mrow>
+	</mml:math>
+	is returned in <em class="parameter"><code>precision</code></em>.
+	An integer format will have an ∊ of 1, and thus will return 0.  
+	Floating-point formats will return values greater than 0.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>The minimum range and precision required for different formats is
+	described in the <span class="emphasis"><em>OpenGL ES Shading Language Specification.</em></span></p><p>If a high precision floating-point format is not supported for fragment shaders,
+	calling <code class="function">glGetShaderPrecisionFormat</code> with arguments <code class="constant">GL_FRAGMENT_SHADER</code>
+	and <code class="constant">GL_HIGH_FLOAT</code> will return 0 for both <em class="parameter"><code>range</code></em> and 
+	<em class="parameter"><code>precision</code></em>.  Support for a high precision floating-point format is mandatory for 
+	vertex shaders.</p><p>Shader compiler support is optional, and thus must be queried
+	before use by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_SHADER_COMPILER</code>. <a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>, 
+	<a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>, <code class="function">glGetShaderPrecisionFormat</code>, and
+	<a class="citerefentry" href="glReleaseShaderCompiler.xml"><span class="citerefentry"><span class="refentrytitle">glReleaseShaderCompiler</span></span></a> will
+	each generate <code class="constant">GL_INVALID_OPERATION</code> on implementations
+	that do not support a shader compiler. Such implementations instead offer the
+	<a class="citerefentry" href="glShaderBinary.xml"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>
+	alternative for supplying a pre-compiled shader binary.</p><p>If an error is generated, no change is made to the
+	contents of <em class="parameter"><code>range</code></em> or <em class="parameter"><code>precision</code></em>.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	a shader compiler is not supported.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>shaderType</code></em> or <em class="parameter"><code>precisionType</code></em> is not 
+	an accepted value.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+	with argument <code class="constant">GL_SHADER_COMPILER</code></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glCompileShader.xml"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
+	<a class="citerefentry" href="glShaderSource.xml"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

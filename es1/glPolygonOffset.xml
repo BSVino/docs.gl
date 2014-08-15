@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glPolygonOffset</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glPolygonOffset"><a id="glPolygonOffset"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonOffset — set the scale and units used to calculate depth
+        values</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonOffset</b>(</code></td><td>GLfloat <var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">units</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonOffsetx</b>(</code></td><td>GLfixed <var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">units</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+                    <em class="parameter"><code>factor</code></em>
+                </span></dt><dd><p>Specifies a scale factor that is used to create a
+                    variable depth offset for each polygon. The initial value
+                    is 0.</p></dd><dt><span class="term">
+                    <em class="parameter"><code>units</code></em>
+                </span></dt><dd><p>Is multiplied by an implementation-specific value
+                    to create a constant depth offset. The initial value is 0.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>When <code class="constant">GL_POLYGON_OFFSET_FILL</code>
+        is enabled, each fragment's <em class="parameter"><code>depth</code></em>
+        value will be offset after it is interpolated from the
+        <em class="parameter"><code>depth</code></em>
+        values of the appropriate vertices. The value of the offset is
+        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+            <mml:mi>m</mml:mi>
+            <mml:mo>*</mml:mo>
+            <mml:mi>factor</mml:mi>
+            <mml:mo>+</mml:mo>
+            <mml:mi>r</mml:mi>
+            <mml:mo>*</mml:mo>
+            <mml:mi>units</mml:mi>
+        </mml:math>,
+        where <em class="replaceable"><code>m</code></em>
+        is a measurement of the change in depth relative to the screen
+        area of the polygon, and <em class="replaceable"><code>r</code></em>
+        is the smallest value that is guaranteed to produce a
+        resolvable offset for a given implementation. The offset is
+        added before the depth test is performed and before the value
+        is written into the depth buffer.</p><p>
+        <code class="function">glPolygonOffset</code>
+        is useful for for applying decals to surfaces.</p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+        <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>,
+        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+        </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2003-2004
+            Silicon Graphics, Inc. This document is licensed under the SGI
+            Free Software B License. For details, see
+            <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p></div></div></body></html>

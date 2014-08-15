@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glDrawBuffers - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glDrawBuffers">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glDrawBuffers — Specifies a list of color buffers to be drawn into</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glDrawBuffers</strong>(</code>
+              </td>
+              <td>GLsizei <var class="pdparam">n</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLenum *<var class="pdparam">bufs</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>n</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Specifies the number of buffers in
+            <em class="parameter"><code>bufs</code></em>.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>bufs</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>Points to an array of symbolic constants
+            specifying the buffers into which fragment colors or
+            data values will be written.</p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p><code class="function">glDrawBuffers</code> defines an array of
+    buffers into which outputs from the fragment shader data will
+    be written. If a fragment shader writes a value
+    to one or more user defined output
+    variables, then the value of each variable will be written into the
+    buffer specified at a location within <em class="parameter"><code>bufs</code></em>
+    corresponding to the location assigned to that user defined output.
+    The draw buffer used for user defined outputs assigned to locations
+    greater than or equal to <em class="parameter"><code>n</code></em> is implicitly set
+    to <code class="constant">GL_NONE</code> and any data written to such an output
+    is discarded.</p>
+        <p>The symbolic constants contained in
+    <em class="parameter"><code>bufs</code></em> must be one of the following, depending on
+        whether GL is bound to the default framebuffer or not:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_NONE</code>
+              </span>
+            </dt>
+            <dd>
+              <p>The fragment shader output value is not written into
+            any color buffer.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_BACK</code>
+              </span>
+            </dt>
+            <dd>
+              <p>The fragment shader output value is written into the
+            back color buffer.</p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_COLOR_ATTACHMENT</code>
+                <span class="emphasis">
+                  <em>n</em>
+                </span>
+              </span>
+            </dt>
+            <dd>
+              <p>The fragment shader output value is written into the
+            <span class="emphasis"><em>n</em></span>th color attachment of the current framebuffer.
+            <span class="emphasis"><em>n</em></span> may range from zero to the value of
+            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.</p>
+            </dd>
+          </dl>
+        </div>
+        <p>Except for <code class="constant">GL_NONE</code>, the preceding
+    symbolic constants may not appear more than once in
+    <em class="parameter"><code>bufs</code></em>. The maximum number of draw buffers
+    supported is implementation dependent and can be queried by
+    calling
+    <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with the argument <code class="constant">GL_MAX_DRAW_BUFFERS</code>.</p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>If a fragment shader does not write to a user defined output variable,
+    the values of the fragment
+    colors following shader execution are undefined. For each
+    fragment generated in this situation, a different value may be
+    written into each of the buffers specified by
+    <em class="parameter"><code>bufs</code></em>.</p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p><code class="constant">GL_INVALID_ENUM</code> is generated if one of the
+    values in <em class="parameter"><code>bufs</code></em> is not an accepted
+    value.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if the GL is bound
+    to the default framebuffer and <em class="parameter"><code>n</code></em> is not 1, or if the value in
+    <em class="parameter"><code>bufs</code></em> is one of the <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>n</em></span>
+    tokens.</p>
+        <p><code class="constant">GL_INVALID_OPERATION</code> is generated if the GL is bound
+    to a framebuffer object and the ith buffer listed in <em class="parameter"><code>bufs</code></em>
+    is anything other than <code class="constant">GL_NONE</code> or 
+    <code class="constant">GL_COLOR_ATTACHMENTS</code><span class="emphasis"><em>i</em></span>.</p>
+        <p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <em class="parameter"><code>n</code></em> is less than 0 or greater than
+    <code class="constant">GL_MAX_DRAW_BUFFERS</code>.</p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with argument <code class="constant">GL_MAX_DRAW_BUFFERS</code></p>
+        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with argument <code class="constant">GL_DRAW_BUFFER</code><span class="emphasis"><em>i</em></span> where
+    <span class="emphasis"><em>i</em></span> indicates the number of the draw buffer
+    whose value is to be queried.</p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glDrawBuffers</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glReadBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2003-2005 3Dlabs Inc. Ltd.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

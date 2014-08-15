@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>glFramebufferTexture2D</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glFramebufferTexture2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glFramebufferTexture2D — attach a texture image to a framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glFramebufferTexture2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">attachment</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">textarget</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">texture</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>Specifies the framebuffer target. The symbolic constant must be
+		    <code class="constant">GL_FRAMEBUFFER</code>.</p></dd><dt><span class="term"><em class="parameter"><code>attachment</code></em></span></dt><dd><p>Specifies the attachment point to which an image from
+		    <em class="parameter"><code>texture</code></em> should be attached. Must be one of the
+		    following symbolic constants:
+		    <code class="constant">GL_COLOR_ATTACHMENT0</code>,
+		    <code class="constant">GL_DEPTH_ATTACHMENT</code>, or
+		    <code class="constant">GL_STENCIL_ATTACHMENT</code>.</p></dd><dt><span class="term"><em class="parameter"><code>textarget</code></em></span></dt><dd><p>Specifies the texture target. Must be one of the
+		    following symbolic constants:
+		    <code class="constant">GL_TEXTURE_2D</code>,
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
+		    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.</p></dd><dt><span class="term"><em class="parameter"><code>texture</code></em></span></dt><dd><p>Specifies the texture object whose image is to be attached.</p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>Specifies the mipmap level of the texture image to be attached,
+		    which must be 0.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p><code class="function">glFramebufferTexture2D</code> attaches the 
+	texture image specified by <em class="parameter"><code>texture</code></em> and 
+	<em class="parameter"><code>level</code></em> as 
+	one of the logical buffers of the currently bound framebuffer object.
+	<em class="parameter"><code>attachment</code></em> specifies whether the texture image
+	should be attached to the framebuffer object's color, depth, or 
+	stencil buffer. A texture image may not be attached to the default
+	framebuffer object name 0.</p><p>If <em class="parameter"><code>texture</code></em> is not 0, the value of
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> for the
+	specified attachment point is set to <code class="constant">GL_TEXTURE</code>,
+	the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code>
+	is set to <em class="parameter"><code>texture</code></em>, and the value of 
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL</code> is set to
+	<em class="parameter"><code>level</code></em>. If <em class="parameter"><code>texture</code></em> is a cube map
+	texture, the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE</code> 
+	is set to <em class="parameter"><code>textarget</code></em>; otherwise it is set to the default value
+	<code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>. Any previous attachment to the 
+	<em class="parameter"><code>attachment</code></em> logical buffer of the currently bound framebuffer 
+	object is broken.</p><p>If <em class="parameter"><code>texture</code></em> is 0, the current image, if any, attached to
+	the <em class="parameter"><code>attachment</code></em> logical buffer of the currently bound
+	framebuffer object is detached. The value of 
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is set to 
+	<code class="constant">GL_NONE</code>. The value of 
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME</code> is set to 0.
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL</code> and
+	<code class="constant">GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE</code> are
+	set to the default values 0 and <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>, 
+	respectively.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            Special precautions need to be taken to avoid attaching a texture image to the
+            currently bound framebuffer while the texture object is currently bound and
+            potentially sampled by the current vertex or fragment shader. Doing so could lead to 
+            the creation of a "feedback loop" between the writing of pixels by rendering operations
+            and the simultaneous reading of those same pixels when used as texels in the
+            currently bound texture. In this scenario, the framebuffer will be considered
+            framebuffer complete, but the values of fragments rendered while in this state will
+            be undefined. The values of texture samples may be undefined as well.
+        </p><p>
+            If a texture object is deleted while its image is attached to the currently
+            bound framebuffer, then it is as if <code class="function">glFramebufferTexture2D</code>
+            had been called with a <em class="parameter"><code>texture</code></em> of 0 for the attachment
+            point to which this image was attached in the currently bound framebuffer object.
+            In other words, the texture image is detached from the currently bound
+            framebuffer. Note that the texture image is specifically <span class="emphasis"><em>not</em></span>
+            detached from any non-bound framebuffers. Detaching the image from any non-bound 
+            framebuffers is the responsibility of the application.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>target</code></em> is not <code class="constant">GL_FRAMEBUFFER</code>.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>textarget</code></em> is not an accepted texture target and
+	<em class="parameter"><code>texture</code></em> is not 0.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+	<em class="parameter"><code>attachment</code></em> is not an accepted attachment point.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+	<em class="parameter"><code>level</code></em> is not 0 and
+	<em class="parameter"><code>texture</code></em> is not 0.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	the default framebuffer object name 0 is bound.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>texture</code></em> is neither 0 nor the name of an existing 
+	texture object.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if
+	<em class="parameter"><code>texture</code></em> is the name of an existing two-dimensional 
+	texture object but <em class="parameter"><code>textarget</code></em> is not 
+	<code class="constant">GL_TEXTURE_2D</code> or if <em class="parameter"><code>texture</code></em> is 
+	the name of an existing cube map texture object but <em class="parameter"><code>textarget</code></em>
+	is <code class="constant">GL_TEXTURE_2D</code>.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGetFramebufferAttachmentParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferAttachmentParameteriv</span></span></a></p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p><a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
+	<a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
+	<a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
+	<a class="citerefentry" href="glDeleteFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteFramebuffers</span></span></a>,
+	<a class="citerefentry" href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,
+	<a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
+	<a class="citerefentry" href="glGenerateMipmap.xml"><span class="citerefentry"><span class="refentrytitle">glGenerateMipmap</span></span></a>,
+	<a class="citerefentry" href="glGetFramebufferAttachmentParameteriv.xml"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferAttachmentParameteriv</span></span></a>,
+	<a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a></p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

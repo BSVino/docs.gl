@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glCompressedTexImage3D - OpenGL ES 3 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glCompressedTexImage3D">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glCompressedTexImage3D — specify a three-dimensional texture image in a compressed format</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glCompressedTexImage3D</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">height</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">depth</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">border</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">imageSize</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target texture.
+                    Must be <code class="constant">GL_TEXTURE_3D</code>, or <code class="constant">GL_TEXTURE_2D_ARRAY</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>level</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the level-of-detail number.
+                    Level 0 is the base image level.
+                    Level <span class="emphasis"><em>n</em></span> is the <span class="emphasis"><em>n</em></span>th mipmap reduction image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the format of the compressed image data stored at address <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>width</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the width of the texture image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>height</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the height of the texture image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>depth</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the depth of the texture image.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>border</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    This value must be 0.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>imageSize</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the number of unsigned bytes of image data starting at the
+                    address specified by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a pointer to the compressed image data in memory.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            Texturing allows elements of an image array to be read by shaders.
+        </p>
+        <p>
+            <code class="function">glCompressedTexImage3D</code> loads a previously defined, and retrieved, compressed three-dimensional
+            texture image if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_3D</code> (see <a class="citerefentry" href="glTexImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>).
+        </p>
+        <p>
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <em class="parameter"><code>data</code></em> is
+            treated as an array of compressed 2D textures.
+        </p>
+        <p>
+            <em class="parameter"><code>internalformat</code></em> must be a compressed image format from Table 1 below,
+            or an extension-specified compressed-texture format.
+        </p>
+        <p>
+                        <em class="parameter"><code>imageSize</code></em> must be appropriate for the <em class="parameter"><code>width</code></em>, <em class="parameter"><code>height</code></em> and
+                        <em class="parameter"><code>depth</code></em> of the <em class="parameter"><code>internalformat</code></em> specified. The size for a single slice of ETC/EAC
+                        is given in Table 1 below.
+        </p>
+        <p>
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
+            (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
+            specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
+        </p>
+        <p>
+            </p>
+        <div class="table" id="idm28522912">
+          <div class="table-title">Table 1. Compressed Internal Formats</div>
+          <div class="table-contents">
+            <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+              <colgroup>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+                <col style="text-align: left; "/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Compressed Internal Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Base Internal Format</strong></span>
+            </th>
+                  <th style="text-align: left; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Image Size</strong></span>
+            </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_R11_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_SIGNED_R11_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RED</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_RG11_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 16</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_SIGNED_RG11_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RG</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 16</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_RGB8_ETC2</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_SRGB8_ETC2</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGB</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 8</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_RGBA8_ETC2_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; border-bottom: 2px solid ; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 16</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC</code>
+                  </td>
+                  <td style="text-align: left; border-right: 2px solid ; ">
+                    <code class="constant">GL_RGBA</code>
+                  </td>
+                  <td style="text-align: left; ">ceil(<em class="parameter"><code>width</code></em>/4) * ceil(<em class="parameter"><code>height</code></em>/4) * 16</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p><br class="table-break"/>
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+          <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not one of the specific
+          compressed internal formats:
+          <code class="constant">GL_COMPRESSED_R11_EAC</code>,
+          <code class="constant">GL_COMPRESSED_SIGNED_R11_EAC</code>,
+          <code class="constant">GL_COMPRESSED_RG11_EAC</code>,
+          <code class="constant">GL_COMPRESSED_SIGNED_RG11_EAC</code>,
+          <code class="constant">GL_COMPRESSED_RGB8_ETC2</code>,
+          <code class="constant">GL_COMPRESSED_SRGB8_ETC2</code>,
+          <code class="constant">GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2</code>,
+          <code class="constant">GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2</code>,
+          <code class="constant">GL_COMPRESSED_RGBA8_ETC2_EAC</code>, or
+          <code class="constant">GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>imageSize</code></em> is not consistent with
+            the format, dimensions, and contents of the specified compressed image data.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if parameter combinations are not
+            supported by the specific compressed internal format as specified in the
+            specific texture compression extension. The ETC2/EAC texture compression algorithm
+                        supports only two-dimensional images. If internalformat is an ETC2/EAC format,
+                        <code class="function">glCompressedTexImage3D</code> will generate an INVALID_OPERATION error if target is not TEXTURE_2D_ARRAY.
+                </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
+            object such that the memory reads required would exceed the data store size.
+        </p>
+        <p>
+            Undefined results, including abnormal program termination, are generated if <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension specification defining the internal compression format.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>API Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="2">
+                <span class="bold"><strong>OpenGL ES API Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">glCompressedTexImage3D</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCompressedTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glPixelStorei.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
+            <a class="citerefentry" href="glTexParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
+            <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>
