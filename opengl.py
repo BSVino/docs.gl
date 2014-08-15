@@ -73,14 +73,20 @@ command_categories = OrderedDict([
     "glInvalidateTexImage", "glInvalidateTexSubImage",
   ] ),
   ( "Rendering", [
-    "glBeginConditionalRender", "glEndConditionalRender", "glReadPixels", "glReadBuffer", "glDrawBuffer",
-    "glClearDepth", "glClearColor", "glClear", "glClearStencil", "glFinish", "glFlush", "glClearBuffer",
-    "glTextureBarrier", "glClientWaitSync", "glDeleteSync", "glFenceSync", "glGetSync", "glIsSync",
-    "glWaitSync"
+    "glReadPixels", "glReadBuffer", "glDrawBuffer", "glClearDepth", "glClearColor", "glClear", 
+    "glClearStencil", "glFinish", "glFlush", "glClearBuffer",
+  ] ),
+  ( "Frame Buffers", [
+    "glIsRenderbuffer", "glBindRenderbuffer", "glDeleteRenderbuffers", "glGenRenderbuffers",
+    "glRenderbufferStorage", "glGetRenderbufferParameter", "glIsFramebuffer", "glBindFramebuffer",
+    "glDeleteFramebuffers", "glGenFramebuffers", "glCheckFramebufferStatus", "glFramebufferTexture",
+    "glFramebufferRenderbuffer", "glGetFramebufferAttachmentParameter", "glGenerateMipmap",
+    "glRenderbufferStorageMultisample", "glBlitFramebuffer", "glFramebufferTextureLayer", 
+    "glCreateFramebuffers", "glCreateRenderbuffers", "glDrawBuffers", "glFramebufferParameteri",
+    "glGetFramebufferParameter", "glInvalidateFramebuffer", "glInvalidateSubFramebuffer", "glSampleMaski",
   ] ),
   ( "Shaders", [
-    "glUniform", "glGetUniform",
-    "glBindFragDataLocation", "glGetFragDataLocation",
+    "glUniform", "glGetUniform", "glBindFragDataLocation", "glGetFragDataLocation",
     "glAttachShader", "glBindAttribLocation", "glCompileShader", "glCreateProgram", "glCreateShader",
     "glDeleteProgram", "glDeleteShader", "glDetachShader", "glGetActiveAttrib", "glGetActiveUniform",
     "glGetAttachedShaders", "glGetAttribLocation", "glGetProgram", "glGetProgramInfoLog",
@@ -115,15 +121,6 @@ command_categories = OrderedDict([
     "glMapBufferRange", "glMultiDrawArraysIndirect", "glMultiDrawElementsBaseVertex", 
     "glMultiDrawElementsIndirect", "glPatchParameter", "glPrimitiveRestartIndex", "glProvokingVertex",
   ] ),
-  ( "Transform Feedback", [
-    "glBeginTransformFeedback", "glEndTransformFeedback", "glTransformFeedbackVaryings",
-    "glGetTransformFeedbackVarying", "glGenTransformFeedbacks", "glDeleteTransformFeedbacks",
-    "glIsTransformFeedback", "glPauseTransformFeedback", "glResumeTransformFeedback",
-    "glBindTransformFeedback", "glCreateTransformFeedbacks", "glDrawTransformFeedback",
-    "glDrawTransformFeedbackInstanced", "glDrawTransformFeedbackStream", 
-    "glDrawTransformFeedbackStreamInstanced", "glGetTransformFeedback", "glTransformFeedbackBufferBase",
-    "glTransformFeedbackBufferRange",
-  ] ),
   ( "State Management", [
     # Anything that affects the state machine
     "glEnable", "glDisable", "glLogicOp", "glStencilFunc", "glStencilMask", "glColorMask", "glDepthMask",
@@ -135,6 +132,15 @@ command_categories = OrderedDict([
     "glClipControl", "glDepthRangeArray", "glDepthRangeIndexed", "glDisablei", "glScissorArray",
     "glScissorIndexed", "glViewportArray", "glViewportIndexed"
   ] ),
+  ( "Transform Feedback", [
+    "glBeginTransformFeedback", "glEndTransformFeedback", "glTransformFeedbackVaryings",
+    "glGetTransformFeedbackVarying", "glGenTransformFeedbacks", "glDeleteTransformFeedbacks",
+    "glIsTransformFeedback", "glPauseTransformFeedback", "glResumeTransformFeedback",
+    "glBindTransformFeedback", "glCreateTransformFeedbacks", "glDrawTransformFeedback",
+    "glDrawTransformFeedbackInstanced", "glDrawTransformFeedbackStream", 
+    "glDrawTransformFeedbackStreamInstanced", "glGetTransformFeedback", "glTransformFeedbackBufferBase",
+    "glTransformFeedbackBufferRange",
+  ] ),
   ( "Utility", [
    "glGetGraphicsResetStatus", "glGetString", "glGetInternalformat", "glGetMultisample", 
    "glDispatchCompute", "glDispatchComputeIndirect", "glMemoryBarrier",
@@ -142,16 +148,11 @@ command_categories = OrderedDict([
   ( "Queries", [
     "glGetQueryiv", "glGenQueries", "glDeleteQueries", "glBeginQuery", "glEndQuery", "glGetQueryObject",
     "glIsQuery", "glBeginQueryIndexed", "glEndQueryIndexed", "glGetQueryIndexed", "glQueryCounter",
-    "glCreateQueries"
+    "glCreateQueries", "glBeginConditionalRender", "glEndConditionalRender",
   ] ),
-  ( "Frame Buffers", [
-    "glIsRenderbuffer", "glBindRenderbuffer", "glDeleteRenderbuffers", "glGenRenderbuffers",
-    "glRenderbufferStorage", "glGetRenderbufferParameter", "glIsFramebuffer", "glBindFramebuffer",
-    "glDeleteFramebuffers", "glGenFramebuffers", "glCheckFramebufferStatus", "glFramebufferTexture",
-    "glFramebufferRenderbuffer", "glGetFramebufferAttachmentParameter", "glGenerateMipmap",
-    "glRenderbufferStorageMultisample", "glBlitFramebuffer", "glFramebufferTextureLayer", 
-    "glCreateFramebuffers", "glCreateRenderbuffers", "glDrawBuffers", "glFramebufferParameteri",
-    "glGetFramebufferParameter", "glInvalidateFramebuffer", "glInvalidateSubFramebuffer", "glSampleMaski",
+  ( "Syncing", [
+    "glTextureBarrier", "glClientWaitSync", "glDeleteSync", "glFenceSync", "glGetSync", "glIsSync",
+    "glWaitSync"
   ] ),
   ( "Vertex Array Objects", [
     "glBindVertexArray", "glDeleteVertexArrays", "glGenVertexArrays", "glIsVertexArray"
