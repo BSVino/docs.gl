@@ -35,7 +35,8 @@ window.api_version = "";
 
 function set_api_version(version) {
 	window.api_version = version;
-	
+	$.cookie("api_version", version);
+
 	$( "#opengl_name" ).text(gl_printable_name(version));
 
 	$(".category").addClass("disabled");
@@ -118,7 +119,7 @@ function set_api_version(version) {
 }
 
 $(function() {
-	$( "#command_categories" ).bonsai()
+	$( "#command_categories" ).bonsai();
 	
 	$( "#versions_dropdown" ).selectmenu({
 		change: function( event, ui ) {
@@ -126,7 +127,14 @@ $(function() {
 		}
 	});
 
-	set_api_version(window.current_api);
+	console.log("api_version: " + $.cookie("api_version"));
+	if ($.cookie("api_version").length)
+	{
+		set_api_version($.cookie("api_version"));
+		$("#versions_dropdown").val($.cookie("api_version")).selectmenu('refresh');
+	}
+	else
+		set_api_version(window.current_api);
 	
 	$("#style_light").click(function() {
 		$("#pagestyle").attr("href", "../style_light.css");

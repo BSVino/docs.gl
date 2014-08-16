@@ -142,11 +142,13 @@ for version in major_versions:
   all_versions.sort()
 
   # Find latest minor version for this major version.
-  latest_minor = version[2] + ".0"
+  latest_minor = version[:3] + ".0"
   for version_option in all_versions:
-    if latest_minor[0] == version_option[2] and float(latest_minor) < float(version_option[2:]):
+    if version[:2] != version_option[:2]:
+      continue
+    if latest_minor[2] == version_option[2] and float(latest_minor[2:]) < float(version_option[2:]):
       latest_minor = version_option
-  
+
   toc_versions_options = ""
   for version_option in all_versions:
     if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
