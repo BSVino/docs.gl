@@ -168,6 +168,12 @@ for version in major_versions:
       
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
   header_for_version = header_for_version.replace("{$current_api}", latest_minor.replace(".", ""))
+  header_for_version = header_for_version.replace("{$command_major_version}", version[2])
+    
+  if version[0:2] == "gl":
+    header_for_version = header_for_version.replace("{$api_name}", "OpenGL")
+  elif version[0:2] == "es":
+    header_for_version = header_for_version.replace("{$api_name}", "OpenGL ES")
     
   for command in opengl.commands_version_flat:
     if not version in opengl.get_major_versions(opengl.commands_version_flat[command]):

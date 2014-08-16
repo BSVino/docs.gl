@@ -127,8 +127,7 @@ $(function() {
 		}
 	});
 
-	console.log("api_version: " + $.cookie("api_version"));
-	if ($.cookie("api_version").length)
+	if (typeof $.cookie("api_version") != 'undefined')
 	{
 		set_api_version($.cookie("api_version"));
 		$("#versions_dropdown").val($.cookie("api_version")).selectmenu('refresh');
