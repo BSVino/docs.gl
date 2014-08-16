@@ -72,7 +72,73 @@ header_fp.close()
 footer_fp = open("html/footer.html")
 footer = footer_fp.read()
 footer_fp.close()
+
+search_fp = open("html/docs.gl.search.js")
+search = search_fp.read()
+search_fp.close()
 print "Done."
+
+search_versions_commands = "var search_versions = {"
+for version in opengl.version_commands:
+  if version[0:2] == "gl" and float(version[2:]) < 2.1:
+    continue
+
+  if version[0:2] == "es" and float(version[2:]) < 2.0:
+    continue
+
+  search_versions_commands += "'" + version + "': ["
+
+  for command in opengl.version_commands[version]:
+    search_versions_commands += "'" + command + "',"
+    
+  for command in opengl.version_commands_flat[version]:
+    if not command in opengl.version_commands[version]:
+      search_versions_commands += "'" + command + "',"
+
+  search_versions_commands += "],"
+
+search_versions_commands += "'all': ["
+for command in opengl.commands_version:
+  major_versions = opengl.get_major_versions(opengl.commands_version[command])
+  for version in major_versions:
+    if int(version[2]) < 2:
+      continue
+    search_versions_commands += "'" + version[:3] + "/" + command + "',"
+
+for command in opengl.commands_version_flat:
+  if command in opengl.commands_version:
+    continue
+  
+  major_versions = opengl.get_major_versions(opengl.commands_version_flat[command])
+  for version in major_versions:
+    if int(version[2]) < 2:
+      continue
+    search_versions_commands += "'" + version[:3] + "/" + command + "',"
+  
+search_versions_commands += "]};"
+
+search = search.replace("{$search_versions_commands}", search_versions_commands)
+
+search_fp = open(output_dir + "/docs.gl.search.js", "w")
+search_fp.write(search)
+search_fp.close()
+
+search_versions_options = ""
+for version_option in opengl.version_commands.keys():
+  if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
+    continue
+
+  if version_option[0:2] == "es" and float(version_option[2:]) < 2.0:
+    continue
+
+  if version_option[:2] == 'gl':
+    search_versions_options += "<option value='" + version_option + "'" + ">GL" + version_option[2:] + "</option>"
+  elif version_option[:2] == 'es':
+    search_versions_options += "<option value='" + version_option + "'" + ">GLES" + version_option[2:] + "</option>"
+
+search_versions_options += "<option selected='selected' value='all'" + ">All</option>"
+
+header = header.replace("{$search_versions}", search_versions_options)
 
 unhandled_commands = opengl.commands_version_flat.keys()
 
