@@ -28,9 +28,15 @@ f = []
 d = []
 for (dirpath, dirnames, filenames) in os.walk("html/copy"):
   dirpath = dirpath[10:]
+
+  if "test" in dirpath:
+    continue
+    
   d.append(dirpath)
   for file in filenames:
-    if file[0] == '.':
+    if file[-3:] != '.js' and file[-4:] != '.css' and file[-4:] != '.png':
+      continue
+    if file == 'Gruntfile.js':
       continue
     f.append(dirpath + "/" + file)
 

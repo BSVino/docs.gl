@@ -12,8 +12,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script src="../jquery-bonsai/jquery.bonsai.js"></script>
 <link href="../jquery-bonsai/jquery.bonsai.css" rel="stylesheet" type="text/css" />
+<script src="../jquery-cookie/jquery.cookie.js"></script>
 
 <link href="../style.css" rel="stylesheet" type="text/css" />
+<link id="pagestyle" href="../style_light.css" rel="stylesheet" type="text/css" />
 
 <script>
 function gl_printable_name(name) {
@@ -145,6 +147,22 @@ $(function() {
 	});
 
 	set_api_version("{$current_api}");
+	
+	$("#style_light").click(function() {
+		$("#pagestyle").attr("href", "../style_light.css");
+		$.cookie("pagestyle", "light");
+	});
+
+	$("#style_dark").click(function() {
+		$("#pagestyle").attr("href", "../style_dark.css");
+		$.cookie("pagestyle", "dark");
+	});
+	
+	if ($.cookie("pagestyle") == 'light')
+		$("#style_light").click();
+
+	if ($.cookie("pagestyle") == 'dark')
+		$("#style_dark").click();
 });
 </script>
 
@@ -154,6 +172,7 @@ $(function() {
 <div id='header'>
 <div id='header_inner'>
 <a href="/"><img src="../logo.png" /></a>
+<div id="styles"><a id="style_light">Light</a> | <a id="style_dark">Dark</a></div>
 </div>
 </div>
 
