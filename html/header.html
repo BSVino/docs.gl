@@ -60,7 +60,7 @@ function set_api_version(version) {
 	if (window.last_gl_version != version.substring(0, 2))
 	{
 		// Remove functions from GL that ES doesn't have and vice versa.
-		$(".command").each(function() {
+		hide_commands = function() {
 			$(this).addClass("hidden");
 
 			var classList = $(this).attr('class').split(/\s+/);
@@ -70,8 +70,11 @@ function set_api_version(version) {
 					break;
 				}
 			}
-		});
+		};
 		
+		$(".command").each(hide_commands);
+		$(".category").each(hide_commands);
+
 		$("span.bonsai_inner").trigger('click');
 		$("span.bonsai_inner").trigger('click');
 		
