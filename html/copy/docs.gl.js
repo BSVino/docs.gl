@@ -143,4 +143,6 @@ $(function() {
 
 	if ($.cookie("pagestyle") == 'dark')
 		$("#style_dark").click();
+		
+	$(".open_me span.bonsai_inner").trigger('click');
 });

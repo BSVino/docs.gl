@@ -76,17 +76,23 @@ print "Done."
 
 unhandled_commands = opengl.commands_version_flat.keys()
 
-def spew_category(name, commands):
+def spew_category(name, commands, current_command):
   commands.sort()
 
   api_commands = ""
   commands_list = ""
   category_versions = []
+  found_current_command = False
   for command in commands:
     versions_available = opengl.commands_version_flat[command]
     versions_available.sort()
     
+    if command == current_command:
+      found_current_command = True
+    
     classes = "command"
+    if command == current_command:
+      classes += " current_command"
     for v in versions_available:
       classes += " " + v.replace(".", "")
       
@@ -104,6 +110,8 @@ def spew_category(name, commands):
         pass
 
   classes = "category"
+  if found_current_command:
+    classes += " open_me"
   for v in category_versions:
     classes += " " + v.replace(".", "")
     
@@ -113,14 +121,6 @@ def spew_category(name, commands):
 
   return api_commands
 
-api_commands = ""
-for category in opengl.command_categories:
-  api_commands += spew_category(category, opengl.command_categories[category])
-
-if len(unhandled_commands):
-  api_commands += spew_category("Uncategorized", unhandled_commands)
-
-header = header.replace("{$api_commands}", api_commands)
 footer = footer.replace("{$gentime}", time.strftime("%d %B %Y at %H:%M:%S GMT", time.gmtime()));
 
 version_numbers = opengl.version_commands.keys()
@@ -173,6 +173,15 @@ for version in major_versions:
  
     header_for_command = header_for_version
     footer_for_command = footer_for_version
+
+    api_commands = ""
+    for category in opengl.command_categories:
+      api_commands += spew_category(category, opengl.command_categories[category], command)
+
+    if len(unhandled_commands):
+      api_commands += spew_category("Uncategorized", unhandled_commands, command)
+
+    header_for_command = header_for_command.replace("{$api_commands}", api_commands)
 
     command_major_versions = opengl.get_major_versions_available(command)
     
