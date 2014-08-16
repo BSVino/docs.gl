@@ -1,9 +1,13 @@
 import os
 import shutil
 import time
+import sys
 
 import opengl
 import shared
+
+sys.path.append("htmlmin")
+import htmlmin
 
 def create_directory(dir):
   if not os.path.exists(dir):
@@ -196,7 +200,7 @@ for version in major_versions:
     output_html = header_for_command + command_html + footer_for_command
 
     output = open(output_dir + version_dir + "/" + command, "w")
-    output.write(output_html.encode('ascii', 'xmlcharrefreplace'))
+    output.write(htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_all_empty_space=True).encode('ascii', 'xmlcharrefreplace'))
     output.close()
     
     written += 1
