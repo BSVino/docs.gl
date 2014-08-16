@@ -73,7 +73,7 @@ def spew_category(name, commands):
         
     latest_present = versions_available[-1][0:3]
       
-    commands_list += "<li class='" + classes + "'><a href='../" + latest_present + "/" + command + "'>" + command + "</a></li>"
+    commands_list += "<li><a class='rewritelink " + classes + "'>" + command + "</a></li>"
     
     if commands != unhandled_commands:
       try:

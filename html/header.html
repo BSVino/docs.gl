@@ -49,13 +49,66 @@ function gl_printable_name(name) {
 }
 
 window.last_gl_version = ("{$current_api}").substring(0, 2);
+window.api_version = "";
 
 function set_api_version(version) {
+	window.api_version = version;
+	
 	$( "#opengl_name" ).text(gl_printable_name(version));
 
 	$(".category").addClass("disabled");
 	$(".command").addClass("disabled");
 	$("." + version).removeClass("disabled");
+
+	version_directory = version.substring(0, 3);
+	$(".rewritelink").each(function() {
+		if ($(this).hasClass(version))
+			$(this).attr("href", "../" + version_directory + "/" + $(this).text());
+		else
+		{
+			highest = 0;
+			var classList = $(this).attr('class').split(/\s+/);
+			for (var i = 0; i < classList.length; i++) {
+				class_api = classList[i].substring(0, 2);
+				if (class_api != version.substring(0, 2))
+					continue;
+					
+				if (class_api != 'gl' && class_api != 'es')
+					continue;
+
+				// Only consider versions <= the one the user has selected.
+				if (classList[i].substring(2, 3) <= version.substring(2, 3))
+				{
+					if (!highest)
+						highest = classList[i].substring(2, 3);
+						
+					if (classList[i].substring(2, 3) > highest)
+						highest = classList[i].substring(2, 3);
+				}
+			}
+
+			if (!highest)
+			{
+				// No available versions <= the user's choice, so go with the highest one.
+				for (var i = 0; i < classList.length; i++) {
+					class_api = classList[i].substring(0, 2);
+					if (class_api != version.substring(0, 2))
+						continue;
+						
+					if (class_api != 'gl' && class_api != 'es')
+						continue;
+
+					if (!highest)
+						highest = classList[i].substring(2, 3);
+							
+					if (classList[i].substring(2, 3) > highest)
+						highest = classList[i].substring(2, 3);
+				}
+			}
+
+			$(this).attr("href", "../" + version.substring(0, 2) + highest + "/" + $(this).text());
+		}
+	});
 
 	if (window.last_gl_version != version.substring(0, 2))
 	{
