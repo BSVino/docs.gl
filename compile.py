@@ -92,7 +92,7 @@ def spew_category(name, commands, current_command):
     
     classes = "command"
     if command == current_command:
-      classes += " current_command"
+      classes += " current"
     for v in versions_available:
       classes += " " + v.replace(".", "")
       
@@ -192,24 +192,22 @@ for version in major_versions:
     header_for_command = header_for_command.replace("{$api_commands}", api_commands)
 
     command_major_versions = opengl.get_major_versions_available(command)
+    command_major_versions.sort(reverse=True)
     
-    command_versions = '<strong>OpenGL</strong>'
-    if version[:2] == 'gl':
-      command_versions = "<strong>OpenGL " + version[2] + "</strong>"
-    elif version[:2] == 'es':
-      command_versions = "<strong>OpenGL ES " + version[2] + "</strong>"
+    command_versions = ""
       
     for major_version in command_major_versions:
+      link_class = ""
       if major_version == version:
-        continue
+        link_class = "class='current'"
         
       if major_version[:2] == 'gl':
-        command_versions += " | <a href='../" + major_version + "/" + command + "'>GL" + major_version[2] + "</a>"
+        command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>OpenGL " + major_version[2] + "</a><br />"
       elif major_version[:2] == 'es':
-        command_versions += " | <a href='../" + major_version + "/" + command + "'>GLES" + major_version[2] + "</a>"
+        command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>OpenGL ES " + major_version[2] + "</a><br />"
       
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
-    header_for_command = header_for_command.replace("{$title}", command)
+    header_for_command = header_for_command.replace("{$command}", command)
     
     improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/" + version + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
