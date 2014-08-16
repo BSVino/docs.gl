@@ -2,6 +2,7 @@ import os
 import shutil
 import time
 import sys
+import argparse
 
 import opengl
 import shared
@@ -9,6 +10,17 @@ import shared
 sys.path.append("htmlmin")
 import htmlmin
 
+parser = argparse.ArgumentParser(description="Compile OpenGL documentation, generate a static webpage.")
+
+parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
+
+args = parser.parse_args()
+
+if args.buildmode == 'full':
+  print "FULL BUILD"
+else:
+  print "FAST BUILD"
+  
 def create_directory(dir):
   if not os.path.exists(dir):
       os.makedirs(dir)
@@ -194,13 +206,19 @@ for version in major_versions:
       raise IOError("Couldn't find page for command " + command + " (" + version + ")")
 
     fp = open(command_file)
-    command_html = fp.read().decode('utf8')
+    command_html = fp.read()
     fp.close()
     
+    if args.buildmode == 'full':
+      command_html = command_html.decode('utf8')
+
     output_html = header_for_command + command_html + footer_for_command
 
     output = open(output_dir + version_dir + "/" + command, "w")
-    output.write(htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_all_empty_space=True).encode('ascii', 'xmlcharrefreplace'))
+    output_string = output_html
+    if args.buildmode == 'full':
+      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_all_empty_space=True).encode('ascii', 'xmlcharrefreplace')
+    output.write(output_string)
     output.close()
     
     written += 1
