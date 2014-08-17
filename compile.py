@@ -127,7 +127,7 @@ search_versions_commands += "var function_aliases = {"
 for version in search_function_aliases:
   search_versions_commands += "'" + version + "':{"
   for alias in search_function_aliases[version]:
-    search_versions_commands += "'" + alias + "':'" + search_function_aliases[version][alias] + "',"
+    search_versions_commands += alias + ":'" + search_function_aliases[version][alias] + "',"
   search_versions_commands += "},"
 
 search_versions_commands += "};"
