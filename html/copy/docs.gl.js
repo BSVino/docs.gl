@@ -133,8 +133,11 @@ $(function() {
 		$("#versions_dropdown").val($.cookie("api_version")).selectmenu('refresh');
 	}
 	else
+	{
 		set_api_version(window.current_api);
-	
+		$("#versions_dropdown").val(window.current_api).selectmenu('refresh');
+	}
+
 	$("#style_light").click(function() {
 		$("#pagestyle").attr("href", "../style_light.css");
 		$.cookie("pagestyle", "light");

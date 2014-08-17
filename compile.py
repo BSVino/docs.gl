@@ -227,6 +227,7 @@ for version in major_versions:
   for version_option in all_versions:
     if version[:2] != version_option[:2]:
       continue
+      
     if latest_minor[2] == version_option[2] and float(latest_minor[2:]) < float(version_option[2:]):
       latest_minor = version_option
 
@@ -248,7 +249,6 @@ for version in major_versions:
       toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLES" + version_option[2:] + "</option>"
       
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
-  header_for_version = header_for_version.replace("{$current_api}", latest_minor.replace(".", ""))
   header_for_version = header_for_version.replace("{$command_major_version}", version[2])
     
   if version[0:2] == "gl":
@@ -263,6 +263,18 @@ for version in major_versions:
     header_for_command = header_for_version
     footer_for_command = footer_for_version
 
+    # Find latest version that has this command present.
+    latest_version = version[:3] + ".0"
+    for version_option in all_versions:
+      if version[:2] != version_option[:2]:
+        continue
+        
+      if not command in opengl.version_commands_flat[version_option]:
+        continue
+        
+      if latest_version[2] == version_option[2] and float(latest_version[2:]) < float(version_option[2:]):
+        latest_version = version_option
+
     api_commands = ""
     for category in opengl.command_categories:
       api_commands += spew_category(category, opengl.command_categories[category], command)
@@ -271,6 +283,7 @@ for version in major_versions:
       api_commands += spew_category("Uncategorized", unhandled_commands, command)
 
     header_for_command = header_for_command.replace("{$api_commands}", api_commands)
+    header_for_command = header_for_command.replace("{$current_api}", latest_version.replace(".", ""))
 
     command_major_versions = opengl.get_major_versions_available(command)
     command_major_versions.sort(reverse=True)
