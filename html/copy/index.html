@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset='utf-8'>
+<title>docs.gl</title>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="jquery-bonsai/jquery.bonsai.js"></script>
+<link href="jquery-bonsai/jquery.bonsai.css" rel="stylesheet" type="text/css" />
+<script src="jquery-cookie/jquery.cookie.js"></script>
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link id="pagestyle" href="style_light.css" rel="stylesheet" type="text/css" />
+
+<script>
+$(function() {
+	window.search_api = "all";
+	
+	front_search_fn = function(value) {
+		version = window.search_api;
+		if (!version || typeof version == 'undefined')
+			version = 'all';
+			
+		if (search_versions[version].indexOf(value) < 0)
+			return;
+
+		if (version == 'all')
+			window.location.href = window.base_directory + value;
+		else
+			window.location.href = window.base_directory + version.substring(0, 3) + "/" + value;
+	}
+
+	$( "#es_api" ).buttonset();
+	$( "#gl_api" ).buttonset();
+	$( "#allapi" ).buttonset();
+	window.base_directory = "";
+
+	$( "#es_api" ).change(function( event, ui ) {
+		id = event.target.id;
+		window.search_api = id.substring(0, 3) + "." + id.substring(3, 4);
+		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
+		$("#frontsearch").val("");
+	});
+	$( "#gl_api" ).change(function( event, ui ) {
+		id = event.target.id;
+		window.search_api = id.substring(0, 3) + "." + id.substring(3, 4);
+		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
+		$("#frontsearch").val("");
+	});
+	$( "#allapi" ).change(function( event, ui ) {
+		id = event.target.id;
+		window.search_api = 'all';
+		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
+		$("#frontsearch").val("");
+	});
+
+	$( "#frontsearch_button" ).button().click(function(event) {
+		front_search_fn($("#frontsearch").val());
+	});
+
+	$( "#frontsearch" ).autocomplete({
+		source: search_versions["all"],
+		minLength: 3,
+		select: function( event, ui ) {
+			front_search_fn(event.target.value);
+		},
+	});
+
+	if ($.cookie("pagestyle") == 'light')
+		$("#pagestyle").attr("href", "style_light.css");
+
+	if ($.cookie("pagestyle") == 'dark')
+		$("#pagestyle").attr("href", "style_dark.css");
+});
+</script>
+<script src="docs.gl.search.js"></script>
+
+</head>
+<body>
+
+<div id="front_page">
+<img src="logo-lg.png" /><br />
+OpenGL API Documentation<br /><br /><br />
+<div id="buttonpanel">
+<div id="es_api" class="apibuttons">
+OpenGL ES<br />
+<input type="radio" id="es20" name="api"><label for="es20">2.0</label>
+<input type="radio" id="es30" name="api"><label for="es30">3.0</label>
+<input type="radio" id="es31" name="api"><label for="es31">3.1</label>
+</div>
+<div id="gl_api" class="apibuttons">
+OpenGL<br />
+<input type="radio" id="gl21" name="api"><label for="gl21">2.1</label>
+<input type="radio" id="gl30" name="api"><label for="gl30">3.0</label>
+<input type="radio" id="gl31" name="api"><label for="gl31">3.1</label>
+<input type="radio" id="gl32" name="api"><label for="gl32">3.2</label>
+<input type="radio" id="gl33" name="api"><label for="gl33">3.3</label>
+<input type="radio" id="gl40" name="api"><label for="gl40">4.0</label>
+<input type="radio" id="gl41" name="api"><label for="gl41">4.1</label>
+<input type="radio" id="gl42" name="api"><label for="gl42">4.2</label>
+<input type="radio" id="gl43" name="api"><label for="gl43">4.3</label>
+<input type="radio" id="gl44" name="api"><label for="gl44">4.4</label>
+<input type="radio" id="gl45" name="api"><label for="gl45">4.5</label>
+</div>
+<div id="allapi" class="apibuttons">
+<br />
+<input type="radio" id="all" name="api" checked="checked"><label for="all">All</label>
+</div>
+</div>
+<br clear="both" />
+<div><input id="frontsearch" size=50 /><input id="frontsearch_button" type="submit" value="Go" /></div>
+</div>
+
+
+
+</body>
+</html>

@@ -50,7 +50,7 @@ for (dirpath, dirnames, filenames) in os.walk("html/copy"):
     
   d.append(dirpath)
   for file in filenames:
-    if file[-3:] != '.js' and file[-4:] != '.css' and file[-4:] != '.png':
+    if file[-3:] != '.js' and file[-4:] != '.css' and file[-4:] != '.png' and file[-5:] != '.html':
       continue
     if file == 'Gruntfile.js':
       continue

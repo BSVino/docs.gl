@@ -10,9 +10,9 @@ $(function() {
 			return;
 
 		if (version == 'all')
-			window.location.href = "../" + value;
+			window.location.href = window.base_directory + value;
 		else
-			window.location.href = "../" + version.substring(0, 3) + "/" + value;
+			window.location.href = window.base_directory + version.substring(0, 3) + "/" + value;
 	}
 	
 	$( "#search_button" ).button().click(function(event) {
