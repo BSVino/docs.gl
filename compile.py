@@ -326,7 +326,7 @@ for version in major_versions:
     output = open(output_dir + version_dir + "/" + command, "w")
     output_string = output_html
     if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_all_empty_space=True).encode('ascii', 'xmlcharrefreplace')
+      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True).encode('ascii', 'xmlcharrefreplace')
     output.write(output_string)
     output.close()
     
