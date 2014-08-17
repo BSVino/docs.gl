@@ -79,6 +79,7 @@ search_fp.close()
 print "Done."
 
 search_versions_commands = "var search_versions = {"
+search_function_aliases = {}
 for version in opengl.version_commands:
   if version[0:2] == "gl" and float(version[2:]) < 2.1:
     continue
@@ -86,10 +87,15 @@ for version in opengl.version_commands:
   if version[0:2] == "es" and float(version[2:]) < 2.0:
     continue
 
-  search_versions_commands += "'" + version + "': ["
+  search_versions_commands += "'" + version + "':["
+  
+  if not version[:2] in search_function_aliases:
+    search_function_aliases[version[:2]] = {}
 
   for command in opengl.version_commands[version]:
     search_versions_commands += "'" + command + "',"
+    if command != opengl.version_commands[version][command]:
+      search_function_aliases[version[:2]][command] = opengl.version_commands[version][command]
     
   for command in opengl.version_commands_flat[version]:
     if not command in opengl.version_commands[version]:
@@ -116,6 +122,15 @@ for command in opengl.commands_version_flat:
     search_versions_commands += "'" + version[:3] + "/" + command + "',"
   
 search_versions_commands += "]};"
+
+search_versions_commands += "var function_aliases = {"
+for version in search_function_aliases:
+  search_versions_commands += "'" + version + "':{"
+  for alias in search_function_aliases[version]:
+    search_versions_commands += "'" + alias + "':'" + search_function_aliases[version][alias] + "',"
+  search_versions_commands += "},"
+
+search_versions_commands += "};"
 
 search = search.replace("{$search_versions_commands}", search_versions_commands)
 

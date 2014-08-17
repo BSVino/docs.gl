@@ -27,11 +27,22 @@ $(function() {
 			
 		if (search_versions[version].indexOf(value) < 0)
 			return;
+			
+		var alias_api = window.search_api.substring(0, 2);
+		var alias = value;
+		var directory = version.substring(0, 3) + "/";
+		if (window.search_api == 'all')
+		{
+			alias_api = value.substring(0, 2);
+			alias = value.substring(4);
+			directory = value.substring(0, 4);
+		}
+			
+		var command_page = alias;
+		if (alias in function_aliases[alias_api])
+			command_page = function_aliases[alias_api][alias]
 
-		if (version == 'all')
-			window.location.href = window.base_directory + value;
-		else
-			window.location.href = window.base_directory + version.substring(0, 3) + "/" + value;
+		window.location.href = window.base_directory + directory + command_page;
 	}
 
 	$( "#es_api" ).buttonset();

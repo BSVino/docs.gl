@@ -9,10 +9,22 @@ $(function() {
 		if (search_versions[version].indexOf(value) < 0)
 			return;
 
+		var alias_api = version.substring(0, 2);
+		var alias = value;
+		var directory = version.substring(0, 3) + "/";
+		console.log(alias_api + ":" + alias + ":" + directory);
 		if (version == 'all')
-			window.location.href = window.base_directory + value;
-		else
-			window.location.href = window.base_directory + version.substring(0, 3) + "/" + value;
+		{
+			alias_api = value.substring(0, 2);
+			alias = value.substring(4);
+			directory = value.substring(0, 4);
+		}
+			
+		var command_page = alias;
+		if (alias in function_aliases[alias_api])
+			command_page = function_aliases[alias_api][alias]
+
+		window.location.href = window.base_directory + directory + command_page;
 	}
 	
 	$( "#search_button" ).button().click(function(event) {
@@ -36,5 +48,8 @@ $(function() {
 	});
 
 	if (typeof $.cookie("api_version") != 'undefined')
+	{
 		$("#search_versions").val($.cookie("api_version").substring(0, 3) + "." + $.cookie("api_version").substring(3, 4)).selectmenu('refresh');
+		$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
+	}
 });
