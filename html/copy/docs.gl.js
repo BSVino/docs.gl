@@ -35,7 +35,7 @@ window.api_version = "";
 
 function set_api_version(version) {
 	window.api_version = version;
-	$.cookie("api_version", version);
+	$.cookie("api_version", version, {path: '/'});
 
 	$( "#opengl_name" ).text(gl_printable_name(version));
 
@@ -140,12 +140,12 @@ $(function() {
 
 	$("#style_light").click(function() {
 		$("#pagestyle").attr("href", "../style_light.css");
-		$.cookie("pagestyle", "light");
+		$.cookie("pagestyle", "light", {path: '/'});
 	});
 
 	$("#style_dark").click(function() {
 		$("#pagestyle").attr("href", "../style_dark.css");
-		$.cookie("pagestyle", "dark");
+		$.cookie("pagestyle", "dark", {path: '/'});
 	});
 	
 	if ($.cookie("pagestyle") == 'light')
