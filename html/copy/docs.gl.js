@@ -30,7 +30,7 @@ function gl_printable_name(name) {
 	return "OpenGL X";
 }
 
-window.last_gl_version = window.current_api.substring(0, 2);
+window.last_gl_version = "";
 window.api_version = "";
 
 function set_api_version(version) {
