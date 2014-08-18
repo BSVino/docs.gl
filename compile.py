@@ -337,7 +337,7 @@ for version in major_versions:
 
           return "<a href='../" + version_dir + r"/" + command + "'>" + alias + "</a>"
 
-        code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code).replace("\t", "    ")
+        code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code).replace("\t", "    ").replace("&", "&amp;")
         
         examples += "<div class='example'>"
         examples += opengl.examples[example]['description']
