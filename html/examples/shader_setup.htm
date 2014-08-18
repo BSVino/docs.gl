@@ -1,0 +1,19 @@
+// The index returned from these GLint functions gets passed to {%glEnableVertexAttribArray} during rendering.
+GLint position_attrib_index = {%glGetAttribLocation}(program, "position"); // program is what is returned by {%glCreateProgram}.
+GLint texcoord_attrib_index = {%glGetAttribLocation}(program, "texcoord");
+GLint normal_attrib_index = {%glGetAttribLocation}(program, "normal");
+GLint color_attrib_index = {%glGetAttribLocation}(program, "color");
+
+{%glBindFragDataLocation}(program, 0, "output_color"); // "output_color" is an output value in your vertex shader and an input value in your fragment shader.
+
+GLint num_uniforms;
+{%glGetProgramiv}(program, GL_ACTIVE_UNIFORMS, &num_uniforms);
+GLchar uniform_name[256];
+GLsizei length;
+GLint size;
+GLenum type;
+for (int i = 0; i < num_uniforms; i++)
+{
+	{%glGetActiveUniform}(program, i, sizeof(uniform_name), &length, &size, &type, uniform_name);
+	// ... save this uniform data so it can be used during rendering
+}

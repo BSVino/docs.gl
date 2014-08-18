@@ -23,6 +23,10 @@ examples = {
     'description': 'Compile a program from a vertex shader and a fragment shader.',
     'commands': [ 'glCreateShader', 'glShaderSource', 'glCompileShader', 'glGetShaderiv', 'glGetShaderInfoLog', 'glCreateProgram', 'glBindAttribLocation', 'glAttachShader', 'glLinkProgram', 'glGetProgramiv' ],
   },
+  'shader_setup': {
+    'description': 'Retrieve uniform data after the shader has been compiled',
+    'commands': [ 'glGetAttribLocation', 'glBindFragDataLocation', 'glGetProgramiv', 'glGetActiveUniform' ],
+  },
 }
 
 def reverse_version_index(command_list):
