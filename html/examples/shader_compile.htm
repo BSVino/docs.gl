@@ -12,7 +12,7 @@ if (vertex_compiled != GL_TRUE)
 	// Write the error to a log
 }
 
-size_t fshader = {%glCreateShader}(GL_FRAGMENT_SHADER);
+GLuint fshader = {%glCreateShader}(GL_FRAGMENT_SHADER);
 {%glShaderSource}(fshader, 1, &fragment_shader_source, NULL); // fragment_shader_source is a GLchar* containing glsl shader source code
 {%glCompileShader}(fshader);
 
@@ -26,7 +26,7 @@ if (fragment_compiled != GL_TRUE)
 	// Write the error to a log
 }
 
-size_t program = {%glCreateProgram}();
+GLuint program = {%glCreateProgram}();
 
 {%glBindAttribLocation}(program, 0, "position"); // The index passed into {%glBindAttribLocation} is
 {%glBindAttribLocation}(program, 1, "texcoord"); // used by {%glEnableVertexAttribArray}. "position"
