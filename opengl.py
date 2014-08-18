@@ -15,9 +15,25 @@ aliased_functions = {}
 example_functions = {}
 
 examples = {
-  'vertex_array': {
-    'description': 'Render a mesh with glDrawArrays using texture UV, normal, and color vertex attributes.',
-    'commands': [ 'glEnableVertexAttribArray', 'glVertexAttribPointer', 'glDrawArrays' ],
+  'vertexarray_draw': {
+    'description': 'Render a vertex array (not loaded into OpenGL) using texture UV, color, and normal vertex attributes.',
+    'commands': [ 'glDrawArrays' ],
+  },
+  'vertexarray_draw_indexed': {
+    'description': 'Render an indexed vertex array (not loaded into OpenGL) using texture UV and normal vertex attributes.',
+    'commands': [ 'glVertexAttribPointer', 'glDrawElements' ],
+  },
+  'vbo_load': {
+    'description': 'Load a vertex buffer into OpenGL for later rendering.',
+    'commands': [ 'glGenBuffers', 'glBindBuffer', 'glBufferData', 'glBufferSubData', 'glGetBufferParameteriv', 'glDeleteBuffers' ],
+  },
+  'vbo_load_index': {
+    'description': 'Load an index buffer into OpenGL for later rendering.',
+    'commands': [ 'glGenBuffers', 'glBindBuffer', 'glBufferData', 'glBufferSubData', 'glGetBufferParameteriv', 'glDeleteBuffers' ],
+  },
+  'vbo_draw_indexed': {
+    'description': 'Render an indexed buffer object using texture UV and normal vertex attributes.',
+    'commands': [ 'glBindBuffer', 'glEnableVertexAttribArray', 'glVertexAttribPointer', 'glDrawElements' ],
   },
   'shader_compile': {
     'description': 'Compile a program from a vertex shader and a fragment shader.',

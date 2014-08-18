@@ -1,0 +1,20 @@
+// data_size_in_bytes is the size in bytes of your vertex data.
+// data_indices is an array of integer offsets into your vertex data.
+
+GLuint index_buffer; // Save this for later rendering
+{%glGenBuffers}(1, &index_buffer);
+{%glBindBuffer}(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
+{%glBufferData}(GL_ELEMENT_ARRAY_BUFFER, data_size_in_bytes, 0, GL_STATIC_DRAW);
+{%glBufferSubData}(GL_ELEMENT_ARRAY_BUFFER, 0, data_size_in_bytes, data_indices);
+
+GLint size = 0;
+{%glGetBufferParameteriv}(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &size);
+if(data_size_in_bytes != size)
+{
+	{%glDeleteBuffers}(1, &index_buffer);
+	// Log the error
+	return;
+}
+
+// Success
+

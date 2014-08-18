@@ -1,0 +1,15 @@
+{%glEnableVertexAttribArray}(texcoord_attrib_index); // Attribute indexes were received from calls to {%glGetAttribLocation}, or passed into {%glBindAttribLocation}.
+{%glEnableVertexAttribArray}(normal_attrib_index);
+{%glEnableVertexAttribArray}(position_attrib_index);
+
+{%glVertexAttribPointer}(texcoord_attrib_index, 2, GL_FLOAT, false, 0, texcoords_data); // texcoords_data is a float*, 2 per vertex, representing UV coordinates.
+{%glVertexAttribPointer}(normal_attrib_index, 3, GL_FLOAT, false, 0, normals_data); // normals_data is a float*, 3 per vertex, representing normal vectors.
+{%glVertexAttribPointer}(position_attrib_index, 3, GL_FLOAT, false, 0, vertex_data); // vertex_data is a float*, 3 per vertex, representing the position of each vertex
+
+// num_vertices is the number of verts in your vertex_data.
+// index_data is an array of unsigned int offsets into vertex_data.
+{%glDrawElements}(GL_TRIANGLES, num_vertices, GL_UNSIGNED_INT, index_data);
+
+{%glDisableVertexAttribArray}(position_attrib_index);
+{%glDisableVertexAttribArray}(texcoord_attrib_index);
+{%glDisableVertexAttribArray}(normal_attrib_index);
