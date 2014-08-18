@@ -1,0 +1,48 @@
+GLuint vshader = {%glCreateShader}(GL_VERTEX_SHADER);
+{%glShaderSource}(vshader, 1, &vertex_shader_source, NULL); // vertex_shader_source is a GLchar* containing glsl shader source code
+{%glCompileShader}(vshader);
+
+GLint vertex_compiled;
+{%glGetShaderiv}(vshader, GL_COMPILE_STATUS, &vertex_compiled);
+if (vertex_compiled != GL_TRUE)
+{
+	GLsizei log_length = 0;
+	GLchar message[1024];
+	{%glGetShaderInfoLog}(vshader, 1024, &log_length, message);
+	// Write the error to a log
+}
+
+size_t fshader = {%glCreateShader}(GL_FRAGMENT_SHADER);
+{%glShaderSource}(fshader, 1, &fragment_shader_source, NULL); // fragment_shader_source is a GLchar* containing glsl shader source code
+{%glCompileShader}(fshader);
+
+GLint fragment_compiled;
+{%glGetShaderiv}(fshader, GL_COMPILE_STATUS, &fragment_compiled);
+if (fragment_compiled != GL_TRUE)
+{
+	GLsizei log_length = 0;
+	GLchar message[1024];
+	{%glGetShaderInfoLog}(fshader, 1024, &log_length, message);
+	// Write the error to a log
+}
+
+size_t program = {%glCreateProgram}();
+
+{%glBindAttribLocation}(program, 0, "position"); // The index passed into {%glBindAttribLocation} is
+{%glBindAttribLocation}(program, 1, "texcoord"); // used by {%glEnableVertexAttribArray}. "position"
+{%glBindAttribLocation}(program, 2, "normal");   // "texcoord" "normal" and "color" are the names of the
+{%glBindAttribLocation}(program, 3, "color");    // respective inputs in your fragment shader.
+
+{%glAttachShader}(program, vshader);
+{%glAttachShader}(program, fshader);
+{%glLinkProgram}(program);
+
+GLint program_linked;
+{%glGetProgramiv}(program, GL_LINK_STATUS, &program_linked);
+if (program_linked != GL_TRUE)
+{
+	GLsizei log_length = 0;
+	GLchar message[1024];
+	{%glGetProgramInfoLog}(program, 1024, &log_length, message);
+	// Write the error to a log
+}

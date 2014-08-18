@@ -3,6 +3,7 @@ import shutil
 import time
 import sys
 import argparse
+import re
 
 import opengl
 import shared
@@ -320,6 +321,34 @@ for version in major_versions:
     
     if args.buildmode == 'full':
       command_html = command_html.decode('utf8')
+
+    command_html = command_html.replace("{$pipelinestall}", "")
+    
+    if command in opengl.example_functions:
+      examples = "<div class='refsect1' id='examples'><h2>Examples</h2>"
+      for example in opengl.example_functions[command]:
+        code = opengl.examples[example]['code']
+        
+        def replace_alias(matchobj):
+          alias = matchobj.groups()[0]
+          command = alias
+          if alias in opengl.function_aliases:
+            command = opengl.function_aliases[alias]
+
+          return "<a href='../" + version_dir + r"/" + command + "'>" + alias + "</a>"
+
+        code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code).replace("\t", "    ")
+        
+        examples += "<div class='example'>"
+        examples += opengl.examples[example]['description']
+        examples += "<pre class='programlisting'>"
+        examples += code
+        examples += "</pre>"
+        examples += "</div>"
+      examples += "</div>"
+      command_html = command_html.replace("{$examples}", examples)
+    else:
+      command_html = command_html.replace("{$examples}", "")
 
     output_html = header_for_command + command_html + footer_for_command
 

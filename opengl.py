@@ -12,6 +12,19 @@ function_aliases = {}
 # Maps glColor to glColor2d
 aliased_functions = {}
 
+example_functions = {}
+
+examples = {
+  'vertex_array': {
+    'description': 'Render a mesh with glDrawArrays using texture UV, normal, and color vertex attributes.',
+    'commands': [ 'glEnableVertexAttribArray', 'glVertexAttribPointer', 'glDrawArrays' ],
+  },
+  'shader_compile': {
+    'description': 'Compile a program from a vertex shader and a fragment shader.',
+    'commands': [ 'glCreateShader', 'glShaderSource', 'glCompileShader', 'glGetShaderiv', 'glGetShaderInfoLog', 'glCreateProgram', 'glBindAttribLocation', 'glAttachShader', 'glLinkProgram', 'glGetProgramiv' ],
+  },
+}
+
 def reverse_version_index(command_list):
   reversed = {}
   
@@ -55,6 +68,20 @@ def generate_versions():
   
   commands_version = reverse_version_index(version_commands)
   commands_version_flat = reverse_version_index(version_commands_flat)
+  
+  for example in examples:
+    fp = open('html/examples/' + example + ".htm")
+    examples[example]['code'] = fp.read()
+    fp.close()
+    
+    for command in examples[example]['commands']:
+      if command in function_aliases:
+        command = function_aliases[command]
+      assert command in commands_version_flat # This command was typed in wrong.
+      if not command in example_functions:
+        example_functions[command] = []
+      example_functions[command].append(example)
+      
   print "Done."
 
 command_categories = OrderedDict([
