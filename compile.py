@@ -91,7 +91,7 @@ else:
 if os.path.exists('html/copy/jquery-ui.min.js'):
   index = index.replace("{$jqueryui}", "<script src='jquery-ui.min.js'></script>")
 else:
-  index = index.replace("{$jqueryui}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery-ui.min.js'></script>")
+  index = index.replace("{$jqueryui}", '<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>')
 
 index_commands_version = opengl.commands_version_flat.keys()
 index_commands_version.sort()
