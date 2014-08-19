@@ -77,7 +77,93 @@ footer_fp.close()
 search_fp = open("html/docs.gl.search.js")
 search = search_fp.read()
 search_fp.close()
+
+index_fp = open("html/index.html")
+index = index_fp.read()
+index_fp.close()
 print "Done."
+
+if os.path.exists('html/copy/jquery.min.js'):
+  index = index.replace("{$jquery}", "<script src='jquery.min.js'></script>")
+else:
+  index = index.replace("{$jquery}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>")
+
+if os.path.exists('html/copy/jquery-ui.min.js'):
+  index = index.replace("{$jqueryui}", "<script src='jquery-ui.min.js'></script>")
+else:
+  index = index.replace("{$jqueryui}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery-ui.min.js'></script>")
+
+index_commands_version = opengl.commands_version_flat.keys()
+index_commands_version.sort()
+index_versions_commands = ""
+for command in index_commands_version:
+  major_versions = opengl.get_major_versions_available(command)
+
+  aliases = {}
+  # Add aliases to this command. Need to do this because ES has glClearDepthf while GL has glClearDepth
+  for alias in opengl.aliased_functions[command]:
+    if alias == command:
+      continue
+    if alias in index_commands_version:
+      for version in opengl.get_major_versions_available(alias):
+        if not version in major_versions:
+          major_versions.append(version)
+          aliases[version] = alias
+          
+  # If the command is an alias we've already done it, skip
+  if command in opengl.function_aliases and command != opengl.function_aliases[command] and opengl.function_aliases[command] in index_commands_version:
+    continue
+  
+  latest_version = ''
+  all_major_versions_available = []
+  for version in major_versions:
+    if len(latest_version) == 0 or (latest_version[:2] == 'es' and version[:2] == 'gl') or (latest_version[:2] == version[:2] and float(version[2:]) > float(latest_version[2:])):
+      latest_version = version
+
+    all_major_versions_available.append(version)
+
+  index_versions_commands += "<span id='command_" + command + "' class='indexcommand"
+  versions_added = []
+  for version in opengl.commands_version_flat[command]:
+    version = version.replace(".", "")
+    if version in versions_added:
+      continue
+    index_versions_commands += " " + version
+    versions_added.append(version)
+
+  for alias_version in aliases:
+    for version in opengl.commands_version_flat[aliases[alias_version]]:
+      version = version.replace(".", "")
+      if version in versions_added:
+        continue
+      index_versions_commands += " " + version
+      versions_added.append(version)
+
+  index_versions_commands += "'><span class='commandcolumn'>" + command + "</span>"
+  
+  all_major_versions = opengl.get_major_versions(opengl.version_commands_flat.keys())
+  for version in all_major_versions:
+    if int(version[2:3]) < 2:
+      continue
+    alias = command
+
+    if version in aliases:
+      alias = aliases[version]
+      
+    if version in all_major_versions_available:
+      index_versions_commands += "<span class='versioncolumn'><a href='" + version + "/" + alias + "'>" + version + "</a></span>"
+    else:
+      index_versions_commands += "<span class='versioncolumn'>&nbsp;</span>"
+  index_versions_commands += "<br /></span>\n"
+
+index = index.replace("{$commandlist}", index_versions_commands)
+
+index_fp = open(output_dir + "/index.html", "w")
+index_fp.write(index)
+index_fp.close()
+
+
+
 
 search_versions_commands = "var search_versions = {"
 search_function_aliases = {}

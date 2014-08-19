@@ -4,41 +4,67 @@
 <meta charset='utf-8'>
 <title>docs.gl</title>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{$jquery}
 <link rel="stylesheet" href="jquery-ui.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+{$jqueryui}
 <script src="jquery-cookie/jquery.cookie.js"></script>
 
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link id="pagestyle" href="style_light.css" rel="stylesheet" type="text/css" />
 
+<style>
+#commandlist {
+	width: 550px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.commandcolumn, .versioncolumn {
+	display: block;
+	float: left;
+	margin: 4px;
+}
+
+.commandcolumn {
+	width: 350px;
+	text-align: left;
+}
+
+.versioncolumn {
+	width: 30px;
+}
+</style>
+
 <script>
 $(function() {
 	window.search_api = "all";
 	
-	front_search_fn = function(value) {
-		version = window.search_api;
+	front_filter_fn = function() {
+		version = window.search_api.replace(".", "");
 		if (!version || typeof version == 'undefined')
 			version = 'all';
 			
-		if (search_versions[version].indexOf(value) < 0)
-			return;
+		hide_commands = function() {
+			$(this).addClass("hidden");
 			
-		var alias_api = window.search_api.substring(0, 2);
-		var alias = value;
-		var directory = version.substring(0, 3) + "/";
-		if (window.search_api == 'all')
-		{
-			alias_api = value.substring(0, 2);
-			alias = value.substring(4);
-			directory = value.substring(0, 4);
-		}
-			
-		var command_page = alias;
-		if (alias in function_aliases[alias_api])
-			command_page = function_aliases[alias_api][alias]
+			if ($(this).attr('id').toLowerCase().indexOf($("#frontsearch").val().toLowerCase()) == -1)
+				return;
 
-		window.location.href = window.base_directory + directory + command_page;
+			if (version == 'all') {
+				$(this).removeClass("hidden");
+			} else {
+				var classList = $(this).attr('class').split(/\s+/);
+				for (var i = 0; i < classList.length; i++) {
+					if (classList[i] === version) {
+						$(this).removeClass("hidden");
+						break;
+					}
+				}
+			}
+		};
+		
+		$(".indexcommand").each(hide_commands);
 	}
 
 	$( "#es_api" ).buttonset();
@@ -49,33 +75,20 @@ $(function() {
 	$( "#es_api" ).change(function( event, ui ) {
 		id = event.target.id;
 		window.search_api = id.substring(0, 3) + "." + id.substring(3, 4);
-		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
-		$("#frontsearch").val("");
+		front_filter_fn();
 	});
 	$( "#gl_api" ).change(function( event, ui ) {
 		id = event.target.id;
 		window.search_api = id.substring(0, 3) + "." + id.substring(3, 4);
-		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
-		$("#frontsearch").val("");
+		front_filter_fn();
 	});
 	$( "#allapi" ).change(function( event, ui ) {
 		id = event.target.id;
 		window.search_api = 'all';
-		$("#frontsearch").autocomplete( "option", "source", search_versions[window.search_api] );
-		$("#frontsearch").val("");
+		front_filter_fn();
 	});
-
-	$( "#frontsearch_button" ).button().click(function(event) {
-		front_search_fn($("#frontsearch").val());
-	});
-
-	$( "#frontsearch" ).autocomplete({
-		source: search_versions["all"],
-		minLength: 3,
-		select: function( event, ui ) {
-			front_search_fn(event.target.value);
-		},
-	});
+	
+	$("#frontsearch").keyup(front_filter_fn);
 
 	if ($.cookie("pagestyle") == 'light')
 		$("#pagestyle").attr("href", "style_light.css");
@@ -118,9 +131,9 @@ OpenGL<br />
 </div>
 </div>
 <br clear="both" />
-<div><input id="frontsearch" size=50 /><input id="frontsearch_button" type="submit" value="Go" /></div>
+<div><input id="frontsearch" size=50 /></div>
+<div id="commandlist">{$commandlist}</div>
 </div>
 
-<script src="docs.gl.search.js"></script>
 </body>
 </html>
