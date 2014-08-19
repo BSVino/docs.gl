@@ -326,8 +326,20 @@ for version in major_versions:
     
     if command in opengl.example_functions:
       examples = "<div class='refsect1' id='examples'><h2>Examples</h2>"
+      
+      examples_done = []
+      
       for example in opengl.example_functions[command]:
-        code = opengl.examples[example]['code']
+      
+        if not version[:3] in example['versions']:
+          continue
+          
+        if example['example'] in examples_done:
+          continue
+          
+        examples_done.append(example['example'])
+          
+        code = opengl.examples[example['example']]['code']
         
         def replace_alias(matchobj):
           alias = matchobj.groups()[0]
@@ -345,7 +357,7 @@ for version in major_versions:
         code = re.sub(r'(//.*?)\n', r"<span class='codecomment'>\1</span>\n", code)
         
         examples += "<div class='example'>"
-        examples += opengl.examples[example]['description']
+        examples += opengl.examples[example['example']]['description']
         examples += "<pre class='programlisting'>"
         examples += code
         examples += "</pre>"

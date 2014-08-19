@@ -43,7 +43,34 @@ examples = {
     'description': 'Retrieve uniform data after the shader has been compiled',
     'commands': [ 'glGetAttribLocation', 'glBindFragDataLocation', 'glGetProgramiv', 'glGetActiveUniform' ],
   },
+  'fbo_create_texture': {
+    'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
+    'description': 'Create a framebuffer object with a texture-based color attachment and a texture-based depth attachment. Using texture-based attachments allows sampling of those textures in shaders.',
+    'commands': [ 'glGenTextures', 'glBindTexture', 'glTexParameteri', 'glTexImage2D', 'glGenFramebuffers', 'glBindFramebuffer', 'glFramebufferTexture2D', 'glCheckFramebufferStatus' ],
+  },
+  'fbo_create_renderbuffer': {
+    'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
+    'description': 'Create a framebuffer object with a renderbuffer-based color attachment and a renderbuffer-based depth attachment.',
+    'commands': [ 'glGenRenderbuffers', 'glBindRenderbuffer', 'glRenderbufferStorage', 'glGenFramebuffers', 'glFramebufferRenderbuffer' ],
+  },
 }
+
+def get_major_versions(all_versions):
+  major_versions = []
+  for v in all_versions:
+    major_version = v[:3]
+    if not major_version in major_versions:
+      major_versions.append(major_version)
+      
+  return major_versions
+
+def get_major_versions_available(command):
+  global commands_version_flat
+
+  versions_available = commands_version_flat[command]
+  versions_available.sort()
+    
+  return get_major_versions(versions_available)
 
 def reverse_version_index(command_list):
   reversed = {}
@@ -83,7 +110,7 @@ def generate_versions():
         if not command in aliased_functions[version_commands[version][command]]:
           aliased_functions[version_commands[version][command]].append(command)
 
-        if not function_aliases[command] in version_commands_flat[version]:
+        if not command in version_commands_flat[version]:
           version_commands_flat[version].append(version_commands[version][command])
   
   commands_version = reverse_version_index(version_commands)
@@ -95,13 +122,30 @@ def generate_versions():
     fp.close()
     
     for command in examples[example]['commands']:
+      aliased_command = ""
       if command in function_aliases:
-        command = function_aliases[command]
-      assert command in commands_version_flat # This command was typed in wrong.
+        aliased_command = function_aliases[command]
+        
+      assert aliased_command in commands_version_flat or command in commands_version_flat # This command was typed in wrong.
+
       if not command in example_functions:
         example_functions[command] = []
-      example_functions[command].append(example)
+      example_functions_entry = {'example': example}
+      if 'versions' in examples[example]:
+        example_functions_entry['versions'] = examples[example]['versions']
+      else:
+        example_functions_entry['versions'] = get_major_versions(version_commands.keys())
+      example_functions[command].append(example_functions_entry)
       
+      if not aliased_command in example_functions:
+        example_functions[aliased_command] = []
+      example_functions_entry = {'example': example}
+      if 'versions' in examples[example]:
+        example_functions_entry['versions'] = examples[example]['versions']
+      else:
+        example_functions_entry['versions'] = get_major_versions(version_commands.keys())
+      example_functions[aliased_command].append(example_functions_entry)
+
   print "Done."
 
 command_categories = OrderedDict([
@@ -291,20 +335,3 @@ command_categories = OrderedDict([
 ])
 
 generate_versions()
-
-def get_major_versions(all_versions):
-  major_versions = []
-  for v in all_versions:
-    major_version = v[:3]
-    if not major_version in major_versions:
-      major_versions.append(major_version)
-      
-  return major_versions
-
-def get_major_versions_available(command):
-  global commands_version_flat
-
-  versions_available = commands_version_flat[command]
-  versions_available.sort()
-    
-  return get_major_versions(versions_available)
