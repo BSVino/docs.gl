@@ -32,6 +32,8 @@ function gl_printable_name(name) {
 
 window.last_gl_version = "";
 window.api_version = "";
+window.hide_deprecated = false;
+window.last_hide_deprecated = false;
 
 function set_api_version(version) {
 	window.api_version = version;
@@ -42,7 +44,7 @@ function set_api_version(version) {
 	$(".category").addClass("disabled");
 	$(".command").addClass("disabled");
 	$("." + version).removeClass("disabled");
-
+	
 	version_directory = version.substring(0, 3);
 	$(".rewritelink").each(function() {
 		if ($(this).hasClass(version))
@@ -93,17 +95,26 @@ function set_api_version(version) {
 		}
 	});
 
-	if (window.last_gl_version != version.substring(0, 2))
+	if (window.last_gl_version != version.substring(0, 2) || window.last_hide_deprecated || window.hide_deprecated)
 	{
 		// Remove functions from GL that ES doesn't have and vice versa.
 		hide_commands = function() {
 			$(this).addClass("hidden");
 
 			var classList = $(this).attr('class').split(/\s+/);
-			for (var i = 0; i < classList.length; i++) {
-				if (classList[i].substring(0, 2) === version.substring(0, 2)) {
-					$(this).removeClass("hidden");
-					break;
+			if (window.hide_deprecated) {
+				for (var i = 0; i < classList.length; i++) {
+					if (classList[i] === version) {
+						$(this).removeClass("hidden");
+						break;
+					}
+				}
+			} else {
+				for (var i = 0; i < classList.length; i++) {
+					if (classList[i].substring(0, 2) === version.substring(0, 2)) {
+						$(this).removeClass("hidden");
+						break;
+					}
 				}
 			}
 		};
@@ -115,6 +126,7 @@ function set_api_version(version) {
 		$("span.bonsai_inner").trigger('click');
 		
 		window.last_gl_version = version.substring(0, 2);
+		window.last_hide_deprecated = window.hide_deprecated;
 	}
 }
 
@@ -126,6 +138,12 @@ $(function() {
 			set_api_version(ui.item.value);
 		}
 	});
+
+	if (typeof $.cookie("hide_deprecated") != 'undefined')
+	{
+		window.hide_deprecated = $.cookie("hide_deprecated");
+		$('#hide_deprecated').prop('checked', window.hide_deprecated);
+	}
 
 	if (typeof $.cookie("api_version") != 'undefined')
 	{
@@ -167,7 +185,6 @@ $(function() {
 		var alias_api = version.substring(0, 2);
 		var alias = value;
 		var directory = version.substring(0, 3) + "/";
-		console.log(alias_api + ":" + alias + ":" + directory);
 		if (version == 'all')
 		{
 			alias_api = value.substring(0, 2);
@@ -207,4 +224,10 @@ $(function() {
 		$("#search_versions").val($.cookie("api_version").substring(0, 3) + "." + $.cookie("api_version").substring(3, 4)).selectmenu('refresh');
 		$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
 	}
+	
+	$('#hide_deprecated').click(function() {
+		window.hide_deprecated = $(this).is(':checked');
+		$.cookie("hide_deprecated", window.hide_deprecated, {path: '/'});
+		set_api_version(window.api_version);
+	});
 });
