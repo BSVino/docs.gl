@@ -1,0 +1,5 @@
+{%glBindTexture}(GL_TEXTURE_2D, texture_id); // texture_id was given by {%glGenTextures}
+
+// texture_data must be large enough to hold the entire texture, in this case
+// sizeof(float) * width * height * 3
+{%glGetTexImage}(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT, texture_data);

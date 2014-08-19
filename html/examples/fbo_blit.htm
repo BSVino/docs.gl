@@ -1,0 +1,4 @@
+{%glBindFramebuffer}(GL_READ_FRAMEBUFFER, source_fbo);
+{%glBindFramebuffer}(GL_DRAW_FRAMEBUFFER, destination_fbo);
+
+{%glBlitFramebuffer}(0, 0, source_fbo_width, source_fbo_height, 0, 0, destination_fbo_width, destination_fbo_height, GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT, GL_NEAREST);

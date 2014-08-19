@@ -53,6 +53,19 @@ examples = {
     'description': 'Create a framebuffer object with a renderbuffer-based color attachment and a renderbuffer-based depth attachment.',
     'commands': [ 'glGenRenderbuffers', 'glBindRenderbuffer', 'glRenderbufferStorage', 'glGenFramebuffers', 'glFramebufferRenderbuffer' ],
   },
+  'fbo_blit': {
+    'versions': [ 'gl3', 'gl4', 'es3' ],
+    'description': 'Create a framebuffer object with a renderbuffer-based color attachment and a renderbuffer-based depth attachment.',
+    'commands': [ 'glBindFramebuffer', 'glBlitFramebuffer' ],
+  },
+  'texture_create': {
+    'description': 'Create a texture object with linear mipmaps and edge clamping.',
+    'commands': [ 'glGenTextures', 'glBindTexture', 'glTexParameteri', 'glTexImage2D', 'glGenerateMipmap' ],
+  },
+  'texture_read': {
+    'description': 'Read the texture from GPU memory into a buffer.',
+    'commands': [ 'glGetTexImage' ],
+  },
 }
 
 def get_major_versions(all_versions):
