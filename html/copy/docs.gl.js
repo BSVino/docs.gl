@@ -122,8 +122,13 @@ function set_api_version(version) {
 		$(".command").each(hide_commands);
 		$(".category").each(hide_commands);
 
-		$("span.bonsai_inner").trigger('click');
-		$("span.bonsai_inner").trigger('click');
+		$(".command_categories > li").each(function() {
+			var $el = $(this);
+			if ($el.hasClass("expanded")) {
+				var bonsai = $el.data("bonsai");
+				if (bonsai) { bonsai.expand(); }
+			}
+		});
 		
 		window.last_gl_version = version.substring(0, 2);
 		window.last_hide_deprecated = window.hide_deprecated;
@@ -172,7 +177,19 @@ $(function() {
 	if ($.cookie("pagestyle") == 'dark')
 		$("#style_dark").click();
 		
-	$(".open_me span.bonsai_inner").trigger('click');
+	// hack to run after bonsai is initailized
+	setTimeout(function() {
+		$(".open_me").each(function() {
+			// copied from bonsai js to expand w/o animation
+			var listItem = $(this);
+			if( !listItem.data('subList') )
+				return;
+			listItem.addClass('expanded').removeClass('collapsed');
+			var subList = $(listItem.data('subList'));
+			subList.css('height', 'auto');
+		});
+	}, 1);
+	
 
 	search_fn = function(value) {
 		version = $("#search_versions").val();
