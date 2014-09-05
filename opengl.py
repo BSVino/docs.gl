@@ -13,6 +13,7 @@ function_aliases = {}
 aliased_functions = {}
 
 example_functions = {}
+tutorial_functions = {}
 
 examples = {
   'vertexarray_draw': {
@@ -65,6 +66,68 @@ examples = {
   'texture_read': {
     'description': 'Read the texture from GPU memory into a buffer.',
     'commands': [ 'glGetTexImage' ],
+  },
+}
+
+tutorials = {
+  'open.gl drawing': {
+    'name': 'open.gl - The Graphics Pipeline',
+    'link': 'http://open.gl/drawing',
+    'commands': ['glBindBuffer', 'glShaderSource', 'glDeleteShader', 'glDetachShader', 'glUseProgram',
+      'glVertexAttribPointer', 'glDrawArrays', 'glGetError', 'glUniform', 'glDrawElements',
+      'glGenBuffers', 'glBufferData', 'glCreateShader', 'glCompileShader', 'glGetShader',
+      'glGetShaderInfoLog', 'glAttachShader', 'glBindFragDataLocation', 'glLinkProgram',
+      'glGetAttribLocation', 'glEnableVertexAttribArray', 'glGenVertexArrays', 'glBindVertexArray',
+      'glGetUniformLocation', 'glVertexAttribPointer'],
+  },
+  'open.gl textures': {
+    'name': 'open.gl - Textures Objects and Parameters',
+    'link': 'http://open.gl/textures',
+    'commands': ['glTexParameter', 'glTexImage2D', 'glBindTexture', 'glActiveTexture', 'glUniform',
+      'glGenerateMipmap', 'glVertexAttribPointer', 'glEnableVertexAttribArray'],
+  },
+  'open.gl transformations': {
+    'name': 'open.gl - Transformations',
+    'link': 'http://open.gl/transformations',
+    'commands': ['glUniform'],
+  },
+  'open.gl depthstencils': {
+    'name': 'open.gl - Depth and Stencil Buffers',
+    'link': 'http://open.gl/depthstencils',
+    'commands': ['glDrawArrays', 'glEnable', 'glClear', 'glStencilFunc', 'glStencilOp', 'glStencilMask', 'glColorMask', 'glDepthMask', 'glGetUniformLocation'],
+  },
+  'open.gl framebuffers': {
+    'name': 'open.gl - Framebuffers',
+    'link': 'http://open.gl/framebuffers',
+    'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
+    'commands': ['glCheckFramebufferStatus', 'glReadPixels', 'glViewport', 'glBindFragDataLocation',
+      'glDeleteRenderbuffers', 'glBindTexture', 'glGenFramebuffers', 'glBindFramebuffer',
+      'glDeleteFramebuffers', 'glGenTextures', 'glTexImage2D', 'glTexParameter',
+      'glFramebufferTexture2D', 'glGenRenderbuffers', 'glBindRenderbuffer', 'glRenderbufferStorage',
+      'glFramebufferRenderbuffer', 'glBindVertexArray', 'glEnable', 'glUseProgram', 'glActiveTexture',
+      ],
+  },
+  'open.gl geometry': {
+    'name': 'open.gl - Geometry Shaders',
+    'link': 'http://open.gl/geometry',
+    'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
+    'commands': ['glCheckFramebufferStatus', 'glReadPixels', 'glViewport', 'glBindFragDataLocation',
+      'glDeleteRenderbuffers', 'glBindTexture', 'glDrawArrays', 'glCreateProgram', 'glAttachShader',
+      'glLinkProgram', 'glUseProgram', 'glBindBuffer', 'glBufferData', 'glGenVertexArrays',
+      'glBindVertexArray', 'glGetAttribLocation', 'glEnableVertexAttribArray', 'glVertexAttribPointer',
+      'glClearColor', 'glClear', 'glDrawArrays'],
+  },
+  'open.gl feedback': {
+    'name': 'open.gl - Transform Feedback',
+    'link': 'http://open.gl/feedback',
+    'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
+    'commands': ['glCreateShader', 'glShaderSource', 'glCompileShader', 'glCreateProgram',
+      'glAttachShader', 'glLinkProgram', 'glTransformFeedbackVaryings', 'glUseProgram',
+      'glGenVertexArrays', 'glBindVertexArray', 'glGenBuffers', 'glBindBuffer', 'glBufferData',
+      'glGetAttribLocation', 'glEnableVertexAttribArray', 'glVertexAttribPointer', 'glGenBuffers',
+      'glBindBuffer', 'glBufferData', 'glEnable', 'glBindBufferBase', 'glBeginTransformFeedback',
+      'glDrawArrays', 'glFlush', 'glGetBufferSubData', 'glGenQueries', 'glBeginQuery',  
+      'glGetQueryObject'],
   },
 }
 
@@ -149,15 +212,43 @@ def generate_versions():
       else:
         example_functions_entry['versions'] = get_major_versions(version_commands.keys())
       example_functions[command].append(example_functions_entry)
-      
-      if not aliased_command in example_functions:
-        example_functions[aliased_command] = []
-      example_functions_entry = {'example': example}
-      if 'versions' in examples[example]:
-        example_functions_entry['versions'] = examples[example]['versions']
+
+      if aliased_command != "" and aliased_command != command:
+        if not aliased_command in example_functions:
+          example_functions[aliased_command] = []
+        example_functions_entry = {'example': example}
+        if 'versions' in examples[example]:
+          example_functions_entry['versions'] = examples[example]['versions']
+        else:
+          example_functions_entry['versions'] = get_major_versions(version_commands.keys())
+        example_functions[aliased_command].append(example_functions_entry)
+
+  for tutorial in tutorials:
+    for command in tutorials[tutorial]['commands']:
+      aliased_command = ""
+      if command in function_aliases:
+        aliased_command = function_aliases[command]
+          
+      assert aliased_command in commands_version_flat or command in commands_version_flat # This command was typed in wrong.
+
+      if not command in tutorial_functions:
+        tutorial_functions[command] = []
+      tutorial_functions_entry = {'tutorial': tutorial}
+      if 'versions' in tutorials[tutorial]:
+        tutorial_functions_entry['versions'] = tutorials[tutorial]['versions']
       else:
-        example_functions_entry['versions'] = get_major_versions(version_commands.keys())
-      example_functions[aliased_command].append(example_functions_entry)
+        tutorial_functions_entry['versions'] = get_major_versions(version_commands.keys())
+      tutorial_functions[command].append(tutorial_functions_entry)
+        
+      if aliased_command != "" and aliased_command != command:
+        if not aliased_command in tutorial_functions:
+          tutorial_functions[aliased_command] = []
+        tutorial_functions_entry = {'tutorial': tutorial}
+        if 'versions' in tutorials[tutorial]:
+          tutorial_functions_entry['versions'] = tutorials[tutorial]['versions']
+        else:
+          tutorial_functions_entry['versions'] = get_major_versions(version_commands.keys())
+        tutorial_functions[aliased_command].append(tutorial_functions_entry)
 
   print "Done."
 

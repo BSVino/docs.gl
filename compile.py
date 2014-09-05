@@ -410,6 +410,7 @@ for version in major_versions:
 
     command_html = command_html.replace("{$pipelinestall}", "")
     
+    examples_html = ""
     if command in opengl.example_functions:
       examples = "<div class='refsect1' id='examples'><h2>Examples</h2>"
       
@@ -449,9 +450,30 @@ for version in major_versions:
         examples += "</pre>"
         examples += "</div>"
       examples += "</div>"
-      command_html = command_html.replace("{$examples}", examples)
-    else:
-      command_html = command_html.replace("{$examples}", "")
+
+      examples_html = examples
+
+    if command in opengl.tutorial_functions:
+      tutorials = "<div class='refsect1' id='tutorials'><h2>Tutorials</h2><p>"
+      
+      tutorials_done = []
+      
+      for tutorial in opengl.tutorial_functions[command]:
+      
+        if not version[:3] in tutorial['versions']:
+          continue
+          
+        if tutorial['tutorial'] in examples_done:
+          continue
+          
+        examples_done.append(tutorial['tutorial'])
+          
+        tutorials += '<a href="' + opengl.tutorials[tutorial['tutorial']]['link'] + '">' + opengl.tutorials[tutorial['tutorial']]['name'] + "</a><br />"
+      tutorials += "</p></div>"
+      
+      examples_html += tutorials
+
+    command_html = command_html.replace("{$examples}", examples_html)
 
     output_html = header_for_command + command_html + footer_for_command
 
