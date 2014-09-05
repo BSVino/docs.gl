@@ -209,7 +209,7 @@ tutorials = {
     'name': 'opengl-tutorial.org - Tutorial 3 : Matrices',
     'link': 'http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/',
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
-    'commands': ['glUniformMatrix'],
+    'commands': ['glUniform'],
   },
   'opengl-tutorial.org colored cube': {
     'name': 'opengl-tutorial.org - Tutorial 4 : A Colored Cube',
@@ -249,7 +249,7 @@ tutorials = {
     'link': 'http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/',
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glGetUniformLocation',
-      'glUniformMatrix', 'glActiveTexture', 'glBindTexture', 'glUniform', 'glEnableVertexAttribArray',
+      'glUniform', 'glActiveTexture', 'glBindTexture', 'glEnableVertexAttribArray',
       'glVertexAttribPointer', 'glDrawElements'],
   },
   'opengl-tutorial.org rtt': {
@@ -268,7 +268,7 @@ tutorials = {
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glGenFramebuffers', 'glBindFramebuffer', 'glGenTextures', 'glBindTexture',
       'glTexImage2D', 'glTexParameter', 'glFramebufferTexture', 'glDrawBuffer',
-      'glCheckFramebufferStatus', 'glUniformMatrix'],
+      'glCheckFramebufferStatus', 'glUniform'],
   },
   'opengl-tutorial.org particles': {
     'name': 'opengl-tutorial.org - Particles / Instancing',
@@ -279,7 +279,7 @@ tutorials = {
       'glVertexAttribDivisor'],
   },
   'sebastien-nvidia tex compression': {
-    'name': 'Sébastien Dominé - Using Texture Compression in OpenGL',
+    'name': 'S&eacute;bastien Domin&eacute; - Using Texture Compression in OpenGL',
     'link': 'http://www.oldunreal.com/editing/s3tc/ARB_texture_compression.pdf',
     'versions': [ 'gl2', 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glBindTexture', 'glCompressedTexImage2D', 'glGetTexLevelParameter',
@@ -308,7 +308,7 @@ tutorials = {
     'commands': ['glCreateShader', 'glShaderSource', 'glCompileShader', 'glGetShader',
       'glGetShaderInfoLog', 'glDeleteShader', 'glCreateProgram', 'glAttachShader', 'glLinkProgram', 
       'glValidateProgram', 'glGetProgram', 'glGetProgramInfoLog', 'glUseProgram', 'glGetActiveAttrib',
-      'glGetAttribLocation', 'glGetUniformLocation', 'glGetActiveUniform', 'glUniform', 'glUniformMatrix'],
+      'glGetAttribLocation', 'glGetUniformLocation', 'glGetActiveUniform', 'glUniform'],
   },
   'gerdelan vbo': {
     'name': 'Anton Gerdelan - Vertex Buffer Objects',
@@ -317,7 +317,7 @@ tutorials = {
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glVertexAttribPointer',
       'glEnableVertexAttribArray', 'glCompileShader', 'glAttachShader', 'glBindAttribLocation', 
       'glLinkProgram', 'glClear', 'glUseProgram', 'glBindVertexArray', 'glDrawArrays', 'glEnable',
-      'glCullFace', 'glFrontFace', 'glGetActiveUniform', 'glUniform', 'glUniformMatrix'],
+      'glCullFace', 'glFrontFace', 'glGetActiveUniform', 'glUniform'],
   },
   'gerdelan cubemaps': {
     'name': 'Anton Gerdelan - Cube Maps: Sky Boxes and Environment Mapping',
@@ -326,7 +326,7 @@ tutorials = {
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glVertexAttribPointer',
       'glEnableVertexAttribArray', 'glGenVertexArrays', 'glBindVertexArray', 'glActiveTexture', 
       'glGenTextures', 'glTexParameteri', 'glBindTexture', 'glTexImage2D', 'glUseProgram', 
-      'glUniformMatrix', 'glDepthMask', 'glDrawArrays'],
+      'glUniform', 'glDepthMask', 'glDrawArrays'],
   },
 }
 
@@ -427,7 +427,7 @@ def generate_versions():
       aliased_command = ""
       if command in function_aliases:
         aliased_command = function_aliases[command]
-          
+
       assert aliased_command in commands_version_flat or command in commands_version_flat # This command was typed in wrong.
 
       if not command in tutorial_functions:

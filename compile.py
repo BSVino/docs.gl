@@ -458,7 +458,10 @@ for version in major_versions:
       
       tutorials_done = []
       
-      for tutorial in opengl.tutorial_functions[command]:
+      tutorial_list = opengl.tutorial_functions[command]
+      tutorial_list = sorted(tutorial_list, key=lambda tutorial: opengl.tutorials[tutorial['tutorial']]['name'])
+      
+      for tutorial in tutorial_list:
       
         if not version[:3] in tutorial['versions']:
           continue
