@@ -129,6 +129,26 @@ tutorials = {
       'glDrawArrays', 'glFlush', 'glGetBufferSubData', 'glGenQueries', 'glBeginQuery',  
       'glGetQueryObject'],
   },
+  'songho overview': {
+    'name': 'Songho - OpenGL Overview',
+    'link': 'http://www.songho.ca/opengl/gl_overview.html',
+    'versions': [ 'gl2' ],
+    'commands': ['glColor', 'glVertex', 'glPushAttrib', 'glEnable', 'glBegin', 'glFlush', 'glFinish'],
+  },
+  'songho pipeline': {
+    'name': 'Songho - OpenGL Rendering Pipeline',
+    'link': 'http://www.songho.ca/opengl/gl_pipeline.html',
+    'versions': [ 'gl2' ],
+    'commands': ['glRenderMode', 'glReadPixels', 'glCopyPixels', 'glGet', 'glIsEnabled'],
+  },
+  'songho transformations': {
+    'name': 'Songho - OpenGL Transformation',
+    'link': 'http://www.songho.ca/opengl/gl_transform.html',
+    'versions': [ 'gl2' ],
+    'commands': ['glRotate', 'glTranslate', 'glScale', 'glViewport', 'glDepthRange', 'glMatrixMode',
+      'glOrtho', 'glFrustum', 'glPushMatrix', 'glLoadIdentity', 'glLoadMatrix', 'glLoadTransposeMatrix',
+      'glMultMatrix', 'glMultTransposeMatrix', ],
+  },
 }
 
 def get_major_versions(all_versions):
