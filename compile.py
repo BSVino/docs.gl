@@ -496,6 +496,6 @@ for version in major_versions:
 if platform.system() is "Windows":
   subprocess.call(["\\Program Files\\7-Zip\\7z.exe", "a", "-tzip", "docs.gl.zip", "htdocs"])
 else:
-  subprocess.call(["/usr/bin/zip", "docs.gl.zip", "htdocs" ])
+  subprocess.call(["/usr/bin/zip", "-r", "docs.gl.zip", "htdocs" ])
 
 shutil.move("docs.gl.zip", "htdocs/")
