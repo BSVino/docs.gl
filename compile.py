@@ -480,6 +480,9 @@ for version in major_versions:
 
     command_html = command_html.replace("{$examples}", examples_html)
 
+    # Strip 'mml' namespace from MathML tags so that MathJax can find them
+    command_html = re.sub(r'<(/?)mml:(.*?)>', r'<\1\2>', command_html)
+
     output_html = header_for_command + command_html + footer_for_command
 
     output = open(output_dir + version_dir + "/" + command, "w")
