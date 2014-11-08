@@ -181,14 +181,22 @@ for version in opengl.version_commands:
   if not version[:2] in search_function_aliases:
     search_function_aliases[version[:2]] = {}
 
+  included_commands = []
+
   for command in opengl.version_commands[version]:
-    search_versions_commands += "'" + command + "',"
+    if not command in included_commands:
+      included_commands.append(command)
+
     if command != opengl.version_commands[version][command]:
       search_function_aliases[version[:2]][command] = opengl.version_commands[version][command]
     
   for command in opengl.version_commands_flat[version]:
-    if not command in opengl.version_commands[version]:
-      search_versions_commands += "'" + command + "',"
+    if not command in opengl.version_commands[version] and not command in included_commands:
+      included_commands.append(command)
+
+  included_commands.sort()
+  for command in included_commands:
+    search_versions_commands += "'" + command + "',"
 
   search_versions_commands += "],"
 
