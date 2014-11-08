@@ -527,7 +527,7 @@ command_categories = OrderedDict([
     "glPolygonOffset", "glSampleCoverage", "glBlendFuncSeparate", "glPointParameter", "glBlendColor", 
     "glBlendEquation", "glStencilOpSeparate", "glStencilFuncSeparate", "glStencilMaskSeparate", 
     "glClampColor", "glBlendEquationSeparate", "glClipControl", "glDepthRangeArray",
-    "glDepthRangeIndexed", "glDisablei", "glScissorArray", "glScissorIndexed", "glViewportArray", 
+    "glDepthRangeIndexed", "glEnablei", "glDisablei", "glScissorArray", "glScissorIndexed", "glViewportArray", 
     "glViewportIndexed",
   ] ),
   ( "Transform Feedback", [
