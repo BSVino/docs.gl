@@ -20,6 +20,10 @@
 	margin-right: auto;
 }
 
+.commandsearch {
+	display: none;
+}
+
 .commandcolumn, .versioncolumn {
 	display: block;
 	float: left;
@@ -44,11 +48,15 @@ $(function() {
 		version = window.search_api.replace(".", "");
 		if (!version || typeof version == 'undefined')
 			version = 'all';
+
+		search_str = $("#frontsearch").val().toLowerCase();
 			
 		hide_commands = function() {
 			$(this).addClass("hidden");
+
+			command_search = $(".commandsearch", this).text().toLowerCase();
 			
-			if ($(this).attr('id').toLowerCase().indexOf($("#frontsearch").val().toLowerCase()) == -1)
+			if (command_search.indexOf(search_str) == -1)
 				return;
 
 			if (version == 'all') {

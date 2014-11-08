@@ -142,6 +142,13 @@ for command in index_commands_version:
       versions_added.append(version)
 
   index_versions_commands += "'><span class='commandcolumn'>" + command + "</span>"
+  index_versions_commands += "<span class='commandsearch'>"
+  index_versions_commands += command
+  for alias in opengl.aliased_functions[command]:
+    if alias == command:
+      continue
+    index_versions_commands += " " + alias
+  index_versions_commands += "</span>"
   
   all_major_versions = opengl.get_major_versions(opengl.version_commands_flat.keys())
   for version in all_major_versions:
