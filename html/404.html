@@ -1,0 +1,20 @@
+		<div class="refentry" id="pagenotfound">
+			<div class="titlepage">
+				<p>The page you were looking for could not be found.</p>
+				<p>Try using the menu on the left, or the search at the top to find the command.</p>
+			</div>
+		</div>
+		<script src="../docs.gl.search.js"></script>
+		<script>
+			var alias_api = window.current_api.substring(0, 2);
+
+			var path404 = window.location.pathname
+			var cur_command = path404.substring(path404.lastIndexOf("/") + 1);
+
+			var alias_target = function_aliases[alias_api][cur_command];
+
+			if(typeof alias_target != 'undefined')
+			{
+				window.location.href = path404.replace(cur_command, alias_target);
+			}
+		</script>

@@ -493,6 +493,41 @@ for version in major_versions:
     output.close()
     
     written += 1
+
+  if os.path.exists("html/404.html"):
+    header_for_page = header_for_version
+    footer_for_page = footer_for_version
+
+    api_commands = ""
+    for category in opengl.command_categories:
+      api_commands += spew_category(category, opengl.command_categories[category], "")
+
+    if len(unhandled_commands):
+      api_commands += spew_category("Uncategorized", unhandled_commands, "")
+
+    header_for_page = header_for_page.replace("{$api_commands}", api_commands)
+    header_for_page = header_for_page.replace("{$current_api}", latest_minor.replace(".", ""))
+    header_for_page = header_for_page.replace("{$command_versions}", "")
+    header_for_page = header_for_page.replace("{$command}", "404 - Page Not Found")
+    
+    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/html/404.html'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
+    footer_for_page = footer_for_page.replace("{$improvepage}", improvepage)
+
+    fp = open("html/404.html")
+    notfound_html = fp.read()
+    fp.close()
+    
+    if args.buildmode == 'full':
+      notfound_html = notfound_html.decode('utf8')
+    
+    output_html = header_for_page + notfound_html + footer_for_page
+
+    output = open(output_dir + version + "/404", "w")
+    output_string = output_html
+    if args.buildmode == 'full':
+      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace')
+    output.write(output_string)
+    output.close()
   
   print "Wrote " + str(written) + " commands for " + version
 
