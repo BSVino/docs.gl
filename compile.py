@@ -523,10 +523,8 @@ for version in major_versions:
     header_for_page = header_for_page.replace("{$api_commands}", api_commands)
     header_for_page = header_for_page.replace("{$current_api}", latest_minor.replace(".", ""))
     header_for_page = header_for_page.replace("{$command_versions}", "")
-    header_for_page = header_for_page.replace("{$command}", "404 - Page Not Found")
-    
-    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/html/404.html'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
-    footer_for_page = footer_for_page.replace("{$improvepage}", improvepage)
+    header_for_page = header_for_page.replace("{$command}", "Oops! Can't find '<span id='404command'></span>'.")
+    footer_for_page = footer_for_page.replace("{$improvepage}", "")
 
     fp = open("html/404.html")
     notfound_html = fp.read()
