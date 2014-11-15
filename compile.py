@@ -393,22 +393,48 @@ for version in major_versions:
     command_major_versions.sort(reverse=True)
     
     command_versions = ""
-      
+
     for major_version in command_major_versions:
       link_class = ""
       if major_version == version:
         link_class = "class='current'"
         
-      if major_version[:2] == 'gl':
-        command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>OpenGL " + major_version[2] + "</a><br />"
-      elif major_version[:2] == 'es':
-        command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>OpenGL ES " + major_version[2] + "</a><br />"
+      es = ""
+      if major_version[:2] == 'es':
+        es = "ES "
+    
+      command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>OpenGL " + es + major_version[2] + "</a><br />"
       
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$command}", command)
     
-    improvepage = "Think you can improve this page? <a href='https://github.com/BSVino/docs.gl/blob/master/" + version + "/" + command + ".xhtml'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
+    editlink = "https://github.com/BSVino/docs.gl/blob/master/" + version + "/" + command + ".xhtml"
+    improvepage = "Think you can improve this page? <a href='" + editlink + "'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
+
+    es = ""
+    if version[:2] == 'es':
+      es = "ES "
+
+    comments = """<div id="outer_disqus_thread">Guidelines for comments:
+      <ul>
+        <li>Please limit comments to OpenGL """ + es + version[2] + """ """ + command + """.</li>
+        <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
+        <li>Instead of commenting, consider <a href='""" + editlink + """'>editing this page on GitHub</a> instead.</li>
+      </ul>
+    <div id="disqus_thread"></div></div><script type="text/javascript">
+    var disqus_shortname = 'docsgl';
+    var disqus_identifier = '""" + version + "_" + command + """';
+    var disqus_title = 'Comments about """ + version + "/" + command + """';
+    var disqus_url = 'http://docs.gl/""" + version + "/" + command + """';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>"""
+    footer_for_command = footer_for_command.replace("{$comments}", comments)
 
     version_dir = version
     
