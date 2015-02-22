@@ -328,6 +328,13 @@ tutorials = {
       'glGenTextures', 'glTexParameteri', 'glBindTexture', 'glTexImage2D', 'glUseProgram', 
       'glUniform', 'glDepthMask', 'glDrawArrays'],
   },
+  'mckesson tut5': {
+    'name': 'Learning Modern 3D Graphics Programming - Chapter 5. Objects in Depth [Vertex Array Objects, Indexed Drawing]',
+    'link': 'http://www.arcsynthesis.org/gltut/Positioning/Tutorial%2005.html',
+    'versions': [ 'gl3', 'gl4' ],
+    'commands': ['glGenVertexArrays', 'glBindVertexArray', 'glDrawElements', 'glBindBuffer',
+      'glEnableVertexAttribArray', 'glVertexAttribPointer'],
+  },
 }
 
 def get_major_versions(all_versions):
