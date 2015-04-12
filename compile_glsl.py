@@ -6,7 +6,7 @@ import argparse
 import re
 
 import glsl
-import shared
+import shared_glsl
 import subprocess
 import platform
 
@@ -45,7 +45,7 @@ while not os.path.exists(output_dir):
     
 f = []
 d = []
-for (dirpath, dirnames, filenames) in os.walk("html/copy"):
+for (dirpath, dirnames, filenames) in os.walk("glsl_html/copy"):
   dirpath = dirpath[10:]
 
   if "test" in dirpath:
@@ -63,34 +63,34 @@ for directory in d:
   create_directory(output_dir + directory)
   
 for file in f:
-  shutil.copy("html/copy/" + file, output_dir + file)
+  shutil.copy("glsl_html/" + file, output_dir + file)
 
 print "Copied " + str(len(f)) + " files"
 
 print "Reading templates..."
-header_fp = open("html/header.html")
+header_fp = open("glsl_html/header.html")
 header = header_fp.read()
 header_fp.close()
 
-footer_fp = open("html/footer.html")
+footer_fp = open("glsl_html/footer.html")
 footer = footer_fp.read()
 footer_fp.close()
 
-search_fp = open("html/docs.gl.search.js")
+search_fp = open("glsl_html/docs.gl.search.js")
 search = search_fp.read()
 search_fp.close()
 
-index_fp = open("html/index.html")
+index_fp = open("glsl_html/index.html")
 index = index_fp.read()
 index_fp.close()
 print "Done."
 
-if os.path.exists('html/copy/jquery.min.js'):
+if os.path.exists('glsl_html/copy/jquery.min.js'):
   index = index.replace("{$jquery}", "<script src='jquery.min.js'></script>")
 else:
   index = index.replace("{$jquery}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>")
 
-if os.path.exists('html/copy/jquery-ui.min.js'):
+if os.path.exists('glsl_html/copy/jquery-ui.min.js'):
   index = index.replace("{$jqueryui}", "<script src='jquery-ui.min.js'></script>")
 else:
   index = index.replace("{$jqueryui}", '<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>')
@@ -122,7 +122,7 @@ for command in index_commands_version:
   latest_version = ''
   all_major_versions_available = []
   for version in major_versions:
-    if len(latest_version) == 0 or (latest_version[:2] == 'es' and version[:2] == 'gl') or (latest_version[:2] == version[:2] and float(version[2:]) > float(latest_version[2:])):
+    if len(latest_version) == 0 or (latest_version[:2] == 'el' and version[:2] == 'sl') or (latest_version[:2] == version[:2] and float(version[2:]) > float(latest_version[2:])):
       latest_version = version
 
     all_major_versions_available.append(version)
@@ -316,7 +316,7 @@ version_numbers = glsl.version_commands.keys()
 major_versions = glsl.get_major_versions(glsl.version_commands.keys())
 
 for version in major_versions:
-  if int(version[2]) < 2:
+  if int(version[2]) < 4:
     continue
     
   written = 0
@@ -421,8 +421,8 @@ for version in major_versions:
 
     comments = """<div id="outer_disqus_thread">Guidelines for comments:
       <ul>
-        <li>Please limit comments to GLSL """ + es + version[2] + """ """ + command + """.</li>
-        <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
+        <li>Please limit comments to GLSL """ + el + version[2] + """ """ + command + """.</li>
+        <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/glsl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
         <li>Instead of commenting, consider <a href='""" + editlink + """'>editing this page on GitHub</a> instead.</li>
       </ul>
     <div id="disqus_thread"></div></div><script type="text/javascript">
@@ -442,8 +442,8 @@ for version in major_versions:
     version_dir = version
     
     create_directory(output_dir + version_dir)
-
-    command_file = shared.find_command_file(version, command)
+    print version + " " + command
+    command_file = shared_glsl.find_command_file(version, command)
     if command_file == False:
       raise IOError("Couldn't find page for command " + command + " (" + version + ")")
 
@@ -457,12 +457,12 @@ for version in major_versions:
     command_html = command_html.replace("{$pipelinestall}", "")
     
     examples_html = ""
-    if command in opengl.example_functions:
+    if command in glsl.example_functions:
       examples = "<div class='refsect1' id='examples'><h2>Examples</h2>"
       
       examples_done = []
       
-      for example in opengl.example_functions[command]:
+      for example in glsl.example_functions[command]:
       
         if not version[:3] in example['versions']:
           continue
@@ -472,13 +472,13 @@ for version in major_versions:
           
         examples_done.append(example['example'])
           
-        code = opengl.examples[example['example']]['code']
+        code = glsl.examples[example['example']]['code']
         
         def replace_alias(matchobj):
           alias = matchobj.groups()[0]
           command = alias
-          if alias in opengl.function_aliases:
-            command = opengl.function_aliases[alias]
+          if alias in glsl.function_aliases:
+            command = glsl.function_aliases[alias]
 
           return "<a href='../" + version_dir + r"/" + command + "'>" + alias + "</a>"
 
@@ -499,13 +499,13 @@ for version in major_versions:
 
       examples_html = examples
 
-    if command in opengl.tutorial_functions:
+    if command in glsl.tutorial_functions:
       tutorials = "<div class='refsect1' id='tutorials'><h2>Tutorials</h2><p>"
       
       tutorials_done = []
       
       tutorial_list = glsl.tutorial_functions[command]
-      tutorial_list = sorted(tutorial_list, key=lambda tutorial: opengl.tutorials[tutorial['tutorial']]['name'])
+      tutorial_list = sorted(tutorial_list, key=lambda tutorial: glsl.tutorials[tutorial['tutorial']]['name'])
       
       for tutorial in tutorial_list:
       
@@ -517,7 +517,7 @@ for version in major_versions:
           
         examples_done.append(tutorial['tutorial'])
           
-        tutorials += '<a href="' + opengl.tutorials[tutorial['tutorial']]['link'] + '">' + opengl.tutorials[tutorial['tutorial']]['name'] + "</a><br />"
+        tutorials += '<a href="' + glsl.tutorials[tutorial['tutorial']]['link'] + '">' + glsl.tutorials[tutorial['tutorial']]['name'] + "</a><br />"
       tutorials += "</p></div>"
       
       examples_html += tutorials
@@ -538,13 +538,13 @@ for version in major_versions:
     
     written += 1
 
-  if os.path.exists("html/404.html"):
+  if os.path.exists("glsl_html/404.html"):
     header_for_page = header_for_version
     footer_for_page = footer_for_version
 
     api_commands = ""
-    for category in opengl.command_categories:
-      api_commands += spew_category(category, opengl.command_categories[category], "")
+    for category in glsl.command_categories:
+      api_commands += spew_category(category, glsl.command_categories[category], "")
 
     if len(unhandled_commands):
       api_commands += spew_category("Uncategorized", unhandled_commands, "")
@@ -555,7 +555,7 @@ for version in major_versions:
     header_for_page = header_for_page.replace("{$command}", "Oops! Can't find '<span id='404command'></span>'.")
     footer_for_page = footer_for_page.replace("{$improvepage}", "")
 
-    fp = open("html/404.html")
+    fp = open("glsl_html/404.html")
     notfound_html = fp.read()
     fp.close()
     
@@ -574,8 +574,8 @@ for version in major_versions:
   print "Wrote " + str(written) + " commands for " + version
 
 if platform.system() is "Windows":
-  subprocess.call(["\\Program Files\\7-Zip\\7z.exe", "a", "-tzip", "docs.gl.zip", "htdocs"])
+  subprocess.call(["\\Program Files\\7-Zip\\7z.exe", "a", "-tzip", "glsl_docs.gl.zip", "glsl_htdocs"])
 else:
-  subprocess.call(["/usr/bin/zip", "-r", "docs.gl.zip", "htdocs" ])
+  subprocess.call(["/usr/bin/zip", "-r", "docs.gl.zip", "glsl_htdocs" ])
 
-shutil.move("docs.gl.zip", "htdocs/")
+shutil.move("glsl_docs.gl.zip", "glsl_htdocs/")

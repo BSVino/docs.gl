@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<title>{$command} - {$api_name} {$command_major_version} - docs.gl</title>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="../jquery-bonsai/jquery.bonsai.js"></script>
+<link href="../jquery-bonsai/jquery.bonsai.css" rel="stylesheet" type="text/css" />
+<script src="../jquery-cookie/jquery.cookie.js"></script>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML"></script>
+
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<link id="pagestyle" href="../style_light.css" rel="stylesheet" type="text/css" />
+
+<script>
+window.current_api = "{$current_api}";
+window.base_directory = "../";
+</script>
+<script src="../docs.gl.js"></script>
+
+</head>
+<body>
+
+<div id='header'>
+<div id='header_inner'>
+<a href="/"><img src="../logo.png" /></a>
+<div id="styles"><a id="style_light">Light</a> | <a id="style_dark">Dark</a></div>
+<div id="search_div"><label for="search">Search:</label> <select id="search_versions">{$search_versions}</select> <input id="search" /><input id="search_button" type="submit" value="Go" /></div>
+</div>
+</div>
+
+<div id="everything">
+<div id="toc">
+<strong id="opengl_name"></strong>
+<div id="versions_container"><span id="api">API:</span><select id="versions_dropdown">{$versions_options}</select><br />
+<label id="hide_label" for="hide_deprecated">Hide unavailable:</label><input id="hide_deprecated" type="checkbox"></div>
+
+<br clear="both" />
+<ul id="command_categories">{$api_commands}</ul>
+
+</div>
+
+<div id="khronos">
+<div id="command_versions">{$command_versions}</div>
+<h1 id="command_title">{$command}</h1>

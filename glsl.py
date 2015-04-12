@@ -15,23 +15,9 @@ aliased_functions = {}
 example_functions = {}
 tutorial_functions = {}
 
-examples = {
-  'vertexarray_draw': {
-    'description': 'Render a vertex array (not loaded into OpenGL) using texture UV, color, and normal vertex attributes.',
-    'commands': [ 'glDrawArrays' ],
-  },
-  'vertexarray_draw_indexed': {
-    'description': 'Render an indexed vertex array (not loaded into OpenGL) using texture UV and normal vertex attributes.',
-    'commands': [ 'glVertexAttribPointer', 'glDrawElements' ],
-  },
-  'mckesson tut5': {
-    'name': 'Learning Modern 3D Graphics Programming - Chapter 5. Objects in Depth [Vertex Array Objects, Indexed Drawing]',
-    'link': 'http://www.arcsynthesis.org/gltut/Positioning/Tutorial%2005.html',
-    'versions': [ 'gl3', 'gl4' ],
-    'commands': ['glGenVertexArrays', 'glBindVertexArray', 'glDrawElements', 'glBindBuffer',
-      'glEnableVertexAttribArray', 'glVertexAttribPointer'],
-  },
-}
+examples = {}
+
+tutorials = {}
 
 def get_major_versions(all_versions):
   major_versions = []
@@ -72,7 +58,7 @@ def generate_versions():
   global function_aliases
   global aliased_functions
   
-  version_commands = opengl_spec.version_commands
+  version_commands = glsl_spec.version_commands
 
   for version in version_commands:
     version_commands_flat[version] = []
