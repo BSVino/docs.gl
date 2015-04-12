@@ -155,7 +155,9 @@ for command in index_commands_version:
   
   all_major_versions = glsl.get_major_versions(glsl.version_commands_flat.keys())
   for version in all_major_versions:
-    if int(version[2:3]) < 2:
+    if int(version[2:3]) < 3:
+      continue
+    if version == "sl3":
       continue
     alias = command
 
@@ -180,10 +182,10 @@ index_fp.close()
 search_versions_commands = "var search_versions = {"
 search_function_aliases = {}
 for version in glsl.version_commands:
-  if version[0:2] == "sl" and float(version[2:]) < 2.1:
+  if version[0:2] == "sl" and float(version[2:]) < 4.0:
     continue
 
-  if version[0:2] == "el" and float(version[2:]) < 2.0:
+  if version[0:2] == "el" and float(version[2:]) < 3.0:
     continue
 
   search_versions_commands += "'" + version + "':["
@@ -214,17 +216,16 @@ search_versions_commands += "'all': ["
 for command in glsl.commands_version:
   major_versions = glsl.get_major_versions(glsl.commands_version[command])
   for version in major_versions:
-    if int(version[2]) < 2:
+    if int(version[2]) < 3:
       continue
     search_versions_commands += "'" + version[:3] + "/" + command + "',"
 
 for command in glsl.commands_version_flat:
   if command in glsl.commands_version:
     continue
-  
   major_versions = glsl.get_major_versions(glsl.commands_version_flat[command])
   for version in major_versions:
-    if int(version[2]) < 2:
+    if int(version[2]) < 3:
       continue
     search_versions_commands += "'" + version[:3] + "/" + command + "',"
   
@@ -247,10 +248,10 @@ search_fp.close()
 
 search_versions_options = ""
 for version_option in glsl.version_commands.keys():
-  if version_option[0:2] == "sl" and float(version_option[2:]) < 2.1:
+  if version_option[0:2] == "sl" and float(version_option[2:]) < 4.0:
     continue
 
-  if version_option[0:2] == "el" and float(version_option[2:]) < 2.0:
+  if version_option[0:2] == "el" and float(version_option[2:]) < 3.0:
     continue
 
   if version_option[:2] == 'sl':
@@ -316,9 +317,11 @@ version_numbers = glsl.version_commands.keys()
 major_versions = glsl.get_major_versions(glsl.version_commands.keys())
 
 for version in major_versions:
-  if int(version[2]) < 4:
+  if int(version[2]) < 3:
     continue
-    
+  if version == 'sl3':
+    continue  
+	
   written = 0
 
   print "Compiling " + version + " ..."
@@ -442,7 +445,6 @@ for version in major_versions:
     version_dir = version
     
     create_directory(output_dir + version_dir)
-    print version + " " + command
     command_file = shared_glsl.find_command_file(version, command)
     if command_file == False:
       raise IOError("Couldn't find page for command " + command + " (" + version + ")")

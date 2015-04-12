@@ -17,7 +17,8 @@ sl_extensions =[
 # imul : umul  , packSnorm4x8 : packUnorm ,   unpackSnorm4x8 : unpackUnorm 
 
 #The table displayed versions
-version_check = ['','v1.10' , 'v1.20' , 'v1.30' , 'v1.40' , 'v1.50' , 'v3.30' , 'v4.00' , 'v4.10' ,'v4.20' ,'v4.30' ,'v4.40' ,'v4.50' ]
+version_check = ['','sl1.10' , 'sl1.20' , 'sl1.30' , 'sl1.40' , 'sl1.50' , 'sl3.30' , 'sl4.00' , 'sl4.10' ,'sl4.20' ,'sl4.30' ,'sl4.40' ,'sl4.50' ]
+version_check_el = ['','el1.10' , 'el3.00' , 'el3.10' ]  
 
 def get_versions( path_file ):
 
@@ -33,6 +34,21 @@ def get_versions( path_file ):
 			#print "got it in version " + version_check[x]
 	return versions
 
+def get_el_versions( path_file ):
+	xtree = ET.parse(path_file)
+	element = xtree.find('.//div[@id="versions"]')
+	table = element[1][0][2]
+	test = u'\u2714'; #this is the check symbol
+	versions = []
+	for x in range(1, 4):
+		text = table[0][x].text
+		if text == test:
+			versions.append(version_check_el[x])
+			#print "got it in version " + version_check[x]
+	return versions	
+	
+	
+	
 def test_extensions(gldir, command):
   # See if removing an extension gives us a real entry
   for extension in sl_extensions:
@@ -48,6 +64,15 @@ def test_replacements(gldir, command):
 
   if (len(command_docs)):
     return command_docs
+  
+  
+  
+  #GLSL ES tests
+  
+  #dfdx
+  command_test = command.replace("", "x")
+  if not shared_glsl.find_command_file(gldir, command_test) == False:
+	return command_test 
   
   
   #GLSL tests
@@ -195,46 +220,63 @@ stored_version_commands = { '' : [ {'':''} ,] }
 
 for x in version_check:
 	stored_version_commands[x] = [ {'':''} ,];
-
+for x in version_check_el:
+	stored_version_commands[x] = [ {'':''} ,];
+	
+	
 #dic list dic
 
 for command in commads:
 	if command.tag != 'command':
 		continue
 	current_command_list.append(command[0][0].text);
+	support_API = {'el3' , 'sl4' }	
 
-for command_name in current_command_list:
-	path_file = path+"\\sl4\\"+command_name+".xhtml"
-	if(os.path.isfile(path_file)):
-		#print command_name + " exists"
-		versions = get_versions(path_file)
-		for x in xrange(len(versions)):
-			#stored_version_commands[x] = {command_name : command_name}
-			stored_version_commands[versions[x]].append({command_name : command_name})
-				
-			
-		#Open File and rack up versions!
-	else:
-		#print "looking for " +command_name+ "..."
-		if os.path.exists("sl4"):
-			test_extensions("sl4" , command_name )
-			command_file = shared_glsl.find_command_file("sl4", command_name)
-			if command_file == False:
-				command_docs = test_replacements("sl4", command_name)
-				command_file = shared_glsl.find_command_file("sl4", command_docs)
-			
+# go over all supported API
+for api in support_API:
+	for command_name in current_command_list:
+		path_file = path+"\\"+api+"\\"+command_name+".xhtml"
+		if(os.path.isfile(path_file)):
+			#print command_name + " exists"
+			versions = []
+			if api[0:2] == 'sl': 
+				versions = get_versions(path_file)
+			if api[0:2] == 'el':
+				versions = get_el_versions(path_file)
+			for x in xrange(len(versions)):
+				#stored_version_commands[x] = {command_name : command_name}
+				print command_name
+				stored_version_commands[versions[x]].append({command_name : command_name})
+						
+					
+				#Open File and rack up versions!
+		else:
+			#print "looking for " +command_name+ "..."
+			if os.path.exists(api):
+				test_extensions(api , command_name )
+				command_file = shared_glsl.find_command_file(api, command_name)
 				if command_file == False:
-					print "No command docs file found for " + command_name + " (" + "sl" + "4" + ")"
-					print command_name + " does not exist"
-					assert(False)
-					#add Test by removing extensions
-				else:
-					#print "!found " + command_name + " as " +command_docs
-					versions = get_versions(path+"\\sl4\\"+command_docs+".xhtml")
-					for x in xrange(len(versions)):
-					#stored_version_commands[x] = {command_name : command_name}
-						 stored_version_commands[versions[x]].append({command_name : command_docs})
-
+					command_docs = test_replacements(api, command_name)
+					command_file = shared_glsl.find_command_file(api, command_docs)
+					
+					if command_file == False:
+						print "No command docs file found for " + command_name + " (" + api + ")"
+						print command_name + " does not exist"
+						#Todo: Skip ES for now
+						if api[0:2] != 'el':
+							assert(False)
+						#add Test by removing extensions
+					else:
+						#print "!found " + command_name + " as " +command_docs
+						versions = []
+						if api[0:2] == 'sl':
+							versions = get_versions(path+"\\"+api+"\\"+command_docs+".xhtml")
+						if api[0:2] == 'el':
+							versions = get_el_versions(path+"\\"+api+"\\"+command_docs+".xhtml")
+						for x in xrange(len(versions)):
+						#stored_version_commands[x] = {command_name : command_name}
+							stored_version_commands[versions[x]].append({command_name : command_docs})
+		#print "done with " + command_name
 	
 #print stored_version_commands
 		
@@ -248,7 +290,7 @@ for command_name in current_command_list:
 
 #print stored_version_commands
 	
-#print	stored_version_commands
+print stored_version_commands
 
 output = open("glsl_spec.py", "w")
 output.write("version_commands = {\n")
@@ -261,15 +303,14 @@ output.write("version_commands = {\n")
 	
 	
 	
-	
-last_api = ""
 for version in stored_version_commands:
-	print version
-		
+	#print version
+	if version == "":
+		continue
 
 	#print version
-	output.write("  '" + "sl" + version[1:4] + "': {\n")
-	#print "  '" + "sl" + version[1:4] + "': {\n"
+	output.write("  '" + version[0:5] + "': {\n")
+	#print "  '" + version[1:4] + "': {\n"
 	for x in stored_version_commands[version]:
 		#output.write("    '" + command + "': '" + command_docs + "',\n")
 		#output.write("  },\n")
@@ -281,8 +322,12 @@ for version in stored_version_commands:
 		output.write("    " +mstring+ ",\n")
 		#print "    '" + stored_version_commands[version] + "': '" + stored_version_commands[version] + "',\n"
 	output.write("  },\n")
+	
+	
+	
 output.write("}\n")
 output.close()
+
 
 #  if feature.attrib['api'] == 'gl' or feature.attrib['api'][0:4] == 'gles':
 #    gles = feature.attrib['api'][0:4] == 'gles'
