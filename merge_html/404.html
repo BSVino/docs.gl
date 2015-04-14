@@ -1,0 +1,24 @@
+		<div class="refentry" id="pagenotfound">
+			<div class="titlepage">
+				<p>Try the menu on the left, or the search bar top right.</p>
+			</div>
+		</div>
+		<script>
+			var alias_api = window.current_api.substring(0, 2);
+
+			var path404 = window.location.pathname
+			var cur_command = path404.substring(path404.lastIndexOf("/") + 1);
+			$("#404command").text(cur_command);
+
+			// I'm not the best with Javascript, but the 404 command name is set before loading
+			// the search .js in the hope that a slow search .js won't delay the command name.
+		</script>
+		<script src="../docs.gl.search.js"></script>
+		<script>
+			var alias_target = function_aliases[alias_api][cur_command];
+
+			if(typeof alias_target != 'undefined')
+			{
+				window.location.href = path404.replace(cur_command, alias_target);
+			}
+		</script>
