@@ -151,6 +151,108 @@ command_categories = OrderedDict([
   ( "Common", [
     "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil", "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", "step", "smoothstep", "isnan", "isinf", "floatBitsToInt",  "intBitsToFloat", "fma", "frexp", "ldexp"
   ] ),  
+  ( "Floating-Point Pack/Unpack", [
+    "packDouble2x32","packHalf2x16","packUnorm","unpackDouble2x32","unpackHalf2x16","unpackUnorm"
+  ] ),  
+  ( "Built-In Variables", [
+    "gl_ClipDistance", "gl_CullDistance", "gl_FragCoord", "gl_FragDepth", "gl_FrontFacing", "gl_GlobalInvocationID", "gl_HelperInvocation", "gl_InstanceID", "gl_InvocationID", "gl_Layer", "gl_LocalInvocationID", "gl_LocalInvocationIndex", "gl_NumSamples", "gl_NumWorkGroups", "gl_PatchVerticesIn", "gl_PointCoord", "gl_PointSize", "gl_Position", "gl_PrimitiveID", "gl_PrimitiveIDIn", "gl_SampleID", "gl_SampleMask", "gl_SampleMaskIn", "gl_SamplePosition", "gl_TessCoord", "gl_TessLevelInner", "gl_TessLevelOuter", "gl_VertexID", "gl_ViewportIndex", "gl_WorkGroupID", "gl_WorkGroupSize"
+  ] ),   
 ])
+
+# Functions left to categorize
+
+#EmitStreamVertex
+#EmitVertex
+#EndPrimitive
+#EndStreamPrimitive
+#all
+#any
+#atomicAdd
+#atomicAnd
+#atomicCompSwap
+#atomicCounter
+#atomicCounterDecrement
+#atomicCounterIncrement
+#atomicExchange
+#atomicMax
+#atomicMin
+#atomicOr
+#atomicXor
+#barrier
+#bitCount
+#bitfieldExtract
+#bitfieldInsert
+#bitfieldReverse
+#cross
+#dFdx
+#determinant
+#distance
+#dot
+#equal
+#faceforward
+#findLSB
+#findMSB
+#floatBitsToint
+#fwidth
+#greaterThan
+#greaterThanEqual
+#groupMemoryBarrier
+#imageAtomicAdd
+#imageAtomicAnd
+#imageAtomicCompSwap
+#imageAtomicExchange
+#imageAtomicMax
+#imageAtomicMin
+#imageAtomicOr
+#imageAtomicXor
+#imageLoad
+#imageSamples
+#imageSize
+#imageStore
+#interpolateAtCentroid
+#interpolateAtOffset
+#interpolateAtSample
+#inverse
+#length
+#lessThan
+#lessThanEqual
+#matrixCompMult
+#memoryBarrier
+#memoryBarrierAtomicCounter
+#memoryBarrierBuffer
+#memoryBarrierImage
+#memoryBarrierShared
+#noise
+#normalize
+#not
+#notEqual
+#outerProduct
+#reflect
+#refract
+#texelFetch
+#texelFetchOffset
+#texture
+#textureGather
+#textureGatherOffset
+#textureGatherOffsets
+#textureGrad
+#textureGradOffset
+#textureLod
+#textureLodOffset
+#textureOffset
+#textureProj
+#textureProjGrad
+#textureProjGradOffset
+#textureProjLod
+#textureProjLodOffset
+#textureProjOffset
+#textureQueryLevels
+#textureQueryLod
+#textureSamples
+#textureSize
+#transpose
+#uaddCarry
+#umulExtended
+#usubBorrow
 
 generate_versions()
