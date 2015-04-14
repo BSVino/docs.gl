@@ -145,9 +145,12 @@ command_categories = OrderedDict([
     "radians", "degrees", "sin", "cos", "tan", "asin",
     "acos", "atan", "sinh", "cosh", "tanh","asinh", "acosh", "atanh"
   ] ),
-  ( "Noise", [
-    "noise"
+  ( "Exponential", [
+    "pow", "exp", "log", "exp2", "log2", "sqrt", "inversesqrt"
   ] ),
+  ( "Common", [
+    "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil", "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", "step", "smoothstep", "isnan", "isinf", "floatBitsToInt",  "intBitsToFloat", "fma", "frexp", "ldexp"
+  ] ),  
 ])
 
 generate_versions()
