@@ -12,6 +12,9 @@ import shared_glsl
 import subprocess
 import platform
 
+sys.path.append("htmlmin")
+import htmlmin
+
 parser = argparse.ArgumentParser(description="Compile openGL documentation, generate a static webpage.")
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
@@ -27,7 +30,7 @@ def create_directory(dir):
   if not os.path.exists(dir):
       os.makedirs(dir)  
      
-output_dir = "merged_htdocs/"
+output_dir = "all_htdocs/"
 
 print "Resetting output dir..."
 while os.path.exists(output_dir):
@@ -64,23 +67,27 @@ for directory in d:
   
 for file in f:
   shutil.copy("html/copy/" + file, output_dir + file)
-    
+  
+#Copy the docs.gl.js from glsl_html instead  
+
+shutil.copy("all_html/" + "docs.gl.js", output_dir + "docs.gl.js")
+  
 print "Copied " + str(len(f)) + " files"
 
 print "Reading templates..."
-header_fp = open("merge_html/header.html")
+header_fp = open("all_html/header.html")
 header = header_fp.read()
 header_fp.close()
 
-footer_fp = open("merge_html/footer.html")
+footer_fp = open("html/footer.html")
 footer = footer_fp.read()
 footer_fp.close()
 
-search_fp = open("merge_html/docs.gl.search.js")
+search_fp = open("html/docs.gl.search.js")
 search = search_fp.read()
 search_fp.close()
 
-index_fp = open("merge_html/index.html")
+index_fp = open("all_html/index.html")
 index = index_fp.read()
 index_fp.close()
 print "Done."	
@@ -250,6 +257,8 @@ index_fp = open(output_dir + "/index.html", "w")
 index_fp.write(index)
 index_fp.close()
 
+#################################################################
+
 
 #openGL
 search_versions_commands = "var search_versions = {"
@@ -327,9 +336,9 @@ search_versions_commands += glsl_search_versions_commands
   
 # all for both GLSL and GL
 
-hold_search_versions_commands = "'all': ["
+search_versions_commands += "'all': ["
 
-#load in openGL
+#openGL
 
 for command in opengl.commands_version:
   major_versions = opengl.get_major_versions(opengl.commands_version[command])
@@ -338,6 +347,16 @@ for command in opengl.commands_version:
       continue
     search_versions_commands += "'" + version[:3] + "/" + command + "',"
 
+#GLSL 
+  
+for command in glsl.commands_version:
+  major_versions = glsl.get_major_versions(glsl.commands_version[command])
+  for version in major_versions:
+    if int(version[2]) < 3:
+      continue
+    search_versions_commands += "'" + version[:3] + "/" + command + "',"	
+	
+#openGL	
 for command in opengl.commands_version_flat:
   if command in opengl.commands_version:
     continue
@@ -348,15 +367,7 @@ for command in opengl.commands_version_flat:
       continue
     search_versions_commands += "'" + version[:3] + "/" + command + "',"
 
-#load in GLSL 
-  
-for command in glsl.commands_version:
-  major_versions = glsl.get_major_versions(glsl.commands_version[command])
-  for version in major_versions:
-    if int(version[2]) < 3:
-      continue
-    search_versions_commands += "'" + version[:3] + "/" + command + "',"
-
+#GLSL 
 for command in glsl.commands_version_flat:
   if command in glsl.commands_version:
     continue
@@ -395,6 +406,7 @@ search = search.replace("{$search_versions_commands}", search_versions_commands)
 search_fp = open(output_dir + "/docs.gl.search.js", "w")
 search_fp.write(search)
 search_fp.close()
+####################################################################################
 
 search_versions_options = ""
 
@@ -465,12 +477,19 @@ def spew_category(name, commands, current_command, api):
       
     commands_list += "<li><a class='rewritelink " + classes + "'>" + command + "</a></li>"
     
+	
     if commands != unhandled_commands:
       try:
         unhandled_commands.remove(command)
       except:
         pass
-
+		
+    if commands != glsl_unhandled_commands:
+      try:
+        glsl_unhandled_commands.remove(command)
+      except:
+        pass
+		
   classes = "category"
   if found_current_command:
     classes += " open_me"
@@ -497,10 +516,11 @@ glsl_version_numbers = glsl.version_commands.keys()
 
 glsl_major_versions = glsl.get_major_versions(glsl.version_commands.keys())
 major_versions+=glsl_major_versions
+major_versions.sort()
 for version in major_versions:
   if int(version[2]) < 2:
     continue
-	
+#there isn't any docs for GLSL 3 
   if version == 'sl3':
     continue    
 	
@@ -514,7 +534,7 @@ for version in major_versions:
   #all_versions.sort()
   glsl_all_versions = glsl.version_commands.keys()
   #glsl_all_versions.sort()
-  all_versions +=glsl_all_versions
+  all_versions += glsl_all_versions
   all_versions.sort()
   # Find latest minor version for this major version.
   latest_minor = version[:3] + ".0"
@@ -542,7 +562,7 @@ for version in major_versions:
     selected = ""
     if version_option == latest_minor:
       selected = " selected='selected'"
-
+ 
     if version_option[:2] == 'gl':
       toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option[2:] + "</option>"
     elif version_option[:2] == 'es':
@@ -605,20 +625,22 @@ for version in major_versions:
         latest_version = version_option
 
     api_commands = ""
-    if API_type == "gl":
-        for category in opengl.command_categories:
-            api_commands += spew_category(category, opengl.command_categories[category], command , API_type )
-    if API_type == "sl":
-        for category in glsl.command_categories:
-            api_commands += spew_category(category, glsl.command_categories[category], command, API_type)        
-    if API_type == "gl":
-        if len(unhandled_commands):
-            api_commands += spew_category("Uncategorized", unhandled_commands, command,API_type)
-    if API_type == "sl":
-        if len(glsl_unhandled_commands):
-            api_commands += spew_category("Uncategorized", glsl_unhandled_commands, command,API_type)
+    glsl_api_commands =""
+    #if API_type == "gl":
+    for category in opengl.command_categories:
+        api_commands += spew_category(category, opengl.command_categories[category], command , "gl" )
+    #if API_type == "sl":
+    for category in glsl.command_categories:
+        glsl_api_commands += spew_category(category, glsl.command_categories[category], command, "sl")        
+    #if API_type == "gl":
+    if len(unhandled_commands):
+        api_commands += spew_category("Uncategorized", unhandled_commands, command,"gl")
+    #if API_type == "sl":
+    if len(glsl_unhandled_commands):
+        glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, command,"sl")
 			
     header_for_command = header_for_command.replace("{$api_commands}", api_commands)
+    header_for_command = header_for_command.replace("{$glsl_api_commands}", glsl_api_commands)
     header_for_command = header_for_command.replace("{$current_api}", latest_version.replace(".", ""))
     
     command_major_versions ={}
@@ -820,21 +842,23 @@ for version in major_versions:
     footer_for_page = footer_for_version
 
     api_commands = ""
-    if API_type =="gl":
-      for category in opengl.command_categories:
-          api_commands += spew_category(category, opengl.command_categories[category], "",API_type)
-    if API_type =="sl":
-      for category in glsl.command_categories:
-          api_commands += spew_category(category, glsl.command_categories[category], "",API_type)
+    glsl_api_commands = ""
+ #   if API_type =="gl":
+    for category in opengl.command_categories:
+       api_commands += spew_category(category, opengl.command_categories[category], "","gl")
+ #   if API_type =="sl":
+    for category in glsl.command_categories:
+      glsl_api_commands += spew_category(category, glsl.command_categories[category], "","sl")
     
-    if API_type =="gl":      
-        if len(unhandled_commands):
-          api_commands += spew_category("Uncategorized", unhandled_commands, "",API_type)
-    if API_type =="sl":      
-        if len(glsl_unhandled_commands):
-          api_commands += spew_category("Uncategorized", glsl_unhandled_commands, "",API_type)
+ #   if API_type =="gl":      
+    if len(unhandled_commands):
+      api_commands += spew_category("Uncategorized", unhandled_commands, "","gl")
+ #  if API_type =="sl":      
+    if len(glsl_unhandled_commands):
+      glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, "","sl")
 		  
     header_for_page = header_for_page.replace("{$api_commands}", api_commands)
+    header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
     header_for_page = header_for_page.replace("{$current_api}", latest_minor.replace(".", ""))
     header_for_page = header_for_page.replace("{$command_versions}", "")
     header_for_page = header_for_page.replace("{$command}", "Oops! Can't find '<span id='404command'></span>'.")

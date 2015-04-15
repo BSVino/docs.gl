@@ -141,7 +141,7 @@ def generate_versions():
   print "Done."
 
 command_categories = OrderedDict([
-   ( "Angle & Trig.", [
+  ( "Trigonometry.", [
     "radians", "degrees", "sin", "cos", "tan", "asin",
     "acos", "atan", "sinh", "cosh", "tanh","asinh", "acosh", "atanh"
   ] ),
@@ -156,79 +156,46 @@ command_categories = OrderedDict([
   ] ),  
   ( "Built-In Variables", [
     "gl_ClipDistance", "gl_CullDistance", "gl_FragCoord", "gl_FragDepth", "gl_FrontFacing", "gl_GlobalInvocationID", "gl_HelperInvocation", "gl_InstanceID", "gl_InvocationID", "gl_Layer", "gl_LocalInvocationID", "gl_LocalInvocationIndex", "gl_NumSamples", "gl_NumWorkGroups", "gl_PatchVerticesIn", "gl_PointCoord", "gl_PointSize", "gl_Position", "gl_PrimitiveID", "gl_PrimitiveIDIn", "gl_SampleID", "gl_SampleMask", "gl_SampleMaskIn", "gl_SamplePosition", "gl_TessCoord", "gl_TessLevelInner", "gl_TessLevelOuter", "gl_VertexID", "gl_ViewportIndex", "gl_WorkGroupID", "gl_WorkGroupSize"
+  ] ),
+  ( "Geometric", [
+    "length", "distance", "dot", "cross", "normalize", "faceforward", "reflect", "refract"
+  ] ),  
+  ( "Image", [
+    'imageAtomicAdd', 'imageAtomicAnd', 'imageAtomicCompSwap', 'imageAtomicExchange', 'imageAtomicMax', 'imageAtomicMin', 'imageAtomicOr', 'imageAtomicXor', 'imageLoad', 'imageSamples', 'imageSize', 'imageStore'
+  ] ),  
+  ( "Geometry Shader", [
+    'EmitStreamVertex', 'EmitVertex', 'EndPrimitive', 'EndStreamPrimitive'
+  ] ),  
+  ( "Atomic", [
+    'atomicAdd', 'atomicAnd', 'atomicCompSwap', 'atomicCounter', 'atomicCounterDecrement', 'atomicCounterIncrement', 'atomicExchange', 'atomicMax', 'atomicMin', 'atomicOr', 'atomicXor'
+  ] ),  
+  ( "Vector", [
+    'all', 'any', 'equal', 'lessThan', 'lessThanEqual', 'greaterThan', 'greaterThanEqual', 'not', 'notEqual'
+  ] ), 
+  ( "Integer", [
+    'umulExtended', 'bitfieldExtract', 'bitfieldInsert', 'bitfieldReverse', 'bitCount', 'findLSB', 'findMSB'
   ] ),   
 ])
 
 # Functions left to categorize
 
-#EmitStreamVertex
-#EmitVertex
-#EndPrimitive
-#EndStreamPrimitive
-#all
-#any
-#atomicAdd
-#atomicAnd
-#atomicCompSwap
-#atomicCounter
-#atomicCounterDecrement
-#atomicCounterIncrement
-#atomicExchange
-#atomicMax
-#atomicMin
-#atomicOr
-#atomicXor
 #barrier
-#bitCount
-#bitfieldExtract
-#bitfieldInsert
-#bitfieldReverse
-#cross
 #dFdx
 #determinant
-#distance
-#dot
-#equal
-#faceforward
-#findLSB
-#findMSB
 #floatBitsToint
 #fwidth
-#greaterThan
-#greaterThanEqual
 #groupMemoryBarrier
-#imageAtomicAdd
-#imageAtomicAnd
-#imageAtomicCompSwap
-#imageAtomicExchange
-#imageAtomicMax
-#imageAtomicMin
-#imageAtomicOr
-#imageAtomicXor
-#imageLoad
-#imageSamples
-#imageSize
-#imageStore
 #interpolateAtCentroid
 #interpolateAtOffset
 #interpolateAtSample
 #inverse
-#length
-#lessThan
-#lessThanEqual
 #matrixCompMult
 #memoryBarrier
 #memoryBarrierAtomicCounter
 #memoryBarrierBuffer
 #memoryBarrierImage
 #memoryBarrierShared
-#noise
-#normalize
-#not
-#notEqual
 #outerProduct
-#reflect
-#refract
 #texelFetch
 #texelFetchOffset
 #texture
@@ -252,7 +219,6 @@ command_categories = OrderedDict([
 #textureSize
 #transpose
 #uaddCarry
-#umulExtended
 #usubBorrow
 
 generate_versions()

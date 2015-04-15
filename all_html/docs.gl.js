@@ -167,6 +167,7 @@ function set_api_version(version) {
 
 $(function() {
 	$( "#command_categories" ).bonsai();
+	$( "#glsl_command_categories" ).bonsai();
 	
 	$( "#versions_dropdown" ).selectmenu({
 		change: function( event, ui ) {

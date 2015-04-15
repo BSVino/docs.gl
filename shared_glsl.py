@@ -12,6 +12,6 @@ def find_command_file(gl_version, command):
 
     gl_version = gl_version[:2] + str(int(gl_version[2]) - 1)
     command_file = gl_version + "/" + command + ".xhtml"
-    print command_file
+	
   return command_file
 

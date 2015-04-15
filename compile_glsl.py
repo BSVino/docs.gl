@@ -45,7 +45,7 @@ while not os.path.exists(output_dir):
     
 f = []
 d = []
-for (dirpath, dirnames, filenames) in os.walk("glsl_html/copy"):
+for (dirpath, dirnames, filenames) in os.walk("html/copy"):
   dirpath = dirpath[10:]
 
   if "test" in dirpath:
@@ -63,20 +63,24 @@ for directory in d:
   create_directory(output_dir + directory)
   
 for file in f:
-  shutil.copy("glsl_html/" + file, output_dir + file)
+  shutil.copy("html/copy/" + file, output_dir + file)
 
+#Copy the docs.gl.js from glsl_html instead  
+
+shutil.copy("glsl_html/" + "docs.gl.js", output_dir + "docs.gl.js")  
+  
 print "Copied " + str(len(f)) + " files"
 
 print "Reading templates..."
-header_fp = open("glsl_html/header.html")
+header_fp = open("html/header.html")
 header = header_fp.read()
 header_fp.close()
 
-footer_fp = open("glsl_html/footer.html")
+footer_fp = open("html/footer.html")
 footer = footer_fp.read()
 footer_fp.close()
 
-search_fp = open("glsl_html/docs.gl.search.js")
+search_fp = open("html/docs.gl.search.js")
 search = search_fp.read()
 search_fp.close()
 
@@ -85,12 +89,12 @@ index = index_fp.read()
 index_fp.close()
 print "Done."
 
-if os.path.exists('glsl_html/copy/jquery.min.js'):
+if os.path.exists('html/copy/jquery.min.js'):
   index = index.replace("{$jquery}", "<script src='jquery.min.js'></script>")
 else:
   index = index.replace("{$jquery}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>")
 
-if os.path.exists('glsl_html/copy/jquery-ui.min.js'):
+if os.path.exists('html/copy/jquery-ui.min.js'):
   index = index.replace("{$jqueryui}", "<script src='jquery-ui.min.js'></script>")
 else:
   index = index.replace("{$jqueryui}", '<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>')
@@ -540,7 +544,7 @@ for version in major_versions:
     
     written += 1
 
-  if os.path.exists("glsl_html/404.html"):
+  if os.path.exists("html/404.html"):
     header_for_page = header_for_version
     footer_for_page = footer_for_version
 
@@ -557,7 +561,7 @@ for version in major_versions:
     header_for_page = header_for_page.replace("{$command}", "Oops! Can't find '<span id='404command'></span>'.")
     footer_for_page = footer_for_page.replace("{$improvepage}", "")
 
-    fp = open("glsl_html/404.html")
+    fp = open("html/404.html")
     notfound_html = fp.read()
     fp.close()
     
