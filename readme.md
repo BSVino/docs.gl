@@ -60,7 +60,7 @@ The `--full` parameter is still available as follow:
 
     python compile_all.py --full    
 
-If you are running Windows, there is `build_full_all.bat` for convenience. When the script is done building, the completed site will be in a folder named `merge_htdocs`.
+If you are running Windows, there is `build_full_all.bat` for convenience. When the script is done building, the completed site will be in a folder named `all_htdocs`.
 
 File Structure
 --------------
