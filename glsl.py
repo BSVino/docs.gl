@@ -64,7 +64,7 @@ def generate_versions():
     version_commands_flat[version] = []
     
     for command in version_commands[version]:
-      if int(version[2]) >= 2:
+      if int(version[2]) >= 3:
         if not command in function_aliases:
           function_aliases[command] = version_commands[version][command]
 

@@ -1,33 +1,34 @@
-# Move GLSL Docs from gl4 to sl4
-# add GLSL Docs from es3 to el3
-# Todo: make one function for both ... I'm lazy 
+# Copy GLSL Docs from gl4 to sl4
+# Copy GLSL Docs from es3 to el3
+
 import shutil, glob, os ,ntpath
 path = os.path.dirname(os.path.abspath(__file__))
 
-filenames = glob.glob(path+"\\gl4\\"+'*.xhtml')
+def make_glsl_docs():
 
-print path
+    print "Creating GLSL docs ..."
+    sl_filenames = glob.glob(path+"\\gl4\\"+'*.xhtml')
+    if not os.path.exists("sl4"):
+        os.makedirs("sl4")
+    get_glsl_docs(sl_filenames , "sl4")
+    
+    es_filenames = glob.glob(path+"\\es3\\"+'*.xhtml')
+    if not os.path.exists("el3"):
+        os.makedirs("el3")
+    get_glsl_docs(es_filenames , "el3" )
+    print "done"
 
-if not os.path.exists("sl4"):
-    os.makedirs("sl4")
 
-for filename in filenames:
-	#print filename
-	with open(filename, 'r') as readfile:
-		if(readfile.read().find("OpenGL Shading Language Version") != -1):
-			readfile.close()
-			shutil.copy(filename, path+"\\sl4\\"+ ntpath.basename(filename))
-			print "found :" + filename +" , copied to" + path +"/sl4" + ntpath.basename(filename)
-			
-if not os.path.exists("el3"):
-    os.makedirs("el3")
+def get_glsl_docs( filenames, foldername ):
 
-filenames = glob.glob(path+"\\es3\\"+'*.xhtml')
-	
-for filename in filenames:
-	#print filename
-	with open(filename, 'r') as readfile:
-		if(readfile.read().find("OpenGL ES Shading Language Version") != -1):
-			readfile.close()
-			shutil.copy(filename, path+"\\el3\\"+ ntpath.basename(filename))
-			print "found :" + filename +" , copied to" + path +"\\el3\\" + ntpath.basename(filename)
+    findtext = ""
+    if foldername[0:1] == "el":
+        findtext = "OpenGL ES Shading Language Version"
+    elif foldername[0:1] == "sl":
+        findtext = "OpenGL Shading Language Version"
+        
+    for filename in filenames:
+        with open(filename, 'r') as readfile:
+            if(readfile.read().find(findtext) != -1):
+                readfile.close()
+                shutil.copy(filename, path+"\\"+foldername+"\\"+ ntpath.basename(filename))              

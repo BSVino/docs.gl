@@ -7,11 +7,14 @@ import re
 
 import glsl
 import shared_glsl
+import find_glsl
 import subprocess
 import platform
 
 sys.path.append("htmlmin")
 import htmlmin
+
+find_glsl.make_glsl_docs()
 
 parser = argparse.ArgumentParser(description="Compile GLSL documentation, generate a static webpage.")
 
