@@ -76,7 +76,7 @@ def generate_versions():
 
         if not command in version_commands_flat[version]:
           version_commands_flat[version].append(version_commands[version][command])
-  print version_commands
+          
   commands_version = reverse_version_index(version_commands)
   commands_version_flat = reverse_version_index(version_commands_flat)
   

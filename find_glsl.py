@@ -16,7 +16,6 @@ for filename in filenames:
 	with open(filename, 'r') as readfile:
 		if(readfile.read().find("OpenGL Shading Language Version") != -1):
 			readfile.close()
-			print filename
 			shutil.copy(filename, path+"\\sl4\\"+ ntpath.basename(filename))
 			print "found :" + filename +" , copied to" + path +"/sl4" + ntpath.basename(filename)
 			
@@ -30,6 +29,5 @@ for filename in filenames:
 	with open(filename, 'r') as readfile:
 		if(readfile.read().find("OpenGL ES Shading Language Version") != -1):
 			readfile.close()
-			print filename
 			shutil.copy(filename, path+"\\el3\\"+ ntpath.basename(filename))
 			print "found :" + filename +" , copied to" + path +"\\el3\\" + ntpath.basename(filename)
