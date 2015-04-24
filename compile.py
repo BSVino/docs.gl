@@ -424,6 +424,9 @@ for command in glsl.commands_version:
   for version in major_versions:
     if int(version[2]) < 3:
       continue
+    if version == 'sl3':
+      continue
+      
     search_versions_commands += "'" + version[:3] + "/" + command + "',"	
 	
 #openGL	
@@ -453,6 +456,10 @@ for command in glsl.commands_version_flat:
   for version in major_versions:
     if int(version[2]) < 3:
       continue
+      
+    if version == 'sl3':
+      continue
+      
     search_versions_commands += "'" + version[:3] + "/" + command + "',"  
   
 #close
@@ -479,7 +486,10 @@ for version in glsl_search_function_aliases:
 
   if args.buildtype == 'gl':
     break;
-        
+  
+  if version == 'sl3':
+    continue
+   
   glsl_search_versions_commands += "'" + version + "':{"
   for alias in glsl_search_function_aliases[version]:
     glsl_search_versions_commands += alias + ":'" + glsl_search_function_aliases[version][alias] + "',"
@@ -488,6 +498,7 @@ for version in glsl_search_function_aliases:
 search_versions_commands += glsl_search_versions_commands+ "};"
 
 search = search.replace("{$search_versions_commands}", search_versions_commands)
+
 
 search_fp = open(output_dir + "/docs.gl.search.js", "w")
 search_fp.write(search)
