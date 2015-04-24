@@ -141,7 +141,7 @@ def generate_versions():
   print "Done."
 
 command_categories = OrderedDict([
-  ( "Trigonometry.", [
+  ( "Trigonometry", [
     "radians", "degrees", "sin", "cos", "tan", "asin",
     "acos", "atan", "sinh", "cosh", "tanh","asinh", "acosh", "atanh"
   ] ),
@@ -174,7 +174,13 @@ command_categories = OrderedDict([
   ] ), 
   ( "Integer", [
     'umulExtended', 'bitfieldExtract', 'bitfieldInsert', 'bitfieldReverse', 'bitCount', 'findLSB', 'findMSB'
-  ] ),   
+  ] ),
+  ( "Texture", [
+    'texture', 'textureGather', 'textureGatherOffset', 'textureGatherOffsets', 'textureGrad', 'textureGradOffset', 'textureLod', 'textureLodOffset', 'textureOffset', 'textureProj', 'textureProjGrad', 'textureProjGradOffset', 'textureProjLod', 'textureProjLodOffset', 'textureProjOffset', 'textureQueryLevels', 'textureQueryLod', 'textureSamples', 'textureSize'
+  ] ),
+  ( "Memory Barrier", [
+    'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 'memoryBarrierImage'
+  ] ),  
 ])
 
 # Functions left to categorize
@@ -190,33 +196,9 @@ command_categories = OrderedDict([
 #interpolateAtSample
 #inverse
 #matrixCompMult
-#memoryBarrier
-#memoryBarrierAtomicCounter
-#memoryBarrierBuffer
-#memoryBarrierImage
-#memoryBarrierShared
 #outerProduct
 #texelFetch
 #texelFetchOffset
-#texture
-#textureGather
-#textureGatherOffset
-#textureGatherOffsets
-#textureGrad
-#textureGradOffset
-#textureLod
-#textureLodOffset
-#textureOffset
-#textureProj
-#textureProjGrad
-#textureProjGradOffset
-#textureProjLod
-#textureProjLodOffset
-#textureProjOffset
-#textureQueryLevels
-#textureQueryLod
-#textureSamples
-#textureSize
 #transpose
 #uaddCarry
 #usubBorrow
