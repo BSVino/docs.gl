@@ -27,6 +27,36 @@ function gl_printable_name(name) {
 		return "OpenGL 4.4";
 	if (name == "gl45")
 		return "OpenGL 4.5";
+	if (name == "el10")
+		return "GLSL ES 1.0";
+	if (name == "el30")
+		return "GLSL ES 3.0";
+	if (name == "el31")
+		return "GLSL ES 3.1";
+	if (name == "sl11")
+		return "GLSL 1.1";
+	if (name == "sl12")
+		return "GLSL 1.2";
+	if (name == "sl13")
+		return "GLSL 1.3";
+	if (name == "sl14")
+		return "GLSL 1.4";
+	if (name == "sh15")
+		return "GLSL 1.5";
+	if (name == "sl33")
+		return "GLSL 3.3";
+	if (name == "sl40")
+		return "GLSL 4.0";
+	if (name == "sl41")
+		return "GLSL 4.1";
+	if (name == "sl42")
+		return "GLSL 4.2";
+	if (name == "sl43")
+		return "GLSL 4.3";
+	if (name == "sl44")
+		return "GLSL 4.4";
+	if (name == "sl45")
+		return "GLSL 4.5";
 	return "OpenGL X";
 }
 
@@ -58,7 +88,7 @@ function set_api_version(version) {
 				if (class_api != version.substring(0, 2))
 					continue;
 					
-				if (class_api != 'gl' && class_api != 'es')
+				if (class_api != 'gl' && class_api != 'es' && class_api != 'el' && class_api != 'sl')
 					continue;
 
 				// Only consider versions <= the one the user has selected.
@@ -80,7 +110,7 @@ function set_api_version(version) {
 					if (class_api != version.substring(0, 2))
 						continue;
 						
-					if (class_api != 'gl' && class_api != 'es')
+					if (class_api != 'gl' && class_api != 'es' && class_api != 'el' && class_api != 'sl')
 						continue;
 
 					if (!highest)
@@ -137,6 +167,7 @@ function set_api_version(version) {
 
 $(function() {
 	$( "#command_categories" ).bonsai();
+	$( "#glsl_command_categories" ).bonsai();
 	
 	$( "#versions_dropdown" ).selectmenu({
 		change: function( event, ui ) {

@@ -28,7 +28,7 @@ HTML minification and Unicode processing as well. It looks like this:
 	python compile.py --full
 
 If you are running Windows, there are a build.bat and a build_full.bat for convenience. When
-the script is done building, the completed site will be in a folder named `all_htdocs`.
+the script is done building, the completed site will be in a folder named `htdocs`.
 
 ####OpenGL Only
 
@@ -40,7 +40,7 @@ The `--full` parameter is still available as follow:
 
     python compile.py --full --only-gl
 
-When the script is done building, the completed site will be in a folder named `htdocs`.
+When the script is done building, the completed site will be in a folder named `htdocs_gl`.
 
 ####GLSL Only
 
@@ -52,12 +52,12 @@ The `--full` parameter is still available as follow:
 
     python compile.py --full --only-glsl 
 
-When the script is done building, the completed site will be in a folder named `glsl_htdocs`.
+When the script is done building, the completed site will be in a folder named `htdocs_glsl`.
 
 File Structure
 --------------
 
-8 directories called `el3` `es1` `es2` `es3` `sl4` `gl2` `gl3` and `gl4` contain the manual pages for
+8 directories called `el3` `sl4` `es1` `es2` `es3` `gl2` `gl3` and `gl4` contain the manual pages for
 each OpenGL and GLSL command. They are only the inner HTML with header/footer elements such as `head`
 and `html` stripped out. These pages are read and processed by `compile.py` to produce the
 final site.
