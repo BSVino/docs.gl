@@ -151,7 +151,7 @@ command_categories = OrderedDict([
   ( "Common", [
     "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil", "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", "step", "smoothstep", "isnan", "isinf", "floatBitsToInt",  "intBitsToFloat", "fma", "frexp", "ldexp"
   ] ),  
-  ( "Floating-Point Pack/Unpack", [
+  ( "Floating-Point Packing", [
     "packDouble2x32","packHalf2x16","packUnorm","unpackDouble2x32","unpackHalf2x16","unpackUnorm"
   ] ),  
   ( "Built-In Variables", [
@@ -175,31 +175,28 @@ command_categories = OrderedDict([
   ( "Integer", [
     'umulExtended', 'bitfieldExtract', 'bitfieldInsert', 'bitfieldReverse', 'bitCount', 'findLSB', 'findMSB'
   ] ),
-  ( "Texture", [
+  ( "Texture Sampling", [
     'texture', 'textureGather', 'textureGatherOffset', 'textureGatherOffsets', 'textureGrad', 'textureGradOffset', 'textureLod', 'textureLodOffset', 'textureOffset', 'textureProj', 'textureProjGrad', 'textureProjGradOffset', 'textureProjLod', 'textureProjLodOffset', 'textureProjOffset', 'textureQueryLevels', 'textureQueryLod', 'textureSamples', 'textureSize'
   ] ),
   ( "Memory Barrier", [
-    'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 'memoryBarrierImage'
-  ] ),  
+    'barrier', 'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 'memoryBarrierImage', 'groupMemoryBarrier'
+  ] ),
+  ( "Matrix", [
+    'determinant', 'inverse', 'outerProduct', 'transpose', 'matrixCompMult'
+  ] ),    
 ])
 
 # Functions left to categorize
 
-#barrier
 #dFdx
-#determinant
 #floatBitsToint
 #fwidth
-#groupMemoryBarrier
 #interpolateAtCentroid
 #interpolateAtOffset
 #interpolateAtSample
-#inverse
-#matrixCompMult
 #outerProduct
 #texelFetch
 #texelFetchOffset
-#transpose
 #uaddCarry
 #usubBorrow
 

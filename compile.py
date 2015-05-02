@@ -576,19 +576,20 @@ def spew_category(name, commands, current_command, api):
     latest_present = versions_available[-1][0:3]
       
     commands_list += "<li><a class='rewritelink " + classes + "'>" + command + "</a></li>"
-    
-    if commands != unhandled_commands:
-      try:
-        unhandled_commands.remove(command)
-      except:
-        pass
-		
-    if commands != glsl_unhandled_commands:
-      try:
-        glsl_unhandled_commands.remove(command)
-      except:
-        pass
-		
+    if api == "gl": 
+        if commands != unhandled_commands:
+            try:
+                unhandled_commands.remove(command)
+            except:
+                pass
+        
+    if api == "sl":
+        if commands != glsl_unhandled_commands:
+            try:
+                glsl_unhandled_commands.remove(command)
+            except:
+                pass
+
   classes = "category"
   if found_current_command:
     classes += " open_me"
