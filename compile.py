@@ -21,10 +21,6 @@ parser = argparse.ArgumentParser(description="Compile openGL documentation, gene
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
 
-parser.add_argument('--only-gl', dest='buildtype', action='store_const', const='gl', default='all', help='build GLSL docs only (Default: GL and GLSL)')
-
-parser.add_argument('--only-glsl', dest='buildtype', action='store_const', const='glsl', default='all', help='build OpenGL docs only (Default: GL and GLSL)')
-
 ########################## Print  ##########################
 
 args = parser.parse_args()
@@ -34,27 +30,13 @@ if args.buildmode == 'full':
 else:
   print "FAST BUILD"
 
-if args.buildtype == 'gl':
-  print "BUILD OpenGL Docs only"
-elif args.buildtype == 'glsl':
-  print "BUILD GLSL Docs only"
-else:
-  print "BUILD OpenGL and GLSL Docs only"
-
 def create_directory(dir):
   if not os.path.exists(dir):
       os.makedirs(dir)  
 
 ########################## Output Directory Selection ########################## 
  
-output_dir = ""
-
-if args.buildtype == 'gl':
-  output_dir = "htdocs_gl/"
-elif args.buildtype == 'glsl':
-  output_dir = "htdocs_glsl/"
-else:
-  output_dir = "htdocs/"
+output_dir = "htdocs/"
 
 print "Resetting output dir..."
 while os.path.exists(output_dir):
@@ -100,14 +82,7 @@ print "Reading templates..."
 #Todo: use one index only
 #the header and index is different for each build
 
-index_path = ""
-
-if args.buildtype == 'glsl':
-  index_path = "html_index/index_glsl.html"
-elif args.buildtype == 'gl':
-  index_path = "html/index.html"
-else: #both GL GLSL
-  index_path = "html_index/index_all.html"
+index_path = "html/index.html"
 
 ################### Open Header, Footer and Search.js template ##################### 
   
@@ -155,10 +130,6 @@ glsl_index_versions_commands = ""
 #OpenGL Loop
 for command in index_commands_version:
 
-  #Quick Hack instead of including the whole loop in a IF statement
-  if args.buildtype == 'glsl':
-    break
-      
   major_versions = opengl.get_major_versions_available(command)
 
   aliases = {}
@@ -227,9 +198,6 @@ for command in index_commands_version:
 
 #GLSL Loop
 for command in glsl_index_commands_version:
-
-  if args.buildtype == 'gl':
-    break;
 
   major_versions = glsl.get_major_versions_available(command)
 
@@ -319,9 +287,6 @@ glsl_search_function_aliases = {}
 #OpenGL Loop
 for version in opengl.version_commands:
 
-  if args.buildtype == 'glsl':
-     break;
-
   if version[0:2] == "gl" and float(version[2:]) < 2.1:
     continue
 
@@ -354,9 +319,6 @@ for version in opengl.version_commands:
 
 #GLSL Loop
 for version in glsl.version_commands:
-
-  if args.buildtype == 'gl':
-     break;
 
   if version[0:2] == "sl" and float(version[2:]) < 4.0:
     continue
@@ -397,9 +359,6 @@ search_versions_commands += "'all': ["
 #OpenGL Loop
 for command in opengl.commands_version:
     
-  if args.buildtype == 'glsl':
-    break;
-    
   major_versions = opengl.get_major_versions(opengl.commands_version[command])
   for version in major_versions:
     if int(version[2]) < 2:
@@ -408,9 +367,6 @@ for command in opengl.commands_version:
 
 #GLSL Loop
 for command in glsl.commands_version:
-
-  if args.buildtype == 'gl':
-    break;
 
   major_versions = glsl.get_major_versions(glsl.commands_version[command])
   for version in major_versions:
@@ -424,9 +380,6 @@ for command in glsl.commands_version:
 #OpenGL	Loop
 for command in opengl.commands_version_flat:
 
-  if args.buildtype == 'glsl':
-    break;
-        
   if command in opengl.commands_version:
     continue
   
@@ -439,9 +392,6 @@ for command in opengl.commands_version_flat:
 #GLSL Loop
 for command in glsl.commands_version_flat:
 
-  if args.buildtype == 'gl':
-    break;
-    
   if command in glsl.commands_version:
     continue
   major_versions = glsl.get_major_versions(glsl.commands_version_flat[command])
@@ -464,9 +414,6 @@ search_versions_commands += "var function_aliases = {"
 #OpenGL Aliases
 for version in search_function_aliases:
 
-  if args.buildtype == 'glsl':
-    break;
-        
   search_versions_commands += "'" + version + "':{"
   for alias in search_function_aliases[version]:
     search_versions_commands += alias + ":'" + search_function_aliases[version][alias] + "',"
@@ -475,9 +422,6 @@ for version in search_function_aliases:
 #GLSL Aliases
 for version in glsl_search_function_aliases:
 
-  if args.buildtype == 'gl':
-    break;
-  
   if version == 'sl3':
     continue
    
@@ -502,9 +446,6 @@ search_versions_options = ""
 #OpenGL Loop
 for version_option in glsl.version_commands.keys():
 
-  if args.buildtype == 'gl':
-    break;
-    
   if version_option[0:2] == "sl" and float(version_option[2:]) < 4.0:
     continue
 
@@ -518,9 +459,6 @@ for version_option in glsl.version_commands.keys():
 
 #GLSL Loop
 for version_option in opengl.version_commands.keys():
-
-  if args.buildtype == 'glsl':
-    break;
 
   if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
     continue
@@ -614,13 +552,7 @@ major_versions = opengl.get_major_versions(opengl.version_commands.keys())
 glsl_version_numbers = glsl.version_commands.keys()
 glsl_major_versions = glsl.get_major_versions(glsl.version_commands.keys())
 
-if args.buildtype == 'gl':
-    #keep major_versions as it is
-    print ""
-elif args.buildtype == 'glsl':
-    major_versions = glsl_major_versions
-else:
-    major_versions += glsl_major_versions
+major_versions += glsl_major_versions
 
 major_versions.sort()    
 
@@ -641,14 +573,9 @@ for version in major_versions:
   
   all_versions = [];
   
-  if args.buildtype == 'gl':
-    all_versions = opengl.version_commands.keys()
-  elif args.buildtype == 'glsl':
-    all_versions = glsl.version_commands.keys()
-  else:
-    all_versions = opengl.version_commands.keys()
-    glsl_all_versions = glsl.version_commands.keys()
-    all_versions += glsl_all_versions
+  all_versions = opengl.version_commands.keys()
+  glsl_all_versions = glsl.version_commands.keys()
+  all_versions += glsl_all_versions
     
   all_versions.sort()
   
@@ -751,15 +678,8 @@ for version in major_versions:
     if len(glsl_unhandled_commands):
         glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, command,"sl")
 
-    if args.buildtype == 'gl':
-      header_for_command = header_for_command.replace("{$api_commands}", api_commands)
-      header_for_command = header_for_command.replace("{$glsl_api_commands}", "")
-    elif args.buildtype == 'glsl':
-      header_for_command = header_for_command.replace("{$glsl_api_commands}", glsl_api_commands)
-      header_for_command = header_for_command.replace("{$api_commands}", "")
-    else:
-       header_for_command = header_for_command.replace("{$api_commands}", api_commands)
-       header_for_command = header_for_command.replace("{$glsl_api_commands}", glsl_api_commands)
+    header_for_command = header_for_command.replace("{$api_commands}", api_commands)
+    header_for_command = header_for_command.replace("{$glsl_api_commands}", glsl_api_commands)
        
     header_for_command = header_for_command.replace("{$current_api}", latest_version.replace(".", ""))
     
@@ -975,20 +895,8 @@ for version in major_versions:
     if len(glsl_unhandled_commands):
       glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, "","sl")
 		  
-    #header_for_page = header_for_page.replace("{$api_commands}", api_commands)
-    #header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
-   
-    #May not be necessary but just to be on the safe side
-    if args.buildtype == 'gl':
-        header_for_page = header_for_page.replace("{$api_commands}", api_commands)
-        header_for_page = header_for_page.replace("{$glsl_api_commands}", "")
-    elif args.buildtype == 'glsl':
-        header_for_page = header_for_page.replace("{$api_commands}", "")
-        header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
-    else:
-        header_for_page = header_for_page.replace("{$api_commands}", api_commands)
-        header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
-
+    header_for_page = header_for_page.replace("{$api_commands}", api_commands)
+    header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
 
     header_for_page = header_for_page.replace("{$current_api}", latest_minor.replace(".", ""))
     header_for_page = header_for_page.replace("{$command_versions}", "")
