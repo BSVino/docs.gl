@@ -210,12 +210,11 @@ command_categories = OrderedDict([
     'atomicAdd', 'atomicAnd', 'atomicCompSwap', 'atomicCounter', 
     'atomicCounterDecrement', 'atomicCounterIncrement', 'atomicExchange',
     'atomicMax', 'atomicMin', 'atomicOr', 'atomicXor'
-  ] ),  
+  ] ),
   ( "Memory Barrier", [
     'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 
     'memoryBarrierImage', 'barrier', 'groupMemoryBarrier',
     'memoryBarrierShared'
   ] ),
 ])
-
 generate_versions()
