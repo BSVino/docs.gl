@@ -30,11 +30,35 @@ HTML minification and Unicode processing as well. It looks like this:
 If you are running Windows, there are a build.bat and a build_full.bat for convenience. When
 the script is done building, the completed site will be in a folder named `htdocs`.
 
+####OpenGL Only
+
+Build only the opengl docs with the following:
+
+    python compile.py --only-gl
+
+The `--full` parameter is still available as follow:
+
+    python compile.py --full --only-gl
+
+When the script is done building, the completed site will be in a folder named `htdocs_gl`.
+
+####GLSL Only
+
+Build the only the GLSL docs with the following:
+
+    python compile.py --only-glsl
+
+The `--full` parameter is still available as follow:
+
+    python compile.py --full --only-glsl 
+
+When the script is done building, the completed site will be in a folder named `htdocs_glsl`.
+
 File Structure
 --------------
 
-Six directories called `es1` `es2` `es3` `gl2` `gl3` and `gl4` contain the manual pages for
-each OpenGL command. They are only the inner HTML with header/footer elements such as `head`
+8 directories called `el3` `sl4` `es1` `es2` `es3` `gl2` `gl3` and `gl4` contain the manual pages for
+each OpenGL and GLSL command. They are only the inner HTML with header/footer elements such as `head`
 and `html` stripped out. These pages are read and processed by `compile.py` to produce the
 final site.
 
@@ -54,7 +78,7 @@ these files a special token is used to provide a link to a command page. For exa
 appears in a GL4 page. If the example appears in a gl3 page, the link will be updated
 accordingly.
 
-In the main directory there are some additional helper python scripts. `opengl.py` contains
+In the main directory there are some additional helper python scripts. `opengl.py` and `glsl.py` contains
 helper tables, (eg which commands appear in which versions) tables specifying which examples
 should appear on which pages, and tables specifying the categories that appear in the table
 of contents of each page. `insert_additional.py`, `make_copyright.py`, and `strip.py` are
