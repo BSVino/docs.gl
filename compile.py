@@ -922,3 +922,9 @@ for version in major_versions:
   
   print "Wrote " + str(written) + " commands for " + version
 
+if platform.system() is "Windows":
+  subprocess.call(["\\Program Files\\7-Zip\\7z.exe", "a", "-tzip", "docs.gl.zip", "htdocs"])
+else:
+  subprocess.call(["zip", "-r", "docs.gl.zip", "htdocs" ])
+
+shutil.move("docs.gl.zip", "htdocs/") 
