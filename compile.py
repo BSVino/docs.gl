@@ -721,7 +721,8 @@ for version in major_versions:
     if version[:2] == 'es':
       es = "ES "
 
-    comments = """<div id="outer_disqus_thread">Guidelines for comments:
+    comments = ""
+    '''comments = """<div id="outer_disqus_thread">Guidelines for comments:
       <ul>
         <li>Please limit comments to """+API+ " " + es + version[2] + """ """ + command + """.</li>
         <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
@@ -738,7 +739,7 @@ for version in major_versions:
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-</script>"""
+</script>"""'''
     footer_for_command = footer_for_command.replace("{$comments}", comments)
 
     version_dir = version
