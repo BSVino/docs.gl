@@ -148,59 +148,74 @@ command_categories = OrderedDict([
   ( "Exponential", [
     "pow", "exp", "log", "exp2", "log2", "sqrt", "inversesqrt"
   ] ),
-  ( "Common", [
-    "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil", "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", "step", "smoothstep", "isnan", "isinf", "floatBitsToInt",  "intBitsToFloat", "fma", "frexp", "ldexp"
+  ( "Mathematics", [
+    "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil",
+    "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", 
+    "step", "smoothstep", "isnan", "isinf", "fma",
+    "dFdx", "fwidth", "noise"
   ] ),  
-  ( "Floating-Point Pack/Unpack", [
-    "packDouble2x32","packHalf2x16","packUnorm","unpackDouble2x32","unpackHalf2x16","unpackUnorm"
+  ( "Floating-Point", [
+    "packDouble2x32","packHalf2x16","packUnorm","unpackDouble2x32",
+    "unpackHalf2x16","unpackUnorm","floatBitsToInt", "intBitsToFloat", 
+    "frexp", "ldexp"
   ] ),  
   ( "Built-In Variables", [
-    "gl_ClipDistance", "gl_CullDistance", "gl_FragCoord", "gl_FragDepth", "gl_FrontFacing", "gl_GlobalInvocationID", "gl_HelperInvocation", "gl_InstanceID", "gl_InvocationID", "gl_Layer", "gl_LocalInvocationID", "gl_LocalInvocationIndex", "gl_NumSamples", "gl_NumWorkGroups", "gl_PatchVerticesIn", "gl_PointCoord", "gl_PointSize", "gl_Position", "gl_PrimitiveID", "gl_PrimitiveIDIn", "gl_SampleID", "gl_SampleMask", "gl_SampleMaskIn", "gl_SamplePosition", "gl_TessCoord", "gl_TessLevelInner", "gl_TessLevelOuter", "gl_VertexID", "gl_ViewportIndex", "gl_WorkGroupID", "gl_WorkGroupSize"
+    "gl_ClipDistance", "gl_CullDistance", "gl_FragCoord", "gl_FragDepth",
+    "gl_FrontFacing", "gl_GlobalInvocationID", "gl_HelperInvocation", 
+    "gl_InstanceID", "gl_InvocationID", "gl_Layer", "gl_LocalInvocationID",
+    "gl_LocalInvocationIndex", "gl_NumSamples", "gl_NumWorkGroups", 
+    "gl_PatchVerticesIn", "gl_PointCoord", "gl_PointSize", "gl_Position",
+    "gl_PrimitiveID", "gl_PrimitiveIDIn", "gl_SampleID", "gl_SampleMask",
+    "gl_SampleMaskIn", "gl_SamplePosition", "gl_TessCoord", 
+    "gl_TessLevelInner", "gl_TessLevelOuter", "gl_VertexID", 
+    "gl_ViewportIndex", "gl_WorkGroupID", "gl_WorkGroupSize"
   ] ),
-  ( "Geometric", [
-    "length", "distance", "dot", "cross", "normalize", "faceforward", "reflect", "refract"
-  ] ),  
-  ( "Image", [
-    'imageAtomicAdd', 'imageAtomicAnd', 'imageAtomicCompSwap', 'imageAtomicExchange', 'imageAtomicMax', 'imageAtomicMin', 'imageAtomicOr', 'imageAtomicXor', 'imageLoad', 'imageSamples', 'imageSize', 'imageStore'
-  ] ),  
+  ( "Vector", [
+    "length", "distance", "dot", "cross", "normalize", "faceforward", 
+    "reflect", "refract", "equal", "notEqual"
+  ] ),
+  ( "Component Comparison", [
+    'all', 'any', 'lessThan', 'lessThanEqual', 'greaterThan', 
+    'greaterThanEqual', 'not'
+  ] ),
   ( "Geometry Shader", [
-    'EmitStreamVertex', 'EmitVertex', 'EndPrimitive', 'EndStreamPrimitive'
+    'EmitStreamVertex', 'EmitVertex', 'EndPrimitive', 
+    'EndStreamPrimitive'
+  ] ),  
+  ( "Texture Sampling", [
+    'texture', 'textureGather', 'textureGatherOffset', 
+    'textureGatherOffsets', 'textureGrad', 
+    'textureGradOffset', 'textureLod', 'textureLodOffset', 
+    'textureOffset', 'textureProj', 'textureProjGrad', 
+    'textureProjGradOffset', 'textureProjLod', 'textureProjLodOffset', 
+    'textureProjOffset', 'textureQueryLevels', 'textureQueryLod', 
+    'textureSamples', 'textureSize', 'texelFetch', 'texelFetchOffset',
+    'interpolateAtCentroid', 'interpolateAtOffset', 'interpolateAtSample'
+  ] ),
+  ( "Matrix", [
+    'determinant', 'inverse', 'matrixCompMult', 
+    'outerProduct', 'transpose', 'groupMemoryBarrier'
+  ] ),
+  ( "Integer", [
+    'umulExtended', 'bitfieldExtract', 'bitfieldInsert', 'usubBorrow',
+    'bitfieldReverse', 'bitCount', 'findLSB', 'findMSB', 'uaddCarry',
+  ] ),
+  ( "Image", [
+    'imageAtomicAdd', 'imageAtomicAnd', 'imageAtomicCompSwap', 
+    'imageAtomicExchange', 'imageAtomicMax', 'imageAtomicMin', 
+    'imageAtomicOr', 'imageAtomicXor', 'imageLoad', 'imageSamples', 
+    'imageSize', 'imageStore'
   ] ),  
   ( "Atomic", [
-    'atomicAdd', 'atomicAnd', 'atomicCompSwap', 'atomicCounter', 'atomicCounterDecrement', 'atomicCounterIncrement', 'atomicExchange', 'atomicMax', 'atomicMin', 'atomicOr', 'atomicXor'
+    'atomicAdd', 'atomicAnd', 'atomicCompSwap', 'atomicCounter', 
+    'atomicCounterDecrement', 'atomicCounterIncrement', 'atomicExchange',
+    'atomicMax', 'atomicMin', 'atomicOr', 'atomicXor'
   ] ),  
-  ( "Vector", [
-    'all', 'any', 'equal', 'lessThan', 'lessThanEqual', 'greaterThan', 'greaterThanEqual', 'not', 'notEqual'
-  ] ), 
-  ( "Integer", [
-    'umulExtended', 'bitfieldExtract', 'bitfieldInsert', 'bitfieldReverse', 'bitCount', 'findLSB', 'findMSB'
-  ] ),
-  ( "Texture", [
-    'texture', 'textureGather', 'textureGatherOffset', 'textureGatherOffsets', 'textureGrad', 'textureGradOffset', 'textureLod', 'textureLodOffset', 'textureOffset', 'textureProj', 'textureProjGrad', 'textureProjGradOffset', 'textureProjLod', 'textureProjLodOffset', 'textureProjOffset', 'textureQueryLevels', 'textureQueryLod', 'textureSamples', 'textureSize'
-  ] ),
   ( "Memory Barrier", [
-    'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 'memoryBarrierImage'
-  ] ),  
+    'memoryBarrier', 'memoryBarrierAtomicCounter', 'memoryBarrierBuffer', 
+    'memoryBarrierImage', 'barrier', 'groupMemoryBarrier',
+    'memoryBarrierShared'
+  ] ),
 ])
-
-# Functions left to categorize
-
-#barrier
-#dFdx
-#determinant
-#floatBitsToint
-#fwidth
-#groupMemoryBarrier
-#interpolateAtCentroid
-#interpolateAtOffset
-#interpolateAtSample
-#inverse
-#matrixCompMult
-#outerProduct
-#texelFetch
-#texelFetchOffset
-#transpose
-#uaddCarry
-#usubBorrow
 
 generate_versions()
