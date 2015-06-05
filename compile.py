@@ -10,9 +10,6 @@ import shared
 import subprocess
 import platform
 
-sys.path.append("htmlmin")
-import htmlmin
-
 parser = argparse.ArgumentParser(description="Compile OpenGL documentation, generate a static webpage.")
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
@@ -21,6 +18,8 @@ args = parser.parse_args()
 
 if args.buildmode == 'full':
   print "FULL BUILD"
+  sys.path.append("htmlmin")
+  import htmlmin
 else:
   print "FAST BUILD"
   
