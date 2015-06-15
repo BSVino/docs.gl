@@ -446,7 +446,7 @@ search_fp.close()
 
 search_versions_options = ""
 
-#OpenGL Loop
+#GLSL Loop
 for version_option in glsl.version_commands.keys():
 
   if version_option[0:2] == "sl" and float(version_option[2:]) < 4.0:
@@ -460,7 +460,7 @@ for version_option in glsl.version_commands.keys():
   elif version_option[:2] == 'el':
     search_versions_options += "<option value='" + version_option + "'" + ">GLSL ES" + version_option[2:] + "</option>"
 
-#GLSL Loop
+#OpenGL Loop
 for version_option in opengl.version_commands.keys():
 
   if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
@@ -705,6 +705,9 @@ for version in major_versions:
       es = ""
       if major_version[:2] == 'es' or major_version[:2] == 'el':
         es = "ES "
+
+      if major_version[:2] == 'sl' and int(major_version[2:3]) == 3:
+        continue
       
       API=""
       if API_type == "sl":
