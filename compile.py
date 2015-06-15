@@ -193,8 +193,8 @@ for command in index_commands_version:
     if version in all_major_versions_available:
       index_versions_commands += "<span class='versioncolumn'><a href='" + version + "/" + alias + "'>" + version + "</a></span>"
     else:
-      index_versions_commands += "<span class='versioncolumn'>&nbsp;</span>"
-  index_versions_commands += "<br /></span>\n"
+      index_versions_commands += "<span class='versioncolumn disabled'>" + version + "</span>"
+  index_versions_commands += "</span>\n"
 
 #GLSL Loop
 for command in glsl_index_commands_version:
@@ -267,8 +267,11 @@ for command in glsl_index_commands_version:
       else:
         glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + version + "/" + alias + "'>glsl-es" + version[2:3] + "</a></span>"
     else:
-      glsl_index_versions_commands += "<span class='slversioncolumn'>&nbsp;</span>"
-  glsl_index_versions_commands += "<br /></span>\n"
+      if version[0:2] == "sl":
+        glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl" + version[2:3] + "</span>"
+      else:
+        glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl-es" + version[2:3] + "</a></span>"
+  glsl_index_versions_commands += "</span>\n"
 
 index = index.replace("{$commandlist}", index_versions_commands+glsl_index_versions_commands)
 
@@ -611,13 +614,13 @@ for version in major_versions:
       selected = " selected='selected'"
  
     if version_option[:2] == 'gl':
-      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GL" + version_option[2:] + "</option>"
+      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL " + version_option[2:] + "</option>"
     elif version_option[:2] == 'es':
-      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLES" + version_option[2:] + "</option>"
+      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL ES " + version_option[2:] + "</option>"
     elif version_option[:2] == 'sl':
-      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLSL" + version_option[2:] + "</option>"
+      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL " + version_option[2:] + "</option>"
     elif version_option[:2] == 'el':
-      toc_versions_options = toc_versions_options + "<option value='" + version_option.replace(".", "") + "'" + selected + ">GLSL ES" + version_option[2:] + "</option>"
+      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL ES " + version_option[2:] + "</option>"
       
       
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
@@ -814,7 +817,7 @@ for version in major_versions:
         code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code).replace("\t", "    ").replace("&", "&amp;")
 
         code = re.sub(r"(?<![a-zA-Z0-9_])(auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|size_t|NULL|GLbyte|GLshort|GLint|GLsizei|GLfloat|GLclampf|GLdouble|GLclampd|GLubyte|GLboolean|GLushort|GLuint|GLenum|GLbitfield|GLchar)(?![a-zA-Z0-9_])", r"<span class='ckeyword'>\1</span>", code)
-        code = re.sub(r"(GL_[A-Z_]*)", r"<span class='constant'>\1</span>", code)
+        code = re.sub(r"(GL_[A-Z_0-9]*)", r"<span class='constant'>\1</span>", code)
         code = re.sub(r'(".*?")', r"<span class='codestring'>\1</span>", code)
         code = re.sub(r'(//.*?)\n', r"<span class='codecomment'>\1</span>\n", code)
         

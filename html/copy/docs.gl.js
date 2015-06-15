@@ -166,13 +166,15 @@ function set_api_version(version) {
 }
 
 $(function() {
+
 	$( "#command_categories" ).bonsai();
 	$( "#glsl_command_categories" ).bonsai();
 	
 	$( "#versions_dropdown" ).selectmenu({
 		change: function( event, ui ) {
 			set_api_version(ui.item.value);
-		}
+		},
+		width: 150
 	});
 
 	if (typeof $.cookie("hide_deprecated") != 'undefined')
@@ -223,9 +225,7 @@ $(function() {
 	
 
 	search_fn = function(value) {
-		version = $("#search_versions").val();
-		if (!version || typeof version == 'undefined')
-			version = 'all';
+		var version = 'all';
 			
 		if (search_versions[version].indexOf(value) < 0)
 			return;
@@ -259,19 +259,8 @@ $(function() {
 		},
 	});
 
-	$( "#search_versions" ).selectmenu({
-		change: function( event, ui ) {
-			$("#search").val("");
-			$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
-		},
-		width: 70,
-	});
-
 	if (typeof $.cookie("api_version") != 'undefined')
-	{
-		$("#search_versions").val($.cookie("api_version").substring(0, 3) + "." + $.cookie("api_version").substring(3, 4)).selectmenu('refresh');
-		$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
-	}
+		$("#search").autocomplete( "option", "source", "all" );
 	
 	$('#hide_deprecated').click(function() {
 		window.hide_deprecated = $(this).is(':checked');
