@@ -262,9 +262,12 @@ for command in glsl_index_commands_version:
       alias = aliases[version]
       
     if version in all_major_versions_available:
-      glsl_index_versions_commands += "<span class='versioncolumn'><a href='" + version + "/" + alias + "'>" + version + "</a></span>"
+      if version[0:2] == "sl":
+        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + version + "/" + alias + "'>glsl" + version[2:3] + "</a></span>"
+      else:
+        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + version + "/" + alias + "'>glsl-es" + version[2:3] + "</a></span>"
     else:
-      glsl_index_versions_commands += "<span class='versioncolumn'>&nbsp;</span>"
+      glsl_index_versions_commands += "<span class='slversioncolumn'>&nbsp;</span>"
   glsl_index_versions_commands += "<br /></span>\n"
 
 index = index.replace("{$commandlist}", index_versions_commands+glsl_index_versions_commands)
