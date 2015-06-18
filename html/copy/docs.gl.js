@@ -185,8 +185,21 @@ $(function() {
 
 	if (typeof $.cookie("api_version") != 'undefined')
 	{
-		set_api_version($.cookie("api_version"));
-		$("#versions_dropdown").val($.cookie("api_version")).selectmenu('refresh');
+		api_version = $.cookie("api_version");
+
+		// We are loading a window.current_api command. If at least the major
+		// version matches with that then keep the user setting. Otherwise the
+		// name of the GL version won't match the list of functions below it.
+		if (api_version.substring(0, 3) == window.current_api.substring(0, 3))
+		{
+			set_api_version(api_version);
+			$("#versions_dropdown").val(api_version).selectmenu('refresh');
+		}
+		else
+		{
+			set_api_version(window.current_api);
+			$("#versions_dropdown").val(window.current_api).selectmenu('refresh');
+		}
 	}
 	else
 	{
