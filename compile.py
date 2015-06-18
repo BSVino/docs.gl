@@ -596,6 +596,10 @@ for version in major_versions:
       latest_minor = version_option
 
   toc_versions_options = ""
+  toc_versions_options_gl = ""
+  toc_versions_options_es = ""
+  toc_versions_options_sl = ""
+  toc_versions_options_el = ""
   for version_option in all_versions:
     if version_option[0:2] == "gl" and float(version_option[2:]) < 2.1:
       continue
@@ -614,15 +618,16 @@ for version in major_versions:
       selected = " selected='selected'"
  
     if version_option[:2] == 'gl':
-      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL " + version_option[2:] + "</option>"
+      toc_versions_options_gl = toc_versions_options_gl + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL " + version_option[2:] + "</option>"
     elif version_option[:2] == 'es':
-      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL ES " + version_option[2:] + "</option>"
+      toc_versions_options_es = toc_versions_options_es + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">OpenGL ES " + version_option[2:] + "</option>"
     elif version_option[:2] == 'sl':
-      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL " + version_option[2:] + "</option>"
+      toc_versions_options_sl = toc_versions_options_sl + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL " + version_option[2:] + "</option>"
     elif version_option[:2] == 'el':
-      toc_versions_options = toc_versions_options + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL ES " + version_option[2:] + "</option>"
-      
-      
+      toc_versions_options_el = toc_versions_options_el + "<option class='versions_option' value='" + version_option.replace(".", "") + "'" + selected + ">GLSL ES " + version_option[2:] + "</option>"
+  
+  #Place dropdown in desired order
+  toc_versions_options =  toc_versions_options_gl + toc_versions_options_es + toc_versions_options_sl + toc_versions_options_el  
   header_for_version = header_for_version.replace("{$versions_options}", toc_versions_options)
   header_for_version = header_for_version.replace("{$command_major_version}", version[2])
     
