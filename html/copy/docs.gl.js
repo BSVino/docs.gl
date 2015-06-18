@@ -41,7 +41,7 @@ function gl_printable_name(name) {
 		return "GLSL 1.3";
 	if (name == "sl14")
 		return "GLSL 1.4";
-	if (name == "sh15")
+	if (name == "sl15")
 		return "GLSL 1.5";
 	if (name == "sl33")
 		return "GLSL 3.3";
