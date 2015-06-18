@@ -67,7 +67,7 @@ initially downloaded from Khronos. They could be reused for additional processin
 To Do
 -----
 
-* Extensions
+* Extensions. Display a list of which versions an extension is available for. Display which extension introduces a command.
 * Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
 * Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
