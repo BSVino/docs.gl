@@ -145,14 +145,12 @@ command_categories = OrderedDict([
     "radians", "degrees", "sin", "cos", "tan", "asin",
     "acos", "atan", "sinh", "cosh", "tanh","asinh", "acosh", "atanh"
   ] ),
-  ( "Exponential", [
-    "pow", "exp", "log", "exp2", "log2", "sqrt", "inversesqrt"
-  ] ),
   ( "Mathematics", [
+    "pow", "exp", "log", "exp2", "log2", "sqrt", "inversesqrt",
     "abs", "sign", "floor", "trunc", "round", "roundEven", "ceil",
     "floor", "fract", "mod", "modf", "min", "max", "clamp", "mix", 
     "step", "smoothstep", "isnan", "isinf", "fma",
-    "dFdx", "fwidth", "noise"
+    "dFdx", "dFdy", "fwidth", "noise"
   ] ),  
   ( "Floating-Point", [
     "packDouble2x32","packHalf2x16","packUnorm","unpackDouble2x32",
