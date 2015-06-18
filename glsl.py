@@ -50,7 +50,7 @@ def reverse_version_index(command_list):
   return reversed
 
 def generate_versions():
-  print "Generating version index..."
+  print "Generating GLSL version index..."
   global version_commands
   global commands_version
   global version_commands_flat
@@ -215,4 +215,5 @@ command_categories = OrderedDict([
     'memoryBarrierShared'
   ] ),
 ])
+
 generate_versions()
