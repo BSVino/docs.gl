@@ -27,6 +27,36 @@ function gl_printable_name(name) {
 		return "OpenGL 4.4";
 	if (name == "gl45")
 		return "OpenGL 4.5";
+	if (name == "el10")
+		return "GLSL ES 1.0";
+	if (name == "el30")
+		return "GLSL ES 3.0";
+	if (name == "el31")
+		return "GLSL ES 3.1";
+	if (name == "sl11")
+		return "GLSL 1.1";
+	if (name == "sl12")
+		return "GLSL 1.2";
+	if (name == "sl13")
+		return "GLSL 1.3";
+	if (name == "sl14")
+		return "GLSL 1.4";
+	if (name == "sl15")
+		return "GLSL 1.5";
+	if (name == "sl33")
+		return "GLSL 3.3";
+	if (name == "sl40")
+		return "GLSL 4.0";
+	if (name == "sl41")
+		return "GLSL 4.1";
+	if (name == "sl42")
+		return "GLSL 4.2";
+	if (name == "sl43")
+		return "GLSL 4.3";
+	if (name == "sl44")
+		return "GLSL 4.4";
+	if (name == "sl45")
+		return "GLSL 4.5";
 	return "OpenGL X";
 }
 
@@ -58,7 +88,7 @@ function set_api_version(version) {
 				if (class_api != version.substring(0, 2))
 					continue;
 					
-				if (class_api != 'gl' && class_api != 'es')
+				if (class_api != 'gl' && class_api != 'es' && class_api != 'el' && class_api != 'sl')
 					continue;
 
 				// Only consider versions <= the one the user has selected.
@@ -80,7 +110,7 @@ function set_api_version(version) {
 					if (class_api != version.substring(0, 2))
 						continue;
 						
-					if (class_api != 'gl' && class_api != 'es')
+					if (class_api != 'gl' && class_api != 'es' && class_api != 'el' && class_api != 'sl')
 						continue;
 
 					if (!highest)
@@ -136,12 +166,15 @@ function set_api_version(version) {
 }
 
 $(function() {
+
 	$( "#command_categories" ).bonsai();
+	$( "#glsl_command_categories" ).bonsai();
 	
 	$( "#versions_dropdown" ).selectmenu({
 		change: function( event, ui ) {
 			set_api_version(ui.item.value);
-		}
+		},
+		width: 150
 	});
 
 	if (typeof $.cookie("hide_deprecated") != 'undefined')
@@ -152,8 +185,21 @@ $(function() {
 
 	if (typeof $.cookie("api_version") != 'undefined')
 	{
-		set_api_version($.cookie("api_version"));
-		$("#versions_dropdown").val($.cookie("api_version")).selectmenu('refresh');
+		api_version = $.cookie("api_version");
+
+		// We are loading a window.current_api command. If at least the major
+		// version matches with that then keep the user setting. Otherwise the
+		// name of the GL version won't match the list of functions below it.
+		if (api_version.substring(0, 3) == window.current_api.substring(0, 3))
+		{
+			set_api_version(api_version);
+			$("#versions_dropdown").val(api_version).selectmenu('refresh');
+		}
+		else
+		{
+			set_api_version(window.current_api);
+			$("#versions_dropdown").val(window.current_api).selectmenu('refresh');
+		}
 	}
 	else
 	{
@@ -192,13 +238,11 @@ $(function() {
 	
 
 	search_fn = function(value) {
-		version = $("#search_versions").val();
-		if (!version || typeof version == 'undefined')
-			version = 'all';
+		var version = 'all';
 			
-		if (search_versions[version].indexOf(value) < 0)
-			return;
-
+		if (search_versions[version].indexOf(value) < 0){
+			return false;
+		}
 		var alias_api = version.substring(0, 2);
 		var alias = value;
 		var directory = version.substring(0, 3) + "/";
@@ -214,10 +258,33 @@ $(function() {
 			command_page = function_aliases[alias_api][alias]
 
 		window.location.href = window.base_directory + directory + command_page;
+		return true;
+	}
+	
+	
+	function hide_tooltip (){
+		$("#search").trigger('mouseout');
 	}
 	
 	$( "#search_button" ).button().click(function(event) {
-		search_fn($("#search").val());
+		if ( search_fn($("#search").val()) == false){
+		
+			$("#search").attr("title","");
+			$("#search").tooltip();
+			$("#search").tooltip( "enable" );
+			$("#search").tooltip({ content: "<span style='color:#ff5555' >Command Not Found</span>" });
+			$("#search").tooltip({ show: { duration: 100  } });
+			$("#search").tooltip({ hide: { duration: 1000  } });
+			$("#search").trigger('mouseenter');
+			setTimeout(hide_tooltip,800)
+			$("#search").tooltip({
+				close: function( event, ui ) {
+					
+						$("#search").tooltip( "disable" );
+				}
+			});	
+		}
+		
 	});
 	
 	$( "#search" ).autocomplete({
@@ -228,19 +295,8 @@ $(function() {
 		},
 	});
 
-	$( "#search_versions" ).selectmenu({
-		change: function( event, ui ) {
-			$("#search").val("");
-			$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
-		},
-		width: 70,
-	});
-
 	if (typeof $.cookie("api_version") != 'undefined')
-	{
-		$("#search_versions").val($.cookie("api_version").substring(0, 3) + "." + $.cookie("api_version").substring(3, 4)).selectmenu('refresh');
-		$("#search").autocomplete( "option", "source", search_versions[$("#search_versions").val()] );
-	}
+		$("#search").autocomplete( "option", "source", "all" );
 	
 	$('#hide_deprecated').click(function() {
 		window.hide_deprecated = $(this).is(':checked');
