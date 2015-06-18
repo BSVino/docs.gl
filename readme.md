@@ -72,6 +72,7 @@ To Do
 * Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
+* Display in the ToC on the left which GLSL commands can only be used in certain languages (eg VS, CS, FS, etc)
 
 Thanks to the great people in Freenode ##opengl who provided me good feedback while I was
 writing this.
