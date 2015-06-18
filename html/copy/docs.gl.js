@@ -41,7 +41,7 @@ function gl_printable_name(name) {
 		return "GLSL 1.3";
 	if (name == "sl14")
 		return "GLSL 1.4";
-	if (name == "sh15")
+	if (name == "sl15")
 		return "GLSL 1.5";
 	if (name == "sl33")
 		return "GLSL 3.3";
@@ -227,9 +227,9 @@ $(function() {
 	search_fn = function(value) {
 		var version = 'all';
 			
-		if (search_versions[version].indexOf(value) < 0)
-			return;
-
+		if (search_versions[version].indexOf(value) < 0){
+			return false;
+		}
 		var alias_api = version.substring(0, 2);
 		var alias = value;
 		var directory = version.substring(0, 3) + "/";
@@ -245,10 +245,33 @@ $(function() {
 			command_page = function_aliases[alias_api][alias]
 
 		window.location.href = window.base_directory + directory + command_page;
+		return true;
+	}
+	
+	
+	function hide_tooltip (){
+		$("#search").trigger('mouseout');
 	}
 	
 	$( "#search_button" ).button().click(function(event) {
-		search_fn($("#search").val());
+		if ( search_fn($("#search").val()) == false){
+		
+			$("#search").attr("title","");
+			$("#search").tooltip();
+			$("#search").tooltip( "enable" );
+			$("#search").tooltip({ content: "<span style='color:#ff5555' >Command Not Found</span>" });
+			$("#search").tooltip({ show: { duration: 100  } });
+			$("#search").tooltip({ hide: { duration: 1000  } });
+			$("#search").trigger('mouseenter');
+			setTimeout(hide_tooltip,800)
+			$("#search").tooltip({
+				close: function( event, ui ) {
+					
+						$("#search").tooltip( "disable" );
+				}
+			});	
+		}
+		
 	});
 	
 	$( "#search" ).autocomplete({
