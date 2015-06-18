@@ -68,7 +68,6 @@ To Do
 -----
 
 * Extensions
-* Display a message if the user makes an invalid search
 * Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
 * Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
