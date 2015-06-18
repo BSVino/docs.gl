@@ -30,30 +30,6 @@ HTML minification and Unicode processing as well. It looks like this:
 If you are running Windows, there are a build.bat and a build_full.bat for convenience. When
 the script is done building, the completed site will be in a folder named `htdocs`.
 
-####OpenGL Only
-
-Build only the opengl docs with the following:
-
-    python compile.py --only-gl
-
-The `--full` parameter is still available as follow:
-
-    python compile.py --full --only-gl
-
-When the script is done building, the completed site will be in a folder named `htdocs_gl`.
-
-####GLSL Only
-
-Build the only the GLSL docs with the following:
-
-    python compile.py --only-glsl
-
-The `--full` parameter is still available as follow:
-
-    python compile.py --full --only-glsl 
-
-When the script is done building, the completed site will be in a folder named `htdocs_glsl`.
-
 File Structure
 --------------
 
@@ -91,13 +67,11 @@ initially downloaded from Khronos. They could be reused for additional processin
 To Do
 -----
 
-* GLSL functions
 * Extensions
 * Display a message if the user makes an invalid search
 * Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
 * Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
-* Download the entire site as a zip file
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
 
 Thanks to the great people in Freenode ##opengl who provided me good feedback while I was
