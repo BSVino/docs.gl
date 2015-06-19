@@ -74,6 +74,9 @@ To Do
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
 * Display in the ToC on the left which GLSL commands can only be used in certain languages (eg VS, CS, FS, etc)
 * CamelCase Search - eg BFDLI finds glBindFragDataLocationIndexed
+* GLSL 1/3
+* WebGL
+* GLSL syntax cheat sheets. E.G. attribute/varying vs in/out
 
 Thanks to the great people in Freenode ##opengl who provided me good feedback while I was
 writing this.
