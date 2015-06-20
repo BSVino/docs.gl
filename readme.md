@@ -67,11 +67,16 @@ initially downloaded from Khronos. They could be reused for additional processin
 To Do
 -----
 
-* Extensions
+* Extensions. Display a list of which versions an extension is available for. Display which extension introduces a command.
 * Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
 * Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
+* Display in the ToC on the left which GLSL commands can only be used in certain languages (eg VS, CS, FS, etc)
+* CamelCase Search - eg BFDLI finds glBindFragDataLocationIndexed
+* GLSL 1/3
+* WebGL
+* GLSL syntax cheat sheets. E.G. attribute/varying vs in/out
 
 Thanks to the great people in Freenode ##opengl who provided me good feedback while I was
 writing this.

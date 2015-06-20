@@ -4,6 +4,7 @@ import time
 import sys
 import argparse
 import re
+import zipfile
 
 import opengl
 import glsl
@@ -12,12 +13,9 @@ import shared_glsl
 import subprocess
 import platform
 
-sys.path.append("htmlmin")
-import htmlmin
-
 ########################## Command Line Arguments ##########################
 
-parser = argparse.ArgumentParser(description="Compile openGL documentation, generate a static webpage.")
+parser = argparse.ArgumentParser(description="Compile OpenGL documentation, generate a static webpage.")
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
 
@@ -27,6 +25,8 @@ args = parser.parse_args()
 
 if args.buildmode == 'full':
   print "FULL BUILD"
+  sys.path.append("htmlmin")
+  import htmlmin
 else:
   print "FAST BUILD"
 
@@ -937,9 +937,9 @@ for version in major_versions:
   
   print "Wrote " + str(written) + " commands for " + version
 
-if platform.system() is "Windows":
-  subprocess.call(["\\Program Files\\7-Zip\\7z.exe", "a", "-tzip", "docs.gl.zip", "htdocs"])
-else:
-  subprocess.call(["zip", "-r", "docs.gl.zip", "htdocs" ])
+with zipfile.ZipFile('docs.gl.zip', 'w', compression=zipfile.ZIP_DEFLATED) as docs_gl_zip:
+  for dirname, _, files in os.walk('htdocs'):
+    for filename in files:
+      docs_gl_zip.write(os.path.join(dirname, filename))
 
 shutil.move("docs.gl.zip", "htdocs/") 
