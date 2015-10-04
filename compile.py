@@ -270,7 +270,7 @@ for command in glsl_index_commands_version:
       if version[0:2] == "sl":
         glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl" + version[2:3] + "</span>"
       else:
-        glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl-es" + version[2:3] + "</a></span>"
+        glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl-es" + version[2:3] + "</span>"
   glsl_index_versions_commands += "</span>\n"
 
 index = index.replace("{$commandlist}", index_versions_commands+glsl_index_versions_commands)
