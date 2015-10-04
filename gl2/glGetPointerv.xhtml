@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGetPointerv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetPointerv — return the address of the specified pointer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetPointerv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLvoid **  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glGetPointerv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetPointerv — return the address of the specified pointer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetPointerv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLvoid **  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the array or buffer pointer to be returned.
                     Symbolic constants
                     <code class="constant">GL_COLOR_ARRAY_POINTER</code>,
@@ -21,14 +21,14 @@
             location in which to place the returned data.
         </p><p>
             For all <em class="parameter"><code>pname</code></em> arguments except <code class="constant">GL_FEEDBACK_BUFFER_POINTER</code> and <code class="constant">GL_SELECTION_BUFFER_POINTER</code>,
-            if a non-zero named buffer object was bound to the <code class="constant">GL_ARRAY_BUFFER</code> target 
+            if a non-zero named buffer object was bound to the <code class="constant">GL_ARRAY_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) when the desired pointer was previously
             specified, the pointer returned is a byte offset into the buffer object's data store.
             Buffer objects are only available in OpenGL versions 1.5 and greater.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glGetPointerv</code> is available only if the GL version is 1.1 or greater.
         </p><p>
-            <code class="constant">GL_FOG_COORD_ARRAY_POINTER</code> and <code class="constant">GL_SECONDARY_COLOR_ARRAY_POINTER</code> 
+            <code class="constant">GL_FOG_COORD_ARRAY_POINTER</code> and <code class="constant">GL_SECONDARY_COLOR_ARRAY_POINTER</code>
             are available only if the GL version is 1.4 or greater.
         </p><p>
             The pointers are all client-side state.

@@ -1,8 +1,8 @@
-<div class="refentry"><a id="glBindBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBuffer — bind a named buffer to a target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term">
+<div class="refentry"><a id="glBindBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBuffer — bind a named buffer to a target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term">
                     <em class="parameter"><code>target</code></em>
                 </span></dt><dd><p>
                     Specifies the target to which the buffer is bound.
-                    The symbolic constant must be 
+                    The symbolic constant must be
                     <code class="constant">GL_ARRAY_BUFFER</code>
                     or <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>.
                     </p></dd><dt><span class="term">
@@ -14,7 +14,7 @@
         with <em class="parameter"><code>target</code></em>
         set to <code class="constant">GL_ARRAY_BUFFER</code>
         or <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>
-        and <em class="parameter"><code>buffer</code></em> set to the name of the new buffer object 
+        and <em class="parameter"><code>buffer</code></em> set to the name of the new buffer object
         binds the buffer object name to the target. When a buffer object is bound to
         a target, the previous binding for that target is automatically broken.
         </p><p>
@@ -39,21 +39,21 @@
             <code class="constant">GL_READ_WRITE</code> access and <code class="constant">GL_STATIC_DRAW</code> usage.
         </p><p>
             While a non-zero buffer object name is bound, GL operations on the target to which it is
-            bound affect the bound buffer object, and queries of the target to which it is bound return state 
+            bound affect the bound buffer object, and queries of the target to which it is bound return state
             from the bound buffer object. While buffer object name zero is bound, as in the initial state,
-            attempts to modify or query state on the target to which it is bound generates an 
+            attempts to modify or query state on the target to which it is bound generates an
             <code class="constant">GL_INVALID_OPERATION</code> error.
         </p><p>
-            When vertex array pointer state is changed, for example by a call to 
-            <a class="citerefentry" href="glNormalPointer"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>, 
-            the current buffer object binding (<code class="constant">GL_ARRAY_BUFFER_BINDING</code>) is copied into the 
-            corresponding client state for the vertex array type being changed, for example 
-            <code class="constant">GL_NORMAL_ARRAY_BUFFER_BINDING</code>. While a non-zero buffer object is bound to the 
+            When vertex array pointer state is changed, for example by a call to
+            <a class="citerefentry" href="glNormalPointer"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>,
+            the current buffer object binding (<code class="constant">GL_ARRAY_BUFFER_BINDING</code>) is copied into the
+            corresponding client state for the vertex array type being changed, for example
+            <code class="constant">GL_NORMAL_ARRAY_BUFFER_BINDING</code>. While a non-zero buffer object is bound to the
             <code class="constant">GL_ARRAY_BUFFER</code> target, the vertex array pointer parameter that is traditionally
             interpreted as a pointer to client-side memory is instead interpreted as an offset within the
             buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target, 
+            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target,
             the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>
             that is traditionally
             interpreted as a pointer to client-side memory is instead interpreted as an offset within the
@@ -69,7 +69,7 @@
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
         <em class="parameter"><code>target</code></em> is not one of the allowable values.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-            with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code> or 
+            with argument <code class="constant">GL_ARRAY_BUFFER_BINDING</code> or
             <code class="constant">GL_ELEMENT_ARRAY_BUFFER_BINDING</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
         <a class="citerefentry" href="glBufferData"><span class="citerefentry"><span class="refentrytitle">glBufferData</span></span></a>,

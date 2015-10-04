@@ -1,4 +1,4 @@
-<div class="refentry" title="glGetMaterial"><a id="glGetMaterial"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetMaterial — return material parameters values</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMaterialfv</b>(</code></td><td>GLenum <var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMaterialxv</b>(</code></td><td>GLenum <var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfixed * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glGetMaterial"><a id="glGetMaterial"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetMaterial — return material parameters values</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMaterialfv</b>(</code></td><td>GLenum <var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetMaterialxv</b>(</code></td><td>GLenum <var class="pdparam">face</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfixed * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>face</code></em>
                 </span></dt><dd><p>
                     Specifies which of the two materials is being
@@ -32,7 +32,7 @@
                     returns four fixed-point or floating-point values that
                     specify the ambient RGBA reflectance of the material.
                     The values are not clamped. The initial ambient reflectance
-                    
+
                     is (0.2, 0.2, 0.2, 1.0).
                     </p></dd><dt><span class="term">
                     <code class="constant">GL_DIFFUSE</code>
@@ -41,7 +41,7 @@
                     returns four fixed-point or floating-point values that
                     specify the diffuse RGBA reflectance of the material.
                     The values are not clamped. The initial diffuse reflectance
-                    
+
                     is (0.8, 0.8, 0.8, 1.0).
                     </p></dd><dt><span class="term">
                     <code class="constant">GL_SPECULAR</code>
@@ -50,7 +50,7 @@
                     returns four fixed-point or floating-point values that
                     specify the specular RGBA reflectance of the material.
                     The values are not clamped. The initial specular reflectance
-                    
+
                     is (0, 0, 0, 1).
                     </p></dd><dt><span class="term">
                     <code class="constant">GL_EMISSION</code>
@@ -59,7 +59,7 @@
                     returns four fixed-point or floating-point values that
                     specify the RGBA emitted light intensity of the material.
                     The values are not clamped. The initial emission intensity
-                    
+
                     is (0, 0, 0, 1).
                     </p></dd><dt><span class="term">
                     <code class="constant">GL_SHININESS</code>
@@ -68,16 +68,16 @@
                     returns a single fixed-point or floating-point value that
                     specifies the RGBA specular exponent of the material.
                     The initial specular exponent
-                    
+
                     is 0.
                     </p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
         If an error is generated, no change is made to the contents
         of <em class="parameter"><code>params</code></em>.
         </p><p>
         In OpenGL ES there is only one material shared by the front and back.
-		Therefore querying 
+		Therefore querying
         <code class="constant">GL_FRONT</code>
-		and querying 
+		and querying
         <code class="constant">GL_BACK</code>
 		will always return the
 		same value.

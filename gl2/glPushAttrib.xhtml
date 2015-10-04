@@ -1,13 +1,13 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPushAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPushAttrib — push and pop the server attribute stack</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPushAttrib</b>(</code></td><td>GLbitfield  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPushAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPushAttrib — push and pop the server attribute stack</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPushAttrib</b>(</code></td><td>GLbitfield  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
                     Specifies a mask that indicates which attributes to save. Values for
                     <em class="parameter"><code>mask</code></em> are listed below.
-                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPopAttrib</b>(</code></td><td>  </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPopAttrib</b>(</code></td><td>  </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glPushAttrib</code> takes one argument,
             a mask that indicates which groups of state variables
             to save on the attribute stack.
             Symbolic constants are used to set bits in the mask.
             <em class="parameter"><code>mask</code></em>
-            is typically constructed by specifying the bitwise-or of several 
+            is typically constructed by specifying the bitwise-or of several
             of these constants together.
             The special mask
             <code class="constant">GL_ALL_ATTRIB_BITS</code>
@@ -16,7 +16,7 @@
             The symbolic mask constants and their associated GL state are as follows
             (the second column lists which attributes are saved):
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><tbody><tr><td align="left">
+        </p><div class="informaltable"><table><colgroup><col align="left" /><col align="left" /></colgroup><tbody><tr><td align="left">
                         <code class="constant">GL_ACCUM_BUFFER_BIT</code>
                         </td><td align="left">
                         Accumulation buffer clear value
@@ -137,7 +137,7 @@
                         <code class="constant">GL_LIGHT</code><span class="emphasis"><em>i</em></span>
 			where
 				    <code class="constant">0</code> &lt;= 		  				    <span class="emphasis"><em>i</em></span> &lt;     				    <code class="constant">GL_MAX_LIGHTS</code>
-   
+
                         </td></tr><tr><td align="left">
                         </td><td align="left">
                         <code class="constant">GL_LIGHTING</code> flag

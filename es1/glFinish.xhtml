@@ -1,11 +1,11 @@
-<div class="refentry"><a id="glFinish"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glFinish — block until all GL execution is complete</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glFinish</strong>(</code></td><td><code>void)</code>;</td><td> </td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+<div class="refentry"><a id="glFinish"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glFinish — block until all GL execution is complete</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glFinish</strong>(</code></td><td><code>void)</code>;</td><td> </td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
         <code class="function">glFinish</code> does not return until the effects
         of all previously called GL commands are complete. Such effects
         include all changes to GL client and server state as well as all
         changes to the frame buffer contents.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glFinish</code> is NOT required before a call
             to eglSwapBuffers
-            or <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.  
+            or <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
                         <code class="function">glFinish</code> can take some time and for
                         performance reasons it is best to use this function
                         infrequently and only when necessary.

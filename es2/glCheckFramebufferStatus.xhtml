@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glCheckFramebufferStatus"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCheckFramebufferStatus — return the framebuffer completeness status of a framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLenum <strong class="fsfunc">glCheckFramebufferStatus</strong>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glCheckFramebufferStatus"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCheckFramebufferStatus — return the framebuffer completeness status of a framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLenum <strong class="fsfunc">glCheckFramebufferStatus</strong>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target framebuffer object.
                     The symbolic constant must be <code class="constant">GL_FRAMEBUFFER</code>.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
@@ -7,16 +7,16 @@
             framebuffer is framebuffer complete, and if not, which of the rules
             of framebuffer completeness is violated.
         </p><p>
-            If the framebuffer is complete, then 
-            <code class="constant">GL_FRAMEBUFFER_COMPLETE</code> is returned. 
+            If the framebuffer is complete, then
+            <code class="constant">GL_FRAMEBUFFER_COMPLETE</code> is returned.
             If the framebuffer is not complete, the return values are as follows:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT</code></span></dt><dd><p>
                         Not all framebuffer attachment points are framebuffer
                         attachment complete. This means that at least one
-                        attachment point with a renderbuffer or texture 
+                        attachment point with a renderbuffer or texture
                         attached has its attached object no longer in existence
-                        or has an attached image with a width or height of 
-                        zero, or the color attachment point has a 
+                        or has an attached image with a width or height of
+                        zero, or the color attachment point has a
                         non-color-renderable image attached, or the
                         depth attachment point has a non-depth-renderable
                         image attached, or the stencil attachment point has a
@@ -26,7 +26,7 @@
                         <code class="constant">GL_RGB5_A1</code>, and
                         <code class="constant">GL_RGB565</code>.
                         <code class="constant">GL_DEPTH_COMPONENT16</code> is the only
-                        depth-renderable format. 
+                        depth-renderable format.
                         <code class="constant">GL_STENCIL_INDEX8</code> is the only
                         stencil-renderable format.
                     </p></dd><dt><span class="term"><code class="constant">GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS</code></span></dt><dd><p>
@@ -38,7 +38,7 @@
                         images violates an implementation-dependent set of
                         restrictions.
                     </p></dd></dl></div><p>
-            If the currently bound framebuffer is not framebuffer complete, 
+            If the currently bound framebuffer is not framebuffer complete,
             then it is an error to attempt to use the framebuffer for
             writing or reading. This means that rendering commands
             (<a class="citerefentry" href="glClear"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
@@ -55,7 +55,7 @@
             call <code class="function">glCheckFramebufferStatus</code> to see if the
             framebuffer is complete prior to rendering. This is because some
             implementations may not support rendering to particular combinations
-            of internal formats. In this case, 
+            of internal formats. In this case,
             <code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code>
             is returned.
         </p><p>
@@ -77,8 +77,8 @@
             <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
             <a class="citerefentry" href="glRenderbufferStorage"><span class="citerefentry"><span class="refentrytitle">glRenderbufferStorage</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2008 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

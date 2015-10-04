@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glXChooseVisual"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXChooseVisual — return a visual that matches specified attributes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">XVisualInfo* <b class="fsfunc">glXChooseVisual</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">screen</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">attribList</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glXChooseVisual"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXChooseVisual — return a visual that matches specified attributes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">XVisualInfo* <b class="fsfunc">glXChooseVisual</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">screen</var>, </td></tr><tr><td> </td><td>int *  </td><td><var class="pdparam">attribList</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
                     Specifies the connection to the X server.
                 </p></dd><dt><span class="term"><em class="parameter"><code>screen</code></em></span></dt><dd><p>
                     Specifies the screen number.
@@ -11,7 +11,7 @@
             The boolean GLX attributes of the visual that is returned will match the
             specified values,
             and the integer GLX attributes will meet or exceed the specified
-            minimum values. 
+            minimum values.
             If all other attributes are equivalent, then TrueColor and PseudoColor
             visuals have priority over DirectColor and StaticColor visuals,
             respectively.
@@ -24,7 +24,7 @@
             All integer GLX attributes default to zero.
             Default specifications are superseded by attributes included in <em class="parameter"><code>attribList</code></em>.
             Boolean attributes included in <em class="parameter"><code>attribList</code></em> are understood to be <code class="constant">True</code>.
-            Integer attributes and enumerated type attributes are followed immediately 
+            Integer attributes and enumerated type attributes are followed immediately
             by the corresponding desired or
             minimum value.
             The list must be terminated with <code class="constant">None</code>.
@@ -63,7 +63,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GLX_AUX_BUFFERS</code></span></dt><dd><p>
                         Must be followed by a nonnegative integer that indicates the desired
                         number of auxiliary buffers.
-                        Visuals with the 
+                        Visuals with the
                         smallest number of auxiliary buffers that meets or exceeds
                         the specified number are preferred.
                     </p></dd><dt><span class="term"><code class="constant">GLX_RED_SIZE</code></span></dt><dd><p>

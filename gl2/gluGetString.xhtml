@@ -1,17 +1,17 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluGetString"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluGetString — return a string describing the GLU version or GLU extensions </p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">const GLubyte * <b class="fsfunc">gluGetString</b>(</code></td><td>GLenum  </td><td><var class="pdparam">name</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>
-                    Specifies a symbolic constant, one of 
+<div class="refentry" lang="en" xml:lang="en"><a id="gluGetString"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluGetString — return a string describing the GLU version or GLU extensions </p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">const GLubyte * <b class="fsfunc">gluGetString</b>(</code></td><td>GLenum  </td><td><var class="pdparam">name</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>
+                    Specifies a symbolic constant, one of
                     <code class="constant">GLU_VERSION</code>, or <code class="constant">GLU_EXTENSIONS</code>.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gluGetString</code> returns a pointer to a static string describing the 
+            <code class="function">gluGetString</code> returns a pointer to a static string describing the
             GLU version or the GLU extensions that are supported.
         </p><p>
             The version number is one of the following
-            forms: 
+            forms:
         </p><p>
-            <span class="emphasis"><em>major_number.minor_number</em></span>  
-            <span class="emphasis"><em>major_number.minor_number.release_number</em></span>. 
+            <span class="emphasis"><em>major_number.minor_number</em></span>
+            <span class="emphasis"><em>major_number.minor_number.release_number</em></span>.
         </p><p>
-            The version string is of the following form: 
+            The version string is of the following form:
         </p><p>
             <span class="emphasis"><em>version number&lt;space&gt;vendor-specific information</em></span>
         </p><p>
@@ -20,8 +20,8 @@
         </p><p>
             The standard GLU contains a basic set of features and capabilities.
             If a company or group of companies wish to support other features,
-            these may be included as extensions to the GLU.  
-            If <em class="parameter"><code>name</code></em> is 
+            these may be included as extensions to the GLU.
+            If <em class="parameter"><code>name</code></em> is
             <code class="constant">GLU_EXTENSIONS</code>, then <code class="function">gluGetString</code>
             returns a space-separated list of names of supported GLU extensions.
             (Extension names never contain spaces.)

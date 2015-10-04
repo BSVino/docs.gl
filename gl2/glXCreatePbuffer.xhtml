@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glXCreatePbuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXCreatePbuffer — create an off-screen rendering area</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLXPbuffer <b class="fsfunc">glXCreatePbuffer</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXFBConfig  </td><td><var class="pdparam">config</var>, </td></tr><tr><td> </td><td>const int *  </td><td><var class="pdparam">attrib_list</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glXCreatePbuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXCreatePbuffer — create an off-screen rendering area</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">GLXPbuffer <b class="fsfunc">glXCreatePbuffer</b>(</code></td><td>Display *  </td><td><var class="pdparam">dpy</var>, </td></tr><tr><td> </td><td>GLXFBConfig  </td><td><var class="pdparam">config</var>, </td></tr><tr><td> </td><td>const int *  </td><td><var class="pdparam">attrib_list</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dpy</code></em></span></dt><dd><p>
                     Specifies the connection to the X server.
                 </p></dd><dt><span class="term"><em class="parameter"><code>config</code></em></span></dt><dd><p>
                     Specifies a GLXFBConfig structure with the desired attributes for the
@@ -6,7 +6,7 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>attrib_list</code></em></span></dt><dd><p>
                     Specifies a list of attribute value pairs, which must be terminated with
                     <code class="constant">None</code> or <code class="constant">NULL</code>. Accepted attributes are
-                    <code class="constant">GLX_PBUFFER_WIDTH</code>, <code class="constant">GLX_PBUFFER_HEIGHT</code>, 
+                    <code class="constant">GLX_PBUFFER_WIDTH</code>, <code class="constant">GLX_PBUFFER_HEIGHT</code>,
                     <code class="constant">GLX_PRESERVED_CONTENTS</code>, and <code class="constant">GLX_LARGEST_PBUFFER</code>.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glXCreatePbuffer</code> creates an off-screen rendering area and returns its XID.
@@ -31,9 +31,9 @@
                         <code class="constant">False</code>.
                     </p></dd><dt><span class="term"><code class="constant">GLX_PRESERVED_CONTENTS</code></span></dt><dd><p>
                         Specify if the contents of the pixel buffer should be preserved when a
-                        resource conflict occurs.  If set to <code class="constant">False</code>, the contents of the 
+                        resource conflict occurs.  If set to <code class="constant">False</code>, the contents of the
                         pixel buffer may be lost at any time.  If set to <code class="constant">True</code>, or not
-                        specified in <em class="parameter"><code>attrib_list</code></em>, then the contents of the pixel buffer will be preserved 
+                        specified in <em class="parameter"><code>attrib_list</code></em>, then the contents of the pixel buffer will be preserved
                         (most likely by copying the contents into main system memory from the
                         frame buffer).  In either case, the client can register (using
                         <a class="citerefentry" href="glXSelectEvent"><span class="citerefentry"><span class="refentrytitle">glXSelectEvent</span></span></a>, to receive

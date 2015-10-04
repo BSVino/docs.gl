@@ -1,9 +1,9 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluBeginCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginCurve — delimit a NURBS curve definition</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluEndCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluBeginCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginCurve — delimit a NURBS curve definition</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluEndCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
                     Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            Use <code class="function">gluBeginCurve</code> to mark the beginning of a NURBS 
+            Use <code class="function">gluBeginCurve</code> to mark the beginning of a NURBS
             curve definition.
-            After 
+            After
             calling <code class="function">gluBeginCurve</code>, make one or more calls to
             <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a> to define the attributes of the curve.
             Exactly one of the calls to <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a> must have
@@ -13,8 +13,8 @@
             GL evaluators are used to render the NURBS curve as a series of line
             segments.
             Evaluator state is preserved during rendering
-            with <a class="citerefentry" href="glPushAttrib"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>(<code class="constant">GLU_EVAL_BIT</code>) and 
-            <a class="citerefentry" href="glPopAttrib"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>().  
+            with <a class="citerefentry" href="glPushAttrib"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>(<code class="constant">GLU_EVAL_BIT</code>) and
+            <a class="citerefentry" href="glPopAttrib"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>().
             See the <a class="citerefentry" href="glPushAttrib"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a> reference page for details on exactly what state
             these calls preserve.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="example"></a><h2>Example</h2><p>
@@ -32,8 +32,8 @@ gluEndCurve(nobj);
         <div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gluBeginSurface"><span class="citerefentry"><span class="refentrytitle">gluBeginSurface</span></span></a>,
             <a class="citerefentry" href="gluBeginTrim"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a>,
-            <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>, 
-            <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>, 
+            <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>,
+            <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>,
             <a class="citerefentry" href="glPopAttrib"><span class="citerefentry"><span class="refentrytitle">glPopAttrib</span></span></a>,
             <a class="citerefentry" href="glPushAttrib"><span class="citerefentry"><span class="refentrytitle">glPushAttrib</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>

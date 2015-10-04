@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluPwlCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPwlCurve — describe a piecewise linear NURBS trimming curve</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluPwlCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLfloat*  </td><td><var class="pdparam">data</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">stride</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluPwlCurve"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPwlCurve — describe a piecewise linear NURBS trimming curve</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluPwlCurve</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLfloat*  </td><td><var class="pdparam">data</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">stride</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
                     Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
                 </p></dd><dt><span class="term"><em class="parameter"><code>count</code></em></span></dt><dd><p>
                     Specifies the number of points on the curve.
@@ -12,23 +12,23 @@
                     Must be either <code class="constant">GLU_MAP1_TRIM_2</code> or <code class="constant">GLU_MAP1_TRIM_3</code>.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluPwlCurve</code> describes a piecewise linear trimming curve for a NURBS surface.
-            A piecewise linear curve consists of a list of 
+            A piecewise linear curve consists of a list of
             coordinates of points in the parameter space for the
             NURBS surface to be trimmed. These points are connected
             with line segments to form a curve. If the curve is
-            an approximation to a curve that is not piecewise linear, 
-            the points should be close enough in parameter space that the 
+            an approximation to a curve that is not piecewise linear,
+            the points should be close enough in parameter space that the
             resulting path appears curved at the resolution used in the application.
         </p><p>
             If <em class="parameter"><code>type</code></em> is
-            <code class="constant">GLU_MAP1_TRIM_2</code>, then it describes a curve in two-dimensional (<span class="emphasis"><em>u</em></span> 
+            <code class="constant">GLU_MAP1_TRIM_2</code>, then it describes a curve in two-dimensional (<span class="emphasis"><em>u</em></span>
             and <span class="emphasis"><em>v</em></span>) parameter space. If it is <code class="constant">GLU_MAP1_TRIM_3</code>, then it
             describes a curve in two-dimensional homogeneous (<span class="emphasis"><em>u</em></span>, <span class="emphasis"><em>v</em></span>,
-            and <span class="emphasis"><em>w</em></span>) parameter space. 
-            See the <a class="citerefentry" href="gluBeginTrim"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a> reference page for more information 
-            about trimming curves. 
+            and <span class="emphasis"><em>w</em></span>) parameter space.
+            See the <a class="citerefentry" href="gluBeginTrim"><span class="citerefentry"><span class="refentrytitle">gluBeginTrim</span></span></a> reference page for more information
+            about trimming curves.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
-            To describe a trim curve that closely follows the contours of a NURBS 
+            To describe a trim curve that closely follows the contours of a NURBS
             surface, call <a class="citerefentry" href="gluNurbsCurve"><span class="citerefentry"><span class="refentrytitle">gluNurbsCurve</span></span></a>.
         </p></div>
         {$pipelinestall}{$examples}

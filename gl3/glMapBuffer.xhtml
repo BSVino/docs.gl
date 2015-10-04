@@ -1,4 +1,4 @@
-<div class="refentry" title="glMapBuffer"><a id="glMapBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMapBuffer — map a buffer object's data store</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void * <b class="fsfunc">glMapBuffer</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">access</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" title="glMapBuffer"><a id="glMapBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMapBuffer — map a buffer object's data store</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void * <b class="fsfunc">glMapBuffer</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">access</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target buffer object being mapped.
                     The symbolic constant must be
                     <code class="constant">GL_ARRAY_BUFFER</code>,
@@ -14,7 +14,7 @@
                     Specifies the access policy, indicating whether it will be possible to read from, write to,
                     or both read from and write to the buffer object's mapped data store. The symbolic constant must be
                     <code class="constant">GL_READ_ONLY</code>, <code class="constant">GL_WRITE_ONLY</code>, or <code class="constant">GL_READ_WRITE</code>.
-                </p></dd></dl></div></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">GLboolean <b class="fsfunc">glUnmapBuffer</b>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                </p></dd></dl></div></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">GLboolean <b class="fsfunc">glUnmapBuffer</b>(</code></td><td>GLenum <var class="pdparam">target</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target buffer object being unmapped.
                     The symbolic constant must be
                     <code class="constant">GL_ARRAY_BUFFER</code>,
@@ -27,18 +27,18 @@
                     <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or
                     <code class="constant">GL_UNIFORM_BUFFER</code>.
                 </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glMapBuffer</code> maps to the client's address space the entire data store of the buffer object 
-            currently bound to <em class="parameter"><code>target</code></em>. The data can then be directly read and/or written relative to 
+            <code class="function">glMapBuffer</code> maps to the client's address space the entire data store of the buffer object
+            currently bound to <em class="parameter"><code>target</code></em>. The data can then be directly read and/or written relative to
             the returned pointer, depending on the specified <em class="parameter"><code>access</code></em> policy. If the GL is unable to
-            map the buffer object's data store, <code class="function">glMapBuffer</code> generates an error and returns 
+            map the buffer object's data store, <code class="function">glMapBuffer</code> generates an error and returns
             <code class="constant">NULL</code>. This may occur for system-specific reasons, such as low virtual memory availability.
         </p><p>
             If a mapped data store is accessed in a way inconsistent with the specified <em class="parameter"><code>access</code></em> policy,
-            no error is generated, but performance may be negatively impacted and system errors, including program 
-            termination, may result. Unlike the <em class="parameter"><code>usage</code></em> parameter of <code class="function">glBufferData</code>, 
+            no error is generated, but performance may be negatively impacted and system errors, including program
+            termination, may result. Unlike the <em class="parameter"><code>usage</code></em> parameter of <code class="function">glBufferData</code>,
             <em class="parameter"><code>access</code></em> is not a hint, and does in fact constrain the usage of the mapped data store on
-            some GL implementations. In order to achieve the highest performance available, a buffer object's data store 
-            should be used in ways consistent with both its specified <em class="parameter"><code>usage</code></em> and 
+            some GL implementations. In order to achieve the highest performance available, a buffer object's data store
+            should be used in ways consistent with both its specified <em class="parameter"><code>usage</code></em> and
             <em class="parameter"><code>access</code></em> parameters.
         </p><p>
             A mapped data store must be unmapped with <code class="function">glUnmapBuffer</code> before its buffer object is used.
@@ -49,7 +49,7 @@
             memory, such as screen mode changes. In such situations, <code class="constant">GL_FALSE</code> is returned and the
             data store contents are undefined. An application must detect this rare condition and reinitialize the data store.
         </p><p>
-            A buffer object's mapped data store is automatically unmapped when the buffer object is deleted or its data store 
+            A buffer object's mapped data store is automatically unmapped when the buffer object is deleted or its data store
             is recreated with <code class="function">glBufferData</code>.
         </p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
             If an error is generated, <code class="function">glMapBuffer</code> returns <code class="constant">NULL</code>, and
@@ -69,11 +69,11 @@
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or
             <code class="constant">GL_UNIFORM_BUFFER</code>.
         </p><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>access</code></em> is not 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>access</code></em> is not
             <code class="constant">GL_READ_ONLY</code>, <code class="constant">GL_WRITE_ONLY</code>, or <code class="constant">GL_READ_WRITE</code>.
         </p><p>
             <code class="constant">GL_OUT_OF_MEMORY</code> is generated when <code class="function">glMapBuffer</code> is executed
-            if the GL is unable to map the buffer object's data store. This may occur for a variety of system-specific 
+            if the GL is unable to map the buffer object's data store. This may occur for a variety of system-specific
             reasons, such as the absence of sufficient remaining virtual memory.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the reserved buffer object name 0 is bound to <em class="parameter"><code>target</code></em>.
@@ -95,8 +95,8 @@
             <a class="citerefentry" href="glBufferSubData"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
             <a class="citerefentry" href="glDeleteBuffers"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

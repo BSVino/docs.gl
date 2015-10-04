@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glGetVertexAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetVertexAttrib — return a generic vertex attribute parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetVertexAttribfv</strong>(</code></td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetVertexAttribiv</strong>(</code></td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the generic vertex attribute
+<div class="refentry"><a id="glGetVertexAttrib"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetVertexAttrib — return a generic vertex attribute parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetVertexAttribfv</strong>(</code></td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetVertexAttribiv</strong>(</code></td><td>GLuint <var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>index</code></em></span></dt><dd><p>Specifies the generic vertex attribute
 		    parameter to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the symbolic name of the vertex
 		    attribute parameter to be queried. Accepted values are
 		    <code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code>,
@@ -13,8 +13,8 @@
 	is specified by <em class="parameter"><code>index</code></em>, and the parameter
 	to be queried is specified by <em class="parameter"><code>pname</code></em>.</p><p>The accepted parameter names are as follows:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns a
 		    single value, the name of the buffer object currently bound to
-                    the binding point corresponding to generic vertex attribute array 
-                    <em class="parameter"><code>index</code></em>. If no buffer object is bound, 
+                    the binding point corresponding to generic vertex attribute array
+                    <em class="parameter"><code>index</code></em>. If no buffer object is bound,
                     0 is returned. The initial value is 0.</p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns a
 		    single value that is non-zero (true) if the vertex
 		    attribute array for <em class="parameter"><code>index</code></em> is
@@ -47,7 +47,7 @@
 		    otherwise. The initial value is
 		    <code class="constant">GL_FALSE</code>.</p></dd><dt><span class="term"><code class="constant">GL_CURRENT_VERTEX_ATTRIB</code></span></dt><dd><p> <em class="parameter"><code>params</code></em> returns four
 		    values that represent the current value for the
-		    generic vertex attribute specified by index.  
+		    generic vertex attribute specified by index.
 		    The initial value is (0,0,0,1).</p></dd></dl></div><p>All of the parameters except <code class="constant">GL_CURRENT_VERTEX_ATTRIB</code>
 	represent client-side state.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>If an error is generated, no change is made to the
 	contents of <em class="parameter"><code>params</code></em>.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
@@ -64,8 +64,8 @@
 	<a class="citerefentry" href="glEnableVertexAttribArray"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
 	<a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>,
 	<a class="citerefentry" href="glVertexAttribPointer"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

@@ -1,9 +1,9 @@
-<div class="refentry" title="glEnable"><a id="glEnable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glEnable — enable or disable server-side GL capabilities</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glEnable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glDisable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glEnable"><a id="glEnable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glEnable — enable or disable server-side GL capabilities</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glEnable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glDisable</b>(</code></td><td>GLenum <var class="pdparam">cap</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>cap</code></em>
                 </span></dt><dd><p>Specifies a symbolic constant indicating a GL capability.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glEnable</code> and <code class="function">glDisable</code>
-        enable and disable various capabilities. Use 
-        <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> or 
-        <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> to determine the 
+        enable and disable various capabilities. Use
+        <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> or
+        <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> to determine the
         current setting of any capability. The initial value for
         each capability with the exception of
         <code class="constant">GL_DITHER</code> and
@@ -26,8 +26,8 @@
                     operation to the computed fragment color and color buffer values. See
                     <a class="citerefentry" href="glLogicOp"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span>
-                </span></dt><dd><p>If enabled, clip geometry against user-defined clipping plane 
-                    <span class="emphasis"><em>i</em></span>. See 
+                </span></dt><dd><p>If enabled, clip geometry against user-defined clipping plane
+                    <span class="emphasis"><em>i</em></span>. See
                     <a class="citerefentry" href="glClipPlane"><span class="citerefentry"><span class="refentrytitle">glClipPlane</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_COLOR_MATERIAL</code>
                 </span></dt><dd><p>If enabled, have ambient and diffuse material
@@ -69,11 +69,11 @@
                     Otherwise, draw aliased lines. See
                     <a class="citerefentry" href="glLineWidth"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_MULTISAMPLE</code>
-                </span></dt><dd><p>If enabled, use multiple fragment samples in computing the final color 
+                </span></dt><dd><p>If enabled, use multiple fragment samples in computing the final color
                     of a pixel. See
                     <a class="citerefentry" href="glSampleCoverage"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_NORMALIZE</code>
-                </span></dt><dd><p>If enabled, normal vectors are normalized to unit length after 
+                </span></dt><dd><p>If enabled, normal vectors are normalized to unit length after
                     transformation and before lighting. This method is generally
                     less efficient than <code class="constant">GL_RESCALE_NORMAL</code>. See
                     <a class="citerefentry" href="glNormal"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a> and
@@ -104,16 +104,16 @@
                     <a class="citerefentry" href="glNormal"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a> and
                     <a class="citerefentry" href="glNormalPointer"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
-                </span></dt><dd><p>If enabled, compute a temporary coverage value where each bit is 
-                    determined by the alpha value at the corresponding sample location. The 
+                </span></dt><dd><p>If enabled, compute a temporary coverage value where each bit is
+                    determined by the alpha value at the corresponding sample location. The
                     temporary coverage value is then ANDed with the fragment coverage value.</p></dd><dt><span class="term">
                     <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
-                </span></dt><dd><p>If enabled, each sample alpha value is replaced by the maximum 
+                </span></dt><dd><p>If enabled, each sample alpha value is replaced by the maximum
                     representable alpha value.</p></dd><dt><span class="term">
                     <code class="constant">GL_SAMPLE_COVERAGE</code>
-                </span></dt><dd><p>If enabled, the fragment's coverage is ANDed with the temporary 
-                    coverage value. If <code class="constant">GL_SAMPLE_COVERAGE_INVERT</code> is set to 
-                    <code class="constant">GL_TRUE</code>, invert the coverage value. See 
+                </span></dt><dd><p>If enabled, the fragment's coverage is ANDed with the temporary
+                    coverage value. If <code class="constant">GL_SAMPLE_COVERAGE_INVERT</code> is set to
+                    <code class="constant">GL_TRUE</code>, invert the coverage value. See
                     <a class="citerefentry" href="glSampleCoverage"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>.</p></dd><dt><span class="term">
                     <code class="constant">GL_SCISSOR_TEST</code>
                 </span></dt><dd><p>If enabled, discard fragments that are outside the
@@ -134,7 +134,7 @@
                     <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
                     and
                     <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>.</p></dd></dl></div></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
-            <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span> and 
+            <code class="constant">GL_CLIP_PLANE</code><span class="emphasis"><em>i</em></span> and
             <code class="constant">GL_POINT_SPRITE_OES</code> are only supported if the GL version is
             1.1 or greater.
         </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if

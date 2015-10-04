@@ -1,16 +1,16 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluBeginPolygon"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginPolygon — delimit a polygon description</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginPolygon</b>(</code></td><td>GLUtesselator*  </td><td><var class="pdparam">tess</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluEndPolygon</b>(</code></td><td>GLUtesselator*  </td><td><var class="pdparam">tess</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>tess</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluBeginPolygon"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBeginPolygon — delimit a polygon description</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluBeginPolygon</b>(</code></td><td>GLUtesselator*  </td><td><var class="pdparam">tess</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluEndPolygon</b>(</code></td><td>GLUtesselator*  </td><td><var class="pdparam">tess</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>tess</code></em></span></dt><dd><p>
                     Specifies the tessellation object (created with <a class="citerefentry" href="gluNewTess"><span class="citerefentry"><span class="refentrytitle">gluNewTess</span></span></a>).
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluBeginPolygon</code> and <a class="citerefentry" href="gluEndPolygon"><span class="citerefentry"><span class="refentrytitle">gluEndPolygon</span></span></a> delimit the definition of a
             nonconvex polygon.
             To define such a polygon, first call <code class="function">gluBeginPolygon</code>.
             Then define the contours of the polygon
-            by calling 
+            by calling
             <a class="citerefentry" href="gluTessVertex"><span class="citerefentry"><span class="refentrytitle">gluTessVertex</span></span></a> for each vertex
             and <a class="citerefentry" href="gluNextContour"><span class="citerefentry"><span class="refentrytitle">gluNextContour</span></span></a> to start each new contour.
             Finally, call <a class="citerefentry" href="gluEndPolygon"><span class="citerefentry"><span class="refentrytitle">gluEndPolygon</span></span></a>
             to signal the end of the definition.
-            See the <a class="citerefentry" href="gluTessVertex"><span class="citerefentry"><span class="refentrytitle">gluTessVertex</span></span></a> and 
+            See the <a class="citerefentry" href="gluTessVertex"><span class="citerefentry"><span class="refentrytitle">gluTessVertex</span></span></a> and
             <a class="citerefentry" href="gluNextContour"><span class="citerefentry"><span class="refentrytitle">gluNextContour</span></span></a> reference pages for more details.
         </p><p>
             Once <a class="citerefentry" href="gluEndPolygon"><span class="citerefentry"><span class="refentrytitle">gluEndPolygon</span></span></a> is called, the polygon is tessellated, and the
@@ -18,9 +18,9 @@
             See <a class="citerefentry" href="gluTessCallback"><span class="citerefentry"><span class="refentrytitle">gluTessCallback</span></span></a> for descriptions of the callback functions.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             This command is obsolete and is provided for backward compatibility
-            only. Calls to <code class="function">gluBeginPolygon</code> are mapped to 
+            only. Calls to <code class="function">gluBeginPolygon</code> are mapped to
             <a class="citerefentry" href="gluTessBeginPolygon"><span class="citerefentry"><span class="refentrytitle">gluTessBeginPolygon</span></span></a>
-            followed by 
+            followed by
             <a class="citerefentry" href="gluTessBeginContour"><span class="citerefentry"><span class="refentrytitle">gluTessBeginContour</span></span></a>. Calls to <a class="citerefentry" href="gluEndPolygon"><span class="citerefentry"><span class="refentrytitle">gluEndPolygon</span></span></a> are mapped
             to <a class="citerefentry" href="gluTessEndContour"><span class="citerefentry"><span class="refentrytitle">gluTessEndContour</span></span></a> followed by <a class="citerefentry" href="gluTessEndPolygon"><span class="citerefentry"><span class="refentrytitle">gluTessEndPolygon</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="example"></a><h2>Example</h2><p>

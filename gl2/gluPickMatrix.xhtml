@@ -1,7 +1,7 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluPickMatrix"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPickMatrix — define a picking region</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluPickMatrix</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">delX</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">delY</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">viewport</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluPickMatrix"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPickMatrix — define a picking region</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluPickMatrix</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">delX</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">delY</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">viewport</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
                     Specify the center of a picking region in window coordinates.
                 </p></dd><dt><span class="term"><em class="parameter"><code>delX</code></em>, </span><span class="term"><em class="parameter"><code>delY</code></em></span></dt><dd><p>
-                    Specify the width and height, respectively, of the picking region in window 
+                    Specify the width and height, respectively, of the picking region in window
                     coordinates.
                 </p></dd><dt><span class="term"><em class="parameter"><code>viewport</code></em></span></dt><dd><p>
                     Specifies the current viewport (as from a <a class="citerefentry" href="glGetIntegerv"><span class="citerefentry"><span class="refentrytitle">glGetIntegerv</span></span></a> call).
@@ -26,7 +26,7 @@
             and, finally, call a command (such as <a class="citerefentry" href="gluPerspective"><span class="citerefentry"><span class="refentrytitle">gluPerspective</span></span></a>)
             to multiply the perspective matrix by the pick matrix.
         </p><p>
-            When using <code class="function">gluPickMatrix</code> to pick NURBS, be careful to turn off the NURBS 
+            When using <code class="function">gluPickMatrix</code> to pick NURBS, be careful to turn off the NURBS
             property
             <code class="constant">GLU_AUTO_LOAD_MATRIX</code>.  If <code class="constant">GLU_AUTO_LOAD_MATRIX</code> is not
             turned off, then any NURBS surface rendered is subdivided differently with
@@ -54,8 +54,8 @@ glMatrixMode(GL_MODELVIEW);
         <div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gluPerspective"><span class="citerefentry"><span class="refentrytitle">gluPerspective</span></span></a>,
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
-            <a class="citerefentry" href="glLoadIdentity"><span class="citerefentry"><span class="refentrytitle">glLoadIdentity</span></span></a>, 
-            <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>, 
+            <a class="citerefentry" href="glLoadIdentity"><span class="citerefentry"><span class="refentrytitle">glLoadIdentity</span></span></a>,
+            <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>,
             <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
