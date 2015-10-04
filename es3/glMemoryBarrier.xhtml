@@ -186,7 +186,7 @@
               <p>
                         Reads or writes via <a class="citerefentry" href="glBufferSubData"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
                         <a class="citerefentry" href="glCopyBufferSubData"><span class="citerefentry"><span class="refentrytitle">glCopyBufferSubData</span></span></a>, or
-                        to buffer object memory mapped by <a class="citerefentry" href="glMapBufferRange"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a> 
+                        to buffer object memory mapped by <a class="citerefentry" href="glMapBufferRange"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a>
                                                 after the barrier will reflect data written by shaders prior to the barrier.
                         Additionally, writes via these commands issued after the barrier will
                         wait on the completion of any shader writes to the same memory
@@ -330,7 +330,7 @@
           <ul class="itemizedlist" style="list-style-type: disc; ">
             <li class="listitem">
               <p>The region under consideration is narrowed so that only reads/writes of prior fragment shaders that
-				are invoked for a smaller region of the framebuffer will be completed/reflected prior to subsequent reads/write of 
+				are invoked for a smaller region of the framebuffer will be completed/reflected prior to subsequent reads/write of
 				following fragment shaders. The size of the region is implementation dependent and may be as small as one framebuffer
 				pixel.
 				</p>
@@ -338,24 +338,24 @@
             <li class="listitem">
               <p>The barrier only applies to memory transactions that may be read by or written by a fragment shader.
 				Therefore only the barrier bits <code class="constant">GL_ATOMIC_COUNTER_BARRIER_BIT</code>, <code class="constant">GL_FRAMEBUFFER_BARRIER_BIT</code>,
-				<code class="constant">GL_SHADER_IMAGE_ACCESS_BARRIER_BIT</code>, <code class="constant">GL_SHADER_STORAGE_BARRIER_BIT</code>, 
+				<code class="constant">GL_SHADER_IMAGE_ACCESS_BARRIER_BIT</code>, <code class="constant">GL_SHADER_STORAGE_BARRIER_BIT</code>,
 				<code class="constant">GL_TEXTURE_FETCH_BARRIER_BIT</code>, or <code class="constant">GL_UNIFORM_BARRIER_BIT</code> are supported.
 				</p>
             </li>
           </ul>
         </div>
         <p>
-				
+
 			When <em class="parameter"><code>barriers</code></em> is <code class="constant">GL_ALL_BARRIER_BITS</code>, shader memory accesses
-            will be synchronized relative to all the operations described immediately above, but not the wider list of operations described by 
+            will be synchronized relative to all the operations described immediately above, but not the wider list of operations described by
 			<code class="function">glMemoryBarrier</code>.
-			
+
 			This implies that reads/writes for scatter/gather-like algorithms may or may not be completed/reflected after a <code class="function">glMemoryBarrierByRegion</code>
 			command. However, for uses such as deferred shading, where a linked list of visible surfaces with the head at a framebuffer address may be constructed, and
 			the entirety of the list is only dependent on previous executions at that framebuffer address, <code class="function">glMemoryBarrierByRegion</code> may be significantly
 			more efficient than <code class="function">glMemoryBarrier</code>.
-			
-			
+
+
   		</p>
       </div>
       <div class="refsect1" id="errors">
@@ -379,7 +379,7 @@
             <thead>
               <tr>
                 <th style="text-align: left; border-right: 2px solid ; ">
-                 
+
             </th>
                 <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
@@ -433,8 +433,8 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2011-2014 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2011-2014 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p>
