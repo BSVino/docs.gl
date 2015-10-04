@@ -819,7 +819,12 @@ for version in major_versions:
 
           return "<a href='../" + version_dir + r"/" + command + "'>" + alias + "</a>"
 
-        code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code).replace("\t", "    ").replace("&", "&amp;")
+        code = code.replace("\t", "    ")
+        code = code.replace("&", "&amp;")
+        code = code.replace("<", "&lt;")
+        code = code.replace(">", "&gt;")
+
+        code = re.sub(r"\{%([a-zA-Z_][a-zA-Z_0-9]*?)\}", replace_alias, code)
 
         code = re.sub(r"(?<![a-zA-Z0-9_])(auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|size_t|NULL|GLbyte|GLshort|GLint|GLsizei|GLfloat|GLclampf|GLdouble|GLclampd|GLubyte|GLboolean|GLushort|GLuint|GLenum|GLbitfield|GLchar)(?![a-zA-Z0-9_])", r"<span class='ckeyword'>\1</span>", code)
         code = re.sub(r"(GL_[A-Z_0-9]*)", r"<span class='constant'>\1</span>", code)
