@@ -16,85 +16,85 @@
             <code class="constant">GLX_PBUFFER_CLOBBER_MASK</code> event occurs:
         </p><p>
             typedef struct {
-        </p><div class="informaltable"><table><colgroup><col align="left" /><col align="left" /></colgroup><tbody><tr><td align="left">
+        </p><div class="informaltable"><table><colgroup><col /><col /></colgroup><tbody><tr><td>
                             int <span class="emphasis"><em>event_type</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* GLX_DAMAGED or GLX_SAVED */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             int <span class="emphasis"><em>draw_type</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* GLX_WINDOW or GLX_PBUFFER */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             unsigned long <span class="emphasis"><em>serial</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* # of last request processed by server */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             Bool <span class="emphasis"><em>send_event</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* true if this came for SendEvent request */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             Display <span class="emphasis"><em>*display</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* display the event was read from */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             GLXDrawable <span class="emphasis"><em>drawable</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* i.d. of Drawable */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             unsigned int <span class="emphasis"><em>buffer_mask</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* mask indicating affected buffers */
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             int <span class="emphasis"><em>x, y</em></span>;
-                        </td><td align="left">
+                        </td><td>
 
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             int <span class="emphasis"><em>width, height</em></span>;
-                        </td><td align="left">
+                        </td><td>
 
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                             int <span class="emphasis"><em>count</em></span>;
-                        </td><td align="left">
+                        </td><td>
                         /* if nonzero, at least this many more */
                         </td></tr></tbody></table></div><p>
             } GLXPbufferClobberEvent;
             The valid bit masks used in <span class="emphasis"><em>buffer_mask</em></span> are:
         </p><p>
-        </p><div class="informaltable"><table><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         Bitmask
-                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        </strong></span></th><th><span class="bold"><strong>
                         Corresponding Buffer
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GLX_FRONT_LEFT_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Front left color buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_FRONT_RIGHT_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Front right color buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_BACK_LEFT_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Back left color buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_BACK_RIGHT_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Back right color buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_AUX_BUFFERS_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Auxiliary buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_DEPTH_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Depth buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_STENCIL_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Stencil buffer
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GLX_ACCUM_BUFFER_BIT</code>
-                        </td><td align="left">
+                        </td><td>
                         Accumulation buffer
                         </td></tr></tbody></table></div><p>
             A single X server operation can cause several buffer clobber events to be
