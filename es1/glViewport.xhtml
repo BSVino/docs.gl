@@ -17,51 +17,51 @@
 	<em class="replaceable"><code>x</code></em> and
 	<em class="replaceable"><code>y</code></em>
 	from normalized device coordinates to window coordinates. Let
-	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mfenced>
-	    <mml:msub><mml:mi>x</mml:mi><mml:mi>nd</mml:mi></mml:msub>
-	    <mml:msub><mml:mi>y</mml:mi><mml:mi>nd</mml:mi></mml:msub>
-	</mml:mfenced></mml:math>
+	<math overflow="scroll"><mfenced>
+	    <msub><mi>x</mi><mi>nd</mi></msub>
+	    <msub><mi>y</mi><mi>nd</mi></msub>
+	</mfenced></math>
 	be normalized device coordinates. Then the window coordinates
-	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mfenced>
-	    <mml:msub><mml:mi>x</mml:mi><mml:mi>w</mml:mi></mml:msub>
-	    <mml:msub><mml:mi>y</mml:mi><mml:mi>w</mml:mi></mml:msub>
-	</mml:mfenced></mml:math>
-	are computed as follows:</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-	    <mml:mtable><mml:mtr><mml:mtd>
-		<mml:msub><mml:mi>x</mml:mi><mml:mi>w</mml:mi></mml:msub>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>=</mml:mo>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>(</mml:mo>
-		    <mml:msub><mml:mi>x</mml:mi><mml:mi>nd</mml:mi></mml:msub>
-		    <mml:mo>+</mml:mo>
-		    <mml:mn>1</mml:mn>
-		<mml:mo>)</mml:mo>
-		<mml:mfrac>
-		    <mml:mi>width</mml:mi>
-		    <mml:mn>2</mml:mn>
-		</mml:mfrac>
-		<mml:mo>+</mml:mo>
-		<mml:mi>x</mml:mi>
-	    </mml:mtd></mml:mtr>
-	    <mml:mtr><mml:mtd>
-		<mml:msub><mml:mi>y</mml:mi><mml:mi>w</mml:mi></mml:msub>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>=</mml:mo>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>(</mml:mo>
-		    <mml:msub><mml:mi>y</mml:mi><mml:mi>nd</mml:mi></mml:msub>
-		    <mml:mo>+</mml:mo>
-		    <mml:mn>1</mml:mn>
-		<mml:mo>)</mml:mo>
-		<mml:mfrac>
-		    <mml:mi>height</mml:mi>
-		    <mml:mn>2</mml:mn>
-		</mml:mfrac>
-		<mml:mo>+</mml:mo>
-		<mml:mi>y</mml:mi>
-	    </mml:mtd></mml:mtr></mml:mtable>
-	</mml:math></div><p>Viewport width and height are silently clamped to a range
+	<math overflow="scroll"><mfenced>
+	    <msub><mi>x</mi><mi>w</mi></msub>
+	    <msub><mi>y</mi><mi>w</mi></msub>
+	</mfenced></math>
+	are computed as follows:</p><div class="informalequation"><math overflow="scroll">
+	    <mtable><mtr><mtd>
+		<msub><mi>x</mi><mi>w</mi></msub>
+		<mgroupalign></mgroupalign>
+		<mo>=</mo>
+		<mgroupalign></mgroupalign>
+		<mo>(</mo>
+		    <msub><mi>x</mi><mi>nd</mi></msub>
+		    <mo>+</mo>
+		    <mn>1</mn>
+		<mo>)</mo>
+		<mfrac>
+		    <mi>width</mi>
+		    <mn>2</mn>
+		</mfrac>
+		<mo>+</mo>
+		<mi>x</mi>
+	    </mtd></mtr>
+	    <mtr><mtd>
+		<msub><mi>y</mi><mi>w</mi></msub>
+		<mgroupalign></mgroupalign>
+		<mo>=</mo>
+		<mgroupalign></mgroupalign>
+		<mo>(</mo>
+		    <msub><mi>y</mi><mi>nd</mi></msub>
+		    <mo>+</mo>
+		    <mn>1</mn>
+		<mo>)</mo>
+		<mfrac>
+		    <mi>height</mi>
+		    <mn>2</mn>
+		</mfrac>
+		<mo>+</mo>
+		<mi>y</mi>
+	    </mtd></mtr></mtable>
+	</math></div><p>Viewport width and height are silently clamped to a range
 	that depends on the implementation. To query this range, call
 	<a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
 	with argument <code class="constant">GL_MAX_VIEWPORT_DIMS</code>.</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_VALUE</code> is generated if either

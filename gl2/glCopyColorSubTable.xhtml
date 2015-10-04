@@ -14,16 +14,16 @@
             <code class="function">glCopyColorSubTable</code> is used to respecify a contiguous portion of a color table previously
             defined using <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.  The pixels copied from the framebuffer
             replace the portion of the existing table from indices <em class="parameter"><code>start</code></em> to
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">start</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">start</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">x</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             inclusive.  This region may not include any
             entries outside the range of the color table, as was originally specified.
             It is not an error to specify a subtexture with width of 0, but such a
@@ -38,19 +38,19 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is not one of the allowable
             values.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">start</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                    </mml:mrow>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>.
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mrow>
+                        <mi mathvariant="italic">start</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">x</mi>
+                    </mrow>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glCopyColorSubTable</code> is executed
             between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> and the corresponding

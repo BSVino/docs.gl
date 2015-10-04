@@ -28,18 +28,18 @@
         The texels referenced by <em class="parameter"><code>pixels</code></em>
         replace the portion of the existing texture array with x indices
         <em class="parameter"><code>xoffset</code></em> and
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>xoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>width</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn>
-        </mml:math>,
+        <math overflow="scroll">
+            <mi>xoffset</mi><mo>+</mo><mi>width</mi><mo>-</mo><mn>1</mn>
+        </math>,
         inclusive, and y indices <em class="parameter"><code>yoffset</code></em> and
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>yoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>height</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn>
-        </mml:math>,
+        <math overflow="scroll">
+            <mi>yoffset</mi><mo>+</mo><mi>height</mi><mo>-</mo><mn>1</mn>
+        </math>,
         inclusive. This region may not include any texels outside the
         range of the texture array as it was originally specified. It
         is not an error to specify a subtexture with zero width or
         height, but such a specification has no effect.</p><p><em class="parameter"><code>format</code></em> must be the same compressed-texture format
-        previously specified by 
+        previously specified by
         <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>.</p><p>The required paletted formats do not allow subimage updates,
         but other formats defined by extensions may.</p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p><a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
         has no effect on compressed texture images.</p><p>
@@ -55,68 +55,68 @@
         </p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>level</code></em> is less than 0.</p><p><code class="constant">GL_INVALID_VALUE</code> may be generated if
         <em class="parameter"><code>level</code></em> is greater than
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msub><mml:mo>log</mml:mo><mml:mn>2</mml:mn></mml:msub><mml:mi>max</mml:mi>
-        </mml:math>, where
+        <math overflow="scroll">
+            <msub><mo>log</mo><mn>2</mn></msub><mi>max</mi>
+        </math>, where
         <em class="replaceable"><code>max</code></em> is the returned value of
         <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>&lt;</mo>
                     0
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">xoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">xoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">width</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">w</mi>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yoffset</mi>
+                    <mo>&lt;</mo>
                     0
-                </mml:mrow>
-            </mml:math>,
-            or 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">yoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">height</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">h</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+                </mrow>
+            </math>,
+            or
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">yoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">height</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">h</mi>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">w</mi></math>
             is the width and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
             is the height
             of the texture image being modified.
         </p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>width</code></em> or
         <em class="parameter"><code>height</code></em> is less than 0.</p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texture array has not
-            been defined by a previous 
+            been defined by a previous
             <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>
             operation whose <em class="parameter"><code>internalformat</code></em> matches the <em class="parameter"><code>format</code></em>
             of <code class="function">glCompressedTexSubImage2D</code>.
@@ -129,7 +129,7 @@
             <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension
             specification defining the internal compression format.
         </p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments
             <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> and
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>
         </p><p>

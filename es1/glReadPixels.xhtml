@@ -27,20 +27,20 @@
         <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
         </p><p><code class="function">glReadPixels</code>
         returns values from each pixel with lower left corner at
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced>
-                <mml:mrow><mml:mi>x</mml:mi><mml:mo>+</mml:mo><mml:mi>i</mml:mi></mml:mrow>
-                <mml:mrow><mml:mi>y</mml:mi><mml:mo>+</mml:mo><mml:mi>j</mml:mi></mml:mrow>
-            </mml:mfenced>
-        </mml:math>
+        <math overflow="scroll">
+            <mfenced>
+                <mrow><mi>x</mi><mo>+</mo><mi>i</mi></mrow>
+                <mrow><mi>y</mi><mo>+</mo><mi>j</mi></mrow>
+            </mfenced>
+        </math>
         for
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mn>0</mml:mn><mml:mo>&lt;=</mml:mo><mml:mi>i</mml:mi><mml:mo>&lt;</mml:mo><mml:mi>width</mml:mi>
-        </mml:math>
+        <math overflow="scroll">
+            <mn>0</mn><mo>&lt;=</mo><mi>i</mi><mo>&lt;</mo><mi>width</mi>
+        </math>
         and
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mn>0</mml:mn><mml:mo>&lt;=</mml:mo><mml:mi>j</mml:mi><mml:mo>&lt;</mml:mo><mml:mi>height</mml:mi>
-        </mml:math>.
+        <math overflow="scroll">
+            <mn>0</mn><mo>&lt;=</mo><mi>j</mi><mo>&lt;</mo><mi>height</mi>
+        </math>.
         This pixel is said to be the <em class="replaceable"><code>i</code></em>th pixel
         in the <em class="replaceable"><code>j</code></em>th row.
         Pixels are returned in row order from the lowest to the
@@ -62,9 +62,9 @@
         values are clamped to the range [0, 1].</p><p>Finally, the components are converted to the proper, as
         specified by <em class="parameter"><code>type</code></em> where each
         component is multiplied by
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msup><mml:mn>2</mml:mn><mml:mi>n</mml:mi></mml:msup><mml:mo>-</mml:mo><mml:mn>1</mml:mn>
-        </mml:math>,
+        <math overflow="scroll">
+            <msup><mn>2</mn><mi>n</mi></msup><mo>-</mo><mn>1</mn>
+        </math>,
         where <em class="replaceable"><code>n</code></em> is the number of bits
         per component.</p><p>Return values are placed in memory as follows. If
         <em class="parameter"><code>format</code></em> is
@@ -72,9 +72,9 @@
         a single value is returned and the data for the
         <em class="replaceable"><code>i</code></em>th pixel in the
         <em class="replaceable"><code>j</code></em>th row is placed in location
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>j</mml:mi><mml:mo>*</mml:mo><mml:mi>width</mml:mi><mml:mo>+</mml:mo><mml:mi>i</mml:mi>
-        </mml:math>.
+        <math overflow="scroll">
+            <mi>j</mi><mo>*</mo><mi>width</mi><mo>+</mo><mi>i</mi>
+        </math>.
         <code class="constant">GL_RGB</code> returns three values and
         <code class="constant">GL_RGBA</code> returns four values for each pixel, with all values
         corresponding to a single pixel occupying contiguous space in

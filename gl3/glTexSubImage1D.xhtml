@@ -53,23 +53,23 @@
             texture image.
             The texels referenced by <em class="parameter"><code>data</code></em> replace the portion of the
             existing texture array with x indices <em class="parameter"><code>xoffset</code></em> and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             inclusive.
             This region may not include any texels outside the range of the
             texture array as it was originally specified.
             It is not an error to specify a subtexture with width of 0, but
             such a specification has no effect.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
@@ -89,42 +89,42 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                <mml:mn>2</mml:mn>
-                </mml:msub>
-            </mml:math>
+            than
+            <math overflow="scroll">
+
+                <msub><mi mathvariant="italic">log</mi>
+                <mn>2</mn>
+                </msub>
+            </math>
             <span class="emphasis"><em>max</em></span>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mn>0</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            or if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">xoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>&lt;</mo>
+                    <mn>0</mn>
+                </mrow>
+            </math>,
+            or if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">xoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">width</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">w</mi>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">w</mi></math>
             is the <code class="constant">GL_TEXTURE_WIDTH</code>
             of the texture image being modified.
         </p><p>
@@ -155,11 +155,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>

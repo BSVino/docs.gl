@@ -15,49 +15,49 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
                     Specifies the format of the compressed image data stored at address <em class="parameter"><code>data</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
-                    Specifies the width of the texture image including the border if any. If the GL version does not support non-power-of-two sizes, this value must be 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                        
-                        <mml:mrow>
-                            <mml:msup><mml:mn>2</mml:mn>
-                            <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:msup>
-                            <mml:mo>+</mml:mo>
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mi mathvariant="italic">border</mml:mi>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:mrow>
-                    </mml:math>
-                    for some integer 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                    Specifies the width of the texture image including the border if any. If the GL version does not support non-power-of-two sizes, this value must be
+                    <math overflow="scroll">
+
+                        <mrow>
+                            <msup><mn>2</mn>
+                            <mi mathvariant="italic">n</mi>
+                            </msup>
+                            <mo>+</mo>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mi mathvariant="italic">border</mi>
+                                </mfenced>
+                            </mrow>
+                        </mrow>
+                    </math>
+                    for some integer
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
                     All
                     implementations support 2D texture images that are at least 64 texels
                     wide and cube-mapped texture images that are at least 16 texels wide.
                 </p></dd><dt><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
-                    Specifies the height of the texture image including the border if any. If the GL version does not support non-power-of-two sizes, this value must be 
-                    Must be 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                        
-                        <mml:mrow>
-                            <mml:msup><mml:mn>2</mml:mn>
-                            <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:msup>
-                            <mml:mo>+</mml:mo>
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mi mathvariant="italic">border</mml:mi>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:mrow>
-                    </mml:math>
-                    for some integer 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
+                    Specifies the height of the texture image including the border if any. If the GL version does not support non-power-of-two sizes, this value must be
+                    Must be
+                    <math overflow="scroll">
+
+                        <mrow>
+                            <msup><mn>2</mn>
+                            <mi mathvariant="italic">n</mi>
+                            </msup>
+                            <mo>+</mo>
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mi mathvariant="italic">border</mi>
+                                </mfenced>
+                            </mrow>
+                        </mrow>
+                    </math>
+                    for some integer
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
                     All
                     implementations support 2D texture images that are at least 64 texels
                     high and cube-mapped texture images that are at least 16 texels high.
@@ -95,7 +95,7 @@
             compressed texture image using <code class="function">glCompressedTexImage2D</code>, query the compressed texture image's
             size and format using <a class="citerefentry" href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
@@ -120,7 +120,7 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glCompressedTexImage2D</code>

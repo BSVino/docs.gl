@@ -49,22 +49,22 @@
             <code class="function">glColorSubTable</code> is used to respecify a contiguous portion of a color table previously
             defined using <a class="citerefentry" href="glColorTable"><span class="citerefentry"><span class="refentrytitle">glColorTable</span></span></a>.  The pixels referenced by <em class="parameter"><code>data</code></em> replace the
             portion of the existing table from indices <em class="parameter"><code>start</code></em> to
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">start</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">count</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">start</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">count</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             inclusive.  This region may not include any
             entries outside the range of the color table as it was originally specified.
             It is not an error to specify a subtexture with width of 0, but such a
             specification has no effect.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a portion of a color table is
             respecified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
@@ -81,29 +81,29 @@
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>type</code></em> is not one of the allowable
             values.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">start</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">count</mml:mi>
-                    </mml:mrow>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>.
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mrow>
+                        <mi mathvariant="italic">start</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">count</mi>
+                    </mrow>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glColorSubTable</code> is executed

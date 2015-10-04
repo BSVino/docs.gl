@@ -8,82 +8,82 @@
                     Specifies the index of the first display list to be generated.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glXUseXFont</code> generates <em class="parameter"><code>count</code></em> display lists,
-            named <em class="parameter"><code>listBase</code></em> through 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">listBase</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">count</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            named <em class="parameter"><code>listBase</code></em> through
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">listBase</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">count</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             each containing a single <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command.
-            The parameters of the <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command of display list 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">listBase</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>
-            are derived from glyph 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">first</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            Bitmap parameters 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">xorig</mml:mi></mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">yorig</mml:mi></mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+            The parameters of the <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command of display list
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">listBase</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>
+            are derived from glyph
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">first</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>.
+            Bitmap parameters
+            <math overflow="scroll"><mi mathvariant="italic">xorig</mi></math>,
+            <math overflow="scroll"><mi mathvariant="italic">yorig</mi></math>,
+            <math overflow="scroll"><mi mathvariant="italic">width</mi></math>,
+            and
+            <math overflow="scroll"><mi mathvariant="italic">height</mi></math>
             are computed from font metrics as
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">descent</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mo>-</mml:mo>
-                    <mml:mi mathvariant="italic">lbearing</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">rbearing</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mi mathvariant="italic">lbearing</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">ascent</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">descent</mml:mi>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">descent</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mo>-</mo>
+                    <mi mathvariant="italic">lbearing</mi>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">rbearing</mi>
+                    <mo>-</mo>
+                    <mi mathvariant="italic">lbearing</mi>
+                </mrow>
+            </math>,
+            and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">ascent</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">descent</mi>
+                </mrow>
+            </math>,
             respectively.
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">xmove</mml:mi></mml:math>
-            is taken from the glyph's 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">xmove</mi></math>
+            is taken from the glyph's
+            <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
             metric,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">ymove</mml:mi></mml:math>
+            and
+            <math overflow="scroll"><mi mathvariant="italic">ymove</mi></math>
             is set to zero.
             Finally,
             the glyph's image is converted to the appropriate format for <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>.

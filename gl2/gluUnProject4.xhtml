@@ -15,188 +15,188 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluUnProject4</code> maps the specified window coordinatesi: <em class="parameter"><code>winX</code></em>, <em class="parameter"><code>winY</code></em>, and <em class="parameter"><code>winZ</code></em>
             and its clip w coordinate <em class="parameter"><code>clipW</code></em>
-            into object 
-            coordinates 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mi mathvariant="italic">objX</mml:mi>
-                    <mml:mi mathvariant="italic">objY</mml:mi>
-                    <mml:mi mathvariant="italic">objZ</mml:mi>
-                    <mml:mi mathvariant="italic">objW</mml:mi>
-                </mml:mfenced>
-            </mml:math>
+            into object
+            coordinates
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mi mathvariant="italic">objX</mi>
+                    <mi mathvariant="italic">objY</mi>
+                    <mi mathvariant="italic">objZ</mi>
+                    <mi mathvariant="italic">objW</mi>
+                </mfenced>
+            </math>
             using <em class="parameter"><code>model</code></em>, <em class="parameter"><code>proj</code></em>, and <em class="parameter"><code>view</code></em>. <em class="parameter"><code>clipW</code></em> can be other than
-            1 as for vertices in <a class="citerefentry" href="glFeedbackBuffer"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a> when data type 
+            1 as for vertices in <a class="citerefentry" href="glFeedbackBuffer"><span class="citerefentry"><span class="refentrytitle">glFeedbackBuffer</span></span></a> when data type
             <code class="constant">GLU_4D_COLOR_TEXTURE</code> is returned.
             This also handles the case
             where the <em class="parameter"><code>nearVal</code></em> and <em class="parameter"><code>farVal</code></em> planes are different from the default,
             0 and 1, respectively.
-            A return 
+            A return
             value of <code class="constant">GLU_TRUE</code> indicates success; a return value of <code class="constant">GLU_FALSE</code>
             indicates failure.
         </p><p>
-            To compute the coordinates 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mi mathvariant="italic">objX</mml:mi>
-                    <mml:mi mathvariant="italic">objY</mml:mi>
-                    <mml:mi mathvariant="italic">objZ</mml:mi>
-                    <mml:mi mathvariant="italic">objW</mml:mi>
-                </mml:mfenced>
-            </mml:math>,
+            To compute the coordinates
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mi mathvariant="italic">objX</mi>
+                    <mi mathvariant="italic">objY</mi>
+                    <mi mathvariant="italic">objZ</mi>
+                    <mi mathvariant="italic">objW</mi>
+                </mfenced>
+            </math>,
             <code class="function">gluUnProject4</code> multiplies the normalized device coordinates by the inverse of
             <em class="parameter"><code>model</code></em> * <em class="parameter"><code>proj</code></em> as follows:
         </p><p>
-            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mtable>
-                            <mml:mtr><mml:mtd>
-                                <mml:mi mathvariant="italic">objX</mml:mi>
-                            </mml:mtd></mml:mtr>
-                            <mml:mtr><mml:mtd>
-                                <mml:mi mathvariant="italic">objY</mml:mi>
-                            </mml:mtd></mml:mtr>
-                            <mml:mtr><mml:mtd>
-                                <mml:mi mathvariant="italic">objZ</mml:mi>
-                            </mml:mtd></mml:mtr>
-                            <mml:mtr><mml:mtd>
-                                <mml:mi mathvariant="italic">objW</mml:mi>
-                            </mml:mtd></mml:mtr>
-                        </mml:mtable>
-                    </mml:mfenced>
-                    <mml:mo>=</mml:mo>
-                    <mml:mrow>
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">INV</mml:mi>
-                            <mml:mo>⁡</mml:mo>
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mi mathvariant="italic">P</mml:mi>
-                                    <mml:mo>⁢</mml:mo>
-                                    <mml:mi mathvariant="italic">M</mml:mi>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:mrow>
-                        <mml:mo>⁢</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mtable>
-                                <mml:mtr><mml:mtd>
-                                    <mml:mrow>
-                                        <mml:mfrac>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mn>2</mml:mn>
-                                                    <mml:mo>⁡</mml:mo>
-                                                    <mml:mfenced open="(" close=")">
-                                                        <mml:mrow>
-                                                            <mml:mi mathvariant="italic">winX</mml:mi>
-                                                            <mml:mo>-</mml:mo>
-                                                            <mml:mrow>
-                                                                <mml:mi mathvariant="italic">view</mml:mi>
-                                                                <mml:mo>⁡</mml:mo>
-                                                                <mml:mfenced open="[" close="]">
-                                                                    <mml:mn>0</mml:mn>
-                                                                </mml:mfenced>
-                                                            </mml:mrow>
-                                                        </mml:mrow>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">view</mml:mi>
-                                                    <mml:mo>⁡</mml:mo>
-                                                    <mml:mfenced open="[" close="]">
-                                                        <mml:mn>2</mml:mn>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                        </mml:mfrac>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mtd></mml:mtr>
-                                <mml:mtr><mml:mtd>
-                                    <mml:mrow>
-                                        <mml:mfrac>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mn>2</mml:mn>
-                                                    <mml:mo>⁡</mml:mo>
-                                                    <mml:mfenced open="(" close=")">
-                                                        <mml:mrow>
-                                                            <mml:mi mathvariant="italic">winY</mml:mi>
-                                                            <mml:mo>-</mml:mo>
-                                                            <mml:mrow>
-                                                                <mml:mi mathvariant="italic">view</mml:mi>
-                                                                <mml:mo>⁡</mml:mo>
-                                                                <mml:mfenced open="[" close="]">
-                                                                    <mml:mn>1</mml:mn>
-                                                                </mml:mfenced>
-                                                            </mml:mrow>
-                                                        </mml:mrow>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">view</mml:mi>
-                                                    <mml:mo>⁡</mml:mo>
-                                                    <mml:mfenced open="[" close="]">
-                                                        <mml:mn>3</mml:mn>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                        </mml:mfrac>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mtd></mml:mtr>
-                                <mml:mtr><mml:mtd>
-                                    <mml:mrow>
-                                        <mml:mfrac>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mn>2</mml:mn>
-                                                    <mml:mo>⁡</mml:mo>
-                                                    <mml:mfenced open="(" close=")">
-                                                        <mml:mrow>
-                                                            <mml:mi mathvariant="italic">winZ</mml:mi>
-                                                            <mml:mo>-</mml:mo>
-                                                            <mml:mi mathvariant="italic">nearVal</mml:mi>
-                                                        </mml:mrow>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mfenced open="(" close=")">
-                                                    <mml:mrow>
-                                                        <mml:mi mathvariant="italic">farVal</mml:mi>
-                                                        <mml:mo>-</mml:mo>
-                                                        <mml:mi mathvariant="italic">nearVal</mml:mi>
-                                                    </mml:mrow>
-                                                </mml:mfenced>
-                                            </mml:mfenced>
-                                        </mml:mfrac>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mtd></mml:mtr>
-                                <mml:mtr><mml:mtd>
-                                    <mml:mi mathvariant="italic">clipW</mml:mi>
-                                </mml:mtd></mml:mtr>
-                            </mml:mtable>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math></div><p>
+            </p><div class="informalequation"><math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mtable>
+                            <mtr><mtd>
+                                <mi mathvariant="italic">objX</mi>
+                            </mtd></mtr>
+                            <mtr><mtd>
+                                <mi mathvariant="italic">objY</mi>
+                            </mtd></mtr>
+                            <mtr><mtd>
+                                <mi mathvariant="italic">objZ</mi>
+                            </mtd></mtr>
+                            <mtr><mtd>
+                                <mi mathvariant="italic">objW</mi>
+                            </mtd></mtr>
+                        </mtable>
+                    </mfenced>
+                    <mo>=</mo>
+                    <mrow>
+                        <mrow>
+                            <mi mathvariant="italic">INV</mi>
+                            <mo>⁡</mo>
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mi mathvariant="italic">P</mi>
+                                    <mo>⁢</mo>
+                                    <mi mathvariant="italic">M</mi>
+                                </mrow>
+                            </mfenced>
+                        </mrow>
+                        <mo>⁢</mo>
+                        <mfenced open="(" close=")">
+                            <mtable>
+                                <mtr><mtd>
+                                    <mrow>
+                                        <mfrac>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mn>2</mn>
+                                                    <mo>⁡</mo>
+                                                    <mfenced open="(" close=")">
+                                                        <mrow>
+                                                            <mi mathvariant="italic">winX</mi>
+                                                            <mo>-</mo>
+                                                            <mrow>
+                                                                <mi mathvariant="italic">view</mi>
+                                                                <mo>⁡</mo>
+                                                                <mfenced open="[" close="]">
+                                                                    <mn>0</mn>
+                                                                </mfenced>
+                                                            </mrow>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mfenced>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mi mathvariant="italic">view</mi>
+                                                    <mo>⁡</mo>
+                                                    <mfenced open="[" close="]">
+                                                        <mn>2</mn>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mfenced>
+                                        </mfrac>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mtd></mtr>
+                                <mtr><mtd>
+                                    <mrow>
+                                        <mfrac>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mn>2</mn>
+                                                    <mo>⁡</mo>
+                                                    <mfenced open="(" close=")">
+                                                        <mrow>
+                                                            <mi mathvariant="italic">winY</mi>
+                                                            <mo>-</mo>
+                                                            <mrow>
+                                                                <mi mathvariant="italic">view</mi>
+                                                                <mo>⁡</mo>
+                                                                <mfenced open="[" close="]">
+                                                                    <mn>1</mn>
+                                                                </mfenced>
+                                                            </mrow>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mfenced>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mi mathvariant="italic">view</mi>
+                                                    <mo>⁡</mo>
+                                                    <mfenced open="[" close="]">
+                                                        <mn>3</mn>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mfenced>
+                                        </mfrac>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mtd></mtr>
+                                <mtr><mtd>
+                                    <mrow>
+                                        <mfrac>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mn>2</mn>
+                                                    <mo>⁡</mo>
+                                                    <mfenced open="(" close=")">
+                                                        <mrow>
+                                                            <mi mathvariant="italic">winZ</mi>
+                                                            <mo>-</mo>
+                                                            <mi mathvariant="italic">nearVal</mi>
+                                                        </mrow>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mfenced>
+                                            <mfenced open="" close="">
+                                                <mfenced open="(" close=")">
+                                                    <mrow>
+                                                        <mi mathvariant="italic">farVal</mi>
+                                                        <mo>-</mo>
+                                                        <mi mathvariant="italic">nearVal</mi>
+                                                    </mrow>
+                                                </mfenced>
+                                            </mfenced>
+                                        </mfrac>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mtd></mtr>
+                                <mtr><mtd>
+                                    <mi mathvariant="italic">clipW</mi>
+                                </mtd></mtr>
+                            </mtable>
+                        </mfenced>
+                    </mrow>
+                </mrow>
+            </math></div><p>
         </p><p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">INV</mml:mi></mml:math>
-            denotes matrix inversion. 
+            <math overflow="scroll"><mi mathvariant="italic">INV</mi></math>
+            denotes matrix inversion.
         </p><p>
             <code class="function">gluUnProject4</code> is equivalent to <a class="citerefentry" href="gluUnProject"><span class="citerefentry"><span class="refentrytitle">gluUnProject</span></span></a> when <em class="parameter"><code>clipW</code></em> is 1, <em class="parameter"><code>nearVal</code></em> is 0, and
             <em class="parameter"><code>farVal</code></em> is 1.

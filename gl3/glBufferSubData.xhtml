@@ -17,7 +17,7 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Specifies a pointer to the new data that will be copied into the data store.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glBufferSubData</code> redefines some or all of the data store for the buffer object currently 
+            <code class="function">glBufferSubData</code> redefines some or all of the data store for the buffer object currently
             bound to <em class="parameter"><code>target</code></em>. Data starting at byte offset <em class="parameter"><code>offset</code></em> and
             extending for <em class="parameter"><code>size</code></em> bytes is copied to the data store from the memory pointed to by
             <em class="parameter"><code>data</code></em>.  An error is thrown if <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>size</code></em>
@@ -28,19 +28,19 @@
             reallocating the data store.
         </p><p>
             Consider using multiple buffer objects to avoid stalling the rendering pipeline during data store updates.
-            If any rendering in the pipeline makes reference to data in the buffer object being updated by 
-            <code class="function">glBufferSubData</code>, especially from the specific region being updated, that rendering must 
+            If any rendering in the pipeline makes reference to data in the buffer object being updated by
+            <code class="function">glBufferSubData</code>, especially from the specific region being updated, that rendering must
             drain from the pipeline before the data store can be updated.
         </p><p>
             Clients must align data elements consistent with the requirements of the client
             platform, with an additional base-level requirement that an offset within a buffer to
-            a datum comprising <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math> bytes be a 
-            multiple of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>.
+            a datum comprising <math overflow="scroll"><mi mathvariant="italic">N</mi></math> bytes be a
+            multiple of <math overflow="scroll"><mi mathvariant="italic">N</mi></math>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
             one of the accepted buffer targets.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or 
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or
             <em class="parameter"><code>size</code></em> is negative, or if together they define a region of memory
             that extends beyond the buffer object's allocated data store.
         </p><p>
@@ -57,8 +57,8 @@
             <a href="glMapBuffer"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
             <a href="glUnmapBuffer"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

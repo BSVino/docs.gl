@@ -27,37 +27,37 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Specifies a pointer to the compressed image data in memory.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            Texturing maps a portion of a specified texture image 
+            Texturing maps a portion of a specified texture image
             onto each graphical primitive for which texturing is
             active.  Texturing is active when the current fragment shader or
-            vertex shader makes use of built-in texture lookup 
+            vertex shader makes use of built-in texture lookup
             functions.
         </p><p>
             <code class="function">glCompressedTexSubImage2D</code> redefines a contiguous subregion of an existing two-dimensional
             texture image.  The texels referenced by <em class="parameter"><code>data</code></em> replace the portion of the
-            existing texture array with x indices <em class="parameter"><code>xoffset</code></em> and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            and the y indices <em class="parameter"><code>yoffset</code></em> and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yoffset</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            inclusive.  
+            existing texture array with x indices <em class="parameter"><code>xoffset</code></em> and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            and the y indices <em class="parameter"><code>yoffset</code></em> and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yoffset</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">height</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            inclusive.
             This region may not include any texels
             outside the range of the texture array as it was originally specified.  It
             is not an error to specify a subtexture with width of 0, but such a
@@ -71,7 +71,7 @@
             specifies a two-dimensional or cube-map texture for the current texture unit,
             specified with <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is
             not <code class="constant">GL_TEXTURE_2D</code>,
             <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
             <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</code>,
@@ -80,80 +80,80 @@
             <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
             <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
         </p><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if
             <em class="parameter"><code>format</code></em> is not a supported format returned in
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁢</mml:mo>
-                    <mml:mi mathvariant="italic">max</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+            than
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁢</mo>
+                    <mi mathvariant="italic">max</mi>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">max</mi></math>
             is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code> when <em class="parameter"><code>target</code></em>
             is <code class="constant">GL_TEXTURE_2D</code> or <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code> when
             <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TEXTURE_2D</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>&lt;</mo>
                     0
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">xoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">xoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">width</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">w</mi>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yoffset</mi>
+                    <mo>&lt;</mo>
                     0
-                </mml:mrow>
-            </mml:math>,
-            or 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">yoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">height</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">h</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+                </mrow>
+            </math>,
+            or
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">yoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">height</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">h</mi>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">w</mi></math>
             is the width and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
             is the height
             of the texture image being modified.
         </p><p>
@@ -164,7 +164,7 @@
             data.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texture array has not
-            been defined by a previous 
+            been defined by a previous
             <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>
             operation whose <em class="parameter"><code>internalformat</code></em> matches the <em class="parameter"><code>format</code></em>
             of <code class="function">glCompressedTexSubImage2D</code>.
@@ -177,7 +177,7 @@
             <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension
             specification defining the internal compression format.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments
             <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> and
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>
         </p><p>

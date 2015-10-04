@@ -3,7 +3,7 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>radius</code></em></span></dt><dd><p>
                     Specifies the radius of the sphere.
                 </p></dd><dt><span class="term"><em class="parameter"><code>slices</code></em></span></dt><dd><p>
-                    Specifies the number of subdivisions around the <span class="emphasis"><em>z</em></span> axis 
+                    Specifies the number of subdivisions around the <span class="emphasis"><em>z</em></span> axis
                     (similar to lines of longitude).
                 </p></dd><dt><span class="term"><em class="parameter"><code>stacks</code></em></span></dt><dd><p>
                     Specifies the number of subdivisions along the <span class="emphasis"><em>z</em></span> axis
@@ -11,43 +11,43 @@
                     latitude).
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluSphere</code> draws a sphere of the given radius centered around the origin. The
-            sphere is subdivided around the <span class="emphasis"><em>z</em></span> axis into slices and along the 
-            <span class="emphasis"><em>z</em></span> axis 
+            sphere is subdivided around the <span class="emphasis"><em>z</em></span> axis into slices and along the
+            <span class="emphasis"><em>z</em></span> axis
             into stacks (similar to lines of longitude and latitude).
         </p><p>
-            If the orientation is set to <code class="constant">GLU_OUTSIDE</code> 
-            (with <a class="citerefentry" href="gluQuadricOrientation"><span class="citerefentry"><span class="refentrytitle">gluQuadricOrientation</span></span></a>), then any normals generated 
+            If the orientation is set to <code class="constant">GLU_OUTSIDE</code>
+            (with <a class="citerefentry" href="gluQuadricOrientation"><span class="citerefentry"><span class="refentrytitle">gluQuadricOrientation</span></span></a>), then any normals generated
             point away from the center of the sphere.
             Otherwise, they point toward the center of the sphere.
         </p><p>
-            If texturing is turned on (with <a class="citerefentry" href="gluQuadricTexture"><span class="citerefentry"><span class="refentrytitle">gluQuadricTexture</span></span></a>), then texture 
-            coordinates are 
-            generated so that <span class="emphasis"><em>t</em></span> ranges from 0.0 at 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">z</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mrow>
-                        <mml:mo>-</mml:mo>
-                        <mml:mi mathvariant="italic">radius</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>
-            to 1.0 at 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">z</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mi mathvariant="italic">radius</mml:mi>
-                </mml:mrow>
-            </mml:math>
+            If texturing is turned on (with <a class="citerefentry" href="gluQuadricTexture"><span class="citerefentry"><span class="refentrytitle">gluQuadricTexture</span></span></a>), then texture
+            coordinates are
+            generated so that <span class="emphasis"><em>t</em></span> ranges from 0.0 at
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">z</mi>
+                    <mo>=</mo>
+                    <mrow>
+                        <mo>-</mo>
+                        <mi mathvariant="italic">radius</mi>
+                    </mrow>
+                </mrow>
+            </math>
+            to 1.0 at
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">z</mi>
+                    <mo>=</mo>
+                    <mi mathvariant="italic">radius</mi>
+                </mrow>
+            </math>
             (<span class="emphasis"><em>t</em></span> increases linearly along longitudinal
             lines),
-            and <span class="emphasis"><em>s</em></span> ranges from 0.0 at the +<span class="emphasis"><em>y</em></span> axis, to 0.25 at the 
-            +<span class="emphasis"><em>x</em></span> axis, 
-            to 0.5 at the \-<span class="emphasis"><em>y</em></span> axis, to 0.75 at the \-<span class="emphasis"><em>x</em></span> axis, and back to 1.0 
+            and <span class="emphasis"><em>s</em></span> ranges from 0.0 at the +<span class="emphasis"><em>y</em></span> axis, to 0.25 at the
+            +<span class="emphasis"><em>x</em></span> axis,
+            to 0.5 at the \-<span class="emphasis"><em>y</em></span> axis, to 0.75 at the \-<span class="emphasis"><em>x</em></span> axis, and back to 1.0
             at the +<span class="emphasis"><em>y</em></span> axis.
         </p></div>
         {$pipelinestall}{$examples}

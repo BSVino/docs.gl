@@ -10,42 +10,42 @@
                     Specifies the number of concentric rings about the origin into which
                     the disk is subdivided.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gluDisk</code> renders a disk on the <span class="emphasis"><em>z</em></span> = 0 plane. The disk has a radius of 
-            <em class="parameter"><code>outer</code></em> and contains a concentric circular hole with a radius 
+            <code class="function">gluDisk</code> renders a disk on the <span class="emphasis"><em>z</em></span> = 0 plane. The disk has a radius of
+            <em class="parameter"><code>outer</code></em> and contains a concentric circular hole with a radius
             of <em class="parameter"><code>inner</code></em>. If <em class="parameter"><code>inner</code></em> is 0, then no hole is generated. The disk is
             subdivided around the <span class="emphasis"><em>z</em></span> axis into slices (like pizza slices) and also
-            about the <span class="emphasis"><em>z</em></span> axis into rings 
+            about the <span class="emphasis"><em>z</em></span> axis into rings
             (as specified by <em class="parameter"><code>slices</code></em> and <em class="parameter"><code>loops</code></em>, respectively).
         </p><p>
-            With respect to orientation, the +<span class="emphasis"><em>z</em></span> side of the disk is considered to be 
+            With respect to orientation, the +<span class="emphasis"><em>z</em></span> side of the disk is considered to be
             ``outside'' (see <a class="citerefentry" href="gluQuadricOrientation"><span class="citerefentry"><span class="refentrytitle">gluQuadricOrientation</span></span></a>).
             This means that if the
-            orientation is set to <code class="constant">GLU_OUTSIDE</code>, then any normals generated 
-            point along the +<span class="emphasis"><em>z</em></span> axis. Otherwise, they point along the \-<span class="emphasis"><em>z</em></span> 
+            orientation is set to <code class="constant">GLU_OUTSIDE</code>, then any normals generated
+            point along the +<span class="emphasis"><em>z</em></span> axis. Otherwise, they point along the \-<span class="emphasis"><em>z</em></span>
             axis.
         </p><p>
-            If texturing has been turned on (with <a class="citerefentry" href="gluQuadricTexture"><span class="citerefentry"><span class="refentrytitle">gluQuadricTexture</span></span></a>), 
+            If texturing has been turned on (with <a class="citerefentry" href="gluQuadricTexture"><span class="citerefentry"><span class="refentrytitle">gluQuadricTexture</span></span></a>),
             texture coordinates are generated
-            linearly such that where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">r</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mi mathvariant="italic">outer</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            the value at (<span class="emphasis"><em>r</em></span>, 0, 0) is 
-            (1, 0.5), at (0, <span class="emphasis"><em>r</em></span>, 0) it is (0.5, 1), at (\-<span class="emphasis"><em>r</em></span>, 0, 0) 
-            it is (0, 0.5), and 
+            linearly such that where
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">r</mi>
+                    <mo>=</mo>
+                    <mi mathvariant="italic">outer</mi>
+                </mrow>
+            </math>,
+            the value at (<span class="emphasis"><em>r</em></span>, 0, 0) is
+            (1, 0.5), at (0, <span class="emphasis"><em>r</em></span>, 0) it is (0.5, 1), at (\-<span class="emphasis"><em>r</em></span>, 0, 0)
+            it is (0, 0.5), and
             at (0, \-<span class="emphasis"><em>r</em></span>, 0) it is (0.5, 0).
         </p></div>
         {$pipelinestall}{$examples}
         <div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gluCylinder"><span class="citerefentry"><span class="refentrytitle">gluCylinder</span></span></a>,
             <a class="citerefentry" href="gluNewQuadric"><span class="citerefentry"><span class="refentrytitle">gluNewQuadric</span></span></a>,
-            <a class="citerefentry" href="gluPartialDisk"><span class="citerefentry"><span class="refentrytitle">gluPartialDisk</span></span></a>, 
-            <a class="citerefentry" href="gluQuadricOrientation"><span class="citerefentry"><span class="refentrytitle">gluQuadricOrientation</span></span></a>, 
+            <a class="citerefentry" href="gluPartialDisk"><span class="citerefentry"><span class="refentrytitle">gluPartialDisk</span></span></a>,
+            <a class="citerefentry" href="gluQuadricOrientation"><span class="citerefentry"><span class="refentrytitle">gluQuadricOrientation</span></span></a>,
             <a class="citerefentry" href="gluQuadricTexture"><span class="citerefentry"><span class="refentrytitle">gluQuadricTexture</span></span></a>,
             <a class="citerefentry" href="gluSphere"><span class="citerefentry"><span class="refentrytitle">gluSphere</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>

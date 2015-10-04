@@ -58,53 +58,53 @@
             This reference page describes the effects on <code class="function">glReadPixels</code> of most,
             but not all of the parameters specified by these three commands.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
             requested, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store
             rather than a pointer to client memory.
         </p><p>
             <code class="function">glReadPixels</code> returns values from each pixel with lower left corner at
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">i</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
-            for 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <mi mathvariant="italic">x</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">i</mi>
+                    </mrow>
+                    <mrow>
+                        <mi mathvariant="italic">y</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">j</mi>
+                    </mrow>
+                </mfenced>
+            </math>
+            for
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">i</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>
             and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">j</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            This pixel is said to be the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">j</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">height</mi>
+                </mrow>
+            </math>.
+            This pixel is said to be the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row.
             Pixels are returned in row order from the lowest to the highest row,
             left to right in each row.
@@ -118,14 +118,14 @@
                         Depth values are read from the depth buffer.
                         Each component is converted to floating point such that the minimum depth
                         value maps to 0 and the maximum value maps to 1.
-                        Each component is clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        Each component is clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_STENCIL</code></span></dt><dd><p>
                         Values are taken from both the depth and stencil buffers. The <em class="parameter"><code>type</code></em> parameter
                         must be <code class="constant">GL_UNSIGNED_INT_24_8</code> or <code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code>.
@@ -161,606 +161,606 @@
                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_BYTE</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>8</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>8</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>8</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>8</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_BYTE</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>7</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>7</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>8</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>8</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>16</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>16</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>16</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>16</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_SHORT</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>15</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>15</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>16</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>16</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>32</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>32</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>32</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>32</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_INT</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>31</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>31</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>32</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>32</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_HALF_FLOAT</code>
                         </td><td align="center">
                         none
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_FLOAT</code>
                         </td><td align="center">
                         none
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_BYTE_2_3_3_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_6_5_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_1_5_5_5_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_8_8_8_8</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_8_8_8_8_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_10_10_10_2</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_24_8</code>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>N</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>N</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>N</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>N</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>
                         </td><td align="center">
@@ -778,7 +778,7 @@
                         </td><td align="center">
                         none
                         </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math> (Depth Only)
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math> (Depth Only)
                         </td></tr></tbody></table></div><p>
             Return values are placed in memory as follows.
             If <em class="parameter"><code>format</code></em> is
@@ -787,24 +787,24 @@
             <code class="constant">GL_RED</code>,
             <code class="constant">GL_GREEN</code>, or
             <code class="constant">GL_BLUE</code>,
-            a single value is returned and the data for the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            a single value is returned and the data for the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row
-            is placed in location 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mfenced>
-                    <mml:mo>⁢</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>.
+            is placed in location
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">j</mi>
+                    </mfenced>
+                    <mo>⁢</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>.
             <code class="constant">GL_RGB</code> and <code class="constant">GL_BGR</code> return three values,
             <code class="constant">GL_RGBA</code> and <code class="constant">GL_BGRA</code> return four values for each pixel,
             with all values corresponding to a single pixel occupying contiguous space
@@ -859,11 +859,11 @@
             <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer
             object such that the memory writes required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="constant">GL_READ_FRAMEBUFFER_BINDING</code>

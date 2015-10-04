@@ -23,15 +23,15 @@
                     <code class="constant">GL_TEXTURE_WRAP_S</code>, or
                     <code class="constant">GL_TEXTURE_WRAP_T</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
-                    Specifies a pointer to an array where the value of 
+                    Specifies a pointer to an array where the value of
                     <em class="parameter"><code>pname</code></em> is stored.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             Texture mapping is a technique that applies an image onto an object's surface
             as if the image were a decal or cellophane shrink-wrap.
             The image is created in texture space,
-            with an 
-            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>)
+            with an
+            (<math overflow="scroll"><mi mathvariant="italic">s</mi></math>,
+            <math overflow="scroll"><mi mathvariant="italic">t</mi></math>)
             coordinate system.
             A texture is a two-dimensional or cube-mapped image and a set of parameters
             that determine how samples are derived from the image.
@@ -51,154 +51,154 @@
                     </p><p>
                         A mipmap is an ordered set of arrays representing the same image
                         at progressively lower resolutions.
-                        If the texture has dimensions 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">w</mml:mi>
-                                <mml:mo>×</mml:mo>
-                                <mml:mi mathvariant="italic">h</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
+                        If the texture has dimensions
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">w</mi>
+                                <mo>×</mo>
+                                <mi mathvariant="italic">h</mi>
+                            </mrow>
+                        </math>,
                         there are
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mrow>
-                                    <mml:mi mathvariant="italic">floor</mml:mi>
-                                    <mml:mo>⁡</mml:mo>
-                                    <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                                        <mml:mn>2</mml:mn>
-                                        </mml:msub>
-                                        <mml:mo>⁡</mml:mo>
-                                        <mml:mfenced open="(" close=")">
-                                        <mml:mrow>
-                                            <mml:mi mathvariant="italic">max</mml:mi>
-                                            <mml:mo>⁡</mml:mo>
-                                            <mml:mfenced open="(" close=")">
-                                                <mml:mi mathvariant="italic">w</mml:mi>
-                                                <mml:mi mathvariant="italic">h</mml:mi>
-                                            </mml:mfenced>
-                                        </mml:mrow>
-                                        </mml:mfenced>
-                                    </mml:mrow>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mrow>
+                                    <mi mathvariant="italic">floor</mi>
+                                    <mo>⁡</mo>
+                                    <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msub><mi mathvariant="italic">log</mi>
+                                        <mn>2</mn>
+                                        </msub>
+                                        <mo>⁡</mo>
+                                        <mfenced open="(" close=")">
+                                        <mrow>
+                                            <mi mathvariant="italic">max</mi>
+                                            <mo>⁡</mo>
+                                            <mfenced open="(" close=")">
+                                                <mi mathvariant="italic">w</mi>
+                                                <mi mathvariant="italic">h</mi>
+                                            </mfenced>
+                                        </mrow>
+                                        </mfenced>
+                                    </mrow>
+                                    </mfenced>
+                                </mrow>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         mipmap levels.
                         The first mipmap level is the original texture,
-                        with dimensions 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">w</mml:mi>
-                                <mml:mo>×</mml:mo>
-                                <mml:mi mathvariant="italic">h</mml:mi>
-                            </mml:mrow>
-                        </mml:math>.
-                        Each subsequent mipmap level has dimensions 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">max</mml:mi>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mn>1</mml:mn>
-                                    <mml:mrow>
-                                        <mml:mi mathvariant="italic">floor</mml:mi>
-                                        <mml:mo>⁡</mml:mo>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mfrac>
-                                                <mml:mi mathvariant="italic">w</mml:mi>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                                </mml:msup>
-                                            </mml:mfrac>
-                                        </mml:mfenced>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>×</mml:mo>
-                                <mml:mi mathvariant="italic">max</mml:mi>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mn>1</mml:mn>
-                                    <mml:mrow>
-                                        <mml:mi mathvariant="italic">floor</mml:mi>
-                                        <mml:mo>⁡</mml:mo>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mfrac>
-                                                <mml:mi mathvariant="italic">h</mml:mi>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                                </mml:msup>
-                                            </mml:mfrac>
-                                        </mml:mfenced>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mi mathvariant="italic">i</mml:mi>
-                        </mml:math>
+                        with dimensions
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">w</mi>
+                                <mo>×</mo>
+                                <mi mathvariant="italic">h</mi>
+                            </mrow>
+                        </math>.
+                        Each subsequent mipmap level has dimensions
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">max</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mn>1</mn>
+                                    <mrow>
+                                        <mi mathvariant="italic">floor</mi>
+                                        <mo>⁡</mo>
+                                        <mfenced open="(" close=")">
+                                            <mfrac>
+                                                <mi mathvariant="italic">w</mi>
+                                                <msup><mn>2</mn>
+                                                    <mi mathvariant="italic">i</mi>
+                                                </msup>
+                                            </mfrac>
+                                        </mfenced>
+                                    </mrow>
+                                </mfenced>
+                                <mo>×</mo>
+                                <mi mathvariant="italic">max</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mn>1</mn>
+                                    <mrow>
+                                        <mi mathvariant="italic">floor</mi>
+                                        <mo>⁡</mo>
+                                        <mfenced open="(" close=")">
+                                            <mfrac>
+                                                <mi mathvariant="italic">h</mi>
+                                                <msup><mn>2</mn>
+                                                    <mi mathvariant="italic">i</mi>
+                                                </msup>
+                                            </mfrac>
+                                        </mfenced>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+
+                            <mi mathvariant="italic">i</mi>
+                        </math>
                         is the mipmap level,
                         until the final mipmap is reached,
-                        which has dimension 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>1</mml:mn>
-                                <mml:mo>×</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>.
+                        which has dimension
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>.
                     </p><p>
-                        To define the mipmap levels, call <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
-                        <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>, 
+                        To define the mipmap levels, call <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                        <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
                         or <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>
                         with the <span class="emphasis"><em>level</em></span> argument indicating the order of the mipmaps.
                         Level 0 is the original texture;
-                        level 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">floor</mml:mi>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                                    <mml:mn>2</mml:mn>
-                                    </mml:msub>
-                                    <mml:mo>⁡</mml:mo>
-                                    <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:mi mathvariant="italic">max</mml:mi>
-                                        <mml:mo>⁡</mml:mo>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mi mathvariant="italic">w</mml:mi>
-                                            <mml:mi mathvariant="italic">h</mml:mi>
-                                        </mml:mfenced>
-                                    </mml:mrow>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math>
-                        is the final 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>1</mml:mn>
-                                <mml:mo>×</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        level
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">floor</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                <mrow>
+                                    <msub><mi mathvariant="italic">log</mi>
+                                    <mn>2</mn>
+                                    </msub>
+                                    <mo>⁡</mo>
+                                    <mfenced open="(" close=")">
+                                    <mrow>
+                                        <mi mathvariant="italic">max</mi>
+                                        <mo>⁡</mo>
+                                        <mfenced open="(" close=")">
+                                            <mi mathvariant="italic">w</mi>
+                                            <mi mathvariant="italic">h</mi>
+                                        </mfenced>
+                                    </mrow>
+                                    </mfenced>
+                                </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math>
+                        is the final
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         mipmap.
                     </p><p>
                         <em class="parameter"><code>params</code></em> supplies a function for minifying the texture as one of the
@@ -266,91 +266,91 @@
                         </p><p>
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        Sets the wrap parameter for texture coordinate
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
-                        <code class="constant">GL_REPEAT</code>.  <code class="constant">GL_CLAMP_TO_EDGE</code> causes 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <code class="constant">GL_REPEAT</code>.  <code class="constant">GL_CLAMP_TO_EDGE</code> causes
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         coordinates to be clamped to the
-                        range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfrac>
-                                            <mml:mn>1</mml:mn>
-                                            <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
-                                        </mml:mfrac>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mrow>
-                                    <mml:mn>1</mml:mn>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:mfenced open="" close="">
-                                        <mml:mrow>
-                                            <mml:mfrac>
-                                                <mml:mn>1</mml:mn>
-                                                <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
-                                            </mml:mfrac>
-                                        </mml:mrow>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfrac>
+                                            <mn>1</mn>
+                                            <mn>2<mi mathvariant="italic">N</mi></mn>
+                                        </mfrac>
+                                    </mrow>
+                                </mfenced>
+                                <mrow>
+                                    <mn>1</mn>
+                                    <mo>-</mo>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mfrac>
+                                                <mn>1</mn>
+                                                <mn>2<mi mathvariant="italic">N</mi></mn>
+                                            </mfrac>
+                                        </mrow>
+                                    </mfenced>
+                                </mrow>
+                            </mfenced>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
                         is the size
                         of the texture in the direction of clamping.  <code class="constant">GL_REPEAT</code> causes the
-                        integer part of the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        integer part of the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         coordinate to be ignored; the GL uses only the
                         fractional part, thereby creating a repeating pattern.
-                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         coordinate to be set to the
-                        fractional part of the texture coordinate if the integer part of 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        fractional part of the texture coordinate if the integer part of
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         is
-                        even; if the integer part of 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
-                        is odd, then the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        even; if the integer part of
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
+                        is odd, then the
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         texture coordinate is
-                        set to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>1</mml:mn>
-                                <mml:mo>-</mml:mo>
-                                <mml:mrow>
-                                    <mml:mi mathvariant="italic">frac</mml:mi>
-                                    <mml:mo>⁡</mml:mo>
-                                    <mml:mfenced open="(" close=")">
-                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">frac</mml:mi>
-                                <mml:mo>⁡</mml:mo>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math>
+                        set to
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>1</mn>
+                                <mo>-</mo>
+                                <mrow>
+                                    <mi mathvariant="italic">frac</mi>
+                                    <mo>⁡</mo>
+                                    <mfenced open="(" close=")">
+                                        <mi mathvariant="italic">s</mi>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">frac</mi>
+                                <mo>⁡</mo>
+                                <mfenced open="(" close=")">
+                                    <mi mathvariant="italic">s</mi>
+                                </mfenced>
+                            </mrow>
+                        </math>
                         represents the fractional part of
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>.
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>.
                         Initially,
                         <code class="constant">GL_TEXTURE_WRAP_S</code> is set to <code class="constant">GL_REPEAT</code>.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>
+                        Sets the wrap parameter for texture coordinate
+                        <math overflow="scroll"><mi mathvariant="italic">t</mi></math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
                         <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
                         Initially, <code class="constant">GL_TEXTURE_WRAP_T</code> is set to <code class="constant">GL_REPEAT</code>.
@@ -363,10 +363,10 @@
             or <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>) do not
             follow the proper sequence for mipmaps (described above), or there are
             fewer texture images defined than are needed, or the set of texture images
-            were defined with different formats or types, then the texture image unit will return 
+            were defined with different formats or types, then the texture image unit will return
             (R, G, B, A) = (0, 0, 0, 1).
         </p><p>
-            Similarly, if the width or height of a texture image are not powers of two and either the 
+            Similarly, if the width or height of a texture image are not powers of two and either the
             <code class="constant">GL_TEXTURE_MIN_FILTER</code> is set to one of the functions that requires mipmaps
             or the <code class="constant">GL_TEXTURE_WRAP_S</code> or <code class="constant">GL_TEXTURE_WRAP_T</code> is not
             set to <code class="constant">GL_CLAMP_TO_EDGE</code>, then the texture image unit will return
@@ -379,8 +379,8 @@
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>pname</code></em> is not
             one of the accepted defined values.
         </p><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>params</code></em> 
-            should have a defined symbolic 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>params</code></em>
+            should have a defined symbolic
             constant value (based on the value of <em class="parameter"><code>pname</code></em>) and does not.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGetTexParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>

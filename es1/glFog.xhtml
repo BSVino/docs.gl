@@ -73,9 +73,9 @@
                 </span></dt><dd><p>
                     <em class="parameter"><code>params</code></em>
                     contains four fixed-point or floating-point values that specify
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                        <mml:msub><mml:mi>C</mml:mi><mml:mi>f</mml:mi></mml:msub>
-                    </mml:math>,
+                    <math overflow="scroll">
+                        <msub><mi>C</mi><mi>f</mi></msub>
+                    </math>,
                     the fog color. Both fixed-point and floating-point
                     values are mapped directly. After conversion, all color
                     components are clamped to the range [0, 1]. The initial
@@ -86,47 +86,47 @@
         Let <em class="replaceable"><code>z</code></em>
         be the distance in eye coordinates from the origin to the
         fragment being fogged. The equation for <code class="constant">GL_LINEAR</code>
-        fog is</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>f</mml:mi><mml:mo>=</mml:mo>
-            <mml:mfrac>
-                <mml:mrow><mml:mi>end</mml:mi><mml:mo>-</mml:mo><mml:mi>z</mml:mi></mml:mrow>
-                <mml:mrow><mml:mi>end</mml:mi><mml:mo>-</mml:mo><mml:mi>start</mml:mi></mml:mrow>
-            </mml:mfrac>
-        </mml:math></div><p>The equation for <code class="constant">GL_EXP</code> fog is</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>f</mml:mi><mml:mo>=</mml:mo>
-            <mml:msup>
-                <mml:mi>e</mml:mi>
-                <mml:mrow><mml:mo>-</mml:mo><mml:mo>(</mml:mo><mml:mi>density</mml:mi><mml:mo>-</mml:mo><mml:mi>z</mml:mi><mml:mo>)</mml:mo></mml:mrow>
-            </mml:msup>
-        </mml:math></div><p>The equation for <code class="constant">GL_EXP2</code> fog is</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>f</mml:mi><mml:mo>=</mml:mo>
-            <mml:msup>
-                <mml:mi>e</mml:mi>
-                <mml:msup>
-                    <mml:mrow><mml:mo>-</mml:mo><mml:mo>(</mml:mo><mml:mi>density</mml:mi><mml:mo>-</mml:mo><mml:mi>z</mml:mi><mml:mo>)</mml:mo></mml:mrow>
-                    <mml:mn>2</mml:mn>
-                </mml:msup>
-            </mml:msup>
-        </mml:math></div><p>Regardless of the fog mode, <em class="replaceable"><code>f</code></em>
+        fog is</p><div class="informalequation"><math overflow="scroll">
+            <mi>f</mi><mo>=</mo>
+            <mfrac>
+                <mrow><mi>end</mi><mo>-</mo><mi>z</mi></mrow>
+                <mrow><mi>end</mi><mo>-</mo><mi>start</mi></mrow>
+            </mfrac>
+        </math></div><p>The equation for <code class="constant">GL_EXP</code> fog is</p><div class="informalequation"><math overflow="scroll">
+            <mi>f</mi><mo>=</mo>
+            <msup>
+                <mi>e</mi>
+                <mrow><mo>-</mo><mo>(</mo><mi>density</mi><mo>-</mo><mi>z</mi><mo>)</mo></mrow>
+            </msup>
+        </math></div><p>The equation for <code class="constant">GL_EXP2</code> fog is</p><div class="informalequation"><math overflow="scroll">
+            <mi>f</mi><mo>=</mo>
+            <msup>
+                <mi>e</mi>
+                <msup>
+                    <mrow><mo>-</mo><mo>(</mo><mi>density</mi><mo>-</mo><mi>z</mi><mo>)</mo></mrow>
+                    <mn>2</mn>
+                </msup>
+            </msup>
+        </math></div><p>Regardless of the fog mode, <em class="replaceable"><code>f</code></em>
         is clamped to the range [0, 1] after it is computed. Then,
         the fragment's red, green, and blue colors, represented by
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msub><mml:mi>C</mml:mi><mml:mi>r</mml:mi></mml:msub>
-        </mml:math>,
-        are replaced by</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msub><mml:mi>C'</mml:mi><mml:mi>r</mml:mi></mml:msub><mml:mo>=</mml:mo>
-            <mml:mi>f</mml:mi>
-            <mml:msub>
-                <mml:mi>C</mml:mi>
-                <mml:mi>r</mml:mi>
-            </mml:msub>
-            <mml:mo>+</mml:mo>
-            <mml:mfenced><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mi>f</mml:mi></mml:mrow></mml:mfenced>
-            <mml:msub>
-                <mml:mi>C</mml:mi>
-                <mml:mi>f</mml:mi>
-            </mml:msub>
-        </mml:math></div><p>Fog does not affect a fragment's alpha component.</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+        <math overflow="scroll">
+            <msub><mi>C</mi><mi>r</mi></msub>
+        </math>,
+        are replaced by</p><div class="informalequation"><math overflow="scroll">
+            <msub><mi>C'</mi><mi>r</mi></msub><mo>=</mo>
+            <mi>f</mi>
+            <msub>
+                <mi>C</mi>
+                <mi>r</mi>
+            </msub>
+            <mo>+</mo>
+            <mfenced><mrow><mn>1</mn><mo>-</mo><mi>f</mi></mrow></mfenced>
+            <msub>
+                <mi>C</mi>
+                <mi>f</mi>
+            </msub>
+        </math></div><p>Fog does not affect a fragment's alpha component.</p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p><code class="constant">GL_INVALID_ENUM</code> is generated if
         <em class="parameter"><code>pname</code></em> is not an accepted value, or if
         <em class="parameter"><code>pname</code></em> is
         <code class="constant">GL_FOG_MODE</code> and

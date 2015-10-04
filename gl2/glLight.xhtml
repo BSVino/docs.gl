@@ -3,7 +3,7 @@
                     The number of lights depends on the implementation,
                     but at least eight lights are supported.
                     They are identified by symbolic names of the form <code class="constant">GL_LIGHT</code>
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>,
+                    <math overflow="scroll"><mi mathvariant="italic">i</mi></math>,
                     where i ranges from 0 to the value of <code class="constant">GL_MAX_LIGHTS</code> - 1.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies a single-valued light source parameter for <em class="parameter"><code>light</code></em>.
@@ -20,7 +20,7 @@
                     The number of lights depends on the implementation, but
                     at least eight lights are supported.
                     They are identified by symbolic names of the form <code class="constant">GL_LIGHT</code>
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>,
+                    <math overflow="scroll"><mi mathvariant="italic">i</mi></math>,
                     where i ranges from 0 to the value of <code class="constant">GL_MAX_LIGHTS</code> - 1.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies a light source parameter for <em class="parameter"><code>light</code></em>.
@@ -40,7 +40,7 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glLight</code> sets the values of individual light source parameters.
             <em class="parameter"><code>light</code></em> names the light and is a symbolic name of the form <code class="constant">GL_LIGHT</code>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>,
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>,
             where i ranges from 0 to the value of <code class="constant">GL_MAX_LIGHTS</code> - 1.
             <em class="parameter"><code>pname</code></em> specifies one of ten light source parameters,
             again by symbolic name.
@@ -52,11 +52,11 @@
             initially disabled.
             When it is enabled,
             light sources that are enabled contribute to the lighting calculation.
-            Light source 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            Light source
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
             is enabled and disabled using <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and
             <a class="citerefentry" href="glDisable"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument <code class="constant">GL_LIGHT</code>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>.
         </p><p>
             The ten light parameters are as follows:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_AMBIENT</code></span></dt><dd><p>
@@ -64,11 +64,11 @@
                         the ambient RGBA intensity of the light.
                         Integer values are mapped linearly such that the most positive representable
                         value maps to 1.0,
-                        and the most negative representable value maps to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>.
+                        and the most negative representable value maps to
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>.
                         Floating-point values are mapped directly.
                         Neither integer nor floating-point values are clamped.
                         The initial ambient light intensity is (0, 0, 0, 1).
@@ -77,11 +77,11 @@
                         the diffuse RGBA intensity of the light.
                         Integer values are mapped linearly such that the most positive representable
                         value maps to 1.0,
-                        and the most negative representable value maps to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>.
+                        and the most negative representable value maps to
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>.
                         Floating-point values are mapped directly.
                         Neither integer nor floating-point values are clamped.
                         The initial value
@@ -92,11 +92,11 @@
                         the specular RGBA intensity of the light.
                         Integer values are mapped linearly such that the most positive representable
                         value maps to 1.0,
-                        and the most negative representable value maps to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>.
+                        and the most negative representable value maps to
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>.
                         Floating-point values are mapped directly.
                         Neither integer nor floating-point values are clamped.
                         The initial value
@@ -111,8 +111,8 @@
                         The position is transformed by the modelview matrix when
                         <code class="function">glLight</code> is called (just as if it were a point),
                         and it is stored in eye coordinates.
-                        If the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
+                        If the
+                        <math overflow="scroll"><mi mathvariant="italic">w</mi></math>
                         component of the position is 0,
                         the light is treated as a directional source.
                         Diffuse and specular lighting calculations take the light's direction,
@@ -125,14 +125,14 @@
                         and attenuation is enabled.
                         The initial position is (0, 0, 1, 0);
                         thus, the initial light source is directional,
-                        parallel to, and in the direction of the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mo>-</mml:mo>
-                                <mml:mi mathvariant="italic">z</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        parallel to, and in the direction of the
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mo>-</mo>
+                                <mi mathvariant="italic">z</mi>
+                            </mrow>
+                        </math>
                         axis.
                     </p></dd><dt><span class="term"><code class="constant">GL_SPOT_DIRECTION</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> contains three integer or floating-point values that specify
@@ -145,27 +145,27 @@
                         and it is stored in eye coordinates.
                         It is significant only when <code class="constant">GL_SPOT_CUTOFF</code> is not 180,
                         which it is initially.
-                        The initial direction is 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>-1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        The initial direction is
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mn>0</mn>
+                                <mn>0</mn>
+                                <mn>-1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><code class="constant">GL_SPOT_EXPONENT</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> is a single integer or floating-point value that specifies
                         the intensity distribution of the light.
                         Integer and floating-point values are mapped directly.
-                        Only values in the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>128</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
+                        Only values in the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>128</mn>
+                            </mfenced>
+                        </math>
                         are accepted.
                     </p><p>
                         Effective light intensity is attenuated by the cosine of the angle between
@@ -180,14 +180,14 @@
                         <em class="parameter"><code>params</code></em> is a single integer or floating-point value that specifies
                         the maximum spread angle of a light source.
                         Integer and floating-point values are mapped directly.
-                        Only values in the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>90</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
+                        Only values in the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>90</mn>
+                            </mfenced>
+                        </math>
                         and the special value 180
                         are accepted.
                         If the angle between the direction of the light and the direction from the
@@ -212,30 +212,30 @@
                         resulting in no attenuation.
                     </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             It is always the case that <code class="constant">GL_LIGHT</code>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-            = <code class="constant">GL_LIGHT0</code> + 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+            = <code class="constant">GL_LIGHT0</code> +
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>light</code></em> or <em class="parameter"><code>pname</code></em>
             is not an accepted value.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if a spot exponent value is specified
-            outside the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>128</mml:mn>
-                </mml:mfenced>
-            </mml:math>,
-            or if spot cutoff is specified outside the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>90</mml:mn>
-                </mml:mfenced>
-            </mml:math>
+            outside the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>128</mn>
+                </mfenced>
+            </math>,
+            or if spot cutoff is specified outside the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>90</mn>
+                </mfenced>
+            </math>
             (except for the
             special value 180),
             or if a negative attenuation factor is specified.

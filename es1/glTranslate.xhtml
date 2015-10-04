@@ -5,46 +5,46 @@
 		</span></dt><dd><p>Specify the
 		    <em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>, and
 		    <em class="parameter"><code>z</code></em> coordinates of a translation vector.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glTranslate</code> produces a translation by
-	<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-	    <mml:mfenced><mml:mi>x</mml:mi><mml:mi>y</mml:mi><mml:mi>z</mml:mi></mml:mfenced>
-	</mml:math>.
+	<math overflow="scroll">
+	    <mfenced><mi>x</mi><mi>y</mi><mi>z</mi></mfenced>
+	</math>.
 	The current matrix (see
 	<a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>)
 	is multiplied by this translation matrix, with the product
 	replacing the current matrix, as if
 	<a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>
-	were called with the following matrix for its argument:</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-	    <mml:mrow>
-		<mml:mo>(</mml:mo>
-		<mml:mtable class="matrix">
-		    <mml:mtr>
-			<mml:mtd><mml:mn>1</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mi>x</mml:mi></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>1</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mi>y</mml:mi></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>1</mml:mn></mml:mtd>
-			<mml:mtd><mml:mi>z</mml:mi></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>1</mml:mn></mml:mtd>
-		    </mml:mtr>
-		</mml:mtable>
-		<mml:mo>)</mml:mo>
-	    </mml:mrow>
-	</mml:math></div><p>If the matrix mode is either
+	were called with the following matrix for its argument:</p><div class="informalequation"><math overflow="scroll">
+	    <mrow>
+		<mo>(</mo>
+		<mtable class="matrix">
+		    <mtr>
+			<mtd><mn>1</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mi>x</mi></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>1</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mi>y</mi></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>1</mn></mtd>
+			<mtd><mi>z</mi></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>1</mn></mtd>
+		    </mtr>
+		</mtable>
+		<mo>)</mo>
+	    </mrow>
+	</math></div><p>If the matrix mode is either
 	<code class="constant">GL_MODELVIEW</code> or
 	<code class="constant">GL_PROJECTION</code>, all objects drawn after a call to
 	<code class="function">glTranslate</code> are translated.</p><p>Use

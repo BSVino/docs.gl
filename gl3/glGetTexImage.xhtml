@@ -11,15 +11,15 @@
                     <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</code>,
                     <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</code>,
                     <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, and
-                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code> 
+                    <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>
                     are accepted.
                 </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
                     Specifies the level-of-detail number of the desired image.
                     Level 0 is the base image level.
-                    Level 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                    is the 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                    Level
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                    is the
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>th
                     mipmap reduction image.
                 </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
                     Specifies a pixel format for the returned data.
@@ -89,7 +89,7 @@
             for a description of the acceptable values for the <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em>
             parameters, respectively.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target
             (see <a href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             requested, <em class="parameter"><code>img</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -140,21 +140,21 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁡</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">max</mml:mi>
-                    </mml:mfenced>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+            than
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁡</mo>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">max</mi>
+                    </mfenced>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">max</mi></math>
             is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is one of
@@ -180,11 +180,11 @@
             <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer
             object such that the memory writes required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>img</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>img</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a> with argument <code class="constant">GL_TEXTURE_WIDTH</code>

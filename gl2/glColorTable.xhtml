@@ -97,7 +97,7 @@
             Use the targets <code class="constant">GL_PROXY_*</code> for the first case
             and the other targets for the second case.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a color table is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -117,14 +117,14 @@
             (Use <code class="function">glColorTableParameter</code> to set these scale and bias
             parameters.)
         </p><p>
-            Next, the R, G, B, and A values are clamped to the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            Next, the R, G, B, and A values are clamped to the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math>.
             Each pixel is then converted to the internal format specified by
             <em class="parameter"><code>internalformat</code></em>.
             This conversion simply maps the component values of the pixel (R, G, B,
@@ -154,7 +154,7 @@
                         A
                         </td><td align="center">
                         </td><td align="center">
-                         
+
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_LUMINANCE</code>
                         </td><td align="center">
@@ -164,7 +164,7 @@
                         </td><td align="center">
                         R
                         </td><td align="center">
-                         
+
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_LUMINANCE_ALPHA</code>
                         </td><td align="center">
@@ -175,7 +175,7 @@
                         </td><td align="center">
                         R
                         </td><td align="center">
-                         
+
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_INTENSITY</code>
                         </td><td align="center">
@@ -196,7 +196,7 @@
                         </td><td align="center">
                         </td><td align="center">
                         </td><td align="center">
-                         
+
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_RGBA</code>
                         </td><td align="center">
@@ -209,22 +209,22 @@
                         A
                         </td><td align="center">
                         </td><td align="center">
-                         
+
                         </td></tr></tbody></table></div><p>
             Finally, the red, green, blue, alpha, luminance, and/or intensity components of
             the resulting pixels are stored in the color table.
             They form a one-dimensional table with indices in the range
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">width</mml:mi>
-                        <mml:mo>-</mml:mo>
-                        <mml:mn>1</mml:mn>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mrow>
+                        <mi mathvariant="italic">width</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfenced>
+            </math>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_*</code>,
             <code class="function">glColorTable</code> recomputes and stores the values of the proxy color table's state
@@ -256,14 +256,14 @@
             pixel group, based on the internal format of the table.
         </p><p>
             Each pixel group has color components (R, G, B, A)
-            that are in the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0.0</mml:mn>
-                    <mml:mn>1.0</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            that are in the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0.0</mn>
+                    <mn>1.0</mn>
+                </mfenced>
+            </math>.
             The color components are rescaled to
             the size of the color lookup table to form an index.
             Then a subset of the components based on the internal format of the table are
@@ -436,11 +436,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glColorTable</code> is executed
