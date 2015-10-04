@@ -18,7 +18,7 @@
         </p><p>
             GLX supports rendering into three types of drawables: windows, pixmaps, and
             pbuffers (pixel buffers). GLX windows and pixmaps are X resources, and
-            capable of accepting core X rendering as well as OpenGL rendering.  
+            capable of accepting core X rendering as well as OpenGL rendering.
             GLX-pbuffers are GLX only resources and might not accept core X rendering.
         </p><p>
             To render using OpenGL into a GLX drawable, you must determine the
@@ -80,7 +80,7 @@ int doubleBufferAttributes[] = {
     GLX_RENDER_TYPE,   GLX_RGBA_BIT,
     GLX_DOUBLEBUFFER,  True,  /* Request a double-buffered color buffer with */
     GLX_RED_SIZE,      1,     /* the maximum number of bits per component    */
-    GLX_GREEN_SIZE,    1, 
+    GLX_GREEN_SIZE,    1,
     GLX_BLUE_SIZE,     1,
     None
 };
@@ -110,7 +110,7 @@ int main( int argc, char *argv[] )
         exit( EXIT_FAILURE );
     }
 
-    /* Request a suitable framebuffer configuration - try for a double 
+    /* Request a suitable framebuffer configuration - try for a double
     ** buffered configuration first */
     fbConfigs = glXChooseFBConfig( dpy, DefaultScreen(dpy),
                                    doubleBufferAttributes, &amp;numReturned );
@@ -143,7 +143,7 @@ int main( int argc, char *argv[] )
     /* Create a GLX window to associate the frame buffer configuration
     ** with the created X window */
     glxWin = glXCreateWindow( dpy, fbConfigs[0], xWin, NULL );
-    
+
     /* Map the window to the screen, and wait for it to appear */
     XMapWindow( dpy, xWin );
     XIfEvent( dpy, &amp;event, WaitForNotify, (XPointer) xWin );
@@ -156,7 +156,7 @@ int main( int argc, char *argv[] )
     glClear( GL_COLOR_BUFFER_BIT );
 
     glFlush();
-    
+
     if ( swapFlag )
         glXSwapBuffers( dpy, glxWin );
 
@@ -269,7 +269,7 @@ int main( int argc, char *argv[] )
             <code class="function">XCreateWindow</code>,
             <code class="function">XSync</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
