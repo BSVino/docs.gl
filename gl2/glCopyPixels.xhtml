@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glCopyPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyPixels — copy pixels in the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyPixels</b>(</code></td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glCopyPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyPixels — copy pixels in the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glCopyPixels</b>(</code></td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
                     Specify the window coordinates of the lower left corner
                     of the rectangular region of pixels to be copied.
                 </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em>, </span><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
@@ -38,47 +38,47 @@
             but not all, of the parameters specified by these three commands.
         </p><p>
             <code class="function">glCopyPixels</code> copies values from each pixel with the lower left-hand corner at
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">i</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
-            for 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">j</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            This pixel is said to be the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <mi mathvariant="italic">x</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">i</mi>
+                    </mrow>
+                    <mrow>
+                        <mi mathvariant="italic">y</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">j</mi>
+                    </mrow>
+                </mfenced>
+            </math>
+            for
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">i</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>
+            and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">j</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">height</mi>
+                </mrow>
+            </math>.
+            This pixel is said to be the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row.
             Pixels are copied in row order from the lowest to the highest row,
             left to right in each row.
@@ -102,19 +102,19 @@
                         the index is replaced with the value that it references in lookup table
                         <code class="constant">GL_PIXEL_MAP_I_TO_I</code>.
                         Whether the lookup replacement of the index is done or not,
-                        the integer part of the index is then ANDed with 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">b</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
+                        the integer part of the index is then ANDed with
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">b</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">b</mi></math>
                         is the number of bits in a color index buffer.
                     </p><p>
                         If the GL is in RGBA mode,
@@ -143,42 +143,42 @@
                         by attaching the current raster position <span class="emphasis"><em>z</em></span> coordinate and
                         texture coordinates to each pixel,
                         then assigning window coordinates
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                </mml:mrow>
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">j</mml:mi>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                            </mml:mfenced>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <msub><mi mathvariant="italic">x</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">i</mi>
+                                </mrow>
+                                <mrow>
+                                    <msub><mi mathvariant="italic">y</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">j</mi>
+                                </mrow>
+                            </mfenced>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <msub><mi mathvariant="italic">x</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                                <msub><mi mathvariant="italic">y</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                            </mfenced>
+                        </math>
                         is the current raster position,
-                        and the pixel was the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-                        pixel in the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+                        and the pixel was the
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+                        pixel in the
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
                         row.
                         These pixel fragments are then treated just like the fragments generated by
                         rasterizing points, lines, or polygons.
@@ -198,42 +198,42 @@
                         by attaching the current raster position color or color index and
                         texture coordinates to each pixel,
                         then assigning window coordinates
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                </mml:mrow>
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">j</mml:mi>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                            </mml:mfenced>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <msub><mi mathvariant="italic">x</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">i</mi>
+                                </mrow>
+                                <mrow>
+                                    <msub><mi mathvariant="italic">y</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">j</mi>
+                                </mrow>
+                            </mfenced>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <msub><mi mathvariant="italic">x</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                                <msub><mi mathvariant="italic">y</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                            </mfenced>
+                        </math>
                         is the current raster position,
-                        and the pixel was the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-                        pixel in the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+                        and the pixel was the
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+                        pixel in the
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
                         row.
                         These pixel fragments are then treated just like the fragments generated by
                         rasterizing points, lines, or polygons.
@@ -255,58 +255,58 @@
                         the index is replaced with the value that it references in lookup table
                         <code class="constant">GL_PIXEL_MAP_S_TO_S</code>.
                         Whether the lookup replacement of the index is done or not,
-                        the integer part of the index is then ANDed with 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">b</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
+                        the integer part of the index is then ANDed with
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">b</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">b</mi></math>
                         is the number of bits in the stencil buffer.
                         The resulting stencil indices are then written to the stencil buffer
-                        such that the index read from the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-                        location of the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+                        such that the index read from the
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+                        location of the
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
                         row
                         is written to location
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                </mml:mrow>
-                                <mml:mrow>
-                                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                    <mml:mi mathvariant="italic">r</mml:mi>
-                                    </mml:msub>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mi mathvariant="italic">j</mml:mi>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                <mml:mi mathvariant="italic">r</mml:mi>
-                                </mml:msub>
-                            </mml:mfenced>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <msub><mi mathvariant="italic">x</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">i</mi>
+                                </mrow>
+                                <mrow>
+                                    <msub><mi mathvariant="italic">y</mi>
+                                    <mi mathvariant="italic">r</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mi mathvariant="italic">j</mi>
+                                </mrow>
+                            </mfenced>
+                        </math>,
+                        where
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <msub><mi mathvariant="italic">x</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                                <msub><mi mathvariant="italic">y</mi>
+                                <mi mathvariant="italic">r</mi>
+                                </msub>
+                            </mfenced>
+                        </math>
                         is the current raster position.
                         Only the pixel ownership test,
                         the scissor test,
@@ -314,130 +314,130 @@
                     </p></dd></dl></div><p>
             The rasterization described thus far assumes pixel zoom factors of 1.0.
             If
-            <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a> is used to change the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a> is used to change the
+            <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+            and
+            <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
             pixel zoom factors,
             pixels are converted to fragments as follows.
-            If 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">r</mml:mi>
-                    </mml:msub>
-                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                    <mml:mi mathvariant="italic">r</mml:mi>
-                    </mml:msub>
-                </mml:mfenced>
-            </mml:math>
+            If
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <msub><mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">r</mi>
+                    </msub>
+                    <msub><mi mathvariant="italic">y</mi>
+                    <mi mathvariant="italic">r</mi>
+                    </msub>
+                </mfenced>
+            </math>
             is the current raster position,
-            and a given pixel is in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            location in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            and a given pixel is in the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            location in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row of the source
             pixel rectangle,
             then fragments are generated for pixels whose centers are in the rectangle
             with corners at
         </p><p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                        </mml:msub>
-                        <mml:mo>+</mml:mo>
-                        <mml:mfenced open="" close="">
-                            <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                            <mml:mi mathvariant="italic">x</mml:mi>
-                            </mml:msub>
-                        </mml:mfenced>
-                        <mml:mo>⁢</mml:mo>
-                        <mml:mi mathvariant="italic">i</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                        </mml:msub>
-                        <mml:mo>+</mml:mo>
-                        <mml:mfenced open="" close="">
-                            <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                            <mml:mi mathvariant="italic">y</mml:mi>
-                            </mml:msub>
-                        </mml:mfenced>
-                        <mml:mo>⁢</mml:mo>
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <msub><mi mathvariant="italic">x</mi>
+                        <mi mathvariant="italic">r</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <mfenced open="" close="">
+                            <msub><mi mathvariant="italic">zoom</mi>
+                            <mi mathvariant="italic">x</mi>
+                            </msub>
+                        </mfenced>
+                        <mo>⁢</mo>
+                        <mi mathvariant="italic">i</mi>
+                    </mrow>
+                    <mrow>
+                        <msub><mi mathvariant="italic">y</mi>
+                        <mi mathvariant="italic">r</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <mfenced open="" close="">
+                            <msub><mi mathvariant="italic">zoom</mi>
+                            <mi mathvariant="italic">y</mi>
+                            </msub>
+                        </mfenced>
+                        <mo>⁢</mo>
+                        <mi mathvariant="italic">j</mi>
+                    </mrow>
+                </mfenced>
+            </math>
         </p><p>
              and
         </p><p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                        </mml:msub>
-                        <mml:mo>+</mml:mo>
-                        <mml:mrow>
-                            <mml:mfenced open="" close="">
-                                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                                <mml:mi mathvariant="italic">x</mml:mi>
-                                </mml:msub>
-                            </mml:mfenced>
-                            <mml:mo>⁡</mml:mo>
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mi mathvariant="italic">i</mml:mi>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mn>1</mml:mn>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:mrow>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                        </mml:msub>
-                        <mml:mo>+</mml:mo>
-                        <mml:mrow>
-                            <mml:mfenced open="" close="">
-                                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                                <mml:mi mathvariant="italic">y</mml:mi>
-                                </mml:msub>
-                            </mml:mfenced>
-                            <mml:mo>⁡</mml:mo>
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mi mathvariant="italic">j</mml:mi>
-                                    <mml:mo>+</mml:mo>
-                                    <mml:mn>1</mml:mn>
-                                </mml:mrow>
-                            </mml:mfenced>
-                        </mml:mrow>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <msub><mi mathvariant="italic">x</mi>
+                        <mi mathvariant="italic">r</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <mrow>
+                            <mfenced open="" close="">
+                                <msub><mi mathvariant="italic">zoom</mi>
+                                <mi mathvariant="italic">x</mi>
+                                </msub>
+                            </mfenced>
+                            <mo>⁡</mo>
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mi mathvariant="italic">i</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                </mrow>
+                            </mfenced>
+                        </mrow>
+                    </mrow>
+                    <mrow>
+                        <msub><mi mathvariant="italic">y</mi>
+                        <mi mathvariant="italic">r</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <mrow>
+                            <mfenced open="" close="">
+                                <msub><mi mathvariant="italic">zoom</mi>
+                                <mi mathvariant="italic">y</mi>
+                                </msub>
+                            </mfenced>
+                            <mo>⁡</mo>
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mi mathvariant="italic">j</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                </mrow>
+                            </mfenced>
+                        </mrow>
+                    </mrow>
+                </mfenced>
+            </math>
         </p><p>
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                <mml:mi mathvariant="italic">x</mml:mi>
-                </mml:msub>
-            </mml:math>
+            where
+            <math overflow="scroll">
+
+                <msub><mi mathvariant="italic">zoom</mi>
+                <mi mathvariant="italic">x</mi>
+                </msub>
+            </math>
             is the value of <code class="constant">GL_ZOOM_X</code> and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:msub><mml:mi mathvariant="italic">zoom</mml:mi>
-                <mml:mi mathvariant="italic">y</mml:mi>
-                </mml:msub>
-            </mml:math>
+            <math overflow="scroll">
+
+                <msub><mi mathvariant="italic">zoom</mi>
+                <mi mathvariant="italic">y</mi>
+                </msub>
+            </math>
             is the value of <code class="constant">GL_ZOOM_Y</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="examples"></a><h2>Examples</h2><p>
             To copy the color pixel in the lower left corner of the window to the current raster position,
@@ -488,7 +488,7 @@ glCopyPixels(0, 0, 1, 1, <code class="constant">GL_COLOR</code>);
             <a class="citerefentry" href="glStencilFunc"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>,
             <a class="citerefentry" href="glWindowPos"><span class="citerefentry"><span class="refentrytitle">glWindowPos</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

@@ -1,5 +1,5 @@
 <div class="refentry" title="glOrtho"><a id="glOrtho"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glOrtho — multiply the current matrix with an orthographic
-	matrix</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glOrthof</b>(</code></td><td>GLfloat <var class="pdparam">left</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">right</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">bottom</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">top</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">near</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">far</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glOrthox</b>(</code></td><td>GLfixed <var class="pdparam">left</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">right</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">bottom</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">top</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">near</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">far</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+	matrix</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glOrthof</b>(</code></td><td>GLfloat <var class="pdparam">left</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">right</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">bottom</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">top</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">near</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">far</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glOrthox</b>(</code></td><td>GLfixed <var class="pdparam">left</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">right</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">bottom</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">top</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">near</var>, </td></tr><tr><td> </td><td>GLfixed <var class="pdparam">far</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
 		<em class="parameter"><code>left</code></em>,
 		<em class="parameter"><code>right</code></em>
 		</span></dt><dd><p>Specify the coordinates for the left and right
@@ -19,87 +19,87 @@
 	is multiplied by this matrix and the result replaces the
 	current matrix, as if
 	<a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>
-	were called with the following matrix as its argument:</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-	    <mml:mrow>
-		<mml:mo>(</mml:mo>
-		<mml:mtable class="matrix">
-		    <mml:mtr>
-			<mml:mtd>
-			    <mml:mfrac>
-				<mml:mn>2</mml:mn>
-				<mml:mrow><mml:mi>right</mml:mi><mml:mo>-</mml:mo><mml:mi>left</mml:mi></mml:mrow>
-			    </mml:mfrac>
-			</mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:msub><mml:mi>t</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd>
-			    <mml:mfrac>
-				<mml:mn>2</mml:mn>
-				<mml:mrow><mml:mi>top</mml:mi><mml:mo>-</mml:mo><mml:mi>bottom</mml:mi></mml:mrow>
-			    </mml:mfrac>
-			</mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:msub><mml:mi>t</mml:mi><mml:mi>y</mml:mi></mml:msub></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd>
-			    <mml:mfrac>
-				<mml:mrow><mml:mo>-</mml:mo><mml:mn>2</mml:mn></mml:mrow>
-				<mml:mrow><mml:mi>far</mml:mi><mml:mo>-</mml:mo><mml:mi>near</mml:mi></mml:mrow>
-			    </mml:mfrac>
-			</mml:mtd>
-			<mml:mtd><mml:msub><mml:mi>t</mml:mi><mml:mi>z</mml:mi></mml:msub></mml:mtd>
-		    </mml:mtr>
-		    <mml:mtr>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>0</mml:mn></mml:mtd>
-			<mml:mtd><mml:mn>1</mml:mn></mml:mtd>
-		    </mml:mtr>
-		</mml:mtable>
-		<mml:mo>)</mml:mo>
-	    </mml:mrow>
-	</mml:math></div><p>where</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mtable>
-	    <mml:mtr><mml:mtd>
-		<mml:msub><mml:mi>t</mml:mi><mml:mi>x</mml:mi></mml:msub>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>=</mml:mo>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>-</mml:mo>
-		<mml:mfrac>
-		    <mml:mrow><mml:mi>right</mml:mi><mml:mo>+</mml:mo><mml:mi>left</mml:mi></mml:mrow>
-		    <mml:mrow><mml:mi>right</mml:mi><mml:mo>-</mml:mo><mml:mi>left</mml:mi></mml:mrow>
-		</mml:mfrac>
-	    </mml:mtd></mml:mtr>
-	    <mml:mtr><mml:mtd>
-		<mml:msub><mml:mi>t</mml:mi><mml:mi>y</mml:mi></mml:msub>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>=</mml:mo>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>-</mml:mo>
-		<mml:mfrac>
-		    <mml:mrow><mml:mi>top</mml:mi><mml:mo>+</mml:mo><mml:mi>bottom</mml:mi></mml:mrow>
-		    <mml:mrow><mml:mi>top</mml:mi><mml:mo>-</mml:mo><mml:mi>bottom</mml:mi></mml:mrow>
-		</mml:mfrac>
-	    </mml:mtd></mml:mtr>
-	    <mml:mtr><mml:mtd>
-		<mml:msub><mml:mi>t</mml:mi><mml:mi>z</mml:mi></mml:msub>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>=</mml:mo>
-		<mml:mgroupalign></mml:mgroupalign>
-		<mml:mo>-</mml:mo>
-		<mml:mfrac>
-		    <mml:mrow><mml:mi>far</mml:mi><mml:mo>+</mml:mo><mml:mi>near</mml:mi></mml:mrow>
-		    <mml:mrow><mml:mi>far</mml:mi><mml:mo>-</mml:mo><mml:mi>near</mml:mi></mml:mrow>
-		</mml:mfrac>
-	    </mml:mtd></mml:mtr>
-	</mml:mtable></mml:math></div><p>Typically, the matrix mode is
+	were called with the following matrix as its argument:</p><div class="informalequation"><math overflow="scroll">
+	    <mrow>
+		<mo>(</mo>
+		<mtable class="matrix">
+		    <mtr>
+			<mtd>
+			    <mfrac>
+				<mn>2</mn>
+				<mrow><mi>right</mi><mo>-</mo><mi>left</mi></mrow>
+			    </mfrac>
+			</mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><msub><mi>t</mi><mi>x</mi></msub></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd>
+			    <mfrac>
+				<mn>2</mn>
+				<mrow><mi>top</mi><mo>-</mo><mi>bottom</mi></mrow>
+			    </mfrac>
+			</mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><msub><mi>t</mi><mi>y</mi></msub></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd>
+			    <mfrac>
+				<mrow><mo>-</mo><mn>2</mn></mrow>
+				<mrow><mi>far</mi><mo>-</mo><mi>near</mi></mrow>
+			    </mfrac>
+			</mtd>
+			<mtd><msub><mi>t</mi><mi>z</mi></msub></mtd>
+		    </mtr>
+		    <mtr>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>0</mn></mtd>
+			<mtd><mn>1</mn></mtd>
+		    </mtr>
+		</mtable>
+		<mo>)</mo>
+	    </mrow>
+	</math></div><p>where</p><div class="informalequation"><math overflow="scroll"><mtable>
+	    <mtr><mtd>
+		<msub><mi>t</mi><mi>x</mi></msub>
+		<mgroupalign></mgroupalign>
+		<mo>=</mo>
+		<mgroupalign></mgroupalign>
+		<mo>-</mo>
+		<mfrac>
+		    <mrow><mi>right</mi><mo>+</mo><mi>left</mi></mrow>
+		    <mrow><mi>right</mi><mo>-</mo><mi>left</mi></mrow>
+		</mfrac>
+	    </mtd></mtr>
+	    <mtr><mtd>
+		<msub><mi>t</mi><mi>y</mi></msub>
+		<mgroupalign></mgroupalign>
+		<mo>=</mo>
+		<mgroupalign></mgroupalign>
+		<mo>-</mo>
+		<mfrac>
+		    <mrow><mi>top</mi><mo>+</mo><mi>bottom</mi></mrow>
+		    <mrow><mi>top</mi><mo>-</mo><mi>bottom</mi></mrow>
+		</mfrac>
+	    </mtd></mtr>
+	    <mtr><mtd>
+		<msub><mi>t</mi><mi>z</mi></msub>
+		<mgroupalign></mgroupalign>
+		<mo>=</mo>
+		<mgroupalign></mgroupalign>
+		<mo>-</mo>
+		<mfrac>
+		    <mrow><mi>far</mi><mo>+</mo><mi>near</mi></mrow>
+		    <mrow><mi>far</mi><mo>-</mo><mi>near</mi></mrow>
+		</mfrac>
+	    </mtd></mtr>
+	</mtable></math></div><p>Typically, the matrix mode is
 	<code class="constant">GL_PROJECTION</code>, and
 	(<em class="parameter"><code>left</code></em>, <em class="parameter"><code>bottom</code></em>,
 	-<em class="parameter"><code>near</code></em>) and
@@ -127,7 +127,7 @@
 	<a class="citerefentry" href="glPushMatrix"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>,
 	<a class="citerefentry" href="glViewport"><span class="citerefentry"><span class="refentrytitle">glViewport</span></span></a>
 	</p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
-	    Copyright <span class="trademark"></span>© 2003-2004
+	    Copyright © 2003-2004
 	    Silicon Graphics, Inc. This document is licensed under the SGI
 	    Free Software B License. For details, see
 	    <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

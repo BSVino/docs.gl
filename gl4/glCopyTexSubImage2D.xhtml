@@ -197,45 +197,45 @@
     <code class="constant">GL_READ_BUFFER</code> (rather than from main memory, as is
     the case for <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>).</p>
         <p>The screen-aligned pixel rectangle with lower left corner at
-    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">y</mml:mi>
-                </mml:mfenced>
-            </mml:math> and with width <em class="parameter"><code>width</code></em> and height
+    <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">y</mi>
+                </mfenced>
+            </math> and with width <em class="parameter"><code>width</code></em> and height
     <em class="parameter"><code>height</code></em> replaces the portion of the texture array
-    with x indices <em class="parameter"><code>xoffset</code></em> through <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, inclusive, and y indices
-    <em class="parameter"><code>yoffset</code></em> through <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yoffset</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, inclusive, at the mipmap level specified by
+    with x indices <em class="parameter"><code>xoffset</code></em> through <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>, inclusive, and y indices
+    <em class="parameter"><code>yoffset</code></em> through <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yoffset</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">height</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>, inclusive, at the mipmap level specified by
     <em class="parameter"><code>level</code></em>.</p>
         <p>The pixels in the rectangle are processed exactly as if
     <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops just before final
     conversion. At this point, all pixel component values are clamped to the
-    range <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math> and then converted to the texture's internal format
+    range <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math> and then converted to the texture's internal format
     for storage in the texel array.</p>
         <p>The destination rectangle in the texture array may not include any
     texels outside the texture array as it was originally specified. It is not
@@ -290,69 +290,69 @@
     target is <code class="constant">GL_TEXTURE_RECTANGLE</code> and
     <em class="parameter"><code>level</code></em> is not zero.</p>
         <p><code class="constant">GL_INVALID_VALUE</code> may be generated if
-    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">level</mml:mi>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                        <mml:mn>2</mml:mn>
-                        </mml:msub>
-                        <mml:mo>⁡</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mi mathvariant="italic">max</mml:mi>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>, where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math> is the returned value of
+    <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">level</mi>
+                    <mo>&gt;</mo>
+                    <mrow>
+                        <msub><mi mathvariant="italic">log</mi>
+                        <mn>2</mn>
+                        </msub>
+                        <mo>⁡</mo>
+                        <mfenced open="(" close=")">
+                            <mi mathvariant="italic">max</mi>
+                        </mfenced>
+                    </mrow>
+                </mrow>
+            </math>, where <math overflow="scroll"><mi mathvariant="italic">max</mi></math> is the returned value of
     <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p>
         <p><code class="constant">GL_INVALID_VALUE</code> is generated if
-    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mn>0</mml:mn>
-                </mml:mrow>
-            </mml:math>, <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">xoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mn>0</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+    <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>&lt;</mo>
+                    <mn>0</mn>
+                </mrow>
+            </math>, <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">xoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">width</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">w</mi>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yoffset</mi>
+                    <mo>&lt;</mo>
+                    <mn>0</mn>
+                </mrow>
+            </math>,
             or
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">yoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">height</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mn>0</mml:mn>
-                </mml:mrow>
-            </mml:math>,, where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math> is the <code class="constant">GL_TEXTURE_WIDTH</code>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">yoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">height</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mn>0</mn>
+                </mrow>
+            </math>,, where <math overflow="scroll"><mi mathvariant="italic">w</mi></math> is the <code class="constant">GL_TEXTURE_WIDTH</code>,
+            <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
             is the <code class="constant">GL_TEXTURE_HEIGHT</code> and
             of the texture image being modified.
         </p>
@@ -411,7 +411,7 @@
             <thead>
               <tr>
                 <th style="text-align: left; border-right: 2px solid ; ">
-                 
+
             </th>
                 <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
                 <span class="bold"><strong>OpenGL Version</strong></span>
@@ -519,8 +519,8 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 1991-2006
-            Silicon Graphics, Inc. Copyright <span class="trademark"/>© 2012-2014 Khronos Group.
+            Copyright © 1991-2006
+            Silicon Graphics, Inc. Copyright © 2012-2014 Khronos Group.
             This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

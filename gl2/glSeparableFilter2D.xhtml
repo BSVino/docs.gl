@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glSeparableFilter2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSeparableFilter2D — define a separable two-dimensional convolution filter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glSeparableFilter2D</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">row</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">column</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glSeparableFilter2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSeparableFilter2D — define a separable two-dimensional convolution filter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glSeparableFilter2D</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">row</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">column</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Must be <code class="constant">GL_SEPARABLE_2D</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
                     The internal format of the convolution filter kernel.
@@ -100,7 +100,7 @@
             they had been passed to <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
             but processing stops after the final expansion to RGBA is completed.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a convolution filter is
             specified, <em class="parameter"><code>row</code></em> and <em class="parameter"><code>column</code></em> are treated as byte offsets into the buffer object's data store.
         </p><p>
@@ -120,75 +120,75 @@
             This conversion simply maps the component values of the pixel (R, G, B,
             and A) to the values included in the internal format (red, green, blue,
             alpha, luminance, and intensity).  The mapping is as follows:
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         Internal Format
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Red
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Green
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Blue
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Alpha
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Luminance
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Intensity
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_LUMINANCE</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE_ALPHA</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_INTENSITY</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGB</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGBA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
-                        </td><td align="center">
-                         
+                        </td><td class="center">
+                        </td><td class="center">
+
                         </td></tr></tbody></table></div><p>
             The red, green, blue, alpha, luminance, and/or intensity components of
             the resulting pixels are stored in floating-point rather than integer
@@ -258,12 +258,12 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>row</code></em> or 
-            <em class="parameter"><code>column</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>row</code></em> or
+            <em class="parameter"><code>column</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glSeparableFilter2D</code> is executed
@@ -281,7 +281,7 @@
             <a class="citerefentry" href="glConvolutionParameter"><span class="citerefentry"><span class="refentrytitle">glConvolutionParameter</span></span></a>,
             <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

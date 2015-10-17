@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glCompressedTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCompressedTexImage2D — specify a two-dimensional texture image in a compressed format</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glCompressedTexImage2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">imageSize</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glCompressedTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCompressedTexImage2D — specify a two-dimensional texture image in a compressed format</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glCompressedTexImage2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">imageSize</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture of the active texture unit.
                     Must be <code class="constant">GL_TEXTURE_2D</code>,
                     <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_X</code>,
@@ -32,19 +32,19 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Specifies a pointer to the compressed image data in memory.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            Texturing maps a portion of a specified texture image 
+            Texturing maps a portion of a specified texture image
             onto each graphical primitive for which texturing is
             active.  Texturing is active when the current fragment shader or
-            vertex shader makes use of built-in texture lookup 
+            vertex shader makes use of built-in texture lookup
             functions.
         </p><p>
-            <code class="function">glCompressedTexImage2D</code> defines a two-dimensional texture image 
+            <code class="function">glCompressedTexImage2D</code> defines a two-dimensional texture image
             or cube-map texture image using compressed image data from client memory.  The texture
             image is decoded according to the extension specification defining the specified
             <em class="parameter"><code>internalformat</code></em>.  OpenGL ES defines no specific compressed
             texture formats, but does provide a mechanism to obtain symbolic constants for such
             formats provided by extensions.  The number of compressed texture formats supported
-            can be obtained by querying the value of 
+            can be obtained by querying the value of
             <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code>.  The list of specific
             compressed texture formats supported can be obtained by querying the value of
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>.
@@ -64,26 +64,26 @@
             <code class="constant">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</code>, or
             <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
         </p><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if
             <em class="parameter"><code>internalformat</code></em> is not a supported format returned in
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁢</mml:mo>
-                    <mml:mi mathvariant="italic">max</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
+            than
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁢</mo>
+                    <mi mathvariant="italic">max</mi>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll"><mi mathvariant="italic">max</mi></math>
             is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code> when <em class="parameter"><code>target</code></em>
             is <code class="constant">GL_TEXTURE_2D</code> or <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code> when
             <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TEXTURE_2D</code>.
@@ -107,7 +107,7 @@
             <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension
             specification defining the internal compression format.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with arguments
             <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> and
             <code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code>
         </p><p>
@@ -125,7 +125,7 @@
             <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

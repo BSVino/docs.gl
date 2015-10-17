@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluBuild1DMipmapLevels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBuild1DMipmapLevels — builds a subset of one-dimensional mipmap levels</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLint <b class="fsfunc">gluBuild1DMipmapLevels</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">base</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">max</var>, </td></tr><tr><td> </td><td>const void *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluBuild1DMipmapLevels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluBuild1DMipmapLevels — builds a subset of one-dimensional mipmap levels</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">GLint <b class="fsfunc">gluBuild1DMipmapLevels</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">base</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">max</var>, </td></tr><tr><td> </td><td>const void *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture.  Must be <code class="constant">GLU_TEXTURE_1D</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>internalFormat</code></em></span></dt><dd><p>
                     Requests the internal storage format of the texture image.  The most
@@ -50,7 +50,7 @@
                     <code class="constant">GLU_RGBA12</code>, or
                     <code class="constant">GLU_RGBA16</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
-                    Specifies the width in pixels of the texture image. 
+                    Specifies the width in pixels of the texture image.
                     This should be a power of 2.
                 </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
                     Specifies the format of the pixel data.
@@ -75,8 +75,8 @@
                     <code class="constant">GLU_UNSIGNED_SHORT</code>,
                     <code class="constant">GLU_SHORT</code>,
                     <code class="constant">GLU_UNSIGNED_INT</code>,
-                    <code class="constant">GLU_INT</code>, 
-                    <code class="constant">GLU_FLOAT</code>, 
+                    <code class="constant">GLU_INT</code>,
+                    <code class="constant">GLU_FLOAT</code>,
                     <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code>,
                     <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>,
                     <code class="constant">GLU_UNSIGNED_SHORT_5_6_5</code>,
@@ -105,128 +105,128 @@
             A return value of zero indicates success, otherwise a GLU error code is
             returned (see <a class="citerefentry" href="gluErrorString"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>).
         </p><p>
-            A series of mipmap levels from <em class="parameter"><code>base</code></em> to <em class="parameter"><code>max</code></em> is built by decimating 
-            <em class="parameter"><code>data</code></em> in half 
-            until size 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>1</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>
+            A series of mipmap levels from <em class="parameter"><code>base</code></em> to <em class="parameter"><code>max</code></em> is built by decimating
+            <em class="parameter"><code>data</code></em> in half
+            until size
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>1</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>
             is reached. At each level, each texel in the
             halved mipmap level is an average of the corresponding two texels in the larger
-            mipmap level. 
+            mipmap level.
             <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> is called to load these mipmap levels from <em class="parameter"><code>base</code></em>
             to <em class="parameter"><code>max</code></em>. If <em class="parameter"><code>max</code></em> is larger than the highest mipmap level for the
             texture of the specified size, then a GLU error code is returned (see
             <a class="citerefentry" href="gluErrorString"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>) and nothing is loaded.
         </p><p>
             For example, if <em class="parameter"><code>level</code></em> is 2 and <em class="parameter"><code>width</code></em> is 16, the
-            following levels are possible: 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>16</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>8</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>4</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>2</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>1</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>.
+            following levels are possible:
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>16</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>8</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>4</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>2</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>1</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>.
             These correspond
             to levels 2 through 6 respectively.
-            If <em class="parameter"><code>base</code></em> is 3 and <em class="parameter"><code>max</code></em> is 5, then only mipmap levels 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>8</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>4</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>2</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>
+            If <em class="parameter"><code>base</code></em> is 3 and <em class="parameter"><code>max</code></em> is 5, then only mipmap levels
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>8</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>4</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>
+            and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>2</mn>
+                    <mo>×</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>
             are
             loaded. However, if <em class="parameter"><code>max</code></em> is 7, then an error is returned and nothing is
-            loaded since <em class="parameter"><code>max</code></em> is larger than the highest mipmap level which is, in 
+            loaded since <em class="parameter"><code>max</code></em> is larger than the highest mipmap level which is, in
             this case, 6.
         </p><p>
             The highest mipmap level can be derived from the formula
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁡</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                            <mml:mo>×</mml:mo>
-                            <mml:msup><mml:mn>2</mml:mn>
-                            <mml:mi mathvariant="italic">level</mml:mi>
-                            </mml:msup>
-                        </mml:mrow>
-                    </mml:mfenced>
-                </mml:mrow>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁡</mo>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">width</mi>
+                            <mo>×</mo>
+                            <msup><mn>2</mn>
+                            <mi mathvariant="italic">level</mi>
+                            </msup>
+                        </mrow>
+                    </mfenced>
+                </mrow>
+            </math>.
         </p><p>
             See the <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a> reference page for a description of the
-            acceptable values for <em class="parameter"><code>type</code></em> parameter. See the <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> 
-            reference page for a description of the acceptable values 
+            acceptable values for <em class="parameter"><code>type</code></em> parameter. See the <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>
+            reference page for a description of the acceptable values
             for <em class="parameter"><code>level</code></em> parameter.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">gluBuild1DMipmapLevels</code> is only available if the GLU version is 1.3 or greater.
         </p><p>
-            Formats <code class="constant">GLU_BGR</code>, and <code class="constant">GLU_BGRA</code>, and types 
+            Formats <code class="constant">GLU_BGR</code>, and <code class="constant">GLU_BGRA</code>, and types
             <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code>,
             <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>,
             <code class="constant">GLU_UNSIGNED_SHORT_5_6_5</code>,
@@ -238,7 +238,7 @@
             <code class="constant">GLU_UNSIGNED_INT_8_8_8_8</code>,
             <code class="constant">GLU_UNSIGNED_INT_8_8_8_8_REV</code>,
             <code class="constant">GLU_UNSIGNED_INT_10_10_10_2</code>, and
-            <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code> are only available if the GL version 
+            <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code> are only available if the GL version
             is 1.2 or greater.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GLU_INVALID_VALUE</code> is returned if <em class="parameter"><code>level</code></em> &gt; <em class="parameter"><code>base</code></em>, <em class="parameter"><code>base</code></em> &lt; 0,
@@ -246,7 +246,7 @@
         </p><p>
             <code class="constant">GLU_INVALID_VALUE</code> is returned if <em class="parameter"><code>width</code></em> is &lt; 1.
         </p><p>
-            <code class="constant">GLU_INVALID_ENUM</code> is returned if <em class="parameter"><code>internalFormat</code></em>, <em class="parameter"><code>format</code></em>, or <em class="parameter"><code>type</code></em> are not 
+            <code class="constant">GLU_INVALID_ENUM</code> is returned if <em class="parameter"><code>internalFormat</code></em>, <em class="parameter"><code>format</code></em>, or <em class="parameter"><code>type</code></em> are not
             legal.
         </p><p>
             <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_BYTE_3_3_2</code> or <code class="constant">GLU_UNSIGNED_BYTE_2_3_3_REV</code>
@@ -265,7 +265,7 @@
             and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
         </p><p>
             <code class="constant">GLU_INVALID_OPERATION</code> is returned if <em class="parameter"><code>type</code></em> is <code class="constant">GLU_UNSIGNED_INT_10_10_10_2</code> or <code class="constant">GLU_UNSIGNED_INT_2_10_10_10_REV</code>
-            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>. 
+            and <em class="parameter"><code>format</code></em> is neither <code class="constant">GLU_RGBA</code> nor <code class="constant">GLU_BGRA</code>.
         </p></div>
         {$pipelinestall}{$examples}
         <div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
@@ -273,16 +273,16 @@
             <a class="citerefentry" href="gluBuild2DMipmapLevels"><span class="citerefentry"><span class="refentrytitle">gluBuild2DMipmapLevels</span></span></a>,
             <a class="citerefentry" href="gluBuild2DMipmaps"><span class="citerefentry"><span class="refentrytitle">gluBuild2DMipmaps</span></span></a>,
             <a class="citerefentry" href="gluBuild3DMipmapLevels"><span class="citerefentry"><span class="refentrytitle">gluBuild3DMipmapLevels</span></span></a>,
-            <a class="citerefentry" href="gluBuild3DMipmaps"><span class="citerefentry"><span class="refentrytitle">gluBuild3DMipmaps</span></span></a>, 
-            <a class="citerefentry" href="gluErrorString"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>, 
+            <a class="citerefentry" href="gluBuild3DMipmaps"><span class="citerefentry"><span class="refentrytitle">gluBuild3DMipmaps</span></span></a>,
+            <a class="citerefentry" href="gluErrorString"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>,
             <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>,
             <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>,
             <a class="citerefentry" href="glGetTexLevelParameter"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>,
             <a class="citerefentry" href="glTexImage1D"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
+            <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

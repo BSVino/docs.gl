@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glBindFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindFramebuffer — bind a named framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindFramebuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">framebuffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glBindFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindFramebuffer — bind a named framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindFramebuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">framebuffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target to which the framebuffer object is bound.
                     The symbolic constant must be
                     <code class="constant">GL_FRAMEBUFFER</code>.
@@ -20,23 +20,23 @@
         </p><p>
             The state of a framebuffer object immediately after it is first bound is
             three attachment points (<code class="constant">GL_COLOR_ATTACHMENT0</code>,
-            <code class="constant">GL_DEPTH_ATTACHMENT</code>, and 
-            <code class="constant">GL_STENCIL_ATTACHMENT</code>) each with 
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>, and
+            <code class="constant">GL_STENCIL_ATTACHMENT</code>) each with
             <code class="constant">GL_NONE</code> as the object type.
         </p><p>
             While a non-zero framebuffer object name is bound, GL operations on
             target <code class="constant">GL_FRAMEBUFFER</code> affect the bound framebuffer
             object, and queries of target <code class="constant">GL_FRAMEBUFFER</code> or of
             framebuffer details such as <code class="constant">GL_DEPTH_BITS</code>
-            return state from the bound framebuffer object. While framebuffer object 
+            return state from the bound framebuffer object. While framebuffer object
             name zero is bound, as in the initial state, attempts to modify or query
-            state on target <code class="constant">GL_FRAMEBUFFER</code> generates an 
+            state on target <code class="constant">GL_FRAMEBUFFER</code> generates an
             <code class="constant">GL_INVALID_OPERATION</code> error.
         </p><p>
             While a non-zero framebuffer object name is bound, all rendering to the
             framebuffer (with <a class="citerefentry" href="glDrawArrays"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>
             and <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>)
-            and reading from the framebuffer (with 
+            and reading from the framebuffer (with
             <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
             <a class="citerefentry" href="glCopyTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
             or <a class="citerefentry" href="glCopyTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>)
@@ -55,8 +55,8 @@
             ownership test always succeeds (i.e. they own all their pixels). Fourth,
             there are no visible color buffer bitplanes, only a single "off-screen"
             color image attachment, so there is no sense of front and back buffers
-            or swapping. Finally, there is no multisample buffer, so the value of 
-            the implementation-dependent state variables 
+            or swapping. Finally, there is no multisample buffer, so the value of
+            the implementation-dependent state variables
             <code class="constant">GL_SAMPLES</code> and <code class="constant">GL_SAMPLE_BUFFERS</code>
             are both zero for application created framebuffer objects.
         </p><p>
@@ -66,10 +66,10 @@
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             Queries of implementation-dependent pixel depths and related state are
             derived from the currently bound framebuffer object.  These include
-            <code class="constant">GL_RED_BITS</code>, <code class="constant">GL_GREEN_BITS</code>, 
-            <code class="constant">GL_BLUE_BITS</code>, <code class="constant">GL_ALPHA_BITS</code>, 
-            <code class="constant">GL_DEPTH_BITS</code>, <code class="constant">GL_STENCIL_BITS</code>, 
-            <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>, 
+            <code class="constant">GL_RED_BITS</code>, <code class="constant">GL_GREEN_BITS</code>,
+            <code class="constant">GL_BLUE_BITS</code>, <code class="constant">GL_ALPHA_BITS</code>,
+            <code class="constant">GL_DEPTH_BITS</code>, <code class="constant">GL_STENCIL_BITS</code>,
+            <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>,
             <code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code>,
             <code class="constant">GL_SAMPLES</code>, and <code class="constant">GL_SAMPLE_BUFFERS</code>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -87,8 +87,8 @@
             <a class="citerefentry" href="glGetFramebufferAttachmentParameteriv"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferAttachmentParameteriv</span></span></a>,
             <a class="citerefentry" href="glIsFramebuffer"><span class="citerefentry"><span class="refentrytitle">glIsFramebuffer</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2008 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2008 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

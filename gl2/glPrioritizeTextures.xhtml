@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPrioritizeTextures"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPrioritizeTextures — set texture residence priority</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPrioritizeTextures</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">textures</var>, </td></tr><tr><td> </td><td>const GLclampf *  </td><td><var class="pdparam">priorities</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPrioritizeTextures"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPrioritizeTextures — set texture residence priority</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPrioritizeTextures</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">n</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">textures</var>, </td></tr><tr><td> </td><td>const GLclampf *  </td><td><var class="pdparam">priorities</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>n</code></em></span></dt><dd><p>
                     Specifies the number of textures to be prioritized.
                 </p></dd><dt><span class="term"><em class="parameter"><code>textures</code></em></span></dt><dd><p>
                     Specifies an array containing the names of the textures to be prioritized.
@@ -18,14 +18,14 @@
             <code class="function">glPrioritizeTextures</code> allows applications to guide the GL implementation in determining
             which textures should be resident.
         </p><p>
-            The priorities given in <em class="parameter"><code>priorities</code></em> are clamped to the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math>
+            The priorities given in <em class="parameter"><code>priorities</code></em> are clamped to the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math>
             before they are assigned.
             0 indicates the lowest priority; textures with priority 0
             are least likely to be resident.
@@ -64,7 +64,7 @@
             <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
             <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

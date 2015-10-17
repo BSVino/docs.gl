@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glXUseXFont"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXUseXFont — create bitmap display lists from an X font</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glXUseXFont</b>(</code></td><td>Font  </td><td><var class="pdparam">font</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">first</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">listBase</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>font</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glXUseXFont"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glXUseXFont — create bitmap display lists from an X font</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glXUseXFont</b>(</code></td><td>Font  </td><td><var class="pdparam">font</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">first</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>int  </td><td><var class="pdparam">listBase</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>font</code></em></span></dt><dd><p>
                     Specifies the font from which character glyphs are to be taken.
                 </p></dd><dt><span class="term"><em class="parameter"><code>first</code></em></span></dt><dd><p>
                     Specifies the index of the first glyph to be taken.
@@ -8,82 +8,82 @@
                     Specifies the index of the first display list to be generated.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glXUseXFont</code> generates <em class="parameter"><code>count</code></em> display lists,
-            named <em class="parameter"><code>listBase</code></em> through 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">listBase</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">count</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            named <em class="parameter"><code>listBase</code></em> through
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">listBase</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">count</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             each containing a single <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command.
-            The parameters of the <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command of display list 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">listBase</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>
-            are derived from glyph 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">first</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            Bitmap parameters 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">xorig</mml:mi></mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">yorig</mml:mi></mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+            The parameters of the <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a> command of display list
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">listBase</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>
+            are derived from glyph
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">first</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>.
+            Bitmap parameters
+            <math overflow="scroll"><mi mathvariant="italic">xorig</mi></math>,
+            <math overflow="scroll"><mi mathvariant="italic">yorig</mi></math>,
+            <math overflow="scroll"><mi mathvariant="italic">width</mi></math>,
+            and
+            <math overflow="scroll"><mi mathvariant="italic">height</mi></math>
             are computed from font metrics as
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">descent</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mo>-</mml:mo>
-                    <mml:mi mathvariant="italic">lbearing</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">rbearing</mml:mi>
-                    <mml:mo>-</mml:mo>
-                    <mml:mi mathvariant="italic">lbearing</mml:mi>
-                </mml:mrow>
-            </mml:math>,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">ascent</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">descent</mml:mi>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">descent</mi>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mo>-</mo>
+                    <mi mathvariant="italic">lbearing</mi>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">rbearing</mi>
+                    <mo>-</mo>
+                    <mi mathvariant="italic">lbearing</mi>
+                </mrow>
+            </math>,
+            and
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">ascent</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">descent</mi>
+                </mrow>
+            </math>,
             respectively.
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">xmove</mml:mi></mml:math>
-            is taken from the glyph's 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">xmove</mi></math>
+            is taken from the glyph's
+            <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
             metric,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">ymove</mml:mi></mml:math>
+            and
+            <math overflow="scroll"><mi mathvariant="italic">ymove</mi></math>
             is set to zero.
             Finally,
             the glyph's image is converted to the appropriate format for <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>.
@@ -113,7 +113,7 @@
             <a class="citerefentry" href="glBitmap"><span class="citerefentry"><span class="refentrytitle">glBitmap</span></span></a>,
             <a class="citerefentry" href="glXMakeCurrent"><span class="citerefentry"><span class="refentrytitle">glXMakeCurrent</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

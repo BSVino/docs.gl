@@ -1,4 +1,4 @@
-<div class="refentry" title="glPixelStore"><a id="glPixelStore"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelStore — set pixel storage modes</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStoref</b>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStorei</b>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+<div class="refentry" title="glPixelStore"><a id="glPixelStore"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelStore — set pixel storage modes</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStoref</b>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelStorei</b>(</code></td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the symbolic name of the parameter to be set.
                     Six values affect the packing of pixel data into memory:
                     <code class="constant">GL_PACK_SWAP_BYTES</code>,
@@ -39,55 +39,55 @@
                         is reversed.
                         That is,
                         if a four-byte component consists of bytes
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>0</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>1</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>2</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>3</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>0</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>1</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>2</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>3</mn>
+                            </msub>
+                        </math>,
                         it is stored in memory as
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>3</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>2</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>1</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>0</mml:mn>
-                            </mml:msub>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>3</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>2</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>1</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>0</mn>
+                            </msub>
+                        </math>
                         if <code class="constant">GL_PACK_SWAP_BYTES</code> is true.
                         <code class="constant">GL_PACK_SWAP_BYTES</code> has no effect on the memory order of components
                         within a pixel,
@@ -106,140 +106,140 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_PACK_ROW_LENGTH</code></span></dt><dd><p>
                         If greater than 0,
                         <code class="constant">GL_PACK_ROW_LENGTH</code> defines the number of pixels in a row.
-                        If the first pixel of a row is placed at location 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        If the first pixel of a row is placed at location
+                        <math overflow="scroll"><mi mathvariant="italic">p</mi></math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
                     </p><p>
-                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mfenced open="{" close="">
-                                    <mml:mrow>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mfenced open="" close="">
-                                                        <mml:mfrac>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                            <mml:mi mathvariant="italic">s</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mfenced open="⌈" close="⌉">
-                                                        <mml:mfrac>
-                                                            <mml:mfenced open="" close="">
-                                                                <mml:mrow>
-                                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                                </mml:mrow>
-                                                            </mml:mfenced>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&gt;=</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&lt;</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math></div><p>
+                        </p><div class="informalequation"><math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mfenced open="{" close="">
+                                    <mrow>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mfenced open="" close="">
+                                                        <mfrac>
+                                                            <mi mathvariant="italic">a</mi>
+                                                            <mi mathvariant="italic">s</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                    <mo>⁢</mo>
+                                                    <mfenced open="⌈" close="⌉">
+                                                        <mfrac>
+                                                            <mfenced open="" close="">
+                                                                <mrow>
+                                                                    <mi mathvariant="italic">s</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">n</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">l</mi>
+                                                                </mrow>
+                                                            </mfenced>
+                                                            <mi mathvariant="italic">a</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                        <mo>⁢</mo>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&gt;=</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math></div><p>
                     </p><p>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices in a pixel,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">l</mi></math>
                         is the number of pixels in a row
                         (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
                         argument to the pixel routine otherwise),
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">a</mi></math>
                         is the value of <code class="constant">GL_PACK_ALIGNMENT</code>, and
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         is the size, in bytes, of a single component
-                        (if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>&lt;</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        then it is as if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>).
+                        (if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>&lt;</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>,
+                        then it is as if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>=</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>).
                         In the case of 1-bit values,
                         the location of the next row is obtained by skipping
                     </p><p>
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mrow>
-                                    <mml:mn>8</mml:mn>
-                                    <mml:mo>⁢</mml:mo>
-                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                    <mml:mo>⁢</mml:mo>
-                                    <mml:mfenced open="⌈" close="⌉">
-                                        <mml:mfrac>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mn>8</mml:mn>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                        </mml:mfrac>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mrow>
+                                    <mn>8</mn>
+                                    <mo>⁢</mo>
+                                    <mi mathvariant="italic">a</mi>
+                                    <mo>⁢</mo>
+                                    <mfenced open="⌈" close="⌉">
+                                        <mfrac>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                </mrow>
+                                            </mfenced>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mn>8</mn>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mfenced>
+                                        </mfrac>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>
                     </p><p>
                         components or indices.
                     </p><p>
@@ -260,116 +260,116 @@
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code> defines the number of pixels in an image
                         three-dimensional texture volume, where ``image'' is defined by all pixels
                         sharing the same third dimension index.
-                        If the first pixel of a row is placed at location 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        If the first pixel of a row is placed at location
+                        <math overflow="scroll"><mi mathvariant="italic">p</mi></math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
                     </p><p>
-                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mfenced open="{" close="">
-                                    <mml:mrow>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">h</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mfenced open="" close="">
-                                                        <mml:mfrac>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                            <mml:mi mathvariant="italic">s</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mfenced open="⌈" close="⌉">
-                                                        <mml:mfrac>
-                                                            <mml:mfenced open="" close="">
-                                                                <mml:mrow>
-                                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">h</mml:mi>
-                                                                </mml:mrow>
-                                                            </mml:mfenced>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&gt;=</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&lt;</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math></div><p>
+                        </p><div class="informalequation"><math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mfenced open="{" close="">
+                                    <mrow>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">h</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mfenced open="" close="">
+                                                        <mfrac>
+                                                            <mi mathvariant="italic">a</mi>
+                                                            <mi mathvariant="italic">s</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                    <mo>⁢</mo>
+                                                    <mfenced open="⌈" close="⌉">
+                                                        <mfrac>
+                                                            <mfenced open="" close="">
+                                                                <mrow>
+                                                                    <mi mathvariant="italic">s</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">n</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">l</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">h</mi>
+                                                                </mrow>
+                                                            </mfenced>
+                                                            <mi mathvariant="italic">a</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                        <mo>⁢</mo>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&gt;=</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math></div><p>
                     </p><p>
-                        components or indices, where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        components or indices, where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices
-                        in a pixel, 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        in a pixel,
+                        <math overflow="scroll"><mi mathvariant="italic">l</mi></math>
                         is the number of pixels in a row
                         (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0, the
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
-                        argument to <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise), 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
+                        argument to <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
+                        <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
                         is the number of
                         rows in a pixel image (<code class="constant">GL_PACK_IMAGE_HEIGHT</code> if it is greater than
-                        0, the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+                        0, the
+                        <math overflow="scroll"><mi mathvariant="italic">height</mi></math>
                         argument to the <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> routine otherwise),
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">a</mi></math>
                         is the value of
-                        <code class="constant">GL_PACK_ALIGNMENT</code>, and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <code class="constant">GL_PACK_ALIGNMENT</code>, and
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         is the size, in bytes, of a single
-                        component (if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>&lt;</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        then it is as if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>).
+                        component (if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>&lt;</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>,
+                        then it is as if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>=</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>).
                     </p><p>
                         The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
                         red,
@@ -387,53 +387,53 @@
                         These values are provided as a convenience to the programmer;
                         they provide no functionality that cannot be duplicated simply by
                         incrementing the pointer passed to <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
-                        Setting <code class="constant">GL_PACK_SKIP_PIXELS</code> to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+                        Setting <code class="constant">GL_PACK_SKIP_PIXELS</code> to
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
                         is equivalent to incrementing
-                        the pointer by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">i</mml:mi>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        the pointer by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">i</mi>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices in each pixel.
-                        Setting <code class="constant">GL_PACK_SKIP_ROWS</code> to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        Setting <code class="constant">GL_PACK_SKIP_ROWS</code> to
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>
                         is equivalent to incrementing
-                        the pointer by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">j</mml:mi>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">m</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        the pointer by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">j</mi>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">m</mi>
+                            </mrow>
+                        </math>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">m</mi></math>
                         is the number of components or indices per row,
                         as just computed in the <code class="constant">GL_PACK_ROW_LENGTH</code> section.
-                        Setting <code class="constant">GL_PACK_SKIP_IMAGES</code> to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
+                        Setting <code class="constant">GL_PACK_SKIP_IMAGES</code> to
+                        <math overflow="scroll"><mi mathvariant="italic">k</mi></math>
                         is equivalent to incrementing
-                        the pointer by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">p</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        the pointer by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">p</mi>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">p</mi></math>
                         is the number of components or indices
                         per image, as computed in the <code class="constant">GL_PACK_IMAGE_HEIGHT</code> section.
                     </p></dd><dt><span class="term"><code class="constant">GL_PACK_ALIGNMENT</code></span></dt><dd><p>
@@ -463,55 +463,55 @@
                         is reversed.
                         That is,
                         if a four-byte component consists of bytes
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>0</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>1</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>2</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>3</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>0</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>1</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>2</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>3</mn>
+                            </msub>
+                        </math>,
                         it is taken from memory as
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>3</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>2</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>1</mml:mn>
-                            </mml:msub>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msub><mml:mi mathvariant="italic">b</mml:mi>
-                            <mml:mn>0</mml:mn>
-                            </mml:msub>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>3</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>2</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>1</mn>
+                            </msub>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <msub><mi mathvariant="italic">b</mi>
+                            <mn>0</mn>
+                            </msub>
+                        </math>
                         if <code class="constant">GL_UNPACK_SWAP_BYTES</code> is true.
                         <code class="constant">GL_UNPACK_SWAP_BYTES</code> has no effect on the memory order of components
                         within a pixel,
@@ -530,140 +530,140 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ROW_LENGTH</code></span></dt><dd><p>
                         If greater than 0,
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code> defines the number of pixels in a row.
-                        If the first pixel of a row is placed at location 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        If the first pixel of a row is placed at location
+                        <math overflow="scroll"><mi mathvariant="italic">p</mi></math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
                     </p><p>
-                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mfenced open="{" close="">
-                                    <mml:mrow>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mfenced open="" close="">
-                                                        <mml:mfrac>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                            <mml:mi mathvariant="italic">s</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mfenced open="⌈" close="⌉">
-                                                        <mml:mfrac>
-                                                            <mml:mfenced open="" close="">
-                                                                <mml:mrow>
-                                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                                </mml:mrow>
-                                                            </mml:mfenced>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&gt;=</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&lt;</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math></div><p>
+                        </p><div class="informalequation"><math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mfenced open="{" close="">
+                                    <mrow>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mfenced open="" close="">
+                                                        <mfrac>
+                                                            <mi mathvariant="italic">a</mi>
+                                                            <mi mathvariant="italic">s</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                    <mo>⁢</mo>
+                                                    <mfenced open="⌈" close="⌉">
+                                                        <mfrac>
+                                                            <mfenced open="" close="">
+                                                                <mrow>
+                                                                    <mi mathvariant="italic">s</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">n</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">l</mi>
+                                                                </mrow>
+                                                            </mfenced>
+                                                            <mi mathvariant="italic">a</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                        <mo>⁢</mo>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&gt;=</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math></div><p>
                     </p><p>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices in a pixel,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">l</mi></math>
                         is the number of pixels in a row
                         (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
                         argument to the pixel routine otherwise),
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">a</mi></math>
                         is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         is the size, in bytes, of a single component
-                        (if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>&lt;</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        then it is as if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>).
+                        (if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>&lt;</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>,
+                        then it is as if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>=</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>).
                         In the case of 1-bit values,
                         the location of the next row is obtained by skipping
                     </p><p>
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mrow>
-                                    <mml:mn>8</mml:mn>
-                                    <mml:mo>⁢</mml:mo>
-                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                    <mml:mo>⁢</mml:mo>
-                                    <mml:mfenced open="⌈" close="⌉">
-                                        <mml:mfrac>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                            <mml:mfenced open="" close="">
-                                                <mml:mrow>
-                                                    <mml:mn>8</mml:mn>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mfenced>
-                                        </mml:mfrac>
-                                    </mml:mfenced>
-                                </mml:mrow>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mrow>
+                                    <mn>8</mn>
+                                    <mo>⁢</mo>
+                                    <mi mathvariant="italic">a</mi>
+                                    <mo>⁢</mo>
+                                    <mfenced open="⌈" close="⌉">
+                                        <mfrac>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                </mrow>
+                                            </mfenced>
+                                            <mfenced open="" close="">
+                                                <mrow>
+                                                    <mn>8</mn>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mfenced>
+                                        </mfrac>
+                                    </mfenced>
+                                </mrow>
+                            </mrow>
+                        </math>
                     </p><p>
                         components or indices.
                     </p><p>
@@ -684,115 +684,115 @@
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> defines the number of pixels in an image of
                         a three-dimensional texture volume.  Where ``image'' is defined by all
                         pixel sharing the same third dimension index.
-                        If the first pixel of a row is placed at location 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
+                        If the first pixel of a row is placed at location
+                        <math overflow="scroll"><mi mathvariant="italic">p</mi></math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
                     </p><p>
-                        </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mfenced open="{" close="">
-                                    <mml:mrow>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mi mathvariant="italic">h</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mfenced open="" close="">
-                                                        <mml:mfrac>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                            <mml:mi mathvariant="italic">s</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                    <mml:mo>⁢</mml:mo>
-                                                    <mml:mfenced open="⌈" close="⌉">
-                                                        <mml:mfrac>
-                                                            <mml:mfenced open="" close="">
-                                                                <mml:mrow>
-                                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">n</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">l</mml:mi>
-                                                                    <mml:mo>⁢</mml:mo>
-                                                                    <mml:mi mathvariant="italic">h</mml:mi>
-                                                                </mml:mrow>
-                                                            </mml:mfenced>
-                                                            <mml:mi mathvariant="italic">a</mml:mi>
-                                                        </mml:mfrac>
-                                                    </mml:mfenced>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mtable>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&gt;=</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                            <mml:mtr><mml:mtd>
-                                                <mml:mrow>
-                                                    <mml:mi mathvariant="italic">s</mml:mi>
-                                                    <mml:mo>&lt;</mml:mo>
-                                                    <mml:mi mathvariant="italic">a</mml:mi>
-                                                </mml:mrow>
-                                            </mml:mtd></mml:mtr>
-                                        </mml:mtable>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                            </mml:mrow>
-                        </mml:math></div><p>
+                        </p><div class="informalequation"><math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">k</mi>
+                                <mo>=</mo>
+                                <mfenced open="{" close="">
+                                    <mrow>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">n</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">l</mi>
+                                                    <mo>⁢</mo>
+                                                    <mi mathvariant="italic">h</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mfenced open="" close="">
+                                                        <mfrac>
+                                                            <mi mathvariant="italic">a</mi>
+                                                            <mi mathvariant="italic">s</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                    <mo>⁢</mo>
+                                                    <mfenced open="⌈" close="⌉">
+                                                        <mfrac>
+                                                            <mfenced open="" close="">
+                                                                <mrow>
+                                                                    <mi mathvariant="italic">s</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">n</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">l</mi>
+                                                                    <mo>⁢</mo>
+                                                                    <mi mathvariant="italic">h</mi>
+                                                                </mrow>
+                                                            </mfenced>
+                                                            <mi mathvariant="italic">a</mi>
+                                                        </mfrac>
+                                                    </mfenced>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                        <mo>⁢</mo>
+                                        <mtable>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&gt;=</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                            <mtr><mtd>
+                                                <mrow>
+                                                    <mi mathvariant="italic">s</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mi mathvariant="italic">a</mi>
+                                                </mrow>
+                                            </mtd></mtr>
+                                        </mtable>
+                                    </mrow>
+                                </mfenced>
+                            </mrow>
+                        </math></div><p>
                     </p><p>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices in a pixel,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">l</mi></math>
                         is the number of pixels in a row
                         (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">width</mi></math>
                         argument to <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
                         is the number of rows in an image (<code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> if
-                        it is greater than 0, the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
+                        it is greater than 0, the
+                        <math overflow="scroll"><mi mathvariant="italic">height</mi></math>
                         argument to <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">a</mi></math>
                         is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+                        <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
                         is the size, in bytes, of a single component
-                        (if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>&lt;</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        then it is as if 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">a</mml:mi>
-                                <mml:mo>=</mml:mo>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                            </mml:mrow>
-                        </mml:math>).
+                        (if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>&lt;</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>,
+                        then it is as if
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">a</mi>
+                                <mo>=</mo>
+                                <mi mathvariant="italic">s</mi>
+                            </mrow>
+                        </math>).
                     </p><p>
                         The word <span class="emphasis"><em>component</em></span> in this description refers to the nonindex values
                         red,
@@ -814,37 +814,37 @@
                         <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
                         <a class="citerefentry" href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a> or
                         <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>.
-                        Setting <code class="constant">GL_UNPACK_SKIP_PIXELS</code> to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+                        Setting <code class="constant">GL_UNPACK_SKIP_PIXELS</code> to
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
                         is equivalent to incrementing
-                        the pointer by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">i</mml:mi>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        the pointer by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">i</mi>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is the number of components or indices in each pixel.
-                        Setting <code class="constant">GL_UNPACK_SKIP_ROWS</code> to 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        Setting <code class="constant">GL_UNPACK_SKIP_ROWS</code> to
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>
                         is equivalent to incrementing
-                        the pointer by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">j</mml:mi>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">k</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
+                        the pointer by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">j</mi>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">k</mi>
+                            </mrow>
+                        </math>
                         components or indices,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">k</mi></math>
                         is the number of components or indices per row,
                         as just computed in the <code class="constant">GL_UNPACK_ROW_LENGTH</code> section.
                     </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
@@ -860,201 +860,201 @@
             and range of valid values for each storage parameter
             that can be set with <code class="function">glPixelStore</code>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         <em class="parameter"><code>pname</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Type
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Initial Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Valid Range
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_PACK_SWAP_BYTES</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_LSB_FIRST</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_PACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         4
-                        </td><td align="center">
+                        </td><td class="center">
                         1, 2, 4, or 8
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_SWAP_BYTES</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_LSB_FIRST</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>∞</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close=")">
+                                <mn>0</mn>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNPACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         4
-                        </td><td align="center">
+                        </td><td class="center">
                         1, 2, 4, or 8
                         </td></tr></tbody></table></div><p>
             <code class="function">glPixelStoref</code> can be used to set any pixel store parameter.
@@ -1116,7 +1116,7 @@
             <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

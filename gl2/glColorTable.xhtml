@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glColorTable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glColorTable — define a color lookup table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glColorTable</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glColorTable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glColorTable — define a color lookup table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glColorTable</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Must be one of
                     <code class="constant">GL_COLOR_TABLE</code>,
                     <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>,
@@ -97,7 +97,7 @@
             Use the targets <code class="constant">GL_PROXY_*</code> for the first case
             and the other targets for the second case.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a color table is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -117,114 +117,114 @@
             (Use <code class="function">glColorTableParameter</code> to set these scale and bias
             parameters.)
         </p><p>
-            Next, the R, G, B, and A values are clamped to the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            Next, the R, G, B, and A values are clamped to the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math>.
             Each pixel is then converted to the internal format specified by
             <em class="parameter"><code>internalformat</code></em>.
             This conversion simply maps the component values of the pixel (R, G, B,
             and A) to the values included in the internal format (red, green, blue,
             alpha, luminance, and intensity).  The mapping is as follows:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         Internal Format
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Red
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Green
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Blue
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Alpha
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Luminance
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Intensity
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_ALPHA</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE_ALPHA</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_INTENSITY</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGB</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGBA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
-                        </td><td align="center">
-                         
+                        </td><td class="center">
+                        </td><td class="center">
+
                         </td></tr></tbody></table></div><p>
             Finally, the red, green, blue, alpha, luminance, and/or intensity components of
             the resulting pixels are stored in the color table.
             They form a one-dimensional table with indices in the range
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">width</mml:mi>
-                        <mml:mo>-</mml:mo>
-                        <mml:mn>1</mml:mn>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mrow>
+                        <mi mathvariant="italic">width</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfenced>
+            </math>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_*</code>,
             <code class="function">glColorTable</code> recomputes and stores the values of the proxy color table's state
@@ -256,139 +256,139 @@
             pixel group, based on the internal format of the table.
         </p><p>
             Each pixel group has color components (R, G, B, A)
-            that are in the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0.0</mml:mn>
-                    <mml:mn>1.0</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            that are in the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0.0</mn>
+                    <mn>1.0</mn>
+                </mfenced>
+            </math>.
             The color components are rescaled to
             the size of the color lookup table to form an index.
             Then a subset of the components based on the internal format of the table are
             replaced by the table entry selected by that index.
             If the color components and contents of the table are represented as follows:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /></colgroup><thead><tr><th class="center"><span class="bold"><strong>
                         Representation
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Meaning
-                        </strong></span></th></tr></thead><tbody><tr><td align="center">
+                        </strong></span></th></tr></thead><tbody><tr><td class="center">
                         <code class="code">r</code>
-                        </td><td align="left">
+                        </td><td>
                         Table index computed from <code class="code">R</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">g</code>
-                        </td><td align="left">
+                        </td><td>
                         Table index computed from <code class="code">G</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">b</code>
-                        </td><td align="left">
+                        </td><td>
                         Table index computed from <code class="code">B</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">a</code>
-                        </td><td align="left">
+                        </td><td>
                         Table index computed from <code class="code">A</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">L[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Luminance value at table index <code class="code">i</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">I[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Intensity value at table index <code class="code">i</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">R[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Red value at table index <code class="code">i</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">G[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Green value at table index <code class="code">i</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">B[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Blue value at table index <code class="code">i</code>
-                        </td></tr><tr><td align="center">
+                        </td></tr><tr><td class="center">
                         <code class="code">A[i]</code>
-                        </td><td align="left">
+                        </td><td>
                         Alpha value at table index <code class="code">i</code>
                         </td></tr></tbody></table></div><p>
             then the result of color table lookup is as follows:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        </strong></span></th><th colspan="4" align="center"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
+                        </strong></span></th><th colspan="4" class="center"><span class="bold"><strong>
                         Resulting Texture Components
-                        </strong></span></th></tr><tr><th align="left"><span class="bold"><strong>
+                        </strong></span></th></tr><tr><th><span class="bold"><strong>
                         Table Internal Format
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         R
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         G
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         B
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         A
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_ALPHA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">R</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">G</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">B</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">A[a]</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[r]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[g]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[b]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">At</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE_ALPHA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[r]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[g]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">L[b]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">A[a]</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_INTENSITY</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">I[r]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">I[g]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">I[b]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">I[a]</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGB</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">R[r]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">G[g]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">B[b]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">A</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGBA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">R[r]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">G[g]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">B[b]</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         <code class="code">A[a]</code>
                         </td></tr></tbody></table></div><p>
             When <code class="constant">GL_COLOR_TABLE</code> is enabled, the colors resulting from
@@ -436,11 +436,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glColorTable</code> is executed
@@ -459,7 +459,7 @@
             <a class="citerefentry" href="glCopyColorSubTable"><span class="citerefentry"><span class="refentrytitle">glCopyColorSubTable</span></span></a>,
             <a class="citerefentry" href="glGetColorTable"><span class="citerefentry"><span class="refentrytitle">glGetColorTable</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

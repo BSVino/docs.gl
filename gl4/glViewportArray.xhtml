@@ -81,124 +81,124 @@
             the range [<em class="parameter"><code>first</code></em>, <em class="parameter"><code>first</code></em> + <em class="parameter"><code>count</code></em>)
             are not modified. <em class="parameter"><code>v</code></em> contains the address of an array of floating
             point values specifying the
-            left (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>),
-            bottom (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>),
-            width (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>),
-            and height (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>)
-            of each viewport, in that order. <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math> give
+            left (<math overflow="scroll"><mi mathvariant="italic">x</mi></math>),
+            bottom (<math overflow="scroll"><mi mathvariant="italic">y</mi></math>),
+            width (<math overflow="scroll"><mi mathvariant="italic">w</mi></math>),
+            and height (<math overflow="scroll"><mi mathvariant="italic">h</mi></math>)
+            of each viewport, in that order. <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+            and <math overflow="scroll"><mi mathvariant="italic">y</mi></math> give
             the location of the viewport's lower left corner, and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
-            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">w</mi></math>
+            and <math overflow="scroll"><mi mathvariant="italic">h</mi></math>
             give the width and height of the viewport, respectively.
             The viewport specifies the affine transformation of
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
             and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
             from
             normalized device coordinates to window coordinates.
             Let
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">nd</mml:mi>
-                    </mml:msub>
-                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                    <mml:mi mathvariant="italic">nd</mml:mi>
-                    </mml:msub>
-                </mml:mfenced>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <msub><mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">nd</mi>
+                    </msub>
+                    <msub><mi mathvariant="italic">y</mi>
+                    <mi mathvariant="italic">nd</mi>
+                    </msub>
+                </mfenced>
+            </math>
             be normalized device coordinates.
             Then the window coordinates
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                    </mml:msub>
-                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                    </mml:msub>
-                </mml:mfenced>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <msub><mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">w</mi>
+                    </msub>
+                    <msub><mi mathvariant="italic">y</mi>
+                    <mi mathvariant="italic">w</mi>
+                    </msub>
+                </mfenced>
+            </math>
             are computed as follows:
         </p>
         <p>
             </p>
         <div class="informalequation">
-          <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                    </mml:msub>
-                    <mml:mo>=</mml:mo>
-                    <mml:mrow>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mrow>
-                                <mml:msub><mml:mi mathvariant="italic">x</mml:mi>
-                                <mml:mi mathvariant="italic">nd</mml:mi>
-                                </mml:msub>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:mfenced>
-                        <mml:mo>⁢</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">width</mml:mi>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:mfenced>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>
+          <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">w</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mrow>
+                        <mfenced open="(" close=")">
+                            <mrow>
+                                <msub><mi mathvariant="italic">x</mi>
+                                <mi mathvariant="italic">nd</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </mfenced>
+                        <mo>⁢</mo>
+                        <mfenced open="(" close=")">
+                            <mfrac>
+                                <mi mathvariant="italic">width</mi>
+                                <mn>2</mn>
+                            </mfrac>
+                        </mfenced>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">x</mi>
+                    </mrow>
+                </mrow>
+            </math>
         </div>
         <p>
         </p>
         <p>
             </p>
         <div class="informalequation">
-          <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                    </mml:msub>
-                    <mml:mo>=</mml:mo>
-                    <mml:mrow>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mrow>
-                                <mml:msub><mml:mi mathvariant="italic">y</mml:mi>
-                                <mml:mi mathvariant="italic">nd</mml:mi>
-                                </mml:msub>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:mfenced>
-                        <mml:mo>⁢</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">height</mml:mi>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:mfenced>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>
+          <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">y</mi>
+                    <mi mathvariant="italic">w</mi>
+                    </msub>
+                    <mo>=</mo>
+                    <mrow>
+                        <mfenced open="(" close=")">
+                            <mrow>
+                                <msub><mi mathvariant="italic">y</mi>
+                                <mi mathvariant="italic">nd</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </mfenced>
+                        <mo>⁢</mo>
+                        <mfenced open="(" close=")">
+                            <mfrac>
+                                <mi mathvariant="italic">height</mi>
+                                <mn>2</mn>
+                            </mfrac>
+                        </mfenced>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">y</mi>
+                    </mrow>
+                </mrow>
+            </math>
         </div>
         <p>
         </p>
         <p>
             The location of the viewport's bottom left corner, given by
-            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>, <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>)
+            (<math overflow="scroll"><mi mathvariant="italic">x</mi></math>, <math overflow="scroll"><mi mathvariant="italic">y</mi></math>)
             is clamped to be within the implementaiton-dependent viewport bounds range.
-            The viewport bounds range [<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">min</mml:mi></mml:math>, <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>]
+            The viewport bounds range [<math overflow="scroll"><mi mathvariant="italic">min</mi></math>, <math overflow="scroll"><mi mathvariant="italic">max</mi></math>]
             can be determined by calling <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
             <code class="constant">GL_VIEWPORT_BOUNDS_RANGE</code>.
             Viewport width and height are silently clamped
@@ -263,7 +263,7 @@
             <thead>
               <tr>
                 <th style="text-align: left; border-right: 2px solid ; ">
-                 
+
             </th>
                 <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
                 <span class="bold"><strong>OpenGL Version</strong></span>
@@ -344,7 +344,7 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            Copyright © 2010-2014 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.

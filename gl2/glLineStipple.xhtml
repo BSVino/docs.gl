@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glLineStipple"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLineStipple — specify the line stipple pattern</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glLineStipple</b>(</code></td><td>GLint  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLushort  </td><td><var class="pdparam">pattern</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glLineStipple"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glLineStipple — specify the line stipple pattern</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glLineStipple</b>(</code></td><td>GLint  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLushort  </td><td><var class="pdparam">pattern</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
                     Specifies a multiplier for each bit in the line stipple pattern.
                     If <em class="parameter"><code>factor</code></em> is 3,
                     for example,
@@ -15,58 +15,58 @@
             The masking is achieved by using three parameters:
             the 16-bit line stipple pattern <em class="parameter"><code>pattern</code></em>,
             the repeat count <em class="parameter"><code>factor</code></em>,
-            and an integer stipple counter 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>.
+            and an integer stipple counter
+            <math overflow="scroll"><mi mathvariant="italic">s</mi></math>.
         </p><p>
-            Counter 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            Counter
+            <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
             is reset to 0 whenever <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a> is called
             and before each line segment of a <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>(<code class="constant">GL_LINES</code>)/<a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>
             sequence is generated.
             It is incremented after each fragment of a unit width aliased line segment
             is generated
-            or after each 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-            fragments of an 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            or after each
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+            fragments of an
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
             width line segment are generated.
-            The 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-            fragments associated with count 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            The
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+            fragments associated with count
+            <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
             are masked out if
         </p><p>
-            <em class="parameter"><code>pattern</code></em> bit 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mfrac>
-                            <mml:mi mathvariant="italic">s</mml:mi>
-                            <mml:mi mathvariant="italic">factor</mml:mi>
-                        </mml:mfrac>
-                    </mml:mfenced>
-                    <mml:mo>%</mml:mo>
-                    <mml:mn>16</mml:mn>
-                </mml:mrow>
-            </mml:math>
+            <em class="parameter"><code>pattern</code></em> bit
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mfrac>
+                            <mi mathvariant="italic">s</mi>
+                            <mi mathvariant="italic">factor</mi>
+                        </mfrac>
+                    </mfenced>
+                    <mo>%</mo>
+                    <mn>16</mn>
+                </mrow>
+            </math>
         </p><p>
             is 0, otherwise these fragments are sent to the frame buffer.
             Bit zero of <em class="parameter"><code>pattern</code></em> is the least significant bit.
         </p><p>
-            Antialiased lines are treated as a sequence of 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>1</mml:mn>
-                    <mml:mo>×</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>
+            Antialiased lines are treated as a sequence of
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>1</mn>
+                    <mo>×</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>
             rectangles
             for purposes of stippling.
-            Whether rectangle 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
+            Whether rectangle
+            <math overflow="scroll"><mi mathvariant="italic">s</mi></math>
             is rasterized or not depends on the fragment rule
             described for aliased lines,
             counting rectangles rather than groups of fragments.
@@ -94,7 +94,7 @@
             <a class="citerefentry" href="glLineWidth"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
             <a class="citerefentry" href="glPolygonStipple"><span class="citerefentry"><span class="refentrytitle">glPolygonStipple</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

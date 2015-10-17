@@ -1,4 +1,4 @@
-<div class="refentry" title="glCopyTexImage2D"><a id="glCopyTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyTexImage2D — specify a two-dimensional texture image with pixels from the color buffer</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyTexImage2D</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glCopyTexImage2D"><a id="glCopyTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyTexImage2D — specify a two-dimensional texture image with pixels from the color buffer</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyTexImage2D</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>target</code></em>
                 </span></dt><dd><p>Specifies the target texture. Must be
                     <code class="constant">GL_TEXTURE_2D</code>.</p></dd><dt><span class="term">
@@ -20,15 +20,15 @@
                     copied.</p></dd><dt><span class="term">
                     <em class="parameter"><code>width</code></em>
                 </span></dt><dd><p>Specifies the width of the texture image. Must be 0 or
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                        <mml:msup><mml:mn>2</mml:mn><mml:mi>n</mml:mi></mml:msup>
-                    </mml:math>
+                    <math overflow="scroll">
+                        <msup><mn>2</mn><mi>n</mi></msup>
+                    </math>
                     for some integer <em class="replaceable"><code>n</code></em>.</p></dd><dt><span class="term">
                     <em class="parameter"><code>height</code></em>
                 </span></dt><dd><p>Specifies the height of the texture image. Must be 0 or
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                        <mml:msup><mml:mn>2</mml:mn><mml:mi>m</mml:mi></mml:msup>
-                    </mml:math>
+                    <math overflow="scroll">
+                        <msup><mn>2</mn><mi>m</mi></msup>
+                    </math>
                     for some integer <em class="replaceable"><code>m</code></em>.</p></dd><dt><span class="term">
                     <em class="parameter"><code>border</code></em>
                 </span></dt><dd><p>Specifies the width of the border. Must be 0.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
@@ -37,13 +37,13 @@
         color buffer.</p><p>The screen-aligned pixel rectangle with lower left corner
         at (<em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>)
         and with a width of
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>width</mml:mi>
-        </mml:math>
+        <math overflow="scroll">
+            <mi>width</mi>
+        </math>
         and a height of
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>height</mml:mi>
-        </mml:math>
+        <math overflow="scroll">
+            <mi>height</mi>
+        </math>
         defines the texture array at the mipmap level specified by
         <em class="parameter"><code>level</code></em>. <em class="parameter"><code>internalformat</code></em>
         specifies the color components of the texture.</p><p>
@@ -74,9 +74,9 @@
         with the color buffer format.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>level</code></em> is less than 0.</p><p><code class="constant">GL_INVALID_VALUE</code> may be generated if
         <em class="parameter"><code>level</code></em> is greater than
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msub><mml:mo>log</mml:mo><mml:mn>2</mml:mn></mml:msub><mml:mi>max</mml:mi>
-        </mml:math>, where
+        <math overflow="scroll">
+            <msub><mo>log</mo><mn>2</mn></msub><mi>max</mi>
+        </math>, where
         <em class="replaceable"><code>max</code></em> is the returned value of
         <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p><p>
         <code class="constant">GL_INVALID_VALUE</code> is generated if
@@ -86,9 +86,9 @@
         <code class="constant">GL_MAX_TEXTURE_SIZE</code>, or if
         <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em>
         cannot be represented as
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msup><mml:mn>2</mml:mn><mml:mi>k</mml:mi></mml:msup>
-        </mml:math>
+        <math overflow="scroll">
+            <msup><mn>2</mn><mi>k</mi></msup>
+        </math>
         for some integer <em class="replaceable"><code>k</code></em>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>border</code></em> is not 0.</p><p>
         <code class="constant">GL_INVALID_ENUM</code> is generated if
@@ -105,7 +105,7 @@
         <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
         <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2004
+            Copyright © 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

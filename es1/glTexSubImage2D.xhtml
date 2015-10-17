@@ -1,4 +1,4 @@
-<div class="refentry" title="glTexSubImage2D"><a id="glTexSubImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexSubImage2D — specify a two-dimensional texture subimage</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glTexSubImage2D</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">xoffset</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">yoffset</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">pixels</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glTexSubImage2D"><a id="glTexSubImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexSubImage2D — specify a two-dimensional texture subimage</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glTexSubImage2D</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">xoffset</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">yoffset</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">pixels</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>target</code></em>
                 </span></dt><dd><p>Specifies the target texture. Must be
                     <code class="constant">GL_TEXTURE_2D</code>.</p></dd><dt><span class="term">
@@ -46,13 +46,13 @@
         texture image. The texels referenced by <em class="parameter"><code>pixels</code></em>
         replace the portion of the existing texture array with x indices
         <em class="parameter"><code>xoffset</code></em> and
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>xoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>width</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn>
-        </mml:math>,
+        <math overflow="scroll">
+            <mi>xoffset</mi><mo>+</mo><mi>width</mi><mo>-</mo><mn>1</mn>
+        </math>,
         inclusive, and y indices <em class="parameter"><code>yoffset</code></em> and
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>yoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>height</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn>
-        </mml:math>,
+        <math overflow="scroll">
+            <mi>yoffset</mi><mo>+</mo><mi>height</mi><mo>-</mo><mn>1</mn>
+        </math>,
         inclusive. This region may not include any texels outside the
         range of the texture array as it was originally specified. It
         is not an error to specify a subtexture with zero width or
@@ -77,25 +77,25 @@
         operation.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>level</code></em> is less than 0.</p><p><code class="constant">GL_INVALID_VALUE</code> may be generated if
         <em class="parameter"><code>level</code></em> is greater than
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:msub><mml:mo>log</mml:mo><mml:mn>2</mml:mn></mml:msub><mml:mi>max</mml:mi>
-        </mml:math>, where
+        <math overflow="scroll">
+            <msub><mo>log</mo><mn>2</mn></msub><mi>max</mi>
+        </math>, where
         <em class="replaceable"><code>max</code></em> is the returned value of
         <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>xoffset</mml:mi><mml:mo>&lt;</mml:mo>0
-        </mml:math>,
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>xoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>width</mml:mi><mml:mo>&gt;</mml:mo>
-            <mml:mi>w</mml:mi>
-        </mml:math>,
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>yoffset</mml:mi><mml:mo>&lt;</mml:mo>0
-        </mml:math>, or
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mi>yoffset</mml:mi><mml:mo>+</mml:mo><mml:mi>height</mml:mi><mml:mo>&gt;</mml:mo>
-            <mml:mi>h</mml:mi>
-        </mml:math>, where
+        <math overflow="scroll">
+            <mi>xoffset</mi><mo>&lt;</mo>0
+        </math>,
+        <math overflow="scroll">
+            <mi>xoffset</mi><mo>+</mo><mi>width</mi><mo>&gt;</mo>
+            <mi>w</mi>
+        </math>,
+        <math overflow="scroll">
+            <mi>yoffset</mi><mo>&lt;</mo>0
+        </math>, or
+        <math overflow="scroll">
+            <mi>yoffset</mi><mo>+</mo><mi>height</mi><mo>&gt;</mo>
+            <mi>h</mi>
+        </math>, where
         <em class="replaceable"><code>w</code></em> is the texture width and
         <em class="replaceable"><code>h</code></em> is the texture height.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
         <em class="parameter"><code>width</code></em> or
@@ -123,7 +123,7 @@
         <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
         <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2004
+            Copyright © 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

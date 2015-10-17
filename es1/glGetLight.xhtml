@@ -1,15 +1,15 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGetLight"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetLight — return light source parameter values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightfv</b>(</code></td><td>GLenum <var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightxv</b>(</code></td><td>GLenum <var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfixed * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" lang="en" xml:lang="en"><a id="glGetLight"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetLight — return light source parameter values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightfv</b>(</code></td><td>GLenum <var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightxv</b>(</code></td><td>GLenum <var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfixed * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>light</code></em>
                 </span></dt><dd><p>
                     Specifies a light source. The number of possible
                     lights depends on the implementation, but at least
                     eight lights are supported. They
                     are identified by symbolic names of the form
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                    <mml:mi>GL_LIGHTi</mml:mi> where
-                    <mml:mi>0</mml:mi><mml:mo>&lt;</mml:mo><mml:mi>i</mml:mi><mml:mo>&lt;</mml:mo>
-                    <mml:mi>GL_MAX_LIGHTS</mml:mi>
-                    </mml:math>
+                    <math overflow="scroll">
+                    <mi>GL_LIGHTi</mi> where
+                    <mi>0</mi><mo>&lt;</mo><mi>i</mi><mo>&lt;</mo>
+                    <mi>GL_MAX_LIGHTS</mi>
+                    </math>
                     </p></dd><dt><span class="term">
                     <em class="parameter"><code>pname</code></em>
                 </span></dt><dd><p>
@@ -35,11 +35,11 @@
         source parameter.
         <em class="parameter"><code>light</code></em> names the light and is a symbolic
         name of the form
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-        <mml:mi>GL_LIGHTi</mml:mi> for
-        <mml:mi>0</mml:mi><mml:mo>&lt;</mml:mo><mml:mi>i</mml:mi><mml:mo>&lt;</mml:mo>
-        <mml:mi>GL_MAX_LIGHTS</mml:mi>
-        </mml:math>
+        <math overflow="scroll">
+        <mi>GL_LIGHTi</mi> for
+        <mi>0</mi><mo>&lt;</mo><mi>i</mi><mo>&lt;</mo>
+        <mi>GL_MAX_LIGHTS</mi>
+        </math>
         where <code class="constant">GL_MAX_LIGHTS</code> is an
         implementation dependent constant that
         is greater than or equal to eight.
@@ -139,10 +139,10 @@
                     quadratic factor times the square of the same distance.
                     The initial attenuation factors are (1, 0, 0).</p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
         It is always the case that
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-        <mml:mi>GL_LIGHTi</mml:mi><mml:mo>=</mml:mo>
-        <mml:mi>GL_LIGHT0</mml:mi><mml:mo>+</mml:mo><code class="constant">i</code>.
-        </mml:math>
+        <math overflow="scroll">
+        <mi>GL_LIGHTi</mi><mo>=</mo>
+        <mi>GL_LIGHT0</mi><mo>+</mo><code class="constant">i</code>.
+        </math>
         </p><p>
         If an error is generated, no change is made to the contents
         of <em class="parameter"><code>params</code></em>.
@@ -153,7 +153,7 @@
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
         <a class="citerefentry" href="glLight"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2004
+            Copyright © 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

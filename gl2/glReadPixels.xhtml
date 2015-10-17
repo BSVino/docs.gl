@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glReadPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glReadPixels — read a block of pixels from the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glReadPixels</b>(</code></td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glReadPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glReadPixels — read a block of pixels from the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glReadPixels</b>(</code></td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
                     Specify the window coordinates of the first pixel
                     that is read from the frame buffer.
                     This location is the lower left corner of a rectangular block of pixels.
@@ -60,7 +60,7 @@
             This reference page describes the effects on <code class="function">glReadPixels</code> of most,
             but not all of the parameters specified by these three commands.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a block of pixels is
             requested, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store
             rather than a pointer to client memory.
@@ -71,47 +71,47 @@
             maximum pixel value computations.
         </p><p>
             <code class="function">glReadPixels</code> returns values from each pixel with lower left corner at
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">i</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
-            for 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <mi mathvariant="italic">x</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">i</mi>
+                    </mrow>
+                    <mrow>
+                        <mi mathvariant="italic">y</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">j</mi>
+                    </mrow>
+                </mfenced>
+            </math>
+            for
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">i</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>
             and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">j</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            This pixel is said to be the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">j</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">height</mi>
+                </mrow>
+            </math>.
+            This pixel is said to be the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row.
             Pixels are returned in row order from the lowest to the highest row,
             left to right in each row.
@@ -139,14 +139,14 @@
                         value maps to 0 and the maximum value maps to 1.
                         Each component is then multiplied by <code class="constant">GL_DEPTH_SCALE</code>,
                         added to <code class="constant">GL_DEPTH_BIAS</code>,
-                        and finally clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        and finally clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><code class="constant">GL_RED</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_GREEN</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BLUE</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_ALPHA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_RGB</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGR</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_RGBA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGRA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_LUMINANCE</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_LUMINANCE_ALPHA</code></span></dt><dd><p>
                         Processing differs depending on whether color buffers store color indices
                         or RGBA color components.
@@ -163,36 +163,36 @@
                         <code class="constant">GL_PIXEL_MAP_I_TO_G</code>,
                         <code class="constant">GL_PIXEL_MAP_I_TO_B</code>, and
                         <code class="constant">GL_PIXEL_MAP_I_TO_A</code>.
-                        Each table must be of size 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msup><mml:mn>2</mml:mn>
-                            <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:msup>
-                        </mml:math>,
-                        but 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        Each table must be of size
+                        <math overflow="scroll">
+
+                            <msup><mn>2</mn>
+                            <mi mathvariant="italic">n</mi>
+                            </msup>
+                        </math>,
+                        but
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         may be different for
                         different tables.
                         Before an index is used to look up a value in a table of
-                        size 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:msup><mml:mn>2</mml:mn>
-                            <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:msup>
-                        </mml:math>,
-                        it must be masked against 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>.
+                        size
+                        <math overflow="scroll">
+
+                            <msup><mn>2</mn>
+                            <mi mathvariant="italic">n</mi>
+                            </msup>
+                        </math>,
+                        it must be masked against
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>.
                     </p><p>
                         If RGBA color components are stored in the color buffers,
                         they are read from the color buffer selected by <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>.
@@ -203,14 +203,14 @@
                         where <span class="emphasis"><em>c</em></span> is RED, GREEN, BLUE, or ALPHA.
                         Finally,
                         if <code class="constant">GL_MAP_COLOR</code> is <code class="constant">GL_TRUE</code>,
-                        each component is clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>,
+                        each component is clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>,
                         scaled to the size of its corresponding table, and is then
                         replaced by its mapping in the table
                         <code class="constant">GL_PIXEL_MAP_c_TO_c</code>,
@@ -226,14 +226,14 @@
                         and blue components,
                         and <code class="constant">GL_LUMINANCE_ALPHA</code> does the same,
                         while keeping alpha as a second value.
-                        The final values are clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        The final values are clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd></dl></div><p>
             The shift,
             scale,
@@ -267,231 +267,231 @@
             (or converted to the client's single-precision floating-point format if
             it is different from the one used by the GL).
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left">
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /></colgroup><thead><tr><th>
                         <em class="parameter"><code>type</code></em>
-                        </th><th align="center"><span class="bold"><strong>
+                        </th><th class="center"><span class="bold"><strong>
                         Index Mask
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Component Conversion
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_UNSIGNED_BYTE</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>8</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>8</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>8</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>8</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_BYTE</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>7</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>8</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>7</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>8</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_BITMAP</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>1</mml:mn>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>1</mml:mn>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mn>1</mn>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mn>1</mn>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNSIGNED_SHORT</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>16</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>16</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>16</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>16</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_SHORT</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>15</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>16</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>15</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>16</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_UNSIGNED_INT</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>32</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfenced open="(" close=")">
-                                    <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mn>32</mml:mn>
-                                        </mml:msup>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">c</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>32</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfenced open="(" close=")">
+                                    <mrow>
+                                        <msup><mn>2</mn>
+                                        <mn>32</mn>
+                                        </msup>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">c</mi>
+                            </mrow>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_INT</code>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mn>31</mml:mn>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mfenced open="" close="">
-                                    <mml:mrow>
-                                        <mml:mfenced open="(" close=")">
-                                            <mml:mrow>
-                                                <mml:msup><mml:mn>2</mml:mn>
-                                                <mml:mn>32</mml:mn>
-                                                </mml:msup>
-                                                <mml:mo>-</mml:mo>
-                                                <mml:mn>1</mml:mn>
-                                            </mml:mrow>
-                                        </mml:mfenced>
-                                        <mml:mo>⁢</mml:mo>
-                                        <mml:mi mathvariant="italic">c</mml:mi>
-                                        <mml:mo>-</mml:mo>
-                                        <mml:mn>1</mml:mn>
-                                    </mml:mrow>
-                                </mml:mfenced>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mn>31</mn>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mfenced open="" close="">
+                                    <mrow>
+                                        <mfenced open="(" close=")">
+                                            <mrow>
+                                                <msup><mn>2</mn>
+                                                <mn>32</mn>
+                                                </msup>
+                                                <mo>-</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                        </mfenced>
+                                        <mo>⁢</mo>
+                                        <mi mathvariant="italic">c</mi>
+                                        <mo>-</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfenced>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_FLOAT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         none
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
+                        </td><td class="center">
+                        <math overflow="scroll"><mi mathvariant="italic">c</mi></math>
                         </td></tr></tbody></table></div><p>
             Return values are placed in memory as follows.
             If <em class="parameter"><code>format</code></em> is
@@ -503,24 +503,24 @@
             <code class="constant">GL_BLUE</code>,
             <code class="constant">GL_ALPHA</code>, or
             <code class="constant">GL_LUMINANCE</code>,
-            a single value is returned and the data for the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            a single value is returned and the data for the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row
-            is placed in location 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mfenced>
-                    <mml:mo>⁢</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>.
+            is placed in location
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">j</mi>
+                    </mfenced>
+                    <mo>⁢</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>.
             <code class="constant">GL_RGB</code> and <code class="constant">GL_BGR</code> return three values,
             <code class="constant">GL_RGBA</code> and <code class="constant">GL_BGRA</code> return four values,
             and <code class="constant">GL_LUMINANCE_ALPHA</code> returns two values for each pixel,
@@ -591,11 +591,11 @@
             <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and the data would be packed to the buffer
             object such that the memory writes required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glReadPixels</code>
@@ -615,7 +615,7 @@
             <a class="citerefentry" href="glPixelTransfer"><span class="citerefentry"><span class="refentrytitle">glPixelTransfer</span></span></a>,
             <a class="citerefentry" href="glReadBuffer"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

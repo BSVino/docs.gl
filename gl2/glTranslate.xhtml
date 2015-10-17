@@ -1,15 +1,15 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glTranslate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTranslate — multiply the current matrix by a translation matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTranslated</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glTranslatef</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em>, </span><span class="term"><em class="parameter"><code>z</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glTranslate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTranslate — multiply the current matrix by a translation matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glTranslated</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glTranslatef</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">z</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em>, </span><span class="term"><em class="parameter"><code>z</code></em></span></dt><dd><p>
                     Specify the <span class="emphasis"><em>x</em></span>, <span class="emphasis"><em>y</em></span>, and <span class="emphasis"><em>z</em></span> coordinates of a translation vector.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glTranslate</code> produces a translation by
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mi mathvariant="italic">x</mml:mi>
-                    <mml:mi mathvariant="italic">y</mml:mi>
-                    <mml:mi mathvariant="italic">z</mml:mi>
-                </mml:mfenced>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mi mathvariant="italic">x</mi>
+                    <mi mathvariant="italic">y</mi>
+                    <mi mathvariant="italic">z</mi>
+                </mfenced>
+            </math>.
             The current matrix
             (see
             <a class="citerefentry" href="glMatrixMode"><span class="citerefentry"><span class="refentrytitle">glMatrixMode</span></span></a>)
@@ -18,69 +18,69 @@
             <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a> were called with the following matrix
             for its argument:
         </p><p>
-            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mtable>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>1</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mi mathvariant="italic">x</mml:mi>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>1</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mi mathvariant="italic">y</mml:mi>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>1</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mi mathvariant="italic">z</mml:mi>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>1</mml:mn>
-                            </mml:mtd>
-                        </mml:mtr>
-                    </mml:mtable>
-                </mml:mfenced>
-            </mml:math></div><p>
+            </p><div class="informalequation"><math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mtable>
+                        <mtr>
+                            <mtd>
+                                <mn>1</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mi mathvariant="italic">x</mi>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>1</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mi mathvariant="italic">y</mi>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>1</mn>
+                            </mtd>
+                            <mtd>
+                                <mi mathvariant="italic">z</mi>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>1</mn>
+                            </mtd>
+                        </mtr>
+                    </mtable>
+                </mfenced>
+            </math></div><p>
         </p><p>
         </p><p>
             If the matrix mode is either <code class="constant">GL_MODELVIEW</code> or <code class="constant">GL_PROJECTION</code>,
@@ -112,7 +112,7 @@
             <a class="citerefentry" href="glRotate"><span class="citerefentry"><span class="refentrytitle">glRotate</span></span></a>,
             <a class="citerefentry" href="glScale"><span class="citerefentry"><span class="refentrytitle">glScale</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

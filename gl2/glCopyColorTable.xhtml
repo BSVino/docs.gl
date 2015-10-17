@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glCopyColorTable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyColorTable — copy pixels into a color table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyColorTable</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glCopyColorTable"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyColorTable — copy pixels into a color table</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glCopyColorTable</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">width</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     The color table target. Must be
                     <code class="constant">GL_COLOR_TABLE</code>,
                     <code class="constant">GL_POST_CONVOLUTION_COLOR_TABLE</code>,
@@ -72,113 +72,113 @@
             of each pixel. The scale and bias parameters are set by calling
             <a class="citerefentry" href="glColorTableParameter"><span class="citerefentry"><span class="refentrytitle">glColorTableParameter</span></span></a>.
         </p><p>
-            Next, the R, G, B, and A values are clamped to the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            Next, the R, G, B, and A values are clamped to the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math>.
             Each pixel is then converted to the internal format specified by
             <em class="parameter"><code>internalformat</code></em>. This conversion simply maps the component values of the pixel (R, G, B,
             and A) to the values included in the internal format (red, green, blue,
             alpha, luminance, and intensity).  The mapping is as follows:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         Internal Format
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Red
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Green
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Blue
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Alpha
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Luminance
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Intensity
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_ALPHA</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_LUMINANCE_ALPHA</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_INTENSITY</code>
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
                         R
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGB</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
-                        </td><td align="center">
-                        </td><td align="center">
-                         
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        </td><td class="center">
+                        </td><td class="center">
+
+                        </td></tr><tr><td>
                         <code class="constant">GL_RGBA</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
-                        </td><td align="center">
-                         
+                        </td><td class="center">
+                        </td><td class="center">
+
                         </td></tr></tbody></table></div><p>
             Finally, the red, green, blue, alpha, luminance, and/or intensity components of
             the resulting pixels are stored in the color table.
             They form a one-dimensional table with indices in the range
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">width</mml:mi>
-                        <mml:mo>-</mml:mo>
-                        <mml:mn>1</mml:mn>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mrow>
+                        <mi mathvariant="italic">width</mi>
+                        <mo>-</mo>
+                        <mn>1</mn>
+                    </mrow>
+                </mfenced>
+            </math>.
         </p><p>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glCopyColorTable</code> is available only if <code class="code">ARB_imaging</code> is returned from calling
@@ -208,7 +208,7 @@
             <a class="citerefentry" href="glColorTableParameter"><span class="citerefentry"><span class="refentrytitle">glColorTableParameter</span></span></a>,
             <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

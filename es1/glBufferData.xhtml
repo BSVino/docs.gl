@@ -1,4 +1,4 @@
-<div class="refentry" title="glBufferData"><a id="glBufferData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBufferData — creates and initializes a buffer object's data store.</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glBufferData</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizeiptr <var class="pdparam">size</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">usage</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glBufferData"><a id="glBufferData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBufferData — creates and initializes a buffer object's data store.</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glBufferData</b>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizeiptr <var class="pdparam">size</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">usage</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>target</code></em>
                 </span></dt><dd><p>
                     Specifies the target buffer object. The symbolic constant must be
@@ -22,8 +22,8 @@
             specified <em class="parameter"><code>size</code></em> in bytes and <em class="parameter"><code>usage</code></em>. If <em class="parameter"><code>data</code></em>
             is not <code class="constant">NULL</code>, the data store is initialized with data from this pointer.
         </p><p>
-            <em class="parameter"><code>usage</code></em> is a hint to the GL implementation as to how a buffer object's data store will be 
-            accessed. This enables the GL implementation to make more intelligent decisions that may significantly 
+            <em class="parameter"><code>usage</code></em> is a hint to the GL implementation as to how a buffer object's data store will be
+            accessed. This enables the GL implementation to make more intelligent decisions that may significantly
             impact buffer object performance. It does not, however, constrain the actual usage of the data store.
         </p><p>
         <em class="parameter"><code>usage</code></em> may be one of these:
@@ -40,13 +40,13 @@
         </p><p>
             Clients must align data elements consistent with the requirements of the client
             platform, with an additional base-level requirement that an offset within a buffer to
-            a datum comprising <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math> bytes be a 
-            multiple of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>.
+            a datum comprising <math overflow="scroll"><mi mathvariant="italic">N</mi></math> bytes be a
+            multiple of <math overflow="scroll"><mi mathvariant="italic">N</mi></math>.
         </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
             <code class="constant">GL_ARRAY_BUFFER</code> or <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>.
         </p><p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>usage</code></em> is not 
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>usage</code></em> is not
             <code class="constant">GL_STATIC_DRAW</code> or
             <code class="constant">GL_DYNAMIC_DRAW</code>.
         </p><p>
@@ -61,7 +61,7 @@
         <a class="citerefentry" href="glBufferSubData"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
         <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2004
+            Copyright © 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

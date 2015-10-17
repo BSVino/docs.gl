@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPixelMap"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelMap — set up pixel transfer maps</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapuiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapusv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLushort *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>map</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPixelMap"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelMap — set up pixel transfer maps</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLfloat *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapuiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLuint *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelMapusv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">map</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">mapsize</var>, </td></tr><tr><td> </td><td>const GLushort *  </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>map</code></em></span></dt><dd><p>
                     Specifies a symbolic map name.
                     Must be one of the following:
                     <code class="constant">GL_PIXEL_MAP_I_TO_I</code>,
@@ -52,7 +52,7 @@
             <em class="parameter"><code>mapsize</code></em> specifies the number of entries in the map,
             and <em class="parameter"><code>values</code></em> is a pointer to an array of <em class="parameter"><code>mapsize</code></em> map values.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a pixel transfer map is
             specified, <em class="parameter"><code>values</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -106,130 +106,130 @@
         </p><p>
             The following table shows the initial sizes and values for each of the maps.
             Maps that are indexed by either color or stencil indices must have
-            <em class="parameter"><code>mapsize</code></em> = 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:msup><mml:mn>2</mml:mn>
-                <mml:mi mathvariant="italic">n</mml:mi>
-                </mml:msup>
-            </mml:math>
-            for some 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            <em class="parameter"><code>mapsize</code></em> =
+            <math overflow="scroll">
+
+                <msup><mn>2</mn>
+                <mi mathvariant="italic">n</mi>
+                </msup>
+            </math>
+            for some
+            <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
             or the results are undefined.
             The maximum allowable size for each map depends on the implementation
             and can be determined by calling <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
             <code class="constant">GL_MAX_PIXEL_MAP_TABLE</code>.
             The single maximum applies to all maps; it is at
             least 32.
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         <em class="parameter"><code>map</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Lookup Index
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Lookup Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Initial Size
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Initial Value
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_PIXEL_MAP_I_TO_I</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         color index
-                        </td><td align="center">
+                        </td><td class="center">
                         color index
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_S_TO_S</code>
-                        </td><td align="center">
-                        stencil index 
-                        </td><td align="center">
-                        stencil index 
-                        </td><td align="center">
+                        </td><td class="center">
+                        stencil index
+                        </td><td class="center">
+                        stencil index
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_I_TO_R</code>
-                        </td><td align="center">
-                        color index 
-                        </td><td align="center">
+                        </td><td class="center">
+                        color index
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_I_TO_G</code>
-                        </td><td align="center">
-                        color index 
-                        </td><td align="center">
+                        </td><td class="center">
+                        color index
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_I_TO_B</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         color index
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_I_TO_A</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         color index
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_R_TO_R</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         R
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_G_TO_G</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         G
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_B_TO_B</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         B
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_PIXEL_MAP_A_TO_A</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         A
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
+                        </td><td class="center">
                         0
                         </td></tr></tbody></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>map</code></em> is not an accepted value.
@@ -250,19 +250,19 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated by <code class="function">glPixelMapfv</code> if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a GLfloat datum.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated by <code class="function">glPixelMapuiv</code> if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a GLuint datum.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated by <code class="function">glPixelMapusv</code> if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>values</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a GLushort datum.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glPixelMap</code>
@@ -320,7 +320,7 @@
             <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

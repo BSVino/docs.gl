@@ -1,4 +1,4 @@
-<div class="refentry" title="glPointSize"><a id="glPointSize"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPointSize — specify the diameter of rasterized points</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPointSize</b>(</code></td><td>GLfloat <var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPointSizex</b>(</code></td><td>GLfixed <var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
+<div class="refentry" title="glPointSize"><a id="glPointSize"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPointSize — specify the diameter of rasterized points</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPointSize</b>(</code></td><td>GLfloat <var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glPointSizex</b>(</code></td><td>GLfixed <var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">
                     <em class="parameter"><code>size</code></em>
                 </span></dt><dd><p>Specifies the diameter of rasterized points. The
                     initial value is 1.</p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p><code class="function">glPointSize</code>
@@ -16,69 +16,69 @@
         integer. (If the rounding results in the value 0, it is as if
         the point size were 1.) If the rounded size is odd, then the
         center point
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced><mml:mi>x</mml:mi><mml:mi>y</mml:mi></mml:mfenced>
-        </mml:math>
+        <math overflow="scroll">
+            <mfenced><mi>x</mi><mi>y</mi></mfenced>
+        </math>
         of the pixel fragment that represents the point is computed
-        as</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced>
-                <mml:mrow>
-                    <mml:mo>[</mml:mo>
-                    <mml:msub><mml:mi>x</mml:mi><mml:mi>w</mml:mi></mml:msub>
-                    <mml:mo>]</mml:mo>
-                    <mml:mo>+</mml:mo>
-                    <mml:mfrac><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:mfrac>
-                </mml:mrow>
-                <mml:mrow>
-                    <mml:mo>[</mml:mo>
-                    <mml:msub><mml:mi>y</mml:mi><mml:mi>w</mml:mi></mml:msub>
-                    <mml:mo>]</mml:mo>
-                    <mml:mo>+</mml:mo>
-                    <mml:mfrac><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:mfrac>
-                </mml:mrow>
-            </mml:mfenced>
-        </mml:math></div><p>where <em class="replaceable"><code>w</code></em>
+        as</p><div class="informalequation"><math overflow="scroll">
+            <mfenced>
+                <mrow>
+                    <mo>[</mo>
+                    <msub><mi>x</mi><mi>w</mi></msub>
+                    <mo>]</mo>
+                    <mo>+</mo>
+                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                </mrow>
+                <mrow>
+                    <mo>[</mo>
+                    <msub><mi>y</mi><mi>w</mi></msub>
+                    <mo>]</mo>
+                    <mo>+</mo>
+                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                </mrow>
+            </mfenced>
+        </math></div><p>where <em class="replaceable"><code>w</code></em>
         subscripts indicate window coordinates. All pixels that lie
         within the square grid of the rounded size centered at
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced><mml:mi>x</mml:mi><mml:mi>y</mml:mi></mml:mfenced>
-        </mml:math>
+        <math overflow="scroll">
+            <mfenced><mi>x</mi><mi>y</mi></mfenced>
+        </math>
         make up the fragment. If the size is even, the center point
-        is</p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced>
-                <mml:mrow>
-                    <mml:mo>[</mml:mo>
-                    <mml:msub><mml:mi>x</mml:mi><mml:mi>w</mml:mi></mml:msub>
-                    <mml:mo>+</mml:mo>
-                    <mml:mfrac><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:mfrac>
-                    <mml:mo>]</mml:mo>
-                </mml:mrow>
-                <mml:mrow>
-                    <mml:mo>[</mml:mo>
-                    <mml:msub><mml:mi>y</mml:mi><mml:mi>w</mml:mi></mml:msub>
-                    <mml:mo>+</mml:mo>
-                    <mml:mfrac><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:mfrac>
-                    <mml:mo>]</mml:mo>
-                </mml:mrow>
-            </mml:mfenced>
-        </mml:math></div><p>and the rasterized fragment's centers are the
+        is</p><div class="informalequation"><math overflow="scroll">
+            <mfenced>
+                <mrow>
+                    <mo>[</mo>
+                    <msub><mi>x</mi><mi>w</mi></msub>
+                    <mo>+</mo>
+                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                    <mo>]</mo>
+                </mrow>
+                <mrow>
+                    <mo>[</mo>
+                    <msub><mi>y</mi><mi>w</mi></msub>
+                    <mo>+</mo>
+                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                    <mo>]</mo>
+                </mrow>
+            </mfenced>
+        </math></div><p>and the rasterized fragment's centers are the
         half-integer window coordinates within the square of the
         rounded size centered at
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced><mml:mi>x</mml:mi><mml:mi>y</mml:mi></mml:mfenced>
-        </mml:math>.
+        <math overflow="scroll">
+            <mfenced><mi>x</mi><mi>y</mi></mfenced>
+        </math>.
         All pixel fragments produced in rasterizing a nonantialiased
         point are assigned the same associated data, that of the vertex
         corresponding to the point.</p><p>If antialiasing is enabled, then point rasterization
         produces a fragment for each pixel square that intersects the
         region lying within the circle having diameter equal to the
         current point size and centered at the point's
-        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mfenced>
-                <mml:msub><mml:mi>x</mml:mi><mml:mi>w</mml:mi></mml:msub>
-                <mml:msub><mml:mi>y</mml:mi><mml:mi>w</mml:mi></mml:msub>
-            </mml:mfenced>
-        </mml:math>.
+        <math overflow="scroll">
+            <mfenced>
+                <msub><mi>x</mi><mi>w</mi></msub>
+                <msub><mi>y</mi><mi>w</mi></msub>
+            </mfenced>
+        </math>.
         The coverage value for each fragment is the window
         coordinate area of the intersection of the circular region with
         the corresponding pixel square. This value is saved and used in
@@ -109,7 +109,7 @@
         <a class="citerefentry" href="glEnable"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
         <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1" title="Copyright"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2004
+            Copyright © 2003-2004
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

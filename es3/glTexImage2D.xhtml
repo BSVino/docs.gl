@@ -1553,102 +1553,102 @@
             If the <em class="parameter"><code>internalFormat</code></em> parameter is
             <code class="constant">GL_SRGB8</code>, or
             <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                <mml:mi mathvariant="italic">s</mml:mi>
-                </mml:msub>
-            </mml:math>
+            <math overflow="scroll">
+                <msub><mi mathvariant="italic">c</mi>
+                <mi mathvariant="italic">s</mi>
+                </msub>
+            </math>
             to a linear component
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                <mml:mi mathvariant="italic">l</mml:mi>
-                </mml:msub>
-            </mml:math>
+            <math overflow="scroll">
+                <msub><mi mathvariant="italic">c</mi>
+                <mi mathvariant="italic">l</mi>
+                </msub>
+            </math>
             is:
         </p>
         <p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mrow>
-                <mml:msub>
-                  <mml:mi mathvariant="italic">c</mml:mi>
-                  <mml:mi mathvariant="italic">l</mml:mi>
-                </mml:msub>
-                <mml:mo>=</mml:mo>
-                <mml:mrow>
-                  <mml:mo>{</mml:mo>
+            <math overflow="scroll">
+            <mrow>
+                <msub>
+                  <mi mathvariant="italic">c</mi>
+                  <mi mathvariant="italic">l</mi>
+                </msub>
+                <mo>=</mo>
+                <mrow>
+                  <mo>{</mo>
 
-                  <mml:mtable columnalign="left">
-                    <mml:mtr>
-                      <mml:mtd columnalign="left">
-                        <mml:mfrac>
-                          <mml:msub>
-                            <mml:mi mathvariant="italic">c</mml:mi>
-                            <mml:mi mathvariant="italic">s</mml:mi>
-                          </mml:msub>
-                          <mml:mn>12.92</mml:mn>
-                        </mml:mfrac>
-                      </mml:mtd>
-                      <mml:mtd columnalign="left">
-                        <mml:mrow>
-                          <mml:mspace width="1ex"/>
-                          <mml:mo>if</mml:mo>
-                          <mml:mspace width="1ex"/>
-                        </mml:mrow>
-                        <mml:msub>
-                          <mml:mi mathvariant="italic">c</mml:mi>
-                          <mml:mi mathvariant="italic">s</mml:mi>
-                        </mml:msub>
-                        <mml:mo>≤</mml:mo>
-                        <mml:mn>0.04045</mml:mn>
-                      </mml:mtd>
-                    </mml:mtr>
-                    <mml:mtr>
-                    <mml:mtd columnalign="left">
-                    <mml:msup>
-                      <mml:mrow>
-                        <mml:mo>(</mml:mo>
-                        <mml:mfrac>
-                          <mml:mrow>
-                            <mml:msub>
-                              <mml:mi>c</mml:mi>
-                              <mml:mi>s</mml:mi>
-                            </mml:msub>
-                            <mml:mo>+</mml:mo>
-                            <mml:mn>0.055</mml:mn>
-                          </mml:mrow>
-                          <mml:mn>1.055</mml:mn>
-                        </mml:mfrac>
-                        <mml:mo>)</mml:mo>
-                      </mml:mrow>
-                      <mml:mn>2.4</mml:mn>
-                    </mml:msup>
-                    </mml:mtd>
-                        <mml:mtd columnalign="left">
-                        <mml:mrow>
-                          <mml:mspace width="1ex"/>
-                          <mml:mo>if</mml:mo>
-                          <mml:mspace width="1ex"/>
-                        </mml:mrow>
-                        <mml:msub>
-                          <mml:mi mathvariant="italic">c</mml:mi>
-                          <mml:mi mathvariant="italic">s</mml:mi>
-                        </mml:msub>
-                        <mml:mo>&gt;</mml:mo>
-                        <mml:mn>0.04045</mml:mn>
-                      </mml:mtd>
-                    </mml:mtr>
-                  </mml:mtable>
-                </mml:mrow>
-                </mml:mrow>
-            </mml:math>
+                  <mtable columnalign="left">
+                    <mtr>
+                      <mtd columnalign="left">
+                        <mfrac>
+                          <msub>
+                            <mi mathvariant="italic">c</mi>
+                            <mi mathvariant="italic">s</mi>
+                          </msub>
+                          <mn>12.92</mn>
+                        </mfrac>
+                      </mtd>
+                      <mtd columnalign="left">
+                        <mrow>
+                          <mspace width="1ex"/>
+                          <mo>if</mo>
+                          <mspace width="1ex"/>
+                        </mrow>
+                        <msub>
+                          <mi mathvariant="italic">c</mi>
+                          <mi mathvariant="italic">s</mi>
+                        </msub>
+                        <mo>≤</mo>
+                        <mn>0.04045</mn>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                    <mtd columnalign="left">
+                    <msup>
+                      <mrow>
+                        <mo>(</mo>
+                        <mfrac>
+                          <mrow>
+                            <msub>
+                              <mi>c</mi>
+                              <mi>s</mi>
+                            </msub>
+                            <mo>+</mo>
+                            <mn>0.055</mn>
+                          </mrow>
+                          <mn>1.055</mn>
+                        </mfrac>
+                        <mo>)</mo>
+                      </mrow>
+                      <mn>2.4</mn>
+                    </msup>
+                    </mtd>
+                        <mtd columnalign="left">
+                        <mrow>
+                          <mspace width="1ex"/>
+                          <mo>if</mo>
+                          <mspace width="1ex"/>
+                        </mrow>
+                        <msub>
+                          <mi mathvariant="italic">c</mi>
+                          <mi mathvariant="italic">s</mi>
+                        </msub>
+                        <mo>&gt;</mo>
+                        <mn>0.04045</mn>
+                      </mtd>
+                    </mtr>
+                  </mtable>
+                </mrow>
+                </mrow>
+            </math>
         </p>
         <p>
             Assume
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                <mml:mi mathvariant="italic">s</mml:mi>
-                </mml:msub>
-            </mml:math>
+            <math overflow="scroll">
+                <msub><mi mathvariant="italic">c</mi>
+                <mi mathvariant="italic">s</mi>
+                </msub>
+            </math>
             is the sRGB component in the range [0,1].
        </p>
         <p>
@@ -1711,18 +1711,18 @@
         </p>
         <p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁡</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">max</mml:mi>
-                    </mml:mfenced>
-                </mml:mrow>
-            </mml:math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁡</mo>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">max</mi>
+                    </mfenced>
+                </mrow>
+            </math>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p>
         <p>
@@ -1741,7 +1741,7 @@
             <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> is not one of those in the tables above.
         </p>
         <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if storage for the texture has been previously specified with 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if storage for the texture has been previously specified with
             <a class="citerefentry" href="glTexStorage2D"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>.
         </p>
         <p>
@@ -1779,7 +1779,7 @@
             <thead>
               <tr>
                 <th style="text-align: left; border-right: 2px solid ; ">
-                 
+
             </th>
                 <th style="text-align: center; border-bottom: 2px solid ; " colspan="3">
                 <span class="bold"><strong>OpenGL ES API Version</strong></span>
@@ -1830,8 +1830,8 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
-            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
+            Copyright © 1991-2006 Silicon Graphics, Inc.
+            Copyright © 2010-2014 Khronos Group.
             This document is licensed under the SGI Free Software B License.
             For details, see
             <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

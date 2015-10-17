@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glBindBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBuffer — bind a named buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glBindBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBuffer — bind a named buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target to which the buffer object is bound.
                     The symbolic constant must be
                     <code class="constant">GL_ARRAY_BUFFER</code>,
@@ -34,33 +34,33 @@
             <code class="constant">GL_READ_WRITE</code> access and <code class="constant">GL_STATIC_DRAW</code> usage.
         </p><p>
             While a non-zero buffer object name is bound, GL operations on the target to which it is
-            bound affect the bound buffer object, and queries of the target to which it is bound return state 
+            bound affect the bound buffer object, and queries of the target to which it is bound return state
             from the bound buffer object. While buffer object name zero is bound, as in the initial state,
-            attempts to modify or query state on the target to which it is bound generates an 
+            attempts to modify or query state on the target to which it is bound generates an
             <code class="constant">GL_INVALID_OPERATION</code> error.
         </p><p>
-            When a non-zero buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target, 
+            When a non-zero buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target,
             the vertex array pointer parameter is interpreted as an offset within the
             buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target, 
-            the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, 
+            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target,
+            the indices parameter of <a class="citerefentry" href="glDrawElements"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
             <a class="citerefentry" href="glDrawElementsInstanced"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
-            <a class="citerefentry" href="glDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>, 
-            <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>, 
+            <a class="citerefentry" href="glDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glDrawElementsBaseVertex</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
             <a class="citerefentry" href="glDrawRangeElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElementsBaseVertex</span></span></a>,
-            <a class="citerefentry" href="glMultiDrawElements"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>, or 
-            <a class="citerefentry" href="glMultiDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsBaseVertex</span></span></a> is interpreted as an 
+            <a class="citerefentry" href="glMultiDrawElements"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElements</span></span></a>, or
+            <a class="citerefentry" href="glMultiDrawElementsBaseVertex"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsBaseVertex</span></span></a> is interpreted as an
             offset within the buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target, 
-            the following commands are affected: <a class="citerefentry" href="glGetCompressedTexImage"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>, 
-            <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, and 
+            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target,
+            the following commands are affected: <a class="citerefentry" href="glGetCompressedTexImage"><span class="citerefentry"><span class="refentrytitle">glGetCompressedTexImage</span></span></a>,
+            <a class="citerefentry" href="glGetTexImage"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, and
             <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>. The pointer parameter is
             interpreted as an offset within the buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target, 
-            the following commands are affected: 
+            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target,
+            the following commands are affected:
             <a class="citerefentry" href="glCompressedTexImage1D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage1D</span></span></a>,
             <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
             <a class="citerefentry" href="glCompressedTexImage3D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
@@ -71,8 +71,8 @@
             <a class="citerefentry" href="glTexImage2D"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glTexImage3D"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage1D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and 
-            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is 
+            <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and
+            <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is
             interpreted as an offset within the buffer object measured in basic machine units.
         </p><p>
             The buffer targets <code class="constant">GL_COPY_READ_BUFFER</code> and <code class="constant">GL_COPY_WRITE_BUFFER</code>
@@ -135,8 +135,8 @@
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
             <a class="citerefentry" href="glIsBuffer"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPolygonOffset"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonOffset — set the scale and units used to calculate depth values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonOffset</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">units</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPolygonOffset"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPolygonOffset — set the scale and units used to calculate depth values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPolygonOffset</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">factor</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">units</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>factor</code></em></span></dt><dd><p>
                     Specifies a scale factor that is used to create a variable
                     depth offset for each polygon. The initial value is 0.
                 </p></dd><dt><span class="term"><em class="parameter"><code>units</code></em></span></dt><dd><p>
@@ -9,31 +9,31 @@
             <code class="constant">GL_POLYGON_OFFSET_POINT</code> is enabled, each
             fragment's <span class="emphasis"><em>depth</em></span> value will be offset after it is interpolated
             from the <span class="emphasis"><em>depth</em></span> values of the appropriate vertices.
-            The value of the offset is 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">factor</mml:mi>
-                        <mml:mo>×</mml:mo>
-                        <mml:mi mathvariant="italic">DZ</mml:mi>
-                    </mml:mrow>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                        <mml:mo>×</mml:mo>
-                        <mml:mi mathvariant="italic">units</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mi mathvariant="italic">DZ</mml:mi>
-            </mml:math>
+            The value of the offset is
+            <math overflow="scroll">
+
+                <mrow>
+                    <mrow>
+                        <mi mathvariant="italic">factor</mi>
+                        <mo>×</mo>
+                        <mi mathvariant="italic">DZ</mi>
+                    </mrow>
+                    <mo>+</mo>
+                    <mrow>
+                        <mi mathvariant="italic">r</mi>
+                        <mo>×</mo>
+                        <mi mathvariant="italic">units</mi>
+                    </mrow>
+                </mrow>
+            </math>,
+            where
+            <math overflow="scroll">
+
+                <mi mathvariant="italic">DZ</mi>
+            </math>
             is a measurement of the change in depth relative to the screen
-            area of the polygon, and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+            area of the polygon, and
+            <math overflow="scroll"><mi mathvariant="italic">r</mi></math>
             is the smallest value that is guaranteed to
             produce a resolvable offset for a given implementation.
             The offset is added before the depth test is performed and before
@@ -68,7 +68,7 @@
             <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
             <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
