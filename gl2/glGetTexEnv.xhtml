@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGetTexEnv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexEnv — return texture environment parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexEnvfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><p></p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexEnviv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glGetTexEnv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexEnv — return texture environment parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexEnvfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><p></p><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetTexEnviv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies a texture environment. May be
                     <code class="constant">GL_TEXTURE_ENV</code>,
                     <code class="constant">GL_TEXTURE_FILTER_CONTROL</code>, or
@@ -32,13 +32,13 @@
             <em class="parameter"><code>target</code></em> specifies a texture environment.
         </p><p>
             When <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_FILTER_CONTROL</code>,
-            <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_TEXTURE_LOD_BIAS</code>.  
+            <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_TEXTURE_LOD_BIAS</code>.
             When <em class="parameter"><code>target</code></em> is <code class="constant">GL_POINT_SPRITE</code>,
             <em class="parameter"><code>pname</code></em> must be <code class="constant">GL_COORD_REPLACE</code>.
             When <em class="parameter"><code>target</code></em> is
             <code class="constant">GL_TEXTURE_ENV</code>, <em class="parameter"><code>pname</code></em> can be <code class="constant">GL_TEXTURE_ENV_MODE</code>,
             <code class="constant">GL_TEXTURE_ENV_COLOR</code>, <code class="constant">GL_COMBINE_RGB</code>, <code class="constant">GL_COMBINE_ALPHA</code>,
-            <code class="constant">GL_RGB_SCALE</code>, <code class="constant">GL_ALPHA_SCALE</code>, 
+            <code class="constant">GL_RGB_SCALE</code>, <code class="constant">GL_ALPHA_SCALE</code>,
             <code class="constant">GL_SRC0_RGB</code>, <code class="constant">GL_SRC1_RGB</code>, <code class="constant">GL_SRC2_RGB</code>,
             <code class="constant">GL_SRC0_ALPHA</code>, <code class="constant">GL_SRC1_ALPHA</code>, or <code class="constant">GL_SRC2_ALPHA</code>.
         </p><p>
@@ -53,11 +53,11 @@
                         when requested,
                         are linearly mapped from the internal floating-point representation
                         such that 1.0 maps to the most positive representable integer,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         maps to the most negative representable integer. The initial
                         value is (0, 0, 0, 0).
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_LOD_BIAS</code></span></dt><dd><p>
@@ -156,7 +156,7 @@
             <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>,
             <a class="citerefentry" href="glTexEnv"><span class="citerefentry"><span class="refentrytitle">glTexEnv</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

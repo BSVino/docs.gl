@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPixelTransfer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelTransfer — set pixel transfer modes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferi</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPixelTransfer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelTransfer — set pixel transfer modes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferf</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelTransferi</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">param</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the symbolic name of the pixel transfer parameter to be set.
                     Must be one of the following:
                     <code class="constant">GL_MAP_COLOR</code>,
@@ -115,14 +115,14 @@
                         the alpha component is multiplied by <code class="constant">GL_ALPHA_SCALE</code>,
                         then added to <code class="constant">GL_ALPHA_BIAS</code>.
                         After all four color components are scaled and biased,
-                        each is clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        each is clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                         All color, scale, and bias values are specified with <code class="function">glPixelTransfer</code>.
                     </p><p>
                         If <code class="constant">GL_MAP_COLOR</code> is true,
@@ -139,14 +139,14 @@
                         And
                         the alpha component is scaled by <code class="constant">GL_PIXEL_MAP_A_TO_A_SIZE</code>,
                         then replaced by the contents of <code class="constant">GL_PIXEL_MAP_A_TO_A</code> indexed by itself.
-                        All components taken from the maps are then clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        All components taken from the maps are then clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                         <code class="constant">GL_MAP_COLOR</code> is specified with <code class="function">glPixelTransfer</code>.
                         The contents of the various maps are specified with <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
                     </p><p>
@@ -163,14 +163,14 @@
                         the alpha component is multiplied by <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>,
                         then added to <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>.
                         After all four color components are scaled and biased,
-                        each is clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        each is clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p><p>
                         Similarly, if the <code class="code">ARB_imaging</code> extension is supported, each of
                         the four color components may be scaled and biased after processing by
@@ -185,14 +185,14 @@
                         the alpha component is multiplied by <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>,
                         then added to <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>.
                         After all four color components are scaled and biased,
-                        each is clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        each is clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><span class="emphasis"><em>Color index</em></span></span></dt><dd><p>
                         Each color index is shifted left by <code class="constant">GL_INDEX_SHIFT</code> bits; any bits
                         beyond the number of fraction bits carried
@@ -210,19 +210,19 @@
                         or if they are being read back to client memory in <code class="constant">GL_COLOR_INDEX</code> format,
                         the pixels continue to be treated as indices.
                         If <code class="constant">GL_MAP_COLOR</code> is true,
-                        each index is masked by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        each index is masked by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is <code class="constant">GL_PIXEL_MAP_I_TO_I_SIZE</code>,
                         then replaced by the contents of <code class="constant">GL_PIXEL_MAP_I_TO_I</code> indexed by the
                         masked value.
@@ -239,61 +239,61 @@
                         <code class="constant">GL_PIXEL_MAP_I_TO_B</code>, and
                         <code class="constant">GL_PIXEL_MAP_I_TO_A</code>.
                         Before being dereferenced,
-                        the index is masked by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        the index is masked by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is
                         <code class="constant">GL_PIXEL_MAP_I_TO_R_SIZE</code> for the red map,
                         <code class="constant">GL_PIXEL_MAP_I_TO_G_SIZE</code> for the green map,
                         <code class="constant">GL_PIXEL_MAP_I_TO_B_SIZE</code> for the blue map, and
                         <code class="constant">GL_PIXEL_MAP_I_TO_A_SIZE</code> for the alpha map.
-                        All components taken from the maps are then clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        All components taken from the maps are then clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                         The contents of the four maps is specified with <a class="citerefentry" href="glPixelMap"><span class="citerefentry"><span class="refentrytitle">glPixelMap</span></span></a>.
                     </p></dd><dt><span class="term"><span class="emphasis"><em>Depth</em></span></span></dt><dd><p>
                         Each depth value is multiplied by <code class="constant">GL_DEPTH_SCALE</code>,
                         added to <code class="constant">GL_DEPTH_BIAS</code>,
-                        then clamped to the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        then clamped to the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>0</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><span class="emphasis"><em>Stencil</em></span></span></dt><dd><p>
                         Each index is shifted <code class="constant">GL_INDEX_SHIFT</code> bits just as a color index is,
                         then added to <code class="constant">GL_INDEX_OFFSET</code>.
                         If <code class="constant">GL_MAP_STENCIL</code> is true,
-                        each index is masked by 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:msup><mml:mn>2</mml:mn>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                </mml:msup>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        where 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+                        each index is masked by
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <msup><mn>2</mn>
+                                <mi mathvariant="italic">n</mi>
+                                </msup>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        where
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
                         is <code class="constant">GL_PIXEL_MAP_S_TO_S_SIZE</code>,
                         then replaced by the contents of <code class="constant">GL_PIXEL_MAP_S_TO_S</code> indexed by the
                         masked value.
@@ -303,506 +303,506 @@
             and range of valid values for each of the pixel transfer parameters
             that are set with <code class="function">glPixelTransfer</code>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="informaltable"><table><colgroup><col /><col /><col /><col /></colgroup><thead><tr><th><span class="bold"><strong>
                         <em class="parameter"><code>pname</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Type
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Initial Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
+                        </strong></span></th><th class="center"><span class="bold"><strong>
                         Valid Range
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+                        </strong></span></th></tr></thead><tbody><tr><td>
                         <code class="constant">GL_MAP_COLOR</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true/false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_MAP_STENCIL</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         boolean
-                        </td><td align="center">
+                        </td><td class="center">
                         false
-                        </td><td align="center">
+                        </td><td class="center">
                         true/false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td>
                         <code class="constant">GL_INDEX_SHIFT</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_INDEX_OFFSET</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         integer
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_RED_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_GREEN_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_BLUE_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_ALPHA_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_DEPTH_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_RED_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_GREEN_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_BLUE_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_ALPHA_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_DEPTH_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_RED_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_GREEN_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_BLUE_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_RED_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_GREEN_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_BLUE_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_COLOR_MATRIX_ALPHA_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_RED_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_GREEN_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_BLUE_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_ALPHA_SCALE</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         1
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_RED_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_GREEN_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_BLUE_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
+                        </td></tr><tr><td>
                         <code class="constant">GL_POST_CONVOLUTION_ALPHA_BIAS</code>
-                        </td><td align="center">
+                        </td><td class="center">
                         float
-                        </td><td align="center">
+                        </td><td class="center">
                         0
-                        </td><td align="center">
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mrow>
-                                    <mml:mo>-</mml:mo>
-                                    <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                                </mml:mrow>
-                                <mml:infinity definitionURL="" encoding=""></mml:infinity>
-                            </mml:mfenced>
-                        </mml:math>
+                        </td><td class="center">
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mrow>
+                                    <mo>-</mo>
+                                    <mn>∞</mn>
+                                </mrow>
+                                <mn>∞</mn>
+                            </mfenced>
+                        </math>
                         </td></tr></tbody></table></div><p>
             <code class="function">glPixelTransferf</code> can be used to set any pixel transfer parameter.
             If the parameter type is boolean,
@@ -936,7 +936,7 @@
             <a class="citerefentry" href="glTexSubImage2D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

@@ -1,14 +1,14 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glStencilMask"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glStencilMask — control the front and back writing of individual bits in the stencil planes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glStencilMask</b>(</code></td><td>GLuint  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glStencilMask"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glStencilMask — control the front and back writing of individual bits in the stencil planes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glStencilMask</b>(</code></td><td>GLuint  </td><td><var class="pdparam">mask</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mask</code></em></span></dt><dd><p>
                     Specifies a bit mask to enable and disable writing of individual bits
                     in the stencil planes.
                     Initially, the mask is all 1's.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glStencilMask</code> controls the writing of individual bits in the stencil planes.
-            The least significant 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            The least significant
+            <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
             bits of <em class="parameter"><code>mask</code></em>,
-            where 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            where
+            <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
             is the number of bits in the stencil buffer,
             specify a mask.
             Where a 1 appears in the mask,
@@ -18,7 +18,7 @@
             Initially, all bits are enabled for writing.
         </p><p>
             There can be two separate <em class="parameter"><code>mask</code></em> writemasks; one affects back-facing polygons, and the other
-            affects front-facing polygons as well as other non-polygon primitives. 
+            affects front-facing polygons as well as other non-polygon primitives.
             <a class="citerefentry" href="glStencilMask"><span class="citerefentry"><span class="refentrytitle">glStencilMask</span></span></a> sets both front
             and back stencil writemasks to the same values. Use <a class="citerefentry" href="glStencilMaskSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilMaskSeparate</span></span></a>
             to set front and back stencil writemasks to different values.
@@ -31,8 +31,8 @@
             is executed between the execution of <a class="citerefentry" href="glBegin"><span class="citerefentry"><span class="refentrytitle">glBegin</span></span></a>
             and the corresponding execution of <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
-            <code class="constant">GL_STENCIL_WRITEMASK</code>, <code class="constant">GL_STENCIL_BACK_WRITEMASK</code>, 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_STENCIL_WRITEMASK</code>, <code class="constant">GL_STENCIL_BACK_WRITEMASK</code>,
             or <code class="constant">GL_STENCIL_BITS</code>
         </p></div>
         {$pipelinestall}{$examples}
@@ -46,7 +46,7 @@
             <a class="citerefentry" href="glStencilOp"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
             <a class="citerefentry" href="glStencilOpSeparate"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

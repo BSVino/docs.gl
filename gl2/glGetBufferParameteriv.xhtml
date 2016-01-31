@@ -1,12 +1,12 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGetBufferParameteriv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetBufferParameteriv — return parameters of a buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetBufferParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glGetBufferParameteriv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetBufferParameteriv — return parameters of a buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetBufferParameteriv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">data</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target buffer object.
-                    The symbolic constant must be <code class="constant">GL_ARRAY_BUFFER</code>, 
+                    The symbolic constant must be <code class="constant">GL_ARRAY_BUFFER</code>,
                     <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
                     <code class="constant">GL_PIXEL_PACK_BUFFER</code>, or
                     <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
                     Specifies the symbolic name of a buffer object parameter.
-                    Accepted values are <code class="constant">GL_BUFFER_ACCESS</code>, <code class="constant">GL_BUFFER_MAPPED</code>, 
+                    Accepted values are <code class="constant">GL_BUFFER_ACCESS</code>, <code class="constant">GL_BUFFER_MAPPED</code>,
                     <code class="constant">GL_BUFFER_SIZE</code>, or <code class="constant">GL_BUFFER_USAGE</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Returns the requested parameter.
@@ -16,13 +16,13 @@
         </p><p>
             <em class="parameter"><code>value</code></em> names a specific buffer object parameter, as follows:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_BUFFER_ACCESS</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the access policy set while mapping the buffer object.  
+                        <em class="parameter"><code>params</code></em> returns the access policy set while mapping the buffer object.
                         The initial value is <code class="constant">GL_READ_WRITE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAPPED</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns a flag indicating whether the buffer object is currently 
+                        <em class="parameter"><code>params</code></em> returns a flag indicating whether the buffer object is currently
                         mapped. The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_SIZE</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the size of the buffer object, measured in bytes.  
+                        <em class="parameter"><code>params</code></em> returns the size of the buffer object, measured in bytes.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_USAGE</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns the buffer object's usage pattern.  The initial value is
@@ -33,7 +33,7 @@
         </p><p>
             <code class="function">glGetBufferParameteriv</code> is available only if the GL version is 1.5 or greater.
         </p><p>
-            Targets <code class="constant">GL_PIXEL_PACK_BUFFER</code> and <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> are available 
+            Targets <code class="constant">GL_PIXEL_PACK_BUFFER</code> and <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> are available
             only if the GL version is 2.1 or greater.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>value</code></em> is not an
@@ -52,8 +52,8 @@
             <a class="citerefentry" href="glMapBuffer"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
             <a class="citerefentry" href="glUnmapBuffer"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

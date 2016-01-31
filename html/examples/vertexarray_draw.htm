@@ -8,7 +8,7 @@
 {%glVertexAttribPointer}(color_attrib_index, 3, GL_UNSIGNED_BYTE, true, sizeof(unsigned char)*3, colors_data); // colors_data is a unsigned char*, 3 per vertex, representing the color of each vertex.
 {%glVertexAttribPointer}(position_attrib_index, 3, GL_FLOAT, false, 0, vertex_data); // vertex_data is a float*, 3 per vertex, representing the position of each vertex
 
-{%glDrawArrays}(GL_TRIANGLES, 0, vertex_data);
+{%glDrawArrays}(GL_TRIANGLES, 0, vertex_count); // vertex_count is an integer containing the number of indices to be rendered
 
 {%glDisableVertexAttribArray}(position_attrib_index);
 {%glDisableVertexAttribArray}(texcoord_attrib_index);

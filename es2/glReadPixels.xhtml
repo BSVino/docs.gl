@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glReadPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glReadPixels — read a block of pixels from the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glReadPixels</strong>(</code></td><td>GLint <var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glReadPixels"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glReadPixels — read a block of pixels from the frame buffer</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glReadPixels</strong>(</code></td><td>GLint <var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
                     Specify the window coordinates of the first pixel
                     that is read from the frame buffer.
                     This location is the lower left corner of a rectangular block of pixels.
@@ -25,53 +25,53 @@
             starting with the pixel whose lower left corner
             is at location (<em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>),
             into client memory starting at location <em class="parameter"><code>data</code></em>.
-            The <code class="constant">GL_PACK_ALIGNMENT</code> parameter, set with the 
+            The <code class="constant">GL_PACK_ALIGNMENT</code> parameter, set with the
             <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
-            command, affects the processing of the pixel data before it is placed into 
+            command, affects the processing of the pixel data before it is placed into
             client memory.
         </p><p>
             <code class="function">glReadPixels</code> returns values from each pixel with lower left corner at
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">i</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                        <mml:mo>+</mml:mo>
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mrow>
-                </mml:mfenced>
-            </mml:math>
-            for 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                </mml:mrow>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mrow>
+                        <mi mathvariant="italic">x</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">i</mi>
+                    </mrow>
+                    <mrow>
+                        <mi mathvariant="italic">y</mi>
+                        <mo>+</mo>
+                        <mi mathvariant="italic">j</mi>
+                    </mrow>
+                </mfenced>
+            </math>
+            for
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">i</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">width</mi>
+                </mrow>
+            </math>
             and
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mn>0</mml:mn>
-                    <mml:mo>&lt;=</mml:mo>
-                    <mml:mi mathvariant="italic">j</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mi mathvariant="italic">height</mml:mi>
-                </mml:mrow>
-            </mml:math>.
-            This pixel is said to be the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            <math overflow="scroll">
+
+                <mrow>
+                    <mn>0</mn>
+                    <mo>&lt;=</mo>
+                    <mi mathvariant="italic">j</mi>
+                    <mo>&lt;</mo>
+                    <mi mathvariant="italic">height</mi>
+                </mrow>
+            </math>.
+            This pixel is said to be the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row.
             Pixels are returned in row order from the lowest to the highest row,
             left to right in each row.
@@ -87,72 +87,72 @@
             For example,
             <code class="constant">GL_ALPHA</code> discards the red, green, and blue components,
             while <code class="constant">GL_RGB</code> discards only the alpha component.
-            The final values are clamped to the range 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="[" close="]">
-                    <mml:mn>0</mml:mn>
-                    <mml:mn>1</mml:mn>
-                </mml:mfenced>
-            </mml:math>.
+            The final values are clamped to the range
+            <math overflow="scroll">
+
+                <mfenced open="[" close="]">
+                    <mn>0</mn>
+                    <mn>1</mn>
+                </mfenced>
+            </math>.
         </p><p>
             Finally, the components
             are converted to the proper format,
             as specified by <em class="parameter"><code>type</code></em>.
             When <em class="parameter"><code>type</code></em> is <code class="constant">GL_UNSIGNED_BYTE</code>,
             each component is multiplied by
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msup><mml:mn>2</mml:mn>
-                    <mml:mn>8</mml:mn>
-                    </mml:msup>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>.
+            <math overflow="scroll">
+
+                <mrow>
+                    <msup><mn>2</mn>
+                    <mn>8</mn>
+                    </msup>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>.
             When <em class="parameter"><code>type</code></em> is <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>,
             <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>, or <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>,
             each component is multiplied by
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msup><mml:mn>2</mml:mn>
-                    <mml:mi>N</mml:mi>
-                    </mml:msup>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-            where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math> 
+            <math overflow="scroll">
+
+                <mrow>
+                    <msup><mn>2</mn>
+                    <mi>N</mi>
+                    </msup>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
+            where <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
             is the number of bits in the bitfield.
         </p><p>
             Return values are placed in memory as follows.
             If <em class="parameter"><code>format</code></em> is
             <code class="constant">GL_ALPHA</code>,
-            a single value is returned and the data for the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
-            pixel in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
+            a single value is returned and the data for the
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>th
+            pixel in the
+            <math overflow="scroll"><mi mathvariant="italic">j</mi></math>th
             row
-            is placed in location 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">j</mml:mi>
-                    </mml:mfenced>
-                    <mml:mo>⁢</mml:mo>
-                    <mml:mi mathvariant="italic">width</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mi mathvariant="italic">i</mml:mi>
-                </mml:mrow>
-            </mml:math>.
+            is placed in location
+            <math overflow="scroll">
+
+                <mrow>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">j</mi>
+                    </mfenced>
+                    <mo>⁢</mo>
+                    <mi mathvariant="italic">width</mi>
+                    <mo>+</mo>
+                    <mi mathvariant="italic">i</mi>
+                </mrow>
+            </math>.
             <code class="constant">GL_RGB</code> returns three values and
             <code class="constant">GL_RGBA</code> returns four values for each pixel,
             with all values corresponding to a single pixel occupying contiguous space
             in <em class="parameter"><code>data</code></em>.
-            Storage parameter <code class="constant">GL_PACK_ALIGNMENT</code>, set by 
+            Storage parameter <code class="constant">GL_PACK_ALIGNMENT</code>, set by
             <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
             affects the way that data is written into memory.
             See <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a> for a description.
@@ -193,12 +193,12 @@
             returned by querying <code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code>
             and <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if 
-            the currently bound framebuffer is not framebuffer complete (i.e. the 
+            <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if
+            the currently bound framebuffer is not framebuffer complete (i.e. the
             return value from <a class="citerefentry" href="glCheckFramebufferStatus"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>
             is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
+            <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
             <code class="constant">GL_IMPLEMENTATION_COLOR_READ_FORMAT</code>
             or <code class="constant">GL_IMPLEMENTATION_COLOR_READ_TYPE</code>
         </p><p>
@@ -209,7 +209,7 @@
             <a class="citerefentry" href="glCheckFramebufferStatus"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
             <a class="citerefentry" href="glPixelStorei"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

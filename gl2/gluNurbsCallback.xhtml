@@ -1,20 +1,20 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluNurbsCallback"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluNurbsCallback — define a callback for a NURBS object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluNurbsCallback</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">which</var>, </td></tr><tr><td> </td><td>_GLUfuncptr  </td><td><var class="pdparam">CallBackFunc</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluNurbsCallback"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluNurbsCallback — define a callback for a NURBS object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluNurbsCallback</b>(</code></td><td>GLUnurbs*  </td><td><var class="pdparam">nurb</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">which</var>, </td></tr><tr><td> </td><td>_GLUfuncptr  </td><td><var class="pdparam">CallBackFunc</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>nurb</code></em></span></dt><dd><p>
                     Specifies the NURBS object (created with <a class="citerefentry" href="gluNewNurbsRenderer"><span class="citerefentry"><span class="refentrytitle">gluNewNurbsRenderer</span></span></a>).
                 </p></dd><dt><span class="term"><em class="parameter"><code>which</code></em></span></dt><dd><p>
-                    Specifies the callback being defined. 
+                    Specifies the callback being defined.
                     Valid values are <code class="constant">GLU_NURBS_BEGIN</code>, <code class="constant">GLU_NURBS_VERTEX</code>, <code class="constant">GLU_NURBS_NORMAL</code>, <code class="constant">GLU_NURBS_COLOR</code>, <code class="constant">GLU_NURBS_TEXTURE_COORD</code>, <code class="constant">GLU_NURBS_END</code>, <code class="constant">GLU_NURBS_BEGIN_DATA</code>, <code class="constant">GLU_NURBS_VERTEX_DATA</code>, <code class="constant">GLU_NURBS_NORMAL_DATA</code>, <code class="constant">GLU_NURBS_COLOR_DATA</code>, <code class="constant">GLU_NURBS_TEXTURE_COORD_DATA</code>, <code class="constant">GLU_NURBS_END_DATA</code>, and <code class="constant">GLU_NURBS_ERROR</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>CallBackFunc</code></em></span></dt><dd><p>
                     Specifies the function that the callback calls.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gluNurbsCallback</code> is used to define a callback to be used by a NURBS 
+            <code class="function">gluNurbsCallback</code> is used to define a callback to be used by a NURBS
             object.
-            If the specified callback is already defined, then it is replaced.  If 
+            If the specified callback is already defined, then it is replaced.  If
             <em class="parameter"><code>CallBackFunc</code></em> is NULL, then this callback will not get
             invoked and the related data, if any, will be lost.
         </p><p>
             Except the error callback, these callbacks are used by NURBS tessellator (when <code class="constant">GLU_NURBS_MODE</code> is set to be <code class="constant">GLU_NURBS_TESSELLATOR</code>) to return back the OpenGL
             polygon primitives resulting from the tessellation. Note that there are two
-            versions of each callback: one with a user data pointer and one without. If both versions for a particular callback are specified then the callback with 
+            versions of each callback: one with a user data pointer and one without. If both versions for a particular callback are specified then the callback with
             the user data pointer will be used. Note that ``userData'' is a copy of the pointer that was specified at the last call to <code class="function">gluNurbsCallbackData</code>.
         </p><p>
             The error callback function is effective no matter which value that
@@ -26,7 +26,7 @@
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GLU_NURBS_BEGIN</code></span></dt><dd><p>
                     </p><p>
                         The begin callback indicates the start of a primitive. The function
-                        takes a single argument of type GLenum, which can be one of 
+                        takes a single argument of type GLenum, which can be one of
                         <code class="constant">GLU_LINES</code>, <code class="constant">GLU_LINE_STRIP</code>, <code class="constant">GLU_TRIANGLE_FAN</code>, <code class="constant">GLU_TRIANGLE_STRIP</code>, <code class="constant">GLU_TRIANGLES</code>, or <code class="constant">GLU_QUAD_STRIP</code>. The
                         default begin callback function is NULL. The function prototype
                         for this callback looks like:
@@ -68,13 +68,13 @@ void vertexData( GLfloat *vertex, void *userData );
                     </p><p>
                         The normal callback is invoked as the vertex normal is generated.
                         The components of the normal are stored in the parameter ``normal.''
-                        In the case of a NURBS curve, the callback function is effective only when 
+                        In the case of a NURBS curve, the callback function is effective only when
                         the user provides a normal map (<code class="constant">GLU_MAP1_NORMAL</code>).
                         In the case of a NURBS surface, if a normal map (<code class="constant">GLU_MAP2_NORMAL</code>)
                         is provided, then the generated normal is computed from the normal map.
                         If a normal map is not provided, then a surface normal is computed in
                         a manner similar to that described for evaluators when <code class="constant">GLU_AUTO_NORMAL</code>
-                        is enabled. 
+                        is enabled.
                         The default normal callback function is NULL. The function
                         prototype for this callback function looks like:
                         </p><pre class="programlisting">
@@ -109,10 +109,10 @@ void colorData( GLfloat *color, void *userData );
                         </pre><p>
                     </p></dd><dt><span class="term"><code class="constant">GLU_NURBS_TEXTURE_COORD</code></span></dt><dd><p>
                     </p><p>
-                        The texture callback is invoked as the texture coordinates 
+                        The texture callback is invoked as the texture coordinates
                         of a vertex are generated. These coordinates are stored in the parameter
                         ``texCoord.'' The number of texture coordinates can be 1, 2, 3, or 4 depending
-                        on which type of texture map is specified 
+                        on which type of texture map is specified
                         (<code class="constant">GLU_MAP1_TEXTURE_COORD_1</code>,
                         <code class="constant">GLU_MAP1_TEXTURE_COORD_2</code>,
                         <code class="constant">GLU_MAP1_TEXTURE_COORD_3</code>,
@@ -155,7 +155,7 @@ void endData( void  *userData );
                         Its single argument
                         is of type GLenum, and it indicates the specific error that occurred.
                         There are 37 errors unique to NURBS, named
-                        <code class="constant">GLU_NURBS_ERROR1</code> through <code class="constant">GLU_NURBS_ERROR37</code>. 
+                        <code class="constant">GLU_NURBS_ERROR1</code> through <code class="constant">GLU_NURBS_ERROR37</code>.
                         Character strings describing these errors can be retrieved with
                         <a class="citerefentry" href="gluErrorString"><span class="citerefentry"><span class="refentrytitle">gluErrorString</span></span></a>.
                     </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
@@ -173,7 +173,7 @@ void endData( void  *userData );
             <code class="function">gluNurbsCallbackData</code>,
             <a class="citerefentry" href="gluNurbsProperty"><span class="citerefentry"><span class="refentrytitle">gluNurbsProperty</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

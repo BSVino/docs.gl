@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glGetTexLevelParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glGetTexLevelParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the symbolic name of the target texture,
                     one of
                     <code class="constant">GL_TEXTURE_1D</code>,
@@ -28,10 +28,10 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
                     Specifies the level-of-detail number of the desired image.
                     Level 0 is the base image level.
-                    Level 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                    is the 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+                    Level
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                    is the
+                    <math overflow="scroll"><mi mathvariant="italic">n</mi></math>th
                     mipmap reduction image.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the symbolic name of a texture parameter.
@@ -138,13 +138,13 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                <mml:mn>2</mml:mn>
-                </mml:msub>
-            </mml:math>
+            than
+            <math overflow="scroll">
+
+                <msub><mi mathvariant="italic">log</mi>
+                <mn>2</mn>
+                </msub>
+            </math>
             <span class="emphasis"><em>max</em></span>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
@@ -172,8 +172,8 @@
             <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
             <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2013
+            Copyright © 1991-2006
+            Silicon Graphics, Inc. Copyright © 2010-2013
             Khronos Group. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

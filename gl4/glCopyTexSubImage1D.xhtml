@@ -156,34 +156,34 @@
     (<em class="parameter"><code>x</code></em>,\ <em class="parameter"><code>y</code></em>), and with length
     <em class="parameter"><code>width</code></em> replaces the portion of the texture array
     with x indices <em class="parameter"><code>xoffset</code></em> through
-<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-          
+<math overflow="scroll">
 
-          <mml:mrow>
-            <mml:mi mathvariant="italic">xoffset</mml:mi>
 
-            <mml:mo>+</mml:mo>
+          <mrow>
+            <mi mathvariant="italic">xoffset</mi>
 
-            <mml:mi mathvariant="italic">width</mml:mi>
+            <mo>+</mo>
 
-            <mml:mo>-</mml:mo>
+            <mi mathvariant="italic">width</mi>
 
-            <mml:mn>1</mml:mn>
-          </mml:mrow>
-        </mml:math>, inclusive. The destination in the texture array may
+            <mo>-</mo>
+
+            <mn>1</mn>
+          </mrow>
+        </math>, inclusive. The destination in the texture array may
     not include any texels outside the texture array as it was originally
     specified.</p>
         <p>The pixels in the row are processed exactly as if <a class="citerefentry" href="glReadPixels"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops just before final
     conversion. At this point, all pixel component values are clamped to the
-    range <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-          
+    range <math overflow="scroll">
 
-          <mml:mfenced close="]" open="[">
-            <mml:mn>0</mml:mn>
 
-            <mml:mn>1</mml:mn>
-          </mml:mfenced>
-        </mml:math> and then converted to the texture's internal format
+          <mfenced close="]" open="[">
+            <mn>0</mn>
+
+            <mn>1</mn>
+          </mfenced>
+        </math> and then converted to the texture's internal format
     for storage in the texel array.</p>
         <p>It is not an error to specify a subtexture with zero width, but such
     a specification has no effect. If any of the pixels within the specified
@@ -216,48 +216,48 @@
         <p><code class="constant">GL_INVALID_VALUE</code> is generated if
     <em class="parameter"><code>level</code></em> is less than 0.</p>
         <p><code class="constant">GL_INVALID_VALUE</code> may be generated if
-    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">level</mml:mi>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mrow>
-                        <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                        <mml:mn>2</mml:mn>
-                        </mml:msub>
-                        <mml:mo>⁡</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mi mathvariant="italic">max</mml:mi>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>, where <span class="emphasis"><em>max</em></span> is the returned value
+    <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">level</mi>
+                    <mo>&gt;</mo>
+                    <mrow>
+                        <msub><mi mathvariant="italic">log</mi>
+                        <mn>2</mn>
+                        </msub>
+                        <mo>⁡</mo>
+                        <mfenced open="(" close=")">
+                            <mi mathvariant="italic">max</mi>
+                        </mfenced>
+                    </mrow>
+                </mrow>
+            </math>, where <span class="emphasis"><em>max</em></span> is the returned value
     of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.</p>
         <p><code class="constant">GL_INVALID_VALUE</code> is generated if
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xoffset</mml:mi>
-                    <mml:mo>&lt;</mml:mo>
-                    <mml:mn>0</mml:mn>
-                </mml:mrow>
-            </mml:math>,
-       or
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
+            <math overflow="scroll">
 
-          <mml:mrow>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">xoffset</mml:mi>
-                            <mml:mo>+</mml:mo>
-                            <mml:mi mathvariant="italic">width</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
-                    <mml:mo>&gt;</mml:mo>
-                    <mml:mi mathvariant="italic">w</mml:mi>
-                </mml:mrow>
-            </mml:math>, where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math> is the <code class="constant">GL_TEXTURE_WIDTH</code> of the
+                <mrow>
+                    <mi mathvariant="italic">xoffset</mi>
+                    <mo>&lt;</mo>
+                    <mn>0</mn>
+                </mrow>
+            </math>,
+       or
+            <math overflow="scroll">
+
+
+          <mrow>
+                    <mfenced open="(" close=")">
+                        <mrow>
+                            <mi mathvariant="italic">xoffset</mi>
+                            <mo>+</mo>
+                            <mi mathvariant="italic">width</mi>
+                        </mrow>
+                    </mfenced>
+                    <mo>&gt;</mo>
+                    <mi mathvariant="italic">w</mi>
+                </mrow>
+            </math>, where <math overflow="scroll"><mi mathvariant="italic">w</mi></math> is the <code class="constant">GL_TEXTURE_WIDTH</code> of the
     texture image being modified.</p>
         <p><code class="constant">GL_INVALID_OPERATION</code> is generated if:</p>
         <div class="itemizedlist">
@@ -284,7 +284,6 @@
             </li>
           </ul>
         </div>
-        <p/>
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
@@ -315,7 +314,7 @@
             <thead>
               <tr>
                 <th style="text-align: left; border-right: 2px solid ; ">
-                 
+
             </th>
                 <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
                 <span class="bold"><strong>OpenGL Version</strong></span>
@@ -423,9 +422,9 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc.
-            Copyright <span class="trademark"/>© 2012-2014 Khronos Group.
+            Copyright © 2012-2014 Khronos Group.
             This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

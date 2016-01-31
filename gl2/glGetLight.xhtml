@@ -1,11 +1,11 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGetLight"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetLight — return light source parameter values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>light</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glGetLight"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetLight — return light source parameter values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightfv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetLightiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">light</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>light</code></em></span></dt><dd><p>
                     Specifies a light source.
                     The number of possible lights depends on the implementation,
                     but at least eight lights are supported.
                     They are identified by symbolic names of the form <code class="constant">GL_LIGHT</code>
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-                    where 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+                    <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+                    where
+                    <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
                     ranges from 0 to the value of <code class="constant">GL_MAX_LIGHTS</code> - 1.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies a light source parameter for <em class="parameter"><code>light</code></em>.
@@ -25,7 +25,7 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetLight</code> returns in <em class="parameter"><code>params</code></em> the value or values of a light source parameter.
             <em class="parameter"><code>light</code></em> names the light and is a symbolic name of the form <code class="constant">GL_LIGHT</code>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
             where i ranges from 0 to the value of <code class="constant">GL_MAX_LIGHTS</code> - 1.
             <code class="constant">GL_MAX_LIGHTS</code> is an implementation dependent constant that is
             greater than or equal to eight.
@@ -40,20 +40,20 @@
                         when requested,
                         are linearly mapped from the internal floating-point representation
                         such that 1.0 maps to the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         maps to the most negative representable integer value.
-                        If the internal value is outside the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>-1</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>,
+                        If the internal value is outside the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>-1</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>,
                         the corresponding integer return value is undefined. The initial value is
                         (0, 0, 0, 1).
                     </p></dd><dt><span class="term"><code class="constant">GL_DIFFUSE</code></span></dt><dd><p>
@@ -63,20 +63,20 @@
                         when requested,
                         are linearly mapped from the internal floating-point representation
                         such that 1.0 maps to the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         maps to the most negative representable integer value.
-                        If the internal value is outside the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>-1</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>,
+                        If the internal value is outside the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>-1</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>,
                         the corresponding integer return value is undefined. The initial value
                         for <code class="constant">GL_LIGHT0</code> is (1, 1, 1, 1); for other lights, the
                         initial value is (0, 0, 0, 0).
@@ -87,20 +87,20 @@
                         when requested,
                         are linearly mapped from the internal floating-point representation
                         such that 1.0 maps to the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         maps to the most negative representable integer value.
-                        If the internal value is outside the range 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="[" close="]">
-                                <mml:mn>-1</mml:mn>
-                                <mml:mn>1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>,
+                        If the internal value is outside the range
+                        <math overflow="scroll">
+
+                            <mfenced open="[" close="]">
+                                <mn>-1</mn>
+                                <mn>1</mn>
+                            </mfenced>
+                        </math>,
                         the corresponding integer return value is undefined. The initial value
                         for <code class="constant">GL_LIGHT0</code> is (1, 1, 1, 1); for other lights, the
                         initial value is (0, 0, 0, 0).
@@ -128,15 +128,15 @@
                         Although spot direction is normalized before being used in the lighting
                         equation,
                         the returned values are the transformed versions of the specified values
-                        prior to normalization. The initial value is 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfenced open="(" close=")">
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>0</mml:mn>
-                                <mml:mn>-1</mml:mn>
-                            </mml:mfenced>
-                        </mml:math>.
+                        prior to normalization. The initial value is
+                        <math overflow="scroll">
+
+                            <mfenced open="(" close=")">
+                                <mn>0</mn>
+                                <mn>0</mn>
+                                <mn>-1</mn>
+                            </mfenced>
+                        </math>.
                     </p></dd><dt><span class="term"><code class="constant">GL_SPOT_EXPONENT</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns a single integer or floating-point value representing the
                         spot exponent of the light.
@@ -174,9 +174,9 @@
                         the nearest integer. The initial value is 0.
                     </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             It is always the case that <code class="constant">GL_LIGHT</code>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-            = <code class="constant">GL_LIGHT0</code> + 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>.
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+            = <code class="constant">GL_LIGHT0</code> +
+            <math overflow="scroll"><mi mathvariant="italic">i</mi></math>.
         </p><p>
             If an error is generated,
             no change is made to the contents of <em class="parameter"><code>params</code></em>.
@@ -192,7 +192,7 @@
         <div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glLight"><span class="citerefentry"><span class="refentrytitle">glLight</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

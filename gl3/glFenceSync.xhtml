@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glFenceSync"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glFenceSync — create a new sync object and insert it into the GL command stream</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLsync <strong class="fsfunc">glFenceSync</strong>(</code></td><td>GLenum <var class="pdparam">condition</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">flags</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>condition</code></em></span></dt><dd><p>
+<div class="refentry"><a id="glFenceSync"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glFenceSync — create a new sync object and insert it into the GL command stream</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLsync <strong class="fsfunc">glFenceSync</strong>(</code></td><td>GLenum <var class="pdparam">condition</var>, </td></tr><tr><td> </td><td>GLbitfield <var class="pdparam">flags</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>condition</code></em></span></dt><dd><p>
                     Specifies the condition that must be met to set the sync object's state to signaled. <em class="parameter"><code>condition</code></em>
                     must be <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>flags</code></em></span></dt><dd><p>
@@ -14,7 +14,7 @@
             to <span class="emphasis"><em>unblock</em></span>. No other state is affected by <code class="function">glFenceSync</code> or by the execution
             of the associated fence command.
         </p><p>
-            <em class="parameter"><code>condition</code></em> must be <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>. This condition is satisfied by 
+            <em class="parameter"><code>condition</code></em> must be <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>. This condition is satisfied by
             completion of the fence command corresponding to the sync object and all preceding commands in the same command stream.
             The sync object will not be signaled until all effects from these commands on GL client and server state and the
             framebuffer are fully realized. Note that completion of the fence command occurs once the state of the corresponding sync
@@ -36,10 +36,10 @@
             <a class="citerefentry" href="glWaitSync"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>,
             <a class="citerefentry" href="glClientWaitSync"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2010 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div><div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.idp3515456" class="footnote"><p><a href="#idp3515456" class="para"><sup class="para">[1] </sup></a>
                         <em class="parameter"><code>flags</code></em> is a placeholder for anticipated future extensions of fence sync object capabilities.
-        </p></div></div></div>
+        </p></div></div></div></div>

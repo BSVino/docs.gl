@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glBegin"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBegin — delimit the vertices of a primitive or a group of like primitives</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBegin</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glBegin"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBegin — delimit the vertices of a primitive or a group of like primitives</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glBegin</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
                     Specifies the primitive or primitives that will be created from vertices
                     presented between <code class="function">glBegin</code> and the subsequent <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
                     Ten symbolic constants are accepted:
@@ -12,367 +12,367 @@
                     <code class="constant">GL_QUADS</code>,
                     <code class="constant">GL_QUAD_STRIP</code>, and
                     <code class="constant">GL_POLYGON</code>.
-                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glEnd</b>(</code></td><td> </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glEnd</b>(</code></td><td> </td><td><var class="pdparam">void</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a> delimit the vertices that define a primitive or
             a group of like primitives.
             <code class="function">glBegin</code> accepts a single argument that specifies in which of ten ways the
             vertices are interpreted.
-            Taking 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
+            Taking
+            <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
             as an integer count starting at one,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+            and
+            <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
             as the total number of vertices specified,
             the interpretations are as follows:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_POINTS</code></span></dt><dd><p>
                         Treats each vertex as a single point.
-                        Vertex 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                        defines point 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        Vertex
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                        defines point
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
                         points are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_LINES</code></span></dt><dd><p>
                         Treats each pair of vertices as an independent line segment.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        define line 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>
+                        define line
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mi mathvariant="italic">N</mi>
+                                <mn>2</mn>
+                            </mfrac>
+                        </math>
                         lines are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_LINE_STRIP</code></span></dt><dd><p>
                         Draws a connected group of line segments from the first vertex
                         to the last.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define line 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        define line
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">N</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         lines are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_LINE_LOOP</code></span></dt><dd><p>
                         Draws a connected group of line segments from the first vertex
                         to the last,
                         then back to the first.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define line 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        The last line, however, is defined by vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>1</mml:mn>
-                        </mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        Vertices
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        define line
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        The last line, however, is defined by vertices
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>1</mn>
+                        </math>.
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
                         lines are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLES</code></span></dt><dd><p>
                         Treats each triplet of vertices as an independent triangle.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>3</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>3</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>3</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        define triangle 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mn>3</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>3</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>3</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>3</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>
+                        define triangle
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mi mathvariant="italic">N</mi>
+                                <mn>3</mn>
+                            </mfrac>
+                        </math>
                         triangles are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLE_STRIP</code></span></dt><dd><p>
                         Draws a connected group of triangles.  One triangle is defined for each
-                        vertex presented after the first two vertices.  For odd 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        vertex presented after the first two vertices.  For odd
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>,
                         vertices
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define triangle 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        For even 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
+                        define triangle
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        For even
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>,
                         vertices
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define triangle 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
+                        define triangle
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">N</mi>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
                         triangles are
                         drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_TRIANGLE_FAN</code></span></dt><dd><p>
                         Draws a connected group of triangles.
                         One triangle is defined for each vertex presented after the first two vertices.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>1</mml:mn>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define triangle 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mn>1</mn>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
+                        define triangle
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mi mathvariant="italic">N</mi>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>
                         triangles are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_QUADS</code></span></dt><dd><p>
                         Treats each group of four vertices as an independent quadrilateral.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>4</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>3</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>4</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>4</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>4</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>
-                        define quadrilateral 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">N</mml:mi>
-                                <mml:mn>4</mml:mn>
-                            </mml:mfrac>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>4</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>3</mn>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>4</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>4</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>4</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>
+                        define quadrilateral
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mfrac>
+                                <mi mathvariant="italic">N</mi>
+                                <mn>4</mn>
+                            </mfrac>
+                        </math>
                         quadrilaterals are drawn.
                     </p></dd><dt><span class="term"><code class="constant">GL_QUAD_STRIP</code></span></dt><dd><p>
                         Draws a connected group of quadrilaterals.
                         One quadrilateral is defined for each pair of vertices presented
                         after the first pair.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                            </mml:mrow>
-                        </mml:math>,
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>2</mml:mn>
-                            </mml:mrow>
-                        </mml:math>,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mn>2</mml:mn>
-                                <mml:mo>⁢</mml:mo>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
-                        define quadrilateral 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>.
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mrow>
-                                <mml:mfrac>
-                                    <mml:mi mathvariant="italic">N</mml:mi>
-                                    <mml:mn>2</mml:mn>
-                                </mml:mfrac>
-                                <mml:mo>-</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                            </mrow>
+                        </math>,
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </math>,
+                        and
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mn>2</mn>
+                                <mo>⁢</mo>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
+                        define quadrilateral
+                        <math overflow="scroll"><mi mathvariant="italic">n</mi></math>.
+                        <math overflow="scroll">
+
+                            <mrow>
+                                <mfrac>
+                                    <mi mathvariant="italic">N</mi>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </math>
                         quadrilaterals are drawn.
                         Note that the order in which vertices are used to construct a quadrilateral
                         from strip data is different from that used with independent data.
                     </p></dd><dt><span class="term"><code class="constant">GL_POLYGON</code></span></dt><dd><p>
                         Draws a single,
                         convex polygon.
-                        Vertices 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>1</mml:mn>
-                        </mml:math>
-                        through 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
+                        Vertices
+                        <math overflow="scroll">
+
+                            <mn>1</mn>
+                        </math>
+                        through
+                        <math overflow="scroll"><mi mathvariant="italic">N</mi></math>
                         define this polygon.
                     </p></dd></dl></div><p>
             Only a subset of GL commands can be used between <code class="function">glBegin</code> and <a class="citerefentry" href="glEnd"><span class="citerefentry"><span class="refentrytitle">glEnd</span></span></a>.
@@ -488,7 +488,7 @@
             <a class="citerefentry" href="glVertex"><span class="citerefentry"><span class="refentrytitle">glVertex</span></span></a>,
             <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

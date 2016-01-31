@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="gluPerspective"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPerspective — set up a perspective projection matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">gluPerspective</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">fovy</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">aspect</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">zNear</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">zFar</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>fovy</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="gluPerspective"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gluPerspective — set up a perspective projection matrix</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">gluPerspective</b>(</code></td><td>GLdouble  </td><td><var class="pdparam">fovy</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">aspect</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">zNear</var>, </td></tr><tr><td> </td><td>GLdouble  </td><td><var class="pdparam">zFar</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>fovy</code></em></span></dt><dd><p>
                     Specifies the field of view angle, in degrees, in the <span class="emphasis"><em>y</em></span> direction.
                 </p></dd><dt><span class="term"><em class="parameter"><code>aspect</code></em></span></dt><dd><p>
                     Specifies the aspect ratio that determines
@@ -13,16 +13,16 @@
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">gluPerspective</code> specifies a viewing frustum into the world coordinate system.
             In general, the aspect ratio in <code class="function">gluPerspective</code> should match the aspect ratio
-            of the associated viewport. For example, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">aspect</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mn>2.0</mml:mn>
-                </mml:mrow>
-            </mml:math>
-            means 
+            of the associated viewport. For example,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">aspect</mi>
+                    <mo>=</mo>
+                    <mn>2.0</mn>
+                </mrow>
+            </math>
+            means
             the viewer's
             angle of view is twice as wide in <span class="emphasis"><em>x</em></span> as it is in <span class="emphasis"><em>y</em></span>.
             If the viewport is
@@ -35,160 +35,160 @@
         </p><p>
             Given <span class="emphasis"><em>f</em></span> defined as follows:
         </p><p>
-            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">f</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">cotangent</mml:mi>
-                        <mml:mo>⁡</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mfrac>
-                                <mml:mi mathvariant="italic">fovy</mml:mi>
-                                <mml:mn>2</mml:mn>
-                            </mml:mfrac>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math></div><p>
+            </p><div class="informalequation"><math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">f</mi>
+                    <mo>=</mo>
+                    <mrow>
+                        <mi mathvariant="italic">cotangent</mi>
+                        <mo>⁡</mo>
+                        <mfenced open="(" close=")">
+                            <mfrac>
+                                <mi mathvariant="italic">fovy</mi>
+                                <mn>2</mn>
+                            </mfrac>
+                        </mfenced>
+                    </mrow>
+                </mrow>
+            </math></div><p>
             The generated matrix is
         </p><p>
-            </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfenced open="(" close=")">
-                    <mml:mtable>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mfrac>
-                                    <mml:mi mathvariant="italic">f</mml:mi>
-                                    <mml:mi mathvariant="italic">aspect</mml:mi>
-                                </mml:mfrac>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mi mathvariant="italic">f</mml:mi>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mfrac>
-                                    <mml:mfenced open="" close="">
-                                        <mml:mrow>
-                                            <mml:mi mathvariant="italic">zFar</mml:mi>
-                                            <mml:mo>+</mml:mo>
-                                            <mml:mi mathvariant="italic">zNear</mml:mi>
-                                        </mml:mrow>
-                                    </mml:mfenced>
-                                    <mml:mfenced open="" close="">
-                                        <mml:mrow>
-                                            <mml:mi mathvariant="italic">zNear</mml:mi>
-                                            <mml:mo>-</mml:mo>
-                                            <mml:mi mathvariant="italic">zFar</mml:mi>
-                                        </mml:mrow>
-                                    </mml:mfenced>
-                                </mml:mfrac>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mfrac>
-                                    <mml:mfenced open="" close="">
-                                        <mml:mrow>
-                                            <mml:mn>2</mml:mn>
-                                            <mml:mo>×</mml:mo>
-                                            <mml:mi mathvariant="italic">zFar</mml:mi>
-                                            <mml:mo>×</mml:mo>
-                                            <mml:mi mathvariant="italic">zNear</mml:mi>
-                                        </mml:mrow>
-                                    </mml:mfenced>
-                                    <mml:mfenced open="" close="">
-                                        <mml:mrow>
-                                            <mml:mi mathvariant="italic">zNear</mml:mi>
-                                            <mml:mo>-</mml:mo>
-                                            <mml:mi mathvariant="italic">zFar</mml:mi>
-                                        </mml:mrow>
-                                    </mml:mfenced>
-                                </mml:mfrac>
-                            </mml:mtd>
-                        </mml:mtr>
-                        <mml:mtr>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>-1</mml:mn>
-                            </mml:mtd>
-                            <mml:mtd>
-                                <mml:mn>0</mml:mn>
-                            </mml:mtd>
-                        </mml:mtr>
-                    </mml:mtable>
-                </mml:mfenced>
-            </mml:math></div><p>
+            </p><div class="informalequation"><math overflow="scroll">
+
+                <mfenced open="(" close=")">
+                    <mtable>
+                        <mtr>
+                            <mtd>
+                                <mfrac>
+                                    <mi mathvariant="italic">f</mi>
+                                    <mi mathvariant="italic">aspect</mi>
+                                </mfrac>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mi mathvariant="italic">f</mi>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mfrac>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mi mathvariant="italic">zFar</mi>
+                                            <mo>+</mo>
+                                            <mi mathvariant="italic">zNear</mi>
+                                        </mrow>
+                                    </mfenced>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mi mathvariant="italic">zNear</mi>
+                                            <mo>-</mo>
+                                            <mi mathvariant="italic">zFar</mi>
+                                        </mrow>
+                                    </mfenced>
+                                </mfrac>
+                            </mtd>
+                            <mtd>
+                                <mfrac>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>×</mo>
+                                            <mi mathvariant="italic">zFar</mi>
+                                            <mo>×</mo>
+                                            <mi mathvariant="italic">zNear</mi>
+                                        </mrow>
+                                    </mfenced>
+                                    <mfenced open="" close="">
+                                        <mrow>
+                                            <mi mathvariant="italic">zNear</mi>
+                                            <mo>-</mo>
+                                            <mi mathvariant="italic">zFar</mi>
+                                        </mrow>
+                                    </mfenced>
+                                </mfrac>
+                            </mtd>
+                        </mtr>
+                        <mtr>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>-1</mn>
+                            </mtd>
+                            <mtd>
+                                <mn>0</mn>
+                            </mtd>
+                        </mtr>
+                    </mtable>
+                </mfenced>
+            </math></div><p>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             Depth buffer precision is affected by the values specified for
             <em class="parameter"><code>zNear</code></em> and <em class="parameter"><code>zFar</code></em>.
             The greater the ratio of <em class="parameter"><code>zFar</code></em> to <em class="parameter"><code>zNear</code></em> is,
             the less effective the depth buffer will be at distinguishing between
             surfaces that are near each other.
-            If 
+            If
         </p><p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">r</mml:mi>
-                    <mml:mo>=</mml:mo>
-                    <mml:mfrac>
-                        <mml:mi mathvariant="italic">zFar</mml:mi>
-                        <mml:mi mathvariant="italic">zNear</mml:mi>
-                    </mml:mfrac>
-                </mml:mrow>
-            </mml:math>
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">r</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mi mathvariant="italic">zFar</mi>
+                        <mi mathvariant="italic">zNear</mi>
+                    </mfrac>
+                </mrow>
+            </math>
         </p><p>
         </p><p>
-            roughly 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁡</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">r</mml:mi>
-                    </mml:mfenced>
-                </mml:mrow>
-            </mml:math>
+            roughly
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁡</mo>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">r</mi>
+                    </mfenced>
+                </mrow>
+            </math>
             bits of depth buffer precision are lost.
-            Because 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
+            Because
+            <math overflow="scroll"><mi mathvariant="italic">r</mi></math>
             approaches infinity as <em class="parameter"><code>zNear</code></em> approaches 0,
             <em class="parameter"><code>zNear</code></em> must never be set to 0.
         </p></div>
@@ -199,7 +199,7 @@
             <a class="citerefentry" href="glLoadIdentity"><span class="citerefentry"><span class="refentrytitle">glLoadIdentity</span></span></a>,
             <a class="citerefentry" href="glMultMatrix"><span class="citerefentry"><span class="refentrytitle">glMultMatrix</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

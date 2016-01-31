@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glGet"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGet — return the value or values of a selected parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetBooleanv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLboolean *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetDoublev</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLdouble *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetFloatv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetIntegerv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glGet"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGet — return the value or values of a selected parameter</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetBooleanv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLboolean *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetDoublev</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLdouble *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetFloatv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glGetIntegerv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the parameter value to be returned.
                     The symbolic constants in the list below are accepted.
                 </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
@@ -21,11 +21,11 @@
             rounded to the nearest integer value. Floating-point colors and
             normals, however, are returned with a linear mapping that maps 1.0 to
             the most positive representable integer value
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mn>-1.0</mml:mn>
-            </mml:math>
+            and
+            <math overflow="scroll">
+
+                <mn>-1.0</mn>
+            </math>
             to the most negative representable integer value.
             If <code class="function">glGetFloatv</code> or <code class="function">glGetDoublev</code> is called,
             boolean values are returned as <code class="constant">GL_TRUE</code> or <code class="constant">GL_FALSE</code>,
@@ -48,11 +48,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (0, 0, 0, 0).
                         See <a class="citerefentry" href="glClearAccum"><span class="citerefentry"><span class="refentrytitle">glClearAccum</span></span></a>.
@@ -111,11 +111,11 @@
                         if requested,
                         is linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer value.
                     </p></dd><dt><span class="term"><code class="constant">GL_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
@@ -165,13 +165,13 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_BLEND_EQUATION_RGB</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value, a symbolic constant indicating whether
-                        the RGB blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>, 
+                        the RGB blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>,
                         <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>, <code class="constant">GL_MIN</code> or <code class="constant">GL_MAX</code>.
                         See <a class="citerefentry" href="glBlendEquationSeparate"><span class="citerefentry"><span class="refentrytitle">glBlendEquationSeparate</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BLEND_EQUATION_ALPHA</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value, a symbolic constant indicating whether
-                        the Alpha blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>, 
+                        the Alpha blend equation is <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>,
                         <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>, <code class="constant">GL_MIN</code> or <code class="constant">GL_MAX</code>.
                         See <a class="citerefentry" href="glBlendEquationSeparate"><span class="citerefentry"><span class="refentrytitle">glBlendEquationSeparate</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BLEND_SRC_ALPHA</code></span></dt><dd><p>
@@ -222,9 +222,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_COLOR_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the color array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glColorPointer"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>. 
+                        associated with the color array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glColorPointer"><span class="citerefentry"><span class="refentrytitle">glColorPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_COLOR_ARRAY_SIZE</code></span></dt><dd><p>
@@ -253,11 +253,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (0, 0, 0, 0).
                         See <a class="citerefentry" href="glClearColor"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>.
@@ -318,7 +318,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_COMPRESSED_TEXTURE_FORMATS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a list of symbolic
-                        constants of length <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code> 
+                        constants of length <code class="constant">GL_NUM_COMPRESSED_TEXTURE_FORMATS</code>
                         indicating which compressed texture formats are available.
                         See <a class="citerefentry" href="glCompressedTexImage2D"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_CONVOLUTION_1D</code></span></dt><dd><p>
@@ -350,11 +350,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer value.
                         The initial value is (1, 1, 1, 1).
                         See <a class="citerefentry" href="glColor"><span class="citerefentry"><span class="refentrytitle">glColor</span></span></a>.
@@ -376,11 +376,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer value.
                         The initial value is (0, 0, 1).
                         See <a class="citerefentry" href="glNormal"><span class="citerefentry"><span class="refentrytitle">glNormal</span></span></a>.
@@ -397,11 +397,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (1, 1, 1, 1).
                         See <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>.
@@ -436,11 +436,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (1, 1, 1, 1).
                         See <a class="citerefentry" href="glRasterPos"><span class="citerefentry"><span class="refentrytitle">glRasterPos</span></span></a>.
@@ -454,11 +454,11 @@
                         <em class="parameter"><code>params</code></em> returns four values: the red, green, blue, and alpha values of the
                         current secondary color.  Integer values, if requested, are linearly mapped
                         from the internal floating-point representation such that 1.0 returns the
-                        most positive representable integer value, and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        most positive representable integer value, and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most
                         negative representable integer value.  The initial value is (0, 0, 0, 0).
                         See <a class="citerefentry" href="glSecondaryColor"><span class="citerefentry"><span class="refentrytitle">glSecondaryColor</span></span></a>.
@@ -485,11 +485,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is 1.
                         See <a class="citerefentry" href="glClearDepth"><span class="citerefentry"><span class="refentrytitle">glClearDepth</span></span></a>.
@@ -507,11 +507,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (0, 1).
                         See <a class="citerefentry" href="glDepthRange"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>.
@@ -548,7 +548,7 @@
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
                         a symbolic constant indicating which buffers are being drawn to by the corresponding output color.
-                        See <a class="citerefentry" href="glDrawBuffers"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>. 
+                        See <a class="citerefentry" href="glDrawBuffers"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>.
                         The initial value of <code class="constant">GL_DRAW_BUFFER0</code> is <code class="constant">GL_BACK</code> if there
                         are back buffers, otherwise it is <code class="constant">GL_FRONT</code>.  The
                         initial values of draw buffers for all other output colors is <code class="constant">GL_NONE</code>.
@@ -565,9 +565,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_EDGE_FLAG_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the edge flag array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glEdgeFlagPointer"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>. 
+                        associated with the edge flag array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glEdgeFlagPointer"><span class="citerefentry"><span class="refentrytitle">glEdgeFlagPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_EDGE_FLAG_ARRAY_STRIDE</code></span></dt><dd><p>
@@ -602,9 +602,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_FOG_COORD_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the fog coordinate array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glFogCoordPointer"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>. 
+                        associated with the fog coordinate array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glFogCoordPointer"><span class="citerefentry"><span class="refentrytitle">glFogCoordPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_FOG_COORD_ARRAY_STRIDE</code></span></dt><dd><p>
@@ -631,11 +631,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (0, 0, 0, 0).
                         See <a class="citerefentry" href="glFog"><span class="citerefentry"><span class="refentrytitle">glFog</span></span></a>.
@@ -674,7 +674,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        a symbolic constant indicating the mode of the derivative accuracy hint 
+                        a symbolic constant indicating the mode of the derivative accuracy hint
                         for fragment shaders. The initial value
                         is <code class="constant">GL_DONT_CARE</code>.
                         See <a class="citerefentry" href="glHint"><span class="citerefentry"><span class="refentrytitle">glHint</span></span></a>.
@@ -717,9 +717,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_INDEX_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the color index array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glIndexPointer"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>. 
+                        associated with the color index array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glIndexPointer"><span class="citerefentry"><span class="refentrytitle">glIndexPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_INDEX_ARRAY_STRIDE</code></span></dt><dd><p>
@@ -791,11 +791,11 @@
                         if requested,
                         are linearly mapped from the internal floating-point representation such
                         that 1.0 returns the most positive representable integer value,
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                            
-                            <mml:mn>-1.0</mml:mn>
-                        </mml:math>
+                        and
+                        <math overflow="scroll">
+
+                            <mn>-1.0</mn>
+                        </math>
                         returns the most negative representable integer
                         value. The initial value is (0.2, 0.2, 0.2, 1.0).
                         See <a class="citerefentry" href="glLightModel"><span class="citerefentry"><span class="refentrytitle">glLightModel</span></span></a>.
@@ -953,20 +953,20 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_MAP2_GRID_DOMAIN</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns four values:
-                        the endpoints of the 2D map's 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        the endpoints of the 2D map's
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>
                         grid domains. The initial value
                         is (0,1; 0,1).
                         See <a class="citerefentry" href="glMapGrid"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAP2_GRID_SEGMENTS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns two values:
-                        the number of partitions in the 2D map's 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
+                        the number of partitions in the 2D map's
+                        <math overflow="scroll"><mi mathvariant="italic">i</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">j</mi></math>
                         grid
                         domains. The initial value is (1,1).
                         See <a class="citerefentry" href="glMapGrid"><span class="citerefentry"><span class="refentrytitle">glMapGrid</span></span></a>.
@@ -1065,8 +1065,8 @@
                         See <a class="citerefentry" href="glPushMatrix"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
 			  </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
-                        can be used to access texture maps from the vertex shader and the fragment processor combined. 
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that
+                        can be used to access texture maps from the vertex shader and the fragment processor combined.
                         If both the vertex shader and the fragment processing stage access the same texture image
                         unit, then that counts as using two texture image units against this limit.
                         The value must be at least 2.
@@ -1082,7 +1082,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_DRAW_BUFFERS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value, the maximum number
-                        of simultaneous output colors allowed from a fragment shader using the 
+                        of simultaneous output colors allowed from a fragment shader using the
                         <code class="code">gl_FragData</code> built-in array.  The value must be at least 1.
                         See <a class="citerefentry" href="glDrawBuffers"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_ELEMENTS_INDICES</code></span></dt><dd><p>
@@ -1104,7 +1104,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_FRAGMENT_UNIFORM_COMPONENTS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        the maximum number of individual floating-point, integer, or boolean values that can be held 
+                        the maximum number of individual floating-point, integer, or boolean values that can be held
                         in uniform variable storage for a fragment shader. The value must be at least 64.
                         See <a class="citerefentry" href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_LIGHTS</code></span></dt><dd><p>
@@ -1149,8 +1149,8 @@
                         <a class="citerefentry" href="glClientActiveTexture"><span class="citerefentry"><span class="refentrytitle">glClientActiveTexture</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
 			  </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
-                        can be used to access texture maps from the fragment shader. 
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that
+                        can be used to access texture maps from the fragment shader.
                         The value must be at least 2.
                         See <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_TEXTURE_LOD_BIAS</code></span></dt><dd><p>
@@ -1174,7 +1174,7 @@
                         See <a class="citerefentry" href="glPushMatrix"><span class="citerefentry"><span class="refentrytitle">glPushMatrix</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_TEXTURE_UNITS</code></span></dt><dd><p>
 			  </p><p>
-                        <em class="parameter"><code>params</code></em> returns a single value indicating the number of conventional 
+                        <em class="parameter"><code>params</code></em> returns a single value indicating the number of conventional
                         texture units supported. Each conventional texture unit includes both a texture coordinate set
                         and a texture image unit.  Conventional texture units may be used for fixed-function (non-shader)
                         rendering.  The value must be at least 2.  Additional texture coordinate sets and texture
@@ -1185,24 +1185,24 @@
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
                         the maximum number of interpolators available for processing varying variables used by
-                        vertex and fragment shaders. This value represents the number of individual floating-point 
-                        values that can be interpolated; varying variables declared as vectors, matrices, and arrays 
+                        vertex and fragment shaders. This value represents the number of individual floating-point
+                        values that can be interpolated; varying variables declared as vectors, matrices, and arrays
                         will all consume multiple interpolators. The value must be at least 32.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_ATTRIBS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        the maximum number of 4-component generic vertex attributes accessible to a vertex shader. 
+                        the maximum number of 4-component generic vertex attributes accessible to a vertex shader.
                         The value must be at least 16.
                         See <a class="citerefentry" href="glVertexAttrib"><span class="citerefentry"><span class="refentrytitle">glVertexAttrib</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS</code></span></dt><dd><p>
 			  </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that 
+                        <em class="parameter"><code>params</code></em> returns one value, the maximum supported texture image units that
                         can be used to access texture maps from the vertex shader. The value may be 0.
                         See <a class="citerefentry" href="glActiveTexture"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_VERTEX_UNIFORM_COMPONENTS</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        the maximum number of individual floating-point, integer, or boolean values that can be held 
+                        the maximum number of individual floating-point, integer, or boolean values that can be held
                         in uniform variable storage for a vertex shader. The value must be at least 512.
                         See <a class="citerefentry" href="glUniform"><span class="citerefentry"><span class="refentrytitle">glUniform</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_VIEWPORT_DIMS</code></span></dt><dd><p>
@@ -1242,9 +1242,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_NORMAL_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the normal array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glNormalPointer"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>. 
+                        associated with the normal array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glNormalPointer"><span class="citerefentry"><span class="refentrytitle">glNormalPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_NORMAL_ARRAY_STRIDE</code></span></dt><dd><p>
@@ -1670,16 +1670,16 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_SCISSOR_BOX</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns four values:
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                         window coordinates of the scissor box,
                         followed by its width and height.
-                        Initially the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        Initially the
+                        <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                         window coordinates are both 0 and the
                         width and height are set to the size of the window.
                         See <a class="citerefentry" href="glScissor"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>.
@@ -1695,9 +1695,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the secondary color array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glSecondaryColorPointer"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>. 
+                        associated with the secondary color array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glSecondaryColorPointer"><span class="citerefentry"><span class="refentrytitle">glSecondaryColorPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_SECONDARY_COLOR_ARRAY_SIZE</code></span></dt><dd><p>
@@ -1931,9 +1931,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the texture coordinate array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glTexCoordPointer"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>. 
+                        associated with the texture coordinate array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glTexCoordPointer"><span class="citerefentry"><span class="refentrytitle">glTexCoordPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COORD_ARRAY_SIZE</code></span></dt><dd><p>
@@ -2067,9 +2067,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ARRAY_BUFFER_BINDING</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
-                        associated with the vertex array. This buffer object would have been bound to the 
-                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to 
-                        <a class="citerefentry" href="glVertexPointer"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>. 
+                        associated with the vertex array. This buffer object would have been bound to the
+                        target <code class="constant">GL_ARRAY_BUFFER</code> at the time of the most recent call to
+                        <a class="citerefentry" href="glVertexPointer"><span class="citerefentry"><span class="refentrytitle">glVertexPointer</span></span></a>.
                         If no buffer object was bound to this target, 0 is returned.  The initial value is 0.
                         See <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_VERTEX_ARRAY_SIZE</code></span></dt><dd><p>
@@ -2103,21 +2103,21 @@
                         <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether vertex
                         program two-sided color mode is enabled. If enabled, and a vertex shader is active, then the
                         GL chooses the back color output for back-facing polygons, and the front color output for
-                        non-polygons and front-facing polygons. If disabled, and a vertex shader is active, then the 
+                        non-polygons and front-facing polygons. If disabled, and a vertex shader is active, then the
                         front color output is always selected. The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_VIEWPORT</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns four values:
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                         window coordinates of the viewport,
                         followed by its width and height.
-                        Initially the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-                        and 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        Initially the
+                        <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+                        and
+                        <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                         window coordinates are both set to 0,
                         and the width and height are set to the width and height of the window into
                         which the GL will do its rendering.
@@ -2125,15 +2125,15 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_ZOOM_X</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
                         pixel zoom factor. The initial value is 1.
                         See <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_ZOOM_Y</code></span></dt><dd><p>
 			  </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
-                        the 
-                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+                        the
+                        <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                         pixel zoom factor. The initial value is 1.
                         See <a class="citerefentry" href="glPixelZoom"><span class="citerefentry"><span class="refentrytitle">glPixelZoom</span></span></a>.
                     </p></dd></dl></div><p>
@@ -2378,7 +2378,7 @@
             <a class="citerefentry" href="glGetVertexAttribPointerv"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttribPointerv</span></span></a>,
             <a class="citerefentry" href="glIsEnabled"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

@@ -1,4 +1,4 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glSelectBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSelectBuffer — establish a buffer for selection mode values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glSelectBuffer</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">buffer</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
+<div class="refentry" lang="en" xml:lang="en"><a id="glSelectBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSelectBuffer — establish a buffer for selection mode values</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glSelectBuffer</b>(</code></td><td>GLsizei  </td><td><var class="pdparam">size</var>, </td></tr><tr><td> </td><td>GLuint *  </td><td><var class="pdparam">buffer</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
                     Specifies the size of <em class="parameter"><code>buffer</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>buffer</code></em></span></dt><dd><p>
                     Returns the selection data.
@@ -35,17 +35,17 @@
             followed by the name stack contents,
             bottom name first.
         </p><p>
-            Depth values (which are in the range [0,1]) are multiplied by 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msup><mml:mn>2</mml:mn>
-                    <mml:mn>32</mml:mn>
-                    </mml:msup>
-                    <mml:mo>-</mml:mo>
-                    <mml:mn>1</mml:mn>
-                </mml:mrow>
-            </mml:math>,
+            Depth values (which are in the range [0,1]) are multiplied by
+            <math overflow="scroll">
+
+                <mrow>
+                    <msup><mn>2</mn>
+                    <mn>32</mn>
+                    </msup>
+                    <mo>-</mo>
+                    <mn>1</mn>
+                </mrow>
+            </math>,
             before being placed in the hit record.
         </p><p>
             An internal index into <em class="parameter"><code>buffer</code></em> is reset to 0 whenever selection mode
@@ -99,7 +99,7 @@
             <a class="citerefentry" href="glPushName"><span class="citerefentry"><span class="refentrytitle">glPushName</span></span></a>,
             <a class="citerefentry" href="glRenderMode"><span class="citerefentry"><span class="refentrytitle">glRenderMode</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

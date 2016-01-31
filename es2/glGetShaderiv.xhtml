@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glGetShaderiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetShaderiv — return a parameter from a shader object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetShaderiv</strong>(</code></td><td>GLuint <var class="pdparam">shader</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>shader</code></em></span></dt><dd><p>Specifies the shader object to be
+<div class="refentry"><a id="glGetShaderiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetShaderiv — return a parameter from a shader object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetShaderiv</strong>(</code></td><td>GLuint <var class="pdparam">shader</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>shader</code></em></span></dt><dd><p>Specifies the shader object to be
 		    queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the object parameter. Accepted
 		    symbolic names are
 		    <code class="constant">GL_SHADER_TYPE</code>,
@@ -17,19 +17,19 @@
 		    <code class="constant">GL_TRUE</code> if
 		    <em class="parameter"><code>shader</code></em> is currently flagged
 		    for deletion, and <code class="constant">GL_FALSE</code>
-		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_COMPILE_STATUS</code></span></dt><dd><p>For implementations that support a shader compiler, 
+		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_COMPILE_STATUS</code></span></dt><dd><p>For implementations that support a shader compiler,
 		    <em class="parameter"><code>params</code></em> returns
 		    <code class="constant">GL_TRUE</code> if the last compile
 		    operation on <em class="parameter"><code>shader</code></em> was
 		    successful, and <code class="constant">GL_FALSE</code>
-		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_INFO_LOG_LENGTH</code></span></dt><dd><p>For implementations that support a shader compiler, 
+		    otherwise.</p></dd><dt><span class="term"><code class="constant">GL_INFO_LOG_LENGTH</code></span></dt><dd><p>For implementations that support a shader compiler,
 		    <em class="parameter"><code>params</code></em> returns the
 		    number of characters in the information log for
 		    <em class="parameter"><code>shader</code></em> including the null
 		    termination character (i.e., the size of the
 		    character buffer required to store the information
 		    log). If <em class="parameter"><code>shader</code></em> has no
-		    information log, a value of 0 is returned.</p></dd><dt><span class="term"><code class="constant">GL_SHADER_SOURCE_LENGTH</code></span></dt><dd><p>For implementations that support a shader compiler, 
+		    information log, a value of 0 is returned.</p></dd><dt><span class="term"><code class="constant">GL_SHADER_SOURCE_LENGTH</code></span></dt><dd><p>For implementations that support a shader compiler,
 		    <em class="parameter"><code>params</code></em> returns the
 		    length of the concatenation of the source strings
 		    that make up the shader source for the
@@ -39,12 +39,12 @@
 		    source). If no source code exists, 0 is
 		    returned.</p></dd></dl></div></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>Shader compiler support is optional, and thus must be queried
 	before use by calling <a class="citerefentry" href="glGet"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-	with argument <code class="constant">GL_SHADER_COMPILER</code>. <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>, 
-	<a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>, 
+	with argument <code class="constant">GL_SHADER_COMPILER</code>. <a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>,
+	<a class="citerefentry" href="glCompileShader"><span class="citerefentry"><span class="refentrytitle">glCompileShader</span></span></a>,
 	<a class="citerefentry" href="glGetShaderPrecisionFormat"><span class="citerefentry"><span class="refentrytitle">glGetShaderPrecisionFormat</span></span></a>, and
 	<a class="citerefentry" href="glReleaseShaderCompiler"><span class="citerefentry"><span class="refentrytitle">glReleaseShaderCompiler</span></span></a> will
 	each generate <code class="constant">GL_INVALID_OPERATION</code> on implementations
-	that do not support a shader compiler, as will <code class="function">glGetShaderiv</code> queries of 
+	that do not support a shader compiler, as will <code class="function">glGetShaderiv</code> queries of
 	<code class="constant">GL_COMPILE_STATUS</code>, <code class="constant">GL_INFO_LOG_LENGTH</code>, and
 	<code class="constant">GL_SHADER_SOURCE_LENGTH</code>. Such implementations instead offer the
 	<a class="citerefentry" href="glShaderBinary"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a>
@@ -68,8 +68,8 @@
 	<a class="citerefentry" href="glGetProgramiv"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>,
 	<a class="citerefentry" href="glShaderSource"><span class="citerefentry"><span class="refentrytitle">glShaderSource</span></span></a>,
 	<a class="citerefentry" href="glShaderBinary"><span class="citerefentry"><span class="refentrytitle">glShaderBinary</span></span></a></p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright © 2003-2005 3Dlabs Inc. Ltd.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></div>

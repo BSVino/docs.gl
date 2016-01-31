@@ -1,4 +1,4 @@
-<div class="refentry"><a id="glTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage2D — specify a two-dimensional texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><p>
+<div class="refentry"><a id="glTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage2D — specify a two-dimensional texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><p>
     </p><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture.
                     Must be <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_PROXY_TEXTURE_2D</code>,
@@ -160,7 +160,7 @@
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D_ARRAY</code>, data is interpreted
             as an array of one-dimensional images.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -214,105 +214,105 @@
             <code class="constant">GL_COMPRESSED_RGB</code>, or
             <code class="constant">GL_COMPRESSED_RGBA</code>, the GL will replace the internal format with the symbolic constant for a specific internal format and compress the texture before storage.  If no corresponding internal format is available, or the GL can not compress that image for any reason, the internal format is instead replaced with a corresponding base internal format.
         </p><p>
-            If the <em class="parameter"><code>internalFormat</code></em> parameter is             
+            If the <em class="parameter"><code>internalFormat</code></em> parameter is
             <code class="constant">GL_SRGB</code>,
             <code class="constant">GL_SRGB8</code>,
             <code class="constant">GL_SRGB_ALPHA</code>, or
-            <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                    <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                    <mml:mi mathvariant="italic">s</mml:mi>
-                    </mml:msub>
-            </mml:math>
-            to a linear component 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                    <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                    <mml:mi mathvariant="italic">l</mml:mi>
-                    </mml:msub>
-            </mml:math>
+            <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component
+            <math overflow="scroll">
+                    <msub><mi mathvariant="italic">c</mi>
+                    <mi mathvariant="italic">s</mi>
+                    </msub>
+            </math>
+            to a linear component
+            <math overflow="scroll">
+                    <msub><mi mathvariant="italic">c</mi>
+                    <mi mathvariant="italic">l</mi>
+                    </msub>
+            </math>
             is:
         </p><p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-            <mml:mrow>
-                <mml:msub>
-                  <mml:mi mathvariant="italic">c</mml:mi>
-                  <mml:mi mathvariant="italic">l</mml:mi>
-                </mml:msub>
-                <mml:mo>=</mml:mo>
-                <mml:mrow>
-                  <mml:mo>{</mml:mo>
-            
-                  <mml:mtable columnalign="left">
-                    <mml:mtr>
-                      <mml:mtd columnalign="left">
-                        <mml:mfrac>
-                          <mml:msub>
-                            <mml:mi mathvariant="italic">c</mml:mi>
-                            <mml:mi mathvariant="italic">s</mml:mi>
-                          </mml:msub>
-                          <mml:mn>12.92</mml:mn>
-                        </mml:mfrac>
-                      </mml:mtd>
-                      <mml:mtd columnalign="left">
-                        <mml:mrow>
-                          <mml:mspace width="1ex"></mml:mspace>
-                          <mml:mo>if</mml:mo>
-                          <mml:mspace width="1ex"></mml:mspace>
-                        </mml:mrow>
-                        <mml:msub>
-                          <mml:mi mathvariant="italic">c</mml:mi>
-                          <mml:mi mathvariant="italic">s</mml:mi>
-                        </mml:msub>
-                        <mml:mo>≤</mml:mo>
-                        <mml:mn>0.04045</mml:mn>
-                      </mml:mtd>
-                    </mml:mtr>
-                    <mml:mtr>
-                    <mml:mtd columnalign="left">
-                    <mml:msup>
-                      <mml:mrow>
-                        <mml:mo>(</mml:mo>
-                        <mml:mfrac>
-                          <mml:mrow>
-                            <mml:msub>
-                              <mml:mi>c</mml:mi>
-                              <mml:mi>s</mml:mi>
-                            </mml:msub>
-                            <mml:mo>+</mml:mo>
-                            <mml:mn>0.055</mml:mn>
-                          </mml:mrow>
-                          <mml:mn>1.055</mml:mn>
-                        </mml:mfrac>
-                        <mml:mo>)</mml:mo>
-                      </mml:mrow>
-                      <mml:mn>2.4</mml:mn>
-                    </mml:msup>
-                    </mml:mtd>
-                        <mml:mtd columnalign="left">
-                        <mml:mrow>
-                          <mml:mspace width="1ex"></mml:mspace>
-                          <mml:mo>if</mml:mo>
-                          <mml:mspace width="1ex"></mml:mspace>
-                        </mml:mrow>
-                        <mml:msub>
-                          <mml:mi mathvariant="italic">c</mml:mi>
-                          <mml:mi mathvariant="italic">s</mml:mi>
-                        </mml:msub>
-                        <mml:mo>&gt;</mml:mo>
-                        <mml:mn>0.04045</mml:mn>
-                      </mml:mtd>
-                    </mml:mtr>
-                  </mml:mtable>
-                </mml:mrow>
-                </mml:mrow>
-            </mml:math>
+            <math overflow="scroll">
+            <mrow>
+                <msub>
+                  <mi mathvariant="italic">c</mi>
+                  <mi mathvariant="italic">l</mi>
+                </msub>
+                <mo>=</mo>
+                <mrow>
+                  <mo>{</mo>
+
+                  <mtable columnalign="left">
+                    <mtr>
+                      <mtd columnalign="left">
+                        <mfrac>
+                          <msub>
+                            <mi mathvariant="italic">c</mi>
+                            <mi mathvariant="italic">s</mi>
+                          </msub>
+                          <mn>12.92</mn>
+                        </mfrac>
+                      </mtd>
+                      <mtd columnalign="left">
+                        <mrow>
+                          <mspace width="1ex"></mspace>
+                          <mo>if</mo>
+                          <mspace width="1ex"></mspace>
+                        </mrow>
+                        <msub>
+                          <mi mathvariant="italic">c</mi>
+                          <mi mathvariant="italic">s</mi>
+                        </msub>
+                        <mo>≤</mo>
+                        <mn>0.04045</mn>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                    <mtd columnalign="left">
+                    <msup>
+                      <mrow>
+                        <mo>(</mo>
+                        <mfrac>
+                          <mrow>
+                            <msub>
+                              <mi>c</mi>
+                              <mi>s</mi>
+                            </msub>
+                            <mo>+</mo>
+                            <mn>0.055</mn>
+                          </mrow>
+                          <mn>1.055</mn>
+                        </mfrac>
+                        <mo>)</mo>
+                      </mrow>
+                      <mn>2.4</mn>
+                    </msup>
+                    </mtd>
+                        <mtd columnalign="left">
+                        <mrow>
+                          <mspace width="1ex"></mspace>
+                          <mo>if</mo>
+                          <mspace width="1ex"></mspace>
+                        </mrow>
+                        <msub>
+                          <mi mathvariant="italic">c</mi>
+                          <mi mathvariant="italic">s</mi>
+                        </msub>
+                        <mo>&gt;</mo>
+                        <mn>0.04045</mn>
+                      </mtd>
+                    </mtr>
+                  </mtable>
+                </mrow>
+                </mrow>
+            </math>
         </p><p>
-            Assume         
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                                <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-                                <mml:mi mathvariant="italic">s</mml:mi>
-                                </mml:msub>
-                        </mml:math>
+            Assume
+            <math overflow="scroll">
+                                <msub><mi mathvariant="italic">c</mi>
+                                <mi mathvariant="italic">s</mi>
+                                </msub>
+                        </math>
             is the sRGB component in the range [0,1].
        </p><p>
             Use the <code class="constant">GL_PROXY_TEXTURE_2D</code>, <code class="constant">GL_PROXY_TEXTURE_1D_ARRAY</code>,
@@ -375,19 +375,19 @@
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
-                    <mml:mn>2</mml:mn>
-                    </mml:msub>
-                    <mml:mo>⁡</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mi mathvariant="italic">max</mml:mi>
-                    </mml:mfenced>
-                </mml:mrow>
-            </mml:math>,
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than
+            <math overflow="scroll">
+
+                <mrow>
+                    <msub><mi mathvariant="italic">log</mi>
+                    <mn>2</mn>
+                    </msub>
+                    <mo>⁡</mo>
+                    <mfenced open="(" close=")">
+                        <mi mathvariant="italic">max</mi>
+                    </mfenced>
+                </mrow>
+            </math>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>internalFormat</code></em> is not one of the
@@ -396,23 +396,23 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> is less than 0
             or greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if non-power-of-two textures are not supported and the <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> cannot be represented as 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msup><mml:mn>2</mml:mn>
-                    <mml:mi mathvariant="italic">k</mml:mi>
-                    </mml:msup>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mn>2</mml:mn>
-                        <mml:mo>⁡</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mi mathvariant="italic">border</mml:mi>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if non-power-of-two textures are not supported and the <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> cannot be represented as
+            <math overflow="scroll">
+
+                <mrow>
+                    <msup><mn>2</mn>
+                    <mi mathvariant="italic">k</mi>
+                    </msup>
+                    <mo>+</mo>
+                    <mrow>
+                        <mn>2</mn>
+                        <mo>⁡</mo>
+                        <mfenced open="(" close=")">
+                            <mi mathvariant="italic">border</mi>
+                        </mfenced>
+                    </mrow>
+                </mrow>
+            </math>
             for some
             integer value of <span class="emphasis"><em>k</em></span>.
         </p><p>
@@ -459,11 +459,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_RECTANGLE</code>
@@ -489,7 +489,7 @@
             <a class="citerefentry" href="glTexSubImage3D"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
             <a class="citerefentry" href="glTexParameter"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

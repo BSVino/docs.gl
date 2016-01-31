@@ -1,94 +1,94 @@
-<div class="refentry" lang="en" xml:lang="en"><a id="glPixelZoom"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelZoom — specify the pixel zoom factors</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glPixelZoom</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">xfactor</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">yfactor</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>xfactor</code></em>, </span><span class="term"><em class="parameter"><code>yfactor</code></em></span></dt><dd><p>
-                    Specify the 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-                    and 
-                    <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+<div class="refentry" lang="en" xml:lang="en"><a id="glPixelZoom"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glPixelZoom — specify the pixel zoom factors</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table><tr><td><code class="funcdef">void <b class="fsfunc">glPixelZoom</b>(</code></td><td>GLfloat  </td><td><var class="pdparam">xfactor</var>, </td></tr><tr><td> </td><td>GLfloat  </td><td><var class="pdparam">yfactor</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>xfactor</code></em>, </span><span class="term"><em class="parameter"><code>yfactor</code></em></span></dt><dd><p>
+                    Specify the
+                    <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+                    and
+                    <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
                     zoom factors for pixel write operations.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glPixelZoom</code> specifies values for the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            <code class="function">glPixelZoom</code> specifies values for the
+            <math overflow="scroll"><mi mathvariant="italic">x</mi></math>
+            and
+            <math overflow="scroll"><mi mathvariant="italic">y</mi></math>
             zoom factors.
             During the execution of <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a> or <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
-            if 
-            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mi mathvariant="italic">xr</mml:mi>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mi mathvariant="italic">yr</mml:mi>
-            </mml:math>)
+            if
+            (<math overflow="scroll">
+
+                <mi mathvariant="italic">xr</mi>
+            </math>,
+            <math overflow="scroll">
+
+                <mi mathvariant="italic">yr</mi>
+            </math>)
             is the current raster position,
-            and a given element is in the 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>th
-            row and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
+            and a given element is in the
+            <math overflow="scroll"><mi mathvariant="italic">m</mi></math>th
+            row and
+            <math overflow="scroll"><mi mathvariant="italic">n</mi></math>th
             column of the pixel rectangle,
             then pixels whose centers are in the rectangle with corners at
         </p><p>
-            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xr</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">n</mml:mi>
-                        <mml:mo>·</mml:mo>
-                        <mml:mi mathvariant="italic">xfactor</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yr</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">m</mml:mi>
-                        <mml:mo>·</mml:mo>
-                        <mml:mi mathvariant="italic">yfactor</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>)
+            (<math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xr</mi>
+                    <mo>+</mo>
+                    <mrow>
+                        <mi mathvariant="italic">n</mi>
+                        <mo>·</mo>
+                        <mi mathvariant="italic">xfactor</mi>
+                    </mrow>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yr</mi>
+                    <mo>+</mo>
+                    <mrow>
+                        <mi mathvariant="italic">m</mi>
+                        <mo>·</mo>
+                        <mi mathvariant="italic">yfactor</mi>
+                    </mrow>
+                </mrow>
+            </math>)
         </p><p>
-            (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">xr</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">n</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:mfenced>
-                        <mml:mo>·</mml:mo>
-                        <mml:mi mathvariant="italic">xfactor</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>, 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:mi mathvariant="italic">yr</mml:mi>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mrow>
-                                <mml:mi mathvariant="italic">m</mml:mi>
-                                <mml:mo>+</mml:mo>
-                                <mml:mn>1</mml:mn>
-                            </mml:mrow>
-                        </mml:mfenced>
-                        <mml:mo>·</mml:mo>
-                        <mml:mi mathvariant="italic">yfactor</mml:mi>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>)
+            (<math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">xr</mi>
+                    <mo>+</mo>
+                    <mrow>
+                        <mfenced open="(" close=")">
+                            <mrow>
+                                <mi mathvariant="italic">n</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </mfenced>
+                        <mo>·</mo>
+                        <mi mathvariant="italic">xfactor</mi>
+                    </mrow>
+                </mrow>
+            </math>,
+            <math overflow="scroll">
+
+                <mrow>
+                    <mi mathvariant="italic">yr</mi>
+                    <mo>+</mo>
+                    <mrow>
+                        <mfenced open="(" close=")">
+                            <mrow>
+                                <mi mathvariant="italic">m</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                            </mrow>
+                        </mfenced>
+                        <mo>·</mo>
+                        <mi mathvariant="italic">yfactor</mi>
+                    </mrow>
+                </mrow>
+            </math>)
         </p><p>
             are candidates for replacement.
             Any pixel whose center lies on the bottom or left edge of this rectangular
@@ -111,7 +111,7 @@
             <a class="citerefentry" href="glCopyPixels"><span class="citerefentry"><span class="refentrytitle">glCopyPixels</span></span></a>,
             <a class="citerefentry" href="glDrawPixels"><span class="citerefentry"><span class="refentrytitle">glDrawPixels</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><div id="Copyright"><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
+            Copyright © 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
