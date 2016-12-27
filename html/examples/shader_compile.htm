@@ -28,6 +28,8 @@ if (fragment_compiled != GL_TRUE)
 
 GLuint program = {%glCreateProgram}();
 
+// This step is unnecessary if you use the location specifier in your shader
+// e.g. layout (location = 0) in vec3 position;
 {%glBindAttribLocation}(program, 0, "position"); // The index passed into {%glBindAttribLocation} is
 {%glBindAttribLocation}(program, 1, "texcoord"); // used by {%glEnableVertexAttribArray}. "position"
 {%glBindAttribLocation}(program, 2, "normal");   // "texcoord" "normal" and "color" are the names of the
