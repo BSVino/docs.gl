@@ -56,7 +56,7 @@ examples = {
   },
   'fbo_blit': {
     'versions': [ 'gl3', 'gl4', 'es3' ],
-    'description': 'Create a framebuffer object with a renderbuffer-based color attachment and a renderbuffer-based depth attachment.',
+    'description': 'Copy the contents of one framebuffer object to another by blitting.',
     'commands': [ 'glBindFramebuffer', 'glBlitFramebuffer' ],
   },
   'texture_create': {
