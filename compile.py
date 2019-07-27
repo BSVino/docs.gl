@@ -12,12 +12,14 @@ import shared
 import shared_glsl
 import subprocess
 import platform
+import urllib2
 
 ########################## Command Line Arguments ##########################
 
 parser = argparse.ArgumentParser(description="Compile OpenGL documentation, generate a static webpage.")
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
+parser.add_argument('--local-assets', dest='local_assets', action='store_true', help='Use local JS/Fonts (Default: don\'t use)')
 
 ########################## Print  ##########################
 
@@ -51,6 +53,40 @@ while not os.path.exists(output_dir):
   except:
     pass # It gives an error sometimes. If it didn't work try again.
     
+########################## Fetch Remote Assets ########################## 
+
+JS_LIBS = [
+  ('jquery', 'jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/', None),
+  ('jqueryui', 'jquery-ui.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/', None),
+  ('mathjax', 'MathJax.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?config=MML_HTMLorMML'),
+  (None, 'config/MML_HTMLorMML.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?V=2.7.5'),
+  (None, 'jax/output/HTML-CSS/jax.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?V=2.7.5'),
+  (None, 'jax/output/HTML-CSS/fonts/TeX/fontdata.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?V=2.7.5')
+]
+
+FONTS = [
+  ('roboto', 'roboto.woff', 'https://fonts.gstatic.com/s/roboto/v13/2UX7WLTfW3W8TclTUvlFyQ.woff'),
+  ('sourcecodepro', 'sourcecodepro.woff', 'https://fonts.gstatic.com/s/sourcecodepro/v5/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff')
+]
+
+if args.local_assets:
+  for name, filename, url, suffix in JS_LIBS:
+    path = 'html/copy/' + filename
+    if not os.path.exists(path):
+      dirname = os.path.dirname(path)
+      create_directory(dirname)
+      url = url + filename + suffix
+      with open(path, 'w') as f:
+        print "Downloading " + url
+        f.write(urllib2.urlopen(url).read())
+
+  for name, filename, url in FONTS:
+    path = 'html/copy/' + filename
+    if not os.path.exists(path):
+      with open(path, 'wb') as f:
+        print "Downloading " + url
+        f.write(urllib2.urlopen(url).read())
+
 #################### Copy "html/copy" Files To Output Directory ####################
 
 f = []
@@ -63,7 +99,7 @@ for (dirpath, dirnames, filenames) in os.walk("html/copy"):
     
   d.append(dirpath)
   for file in filenames:
-    if file[-3:] != '.js' and file[-4:] != '.css' and file[-4:] != '.png' and file[-5:] != '.html':
+    if file[-3:] != '.js' and file[-4:] != '.css' and file[-4:] != '.png' and file[-5:] != '.html' and file[-5:] != '.woff':
       continue
     if file == 'Gruntfile.js':
       continue
@@ -102,18 +138,39 @@ search_fp.close()
 index_fp = open(index_path)
 index = index_fp.read()
 index_fp.close()
-print "Done."
-    
-if os.path.exists('html/copy/jquery.min.js'):
-  index = index.replace("{$jquery}", "<script src='jquery.min.js'></script>")
-else:
-  index = index.replace("{$jquery}", "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>")
 
-if os.path.exists('html/copy/jquery-ui.min.js'):
-  index = index.replace("{$jqueryui}", "<script src='jquery-ui.min.js'></script>")
-else:
-  index = index.replace("{$jqueryui}", '<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>')
+def replace_js(markup, prefix):
+  for name, filename, url, suffix in JS_LIBS:
+    if name:
+      template = "{$" + name + "}"
+      if args.local_assets:
+        url = prefix + filename
+      else:
+        url = url + filename
+      if suffix:
+        url = url + suffix
+      tag = "<script src='" + url + "'></script>"
+      markup = markup.replace(template, tag)
+  return markup
 
+index = replace_js(index, prefix="./")
+header = replace_js(header, prefix="../")
+
+######################## Write Style.css ########################## 
+
+style_fp = open("html/style.css")
+style = style_fp.read()
+style_fp.close()
+
+for name, filename, url in FONTS:
+  template = "{$" + name + "}"
+  if args.local_assets:
+    url = "./" + filename
+  style = style.replace(template, url)
+
+style_fp = open(output_dir + "/style.css", "w")
+style_fp.write(style)
+style_fp.close()
 
 ######################## Get Versions for Index.html ########################## 
 
