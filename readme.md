@@ -27,6 +27,12 @@ HTML minification and Unicode processing as well. It looks like this:
 
 	python compile.py --full
 
+If you want to build a copy that can be used offline, then you can use the `--local-assets`
+parameter which downloads the fonts and Javascript libraries. It then builds the HTML and CSS
+using the local copies. It looks like this:
+
+	python compile.py --local-assets
+
 If you are running Windows, there are a build.bat and a build_full.bat for convenience. When
 the script is done building, the completed site will be in a folder named `htdocs`.
 
