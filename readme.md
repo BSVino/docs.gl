@@ -74,8 +74,8 @@ To Do
 -----
 
 * Extensions. Display a list of which versions an extension is available for. Display which extension introduces a command.
-* Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
-* Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
+* Display on each page "Core in version/core since version" like the [OpenGL Wiki does](https://www.opengl.org/wiki/GlBindTexture)
+* Integrate information from the [common mistakes](https://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
 * Display in the ToC on the left which GLSL commands can only be used in certain languages (eg VS, CS, FS, etc)
