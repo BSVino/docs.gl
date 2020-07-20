@@ -294,7 +294,7 @@ tutorials = {
   },
   'gerdelan hello triangle': {
     'name': 'Anton Gerdelan - "Hello Triangle" - OpenGL 4 Up and Running',
-    'link': 'http://antongerdelan.net/opengl/hellotriangle.html',
+    'link': 'https://antongerdelan.net/opengl/hellotriangle.html',
     'versions': [ 'gl4' ],
     'commands': ['glEnable', 'glDepthFunc', 'glGenBuffers', 'glBindBuffer', 'glBufferData',
       'glGenVertexArrays', 'glBindVertexArray', 'glEnableVertexAttribArray', 'glVertexAttribPointer', 
@@ -303,7 +303,7 @@ tutorials = {
   },
   'gerdelan shaders': {
     'name': 'Anton Gerdelan - OpenGL 4 Shaders',
-    'link': 'http://antongerdelan.net/opengl/shaders.html',
+    'link': 'https://antongerdelan.net/opengl/shaders.html',
     'versions': [ 'gl4' ],
     'commands': ['glCreateShader', 'glShaderSource', 'glCompileShader', 'glGetShader',
       'glGetShaderInfoLog', 'glDeleteShader', 'glCreateProgram', 'glAttachShader', 'glLinkProgram', 
@@ -312,7 +312,7 @@ tutorials = {
   },
   'gerdelan vbo': {
     'name': 'Anton Gerdelan - Vertex Buffer Objects',
-    'link': 'http://antongerdelan.net/opengl/vertexbuffers.html',
+    'link': 'https://antongerdelan.net/opengl/vertexbuffers.html',
     'versions': [ 'gl4' ],
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glVertexAttribPointer',
       'glEnableVertexAttribArray', 'glCompileShader', 'glAttachShader', 'glBindAttribLocation', 
@@ -321,7 +321,7 @@ tutorials = {
   },
   'gerdelan cubemaps': {
     'name': 'Anton Gerdelan - Cube Maps: Sky Boxes and Environment Mapping',
-    'link': 'http://antongerdelan.net/opengl/cubemaps.html',
+    'link': 'https://antongerdelan.net/opengl/cubemaps.html',
     'versions': [ 'gl4' ],
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glVertexAttribPointer',
       'glEnableVertexAttribArray', 'glGenVertexArrays', 'glBindVertexArray', 'glActiveTexture', 
