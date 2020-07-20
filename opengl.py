@@ -131,19 +131,19 @@ tutorials = {
   },
   'songho overview': {
     'name': 'Songho - OpenGL Overview',
-    'link': 'http://www.songho.ca/opengl/gl_overview.html',
+    'link': 'https://www.songho.ca/opengl/gl_overview.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glColor', 'glVertex', 'glPushAttrib', 'glEnable', 'glBegin', 'glFlush', 'glFinish'],
   },
   'songho pipeline': {
     'name': 'Songho - OpenGL Rendering Pipeline',
-    'link': 'http://www.songho.ca/opengl/gl_pipeline.html',
+    'link': 'https://www.songho.ca/opengl/gl_pipeline.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glRenderMode', 'glReadPixels', 'glCopyPixels', 'glGet', 'glIsEnabled'],
   },
   'songho transformations': {
     'name': 'Songho - OpenGL Transformation',
-    'link': 'http://www.songho.ca/opengl/gl_transform.html',
+    'link': 'https://www.songho.ca/opengl/gl_transform.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glRotate', 'glTranslate', 'glScale', 'glViewport', 'glDepthRange', 'glMatrixMode',
       'glOrtho', 'glFrustum', 'glPushMatrix', 'glLoadIdentity', 'glLoadMatrix', 'glLoadTransposeMatrix',
@@ -151,14 +151,14 @@ tutorials = {
   },
   'songho matrices': {
     'name': 'Songho - OpenGL Matrix Class (C++)',
-    'link': 'http://www.songho.ca/opengl/gl_matrix.html',
+    'link': 'https://www.songho.ca/opengl/gl_matrix.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glRotate', 'glTranslate', 'glScale', 'glMultMatrix', 'glFrustum',
       'glOrtho', 'glLoadIdentity'],
   },
   'songho vertex array': {
     'name': 'Songho - OpenGL Vertex Array',
-    'link': 'http://www.songho.ca/opengl/gl_vertexarray.html',
+    'link': 'https://www.songho.ca/opengl/gl_vertexarray.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glBegin', 'glVertex', 'glDrawArrays', 'glDrawElements', 'glDrawRangeElements',
       'glEnableClientState', 'glVertexPointer', 'glNormalPointer', 'glColorPointer', 'glIndexPointer',
@@ -166,7 +166,7 @@ tutorials = {
   },
   'songho display lists': {
     'name': 'Songho - OpenGL Display List',
-    'link': 'http://www.songho.ca/opengl/gl_displaylist.html',
+    'link': 'https://www.songho.ca/opengl/gl_displaylist.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glFlush', 'glFinish', 'glRenderMode', 'glEnableClientState', 'glVertexPointer',
       'glIsEnabled', 'glGet', 'glReadPixels', 'glFeedbackBuffer', 'glGenLists', 'glVertex',
@@ -175,7 +175,7 @@ tutorials = {
   },
   'songho vbo': {
     'name': 'Songho - OpenGL Vertex Buffer Object (VBO)',
-    'link': 'http://www.songho.ca/opengl/gl_vbo.html',
+    'link': 'https://www.songho.ca/opengl/gl_vbo.html',
     'versions': [ 'gl2', 'gl3' ],
     'commands': ['glVertexPointer', 'glNormalPointer', 'glTexCoordPointer', 'glGenBuffers',
       'glBindBuffer', 'glBufferData', 'glBufferSubData', 'glDeleteBuffers', 'glEnableClientState',
@@ -183,13 +183,13 @@ tutorials = {
   },
   'songho pbo': {
     'name': 'Songho - OpenGL Pixel Buffer Object (PBO)',
-    'link': 'http://www.songho.ca/opengl/gl_pbo.html',
+    'link': 'https://www.songho.ca/opengl/gl_pbo.html',
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glMapBuffer', 'glUnmapBuffer',
       'glBufferData', 'glBindTexture', 'glTexSubImage2D'],
   },
   'songho fbo': {
     'name': 'Songho - OpenGL Frame Buffer Object (FBO)',
-    'link': 'http://www.songho.ca/opengl/gl_fbo.html',
+    'link': 'https://www.songho.ca/opengl/gl_fbo.html',
     'commands': ['glFramebufferTexture2D', 'glFramebufferRenderbuffer', 'glGenFramebuffers',
       'glDeleteFramebuffers', 'glBindFramebuffer', 'glGenRenderbuffers', 'glDeleteRenderbuffers', 
       'glBindRenderbuffer', 'glRenderbufferStorage', 'glGetRenderbufferParameter', 
