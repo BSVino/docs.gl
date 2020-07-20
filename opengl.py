@@ -287,7 +287,7 @@ tutorials = {
   },
   'nehe ios triangle': {
     'name': 'nehe.gamedev.net - iOS Lesson 02 - First Triangle',
-    'link': 'http://nehe.gamedev.net/tutorial/ios_lesson_02__first_triangle/50001/',
+    'link': 'https://nehe.gamedev.net/tutorial/ios_lesson_02__first_triangle/50001/',
     'versions': [ 'es2', 'es3' ],
     'commands': ['glGenBuffers', 'glBindBuffer', 'glBufferData', 'glUseProgram',
       'glGetAttribLocation', 'glEnableVertexAttribArray', 'glVertexAttribPointer', 'glDrawArrays'],
