@@ -56,8 +56,8 @@ while not os.path.exists(output_dir):
 ########################## Fetch Remote Assets ########################## 
 
 JS_LIBS = [
-  ('jquery', 'jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/', None),
-  ('jqueryui', 'jquery-ui.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/', None),
+  ('jquery', 'jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/', None),
+  ('jqueryui', 'jquery-ui.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/', None),
   ('mathjax', 'MathJax.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?config=MML_HTMLorMML'),
   (None, 'config/MML_HTMLorMML.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?V=2.7.5'),
   (None, 'jax/output/HTML-CSS/jax.js', 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/', '?V=2.7.5'),
@@ -797,18 +797,18 @@ for version in major_versions:
     '''comments = """<div id="outer_disqus_thread">Guidelines for comments:
       <ul>
         <li>Please limit comments to """+API+ " " + es + version[2] + """ """ + command + """.</li>
-        <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
+        <li>Have a question? Try <a href="https://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
         <li>Instead of commenting, consider <a href='""" + editlink + """'>editing this page on GitHub</a> instead.</li>
       </ul>
     <div id="disqus_thread"></div></div><script type="text/javascript">
     var disqus_shortname = 'docsgl';
     var disqus_identifier = '""" + version + "_" + command + """';
     var disqus_title = 'Comments about """ + version + "/" + command + """';
-    var disqus_url = 'http://docs.gl/""" + version + "/" + command + """';
+    var disqus_url = 'https://docs.gl/""" + version + "/" + command + """';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>"""'''
