@@ -280,7 +280,7 @@ tutorials = {
   },
   'sebastien-nvidia tex compression': {
     'name': 'S&eacute;bastien Domin&eacute; - Using Texture Compression in OpenGL',
-    'link': 'http://www.oldunreal.com/editing/s3tc/ARB_texture_compression.pdf',
+    'link': 'https://www.oldunreal.com/editing/s3tc/ARB_texture_compression.pdf',
     'versions': [ 'gl2', 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glBindTexture', 'glCompressedTexImage2D', 'glGetTexLevelParameter',
       'glGetCompressedTexImage'],
