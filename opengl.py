@@ -72,7 +72,7 @@ examples = {
 tutorials = {
   'open.gl drawing': {
     'name': 'open.gl - The Graphics Pipeline',
-    'link': 'http://open.gl/drawing',
+    'link': 'https://open.gl/drawing',
     'commands': ['glBindBuffer', 'glShaderSource', 'glDeleteShader', 'glDetachShader', 'glUseProgram',
       'glVertexAttribPointer', 'glDrawArrays', 'glGetError', 'glUniform', 'glDrawElements',
       'glGenBuffers', 'glBufferData', 'glCreateShader', 'glCompileShader', 'glGetShader',
@@ -82,23 +82,23 @@ tutorials = {
   },
   'open.gl textures': {
     'name': 'open.gl - Textures Objects and Parameters',
-    'link': 'http://open.gl/textures',
+    'link': 'https://open.gl/textures',
     'commands': ['glTexParameter', 'glTexImage2D', 'glBindTexture', 'glActiveTexture', 'glUniform',
       'glGenerateMipmap', 'glVertexAttribPointer', 'glEnableVertexAttribArray'],
   },
   'open.gl transformations': {
     'name': 'open.gl - Transformations',
-    'link': 'http://open.gl/transformations',
+    'link': 'https://open.gl/transformations',
     'commands': ['glUniform'],
   },
   'open.gl depthstencils': {
     'name': 'open.gl - Depth and Stencil Buffers',
-    'link': 'http://open.gl/depthstencils',
+    'link': 'https://open.gl/depthstencils',
     'commands': ['glDrawArrays', 'glEnable', 'glClear', 'glStencilFunc', 'glStencilOp', 'glStencilMask', 'glColorMask', 'glDepthMask', 'glGetUniformLocation'],
   },
   'open.gl framebuffers': {
     'name': 'open.gl - Framebuffers',
-    'link': 'http://open.gl/framebuffers',
+    'link': 'https://open.gl/framebuffers',
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glCheckFramebufferStatus', 'glReadPixels', 'glViewport', 'glBindFragDataLocation',
       'glDeleteRenderbuffers', 'glBindTexture', 'glGenFramebuffers', 'glBindFramebuffer',
@@ -109,7 +109,7 @@ tutorials = {
   },
   'open.gl geometry': {
     'name': 'open.gl - Geometry Shaders',
-    'link': 'http://open.gl/geometry',
+    'link': 'https://open.gl/geometry',
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glCheckFramebufferStatus', 'glReadPixels', 'glViewport', 'glBindFragDataLocation',
       'glDeleteRenderbuffers', 'glBindTexture', 'glDrawArrays', 'glCreateProgram', 'glAttachShader',
@@ -119,7 +119,7 @@ tutorials = {
   },
   'open.gl feedback': {
     'name': 'open.gl - Transform Feedback',
-    'link': 'http://open.gl/feedback',
+    'link': 'https://open.gl/feedback',
     'versions': [ 'gl3', 'gl4', 'es2', 'es3' ],
     'commands': ['glCreateShader', 'glShaderSource', 'glCompileShader', 'glCreateProgram',
       'glAttachShader', 'glLinkProgram', 'glTransformFeedbackVaryings', 'glUseProgram',
