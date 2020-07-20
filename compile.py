@@ -797,7 +797,7 @@ for version in major_versions:
     '''comments = """<div id="outer_disqus_thread">Guidelines for comments:
       <ul>
         <li>Please limit comments to """+API+ " " + es + version[2] + """ """ + command + """.</li>
-        <li>Have a question? Try <a href="http://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
+        <li>Have a question? Try <a href="https://stackoverflow.com/questions/tagged/opengl">Stack Overflow</a> or the <a href="https://www.opengl.org/discussion_boards/forum.php">OpenGL Forums</a>.</li>
         <li>Instead of commenting, consider <a href='""" + editlink + """'>editing this page on GitHub</a> instead.</li>
       </ul>
     <div id="disqus_thread"></div></div><script type="text/javascript">
