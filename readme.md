@@ -1,7 +1,7 @@
 docs.gl
 =======
 
-[docs.gl](http://docs.gl) is a public domain web scaffolding for the OpenGL documentation.
+[docs.gl](https://docs.gl) is a public domain web scaffolding for the OpenGL documentation.
 The actual documentation website provided by Khronos is in frames and poorly formatted,
 difficult to navigate and search. docs.gl aims to improve the form factor and quality of
 the OpenGL documentation.
@@ -56,7 +56,7 @@ Files in the `copy` folder are used without changes.
 
 Files in the `examples` folder contain source code examples used in the manual pages. In
 these files a special token is used to provide a link to a command page. For example
-`{%glBindTexture}` will provide a link to http://docs.gl/gl4/glBindTexture if the example
+`{%glBindTexture}` will provide a link to https://docs.gl/gl4/glBindTexture if the example
 appears in a GL4 page. If the example appears in a gl3 page, the link will be updated
 accordingly.
 
