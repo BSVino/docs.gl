@@ -1,7 +1,7 @@
 docs.gl
 =======
 
-[docs.gl](http://docs.gl) is a public domain web scaffolding for the OpenGL documentation.
+[docs.gl](https://docs.gl) is a public domain web scaffolding for the OpenGL documentation.
 The actual documentation website provided by Khronos is in frames and poorly formatted,
 difficult to navigate and search. docs.gl aims to improve the form factor and quality of
 the OpenGL documentation.
@@ -56,7 +56,7 @@ Files in the `copy` folder are used without changes.
 
 Files in the `examples` folder contain source code examples used in the manual pages. In
 these files a special token is used to provide a link to a command page. For example
-`{%glBindTexture}` will provide a link to http://docs.gl/gl4/glBindTexture if the example
+`{%glBindTexture}` will provide a link to https://docs.gl/gl4/glBindTexture if the example
 appears in a GL4 page. If the example appears in a gl3 page, the link will be updated
 accordingly.
 
@@ -74,8 +74,8 @@ To Do
 -----
 
 * Extensions. Display a list of which versions an extension is available for. Display which extension introduces a command.
-* Display on each page "Core in version/core since version" like the [OpenGL Wiki does](http://www.opengl.org/wiki/GlBindTexture)
-* Integrate information from the [common mistakes](http://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
+* Display on each page "Core in version/core since version" like the [OpenGL Wiki does](https://www.opengl.org/wiki/GlBindTexture)
+* Integrate information from the [common mistakes](https://www.opengl.org/wiki/Common_Mistakes) file into the page for each command they pertain to
 * Update each page with any information that may be in the spec but missing in the manual
 * Display on each page which commands are likely to cause a pipeline stall (eg glGet)
 * Display in the ToC on the left which GLSL commands can only be used in certain languages (eg VS, CS, FS, etc)
