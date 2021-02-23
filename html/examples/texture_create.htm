@@ -11,6 +11,6 @@ GLuint texture_id;
 // texture_data is the source data of your texture, in this case
 // its size is sizeof(unsigned char) * texture_width * texture_height * 4
 {%glTexImage2D}(GL_TEXTURE_2D, 0, GL_RGBA, texture_width, texture_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data);
-{%glGenerateMipmap}(GL_TEXTURE_2D); // Unavailable in OpenGL 2.1, use gluBuild2DMipmaps() insteads.
+{%glGenerateMipmap}(GL_TEXTURE_2D); // Unavailable in OpenGL 2.1, use gluBuild2DMipmaps() instead
 
 {%glBindTexture}(GL_TEXTURE_2D, 0);
