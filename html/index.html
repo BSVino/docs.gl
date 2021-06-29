@@ -165,6 +165,11 @@
 			});
 
 			$("#frontsearch").keyup(front_filter_fn);
+            let url_search = new URLSearchParams(window.location.search).get("search");
+            if (url_search) {
+                $("#frontsearch").val(url_search)
+                front_filter_fn()
+            }
 
 			$("#light-toggle").click(function() {
 				$("#pagestyle").attr("href", "style_light.css");
