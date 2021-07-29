@@ -12,7 +12,7 @@
 
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link id="pagestyle" href="style_light.css" rel="stylesheet" type="text/css" />
-    <link rel="search" type="application/opensearchdescription+xml" title="docs.GL Search" href="opensearch.xml">
+	<link rel="search" type="application/opensearchdescription+xml" title="docs.GL Search" href="opensearch.xml">
 
 	<style>
 		#commandlist {
@@ -166,11 +166,11 @@
 			});
 
 			$("#frontsearch").keyup(front_filter_fn);
-            let url_search = new URLSearchParams(window.location.search).get("search");
-            if (url_search) {
-                $("#frontsearch").val(url_search)
-                front_filter_fn()
-            }
+			let url_search = new URLSearchParams(window.location.search).get("search");
+			if (url_search) {
+				$("#frontsearch").val(url_search)
+				front_filter_fn()
+			}
 
 			$("#light-toggle").click(function() {
 				$("#pagestyle").attr("href", "style_light.css");
