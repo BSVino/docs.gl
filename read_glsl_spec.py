@@ -20,33 +20,33 @@ version_check_el = ['','el1.10' , 'el3.00' , 'el3.10' ]
 #Get versions for GLSL 
 def get_versions( path_file ):
 
-	xtree = ET.parse(path_file)
-	element = xtree.find('.//div[@id="versions"]')
-	table = element[1][0][2]
-	test = u'\u2714'; #this is the check symbol
-	versions = []
-	for x in range(1, 13):
-		text = table[0][x].text
-		if text == test:
-			versions.append(version_check[x])
-	return versions
+  xtree = ET.parse(path_file)
+  element = xtree.find('.//div[@id="versions"]')
+  table = element[1][0][2]
+  test = '\u2714'; #this is the check symbol
+  versions = []
+  for x in range(1, 13):
+    text = table[0][x].text
+    if text == test:
+      versions.append(version_check[x])
+  return versions
 
-#Get version for GLSL ES	
+#Get version for GLSL ES  
 def get_el_versions( path_file ):
-	xtree = ET.parse(path_file)
-	element = xtree.find('.//div[@id="versions"]')
-	table = element[1][0][2]
-	test = u'\u2714'; #this is the check symbol
-	versions = []
-	for x in range(1, 4):
-		text = table[0][x].text
-		if text == test:
-			versions.append(version_check_el[x])
-			#print "got it in version " + version_check[x]
-	return versions	
-	
-	
-	
+  xtree = ET.parse(path_file)
+  element = xtree.find('.//div[@id="versions"]')
+  table = element[1][0][2]
+  test = '\u2714'; #this is the check symbol
+  versions = []
+  for x in range(1, 4):
+    text = table[0][x].text
+    if text == test:
+      versions.append(version_check_el[x])
+      #print "got it in version " + version_check[x]
+  return versions 
+  
+  
+  
 def test_extensions(gldir, command):
   # See if removing an extension gives us a real entry
   for extension in sl_extensions:
@@ -68,39 +68,39 @@ def test_replacements(gldir, command):
   #dfdx
   command_test = command.replace("", "x")
   if not shared_glsl.find_command_file(gldir, command_test) == False:
-	return command_test 
+    return command_test 
   
   #GLSL tests
   
   #dfdx
   command_test = command.replace("y", "x")
   if not shared_glsl.find_command_file(gldir, command_test) == False:
-	return command_test
-	
+    return command_test
+  
   #dfdy
   for ext in sl_extensions:
-	command_test = command.replace("y", "x")
-	command_test = command_test.replace(ext, "")
-	if not shared_glsl.find_command_file(gldir, command_test) == False:
-		return command_test
+    command_test = command.replace("y", "x")
+    command_test = command_test.replace(ext, "")
+    if not shared_glsl.find_command_file(gldir, command_test) == False:
+      return command_test
   
   command_test = command.replace("U", "")
   if not shared_glsl.find_command_file(gldir, command_test) == False:
     return command_test
-	
+  
   command_test = command.replace("u", "")
   if not shared_glsl.find_command_file(gldir, command_test) == False:
-		return command_test
+    return command_test
   
   command_test = command.replace("imul", "umul")
   if not shared_glsl.find_command_file(gldir, command_test) == False:
     return command_test
   
   for ext in sl_extensions:
-	command_test = command.replace("S", "U")
-	command_test = command_test.replace(ext, "")
-	if not shared_glsl.find_command_file(gldir, command_test) == False:
-		return command_test
+    command_test = command.replace("S", "U")
+    command_test = command_test.replace(ext, "")
+    if not shared_glsl.find_command_file(gldir, command_test) == False:
+      return command_test
   
   #I don't think we need anything under this part for GLSL
   
@@ -205,71 +205,71 @@ stored_version_commands = { '' : [ {'':''} ,] }
 
 #load version keys
 for x in version_check:
-	stored_version_commands[x] = [ {'':''} ,];
+  stored_version_commands[x] = [ {'':''} ,];
 for x in version_check_el:
-	stored_version_commands[x] = [ {'':''} ,];
-	
+  stored_version_commands[x] = [ {'':''} ,];
+  
 for command in commads:
-	if command.tag != 'command':
-		continue
-	current_command_list.append(command[0][0].text);
-	
+  if command.tag != 'command':
+    continue
+  current_command_list.append(command[0][0].text);
+  
 support_API = {'el3' , 'sl4' }
 # go over all supported API
 for api in support_API:
-	for command_name in current_command_list:
-		path_file = path+"\\"+api+"\\"+command_name+".xhtml"
-		if(os.path.isfile(path_file)):
-			versions = []
-			if api[0:2] == 'sl': 
-				versions = get_versions(path_file)
-			if api[0:2] == 'el':
-				versions = get_el_versions(path_file)
-			for x in xrange(len(versions)):
-				print command_name
-				stored_version_commands[versions[x]].append({command_name : command_name})						
-		else:
-			if os.path.exists(api):
-				test_extensions(api , command_name )
-				command_file = shared_glsl.find_command_file(api, command_name)
-				if command_file == False:
-					command_docs = test_replacements(api, command_name)
-					command_file = shared_glsl.find_command_file(api, command_docs)
-					
-					if command_file == False:
-						print "No command docs file found for " + command_name + " (" + api + ")"
-						print command_name + " does not exist"
-						#Todo: Skip ES errors for now
-						if api[0:2] != 'el':
-							assert(False)
-					else:
-						versions = []
-						if api[0:2] == 'sl':
-							versions = get_versions(path+"\\"+api+"\\"+command_docs+".xhtml")
-						if api[0:2] == 'el':
-							versions = get_el_versions(path+"\\"+api+"\\"+command_docs+".xhtml")
-						for x in xrange(len(versions)):
-							stored_version_commands[versions[x]].append({command_name : command_docs})
+  for command_name in current_command_list:
+    path_file = path+"/"+api+"/"+command_name+".xhtml"
+    if(os.path.isfile(path_file)):
+      versions = []
+      if api[0:2] == 'sl': 
+        versions = get_versions(path_file)
+      if api[0:2] == 'el':
+        versions = get_el_versions(path_file)
+      for x in range(len(versions)):
+        print(command_name)
+        stored_version_commands[versions[x]].append({command_name : command_name})            
+    else:
+      if os.path.exists(api):
+        test_extensions(api , command_name )
+        command_file = shared_glsl.find_command_file(api, command_name)
+        if command_file == False:
+          command_docs = test_replacements(api, command_name)
+          command_file = shared_glsl.find_command_file(api, command_docs)
+          
+          if command_file == False:
+            print("No command docs file found for " + command_name + " (" + api + ")")
+            print(command_name + " does not exist")
+            #Todo: Skip ES errors for now
+            if api[0:2] != 'el':
+              assert(False)
+          else:
+            versions = []
+            if api[0:2] == 'sl':
+              versions = get_versions(path+"/"+api+"/"+command_docs+".xhtml")
+            if api[0:2] == 'el':
+              versions = get_el_versions(path+"/"+api+"/"+command_docs+".xhtml")
+            for x in range(len(versions)):
+              stored_version_commands[versions[x]].append({command_name : command_docs})
 
 output = open("glsl_spec.py", "w")
 output.write("version_commands = {\n")
-	
+  
 for version in stored_version_commands:
-	if version == "":
-		continue
+  if version == "":
+    continue
 
-	#print version
-	output.write("  '" + version[0:5] + "': {\n")
-	for x in stored_version_commands[version]:
-		mstring = str(x)
-		mstring = mstring.replace("{" , "")
-		mstring = mstring.replace("}" , "")
-		if mstring == "'': ''":
-			continue
-		output.write("    " +mstring+ ",\n")
-	output.write("  },\n")
-	
-	
-	
+  #print version
+  output.write("  '" + version[0:5] + "': {\n")
+  for x in stored_version_commands[version]:
+    mstring = str(x)
+    mstring = mstring.replace("{" , "")
+    mstring = mstring.replace("}" , "")
+    if mstring == "'': ''":
+      continue
+    output.write("    " +mstring+ ",\n")
+  output.write("  },\n")
+  
+  
+  
 output.write("}\n")
 output.close()

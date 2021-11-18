@@ -75,8 +75,8 @@ if args.local_assets:
     if not os.path.exists(path):
       dirname = os.path.dirname(path)
       create_directory(dirname)
-      url = url + filename + suffix
-      with open(path, 'w') as f:
+      url = url + filename + (suffix or '')
+      with open(path, 'wb') as f:
         print("Downloading " + url)
         f.write(urllib.request.urlopen(url).read())
 
@@ -436,9 +436,9 @@ for command in glsl.commands_version:
     if version == 'sl3':
       continue
 
-    search_versions_commands += "'" + version[:3] + "/" + command + "',"	
-	
-#OpenGL	Loop
+    search_versions_commands += "'" + version[:3] + "/" + command + "',"  
+  
+#OpenGL Loop
 for command in opengl.commands_version_flat:
 
   if command in opengl.commands_version:
@@ -559,7 +559,7 @@ def spew_category(name, commands, current_command, api):
     if api == "sl": 
         versions_available = glsl.commands_version_flat[command]
         versions_available.sort()   
-		
+    
     if command == current_command:
       found_current_command = True
     
@@ -626,7 +626,7 @@ for version in major_versions:
   #No GLSL 3 docs 
   if version == 'sl3':
     continue    
-	
+  
   written = 0
 
   print("Compiling " + version + " ..." )
@@ -829,7 +829,7 @@ for version in major_versions:
     fp.close()
     
     if args.buildmode == 'full':
-      command_html = command_html.decode('utf8')
+      command_html = command_html
 
     command_html = command_html.replace("{$pipelinestall}", "")
     
@@ -945,7 +945,7 @@ for version in major_versions:
     output = open(output_dir + version_dir + "/" + command, "w")
     output_string = output_html
     if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace')
+      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace').decode('ascii')
     output.write(output_string)
     output.close()
     
@@ -970,7 +970,7 @@ for version in major_versions:
  #  if API_type =="sl":      
     if len(glsl_unhandled_commands):
       glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, "","sl")
-		  
+      
     header_for_page = header_for_page.replace("{$api_commands}", api_commands)
     header_for_page = header_for_page.replace("{$glsl_api_commands}", glsl_api_commands)
 
@@ -984,14 +984,14 @@ for version in major_versions:
     fp.close()
     
     if args.buildmode == 'full':
-      notfound_html = notfound_html.decode('utf8')
+      notfound_html = notfound_html
     
     output_html = header_for_page + notfound_html + footer_for_page
 
     output = open(output_dir + version + "/404", "w")
     output_string = output_html
     if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace')
+      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace').decode('ascii')
     output.write(output_string)
     output.close()
   

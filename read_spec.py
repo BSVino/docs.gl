@@ -169,7 +169,7 @@ for feature in glroot:
 
           command_file = shared.find_command_file(gldir, command_docs)
         if command_file == False:
-          print "No command docs file found for " + command + " (" + gl_prefix + gl_major_version + ")"
+          print("No command docs file found for " + command + " (" + gl_prefix + gl_major_version + ")")
           output.close()
           assert(false)
         
