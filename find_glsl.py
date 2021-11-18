@@ -6,7 +6,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 def make_glsl_docs():
 
-    print "Creating GLSL docs ..."
+    print("Creating GLSL docs ...")
     sl_filenames = glob.glob(path+"\\gl4\\"+'*.xhtml')
     if not os.path.exists("sl4"):
         os.makedirs("sl4")
@@ -16,7 +16,7 @@ def make_glsl_docs():
     if not os.path.exists("el3"):
         os.makedirs("el3")
     get_glsl_docs(es_filenames , "el3" )
-    print "done"
+    print("done")
 
 
 def get_glsl_docs( filenames, foldername ):
@@ -27,7 +27,7 @@ def get_glsl_docs( filenames, foldername ):
     elif foldername[0:2] == "sl":
         findtext = "OpenGL Shading Language Version"
         
-    print foldername[0:2]
+    print(foldername[0:2])
     for filename in filenames:
         with open(filename, 'r') as readfile:
             if(readfile.read().find(findtext) != -1):
