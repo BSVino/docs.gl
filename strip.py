@@ -11,7 +11,7 @@ def strip_gl2():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("gl2/" + filename)
     content = fp.readlines()
@@ -41,7 +41,7 @@ def strip_gl3():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("gl3/" + filename)
     content = fp.readlines()
@@ -71,7 +71,7 @@ def strip_gl4():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("gl4/" + filename)
     content = fp.readlines()
@@ -103,7 +103,7 @@ def strip_es1():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("es1/" + filename)
     content = fp.readlines()
@@ -136,7 +136,7 @@ def strip_es2():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("es2/" + filename)
     content = fp.readlines()
@@ -169,7 +169,7 @@ def strip_es3():
     f.extend(filenames)
 
   for filename in f:
-    print "Processing " + filename
+    print("Processing " + filename)
 
     fp = open ("es3/" + filename)
     content = fp.readlines()
