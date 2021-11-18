@@ -38,6 +38,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
-      - run: aws s3 sync htdocs s3://docs.gl --delete
+      - run: aws s3 sync htdocs s3://docs.gl --delete --content-type text/html
 
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DOCSGL_DISTRIBUTION_ID }} --paths /*

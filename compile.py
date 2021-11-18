@@ -246,7 +246,7 @@ for command in index_commands_version:
       alias = aliases[version]
       
     if version in all_major_versions_available:
-      index_versions_commands += "<span class='versioncolumn'><a href='" + version + "/" + alias + "'>" + version + "</a></span>"
+      index_versions_commands += "<span class='versioncolumn'><a href='/" + version + "/" + alias + "'>" + version + "</a></span>"
     else:
       index_versions_commands += "<span class='versioncolumn disabled'>" + version + "</span>"
   index_versions_commands += "</span>\n"
