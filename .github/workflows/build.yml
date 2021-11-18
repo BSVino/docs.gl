@@ -38,6 +38,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
-      - run: aws s3 sync htdocs s3://docs.gl --delete --no-guess-mime-type
+      - run: |
+        aws s3 sync htdocs s3://docs.gl --delete --content-type text/html
+        aws s3 cp s3://docs.gl/ s3://docs.gl/ --exclude '*' --include '*.zip' --no-guess-mime-type --content-type="application/zip" --metadata-directive="REPLACE" --recursive
 
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DOCSGL_DISTRIBUTION_ID }} --paths /*
