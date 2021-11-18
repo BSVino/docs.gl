@@ -829,7 +829,7 @@ for version in major_versions:
     fp.close()
     
     if args.buildmode == 'full':
-      command_html = command_html.decode('utf8')
+      command_html = command_html
 
     command_html = command_html.replace("{$pipelinestall}", "")
     
@@ -945,7 +945,7 @@ for version in major_versions:
     output = open(output_dir + version_dir + "/" + command, "w")
     output_string = output_html
     if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace')
+      output_string = str(htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace'))
     output.write(output_string)
     output.close()
     
@@ -984,14 +984,14 @@ for version in major_versions:
     fp.close()
     
     if args.buildmode == 'full':
-      notfound_html = notfound_html.decode('utf8')
+      notfound_html = notfound_html
     
     output_html = header_for_page + notfound_html + footer_for_page
 
     output = open(output_dir + version + "/404", "w")
     output_string = output_html
     if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace')
+      output_string = str(htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace'))
     output.write(output_string)
     output.close()
   
