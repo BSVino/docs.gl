@@ -24,17 +24,17 @@ jobs:
           echo github.event.action: ${{ github.event.action }}
           echo github.event_name: ${{ github.event_name }}
 
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
+      - name: Compile docs.gl
+        run: python3 compile.py --full
 
-#      - name: Configure AWS Credentials
-#        uses: aws-actions/configure-aws-credentials@v1
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: us-west-2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
 
-#      - working-directory: landing/HTML
-#        run: aws s3 sync public s3://luxdebugger.com --delete
+      - working-directory: landing/HTML
+        run: aws s3 sync public s3://docs.gl --delete
 
-#      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_LUXDEBUGGERCOM_DISTRIBUTION_ID }} --paths /*
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DOCSGL_DISTRIBUTION_ID }} --paths /*
