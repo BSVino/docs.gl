@@ -783,7 +783,7 @@ for version in major_versions:
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$command}", command)
     
-    editlink = "https://github.com/BSVino/docs.gl/blob/master/" + version + "/" + command + ".xhtml"
+    editlink = "https://github.com/BSVino/docs.gl/blob/mainline/" + version + "/" + command + ".xhtml"
     improvepage = "Think you can improve this page? <a href='" + editlink + "'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
 
