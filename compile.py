@@ -29,6 +29,7 @@ if args.buildmode == 'full':
   print("FULL BUILD")
   sys.path.append("htmlmin")
   import htmlmin
+  print(dir(htmlmin))
 else:
   print("FAST BUILD")
 
