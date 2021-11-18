@@ -39,6 +39,6 @@ jobs:
           aws-region: us-west-2
 
       - working-directory: landing/HTML
-        run: aws s3 sync public s3://docs.gl --delete
+        run: aws s3 sync htdocs/* s3://docs.gl --delete
 
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DOCSGL_DISTRIBUTION_ID }} --paths /*
