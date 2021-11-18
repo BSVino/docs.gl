@@ -12,7 +12,7 @@ import shared
 import shared_glsl
 import subprocess
 import platform
-import urllib2
+import urllib.request
 
 ########################## Command Line Arguments ##########################
 
@@ -78,14 +78,14 @@ if args.local_assets:
       url = url + filename + suffix
       with open(path, 'w') as f:
         print("Downloading " + url)
-        f.write(urllib2.urlopen(url).read())
+        f.write(urllib.request.urlopen(url).read())
 
   for name, filename, url in FONTS:
     path = 'html/copy/' + filename
     if not os.path.exists(path):
       with open(path, 'wb') as f:
         print("Downloading " + url)
-        f.write(urllib2.urlopen(url).read())
+        f.write(urllib.request.urlopen(url).read())
 
 #################### Copy "html/copy" Files To Output Directory ####################
 
@@ -175,13 +175,11 @@ style_fp.close()
 ######################## Get Versions for Index.html ########################## 
 
 #OpenGL
-index_commands_version = opengl.commands_version_flat.keys()
-index_commands_version.sort()
+index_commands_version = sorted(opengl.commands_version_flat.keys())
 index_versions_commands = ""
 
 #GLSL
-glsl_index_commands_version = glsl.commands_version_flat.keys()
-glsl_index_commands_version.sort()
+glsl_index_commands_version = sorted(glsl.commands_version_flat.keys())
 glsl_index_versions_commands = ""
 
 #OpenGL Loop
@@ -538,8 +536,8 @@ search_versions_options += "<option selected='selected' value='all'" + ">All</op
 
 header = header.replace("{$search_versions}", search_versions_options)
 
-unhandled_commands = opengl.commands_version_flat.keys()
-glsl_unhandled_commands = glsl.commands_version_flat.keys()
+unhandled_commands = list(opengl.commands_version_flat.keys())
+glsl_unhandled_commands = list(glsl.commands_version_flat.keys())
 
 #Ignore unhandled in glsl
 #unhandled_commands += glsl_unhandled_commands
@@ -637,8 +635,8 @@ for version in major_versions:
   
   all_versions = [];
   
-  all_versions = opengl.version_commands.keys()
-  glsl_all_versions = glsl.version_commands.keys()
+  all_versions = list(opengl.version_commands.keys())
+  glsl_all_versions = list(glsl.version_commands.keys())
   all_versions += glsl_all_versions
     
   all_versions.sort()
@@ -736,16 +734,16 @@ for version in major_versions:
     glsl_api_commands =""
     #if API_type == "gl":
     for category in opengl.command_categories:
-        api_commands += spew_category(category, opengl.command_categories[category], command , "gl" )
+        api_commands += spew_category(category, opengl.command_categories[category], command, "gl" )
     #if API_type == "sl":
     for category in glsl.command_categories:
         glsl_api_commands += spew_category(category, glsl.command_categories[category], command, "sl")        
     #if API_type == "gl":
     if len(unhandled_commands):
-        api_commands += spew_category("Uncategorized", unhandled_commands, command,"gl")
+        api_commands += spew_category("Uncategorized", unhandled_commands, command, "gl")
     #if API_type == "sl":
     if len(glsl_unhandled_commands):
-        glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, command,"sl")
+        glsl_api_commands += spew_category("Uncategorized", glsl_unhandled_commands, command, "sl")
 
     header_for_command = header_for_command.replace("{$api_commands}", api_commands)
     header_for_command = header_for_command.replace("{$glsl_api_commands}", glsl_api_commands)
