@@ -50,7 +50,7 @@ def reverse_version_index(command_list):
   return reversed
 
 def generate_versions():
-  print "Generating GLSL version index..."
+  print("Generating GLSL version index...")
   global version_commands
   global commands_version
   global version_commands_flat
@@ -138,7 +138,7 @@ def generate_versions():
           tutorial_functions_entry['versions'] = get_major_versions(version_commands.keys())
         tutorial_functions[aliased_command].append(tutorial_functions_entry)
 
-  print "Done."
+  print("Done.")
 
 command_categories = OrderedDict([
   ( "Trigonometry", [

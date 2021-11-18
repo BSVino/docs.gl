@@ -26,11 +26,11 @@ parser.add_argument('--local-assets', dest='local_assets', action='store_true', 
 args = parser.parse_args()
 
 if args.buildmode == 'full':
-  print "FULL BUILD"
+  print("FULL BUILD")
   sys.path.append("htmlmin")
   import htmlmin
 else:
-  print "FAST BUILD"
+  print("FAST BUILD")
 
 def create_directory(dir):
   if not os.path.exists(dir):
@@ -40,7 +40,7 @@ def create_directory(dir):
  
 output_dir = "htdocs/"
 
-print "Resetting output dir..."
+print("Resetting output dir...")
 while os.path.exists(output_dir):
   try:
     shutil.rmtree(output_dir);
@@ -77,14 +77,14 @@ if args.local_assets:
       create_directory(dirname)
       url = url + filename + suffix
       with open(path, 'w') as f:
-        print "Downloading " + url
+        print("Downloading " + url)
         f.write(urllib2.urlopen(url).read())
 
   for name, filename, url in FONTS:
     path = 'html/copy/' + filename
     if not os.path.exists(path):
       with open(path, 'wb') as f:
-        print "Downloading " + url
+        print("Downloading " + url)
         f.write(urllib2.urlopen(url).read())
 
 #################### Copy "html/copy" Files To Output Directory ####################
@@ -111,8 +111,8 @@ for directory in d:
 for file in f:
   shutil.copy("html/copy/" + file, output_dir + file)
   
-print "Copied " + str(len(f)) + " files"
-print "Reading templates..."
+print("Copied " + str(len(f)) + " files")
+print("Reading templates...")
 
 ########################## Select Index.html Template ##########################
 #Todo: use one index only
@@ -631,7 +631,7 @@ for version in major_versions:
 	
   written = 0
 
-  print "Compiling " + version + " ..." 
+  print("Compiling " + version + " ..." )
   header_for_version = header;
   footer_for_version = footer;
   
@@ -997,7 +997,7 @@ for version in major_versions:
     output.write(output_string)
     output.close()
   
-  print "Wrote " + str(written) + " commands for " + version
+  print("Wrote " + str(written) + " commands for " + version)
 
 with zipfile.ZipFile('docs.gl.zip', 'w', compression=zipfile.ZIP_DEFLATED) as docs_gl_zip:
   for dirname, _, files in os.walk('htdocs'):
