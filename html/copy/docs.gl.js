@@ -222,20 +222,12 @@ $(function() {
 
 	if ($.cookie("pagestyle") == 'dark')
 		$("#style_dark").click();
-		
-	// hack to run after bonsai is initailized
-	setTimeout(function() {
-		$(".open_me").each(function() {
-			// copied from bonsai js to expand w/o animation
-			var listItem = $(this);
-			if( !listItem.data('subList') )
-				return;
-			listItem.addClass('expanded').removeClass('collapsed');
-			var subList = $(listItem.data('subList'));
-			subList.css('height', 'auto');
-		});
-	}, 1);
-	
+
+	$(".open_me").each(function() {
+		var category_to_open = $(this);
+		var category_bonsai = $( "#command_categories" ).data('bonsai');
+		category_bonsai.expand(category_to_open);
+	});
 
 	search_fn = function(value) {
 		var version = 'all';
