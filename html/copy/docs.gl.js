@@ -291,7 +291,7 @@ $(function() {
 		source: search_versions["all"],
 		minLength: 3,
 		select: function( event, ui ) {
-			search_fn(event.target.value);
+			search_fn(ui.item.value);
 		},
 	});
 
