@@ -5,6 +5,7 @@ import sys
 import argparse
 import re
 import zipfile
+import codecs
 
 import opengl
 import glsl
@@ -824,9 +825,8 @@ for version in major_versions:
     if command_file == False:
       raise IOError("Couldn't find page for command " + command + " (" + version + ")")
 
-    fp = open(command_file)
-    command_html = fp.read()
-    fp.close()
+    with codecs.open(command_file, mode="r", encoding="utf-8") as fp:
+        command_html = fp.read()
     
     if args.buildmode == 'full':
       command_html = command_html
@@ -942,12 +942,12 @@ for version in major_versions:
 
     output_html = header_for_command + command_html + footer_for_command
 
-    output = open(output_dir + version_dir + "/" + command, "w")
-    output_string = output_html
-    if args.buildmode == 'full':
-      output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace').decode('ascii')
-    output.write(output_string)
-    output.close()
+    output_path = output_dir + version_dir + "/" + command
+    with codecs.open(output_path, mode="w", encoding="utf-8") as output:
+        output_string = output_html
+        if args.buildmode == 'full':
+          output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace').decode('ascii')
+        output.write(output_string)
     
     written += 1
 
