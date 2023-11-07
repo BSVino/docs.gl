@@ -36,6 +36,15 @@ using the local copies. It looks like this:
 If you are running Windows, there are a build.bat and a build_full.bat for convenience. When
 the script is done building, the completed site will be in a folder named `htdocs`.
 
+Offline Viewing
+---------------
+First compile the files using the `--local-assets` flag, while in the root project directory run 
+`python start_offline_webserver.py` which starts a local webserver on port 8000 which can be accessed
+in your browser by going to the url `http://localhost:8000`. 
+
+If you find that any functionality is missing, please open a pull request.
+
+
 File Structure
 --------------
 
