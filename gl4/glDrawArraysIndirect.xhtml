@@ -61,7 +61,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the address of a structure containing the draw parameters.
+                    Specifies a byte offset (cast to a pointer type) into the buffer bound to <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>
+                    to start reading indirect draw parameters from.
                 </p>
             </dd>
           </dl>
@@ -95,7 +96,8 @@
             If a buffer is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> binding at the time
             of a call to <code class="function">glDrawArraysIndirect</code>, <em class="parameter"><code>indirect</code></em>
             is interpreted as an offset, in basic machine units, into that buffer and the parameter
-            data is read from the buffer rather than from client memory.
+            data is read from the buffer. If no buffer is bound to the
+            <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> binding, an error will be generated.
         </p>
         <p>
             In contrast to <a class="citerefentry" href="glDrawArraysInstancedBaseInstance"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>,
