@@ -21,6 +21,8 @@ parser = argparse.ArgumentParser(description="Compile OpenGL documentation, gene
 
 parser.add_argument('--full', dest='buildmode', action='store_const', const='full', default='fast', help='Full build (Default: fast build)')
 parser.add_argument('--local-assets', dest='local_assets', action='store_true', help='Use local JS/Fonts (Default: don\'t use)')
+parser.add_argument('--local-assets-china', dest="local_assets_china", action="store_true", help='Use local JS/Fonts for china (Default: don\'t use)')
+parser.add_argument('--use-ext-html', dest='use_ext_html', action="store_true", help="Use .html extension (Default: don\' use)")
 
 ########################## Print  ##########################
 
@@ -70,20 +72,47 @@ FONTS = [
   ('sourcecodepro', 'sourcecodepro.woff', 'https://fonts.gstatic.com/s/sourcecodepro/v5/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff')
 ]
 
+def href_path_old(*args):
+  return "/".join(args)
+
+def href_path_html(*args):
+  return "/".join(args) + ".html"
+
+href_path = href_path_old
+if args.use_ext_html:
+  href_path = href_path_html
+
+if args.local_assets_china:
+  # For reasons both known and unknown,
+  # googleapis.com isn't reachable for the people live in china.
+  # Because of that, to speed up assets downloading, use microsoft cdn instead.
+  args.local_assets = True
+  JS_LIBS[0] = ('jquery', 'jquery.min.js', 'https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.1.min.js', None)
+  JS_LIBS[1] = ('jqueryui', 'jquery-ui.min.js', 'https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.1/jquery-ui.min.js', None)
+
 if args.local_assets:
+  def local_assets_exists(fn):
+    if not os.path.exists(fn):
+      return False
+    if os.stat(fn).st_size == 0:
+      return False
+    return True
   for name, filename, url, suffix in JS_LIBS:
     path = 'html/copy/' + filename
-    if not os.path.exists(path):
+    if not local_assets_exists(path):
       dirname = os.path.dirname(path)
       create_directory(dirname)
-      url = url + filename + (suffix or '')
+      if url.endswith("/"):
+        url = url + filename + (suffix or '')
+      else:
+        url = url + (suffix or '')
       with open(path, 'wb') as f:
         print("Downloading " + url)
         f.write(urllib.request.urlopen(url).read())
 
   for name, filename, url in FONTS:
     path = 'html/copy/' + filename
-    if not os.path.exists(path):
+    if not local_assets_exists(path):
       with open(path, 'wb') as f:
         print("Downloading " + url)
         f.write(urllib.request.urlopen(url).read())
@@ -105,13 +134,13 @@ for (dirpath, dirnames, filenames) in os.walk("html/copy"):
     if file == 'Gruntfile.js':
       continue
     f.append(dirpath + "/" + file)
-    
+
 for directory in d:
   create_directory(output_dir + directory)
   
 for file in f:
   shutil.copy("html/copy/" + file, output_dir + file)
-  
+
 print("Copied " + str(len(f)) + " files")
 print("Reading templates...")
 
@@ -172,6 +201,14 @@ for name, filename, url in FONTS:
 style_fp = open(output_dir + "/style.css", "w")
 style_fp.write(style)
 style_fp.close()
+
+######################## replace about.html jquery links ########################## 
+
+with open(output_dir + "about.html", "r", encoding='utf-8') as about_f:
+  about = about_f.read()
+about = replace_js(about, prefix="./")
+with open(output_dir + "about.html", "w", encoding='utf-8') as about_f:
+  about_f.write(about)
 
 ######################## Get Versions for Index.html ########################## 
 
@@ -247,7 +284,7 @@ for command in index_commands_version:
       alias = aliases[version]
       
     if version in all_major_versions_available:
-      index_versions_commands += "<span class='versioncolumn'><a href='/" + version + "/" + alias + "'>" + version + "</a></span>"
+      index_versions_commands += "<span class='versioncolumn'><a href='" + href_path(version, alias) + "'>" + version + "</a></span>"
     else:
       index_versions_commands += "<span class='versioncolumn disabled'>" + version + "</span>"
   index_versions_commands += "</span>\n"
@@ -316,12 +353,13 @@ for command in glsl_index_commands_version:
 
     if version in aliases:
       alias = aliases[version]
-      
+
     if version in all_major_versions_available:
+      href = href_path(version, alias)
       if version[0:2] == "sl":
-        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + version + "/" + alias + "'>glsl" + version[2:3] + "</a></span>"
+        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + href + "'>glsl" + version[2:3] + "</a></span>"
       else:
-        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + version + "/" + alias + "'>glsl-es" + version[2:3] + "</a></span>"
+        glsl_index_versions_commands += "<span class='slversioncolumn'><a href='" + href + "'>glsl-es" + version[2:3] + "</a></span>"
     else:
       if version[0:2] == "sl":
         glsl_index_versions_commands += "<span class='slversioncolumn disabled'>glsl" + version[2:3] + "</span>"
@@ -535,6 +573,7 @@ for version_option in opengl.version_commands.keys():
 
 search_versions_options += "<option selected='selected' value='all'" + ">All</option>"
 
+header = header.replace("{$use_ext_html}", "true" if args.use_ext_html else "false")
 header = header.replace("{$search_versions}", search_versions_options)
 
 unhandled_commands = list(opengl.commands_version_flat.keys())
@@ -617,7 +656,7 @@ glsl_major_versions = glsl.get_major_versions(glsl.version_commands.keys())
 
 major_versions += glsl_major_versions
 
-major_versions.sort()    
+major_versions.sort()
 
 ######################## Where Everything comes together ##########################
 
@@ -631,10 +670,10 @@ for version in major_versions:
   written = 0
 
   print("Compiling " + version + " ..." )
-  header_for_version = header;
-  footer_for_version = footer;
+  header_for_version = header
+  footer_for_version = footer
   
-  all_versions = [];
+  all_versions = []
   
   all_versions = list(opengl.version_commands.keys())
   glsl_all_versions = list(glsl.version_commands.keys())
@@ -779,11 +818,12 @@ for version in major_versions:
       if API_type == "gl":
          API="OpenGL"
       
-      command_versions += "<a " + link_class + " href='../" + major_version + "/" + command + "'>"+API+" " + es + major_version[2] + "</a><br />"
-      
+      href = href_path(major_version, command)
+      command_versions += "<a " + link_class + " href='../" + href + "'>" + API + " " + es + major_version[2] + "</a><br />"
+
     header_for_command = header_for_command.replace("{$command_versions}", command_versions)
     header_for_command = header_for_command.replace("{$command}", command)
-    
+
     editlink = "https://github.com/BSVino/docs.gl/blob/mainline/" + version + "/" + command + ".xhtml"
     improvepage = "Think you can improve this page? <a href='" + editlink + "'>Edit this page</a> on <a href='https://github.com/BSVino/docs.gl/'>GitHub</a>."
     footer_for_command = footer_for_command.replace("{$improvepage}", improvepage)
@@ -942,7 +982,7 @@ for version in major_versions:
 
     output_html = header_for_command + command_html + footer_for_command
 
-    output_path = output_dir + version_dir + "/" + command
+    output_path = output_dir + version_dir + "/" + href_path(command)
     with codecs.open(output_path, mode="w", encoding="utf-8") as output:
         output_string = output_html
         if args.buildmode == 'full':
@@ -988,7 +1028,7 @@ for version in major_versions:
     
     output_html = header_for_page + notfound_html + footer_for_page
 
-    output = open(output_dir + version + "/404", "w")
+    output = open(output_dir + version + "/" + href_path("404"), "w")
     output_string = output_html
     if args.buildmode == 'full':
       output_string = htmlmin.minify(output_html, remove_comments=True, reduce_boolean_attributes=True, remove_optional_attribute_quotes=False).encode('ascii', 'xmlcharrefreplace').decode('ascii')

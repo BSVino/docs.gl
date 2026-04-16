@@ -65,6 +65,27 @@ window.api_version = "";
 window.hide_deprecated = false;
 window.last_hide_deprecated = false;
 
+function url_parts_join()
+{
+	let a = [];
+	for (let i = 0; i < arguments.length; ++i) {
+		a.push(arguments[i]);
+	}
+	return a.join("/");
+}
+
+function url_parts_join_ext_html()
+{
+	let a = [];
+	for (let i = 0; i < arguments.length; ++i) {
+		a.push(arguments[i]);
+	}
+	let first = a.join("/");
+	return first + ".html"
+}
+
+const href_path = window.use_ext_html ? url_parts_join_ext_html : url_parts_join;
+
 function set_api_version(version) {
 	window.api_version = version;
 	$.cookie("api_version", version, {path: '/'});
@@ -78,7 +99,7 @@ function set_api_version(version) {
 	version_directory = version.substring(0, 3);
 	$(".rewritelink").each(function() {
 		if ($(this).hasClass(version))
-			$(this).attr("href", "../" + version_directory + "/" + $(this).text());
+			$(this).attr("href", href_path("..", version_directory , $(this).text()));
 		else
 		{
 			highest = 0;
@@ -121,7 +142,7 @@ function set_api_version(version) {
 				}
 			}
 
-			$(this).attr("href", "../" + version.substring(0, 2) + highest + "/" + $(this).text());
+			$(this).attr("href", href_path("..", version.substring(0, 2) + highest, $(this).text()));
 		}
 	});
 
@@ -207,6 +228,38 @@ $(function() {
 		$("#versions_dropdown").val(window.current_api).selectmenu('refresh');
 	}
 
+	if (window.use_ext_html)
+	{
+		// FIXME: should we normalize the a which is referring to a command
+		//        in *.xhtml files?
+		//        e.g.: add class `citerefentry`?
+
+		function is_relative(href) {
+			if (!href) return false;
+			if (href.startsWith("#")) return false;
+			if (href.startsWith("http:") || href.startsWith("https:")) return false;
+			return true;
+		}
+
+		$("a[href*='gl']").each(function() {
+			let href = $(this).attr("href");
+
+			// skip rewritelink
+			if ($(this).hasClass("rewritelink")) return;
+
+			// skip non relative href
+			if (!is_relative(href)) return;
+
+			// this href is ok
+			if (href.endsWith(".html")) return;
+
+			let fixed_href = href + ".html";
+
+			console.warn(`fix href from \`${href}\` to \`${fixed_href}\` of element:`, $(this)[0]);
+			$(this).attr("href", fixed_href);
+		});
+	}
+
 	$("#style_light").click(function() {
 		$("#pagestyle").attr("href", "../style_light.css");
 		$.cookie("pagestyle", "light", {path: '/'});
@@ -249,15 +302,14 @@ $(function() {
 		if (alias in function_aliases[alias_api])
 			command_page = function_aliases[alias_api][alias]
 
-		window.location.href = window.base_directory + directory + command_page;
+		window.location.href = window.base_directory + directory + href_path(command_page);
 		return true;
 	}
-	
-	
+
 	function hide_tooltip (){
 		$("#search").trigger('mouseout');
 	}
-	
+
 	$( "#search_button" ).button().click(function(event) {
 		if ( search_fn($("#search").val()) == false){
 		
@@ -278,7 +330,7 @@ $(function() {
 		}
 		
 	});
-	
+
 	$( "#search" ).autocomplete({
 		source: search_versions["all"],
 		minLength: 3,
